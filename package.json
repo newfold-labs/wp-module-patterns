@@ -1,0 +1,10 @@
+{
+  "name": "@newfold-labs/wp-module-wp-module-patterns",
+  "description": "WordPress Cloud Patterns",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "author": {
+    "name": "Alani",
+    "email": "abdulrahman.alani@newfold.com"
+  }
+}

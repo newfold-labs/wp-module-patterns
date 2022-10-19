@@ -1,0 +1,20 @@
+{
+  "name": "newfold-labs/wp-module-wp-module-patterns",
+  "description": "WordPress Cloud Patterns",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Alani",
+      "email": "abdulrahman.alani@newfold.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "NewfoldLabs\\WP\\Module\\WpModulePatterns\\": "includes"
+    },
+    "files": [
+      "bootstrap.php"
+    ]
+  }
+}
