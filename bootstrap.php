@@ -17,6 +17,17 @@ function nfd_wp_module_patterns_register() {
 			'label'    => __( 'Patterns', 'nfd-wp-module-patterns' ),
 			'callback' => function ( Container $container ) {
 
+				// Set Global Constants.
+				if ( ! defined( 'NFD_PATTERNS_VERSION' ) ) {
+					define( 'NFD_PATTERNS_VERSION', '0.1.0' );
+				}
+				if ( ! defined( 'NFD_PATTERNS_DIR' ) ) {
+					define( 'NFD_PATTERNS_DIR', __DIR__ );
+				}
+				if ( ! defined( 'NFD_PATTERNS_BUILD_DIR' ) && defined( 'NFD_PATTERNS_VERSION' ) ) {
+					define( 'NFD_PATTERNS_BUILD_DIR', __DIR__ . '/build/' . NFD_PATTERNS_VERSION );
+				}
+
 				new Patterns( $container );
 			},
 			'isActive' => true,
