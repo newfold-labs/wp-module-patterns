@@ -1,6 +1,7 @@
 <?php
 
 use NewfoldLabs\WP\ModuleLoader\Container;
+use NewfoldLabs\WP\Module\Patterns\Patterns;
 use function NewfoldLabs\WP\ModuleLoader\register;
 
 if ( function_exists( 'add_action' ) ) {
@@ -14,7 +15,7 @@ if ( function_exists( 'add_action' ) ) {
 					'name'     => 'wp-module-patterns',
 					'label'    => __( 'wp module patterns', 'newfold-wp-module-patterns-module' ),
 					'callback' => function ( Container $container ) {
-						new WpModulePatterns( $container );
+						new Patterns( $container );
 					},
 					'isActive' => true,
 					'isHidden' => true,

@@ -1,10 +1,10 @@
 <?php
 
-namespace NewfoldLabs\WP\Module\WpModulePatterns;
+namespace NewfoldLabs\WP\Module\Patterns;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
 
-class WpModulePatterns {
+class Patterns {
 
 	/**
 	 * Dependency injection container.
