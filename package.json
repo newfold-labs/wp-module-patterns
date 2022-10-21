@@ -1,10 +1,14 @@
 {
-  "name": "@newfold-labs/wp-module-patterns",
-  "description": "WordPress Cloud Patterns",
-  "license": "GPL-2.0-or-later",
-  "private": true,
-  "author": {
-    "name": "Alani",
-    "email": "abdulrahman.alani@newfold.com"
-  }
+	"name": "@newfold-labs/wp-module-patterns",
+	"description": "WordPress Cloud Patterns",
+	"license": "GPL-2.0-or-later",
+	"private": true,
+	"author": {
+		"name": "Alani",
+		"email": "abdulrahman.alani@newfold.com"
+	},
+	"devDependencies": {
+		"@wordpress/eslint-plugin": "^13.4.0",
+		"@wordpress/prettier-config": "^2.3.0"
+	}
 }
