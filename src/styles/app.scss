@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.nfd-patterns-library__modal {
+		& > .components-modal__content {
+			@apply nfd-grid nfd-p-0 before:nfd-hidden;
+		}
+
+		& > .nfd-patterns-library__content {
+			/* grid-template-columns: 300px auto; */
+			/* grid-template-rows: 1fr; */
+		}
+
+		.nfd-search-component .components-search-control__input {
+			background-color: #fff !important;
+			border: solid 1px #d1d5db !important;
+			border-radius: 4px !important;
+		}
+	}
+}

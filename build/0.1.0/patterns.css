@@ -1,0 +1,198 @@
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/app.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+*, ::before, ::after {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x:  ;
+    --tw-pan-y:  ;
+    --tw-pinch-zoom:  ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ordinal:  ;
+    --tw-slashed-zero:  ;
+    --tw-numeric-figure:  ;
+    --tw-numeric-spacing:  ;
+    --tw-numeric-fraction:  ;
+    --tw-ring-inset:  ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur:  ;
+    --tw-brightness:  ;
+    --tw-contrast:  ;
+    --tw-grayscale:  ;
+    --tw-hue-rotate:  ;
+    --tw-invert:  ;
+    --tw-saturate:  ;
+    --tw-sepia:  ;
+    --tw-drop-shadow:  ;
+    --tw-backdrop-blur:  ;
+    --tw-backdrop-brightness:  ;
+    --tw-backdrop-contrast:  ;
+    --tw-backdrop-grayscale:  ;
+    --tw-backdrop-hue-rotate:  ;
+    --tw-backdrop-invert:  ;
+    --tw-backdrop-opacity:  ;
+    --tw-backdrop-saturate:  ;
+    --tw-backdrop-sepia:  ;
+}
+::backdrop {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x:  ;
+    --tw-pan-y:  ;
+    --tw-pinch-zoom:  ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ordinal:  ;
+    --tw-slashed-zero:  ;
+    --tw-numeric-figure:  ;
+    --tw-numeric-spacing:  ;
+    --tw-numeric-fraction:  ;
+    --tw-ring-inset:  ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur:  ;
+    --tw-brightness:  ;
+    --tw-contrast:  ;
+    --tw-grayscale:  ;
+    --tw-hue-rotate:  ;
+    --tw-invert:  ;
+    --tw-saturate:  ;
+    --tw-sepia:  ;
+    --tw-drop-shadow:  ;
+    --tw-backdrop-blur:  ;
+    --tw-backdrop-brightness:  ;
+    --tw-backdrop-contrast:  ;
+    --tw-backdrop-grayscale:  ;
+    --tw-backdrop-hue-rotate:  ;
+    --tw-backdrop-invert:  ;
+    --tw-backdrop-opacity:  ;
+    --tw-backdrop-saturate:  ;
+    --tw-backdrop-sepia:  ;
+}
+.nfd-patterns-library__modal > .components-modal__content {
+    display: grid;
+    padding: 0px;
+}
+.nfd-patterns-library__modal > .components-modal__content::before {
+    content: var(--tw-content);
+    display: none;
+}
+.nfd-patterns-library__modal > .nfd-patterns-library__content {
+    /* grid-template-columns: 300px auto; */
+    /* grid-template-rows: 1fr; */
+  }
+.nfd-patterns-library__modal .nfd-search-component .components-search-control__input {
+    background-color: #fff !important;
+    border: solid 1px #d1d5db !important;
+    border-radius: 4px !important;
+  }
+.nfd-ml-2 {
+    margin-left: 0.5rem;
+}
+.nfd-flex {
+    display: flex;
+}
+.nfd-grid {
+    display: grid;
+}
+.nfd-h-9 {
+    height: 2.25rem;
+}
+.nfd-h-full {
+    height: 100%;
+}
+.nfd-max-h-full {
+    max-height: 100%;
+}
+.nfd-w-\[1400px\] {
+    width: 1400px;
+}
+.nfd-max-w-full {
+    max-width: 100%;
+}
+.nfd-grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.nfd-flex-col {
+    flex-direction: column;
+}
+.nfd-items-center {
+    align-items: center;
+}
+.nfd-gap-1 {
+    gap: 0.25rem;
+}
+.nfd-gap-2 {
+    gap: 0.5rem;
+}
+.nfd-overflow-auto {
+    overflow: auto;
+}
+.nfd-overflow-hidden {
+    overflow: hidden;
+}
+.nfd-bg-gray-100 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.nfd-px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.nfd-py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.nfd-px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.nfd-shadow-none {
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.nfd-shadow-content {
+    --tw-shadow: 0 0 0 1px rgb(0 0 0 / 1%), 0 4px 32px 2px rgb(0 0 0 / 8%);
+    --tw-shadow-colored: 0 0 0 1px var(--tw-shadow-color), 0 4px 32px 2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media (min-width: 600px) {
+    .sm\:nfd-max-h-\[90\%\] {
+        max-height: 90%;
+    }
+}
+@media (min-width: 782px) {
+    .md\:nfd-max-w-\[90\%\] {
+        max-width: 90%;
+    }
+    .md\:nfd-grid-cols-libraryModal {
+        grid-template-columns: 300px 1fr;
+    }
+}
+
+/*# sourceMappingURL=patterns.css.map*/

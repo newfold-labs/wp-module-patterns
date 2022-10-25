@@ -3,6 +3,8 @@
 namespace NewfoldLabs\WP\Module\Patterns;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
+use NewfoldLabs\WP\Module\Patterns\Permissions;
+use NewfoldLabs\WP\Module\Patterns\Library\Admin as PatternsLibrary;
 
 class Patterns {
 
@@ -22,8 +24,9 @@ class Patterns {
 
 		$this->container = $container;
 
-		// Module functionality goes here
-
+		if ( Permissions::is_editor() ) {
+			new PatternsLibrary();
+		}
 	}
 
 }
