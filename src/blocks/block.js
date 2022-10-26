@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import metadata from './block.json';
+import { dispatch } from '../helpers/events';
 
 /**
  * WordPress dependencies
@@ -42,6 +43,7 @@ registerBlockType(metadata, {
 				addTermToSearchParams(attributes.search);
 			}
 			// dispatch event to open modal
+			dispatch('nfd/cloudPatterns/openLibrary');
 
 			removeBlock(clientId);
 		}, [clientId, attributes, removeBlock]);
