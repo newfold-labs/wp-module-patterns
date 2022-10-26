@@ -6,8 +6,8 @@ module.exports = {
 				libraryModal: '300px 1fr',
 			},
 			boxShadow: {
-				content:
-					'0 0 0 1px rgb(0 0 0 / 1%), 0 4px 32px 2px rgb(0 0 0 / 8%)',
+				sidebar:
+					'0 0 0 1px rgb(0 0 0 / 1%), 0 0 32px 0px rgb(0 0 0 / 5%);',
 			},
 		},
 		screens: {
