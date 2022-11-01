@@ -4,7 +4,6 @@
 import { subscribe, unsubscribe } from '../../helpers/events';
 import DesignsList from './DesignsList';
 import ContentHeader from './ContentHeader';
-import LibraryModalProvider from '../../context/library-modal-context';
 import Sidebar from './sidebar/Sidebar';
 
 /**
@@ -46,24 +45,22 @@ const LibraryModal = () => {
 	}
 
 	return (
-		<LibraryModalProvider>
-			<Modal
-				__experimentalHideHeader={true}
-				aria-expanded={true}
-				className="nfd-patterns-library__modal nfd-shadow-none sm:nfd-max-h-[90%] md:nfd-max-w-[90%]"
-				onRequestClose={closeModal}
-				isFullScreen={true}
-			>
-				<div className="nfd-patterns-library__content nfd-grid nfd-grid-cols-1 nfd-overflow-hidden nfd-bg-gray-50 md:nfd-grid-cols-libraryModal">
-					<Sidebar />
+		<Modal
+			__experimentalHideHeader={true}
+			aria-expanded={true}
+			className="nfd-patterns-library__modal nfd-shadow-none sm:nfd-max-h-[90%] md:nfd-max-w-[90%]"
+			onRequestClose={closeModal}
+			isFullScreen={true}
+		>
+			<div className="nfd-patterns-library__content nfd-grid nfd-grid-cols-1 nfd-overflow-hidden nfd-bg-gray-50 md:nfd-grid-cols-libraryModal">
+				<Sidebar />
 
-					<div className="nfd-flex nfd-flex-col nfd-overflow-auto">
-						<ContentHeader />
-						<DesignsList />
-					</div>
+				<div className="nfd-flex nfd-flex-col nfd-overflow-auto">
+					<ContentHeader />
+					<DesignsList />
 				</div>
-			</Modal>
-		</LibraryModalProvider>
+			</div>
+		</Modal>
 	);
 };
 

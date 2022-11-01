@@ -6,6 +6,7 @@ import './header-toolbar';
 import './blocks/register-category';
 import './blocks/block';
 import LibraryModal from './components/library-modal';
+import LibraryModalContextProvider from './context/library-modal-context';
 
 /**
  * WordPress dependencies
@@ -22,5 +23,10 @@ window?.wp?.domReady(() => {
 		document.body.append(libraryModalRoot);
 	}
 
-	render(<LibraryModal />, libraryModalRoot);
+	render(
+		<LibraryModalContextProvider>
+			<LibraryModal />
+		</LibraryModalContextProvider>,
+		libraryModalRoot
+	);
 });
