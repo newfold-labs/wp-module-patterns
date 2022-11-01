@@ -13,10 +13,14 @@ import LibraryModal from './components/library-modal';
 import { render } from '@wordpress/element';
 
 window?.wp?.domReady(() => {
-	// Insert into the editor (note: Modal opens in a portal)
-	const cloudPatterns = Object.assign(document.createElement('div'), {
-		id: 'nfd-cloud-patterns-root',
-	});
-	document.body.append(cloudPatterns);
-	render(<LibraryModal />, cloudPatterns);
+	// Create the library modal container.
+	const libraryModalRoot = document.createElement('div');
+	libraryModalRoot.id = 'nfd-cloud-patterns-library';
+
+	// Append the modal container to the body if it hasn't been added already.
+	if (!document.getElementById('nfd-cloud-patterns-library')) {
+		document.body.append(libraryModalRoot);
+	}
+
+	render(<LibraryModal />, libraryModalRoot);
 });

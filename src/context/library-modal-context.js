@@ -1,21 +1,25 @@
 /**
  * WordPress dependencies
  */
-import { createContext, useState, useRef } from '@wordpress/element';
+import { createContext, useState } from '@wordpress/element';
 
 const LibraryModalContext = createContext({
 	searchValue: '',
 	setSearchValue: () => {},
-	searchRef: null,
 });
 
 const LibraryModalContextProvider = (props) => {
-	const [searchValue, setSearchValue] = useState('');
-	const searchRef = useRef(null);
+	const [selectedTab, setSelectedTab] = useState('patterns');
+	const [selectedTaxonomy, setSelectedTaxonomy] = useState('featured');
 
 	return (
 		<LibraryModalContext.Provider
-			value={{ searchValue, setSearchValue, searchRef }}
+			value={{
+				selectedTab,
+				setSelectedTab,
+				selectedTaxonomy,
+				setSelectedTaxonomy,
+			}}
 		>
 			{props.children}
 		</LibraryModalContext.Provider>

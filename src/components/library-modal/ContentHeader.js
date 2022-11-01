@@ -7,27 +7,24 @@ import { dispatch } from '../../helpers/events';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { closeSmall } from '@wordpress/icons';
 import { Button } from '@wordpress/components';
+import { closeSmall } from '@wordpress/icons';
 
 const ContentHeader = () => {
 	return (
-		<header className="nfd-mb-2 nfd-flex nfd-h-[60px] nfd-items-center nfd-justify-between nfd-border-0 nfd-border-b nfd-border-solid nfd-border-gray-200/75 nfd-px-6">
-			<h2 className="nfd-text-base nfd-font-medium">
-				<span>All Patterns </span>
-				<span className="nfd-font-normal nfd-text-gray-500">(352)</span>
+		<header className="nfd-gray-50 nfd-sticky nfd-top-0 nfd-z-10 nfd-flex nfd-h-[60px] nfd-shrink-0 nfd-items-center nfd-justify-between nfd-px-6">
+			<h2 className="nfd-text-sm">
+				12 results found for <em>“hero section”</em>
 			</h2>
-
-			<div>
-				<Button
-					showTooltip={false}
-					onClick={() => {
-						dispatch('nfd/cloudPatterns/closeLibrary');
-					}}
-					icon={closeSmall}
-					label={__('Close dialog', 'nfd-patterns')}
-				/>
-			</div>
+			<Button
+				showTooltip={false}
+				className="nfd-ml-auto"
+				onClick={() => {
+					dispatch('nfd/cloudPatterns/closeLibrary');
+				}}
+				icon={closeSmall}
+				label={__('Close dialog', 'nfd-patterns')}
+			/>
 		</header>
 	);
 };

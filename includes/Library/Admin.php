@@ -37,6 +37,16 @@ final class Admin {
 				array(),
 				$asset['version']
 			);
+			
+			\wp_localize_script(
+				'nfd-cloud-patterns',
+				'nfdCloudPatterns',
+				array(
+					'nonce' => \wp_create_nonce('wp_rest'),
+					// 'baseUrl' => \esc_url_raw( rest_url( 'nfd-cloud-patterns/v1' ) ),
+					'baseUrl' => 'http://localhost:3000',
+				)
+			);
 
 			\wp_enqueue_script( 'nfd-cloud-patterns' );
 			\wp_enqueue_style( 'nfd-cloud-patterns' );

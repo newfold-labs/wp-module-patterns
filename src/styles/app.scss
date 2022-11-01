@@ -17,6 +17,8 @@
 		}
 
 		.nfd-tab-panel {
+			@apply nfd-grow;
+
 			.components-tab-panel__tabs {
 				@apply nfd-border-0 nfd-border-b nfd-border-solid nfd-border-gray-200;
 			}
@@ -37,6 +39,10 @@
 						transparent,
 					inset 0 -4px 0 0 var(--wp-admin-theme-color) !important;
 			}
+		}
+
+		.components-button.is-pressed .nfd-opacity-50 {
+			opacity: 1;
 		}
 	}
 }

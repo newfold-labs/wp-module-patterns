@@ -2,10 +2,10 @@
  * Internal dependencies
  */
 import { subscribe, unsubscribe } from '../../helpers/events';
-import PatternsList from './PatternsList';
+import DesignsList from './DesignsList';
 import ContentHeader from './ContentHeader';
 import LibraryModalProvider from '../../context/library-modal-context';
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar/Sidebar';
 
 /**
  * WordPress dependencies
@@ -16,10 +16,16 @@ import { useEffect, useState, useCallback } from '@wordpress/element';
 const LibraryModal = () => {
 	const [modalOpen, setModalOpen] = useState(false);
 
+	/**
+	 * Open modal.
+	 */
 	const openModal = useCallback(() => {
 		setModalOpen(true);
 	}, [setModalOpen]);
 
+	/**
+	 * Close modal.
+	 */
 	const closeModal = useCallback(() => {
 		setModalOpen(false);
 	}, [setModalOpen]);
@@ -42,7 +48,6 @@ const LibraryModal = () => {
 	return (
 		<LibraryModalProvider>
 			<Modal
-				title="Test"
 				__experimentalHideHeader={true}
 				aria-expanded={true}
 				className="nfd-patterns-library__modal nfd-shadow-none sm:nfd-max-h-[90%] md:nfd-max-w-[90%]"
@@ -54,7 +59,7 @@ const LibraryModal = () => {
 
 					<div className="nfd-flex nfd-flex-col nfd-overflow-auto">
 						<ContentHeader />
-						<PatternsList />
+						<DesignsList />
 					</div>
 				</div>
 			</Modal>

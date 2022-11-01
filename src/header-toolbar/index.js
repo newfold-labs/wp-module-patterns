@@ -26,7 +26,7 @@ const shouldRegister = () => {
 };
 
 /**
- * Add the Patterns Library triggert button.
+ * Add the Patterns Library trigger button.
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
 const unsubscribe = window?.wp?.data?.subscribe(() => {
