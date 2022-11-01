@@ -8,9 +8,9 @@ import useFetchPatterns from '../../hooks/useFetchPatterns';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { memo, useState, useEffect } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 
-const DesignsList = memo(({ onInsert }) => {
+const DesignsList = () => {
 	const { data, isLoading } = useFetchPatterns();
 	const [animatedIn, setAnimatedIn] = useState(false);
 
@@ -31,16 +31,11 @@ const DesignsList = memo(({ onInsert }) => {
 		>
 			{data?.patterns?.map((design, index) => {
 				return (
-					<DesignItem
-						key={design.id}
-						item={design}
-						onInsert={onInsert}
-						index={index}
-					/>
+					<DesignItem key={design.id} item={design} index={index} />
 				);
 			})}
 		</div>
 	);
-});
+};
 
 export default DesignsList;

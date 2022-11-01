@@ -1,16 +1,30 @@
 /**
+ * Internal dependencies
+ */
+import { blockInserter } from '../../helpers/blockInserter';
+import { dispatch } from '../../helpers/events';
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { BlockPreview } from '@wordpress/block-editor';
 import { rawHandler } from '@wordpress/blocks';
-import { useMemo } from '@wordpress/element';
+import { useMemo, memo } from '@wordpress/element';
 
-const DesignItem = ({ item, onInsert }) => {
+const DesignItem = memo(({ item }) => {
 	const blocks = useMemo(
 		() => rawHandler({ HTML: item.content }),
 		[item.content]
 	);
+
+	const insertDesignHandler = async () => {
+		try {
+			await blockInserter(blocks);
+			dispatch('nfd/cloudPatterns/closeLibrary');
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	return (
 		<div
@@ -19,12 +33,10 @@ const DesignItem = ({ item, onInsert }) => {
 			aria-label={__('Click to insert design', 'nfd-patterns')}
 			aria-describedby={`nfd-design-item__description-${item.id}`}
 			tabIndex="0"
-			onClick={() => {
-				onInsert(item.id);
-			}}
+			onClick={() => insertDesignHandler()}
 			onKeyUp={(e) => {
 				if (e.key === 'Enter') {
-					onInsert(item.id);
+					insertDesignHandler();
 				}
 			}}
 		>
@@ -46,5 +58,5 @@ const DesignItem = ({ item, onInsert }) => {
 			)}
 		</div>
 	);
-};
+});
 export default DesignItem;
