@@ -27,8 +27,8 @@ function nfd_wp_module_patterns_register() {
 				if ( ! defined( 'NFD_PATTERNS_BUILD_DIR' ) && defined( 'NFD_PATTERNS_VERSION' ) ) {
 					define( 'NFD_PATTERNS_BUILD_DIR', __DIR__ . '/build/' . NFD_PATTERNS_VERSION );
 				}
-				if ( ! defined( 'NFD_PATTERNS_BUILD_URL' ) && defined( 'NFD_PATTERNS_VERSION' ) && defined( 'BLUEHOST_PLUGIN_URL' ) ) {
-					define( 'NFD_PATTERNS_BUILD_URL', BLUEHOST_PLUGIN_URL . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_PATTERNS_VERSION );
+				if ( ! defined( 'NFD_PATTERNS_BUILD_URL' ) && defined( 'NFD_PATTERNS_VERSION' ) ) {
+					define( 'NFD_PATTERNS_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_PATTERNS_VERSION );
 				}
 
 				new Patterns( $container );
