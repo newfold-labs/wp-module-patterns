@@ -329,7 +329,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close-small.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close-small.js");
+/* harmony import */ var _context_library_modal_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/library-modal-context */ "./src/context/library-modal-context.js");
 
 /**
  * Internal dependencies
@@ -342,18 +343,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 const ContentHeader = () => {
+  const {
+    searchValue
+  } = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_library_modal_context__WEBPACK_IMPORTED_MODULE_4__.LibraryModalContext);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
     className: "nfd-gray-50 nfd-sticky nfd-top-0 nfd-z-10 nfd-flex nfd-h-[60px] nfd-shrink-0 nfd-items-center nfd-justify-between nfd-px-6"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+  }, searchValue && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "nfd-text-sm"
-  }, "12 results found for ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("em", null, "\u201Chero section\u201D")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+  }, "12 results found for ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("em", null, "\u201C", searchValue, "\u201D")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
     showTooltip: false,
     className: "nfd-ml-auto",
     onClick: () => {
       (0,_helpers_events__WEBPACK_IMPORTED_MODULE_1__.dispatch)('nfd/cloudPatterns/closeLibrary');
     },
-    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"],
+    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Close dialog', 'nfd-patterns')
   }));
 };
@@ -647,7 +653,9 @@ const PatternsSidebar = () => {
   }];
   const {
     selectedTaxonomy,
-    setSelectedTaxonomy
+    setSelectedTaxonomy,
+    searchValue,
+    setSearchValue
   } = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_library_modal_context__WEBPACK_IMPORTED_MODULE_2__.LibraryModalContext);
 
   // Focus the search field on component mount.
@@ -658,9 +666,9 @@ const PatternsSidebar = () => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SearchControl, {
     className: "nfd-search-component nfd-m-0",
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Search Patterns', 'nfd-patterns'),
-    ref: searchRef
-    // value={searchValue}
-    // onChange={(value) => setSearchValue(value)}
+    ref: searchRef,
+    value: searchValue,
+    onChange: value => setSearchValue(value)
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "nfd-m-0 nfd-mt-8 nfd-flex nfd-list-none nfd-flex-col nfd-gap-[2px] nfd-p-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
@@ -926,12 +934,15 @@ const LibraryModalContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.c
 const LibraryModalContextProvider = props => {
   const [selectedTab, setSelectedTab] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('patterns');
   const [selectedTaxonomy, setSelectedTaxonomy] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('featured');
+  const [searchValue, setSearchValue] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(LibraryModalContext.Provider, {
     value: {
       selectedTab,
       setSelectedTab,
       selectedTaxonomy,
-      setSelectedTaxonomy
+      setSelectedTaxonomy,
+      searchValue,
+      setSearchValue
     }
   }, props.children);
 };

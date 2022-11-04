@@ -76,8 +76,12 @@ const PatternsSidebar = () => {
 		},
 	];
 
-	const { selectedTaxonomy, setSelectedTaxonomy } =
-		useContext(LibraryModalContext);
+	const {
+		selectedTaxonomy,
+		setSelectedTaxonomy,
+		searchValue,
+		setSearchValue,
+	} = useContext(LibraryModalContext);
 
 	// Focus the search field on component mount.
 	useEffect(() => {
@@ -90,8 +94,8 @@ const PatternsSidebar = () => {
 				className="nfd-search-component nfd-m-0"
 				placeholder={__('Search Patterns', 'nfd-patterns')}
 				ref={searchRef}
-				// value={searchValue}
-				// onChange={(value) => setSearchValue(value)}
+				value={searchValue}
+				onChange={(value) => setSearchValue(value)}
 			/>
 
 			{/* Taxonomies */}

@@ -11,6 +11,7 @@ const LibraryModalContext = createContext({
 const LibraryModalContextProvider = (props) => {
 	const [selectedTab, setSelectedTab] = useState('patterns');
 	const [selectedTaxonomy, setSelectedTaxonomy] = useState('featured');
+	const [searchValue, setSearchValue] = useState('');
 
 	return (
 		<LibraryModalContext.Provider
@@ -19,6 +20,8 @@ const LibraryModalContextProvider = (props) => {
 				setSelectedTab,
 				selectedTaxonomy,
 				setSelectedTaxonomy,
+				searchValue,
+				setSearchValue,
 			}}
 		>
 			{props.children}
