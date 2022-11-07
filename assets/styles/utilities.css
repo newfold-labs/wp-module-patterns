@@ -1,0 +1,24 @@
+.nfd-bg-red-500 {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important
+}
+.nfd-text-3xl {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important
+}
+.nfd-text-2xl {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important
+}
+.interface-interface-skeleton__sidebar {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important
+}
+@media (min-width: 1024px) {
+    .lg\:nfd-text-2xl {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important
+    }
+}

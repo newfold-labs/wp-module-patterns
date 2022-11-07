@@ -23,6 +23,7 @@ class Patterns {
 		$this->container = $container;
 
 		// Module functionality goes here
+		new LoadAssets();
 
 	}
 
