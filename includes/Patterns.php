@@ -27,6 +27,10 @@ class Patterns {
 		if ( Permissions::is_editor() ) {
 			new PatternsLibrary();
 		}
+
+		// Module functionality goes here
+		new LoadAssets();
+
 	}
 
 }
