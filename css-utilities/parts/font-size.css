@@ -1,0 +1,38 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Font sizes¸                                */
+/* -------------------------------------------------------------------------- */
+
+/* Small */
+.nfd-has-text-sm:not([class*="font-size"]) {
+	font-size: var(--nfd-cp-text-sm, var(--nfd-cp-text-sm--default));
+}
+
+.nfd-has-text-sm:not([style*="letter-spacing"]) {
+	letter-spacing: 0.05em;
+}
+
+.nfd-has-text-sm:not([style*="font-weight"]) {
+	font-weight: 500;
+}
+
+/* Medium */
+.nfd-has-text-md {
+	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default));
+}
+
+/* Huge */
+.nfd-has-text-huge {
+	font-size: var(--nfd-cp-text-huge, var(--nfd-cp-text-huge--default));
+}
+
+.nfd-has-text-huge:not([style*="line-height"]) {
+	line-height: 1.1;
+}
+
+.nfd-has-text-huge:not([style*="letter-spacing"]) {
+	letter-spacing: -0.02em;
+}
+
+.nfd-has-text-huge:not([style*="font-weight"]) {
+	font-weight: 500;
+}

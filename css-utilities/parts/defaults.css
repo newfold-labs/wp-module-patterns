@@ -1,0 +1,10 @@
+/* prettier-ignore */
+:root {
+	/* Typography */
+	--nfd-cp-text-sm--default: clamp(0.8125rem, 0.7734rem + 0.1250vw, 0.875rem); /* 13px - 14px */
+	--nfd-cp-text-md--default: clamp(1rem, 0.9219rem + 0.25vw, 1.125rem); /* 16px - 18px */
+	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem); /* 32px - 52px */
+	
+	/* Spacing */
+	--nfd-cp-spacing-lg: clamp(2rem, 7vw, 4rem);
+}
