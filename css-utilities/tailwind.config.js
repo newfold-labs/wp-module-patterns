@@ -1,5 +1,5 @@
 module.exports = {
-	content: ['./css-utilities/utilities.css'],
+	content: ['./utilities.css'],
 	prefix: 'nfd-',
 	corePlugins: {
 		preflight: false,
