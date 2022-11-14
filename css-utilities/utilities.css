@@ -3,5 +3,5 @@
 @import "tailwindcss/utilities";
 
 @import "parts/defaults";
-@import "parts/font-size";
+@import "parts/typography";
 @import "parts/spacing";

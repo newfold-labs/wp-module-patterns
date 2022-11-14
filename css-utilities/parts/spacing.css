@@ -9,6 +9,10 @@
 }
 
 /* Padding */
+.nfd-has-p-lg:not([style*="padding"]) {
+	padding: var(--nfd-cp-spacing-lg);
+}
+
 .nfd-has-py-lg:not([style*="padding"]) {
 	padding-top: var(--nfd-cp-spacing-lg);
 	padding-bottom: var(--nfd-cp-spacing-lg);

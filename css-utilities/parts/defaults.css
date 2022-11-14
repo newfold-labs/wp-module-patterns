@@ -6,5 +6,5 @@
 	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem); /* 32px - 52px */
 	
 	/* Spacing */
-	--nfd-cp-spacing-lg: clamp(2rem, 7vw, 4rem);
+	--nfd-cp-spacing-lg: clamp(2rem, 7vw, 6.25rem);
 }

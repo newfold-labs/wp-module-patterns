@@ -37,7 +37,6 @@ class LoadAssets {
 		$css   = '';
 
 		if ( 'yith-wonder' === $theme ) {
-			
 			$css = "body, .editor-styles-wrapper {
 				--nfd-cp-text-sm: var(--wp--preset--font-size--x-small, var(--nfd-cp-text-sm--default));
 				--nfd-cp-text-md: var(--wp--preset--font-size--normal, var(--nfd-cp-text-md--default));
@@ -52,8 +51,6 @@ class LoadAssets {
 				--nfd-cp-gap-y: var(--wp--custom--vertical-spacing, 0px);
 			}";
 		}
-		
-		ob_start();print_r($theme);error_log(ob_get_clean());
 		
 		return $css;
 	}
