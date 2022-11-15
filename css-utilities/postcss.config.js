@@ -21,6 +21,19 @@ module.exports = (env) => ({
 				}
 			});
 		},
+		(css) => {
+			css.walkRules((rule) => {
+				// Add the :not() exception to paddings
+				if (new RegExp('[:]?[^a-z]-?p[a-z]?-.+').test(rule.selector)) {
+					rule.selector += ':not([style*="padding"])';
+				}
+
+				// Add the :not() exception to margins
+				if (new RegExp('[:]?[^a-z]-?m[a-z]?-.+').test(rule.selector)) {
+					rule.selector += ':not([style*="margin"])';
+				}
+			});
+		},
 		require('autoprefixer')({ grid: true }),
 		env === 'production' &&
 			require('cssnano')({
