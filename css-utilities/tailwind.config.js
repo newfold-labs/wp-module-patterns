@@ -6,5 +6,5 @@ module.exports = {
 	},
 
 	// Include utility classes we need.
-	safelist: ['nfd-m-0'],
+	safelist: ['nfd-m-0', 'nfd-px-4'],
 };

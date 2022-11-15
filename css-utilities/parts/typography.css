@@ -16,6 +16,12 @@
 	font-weight: 500;
 }
 
+/* Base */
+.nfd-has-text-base:not([class*="font-size"]),
+.nfd-has-text-base:not([class*="font-size"]) .wp-block-button__link {
+	font-size: var(--nfd-cp-text-base, var(--nfd-cp-text-base--default));
+}
+
 /* Medium */
 .nfd-has-text-md {
 	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default));

@@ -1,24 +1,88 @@
-.nfd-bg-red-500 {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important
+.nfd-m-0 {
+	margin: 0px !important;
 }
-.nfd-text-3xl {
-    font-size: 1.875rem !important;
-    line-height: 2.25rem !important
+.nfd-px-4 {
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
 }
-.nfd-text-2xl {
-    font-size: 1.5rem !important;
-    line-height: 2rem !important
+/* prettier-ignore */
+:root {
+	/* Typography */
+	--nfd-cp-text-sm--default: clamp(0.8125rem, 0.7734rem + 0.1250vw, 0.875rem) !important; /* 13px - 14px */
+    --nfd-cp-text-base--default: clamp(0.875rem, 0.8359rem + 0.1250vw, 0.9375rem) !important; /* 14px - 15px */
+	--nfd-cp-text-md--default: clamp(1rem, 0.9219rem + 0.25vw, 1.125rem) !important; /* 16px - 18px */
+	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem) !important; /* 32px - 52px */
+	
+	/* Spacing */
+	--nfd-cp-spacing-lg: clamp(2rem, 7vw, 6.25rem) !important;
 }
-.interface-interface-skeleton__sidebar {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important;
-    padding-left: 0px !important;
-    padding-right: 0px !important
+/* -------------------------------------------------------------------------- */
+/*                                 Font sizes¸                                */
+/* -------------------------------------------------------------------------- */
+/* Small */
+.nfd-has-text-sm:not([class*="font-size"]),
+.nfd-has-text-sm:not([class*="font-size"]) .wp-block-button__link {
+	font-size: var(--nfd-cp-text-sm, var(--nfd-cp-text-sm--default)) !important;
 }
-@media (min-width: 1024px) {
-    .lg\:nfd-text-2xl {
-        font-size: 1.5rem !important;
-        line-height: 2rem !important
-    }
+.nfd-has-text-sm:not([style*="letter-spacing"]) {
+	letter-spacing: 0.05em !important;
+}
+.nfd-has-text-sm:not([style*="font-weight"]) {
+	font-weight: 500 !important;
+}
+/* Base */
+.nfd-has-text-base:not([class*="font-size"]),
+.nfd-has-text-base:not([class*="font-size"]) .wp-block-button__link {
+	font-size: var(--nfd-cp-text-base, var(--nfd-cp-text-base--default)) !important;
+}
+/* Medium */
+.nfd-has-text-md {
+	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default)) !important;
+}
+/* Huge */
+.nfd-has-text-huge:not([style*="font-size"]) {
+	font-size: var(--nfd-cp-text-huge, var(--nfd-cp-text-huge--default)) !important;
+}
+.nfd-has-text-huge:not([style*="line-height"]) {
+	line-height: 1.2 !important;
+}
+.nfd-has-text-huge:not([style*="letter-spacing"]) {
+	letter-spacing: -0.02em !important;
+}
+.nfd-has-text-huge:not([style*="font-weight"]) {
+	font-weight: 500 !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                 Font weight                                */
+/* -------------------------------------------------------------------------- */
+.nfd-weight-inherit:not([style*="font-weight"]),
+.nfd-weight-inherit .wp-block-button__link {
+	font-weight: inherit !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   Spacing                                  */
+/* -------------------------------------------------------------------------- */
+/* Gap */
+.nfd-has-gap-y {
+	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px) !important;
+	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px) !important;
+}
+/* Padding */
+.nfd-has-p-lg:not([style*="padding"]) {
+	padding: var(--nfd-cp-spacing-lg) !important;
+}
+.nfd-has-py-lg:not([style*="padding"]) {
+	padding-top: var(--nfd-cp-spacing-lg) !important;
+	padding-bottom: var(--nfd-cp-spacing-lg) !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   Colors                                   */
+/* -------------------------------------------------------------------------- */
+.nfd-has-bg-accent:not([class*="background-color"]),
+.nfd-has-bg-accent:not([class*="background-color"])
+	.wp-block-cover__background:not([class*="background-color"]) {
+	background-color: var(--nfd-cp-bg-accent, #000) !important;
+}
+.nfd-has-text-secondary:not([class*="has-text-color"]) {
+	color: var(--nfd-cp-text-secondary, #fcb900) !important;
 }
