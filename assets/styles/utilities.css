@@ -1,5 +1,6 @@
-.nfd-m-0:not([style*="margin"]) {
-	margin: 0px !important;
+.nfd-my-0:not([style*="margin"]) {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
 }
 .nfd-px-4:not([style*="padding"]) {
 	padding-left: 1rem !important;
@@ -20,36 +21,40 @@
 /*                                 Font sizes¸                                */
 /* -------------------------------------------------------------------------- */
 /* Small */
-.nfd-has-text-sm:not([class*="font-size"]),
-.nfd-has-text-sm:not([class*="font-size"]) .wp-block-button__link {
+.nfd-text-sm:not([class*="font-size"]),
+.nfd-text-sm:not([class*="font-size"]) .wp-block-button__link {
 	font-size: var(--nfd-cp-text-sm, var(--nfd-cp-text-sm--default)) !important;
 }
-.nfd-has-text-sm:not([style*="letter-spacing"]) {
+.nfd-text-sm:not([style*="letter-spacing"]) {
 	letter-spacing: 0.05em !important;
 }
-.nfd-has-text-sm:not([style*="font-weight"]) {
+.nfd-text-sm:not([style*="font-weight"]) {
 	font-weight: 500 !important;
 }
 /* Base */
-.nfd-has-text-base:not([class*="font-size"]),
-.nfd-has-text-base:not([class*="font-size"]) .wp-block-button__link {
+.nfd-text-base:not([class*="font-size"]) {
 	font-size: var(--nfd-cp-text-base, var(--nfd-cp-text-base--default)) !important;
 }
+/* prettier-ignore */
+.nfd-text-base:not([class*="font-size"]) .wp-block-button:not([class*="font-size"]) > .wp-block-button__link,
+.nfd-text-base:not([class*="font-size"]) > .wp-block-button__link {
+	font-size: inherit !important;
+}
 /* Medium */
-.nfd-has-text-md {
+.nfd-text-md {
 	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default)) !important;
 }
 /* Huge */
-.nfd-has-text-huge:not([style*="font-size"]) {
+.nfd-text-huge:not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-huge, var(--nfd-cp-text-huge--default)) !important;
 }
-.nfd-has-text-huge:not([style*="line-height"]) {
+.nfd-text-huge:not([style*="line-height"]) {
 	line-height: 1.2 !important;
 }
-.nfd-has-text-huge:not([style*="letter-spacing"]) {
+.nfd-text-huge:not([style*="letter-spacing"]) {
 	letter-spacing: -0.02em !important;
 }
-.nfd-has-text-huge:not([style*="font-weight"]) {
+.nfd-text-huge:not([style*="font-weight"]) {
 	font-weight: 500 !important;
 }
 /* -------------------------------------------------------------------------- */
@@ -63,26 +68,32 @@
 /*                                   Spacing                                  */
 /* -------------------------------------------------------------------------- */
 /* Gap */
-.nfd-has-gap-y {
+.nfd-normalize-gap {
 	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px) !important;
 	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px) !important;
 }
 /* Padding */
-.nfd-has-p-lg:not([style*="padding"]):not([style*="padding"]) {
+.nfd-p-lg:not([style*="padding"]):not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-lg) !important;
 }
-.nfd-has-py-lg:not([style*="padding"]):not([style*="padding"]) {
+.nfd-py-lg:not([style*="padding"]):not([style*="padding"]) {
 	padding-top: var(--nfd-cp-spacing-lg) !important;
 	padding-bottom: var(--nfd-cp-spacing-lg) !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                   Colors                                   */
 /* -------------------------------------------------------------------------- */
-.nfd-has-bg-accent:not([class*="background-color"]),
-.nfd-has-bg-accent:not([class*="background-color"])
+.nfd-bg-accent:not([class*="background-color"]),
+.nfd-bg-accent:not([class*="background-color"])
 	.wp-block-cover__background:not([class*="background-color"]) {
 	background-color: var(--nfd-cp-bg-accent, #000) !important;
 }
-.nfd-has-text-secondary:not([class*="has-text-color"]) {
+.nfd-bg-gray-100:not([class*="background-color"]) {
+	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6) !important;
+}
+.nfd-border-accent:not([class*="border-color"]) {
+	border-color: var(--nfd-cp-border-accent, #000) !important;
+}
+.nfd-text-secondary:not([class*="has-text-color"]) {
 	color: var(--nfd-cp-text-secondary, #fcb900) !important;
 }

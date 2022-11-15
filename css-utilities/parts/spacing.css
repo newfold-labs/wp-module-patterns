@@ -3,17 +3,17 @@
 /* -------------------------------------------------------------------------- */
 
 /* Gap */
-.nfd-has-gap-y {
+.nfd-normalize-gap {
 	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px);
 	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px);
 }
 
 /* Padding */
-.nfd-has-p-lg:not([style*="padding"]) {
+.nfd-p-lg:not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-lg);
 }
 
-.nfd-has-py-lg:not([style*="padding"]) {
+.nfd-py-lg:not([style*="padding"]) {
 	padding-top: var(--nfd-cp-spacing-lg);
 	padding-bottom: var(--nfd-cp-spacing-lg);
 }
