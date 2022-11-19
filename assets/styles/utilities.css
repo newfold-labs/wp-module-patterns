@@ -2,6 +2,9 @@
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
 }
+.nfd-p-5:not([style*="padding"]) {
+	padding: 1.25rem !important;
+}
 .nfd-px-4:not([style*="padding"]) {
 	padding-left: 1rem !important;
 	padding-right: 1rem !important;
@@ -21,8 +24,7 @@
 /*                                 Font sizes¸                                */
 /* -------------------------------------------------------------------------- */
 /* Small */
-.nfd-text-sm:not([class*="font-size"]),
-.nfd-text-sm:not([class*="font-size"]) .wp-block-button__link {
+.nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-sm, var(--nfd-cp-text-sm--default)) !important;
 }
 .nfd-text-sm:not([style*="letter-spacing"]) {
@@ -32,20 +34,22 @@
 	font-weight: 500 !important;
 }
 /* Base */
-.nfd-text-base:not([class*="font-size"]) {
+.nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-base, var(--nfd-cp-text-base--default)) !important;
 }
 /* prettier-ignore */
-.nfd-text-base:not([class*="font-size"]) .wp-block-button:not([class*="font-size"]) > .wp-block-button__link,
-.nfd-text-base:not([class*="font-size"]) > .wp-block-button__link {
+.nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) .wp-block-button:not([class*="font-size"]):not([style*="font-size"]) > .wp-block-button__link,
+.nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) > .wp-block-button__link,
+.nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) .wp-block-button:not([class*="font-size"]):not([style*="font-size"]) > .wp-block-button__link,
+.nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) > .wp-block-button__link {
 	font-size: inherit !important;
 }
 /* Medium */
-.nfd-text-md {
+.nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default)) !important;
 }
 /* Huge */
-.nfd-text-huge:not([style*="font-size"]) {
+.nfd-text-huge:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-huge, var(--nfd-cp-text-huge--default)) !important;
 }
 .nfd-text-huge:not([style*="line-height"]) {
@@ -96,4 +100,12 @@
 }
 .nfd-text-secondary:not([class*="has-text-color"]) {
 	color: var(--nfd-cp-text-secondary, #fcb900) !important;
+}
+@media (max-width: 782px) {
+	.md\:nfd-order-2 {
+		order: 2 !important;
+	}
+	.md\:nfd-hidden {
+		display: none !important;
+	}
 }
