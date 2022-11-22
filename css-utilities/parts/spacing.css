@@ -8,7 +8,7 @@
 	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px);
 }
 
-/* Padding */
+/* Padding - LG */
 .nfd-p-lg:not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-lg);
 }
@@ -18,6 +18,7 @@
 	padding-bottom: var(--nfd-cp-spacing-lg);
 }
 
+/* Padding - MD */
 .nfd-p-md:not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-md);
 }

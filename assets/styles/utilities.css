@@ -8,9 +8,24 @@
 
 
 }
+.-nfd-bottom-1 {
+	bottom: -0.25rem !important;
+
+
+}
+.nfd-z-10 {
+	z-index: 10 !important;
+
+
+}
 .nfd-my-0:not([style*="margin"]) {
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
+
+
+}
+.nfd-overflow-hidden {
+	overflow: hidden !important;
 
 
 }
@@ -90,7 +105,7 @@
 	font-size: var(--nfd-cp-text-xl, var(--nfd-cp-text-xl--default)) !important;
 }
 .nfd-text-xl:not([style*="line-height"]) {
-	line-height: 1.125 !important;
+	line-height: 1.2 !important;
 }
 .nfd-text-xl:not([style*="letter-spacing"]) {
 	letter-spacing: -0.01em !important;
@@ -126,7 +141,7 @@
 	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px) !important;
 	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px) !important;
 }
-/* Padding */
+/* Padding - LG */
 .nfd-p-lg:not([style*="padding"]):not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-lg) !important;
 }
@@ -134,6 +149,7 @@
 	padding-top: var(--nfd-cp-spacing-lg) !important;
 	padding-bottom: var(--nfd-cp-spacing-lg) !important;
 }
+/* Padding - MD */
 .nfd-p-md:not([style*="padding"]):not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-md) !important;
 }
@@ -148,6 +164,7 @@
 /* -------------------------------------------------------------------------- */
 /*                                   Colors                                   */
 /* -------------------------------------------------------------------------- */
+/* Background */
 .nfd-bg-accent:not([class*="background-color"]):not([style*="background-color"]),
 .nfd-bg-accent:not([class*="background-color"]):not([style*="background-color"])
 	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
@@ -156,13 +173,21 @@
 .nfd-bg-gray-100:not([class*="background-color"]):not([style*="background-color"]) {
 	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6) !important;
 }
+.nfd-bg-gray-800:not([class*="background-color"]):not([style*="background-color"]) {
+	background-color: var(--nfd-cp-bg-gray-800, #161a1d) !important;
+}
+/* Border */
 /* prettier-ignore */
 .nfd-border-accent:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
 .nfd-border-accent:not([class*="border-color"]) img:not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) {
 	border-color: var(--nfd-cp-border-accent, #000) !important;
 }
+/* Text */
 .nfd-text-secondary:not([class*="has-text-color"]) {
 	color: var(--nfd-cp-text-secondary, #fcb900) !important;
+}
+.nfd-text-current:not([class*="has-text-color"]) {
+	color: currentColor !important;
 }
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {

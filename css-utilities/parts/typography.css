@@ -39,7 +39,7 @@
 }
 
 .nfd-text-xl:not([style*="line-height"]) {
-	line-height: 1.125;
+	line-height: 1.2;
 }
 
 .nfd-text-xl:not([style*="letter-spacing"]) {
