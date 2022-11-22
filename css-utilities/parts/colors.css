@@ -2,17 +2,19 @@
 /*                                   Colors                                   */
 /* -------------------------------------------------------------------------- */
 
-.nfd-bg-accent:not([class*="background-color"]),
-.nfd-bg-accent:not([class*="background-color"])
-	.wp-block-cover__background:not([class*="background-color"]) {
+.nfd-bg-accent:not([class*="background-color"]):not([style*="background-color"]),
+.nfd-bg-accent:not([class*="background-color"]):not([style*="background-color"])
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
 	background-color: var(--nfd-cp-bg-accent, #000);
 }
 
-.nfd-bg-gray-100:not([class*="background-color"]) {
+.nfd-bg-gray-100:not([class*="background-color"]):not([style*="background-color"]) {
 	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6);
 }
 
-.nfd-border-accent:not([class*="border-color"]) {
+/* prettier-ignore */
+.nfd-border-accent:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
+.nfd-border-accent:not([class*="border-color"]) img:not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) {
 	border-color: var(--nfd-cp-border-accent, #000);
 }
 

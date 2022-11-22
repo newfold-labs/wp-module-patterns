@@ -17,3 +17,17 @@
 	padding-top: var(--nfd-cp-spacing-lg);
 	padding-bottom: var(--nfd-cp-spacing-lg);
 }
+
+.nfd-p-md:not([style*="padding"]) {
+	padding: var(--nfd-cp-spacing-md);
+}
+
+.nfd-px-md:not([style*="padding"]) {
+	padding-left: var(--nfd-cp-spacing-md);
+	padding-right: var(--nfd-cp-spacing-md);
+}
+
+.nfd-py-md:not([style*="padding"]) {
+	padding-top: var(--nfd-cp-spacing-md);
+	padding-bottom: var(--nfd-cp-spacing-md);
+}
