@@ -1,61 +1,39 @@
 .nfd-relative {
 	position: relative !important;
-
-
 }
 .-nfd-top-1 {
 	top: -0.25rem !important;
-
-
 }
 .-nfd-bottom-1 {
 	bottom: -0.25rem !important;
-
-
 }
 .nfd-z-10 {
 	z-index: 10 !important;
-
-
 }
 .nfd-my-0:not([style*="margin"]) {
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
-
-
 }
 .nfd-overflow-hidden {
 	overflow: hidden !important;
-
-
 }
 .nfd-p-0:not([style*="padding"]) {
 	padding: 0px !important;
-
-
 }
 .nfd-p-5:not([style*="padding"]) {
 	padding: 1.25rem !important;
-
-
 }
 .nfd-py-0:not([style*="padding"]) {
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
-
-
 }
 .nfd-py-5:not([style*="padding"]) {
 	padding-top: 1.25rem !important;
 	padding-bottom: 1.25rem !important;
-
-
 }
 .nfd-px-6:not([style*="padding"]) {
 	padding-left: 1.5rem !important;
 	padding-right: 1.5rem !important;
-
-
 }
 /* prettier-ignore */
 :root {
@@ -63,14 +41,12 @@
 	--nfd-cp-text-sm--default: clamp(0.8125rem, 0.7734rem + 0.1250vw, 0.875rem) !important; /* 13px - 14px */
     --nfd-cp-text-base--default: clamp(0.875rem, 0.8359rem + 0.1250vw, 0.9375rem) !important; /* 14px - 15px */
 	--nfd-cp-text-md--default: clamp(1rem, 0.9219rem + 0.25vw, 1.125rem) !important; /* 16px - 18px */
-    --nfd-cp-text-xl--default:  clamp(1.75rem, 1.3594rem + 1.25vw, 2.375rem) !important; /* 28px - 38px */
+    --nfd-cp-text-xl--default: clamp(1.75rem, 1.3594rem + 1.25vw, 2.375rem) !important; /* 28px - 38px */
 	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem) !important; /* 32px - 52px */
 	
 	/* Spacing */
 	--nfd-cp-spacing-lg: clamp(2rem, 7vw, 6.25rem) !important;
-    --nfd-cp-spacing-md:  clamp(2rem, 7vw, 3.5rem) !important;
-
-
+    --nfd-cp-spacing-md: clamp(2rem, 7vw, 3.5rem) !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Font sizes¸                                */
@@ -145,6 +121,10 @@
 .nfd-p-lg:not([style*="padding"]):not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-lg) !important;
 }
+.nfd-px-lg:not([style*="padding"]):not([style*="padding"]) {
+	padding-left: var(--nfd-cp-spacing-lg) !important;
+	padding-right: var(--nfd-cp-spacing-lg) !important;
+}
 .nfd-py-lg:not([style*="padding"]):not([style*="padding"]) {
 	padding-top: var(--nfd-cp-spacing-lg) !important;
 	padding-bottom: var(--nfd-cp-spacing-lg) !important;
@@ -165,15 +145,15 @@
 /*                                   Colors                                   */
 /* -------------------------------------------------------------------------- */
 /* Background */
-.nfd-bg-accent:not([class*="background-color"]):not([style*="background-color"]),
-.nfd-bg-accent:not([class*="background-color"]):not([style*="background-color"])
+.nfd-bg-accent:not(.has-background),
+.nfd-bg-accent:not(.has-background)
 	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
 	background-color: var(--nfd-cp-bg-accent, #000) !important;
 }
-.nfd-bg-gray-100:not([class*="background-color"]):not([style*="background-color"]) {
+.nfd-bg-gray-100:not(.has-background) {
 	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6) !important;
 }
-.nfd-bg-gray-800:not([class*="background-color"]):not([style*="background-color"]) {
+.nfd-bg-gray-800:not(.has-background) {
 	background-color: var(--nfd-cp-bg-gray-800, #161a1d) !important;
 }
 /* Border */
@@ -183,29 +163,24 @@
 	border-color: var(--nfd-cp-border-accent, #000) !important;
 }
 /* Text */
-.nfd-text-secondary:not([class*="has-text-color"]) {
+.nfd-text-accent:not(.has-text-color) {
+	color: var(--nfd-cp-text-accent, #fcb900) !important;
+}
+.nfd-text-secondary:not(.has-text-color) {
 	color: var(--nfd-cp-text-secondary, #fcb900) !important;
 }
-.nfd-text-current:not([class*="has-text-color"]) {
+.nfd-text-current:not(.has-text-color) {
 	color: currentColor !important;
 }
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;
-
-
 	}
 	.md\:nfd-hidden {
 		display: none !important;
-
-
 	}
 	.md\:nfd-py-0:not([style*="padding"]) {
 		padding-top: 0px !important;
 		padding-bottom: 0px !important;
-
-
 	}
-
-
 }
