@@ -20,9 +20,6 @@
 .nfd-p-0:not([style*="padding"]) {
 	padding: 0px !important;
 }
-.nfd-p-5:not([style*="padding"]) {
-	padding: 1.25rem !important;
-}
 .nfd-py-0:not([style*="padding"]) {
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
@@ -30,10 +27,6 @@
 .nfd-py-5:not([style*="padding"]) {
 	padding-top: 1.25rem !important;
 	padding-bottom: 1.25rem !important;
-}
-.nfd-px-6:not([style*="padding"]) {
-	padding-left: 1.5rem !important;
-	padding-right: 1.5rem !important;
 }
 /* prettier-ignore */
 :root {
@@ -179,8 +172,14 @@
 	.md\:nfd-hidden {
 		display: none !important;
 	}
+	.md\:nfd-p-0:not([style*="padding"]) {
+		padding: 0px !important;
+	}
 	.md\:nfd-py-0:not([style*="padding"]) {
 		padding-top: 0px !important;
 		padding-bottom: 0px !important;
+	}
+	.md\:nfd-text-left {
+		text-align: left !important;
 	}
 }

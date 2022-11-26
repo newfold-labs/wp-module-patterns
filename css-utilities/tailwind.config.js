@@ -15,18 +15,18 @@ module.exports = {
 	// Include utility classes we need.
 	safelist: [
 		'nfd-p-0',
-		'nfd-p-5',
 		'nfd-py-0',
 		'nfd-py-5',
-		'nfd-px-6',
 		'nfd-my-0',
 		'nfd-overflow-hidden',
 		'nfd-relative',
 		'nfd-z-10',
 		'-nfd-top-1',
 		'-nfd-bottom-1',
+		'md:nfd-p-0',
 		'md:nfd-py-0',
 		'md:nfd-hidden',
 		'md:nfd-order-2',
+		'md:nfd-text-left',
 	],
 };
