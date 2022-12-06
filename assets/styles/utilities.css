@@ -20,6 +20,9 @@
 .nfd-p-0:not([style*="padding"]) {
 	padding: 0px !important;
 }
+.nfd-p-2:not([style*="padding"]) {
+	padding: 0.5rem !important;
+}
 .nfd-p-10:not([style*="padding"]) {
 	padding: 2.5rem !important;
 }
