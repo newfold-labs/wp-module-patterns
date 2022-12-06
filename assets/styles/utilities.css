@@ -23,6 +23,12 @@
 .nfd-p-2:not([style*="padding"]) {
 	padding: 0.5rem !important;
 }
+.nfd-p-4:not([style*="padding"]) {
+	padding: 1rem !important;
+}
+.nfd-p-8:not([style*="padding"]) {
+	padding: 2rem !important;
+}
 .nfd-p-10:not([style*="padding"]) {
 	padding: 2.5rem !important;
 }
@@ -30,9 +36,17 @@
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
 }
+.nfd-py-10:not([style*="padding"]) {
+	padding-top: 2.5rem !important;
+	padding-bottom: 2.5rem !important;
+}
 .nfd-py-5:not([style*="padding"]) {
 	padding-top: 1.25rem !important;
 	padding-bottom: 1.25rem !important;
+}
+.nfd-px-8:not([style*="padding"]) {
+	padding-left: 2rem !important;
+	padding-right: 2rem !important;
 }
 /* prettier-ignore */
 :root {
@@ -176,8 +190,8 @@
 	border-color: var(--nfd-cp-border-accent, #000) !important;
 }
 /* Text */
-.nfd-text-accent:not(.has-text-color) {
-	color: var(--nfd-cp-text-accent, #fcb900) !important;
+.nfd-text-primary:not(.has-text-color) {
+	color: var(--nfd-cp-text-primary, #000000) !important;
 }
 .nfd-text-secondary:not(.has-text-color) {
 	color: var(--nfd-cp-text-secondary, #fcb900) !important;

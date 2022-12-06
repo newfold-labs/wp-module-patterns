@@ -25,8 +25,8 @@
 }
 
 /* Text */
-.nfd-text-accent:not(.has-text-color) {
-	color: var(--nfd-cp-text-accent, #fcb900);
+.nfd-text-primary:not(.has-text-color) {
+	color: var(--nfd-cp-text-primary, #000000);
 }
 
 .nfd-text-secondary:not(.has-text-color) {

@@ -16,9 +16,13 @@ module.exports = {
 	safelist: [
 		'nfd-p-0',
 		'nfd-p-2',
+		'nfd-p-4',
+		'nfd-p-8',
 		'nfd-p-10',
 		'nfd-py-0',
+		'nfd-py-10',
 		'nfd-py-5',
+		'nfd-px-8',
 		'nfd-my-0',
 		'nfd-overflow-hidden',
 		'nfd-relative',
