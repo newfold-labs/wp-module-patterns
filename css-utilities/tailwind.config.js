@@ -15,6 +15,7 @@ module.exports = {
 	// Include utility classes we need.
 	safelist: [
 		'nfd-p-0',
+		'nfd-p-10',
 		'nfd-py-0',
 		'nfd-py-5',
 		'nfd-my-0',

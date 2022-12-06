@@ -33,6 +33,23 @@
 	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default));
 }
 
+/* Large */
+.nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: var(--nfd-cp-text-lg, var(--nfd-cp-text-lg--default));
+}
+
+.nfd-text-lg:not([style*="line-height"]) {
+	line-height: 1.2;
+}
+
+.nfd-text-lg:not([style*="letter-spacing"]) {
+	letter-spacing: -0.01em;
+}
+
+.nfd-text-lg:not([style*="font-weight"]) {
+	font-weight: 500;
+}
+
 /* Extra Large */
 .nfd-text-xl:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-xl, var(--nfd-cp-text-xl--default));

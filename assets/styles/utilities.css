@@ -20,6 +20,9 @@
 .nfd-p-0:not([style*="padding"]) {
 	padding: 0px !important;
 }
+.nfd-p-10:not([style*="padding"]) {
+	padding: 2.5rem !important;
+}
 .nfd-py-0:not([style*="padding"]) {
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
@@ -34,6 +37,7 @@
 	--nfd-cp-text-sm--default: clamp(0.8125rem, 0.7734rem + 0.1250vw, 0.875rem) !important; /* 13px - 14px */
     --nfd-cp-text-base--default: clamp(0.875rem, 0.8359rem + 0.1250vw, 0.9375rem) !important; /* 14px - 15px */
 	--nfd-cp-text-md--default: clamp(1rem, 0.9219rem + 0.25vw, 1.125rem) !important; /* 16px - 18px */
+	--nfd-cp-text-lg--default: clamp(1.625rem, 1.546875rem + 0.25vw, 1.75rem) !important; /* 26px - 28px */
     --nfd-cp-text-xl--default: clamp(1.75rem, 1.3594rem + 1.25vw, 2.375rem) !important; /* 28px - 38px */
 	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem) !important; /* 32px - 52px */
 	
@@ -68,6 +72,19 @@
 /* Medium */
 .nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default)) !important;
+}
+/* Large */
+.nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: var(--nfd-cp-text-lg, var(--nfd-cp-text-lg--default)) !important;
+}
+.nfd-text-lg:not([style*="line-height"]) {
+	line-height: 1.2 !important;
+}
+.nfd-text-lg:not([style*="letter-spacing"]) {
+	letter-spacing: -0.01em !important;
+}
+.nfd-text-lg:not([style*="font-weight"]) {
+	font-weight: 500 !important;
 }
 /* Extra Large */
 .nfd-text-xl:not([class*="font-size"]):not([style*="font-size"]) {
