@@ -69,6 +69,7 @@ class LoadAssets {
             $css = "body, .editor-styles-wrapper {
                 --nfd-cp-bg-accent: var(--wp--preset--color--secondary, #000);
                 --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
+                --nfd-cp-text-primary: var(--wp--preset--color--secondary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--primary, #000);
             }";
         }
