@@ -26,11 +26,11 @@
 
 /* Text */
 .nfd-text-primary:not(.has-text-color) {
-	color: var(--nfd-cp-text-primary, #000000);
+	color: var(--nfd-cp-text-primary, currentColor);
 }
 
 .nfd-text-secondary:not(.has-text-color) {
-	color: var(--nfd-cp-text-secondary, #fcb900);
+	color: var(--nfd-cp-text-secondary, currentColor);
 }
 
 .nfd-text-current:not(.has-text-color) {
