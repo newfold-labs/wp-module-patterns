@@ -1,7 +1,7 @@
 /* prettier-ignore */
 :root {
 	/* Typography */
-	--nfd-cp-text-sm--default: clamp(0.8125rem, 0.7734rem + 0.1250vw, 0.875rem); /* 13px - 14px */
+	--nfd-cp-text-sm--default: 13px;
     --nfd-cp-text-base--default: clamp(0.875rem, 0.8359rem + 0.1250vw, 0.9375rem); /* 14px - 15px */
 	--nfd-cp-text-md--default: clamp(1rem, 0.9219rem + 0.25vw, 1.125rem); /* 16px - 18px */
 	--nfd-cp-text-lg--default: clamp(1.625rem, 1.546875rem + 0.25vw, 1.75rem); /* 26px - 28px */
