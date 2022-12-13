@@ -38,11 +38,20 @@
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
 }
+.nfd-mt-8:not([style*="margin"]) {
+	margin-top: 2rem !important;
+}
+.nfd-mb-8:not([style*="margin"]) {
+	margin-bottom: 2rem !important;
+}
 .nfd-grid {
 	display: grid !important;
 }
 .nfd-h-full {
 	height: 100% !important;
+}
+.nfd-w-full {
+	width: 100% !important;
 }
 .nfd-grid-cols-12 {
 	grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
@@ -250,6 +259,10 @@ p.nfd-text-opacity-80:not(.has-text-color) {
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;
+	}
+	.md\:nfd-my-0:not([style*="margin"]) {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
 	}
 	.md\:nfd-hidden {
 		display: none !important;
