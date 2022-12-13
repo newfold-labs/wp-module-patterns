@@ -9,31 +9,31 @@
 }
 
 /* Padding - LG */
-.nfd-p-lg:not([style*="padding"]) {
+.nfd-p-lg {
 	padding: var(--nfd-cp-spacing-lg);
 }
 
-.nfd-px-lg:not([style*="padding"]) {
+.nfd-px-lg {
 	padding-left: var(--nfd-cp-spacing-lg);
 	padding-right: var(--nfd-cp-spacing-lg);
 }
 
-.nfd-py-lg:not([style*="padding"]) {
+.nfd-py-lg {
 	padding-top: var(--nfd-cp-spacing-lg);
 	padding-bottom: var(--nfd-cp-spacing-lg);
 }
 
 /* Padding - MD */
-.nfd-p-md:not([style*="padding"]) {
+.nfd-p-md {
 	padding: var(--nfd-cp-spacing-md);
 }
 
-.nfd-px-md:not([style*="padding"]) {
+.nfd-px-md {
 	padding-left: var(--nfd-cp-spacing-md);
 	padding-right: var(--nfd-cp-spacing-md);
 }
 
-.nfd-py-md:not([style*="padding"]) {
+.nfd-py-md {
 	padding-top: var(--nfd-cp-spacing-md);
 	padding-bottom: var(--nfd-cp-spacing-md);
 }
