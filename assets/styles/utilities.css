@@ -38,6 +38,12 @@
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
 }
+.nfd-mt-8:not([style*="margin"]) {
+	margin-top: 2rem !important;
+}
+.nfd-mb-8:not([style*="margin"]) {
+	margin-bottom: 2rem !important;
+}
 .nfd-grid {
 	display: grid !important;
 }
@@ -253,6 +259,10 @@ p.nfd-text-opacity-80:not(.has-text-color) {
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;
+	}
+	.md\:nfd-my-0:not([style*="margin"]) {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
 	}
 	.md\:nfd-hidden {
 		display: none !important;
