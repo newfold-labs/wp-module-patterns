@@ -44,6 +44,9 @@
 .nfd-h-full {
 	height: 100% !important;
 }
+.nfd-w-full {
+	width: 100% !important;
+}
 .nfd-grid-cols-12 {
 	grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
 }
@@ -94,7 +97,7 @@
 /* prettier-ignore */
 :root {
 	/* Typography */
-	--nfd-cp-text-sm--default: 13px !important;
+	--nfd-cp-text-sm--default: 14px !important;
     --nfd-cp-text-base--default: clamp(0.875rem, 0.8359rem + 0.1250vw, 0.9375rem) !important; /* 14px - 15px */
 	--nfd-cp-text-md--default: clamp(1rem, 0.9219rem + 0.25vw, 1.125rem) !important; /* 16px - 18px */
 	--nfd-cp-text-lg--default: clamp(1.625rem, 1.546875rem + 0.25vw, 1.75rem) !important; /* 26px - 28px */
