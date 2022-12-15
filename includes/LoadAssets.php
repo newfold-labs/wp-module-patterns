@@ -39,8 +39,6 @@ class LoadAssets {
 		if ( 'yith-wonder' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
 				--nfd-cp-text-sm: var(--wp--preset--font-size--x-small, var(--nfd-cp-text-sm--default));
-				--nfd-cp-text-md: var(--wp--preset--font-size--normal, var(--nfd-cp-text-md--default));
-                --nfd-cp-text-base: var(--wp--preset--font-size--small, var(--nfd-cp-text-base--default));
 				--nfd-cp-text-huge: var(--wp--preset--font-size--huge, var(--nfd-cp-text-huge--default));
 				--nfd-cp-gap-y: var(--wp--custom--vertical-spacing, 0px);
                 
@@ -53,8 +51,6 @@ class LoadAssets {
 
 		if ( 'twentytwentytwo' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
-                --nfd-cp-text-base: var(--wp--preset--font-size--small, var(--nfd-cp-text-base--default));
-				--nfd-cp-text-md: var(--wp--preset--font-size--medium, var(--nfd-cp-text-md--default));
 				--nfd-cp-gap-y: var(--wp--custom--vertical-spacing, 0px);
                
                 --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
