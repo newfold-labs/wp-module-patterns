@@ -28,7 +28,7 @@ const DesignItem = memo(({ item }) => {
 
 	return (
 		<div
-			className="nfd-relative nfd-flex nfd-cursor-pointer nfd-items-center nfd-overflow-hidden nfd-rounded-sm nfd-bg-white nfd-ring-1 nfd-ring-gray-300 focus-visible:nfd-ring-2 focus-visible:nfd-ring-wp-admin"
+			className="nfd-relative nfd-flex nfd-cursor-pointer nfd-flex-col nfd-items-center nfd-overflow-hidden nfd-rounded-sm nfd-bg-white nfd-ring-1 nfd-ring-gray-300 focus-visible:nfd-ring-2 focus-visible:nfd-ring-wp-admin"
 			role="button"
 			aria-label={__('Click to insert design', 'nfd-patterns')}
 			aria-describedby={`nfd-design-item__description-${item.id}`}
