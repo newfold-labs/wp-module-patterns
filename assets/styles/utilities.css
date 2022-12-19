@@ -13,8 +13,14 @@
 .nfd-col-start-1 {
 	grid-column-start: 1 !important;
 }
+.nfd-col-start-4 {
+	grid-column-start: 4 !important;
+}
 .nfd-col-start-5 {
 	grid-column-start: 5 !important;
+}
+.nfd-col-start-6 {
+	grid-column-start: 6 !important;
 }
 .nfd-col-start-7 {
 	grid-column-start: 7 !important;
@@ -22,17 +28,20 @@
 .nfd-col-end-7 {
 	grid-column-end: 7 !important;
 }
+.nfd-col-end-8 {
+	grid-column-end: 8 !important;
+}
 .nfd-col-end-9 {
 	grid-column-end: 9 !important;
+}
+.nfd-col-end-10 {
+	grid-column-end: 10 !important;
 }
 .nfd-col-end-13 {
 	grid-column-end: 13 !important;
 }
 .nfd-row-start-1 {
 	grid-row-start: 1 !important;
-}
-.nfd-row-end-2 {
-	grid-row-end: 2 !important;
 }
 .nfd-my-0:not([style*="margin"]) {
 	margin-top: 0px !important;
