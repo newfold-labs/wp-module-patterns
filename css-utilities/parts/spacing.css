@@ -3,17 +3,37 @@
 /* -------------------------------------------------------------------------- */
 
 /* Gap */
-.nfd-has-gap-y {
+.nfd-normalize-gap {
 	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px);
 	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px);
 }
 
-/* Padding */
-.nfd-has-p-lg:not([style*="padding"]) {
+/* Padding - LG */
+.nfd-p-lg {
 	padding: var(--nfd-cp-spacing-lg);
 }
 
-.nfd-has-py-lg:not([style*="padding"]) {
+.nfd-px-lg {
+	padding-left: var(--nfd-cp-spacing-lg);
+	padding-right: var(--nfd-cp-spacing-lg);
+}
+
+.nfd-py-lg {
 	padding-top: var(--nfd-cp-spacing-lg);
 	padding-bottom: var(--nfd-cp-spacing-lg);
+}
+
+/* Padding - MD */
+.nfd-p-md {
+	padding: var(--nfd-cp-spacing-md);
+}
+
+.nfd-px-md {
+	padding-left: var(--nfd-cp-spacing-md);
+	padding-right: var(--nfd-cp-spacing-md);
+}
+
+.nfd-py-md {
+	padding-top: var(--nfd-cp-spacing-md);
+	padding-bottom: var(--nfd-cp-spacing-md);
 }

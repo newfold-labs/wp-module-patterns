@@ -39,21 +39,23 @@ class LoadAssets {
 		if ( 'yith-wonder' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
 				--nfd-cp-text-sm: var(--wp--preset--font-size--x-small, var(--nfd-cp-text-sm--default));
-				--nfd-cp-text-md: var(--wp--preset--font-size--normal, var(--nfd-cp-text-md--default));
-                --nfd-cp-text-base: var(--wp--preset--font-size--small, var(--nfd-cp-text-base--default));
 				--nfd-cp-text-huge: var(--wp--preset--font-size--huge, var(--nfd-cp-text-huge--default));
 				--nfd-cp-gap-y: var(--wp--custom--vertical-spacing, 0px);
+                
                 --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
+                --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
+				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
 			}";
 		}
 
 		if ( 'twentytwentytwo' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
-                --nfd-cp-text-base: var(--wp--preset--font-size--small, var(--nfd-cp-text-base--default));
-				--nfd-cp-text-md: var(--wp--preset--font-size--medium, var(--nfd-cp-text-md--default));
 				--nfd-cp-gap-y: var(--wp--custom--vertical-spacing, 0px);
+               
                 --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
+                --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
+				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
                 
 			}";
@@ -62,26 +64,9 @@ class LoadAssets {
         if ( 'twentytwentythree' === $theme ) {
             $css = "body, .editor-styles-wrapper {
                 --nfd-cp-bg-accent: var(--wp--preset--color--secondary, #000);
+                --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
+                --nfd-cp-text-primary: var(--wp--preset--color--secondary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--primary, #000);
-            }";
-        }
-        
-        if ( 'astra' === $theme ) {
-            $css = "body, .editor-styles-wrapper {
-                --nfd-cp-bg-accent: var(--ast-global-color-0, #000)
-            }";
-        }
-        
-        if ( 'bjork' === $theme || 'blocksy' === $theme || 'uniblock' === $theme ) {
-            $css = "body, .editor-styles-wrapper {
-                --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
-                --nfd-cp-text-secondary: var(--wp--preset--color--tertiary, #000);
-            }";
-        }
-        
-        if ( 'hypebiz' === $theme ) {
-            $css = "body, .editor-styles-wrapper {
-                --nfd-cp-bg-accent: var(--wp--preset--color--fourth, #000);
             }";
         }
 		

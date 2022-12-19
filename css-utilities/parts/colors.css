@@ -2,12 +2,43 @@
 /*                                   Colors                                   */
 /* -------------------------------------------------------------------------- */
 
-.nfd-has-bg-accent:not([class*="background-color"]),
-.nfd-has-bg-accent:not([class*="background-color"])
-	.wp-block-cover__background:not([class*="background-color"]) {
+/* Background */
+.nfd-bg-accent:not(.has-background),
+.nfd-bg-accent:not(.has-background)
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
 	background-color: var(--nfd-cp-bg-accent, #000);
 }
 
-.nfd-has-text-secondary:not([class*="has-text-color"]) {
-	color: var(--nfd-cp-text-secondary, #fcb900);
+.nfd-bg-gray-100:not(.has-background) {
+	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6);
+}
+
+.nfd-bg-gray-800:not(.has-background) {
+	background-color: var(--nfd-cp-bg-gray-800, #161a1d);
+}
+
+/* Border */
+/* prettier-ignore */
+.nfd-border-accent:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
+.nfd-border-accent:not([class*="border-color"]) img:not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not([class*="border-color"]) {
+	border-color: var(--nfd-cp-border-accent, #000);
+}
+
+/* Text */
+.nfd-text-primary:not(.has-text-color) {
+	color: var(--nfd-cp-text-primary, currentColor);
+}
+
+.nfd-text-secondary:not(.has-text-color) {
+	color: var(--nfd-cp-text-secondary, currentColor);
+}
+
+.nfd-text-current:not(.has-text-color) {
+	color: currentColor;
+}
+
+/* Text Opacity */
+.nfd-text-opacity-80:has(p:not(.has-text-color)),
+p.nfd-text-opacity-80:not(.has-text-color) {
+	opacity: 0.8;
 }

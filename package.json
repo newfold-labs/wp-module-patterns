@@ -15,7 +15,7 @@
 		"lint:js": "wp-scripts lint-js ./src",
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
 		"utils:dev": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css -w --env development",
-		"utils:prod": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css -w --env production"
+		"utils:prod": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css --env production"
 	},
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^13.4.0",
