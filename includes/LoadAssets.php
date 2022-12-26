@@ -46,6 +46,10 @@ class LoadAssets {
                 --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
 				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
+				
+				/* Final */
+				--nfd-cp-spacing-x-lg: clamp(2.375rem, 7vw, 6.25rem);
+				--nfd-cp-spacing-x-md: clamp(2.375rem, 7vw, 3.5rem);
 			}";
 		}
 
@@ -58,6 +62,7 @@ class LoadAssets {
 				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
                 
+				--nfd-cp-container: var(--wp--style--global--wide-size, 1140px);
 			}";
 		}
         
