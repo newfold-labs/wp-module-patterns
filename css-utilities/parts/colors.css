@@ -33,12 +33,18 @@
 	color: var(--nfd-cp-text-secondary, currentColor);
 }
 
-.nfd-text-current:not(.has-text-color) {
+.nfd-text-current:not(.has-text-color),
+.wp-block-navigation.nfd-text-current a {
 	color: currentColor;
 }
 
 /* Text Opacity */
 .nfd-text-opacity-80:has(p:not(.has-text-color)),
-p.nfd-text-opacity-80:not(.has-text-color) {
+p.nfd-text-opacity-80:not(.has-text-color),
+.wp-block-navigation.nfd-text-opacity-80:not(.has-text-color) a {
 	opacity: 0.8;
+}
+
+.wp-block-navigation.nfd-text-opacity-80:not(.has-text-color) a:hover {
+	opacity: 1;
 }
