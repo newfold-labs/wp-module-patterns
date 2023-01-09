@@ -200,11 +200,6 @@
 /* -------------------------------------------------------------------------- */
 /*                                   Spacing                                  */
 /* -------------------------------------------------------------------------- */
-/* Gap */
-.nfd-normalize-gap {
-	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px) !important;
-	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px) !important;
-}
 /* Padding - LG */
 .nfd-p-lg:not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-y-lg) var(--nfd-cp-spacing-x-lg) !important;
@@ -232,6 +227,18 @@
 /* Stack children */
 .nfd-overlap-children-sm > *:not(:first-child) {
 	margin-left: -16px !important;
+}
+/* Inherit theme outer padding */
+.nfd-px-base:not([style*="padding"]) {
+	padding-left: var(--nfd-cp-p-base, 2.375rem) !important;
+	padding-right: var(--nfd-cp-p-base, 2.375rem) !important;
+}
+.nfd-container.alignfull.nfd-p-md:not([style*="padding"]),
+.nfd-container.alignfull.nfd-p-lg:not([style*="padding"]),
+.nfd-container.alignfull.nfd-px-md:not([style*="padding"]),
+.nfd-container.alignfull.nfd-px-lg:not([style*="padding"]):not([style*="padding"]) {
+	padding-left: var(--nfd-cp-p-base, 2.375rem) !important;
+	padding-right: var(--nfd-cp-p-base, 2.375rem) !important;
 }
 /* Content width */
 .nfd-container:not(.is-layout-constrained)
@@ -272,14 +279,11 @@
 .wp-block-navigation.nfd-text-current a {
 	color: currentColor !important;
 }
-/* Text Opacity */
-.nfd-text-opacity-80:has(p:not(.has-text-color)),
-p.nfd-text-opacity-80:not(.has-text-color),
-.wp-block-navigation.nfd-text-opacity-80:not(.has-text-color) a {
+/* Paragraph and links */
+.nfd-text-opacity-80
+	p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background) {
 	opacity: 0.8 !important;
-}
-.wp-block-navigation.nfd-text-opacity-80:not(.has-text-color) a:hover {
-	opacity: 1 !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                    Misc                                    */
@@ -304,11 +308,17 @@ p.nfd-text-opacity-80:not(.has-text-color),
 	.md\:nfd-items-start {
 		align-items: flex-start !important;
 	}
+	.md\:nfd-justify-center {
+		justify-content: center !important;
+	}
 	.md\:nfd-gap-5 {
 		gap: 1.25rem !important;
 	}
 	.md\:nfd-gap-8 {
 		gap: 2rem !important;
+	}
+	.md\:nfd-self-start {
+		align-self: flex-start !important;
 	}
 	.md\:nfd-rounded-lg {
 		border-radius: 0.5rem !important;
@@ -326,5 +336,8 @@ p.nfd-text-opacity-80:not(.has-text-color),
 	}
 	.md\:nfd-text-left {
 		text-align: left !important;
+	}
+	.md\:nfd-text-center {
+		text-align: center !important;
 	}
 }

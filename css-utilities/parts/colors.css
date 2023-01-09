@@ -38,13 +38,9 @@
 	color: currentColor;
 }
 
-/* Text Opacity */
-.nfd-text-opacity-80:has(p:not(.has-text-color)),
-p.nfd-text-opacity-80:not(.has-text-color),
-.wp-block-navigation.nfd-text-opacity-80:not(.has-text-color) a {
+/* Paragraph and links */
+.nfd-text-opacity-80
+	p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background) {
 	opacity: 0.8;
-}
-
-.wp-block-navigation.nfd-text-opacity-80:not(.has-text-color) a:hover {
-	opacity: 1;
 }

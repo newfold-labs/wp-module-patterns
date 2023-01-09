@@ -59,7 +59,10 @@ module.exports = {
 		'md:nfd-hidden',
 		'md:nfd-order-2',
 		'md:nfd-text-left',
+		'md:nfd-text-center',
+		'md:nfd-justify-center',
 		'md:nfd-items-start',
+		'md:nfd-self-start',
 		'md:nfd-grid-cols-1',
 	],
 };

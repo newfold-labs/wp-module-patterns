@@ -2,12 +2,6 @@
 /*                                   Spacing                                  */
 /* -------------------------------------------------------------------------- */
 
-/* Gap */
-.nfd-normalize-gap {
-	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px);
-	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px);
-}
-
 /* Padding - LG */
 .nfd-p-lg {
 	padding: var(--nfd-cp-spacing-y-lg) var(--nfd-cp-spacing-x-lg);
@@ -41,6 +35,20 @@
 /* Stack children */
 .nfd-overlap-children-sm > *:not(:first-child) {
 	margin-left: -16px;
+}
+
+/* Inherit theme outer padding */
+.nfd-px-base {
+	padding-left: var(--nfd-cp-p-base, 2.375rem);
+	padding-right: var(--nfd-cp-p-base, 2.375rem);
+}
+
+.nfd-container.alignfull.nfd-p-md:not([style*="padding"]),
+.nfd-container.alignfull.nfd-p-lg:not([style*="padding"]),
+.nfd-container.alignfull.nfd-px-md:not([style*="padding"]),
+.nfd-container.alignfull.nfd-px-lg:not([style*="padding"]) {
+	padding-left: var(--nfd-cp-p-base, 2.375rem);
+	padding-right: var(--nfd-cp-p-base, 2.375rem);
 }
 
 /* Content width */
