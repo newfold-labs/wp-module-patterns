@@ -269,10 +269,12 @@
 	border-color: var(--nfd-cp-border-accent, #000) !important;
 }
 /* Text */
-.nfd-text-primary:not(.has-text-color) {
+.nfd-text-primary:not(.has-text-color),
+.wp-block-button.nfd-text-primary > a:not(.has-text-color) {
 	color: var(--nfd-cp-text-primary, currentColor) !important;
 }
-.nfd-text-secondary:not(.has-text-color) {
+.nfd-text-secondary:not(.has-text-color),
+.wp-block-button.nfd-text-secondary > a:not(.has-text-color) {
 	color: var(--nfd-cp-text-secondary, currentColor) !important;
 }
 .nfd-text-current:not(.has-text-color),
