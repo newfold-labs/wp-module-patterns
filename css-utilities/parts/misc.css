@@ -7,3 +7,14 @@
 		display: none;
 	}
 }
+
+/* ------------------------------ Search Block ------------------------------ */
+.nfd-wk-search .wp-block-search__input {
+	padding: 8px 16px;
+	min-height: 50px;
+}
+
+/* --------------------------------- Filters -------------------------------- */
+.nfd-filter-white-invert img {
+	filter: brightness(0) invert(1);
+}
