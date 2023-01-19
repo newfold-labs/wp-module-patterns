@@ -43,6 +43,7 @@
 /* Paragraph and links */
 .nfd-text-opacity-80
 	p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background) {
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-opacity-80 time:not(.has-text-color):not(.has-background) {
 	opacity: 0.8;
 }

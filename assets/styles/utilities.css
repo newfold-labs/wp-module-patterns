@@ -118,6 +118,7 @@
 	--nfd-cp-text-lg--default: clamp(1.625rem, 1.546875rem + 0.25vw, 1.75rem) !important; /* 26px - 28px */
     --nfd-cp-text-xl--default: clamp(1.75rem, 1.3594rem + 1.25vw, 2.375rem) !important; /* 28px - 38px */
 	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem) !important; /* 32px - 52px */
+	--nfd-cp-text-giga--default: clamp(3.25rem, 2.546875rem + 2.25vw, 4.375rem) !important; /* 52px - 70px */
 	
 	/* Spacing */
 	--nfd-cp-spacing-x-lg: clamp(2rem, 7vw, 6.25rem) !important;
@@ -188,6 +189,19 @@
 	letter-spacing: -0.02em !important;
 }
 .nfd-text-huge:not([style*="font-weight"]) {
+	font-weight: 500 !important;
+}
+/* Giga */
+.nfd-text-giga:not([class="font-size"]):not([style*="font-size"]) {
+	font-size: var(--nfd-cp-text-giga, var(--nfd-cp-text-giga--default)) !important;
+}
+.nfd-text-giga:not([style*="line-height"]) {
+	line-height: 1.1 !important;
+}
+.nfd-text-giga:not([style*="letter-spacing"]) {
+	letter-spacing: -0.02em !important;
+}
+.nfd-text-giga:not([style*="font-weight"]) {
 	font-weight: 500 !important;
 }
 /* -------------------------------------------------------------------------- */
@@ -284,8 +298,71 @@
 /* Paragraph and links */
 .nfd-text-opacity-80
 	p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background) {
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-opacity-80 time:not(.has-text-color):not(.has-background) {
 	opacity: 0.8 !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                 Query Loop                                 */
+/* -------------------------------------------------------------------------- */
+/* --------------------------------- Columns -------------------------------- */
+.nfd-wk-loop > .columns-2,
+.nfd-wk-loop > .columns-3,
+.nfd-wk-loop > .columns-4 {
+	display: grid !important;
+	gap: 3rem !important;
+}
+.nfd-wk-loop > .columns-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+@media (max-width: 782px) {
+	.nfd-wk-loop > .columns-2 {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	}
+}
+.nfd-wk-loop > .columns-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+@media (max-width: 782px) {
+	.nfd-wk-loop > .columns-3 {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	}
+}
+.nfd-wk-loop > .columns-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+@media (max-width: 782px) {
+	.nfd-wk-loop > .columns-4 {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	}
+}
+.nfd-wk-loop > .columns-2 > li,
+.nfd-wk-loop > .columns-3 > li,
+.nfd-wk-loop > .columns-4 > li {
+	width: auto !important;
+}
+/* ---------------------------------- Misc ---------------------------------- */
+.nfd-wk-loop li a {
+	text-decoration-line: none !important;
+}
+.nfd-wk-loop .wp-post-image:not([style*="height"]):not([style*="width"]),
+.nfd-wk-loop
+	.wp-block-post-featured-image
+	img:not([style*="height"]):not([style*="width"]) {
+	aspect-ratio: 1 / 1 !important;
+	-o-object-fit: cover !important;
+	   object-fit: cover !important;
+}
+.nfd-wk-loop .wp-block-post-featured-image {
+	transition-property: opacity !important;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+	transition-duration: 100ms !important;
+}
+.nfd-wk-loop .wp-block-post-featured-image:has(a:hover) {
+	opacity: 0.8 !important;
+}
+.nfd-wk-loop .wp-block-post-title > a:hover {
+	text-decoration-line: underline !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                    Misc                                    */
@@ -294,6 +371,17 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	.md\:nfd-no-br > br {
 		display: none !important;
 	}
+}
+/* ------------------------------ Search Block ------------------------------ */
+.nfd-wk-search .wp-block-search__input {
+	padding: 8px 16px !important;
+	min-height: 50px !important;
+}
+/* --------------------------------- Filters -------------------------------- */
+.nfd-filter-white-invert img {
+	filter: brightness(0) invert(1) !important;
+}
+@media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;
 	}
@@ -309,6 +397,9 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	}
 	.md\:nfd-items-start {
 		align-items: flex-start !important;
+	}
+	.md\:nfd-justify-end {
+		justify-content: flex-end !important;
 	}
 	.md\:nfd-justify-center {
 		justify-content: center !important;
