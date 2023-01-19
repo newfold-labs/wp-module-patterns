@@ -349,7 +349,7 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 .nfd-wk-loop
 	.wp-block-post-featured-image
 	img:not([style*="height"]):not([style*="width"]) {
-	aspect-ratio: 1 / 1 !important;
+	aspect-ratio: 16/9 !important;
 	-o-object-fit: cover !important;
 	   object-fit: cover !important;
 }
