@@ -36,7 +36,7 @@
 .nfd-wk-loop
 	.wp-block-post-featured-image
 	img:not([style*="height"]):not([style*="width"]) {
-	@apply nfd-aspect-[16/9] nfd-object-cover;
+	@apply nfd-aspect-[3/2] nfd-object-cover;
 }
 
 .nfd-wk-loop .wp-block-post-featured-image {

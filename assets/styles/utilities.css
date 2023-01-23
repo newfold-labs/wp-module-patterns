@@ -40,15 +40,14 @@
 .nfd-row-start-1 {
 	grid-row-start: 1 !important;
 }
-.nfd-my-0:not([style*="margin"]) {
-	margin-top: 0px !important;
-	margin-bottom: 0px !important;
-}
 .nfd-mt-8:not([style*="margin"]) {
 	margin-top: 2rem !important;
 }
 .nfd-mb-8:not([style*="margin"]) {
 	margin-bottom: 2rem !important;
+}
+.nfd-mt-\[-100px\]:not([style*="margin"]) {
+	margin-top: -100px !important;
 }
 .nfd-grid {
 	display: grid !important;
@@ -58,6 +57,9 @@
 }
 .nfd-w-full {
 	width: 100% !important;
+}
+.nfd-grow {
+	flex-grow: 1 !important;
 }
 .nfd-grid-cols-12 {
 	grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
@@ -212,8 +214,30 @@
 	font-weight: inherit !important;
 }
 /* -------------------------------------------------------------------------- */
+/*                  Override default font size in some themes                 */
+/* -------------------------------------------------------------------------- */
+.nfd-text-sm .wp-block-navigation,
+.nfd-text-base .wp-block-navigation,
+.nfd-text-md .wp-block-navigation,
+.nfd-text-sm .wp-block-button__link,
+.nfd-text-base .wp-block-button__link,
+.nfd-text-md .wp-block-button__link {
+	font-size: inherit !important;
+}
+/* -------------------------------------------------------------------------- */
 /*                                   Spacing                                  */
 /* -------------------------------------------------------------------------- */
+/* --------------------------------- Margin --------------------------------- */
+.entry-content > .nfd-my-0,
+.is-root-container > .nfd-my-0:not([style*="margin"]) {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+/* Stack children */
+.nfd-overlap-children-sm > *:not(:first-child) {
+	margin-left: -1rem !important;
+}
+/* --------------------------------- Padding -------------------------------- */
 /* Padding - LG */
 .nfd-p-lg:not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-y-lg) var(--nfd-cp-spacing-x-lg) !important;
@@ -224,6 +248,12 @@
 }
 .nfd-py-lg:not([style*="padding"]) {
 	padding-top: var(--nfd-cp-spacing-y-lg) !important;
+	padding-bottom: var(--nfd-cp-spacing-y-lg) !important;
+}
+.nfd-pt-lg:not([style*="padding"]) {
+	padding-top: var(--nfd-cp-spacing-y-lg) !important;
+}
+.nfd-pb-lg:not([style*="padding"]) {
 	padding-bottom: var(--nfd-cp-spacing-y-lg) !important;
 }
 /* Padding - MD */
@@ -238,15 +268,20 @@
 	padding-top: var(--nfd-cp-spacing-y-md) !important;
 	padding-bottom: var(--nfd-cp-spacing-y-md) !important;
 }
-/* Stack children */
-.nfd-overlap-children-sm > *:not(:first-child) {
-	margin-left: -16px !important;
+.nfd-pb-md:not([style*="padding"]) {
+	padding-bottom: var(--nfd-cp-spacing-y-md) !important;
 }
-/* Inherit theme outer padding */
+/* Padding for elements that are meant to be stacked */
+.nfd-py-stack:not([style*="padding"]) {
+	padding-top: var(--nfd-cp-p-stack, 0.75rem) !important;
+	padding-bottom: var(--nfd-cp-p-stack, 0.75rem) !important;
+}
+/* Base horizontal padding - inherit from theme to keep consistency */
 .nfd-px-base:not([style*="padding"]) {
 	padding-left: var(--nfd-cp-p-base, 2.375rem) !important;
 	padding-right: var(--nfd-cp-p-base, 2.375rem) !important;
 }
+/* ---------------------------- Override defaults --------------------------- */
 .nfd-container.alignfull.nfd-p-md:not([style*="padding"]),
 .nfd-container.alignfull.nfd-p-lg:not([style*="padding"]),
 .nfd-container.alignfull.nfd-px-md:not([style*="padding"]),
@@ -260,6 +295,18 @@
 	max-width: var(--nfd-cp-container, 1140px) !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
+}
+/* Remove columns horizontal padding (TT3 adds padding to columns by default) */
+.nfd-container:not([style*="padding"])
+	> *:not([style*="padding"]):not([class*="nfd-p-"]):not([class*="nfd-px-"]):not([style*="padding"]) {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+/* Remove vertical margin on spacer elements between two NFD patterns */
+.nfd-container:has(+ .wp-block-spacer:not([style*="margin"]) + .nfd-container)
+	+ .wp-block-spacer {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                   Colors                                   */
@@ -349,7 +396,7 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 .nfd-wk-loop
 	.wp-block-post-featured-image
 	img:not([style*="height"]):not([style*="width"]) {
-	aspect-ratio: 16/9 !important;
+	aspect-ratio: 3/2 !important;
 	-o-object-fit: cover !important;
 	   object-fit: cover !important;
 }

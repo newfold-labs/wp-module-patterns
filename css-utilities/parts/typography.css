@@ -105,3 +105,15 @@
 .nfd-weight-inherit .wp-block-button__link {
 	font-weight: inherit;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                  Override default font size in some themes                 */
+/* -------------------------------------------------------------------------- */
+.nfd-text-sm .wp-block-navigation,
+.nfd-text-base .wp-block-navigation,
+.nfd-text-md .wp-block-navigation,
+.nfd-text-sm .wp-block-button__link,
+.nfd-text-base .wp-block-button__link,
+.nfd-text-md .wp-block-button__link {
+	font-size: inherit;
+}

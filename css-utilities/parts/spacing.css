@@ -2,6 +2,19 @@
 /*                                   Spacing                                  */
 /* -------------------------------------------------------------------------- */
 
+/* --------------------------------- Margin --------------------------------- */
+.entry-content > .nfd-my-0,
+.is-root-container > .nfd-my-0 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Stack children */
+.nfd-overlap-children-sm > *:not(:first-child) {
+	margin-left: -1rem;
+}
+
+/* --------------------------------- Padding -------------------------------- */
 /* Padding - LG */
 .nfd-p-lg {
 	padding: var(--nfd-cp-spacing-y-lg) var(--nfd-cp-spacing-x-lg);
@@ -14,6 +27,14 @@
 
 .nfd-py-lg {
 	padding-top: var(--nfd-cp-spacing-y-lg);
+	padding-bottom: var(--nfd-cp-spacing-y-lg);
+}
+
+.nfd-pt-lg {
+	padding-top: var(--nfd-cp-spacing-y-lg);
+}
+
+.nfd-pb-lg {
 	padding-bottom: var(--nfd-cp-spacing-y-lg);
 }
 
@@ -32,17 +53,23 @@
 	padding-bottom: var(--nfd-cp-spacing-y-md);
 }
 
-/* Stack children */
-.nfd-overlap-children-sm > *:not(:first-child) {
-	margin-left: -16px;
+.nfd-pb-md {
+	padding-bottom: var(--nfd-cp-spacing-y-md);
 }
 
-/* Inherit theme outer padding */
+/* Padding for elements that are meant to be stacked */
+.nfd-py-stack {
+	padding-top: var(--nfd-cp-p-stack, 0.75rem);
+	padding-bottom: var(--nfd-cp-p-stack, 0.75rem);
+}
+
+/* Base horizontal padding - inherit from theme to keep consistency */
 .nfd-px-base {
 	padding-left: var(--nfd-cp-p-base, 2.375rem);
 	padding-right: var(--nfd-cp-p-base, 2.375rem);
 }
 
+/* ---------------------------- Override defaults --------------------------- */
 .nfd-container.alignfull.nfd-p-md:not([style*="padding"]),
 .nfd-container.alignfull.nfd-p-lg:not([style*="padding"]),
 .nfd-container.alignfull.nfd-px-md:not([style*="padding"]),
@@ -57,4 +84,18 @@
 	max-width: var(--nfd-cp-container, 1140px);
 	margin-left: auto !important;
 	margin-right: auto !important;
+}
+
+/* Remove columns horizontal padding (TT3 adds padding to columns by default) */
+.nfd-container:not([style*="padding"])
+	> *:not([style*="padding"]):not([class*="nfd-p-"]):not([class*="nfd-px-"]) {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Remove vertical margin on spacer elements between two NFD patterns */
+.nfd-container:has(+ .wp-block-spacer:not([style*="margin"]) + .nfd-container)
+	+ .wp-block-spacer {
+	margin-top: 0;
+	margin-bottom: 0;
 }
