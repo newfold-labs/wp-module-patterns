@@ -17,7 +17,6 @@ module.exports = {
 		'nfd-grid',
 		'nfd-grid-cols-12',
 		'nfd-grid-cols-2',
-		'nfd-grid-cols-3',
 		'nfd-col-start-1',
 		'nfd-col-start-4',
 		'nfd-col-start-5',
