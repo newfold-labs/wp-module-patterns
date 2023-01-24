@@ -34,10 +34,6 @@
 	padding-top: var(--nfd-cp-spacing-y-lg);
 }
 
-.nfd-pb-lg {
-	padding-bottom: var(--nfd-cp-spacing-y-lg);
-}
-
 /* Padding - MD */
 .nfd-p-md {
 	padding: var(--nfd-cp-spacing-y-md) var(--nfd-cp-spacing-x-md);
@@ -53,10 +49,6 @@
 	padding-bottom: var(--nfd-cp-spacing-y-md);
 }
 
-.nfd-pb-md {
-	padding-bottom: var(--nfd-cp-spacing-y-md);
-}
-
 /* Padding for elements that are meant to be stacked */
 .nfd-py-stack {
 	padding-top: var(--nfd-cp-p-stack, 0.75rem);
@@ -67,6 +59,14 @@
 .nfd-px-base {
 	padding-left: var(--nfd-cp-p-base, 2.375rem);
 	padding-right: var(--nfd-cp-p-base, 2.375rem);
+}
+
+.nfd-pb-lg {
+	padding-bottom: var(--nfd-cp-spacing-y-lg);
+}
+
+.nfd-pb-md {
+	padding-bottom: var(--nfd-cp-spacing-y-md);
 }
 
 /* ---------------------------- Override defaults --------------------------- */
