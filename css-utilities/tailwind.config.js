@@ -63,6 +63,7 @@ module.exports = {
 		'md:nfd-text-center',
 		'md:nfd-justify-center',
 		'md:nfd-justify-end',
+		'md:nfd-justify-start',
 		'md:nfd-items-start',
 		'md:nfd-self-start',
 		'md:nfd-grid-cols-1',
