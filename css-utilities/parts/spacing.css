@@ -14,6 +14,11 @@
 	margin-left: -1rem;
 }
 
+/* Grid */
+.nfd-grid-cols-1-2-1 {
+	grid-template-columns: 1fr 2fr 1fr;
+}
+
 /* --------------------------------- Padding -------------------------------- */
 /* Padding - LG */
 .nfd-p-lg {
@@ -70,10 +75,10 @@
 }
 
 /* ---------------------------- Override defaults --------------------------- */
-.nfd-container.alignfull.nfd-p-md:not([style*="padding"]),
-.nfd-container.alignfull.nfd-p-lg:not([style*="padding"]),
-.nfd-container.alignfull.nfd-px-md:not([style*="padding"]),
-.nfd-container.alignfull.nfd-px-lg:not([style*="padding"]) {
+.nfd-container.nfd-p-md:not([style*="padding"]),
+.nfd-container.nfd-p-lg:not([style*="padding"]),
+.nfd-container.nfd-px-md:not([style*="padding"]),
+.nfd-container.nfd-px-lg:not([style*="padding"]) {
 	padding-left: var(--nfd-cp-p-base, 2.375rem);
 	padding-right: var(--nfd-cp-p-base, 2.375rem);
 }
