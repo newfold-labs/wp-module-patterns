@@ -11,8 +11,8 @@
 	
 	/* Spacing */
 	--nfd-cp-spacing-x-lg: clamp(2rem, 7vw, 6.25rem);
-	--nfd-cp-spacing-y-lg: clamp(2rem, 7vw, 6.25rem);
+	--nfd-cp-spacing-y-lg: clamp(4rem, 7vw, 6.25rem);
 
     --nfd-cp-spacing-x-md: clamp(2rem, 7vw, 3.5rem);
-    --nfd-cp-spacing-y-md: clamp(2rem, 7vw, 3.5rem);
+    --nfd-cp-spacing-y-md: clamp(3rem, 7vw, 3.5rem);
 }
