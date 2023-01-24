@@ -26,7 +26,7 @@
 }
 
 .nfd-text-md:not([style*="line-height"]) {
-	line-height: 1.4;
+	line-height: 1.6;
 }
 
 /* Large */

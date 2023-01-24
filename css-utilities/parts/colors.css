@@ -13,7 +13,9 @@
 	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6);
 }
 
-.nfd-bg-gray-800:not(.has-background) {
+.nfd-bg-gray-800:not(.has-background),
+.nfd-bg-gray-800:not(.has-background)
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
 	background-color: var(--nfd-cp-bg-gray-800, #161a1d);
 }
 

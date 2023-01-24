@@ -82,8 +82,18 @@
 .nfd-container:not(.is-layout-constrained)
 	> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 	max-width: var(--nfd-cp-container, 1140px);
-	margin-left: auto !important;
-	margin-right: auto !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nfd-container:not(.is-layout-constrained) > :where(.alignwide) {
+	max-width: calc(var(--nfd-cp-container, 1140px) + 116px);
+}
+
+@media (max-width: 782px) {
+	.nfd-container:not(.is-layout-constrained) > :where(.alignwide) {
+		max-width: var(--nfd-cp-container, 1140px);
+	}
 }
 
 /* Remove columns horizontal padding (TT3 adds padding to columns by default) */
@@ -93,9 +103,10 @@
 	padding-right: 0;
 }
 
-/* Remove vertical margin on spacer elements between two NFD patterns */
+/* Remove vertical margin on spacer or nfd-container elements between two NFD patterns */
 .nfd-container:has(+ .wp-block-spacer:not([style*="margin"]) + .nfd-container)
-	+ .wp-block-spacer {
+	+ .wp-block-spacer,
+.nfd-container:has(+ .nfd-container + .nfd-container) + .nfd-container {
 	margin-top: 0;
 	margin-bottom: 0;
 }
