@@ -124,10 +124,10 @@
 	
 	/* Spacing */
 	--nfd-cp-spacing-x-lg: clamp(2rem, 7vw, 6.25rem) !important;
-	--nfd-cp-spacing-y-lg: clamp(2rem, 7vw, 6.25rem) !important;
+	--nfd-cp-spacing-y-lg: clamp(4rem, 7vw, 6.25rem) !important;
 
     --nfd-cp-spacing-x-md: clamp(2rem, 7vw, 3.5rem) !important;
-    --nfd-cp-spacing-y-md: clamp(2rem, 7vw, 3.5rem) !important;
+    --nfd-cp-spacing-y-md: clamp(3rem, 7vw, 3.5rem) !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Font sizes¸                                */
@@ -152,7 +152,7 @@
 	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default)) !important;
 }
 .nfd-text-md:not([style*="line-height"]) {
-	line-height: 1.4 !important;
+	line-height: 1.6 !important;
 }
 /* Large */
 .nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
@@ -237,6 +237,10 @@
 .nfd-overlap-children-sm > *:not(:first-child) {
 	margin-left: -1rem !important;
 }
+/* Grid */
+.nfd-grid-cols-1-2-1 {
+	grid-template-columns: 1fr 2fr 1fr !important;
+}
 /* --------------------------------- Padding -------------------------------- */
 /* Padding - LG */
 .nfd-p-lg:not([style*="padding"]) {
@@ -253,9 +257,6 @@
 .nfd-pt-lg:not([style*="padding"]) {
 	padding-top: var(--nfd-cp-spacing-y-lg) !important;
 }
-.nfd-pb-lg:not([style*="padding"]) {
-	padding-bottom: var(--nfd-cp-spacing-y-lg) !important;
-}
 /* Padding - MD */
 .nfd-p-md:not([style*="padding"]) {
 	padding: var(--nfd-cp-spacing-y-md) var(--nfd-cp-spacing-x-md) !important;
@@ -268,9 +269,6 @@
 	padding-top: var(--nfd-cp-spacing-y-md) !important;
 	padding-bottom: var(--nfd-cp-spacing-y-md) !important;
 }
-.nfd-pb-md:not([style*="padding"]) {
-	padding-bottom: var(--nfd-cp-spacing-y-md) !important;
-}
 /* Padding for elements that are meant to be stacked */
 .nfd-py-stack:not([style*="padding"]) {
 	padding-top: var(--nfd-cp-p-stack, 0.75rem) !important;
@@ -281,11 +279,17 @@
 	padding-left: var(--nfd-cp-p-base, 2.375rem) !important;
 	padding-right: var(--nfd-cp-p-base, 2.375rem) !important;
 }
+.nfd-pb-lg:not([style*="padding"]) {
+	padding-bottom: var(--nfd-cp-spacing-y-lg) !important;
+}
+.nfd-pb-md:not([style*="padding"]) {
+	padding-bottom: var(--nfd-cp-spacing-y-md) !important;
+}
 /* ---------------------------- Override defaults --------------------------- */
-.nfd-container.alignfull.nfd-p-md:not([style*="padding"]),
-.nfd-container.alignfull.nfd-p-lg:not([style*="padding"]),
-.nfd-container.alignfull.nfd-px-md:not([style*="padding"]),
-.nfd-container.alignfull.nfd-px-lg:not([style*="padding"]):not([style*="padding"]) {
+.nfd-container.nfd-p-md:not([style*="padding"]),
+.nfd-container.nfd-p-lg:not([style*="padding"]),
+.nfd-container.nfd-px-md:not([style*="padding"]),
+.nfd-container.nfd-px-lg:not([style*="padding"]):not([style*="padding"]) {
 	padding-left: var(--nfd-cp-p-base, 2.375rem) !important;
 	padding-right: var(--nfd-cp-p-base, 2.375rem) !important;
 }
@@ -296,15 +300,24 @@
 	margin-left: auto !important;
 	margin-right: auto !important;
 }
+.nfd-container:not(.is-layout-constrained) > :where(.alignwide) {
+	max-width: calc(var(--nfd-cp-container, 1140px) + 116px) !important;
+}
+@media (max-width: 782px) {
+	.nfd-container:not(.is-layout-constrained) > :where(.alignwide) {
+		max-width: var(--nfd-cp-container, 1140px) !important;
+	}
+}
 /* Remove columns horizontal padding (TT3 adds padding to columns by default) */
 .nfd-container:not([style*="padding"])
 	> *:not([style*="padding"]):not([class*="nfd-p-"]):not([class*="nfd-px-"]):not([style*="padding"]) {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
-/* Remove vertical margin on spacer elements between two NFD patterns */
+/* Remove vertical margin on spacer or nfd-container elements between two NFD patterns */
 .nfd-container:has(+ .wp-block-spacer:not([style*="margin"]) + .nfd-container)
-	+ .wp-block-spacer {
+	+ .wp-block-spacer,
+.nfd-container:has(+ .nfd-container + .nfd-container) + .nfd-container {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
@@ -320,7 +333,9 @@
 .nfd-bg-gray-100:not(.has-background) {
 	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6) !important;
 }
-.nfd-bg-gray-800:not(.has-background) {
+.nfd-bg-gray-800:not(.has-background),
+.nfd-bg-gray-800:not(.has-background)
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
 	background-color: var(--nfd-cp-bg-gray-800, #161a1d) !important;
 }
 /* Border */
@@ -419,6 +434,25 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 		display: none !important;
 	}
 }
+p[style*="text-decoration"] > a {
+	text-decoration: inherit !important;
+	color: inherit !important;
+}
+/* ------------------------ Stretch cover child group ----------------------- */
+.nfd-stretch-cover-child,
+.nfd-stretch-cover-child .wp-block-cover__inner-container {
+	display: flex !important;
+	flex-direction: column !important;
+}
+.nfd-stretch-cover-child .wp-block-cover__inner-container,
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	align-items: inherit !important;
+	justify-content: inherit !important;
+	flex-grow: 1 !important;
+}
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	width: 100% !important;
+}
 /* ------------------------------ Search Block ------------------------------ */
 .nfd-wk-search .wp-block-search__input {
 	padding: 8px 16px !important;
@@ -428,6 +462,16 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 .nfd-filter-white-invert img {
 	filter: brightness(0) invert(1) !important;
 }
+/* ----------------------------- Absolute Header ---------------------------- */
+.nfd-absolute-header {
+	position: absolute !important;
+	left: 0 !important;
+	right: 0 !important;
+	z-index: 10 !important;
+}
+.nfd-absolute-header:not([style*="margin"]) {
+	margin: 0 !important;
+}
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;
@@ -435,6 +479,9 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	.md\:nfd-my-0:not([style*="margin"]) {
 		margin-top: 0px !important;
 		margin-bottom: 0px !important;
+	}
+	.md\:nfd-flex {
+		display: flex !important;
 	}
 	.md\:nfd-hidden {
 		display: none !important;
@@ -444,6 +491,9 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	}
 	.md\:nfd-items-start {
 		align-items: flex-start !important;
+	}
+	.md\:nfd-justify-start {
+		justify-content: flex-start !important;
 	}
 	.md\:nfd-justify-end {
 		justify-content: flex-end !important;
@@ -462,6 +512,9 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	}
 	.md\:nfd-rounded-lg {
 		border-radius: 0.5rem !important;
+	}
+	.md\:nfd-border-none {
+		border-style: none !important;
 	}
 	.md\:nfd-p-0:not([style*="padding"]) {
 		padding: 0px !important;
