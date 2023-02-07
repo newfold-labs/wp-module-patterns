@@ -327,7 +327,7 @@
 /* Background */
 .nfd-bg-accent:not(.has-background),
 .nfd-bg-accent:not(.has-background)
-	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background"]) {
 	background-color: var(--nfd-cp-bg-accent, #000) !important;
 }
 .nfd-bg-gray-100:not(.has-background) {
@@ -335,7 +335,7 @@
 }
 .nfd-bg-gray-800:not(.has-background),
 .nfd-bg-gray-800:not(.has-background)
-	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background"]) {
 	background-color: var(--nfd-cp-bg-gray-800, #161a1d) !important;
 }
 /* Border */
