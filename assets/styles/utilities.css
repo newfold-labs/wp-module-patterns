@@ -7,9 +7,6 @@
 .-nfd-bottom-1 {
 	bottom: -0.25rem !important;
 }
-.nfd-z-10 {
-	z-index: 10 !important;
-}
 .nfd-col-start-1 {
 	grid-column-start: 1 !important;
 }
@@ -43,18 +40,20 @@
 .nfd-row-start-1 {
 	grid-row-start: 1 !important;
 }
-.nfd-my-0:not([style*="margin"]) {
-	margin-top: 0px !important;
-	margin-bottom: 0px !important;
-}
 .nfd-mt-8:not([style*="margin"]) {
 	margin-top: 2rem !important;
 }
 .nfd-mb-8:not([style*="margin"]) {
 	margin-bottom: 2rem !important;
 }
+.nfd-mt-\[-100px\]:not([style*="margin"]) {
+	margin-top: -100px !important;
+}
 .nfd-grid {
 	display: grid !important;
+}
+.nfd-aspect-square {
+	aspect-ratio: 1 / 1 !important;
 }
 .nfd-h-full {
 	height: 100% !important;
@@ -62,8 +61,14 @@
 .nfd-w-full {
 	width: 100% !important;
 }
+.nfd-grow {
+	flex-grow: 1 !important;
+}
 .nfd-grid-cols-12 {
 	grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+}
+.nfd-grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 .nfd-grid-rows-1 {
 	grid-template-rows: repeat(1, minmax(0, 1fr)) !important;
@@ -93,13 +98,13 @@
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
 }
-.nfd-py-10:not([style*="padding"]) {
-	padding-top: 2.5rem !important;
-	padding-bottom: 2.5rem !important;
-}
 .nfd-py-5:not([style*="padding"]) {
 	padding-top: 1.25rem !important;
 	padding-bottom: 1.25rem !important;
+}
+.nfd-px-0:not([style*="padding"]) {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }
 .nfd-px-4:not([style*="padding"]) {
 	padding-left: 1rem !important;
@@ -114,14 +119,18 @@
 	/* Typography */
 	--nfd-cp-text-sm--default: 14px !important;
     --nfd-cp-text-base--default: 16px !important;
-	--nfd-cp-text-md--default: 22px !important;
+	--nfd-cp-text-md--default: 18px !important;
 	--nfd-cp-text-lg--default: clamp(1.625rem, 1.546875rem + 0.25vw, 1.75rem) !important; /* 26px - 28px */
     --nfd-cp-text-xl--default: clamp(1.75rem, 1.3594rem + 1.25vw, 2.375rem) !important; /* 28px - 38px */
 	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem) !important; /* 32px - 52px */
+	--nfd-cp-text-giga--default: clamp(3.25rem, 2.546875rem + 2.25vw, 4.375rem) !important; /* 52px - 70px */
 	
 	/* Spacing */
-	--nfd-cp-spacing-lg: clamp(2rem, 7vw, 6.25rem) !important;
-    --nfd-cp-spacing-md: clamp(2rem, 7vw, 3.5rem) !important;
+	--nfd-cp-spacing-x-lg: clamp(2rem, 7vw, 6.25rem) !important;
+	--nfd-cp-spacing-y-lg: clamp(4rem, 7vw, 6.25rem) !important;
+
+    --nfd-cp-spacing-x-md: clamp(2rem, 7vw, 3.5rem) !important;
+    --nfd-cp-spacing-y-md: clamp(3rem, 7vw, 3.5rem) !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Font sizes¸                                */
@@ -129,12 +138,6 @@
 /* Small */
 .nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-sm, var(--nfd-cp-text-sm--default)) !important;
-}
-.nfd-text-sm:not([style*="letter-spacing"]) {
-	letter-spacing: 0.05em !important;
-}
-.nfd-text-sm:not([style*="font-weight"]) {
-	font-weight: 500 !important;
 }
 /* Base */
 .nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) {
@@ -150,6 +153,9 @@
 /* Medium */
 .nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default)) !important;
+}
+.nfd-text-md:not([style*="line-height"]) {
+	line-height: 1.6 !important;
 }
 /* Large */
 .nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
@@ -190,6 +196,19 @@
 .nfd-text-huge:not([style*="font-weight"]) {
 	font-weight: 500 !important;
 }
+/* Giga */
+.nfd-text-giga:not([class="font-size"]):not([style*="font-size"]) {
+	font-size: var(--nfd-cp-text-giga, var(--nfd-cp-text-giga--default)) !important;
+}
+.nfd-text-giga:not([style*="line-height"]) {
+	line-height: 1.1 !important;
+}
+.nfd-text-giga:not([style*="letter-spacing"]) {
+	letter-spacing: -0.02em !important;
+}
+.nfd-text-giga:not([style*="font-weight"]) {
+	font-weight: 500 !important;
+}
 /* -------------------------------------------------------------------------- */
 /*                                 Font weight                                */
 /* -------------------------------------------------------------------------- */
@@ -198,36 +217,112 @@
 	font-weight: inherit !important;
 }
 /* -------------------------------------------------------------------------- */
+/*                  Override default font size in some themes                 */
+/* -------------------------------------------------------------------------- */
+.nfd-text-sm .wp-block-navigation,
+.nfd-text-base .wp-block-navigation,
+.nfd-text-md .wp-block-navigation,
+.nfd-text-sm .wp-block-button__link,
+.nfd-text-base .wp-block-button__link,
+.nfd-text-md .wp-block-button__link {
+	font-size: inherit !important;
+}
+/* -------------------------------------------------------------------------- */
 /*                                   Spacing                                  */
 /* -------------------------------------------------------------------------- */
-/* Gap */
-.nfd-normalize-gap {
-	--wp--style--block-gap: var(--nfd-cp-gap-y, 0px) !important;
-	--global--spacing-vertical: var(--nfd-cp-gap-y, 0px) !important;
+/* --------------------------------- Margin --------------------------------- */
+.entry-content > .nfd-my-0,
+.is-root-container > .nfd-my-0:not([style*="margin"]) {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
+/* Stack children */
+.nfd-overlap-children-sm > *:not(:first-child) {
+	margin-left: -1rem !important;
+}
+/* Grid */
+.nfd-grid-cols-1-2-1 {
+	grid-template-columns: 1fr 2fr 1fr !important;
+}
+/* --------------------------------- Padding -------------------------------- */
 /* Padding - LG */
 .nfd-p-lg:not([style*="padding"]) {
-	padding: var(--nfd-cp-spacing-lg) !important;
+	padding: var(--nfd-cp-spacing-y-lg) var(--nfd-cp-spacing-x-lg) !important;
 }
 .nfd-px-lg:not([style*="padding"]) {
-	padding-left: var(--nfd-cp-spacing-lg) !important;
-	padding-right: var(--nfd-cp-spacing-lg) !important;
+	padding-left: var(--nfd-cp-spacing-x-lg) !important;
+	padding-right: var(--nfd-cp-spacing-x-lg) !important;
 }
 .nfd-py-lg:not([style*="padding"]) {
-	padding-top: var(--nfd-cp-spacing-lg) !important;
-	padding-bottom: var(--nfd-cp-spacing-lg) !important;
+	padding-top: var(--nfd-cp-spacing-y-lg) !important;
+	padding-bottom: var(--nfd-cp-spacing-y-lg) !important;
+}
+.nfd-pt-lg:not([style*="padding"]) {
+	padding-top: var(--nfd-cp-spacing-y-lg) !important;
 }
 /* Padding - MD */
 .nfd-p-md:not([style*="padding"]) {
-	padding: var(--nfd-cp-spacing-md) !important;
+	padding: var(--nfd-cp-spacing-y-md) var(--nfd-cp-spacing-x-md) !important;
 }
 .nfd-px-md:not([style*="padding"]) {
-	padding-left: var(--nfd-cp-spacing-md) !important;
-	padding-right: var(--nfd-cp-spacing-md) !important;
+	padding-left: var(--nfd-cp-spacing-x-md) !important;
+	padding-right: var(--nfd-cp-spacing-x-md) !important;
 }
 .nfd-py-md:not([style*="padding"]) {
-	padding-top: var(--nfd-cp-spacing-md) !important;
-	padding-bottom: var(--nfd-cp-spacing-md) !important;
+	padding-top: var(--nfd-cp-spacing-y-md) !important;
+	padding-bottom: var(--nfd-cp-spacing-y-md) !important;
+}
+/* Padding for elements that are meant to be stacked */
+.nfd-py-stack:not([style*="padding"]) {
+	padding-top: var(--nfd-cp-p-stack, 0.75rem) !important;
+	padding-bottom: var(--nfd-cp-p-stack, 0.75rem) !important;
+}
+/* Base horizontal padding - inherit from theme to keep consistency */
+.nfd-px-base:not([style*="padding"]) {
+	padding-left: var(--nfd-cp-p-base, 2.375rem) !important;
+	padding-right: var(--nfd-cp-p-base, 2.375rem) !important;
+}
+.nfd-pb-lg:not([style*="padding"]) {
+	padding-bottom: var(--nfd-cp-spacing-y-lg) !important;
+}
+.nfd-pb-md:not([style*="padding"]) {
+	padding-bottom: var(--nfd-cp-spacing-y-md) !important;
+}
+/* ---------------------------- Override defaults --------------------------- */
+.nfd-container.nfd-p-md:not([style*="padding"]),
+.nfd-container.nfd-p-lg:not([style*="padding"]),
+.nfd-container.nfd-px-md:not([style*="padding"]),
+.nfd-container.nfd-px-lg:not([style*="padding"]):not([style*="padding"]) {
+	padding-left: var(--nfd-cp-p-base, 2.375rem) !important;
+	padding-right: var(--nfd-cp-p-base, 2.375rem) !important;
+}
+/* Content width */
+.nfd-container:not(.is-layout-constrained)
+	> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: var(--nfd-cp-container, 1140px) !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.nfd-container:not(.is-layout-constrained) > :where(.alignwide) {
+	max-width: calc(var(--nfd-cp-container, 1140px) + 116px) !important;
+}
+@media (max-width: 782px) {
+	.nfd-container:not(.is-layout-constrained) > :where(.alignwide) {
+		max-width: var(--nfd-cp-container, 1140px) !important;
+	}
+}
+/* Remove columns horizontal padding (TT3 adds padding to columns by default) */
+.nfd-container:not([style*="padding"])
+	> *:not([style*="padding"]):not([class*="nfd-p-"]):not([class*="nfd-px-"]):not([style*="padding"]) {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+/* Remove vertical margin on spacer or nfd-container elements between two NFD patterns */
+.nfd-container:has(+ .wp-block-spacer:not([style*="margin"]) + .nfd-container)
+	+ .wp-block-spacer,
+.nfd-container:has(+ .nfd-container + .nfd-container) + .nfd-container {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                   Colors                                   */
@@ -235,13 +330,15 @@
 /* Background */
 .nfd-bg-accent:not(.has-background),
 .nfd-bg-accent:not(.has-background)
-	.wp-block-cover__background:not([class*="background-color"]):not([style*="background-color"]) {
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background"]) {
 	background-color: var(--nfd-cp-bg-accent, #000) !important;
 }
 .nfd-bg-gray-100:not(.has-background) {
 	background-color: var(--nfd-cp-bg-gray-100, #f3f4f6) !important;
 }
-.nfd-bg-gray-800:not(.has-background) {
+.nfd-bg-gray-800:not(.has-background),
+.nfd-bg-gray-800:not(.has-background)
+	.wp-block-cover__background:not([class*="background-color"]):not([style*="background"]) {
 	background-color: var(--nfd-cp-bg-gray-800, #161a1d) !important;
 }
 /* Border */
@@ -251,19 +348,132 @@
 	border-color: var(--nfd-cp-border-accent, #000) !important;
 }
 /* Text */
-.nfd-text-primary:not(.has-text-color) {
+.nfd-text-primary:not(.has-text-color),
+.wp-block-button.nfd-text-primary > a:not(.has-text-color) {
 	color: var(--nfd-cp-text-primary, currentColor) !important;
 }
-.nfd-text-secondary:not(.has-text-color) {
+.nfd-text-secondary:not(.has-text-color),
+.wp-block-button.nfd-text-secondary > a:not(.has-text-color) {
 	color: var(--nfd-cp-text-secondary, currentColor) !important;
 }
-.nfd-text-current:not(.has-text-color) {
+.nfd-text-current:not(.has-text-color),
+.wp-block-navigation.nfd-text-current a {
 	color: currentColor !important;
 }
-/* Text Opacity */
-.nfd-text-opacity-80:has(p:not(.has-text-color)),
-p.nfd-text-opacity-80:not(.has-text-color) {
+/* Paragraph and links */
+.nfd-text-opacity-80
+	p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-opacity-80 time:not(.has-text-color):not(.has-background) {
 	opacity: 0.8 !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                 Query Loop                                 */
+/* -------------------------------------------------------------------------- */
+/* --------------------------------- Columns -------------------------------- */
+.nfd-wk-loop > .columns-2,
+.nfd-wk-loop > .columns-3,
+.nfd-wk-loop > .columns-4 {
+	display: grid !important;
+	gap: 3rem !important;
+}
+.nfd-wk-loop > .columns-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+@media (max-width: 782px) {
+	.nfd-wk-loop > .columns-2 {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	}
+}
+.nfd-wk-loop > .columns-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+@media (max-width: 782px) {
+	.nfd-wk-loop > .columns-3 {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	}
+}
+.nfd-wk-loop > .columns-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+@media (max-width: 782px) {
+	.nfd-wk-loop > .columns-4 {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	}
+}
+.nfd-wk-loop > .columns-2 > li,
+.nfd-wk-loop > .columns-3 > li,
+.nfd-wk-loop > .columns-4 > li {
+	width: auto !important;
+}
+/* ---------------------------------- Misc ---------------------------------- */
+.nfd-wk-loop li a {
+	text-decoration-line: none !important;
+}
+.nfd-wk-loop .wp-post-image:not([style*="height"]):not([style*="width"]),
+.nfd-wk-loop
+	.wp-block-post-featured-image
+	img:not([style*="height"]):not([style*="width"]) {
+	aspect-ratio: 3/2 !important;
+	-o-object-fit: cover !important;
+	   object-fit: cover !important;
+}
+.nfd-wk-loop .wp-block-post-featured-image {
+	transition-property: opacity !important;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+	transition-duration: 100ms !important;
+}
+.nfd-wk-loop .wp-block-post-featured-image:has(a:hover) {
+	opacity: 0.8 !important;
+}
+.nfd-wk-loop .wp-block-post-title > a:hover {
+	text-decoration-line: underline !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                    Misc                                    */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 782px) {
+	.md\:nfd-no-br > br {
+		display: none !important;
+	}
+}
+p[style*="text-decoration"] > a {
+	text-decoration: inherit !important;
+	color: inherit !important;
+}
+/* ------------------------ Stretch cover child group ----------------------- */
+.nfd-stretch-cover-child,
+.nfd-stretch-cover-child .wp-block-cover__inner-container {
+	display: flex !important;
+	flex-direction: column !important;
+}
+.nfd-stretch-cover-child .wp-block-cover__inner-container,
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	align-items: inherit !important;
+	justify-content: inherit !important;
+	flex-grow: 1 !important;
+}
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	width: 100% !important;
+}
+/* ------------------------------ Search Block ------------------------------ */
+.nfd-wk-search .wp-block-search__input {
+	padding: 8px 16px !important;
+	min-height: 50px !important;
+}
+/* --------------------------------- Filters -------------------------------- */
+.nfd-filter-white-invert img {
+	filter: brightness(0) invert(1) !important;
+}
+/* ----------------------------- Absolute Header ---------------------------- */
+.nfd-absolute-header {
+	position: absolute !important;
+	left: 0 !important;
+	right: 0 !important;
+	z-index: 10 !important;
+}
+.nfd-absolute-header:not([style*="margin"]) {
+	margin: 0 !important;
 }
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
@@ -273,14 +483,41 @@ p.nfd-text-opacity-80:not(.has-text-color) {
 		margin-top: 0px !important;
 		margin-bottom: 0px !important;
 	}
+	.md\:nfd-flex {
+		display: flex !important;
+	}
 	.md\:nfd-hidden {
 		display: none !important;
+	}
+	.md\:nfd-grid-cols-1 {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	}
+	.md\:nfd-items-start {
+		align-items: flex-start !important;
+	}
+	.md\:nfd-justify-start {
+		justify-content: flex-start !important;
+	}
+	.md\:nfd-justify-end {
+		justify-content: flex-end !important;
+	}
+	.md\:nfd-justify-center {
+		justify-content: center !important;
 	}
 	.md\:nfd-gap-5 {
 		gap: 1.25rem !important;
 	}
 	.md\:nfd-gap-8 {
 		gap: 2rem !important;
+	}
+	.md\:nfd-self-start {
+		align-self: flex-start !important;
+	}
+	.md\:nfd-rounded-lg {
+		border-radius: 0.5rem !important;
+	}
+	.md\:nfd-border-none {
+		border-style: none !important;
 	}
 	.md\:nfd-p-0:not([style*="padding"]) {
 		padding: 0px !important;
@@ -295,5 +532,8 @@ p.nfd-text-opacity-80:not(.has-text-color) {
 	}
 	.md\:nfd-text-left {
 		text-align: left !important;
+	}
+	.md\:nfd-text-center {
+		text-align: center !important;
 	}
 }

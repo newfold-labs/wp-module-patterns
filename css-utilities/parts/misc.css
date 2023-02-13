@@ -1,0 +1,55 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Misc                                    */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 782px) {
+	.md\:nfd-no-br > br {
+		display: none;
+	}
+}
+
+p[style*="text-decoration"] > a {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+/* ------------------------ Stretch cover child group ----------------------- */
+.nfd-stretch-cover-child,
+.nfd-stretch-cover-child .wp-block-cover__inner-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.nfd-stretch-cover-child .wp-block-cover__inner-container,
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	align-items: inherit;
+	justify-content: inherit;
+	flex-grow: 1;
+}
+
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	width: 100%;
+}
+
+/* ------------------------------ Search Block ------------------------------ */
+.nfd-wk-search .wp-block-search__input {
+	padding: 8px 16px;
+	min-height: 50px;
+}
+
+/* --------------------------------- Filters -------------------------------- */
+.nfd-filter-white-invert img {
+	filter: brightness(0) invert(1);
+}
+
+/* ----------------------------- Absolute Header ---------------------------- */
+.nfd-absolute-header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+.nfd-absolute-header:not([style*="margin"]) {
+	margin: 0 !important;
+}

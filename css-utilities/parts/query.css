@@ -1,0 +1,52 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Query Loop                                 */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------------- Columns -------------------------------- */
+.nfd-wk-loop > .columns-2,
+.nfd-wk-loop > .columns-3,
+.nfd-wk-loop > .columns-4 {
+	@apply nfd-grid nfd-gap-12;
+}
+
+.nfd-wk-loop > .columns-2 {
+	@apply nfd-grid-cols-2 md:nfd-grid-cols-1;
+}
+
+.nfd-wk-loop > .columns-3 {
+	@apply nfd-grid-cols-3 md:nfd-grid-cols-1;
+}
+
+.nfd-wk-loop > .columns-4 {
+	@apply nfd-grid-cols-4 md:nfd-grid-cols-1;
+}
+
+.nfd-wk-loop > .columns-2 > li,
+.nfd-wk-loop > .columns-3 > li,
+.nfd-wk-loop > .columns-4 > li {
+	@apply nfd-w-auto;
+}
+
+/* ---------------------------------- Misc ---------------------------------- */
+.nfd-wk-loop li a {
+	@apply nfd-no-underline;
+}
+
+.nfd-wk-loop .wp-post-image:not([style*="height"]):not([style*="width"]),
+.nfd-wk-loop
+	.wp-block-post-featured-image
+	img:not([style*="height"]):not([style*="width"]) {
+	@apply nfd-aspect-[3/2] nfd-object-cover;
+}
+
+.nfd-wk-loop .wp-block-post-featured-image {
+	@apply nfd-transition-opacity nfd-duration-100;
+}
+
+.nfd-wk-loop .wp-block-post-featured-image:has(a:hover) {
+	@apply nfd-opacity-80;
+}
+
+.nfd-wk-loop .wp-block-post-title > a:hover {
+	@apply nfd-underline;
+}

@@ -6,3 +6,5 @@
 @import "parts/typography";
 @import "parts/spacing";
 @import "parts/colors";
+@import "parts/query";
+@import "parts/misc";
