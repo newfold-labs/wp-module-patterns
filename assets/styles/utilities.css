@@ -52,6 +52,9 @@
 .nfd-grid {
 	display: grid !important;
 }
+.nfd-aspect-square {
+	aspect-ratio: 1 / 1 !important;
+}
 .nfd-h-full {
 	height: 100% !important;
 }

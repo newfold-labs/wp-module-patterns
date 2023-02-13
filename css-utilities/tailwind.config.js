@@ -14,6 +14,7 @@ module.exports = {
 
 	// Include Talwind utility classes we need.
 	safelist: [
+		'nfd-aspect-square',
 		'nfd-grid',
 		'nfd-grid-cols-12',
 		'nfd-grid-cols-2',
