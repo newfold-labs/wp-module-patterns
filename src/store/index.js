@@ -6,11 +6,11 @@ import * as actions from './actions';
 import * as selectors from './selectors';
 import reducer from './reducer';
 
-export const nfdCloudPatternsStoreOptions = {
+export const nfdWonderBlocksStoreOptions = {
 	reducer,
 	actions,
 	selectors,
 };
 
-export const store = createReduxStore(STORE_NAME, nfdCloudPatternsStoreOptions);
+export const store = createReduxStore(STORE_NAME, nfdWonderBlocksStoreOptions);
 register(store);

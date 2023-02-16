@@ -14,28 +14,29 @@ function nfd_wp_module_patterns_register() {
 	register(
 		array(
 			'name'     => 'wp-module-patterns',
-			'label'    => __( 'Patterns', 'nfd-wp-module-patterns' ),
+			'label'    => __( 'Wonder Blocks', 'nfd-wp-module-patterns' ),
 			'callback' => function ( Container $container ) {
 
 				// Set Global Constants.
-				if ( ! defined( 'NFD_PATTERNS_VERSION' ) ) {
-					define( 'NFD_PATTERNS_VERSION', '0.1.0' );
+				if ( ! defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
+					define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.0' );
 				}
-				if ( ! defined( 'NFD_PATTERNS_DIR' ) ) {
-					define( 'NFD_PATTERNS_DIR', __DIR__ );
+				if ( ! defined( 'NFD_WONDER_BLOCKS_DIR' ) ) {
+					define( 'NFD_WONDER_BLOCKS_DIR', __DIR__ );
 				}
-				if ( ! defined( 'NFD_PATTERNS_BUILD_DIR' ) && defined( 'NFD_PATTERNS_VERSION' ) ) {
-					define( 'NFD_PATTERNS_BUILD_DIR', __DIR__ . '/build/' . NFD_PATTERNS_VERSION );
+				if ( ! defined( 'NFD_WONDER_BLOCKS_BUILD_DIR' ) && defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
+					define( 'NFD_WONDER_BLOCKS_BUILD_DIR', __DIR__ . '/build/' . NFD_WONDER_BLOCKS_VERSION );
 				}
-				if ( ! defined( 'NFD_PATTERNS_BUILD_URL' ) && defined( 'NFD_PATTERNS_VERSION' ) ) {
-					define( 'NFD_PATTERNS_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_PATTERNS_VERSION );
+				if ( ! defined( 'NFD_WONDER_BLOCKS_BUILD_URL' ) && defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
+					define( 'NFD_WONDER_BLOCKS_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_WONDER_BLOCKS_VERSION );
 				}
 
-				if ( ! defined( 'NFD_PATTERNS_BUILD_URL' ) && defined( 'NFD_PATTERNS_VERSION' ) ) {
-					define( 'NFD_PATTERNS_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_PATTERNS_VERSION );
-				}
-				if ( ! defined( 'NFD_PATTERNS_URL' ) ) {
-					define( 'NFD_PATTERNS_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns' );
+				// if ( ! defined( 'NFD_WONDER_BLOCKS_BUILD_URL' ) && defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
+				// 	define( 'NFD_WONDER_BLOCKS_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_WONDER_BLOCKS_VERSION );
+				// }
+
+				if ( ! defined( 'NFD_WONDER_BLOCKS_URL' ) ) {
+					define( 'NFD_WONDER_BLOCKS_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns' );
 				}
 
 				new Patterns( $container );

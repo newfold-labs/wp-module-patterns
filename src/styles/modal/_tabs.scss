@@ -1,28 +1,29 @@
 /* -------------------------------------------------------------------------- */
 /*                              Tab panel styles.                             */
 /* -------------------------------------------------------------------------- */
-.nfd-cloud-patterns-tab-panel {
+.nfd-wba-tab-panel {
 	.components-tab-panel__tabs {
 		display: flex;
+		border-bottom: solid 1px rgba(0, 0, 0, 0.1);
 	}
 
 	.components-tab-panel__tabs-item {
 		flex-grow: 1;
-		max-height: 40px;
 		padding-top: 0;
 		padding-bottom: 0;
+		margin-bottom: -1px;
+		color: currentColor;
 
 		&:first-child {
 			padding-left: 24px;
 		}
 
-		&.nfd-cloud-patterns--is-active {
-			box-shadow: inset 0 calc(-1 * var(--wp-admin-border-width-focus))
-				var(--wp-admin-theme-color);
+		&.nfd-wba--is-active {
+			color: var(--nfd-wba-color-dark);
+			box-shadow: inset 0 -3px var(--wp-admin-theme-color);
 		}
 
-		&:not(.nfd-cloud-patterns--is-active):focus,
-		&:not(.nfd-cloud-patterns--is-active):focus-within {
+		&:not(.nfd-wba--is-active):focus {
 			box-shadow: none;
 			outline: none;
 		}

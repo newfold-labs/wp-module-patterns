@@ -1,7 +1,7 @@
 {
 	"name": "@newfold-labs/wp-module-patterns",
 	"version": "0.1.0",
-	"description": "WordPress Cloud Patterns",
+	"description": "Wonder Blocks",
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"author": {
@@ -9,32 +9,32 @@
 		"email": "hristina.conjic@newfold.com"
 	},
 	"scripts": {
-		"build": "wp-scripts build ./src/patterns.js",
+		"build": "concurrently \"wp-scripts build ./src/wonder-blocks.js\" \"npm run utils:prod\"",
 		"format": "wp-scripts format ./src",
-		"start": "concurrently \"wp-scripts start ./src/patterns.js\" \"npm run utils:dev\"",
+		"start": "concurrently \"wp-scripts start ./src/wonder-blocks.js\" \"npm run utils:dev\"",
 		"lint:js": "wp-scripts lint-js ./src",
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
 		"utils:dev": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css -w --env development",
 		"utils:prod": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css --env production"
 	},
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^13.4.0",
-		"@wordpress/prettier-config": "^2.3.0",
-		"@wordpress/scripts": "^24.4.0",
-		"autoprefixer": "^10.4.12",
-		"cssnano": "^5.1.14",
-		"postcss": "^8.4.18",
-		"postcss-cli": "^10.0.0",
-		"postcss-import": "^15.0.0",
+		"@wordpress/eslint-plugin": "^14.0.0",
+		"@wordpress/prettier-config": "^2.10.0",
+		"@wordpress/scripts": "^25.4.0",
+		"autoprefixer": "^10.4.13",
+		"cssnano": "^5.1.15",
+		"postcss": "^8.4.21",
+		"postcss-cli": "^10.1.0",
+		"postcss-import": "^15.1.0",
 		"postcss-safe-important": "^1.2.1",
-		"prettier-plugin-tailwindcss": "^0.1.13",
-		"tailwindcss": "^3.2.1",
+		"prettier-plugin-tailwindcss": "^0.2.3",
+		"tailwindcss": "^3.2.6",
 		"webpack-merge": "^5.8.0"
 	},
 	"dependencies": {
-		"@wordpress/icons": "^9.11.0",
+		"@wordpress/icons": "^9.18.0",
 		"classnames": "^2.3.2",
-		"concurrently": "^7.5.0",
-		"swr": "^1.3.0"
+		"concurrently": "^7.6.0",
+		"swr": "^2.0.3"
 	}
 }

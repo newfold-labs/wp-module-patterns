@@ -6,7 +6,7 @@ const version = require('./package.json').version; // never require full config!
 const nfdCloudPatternsWebpackConfig = {
 	output: {
 		path: path.resolve(process.cwd(), `build/${version}`),
-		library: ['newfold', 'CloudPatterns', '[name]'],
+		library: ['newfold', 'WonderBlocks', '[name]'],
 		libraryTarget: 'window',
 	},
 };

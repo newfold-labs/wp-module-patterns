@@ -1,17 +1,30 @@
+/**
+ * WordPress dependencies
+ */
 import { Button } from '@wordpress/components';
-import { dispatch } from '@wordpress/data';
+import { dispatch, useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
-import { Icon, symbol } from '@wordpress/icons';
+import { buttons, Icon } from '@wordpress/icons';
+import classNames from 'classnames';
 
+/**
+ * Internal dependencies
+ */
 import { store as nfdPatternsStore } from '../store';
 
 const ToolbarButton = () => {
+	const { isModalOpen } = useSelect((select) => ({
+		isModalOpen: select(nfdPatternsStore).isModalOpen(),
+	}));
 	return (
 		<>
 			<Button
-				icon={<Icon icon={symbol} />}
-				text={__('Cloud Patterns', 'nfd-patterns')}
-				className="nfd-ml-2 nfd-flex nfd-h-9 nfd-shrink-0 nfd-gap-1 nfd-bg-gray-100"
+				icon={<Icon icon={buttons} />}
+				text={__('Wonder Blocks', 'nfd-wonder-blocks')}
+				className={classNames(
+					'nfd-wba-ml-2 nfd-wba-flex nfd-wba-h-9 nfd-wba-shrink-0 nfd-wba-gap-1 nfd-wba-bg-brand nfd-wba-text-white hover:nfd-wba-bg-brand-darker hover:nfd-wba-text-white focus-visible:nfd-wba-text-white active:!nfd-wba-text-white',
+					isModalOpen && '!nfd-wba-bg-dark'
+				)}
 				onClick={() => dispatch(nfdPatternsStore).setIsModalOpen(true)}
 			/>
 		</>

@@ -1,0 +1,10 @@
+/* -------------------------------------------------------------------------- */
+/*                  WordPress admin toolbar specific styles.                  */
+/* -------------------------------------------------------------------------- */
+#nfd-wba-toolbar-button > button {
+	padding: 0 15px 0 12px;
+
+	&:focus {
+		box-shadow: 0 0 0 1px #fff, 0 0 0 3px var(--nfd-wba-color-brand);
+	}
+}

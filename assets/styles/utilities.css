@@ -1,11 +1,11 @@
 .nfd-relative {
 	position: relative !important;
 }
-.-nfd-top-1 {
-	top: -0.25rem !important;
-}
 .-nfd-bottom-1 {
 	bottom: -0.25rem !important;
+}
+.-nfd-top-1 {
+	top: -0.25rem !important;
 }
 .nfd-col-start-1 {
 	grid-column-start: 1 !important;
@@ -22,6 +22,12 @@
 .nfd-col-start-7 {
 	grid-column-start: 7 !important;
 }
+.nfd-col-end-10 {
+	grid-column-end: 10 !important;
+}
+.nfd-col-end-13 {
+	grid-column-end: 13 !important;
+}
 .nfd-col-end-7 {
 	grid-column-end: 7 !important;
 }
@@ -31,20 +37,14 @@
 .nfd-col-end-9 {
 	grid-column-end: 9 !important;
 }
-.nfd-col-end-10 {
-	grid-column-end: 10 !important;
-}
-.nfd-col-end-13 {
-	grid-column-end: 13 !important;
-}
 .nfd-row-start-1 {
 	grid-row-start: 1 !important;
 }
-.nfd-mt-8:not([style*="margin"]) {
-	margin-top: 2rem !important;
-}
 .nfd-mb-8:not([style*="margin"]) {
 	margin-bottom: 2rem !important;
+}
+.nfd-mt-8:not([style*="margin"]) {
+	margin-top: 2rem !important;
 }
 .nfd-mt-\[-100px\]:not([style*="margin"]) {
 	margin-top: -100px !important;
@@ -82,6 +82,9 @@
 .nfd-p-0:not([style*="padding"]) {
 	padding: 0px !important;
 }
+.nfd-p-10:not([style*="padding"]) {
+	padding: 2.5rem !important;
+}
 .nfd-p-2:not([style*="padding"]) {
 	padding: 0.5rem !important;
 }
@@ -90,17 +93,6 @@
 }
 .nfd-p-8:not([style*="padding"]) {
 	padding: 2rem !important;
-}
-.nfd-p-10:not([style*="padding"]) {
-	padding: 2.5rem !important;
-}
-.nfd-py-0:not([style*="padding"]) {
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
-}
-.nfd-py-5:not([style*="padding"]) {
-	padding-top: 1.25rem !important;
-	padding-bottom: 1.25rem !important;
 }
 .nfd-px-0:not([style*="padding"]) {
 	padding-left: 0px !important;
@@ -113,6 +105,14 @@
 .nfd-px-8:not([style*="padding"]) {
 	padding-left: 2rem !important;
 	padding-right: 2rem !important;
+}
+.nfd-py-0:not([style*="padding"]) {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.nfd-py-5:not([style*="padding"]) {
+	padding-top: 1.25rem !important;
+	padding-bottom: 1.25rem !important;
 }
 /* prettier-ignore */
 :root {

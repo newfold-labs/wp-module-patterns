@@ -2,7 +2,7 @@
 
 namespace NewfoldLabs\WP\Module\Patterns;
 
-class LoadAssets {
+class CSSUtilities {
 
 	/**
 	 * Constructor.
@@ -20,15 +20,15 @@ class LoadAssets {
 	public function enqueue() {
 
 		\wp_register_style( 
-			'nfd-patterns-utilities',
-			NFD_PATTERNS_URL . '/assets/styles/utilities.css',
+			'nfd-wonder-blocks-utilities',
+			NFD_WONDER_BLOCKS_URL . '/assets/styles/utilities.css',
 			array(),
-			NFD_PATTERNS_VERSION
+			NFD_WONDER_BLOCKS_VERSION
 		);
 
-		\wp_enqueue_style( 'nfd-patterns-utilities' );
+		\wp_enqueue_style( 'nfd-wonder-blocks-utilities' );
 		
-		\wp_add_inline_style( 'nfd-patterns-utilities', $this->get_inline_css() );
+		\wp_add_inline_style( 'nfd-wonder-blocks-utilities', $this->get_inline_css() );
 	}
 	
 	private function get_inline_css() {

@@ -1,0 +1,35 @@
+/* -------------------------------------------------------------------------- */
+/*                                CSS Variables                               */
+/* -------------------------------------------------------------------------- */
+:root {
+	/* --------------------------------- Colors --------------------------------- */
+	/* Dark. */
+	--nfd-wba-color-dark: #1e1e1e;
+	--nfd-wba-color-dark-rgb: 30 30 30;
+
+	// lighter.
+	--nfd-wba-color-dark-lighter: #3c434a;
+	--nfd-wba-color-dark-lighter-rgb: 60 67 74;
+
+	// Brand green.
+	--nfd-wba-color-brand: #459a42;
+	--nfd-wba-color-brand-rgb: 69 154 66;
+
+	// 5% darker.
+	--nfd-wba-color-brand-darker: #3e8f3b;
+	--nfd-wba-color-brand-darker-rgb: 62 143 59;
+
+	// Grey.
+	--nfd-wba-color-grey: #eeeeee;
+	--nfd-wba-color-grey-rgb: 238 238 238;
+
+	--nfd-wba-color-grey-darker: #aeaeae;
+	--nfd-wba-color-grey-darker-rgb: 174 174 174;
+
+	/* ---------------------------------- Sizes --------------------------------- */
+	--nfd-wba-sidebar-width: 290px;
+
+	/* ------------------------------- Transition ------------------------------- */
+	--nfd-wba-transition-duration: 100ms;
+	--nfd-wba-transition-timing: linear;
+}

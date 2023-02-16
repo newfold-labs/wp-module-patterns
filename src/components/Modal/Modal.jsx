@@ -37,13 +37,13 @@ const Modal = () => {
 		<WPModal
 			__experimentalHideHeader={true}
 			aria-expanded={true}
-			className="nfd-cloud-patterns-modal nfd-shadow-none sm:nfd-max-h-[90%] md:nfd-max-w-[90%]"
+			className="nfd-wba-modal nfd-wba-shadow-none sm:nfd-wba-max-h-[90%] md:nfd-wba-max-w-[90%]"
 			onRequestClose={() =>
 				dispatch(nfdPatternsStore).setIsModalOpen(false)
 			}
 			isFullScreen={true}
 		>
-			<div className="nfd-flex nfd-grow nfd-flex-wrap nfd-bg-white lg:nfd-flex-nowrap">
+			<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-wrap nfd-wba-bg-white nfd-wba-text-dark-lighter lg:nfd-wba-flex-nowrap">
 				<Sidebar
 					selectedTab={selectedTab}
 					setSelectedTab={setSelectedTab}

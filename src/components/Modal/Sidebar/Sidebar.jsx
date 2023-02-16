@@ -13,12 +13,12 @@ import TemplatesList from './TemplatesList';
 
 const Sidebar = ({ selectedTab, setSelectedTab }) => {
 	return (
-		<div className="nfd-flex nfd-w-full nfd-max-w-[290px] nfd-shrink-0 nfd-flex-col nfd-border-0 nfd-border-solid md:nfd-border-r md:nfd-border-black/10">
+		<div className="nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[var(--nfd-wba-sidebar-width)] nfd-wba-shrink-0 nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-solid md:nfd-wba-border-r md:nfd-wba-border-black/10">
 			<Logo />
 
 			<TabPanel
-				className="nfd-cloud-patterns-tab-panel nfd-flex nfd-grow nfd-flex-col"
-				activeClass="nfd-cloud-patterns--is-active"
+				className="nfd-wba-tab-panel nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-black/10"
+				activeClass="nfd-wba--is-active"
 				initialTabName={selectedTab}
 				onSelect={(tab) => {
 					setSelectedTab(tab);
@@ -26,11 +26,11 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
 				tabs={[
 					{
 						name: 'patterns',
-						title: __('Patterns', 'nfd-cloud-patterns'),
+						title: __('Patterns', 'nfd-wonder-blocks'),
 					},
 					{
 						name: 'templates',
-						title: __('Templates', 'nfd-cloud-patterns'),
+						title: __('Templates', 'nfd-wonder-blocks'),
 					},
 				]}
 			>

@@ -2,22 +2,24 @@
  * WordPress dependencies
  */
 import apiFetch from '@wordpress/api-fetch';
+import { dispatch } from '@wordpress/data';
 
 /**
  * Internal dependencies
  */
-import { NFD_REST_BASE } from '../../../constants';
+import { NFD_WONDER_BLOCKS_REST_URL } from '../../../constants';
 import ErrorLoading from '../../ErrorLoading';
 import Loading from '../../Loading';
+import { store as nfdPatternsStore } from '../../../store';
 
 /**
  * External dependencies
  */
 import useSWR from 'swr';
-import ListItem from './ListItem';
+import ListElement from './ListElement';
 
 /**
- * Fetcher function for useSWR
+ * Fetcher function for useSWR.
  *
  * @param {...any} args
  * @return {Promise} Returns the response of the apiFetch function.
@@ -27,33 +29,54 @@ const fetcher = (...args) => apiFetch(...args).then((res) => res);
 const PatternsList = () => {
 	const { data, error, isValidating } = useSWR(
 		{
-			url: `${NFD_REST_BASE}/categories`,
+			url: `${NFD_WONDER_BLOCKS_REST_URL}/categories`,
 			method: 'GET',
 		},
 		fetcher
 	);
+
 	return (
 		<>
 			{!data && isValidating && <Loading />}
 			{!data && error && <ErrorLoading />}
 
 			{data && (
-				<ul className="nfd-flex nfd-list-none nfd-flex-col">
-					{data.map((category) => {
-						return (
-							<ListItem
-								key={category.id}
-								category={category}
-								onClick={() => {
-									alert('click!');
-								}}
-							/>
-						);
-					})}
-				</ul>
-			)}
+				<>
+					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md">
+						{data.map((category) => {
+							return (
+								<ListElement
+									key={category.id}
+									category={category}
+									onClick={() => {
+										dispatch(
+											nfdPatternsStore
+										).setActivePatternCategory(
+											category?.title
+										);
+									}}
+								/>
+							);
+						})}
+					</ul>
 
-			<pre>{JSON.stringify(data, null, 2)}</pre>
+					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-black/10 nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md">
+						<ListElement
+							category={{
+								id: 'favorite-patterns',
+								label: 'Favorites',
+								title: 'favorites',
+								count: 3,
+							}}
+							onClick={() => {
+								dispatch(
+									nfdPatternsStore
+								).setActivePatternCategory('favorites');
+							}}
+						/>
+					</ul>
+				</>
+			)}
 		</>
 	);
 };

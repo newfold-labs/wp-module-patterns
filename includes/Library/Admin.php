@@ -18,38 +18,38 @@ final class Admin {
 	 * Register assets.
 	 */
 	public static function register_assets() {
-		$asset_file = NFD_PATTERNS_BUILD_DIR . '/patterns.asset.php';
+		$asset_file = NFD_WONDER_BLOCKS_BUILD_DIR . '/wonder-blocks.asset.php';
 
 		if ( is_readable( $asset_file ) ) {
 			$asset = include_once $asset_file;
 
 			\wp_register_script(
-				'nfd-cloud-patterns',
-				NFD_PATTERNS_BUILD_URL . '/patterns.js',
+				'nfd-wonder-blocks',
+				NFD_WONDER_BLOCKS_BUILD_URL . '/wonder-blocks.js',
 				array_merge( $asset['dependencies'], array() ),
 				$asset['version'],
 				true
 			);
 
 			\wp_register_style(
-				'nfd-cloud-patterns',
-				NFD_PATTERNS_BUILD_URL . '/patterns.css',
+				'nfd-wonder-blocks',
+				NFD_WONDER_BLOCKS_BUILD_URL . '/wonder-blocks.css',
 				array(),
 				$asset['version']
 			);
 			
 			\wp_localize_script(
-				'nfd-cloud-patterns',
-				'nfdCloudPatterns',
+				'nfd-wonder-blocks',
+				'nfdWonderBlocks',
 				array(
 					'nonce' => \wp_create_nonce('wp_rest'),
-					// 'baseUrl' => \esc_url_raw( rest_url( 'nfd-cloud-patterns/v1' ) ),
-					'baseUrl' => 'http://localhost:3000',
+					// 'baseUrl' => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
+					'restURL' => 'http://localhost:3000',
 				)
 			);
 
-			\wp_enqueue_script( 'nfd-cloud-patterns' );
-			\wp_enqueue_style( 'nfd-cloud-patterns' );
+			\wp_enqueue_script( 'nfd-wonder-blocks' );
+			\wp_enqueue_style( 'nfd-wonder-blocks' );
 		}
 	}
 

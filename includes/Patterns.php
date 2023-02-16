@@ -28,9 +28,7 @@ class Patterns {
 			new PatternsLibrary();
 		}
 
-		// Module functionality goes here
-		new LoadAssets();
-
+		new CSSUtilities();
 	}
 
 }

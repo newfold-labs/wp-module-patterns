@@ -1,3 +1,6 @@
+/**
+ * WordPress dependencies
+ */
 import { combineReducers } from '@wordpress/data';
 
 export function modal(state = { isOpen: false }, action) {
@@ -12,6 +15,19 @@ export function modal(state = { isOpen: false }, action) {
 	return state;
 }
 
+export function patterns(state = { activeCategory: null }, action) {
+	switch (action.type) {
+		case 'SET_ACTIVE_PATTERN_CATEGORY':
+			return {
+				...state,
+				activeCategory: action.activeCategory,
+			};
+	}
+
+	return state;
+}
+
 export default combineReducers({
 	modal,
+	patterns,
 });
