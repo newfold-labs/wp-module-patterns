@@ -17,7 +17,7 @@ const Sidebar = () => {
 	const { setSelectedTab } = useContext(LibraryModalContext);
 
 	return (
-		<aside className="nfd-flex nfd-flex-col nfd-overflow-auto nfd-bg-white nfd-shadow-sidebar">
+		<aside className="nfd-shadow-sidebar nfd-flex nfd-flex-col nfd-overflow-auto nfd-bg-white">
 			<SidebarHeader />
 
 			<TabPanel
@@ -29,11 +29,11 @@ const Sidebar = () => {
 				tabs={[
 					{
 						name: 'patterns',
-						title: __('Patterns', 'nfd-patterns'),
+						title: __('Patterns', 'nfd-cloud-patterns'),
 					},
 					{
 						name: 'templates',
-						title: __('Templates', 'nfd-patterns'),
+						title: __('Templates', 'nfd-cloud-patterns'),
 					},
 				]}
 			>

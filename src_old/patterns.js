@@ -1,5 +1,3 @@
-import './styles/app.scss';
-
 import domReady from '@wordpress/dom-ready';
 import { render } from '@wordpress/element';
 
@@ -7,9 +5,6 @@ import {
 	NFD_CLOUD_PATTERNS_MODAL_ID,
 	NFD_CLOUD_PATTERNS_TOOLBAR_BUTTON_ID,
 } from './constants';
-
-import Modal from './components/Modal/Modal';
-import ToolbarButton from './components/ToolbarButton';
 
 domReady(() => {
 	renderModal(NFD_CLOUD_PATTERNS_MODAL_ID);
@@ -29,11 +24,11 @@ const renderModal = (elementId) => {
 		document.body.append(modalRoot);
 	}
 
-	render(<Modal />, modalRoot);
+	render(<>Test</>, modalRoot);
 };
 
 /**
- * Add the Cloud Patterns trigger button.
+ * Add the Patterns Library trigger button.
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
 const unsubscribeToolbarButton = window?.wp?.data?.subscribe(() => {
@@ -42,7 +37,6 @@ const unsubscribeToolbarButton = window?.wp?.data?.subscribe(() => {
 		if (document.getElementById(NFD_CLOUD_PATTERNS_TOOLBAR_BUTTON_ID)) {
 			return;
 		}
-
 		// Exit early if the toolbar doesn't exist.
 		if (
 			!document.querySelector('.edit-post-header-toolbar') &&
@@ -50,26 +44,20 @@ const unsubscribeToolbarButton = window?.wp?.data?.subscribe(() => {
 		) {
 			return;
 		}
-
 		// Create the button container.
 		const buttonContainer = document.createElement('div');
 		buttonContainer.id = NFD_CLOUD_PATTERNS_TOOLBAR_BUTTON_ID;
-		buttonContainer.classList.add('nfd-shrink-0');
+		buttonContainer.classList.add('nfd-cloud-patterns');
 
 		// Append the button container to the block editor.
 		document
 			.querySelector('.edit-post-header-toolbar')
 			?.append(buttonContainer);
-
 		// Append the button container to the FSE.
 		document
 			.querySelector('.edit-site-header_start')
 			?.append(buttonContainer);
-
-		// Render the button.
-		render(<ToolbarButton />, buttonContainer);
-
-		// Unsubscribe the function once the button is added.
+		render(<p>Kika</p>, buttonContainer);
 		unsubscribeToolbarButton();
 	});
 });

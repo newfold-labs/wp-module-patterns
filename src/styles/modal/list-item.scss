@@ -1,0 +1,14 @@
+/* -------------------------------------------------------------------------- */
+/*                              List item styles.                             */
+/* -------------------------------------------------------------------------- */
+.nfd-cloud-patterns-list-item {
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 3px;
+	}
+}

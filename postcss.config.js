@@ -1,9 +1,9 @@
 const tailwind = require('./tailwind.config');
 const { resolve } = require('path');
 
-module.exports = (env) => ({
+module.exports = () => ({
 	ident: 'postcss',
-	sourceMap: env !== 'production',
+	sourceMap: process.env.NODE_ENV !== 'production',
 	plugins: [
 		require('tailwindcss')({
 			...tailwind,
@@ -21,7 +21,7 @@ module.exports = (env) => ({
 			});
 		},
 		require('autoprefixer')({ grid: true }),
-		env === 'production' &&
+		process.env.NODE_ENV === 'production' &&
 			require('cssnano')({
 				preset: [
 					'default',

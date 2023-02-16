@@ -1,0 +1,30 @@
+/* -------------------------------------------------------------------------- */
+/*                              Tab panel styles.                             */
+/* -------------------------------------------------------------------------- */
+.nfd-cloud-patterns-tab-panel {
+	.components-tab-panel__tabs {
+		display: flex;
+	}
+
+	.components-tab-panel__tabs-item {
+		flex-grow: 1;
+		max-height: 40px;
+		padding-top: 0;
+		padding-bottom: 0;
+
+		&:first-child {
+			padding-left: 24px;
+		}
+
+		&.nfd-cloud-patterns--is-active {
+			box-shadow: inset 0 calc(-1 * var(--wp-admin-border-width-focus))
+				var(--wp-admin-theme-color);
+		}
+
+		&:not(.nfd-cloud-patterns--is-active):focus,
+		&:not(.nfd-cloud-patterns--is-active):focus-within {
+			box-shadow: none;
+			outline: none;
+		}
+	}
+}

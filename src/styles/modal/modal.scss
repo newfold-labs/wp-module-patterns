@@ -1,0 +1,9 @@
+/* -------------------------------------------------------------------------- */
+/*         Patterns modal styles that we cannot target with Tailwind.         */
+/* -------------------------------------------------------------------------- */
+.nfd-cloud-patterns-modal {
+	.components-modal__content {
+		display: flex;
+		padding: 0;
+	}
+}
