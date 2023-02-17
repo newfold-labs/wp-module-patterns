@@ -10,9 +10,10 @@ import Header from './Header';
 import { store as nfdPatternsStore } from '../../../store';
 
 const Content = ({ selectedTab }) => {
-	const { activePatternCategory } = useSelect((select) => ({
+	const { activePatternCategory, keywordsFilter } = useSelect((select) => ({
 		activePatternCategory:
 			select(nfdPatternsStore).getActivePatternCategory(),
+		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
 	}));
 
 	return (
@@ -26,7 +27,7 @@ const Content = ({ selectedTab }) => {
 
 				<pre className="nfd-wba-m-0 nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
 					{JSON.stringify(
-						{ selectedTab, activePatternCategory },
+						{ selectedTab, activePatternCategory, keywordsFilter },
 						null,
 						2
 					)}

@@ -23,3 +23,16 @@ export function setActivePatternCategory(activeCategory) {
 		activeCategory,
 	};
 }
+
+/**
+ * Sets keywords filter value.
+ *
+ * @param {string} keywordsFilter Keywords to filter by.
+ * @return {Object} Action object.
+ */
+export function setKeywordsFilter(keywordsFilter) {
+	return {
+		type: 'SET_KEYWORDS_FILTER',
+		keywordsFilter,
+	};
+}

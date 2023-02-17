@@ -10,12 +10,15 @@ import { close } from '@wordpress/icons';
  * Internal dependencies
  */
 import { store as nfdPatternsStore } from '../../../store';
+import KeywordFilter from './KeywordFilter';
 
 const Header = () => {
 	return (
-		<header className="nfd-wba-modal__header nfd-wba-justify-end">
+		<header className="nfd-wba-modal__header">
+			<KeywordFilter />
+
 			<Button
-				className="nfd-wba-text-current hover:nfd-wba-text-dark"
+				className="nfd-wba-ml-auto nfd-wba-text-current hover:nfd-wba-text-dark"
 				showTooltip={false}
 				onClick={() => {
 					dispatch(nfdPatternsStore).setIsModalOpen(false);

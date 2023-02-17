@@ -17,3 +17,13 @@ export function isModalOpen(state) {
 export function getActivePatternCategory(state) {
 	return state.patterns.activeCategory;
 }
+
+/**
+ * Gets keywords filter value.
+ *
+ * @param {*} state
+ * @return {string} The keywords filter value.
+ */
+export function getKeywordsFilter(state) {
+	return state.patterns.keywordsFilter;
+}

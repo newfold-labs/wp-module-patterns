@@ -15,12 +15,24 @@ export function modal(state = { isOpen: false }, action) {
 	return state;
 }
 
-export function patterns(state = { activeCategory: null }, action) {
+export function patterns(
+	state = {
+		activeCategory: null,
+		keywordsFilter: '',
+	},
+	action
+) {
 	switch (action.type) {
 		case 'SET_ACTIVE_PATTERN_CATEGORY':
 			return {
 				...state,
 				activeCategory: action.activeCategory,
+			};
+
+		case 'SET_KEYWORDS_FILTER':
+			return {
+				...state,
+				keywordsFilter: action.keywordsFilter,
 			};
 	}
 
