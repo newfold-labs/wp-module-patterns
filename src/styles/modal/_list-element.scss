@@ -3,18 +3,18 @@
 /* -------------------------------------------------------------------------- */
 .nfd-wba-list-element {
 	&:before {
+		background-color: var(--nfd-wba-color-brand);
+		bottom: 5px;
 		content: "";
 		display: block;
+		left: 0;
 		position: absolute;
 		top: 5px;
-		bottom: 5px;
-		left: 0;
-		width: 3px;
 		transform-origin: left;
 		transform: scaleX(0);
-		background-color: var(--nfd-wba-color-brand);
 		transition: transform var(--nfd-wba-transition-duration)
 			var(--nfd-wba-transition-timing);
+		width: 3px;
 	}
 
 	&.nfd-wba--is-active {

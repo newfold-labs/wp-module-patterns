@@ -42,7 +42,7 @@ const PatternsList = () => {
 
 			{data && (
 				<>
-					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md">
+					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5">
 						{data.map((category) => {
 							return (
 								<ListElement
@@ -60,13 +60,13 @@ const PatternsList = () => {
 						})}
 					</ul>
 
-					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-black/10 nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md">
+					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-grey-b nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5">
 						<ListElement
 							category={{
 								id: 'favorite-patterns',
 								label: 'Favorites',
 								title: 'favorites',
-								count: 3,
+								// count: 3,
 							}}
 							onClick={() => {
 								dispatch(

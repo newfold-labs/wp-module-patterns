@@ -33,6 +33,8 @@ const Modal = () => {
 		return null;
 	}
 
+	console.log('rerender');
+
 	return (
 		<WPModal
 			__experimentalHideHeader={true}
@@ -43,7 +45,7 @@ const Modal = () => {
 			}
 			isFullScreen={true}
 		>
-			<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-wrap nfd-wba-bg-white nfd-wba-text-dark-lighter lg:nfd-wba-flex-nowrap">
+			<div className="nfd-wba-grid nfd-wba-grow nfd-wba-grid-cols-library-modal nfd-wba-bg-white nfd-wba-text-dark-lighter">
 				<Sidebar
 					selectedTab={selectedTab}
 					setSelectedTab={setSelectedTab}

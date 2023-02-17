@@ -4,6 +4,7 @@ module.exports = {
 		extend: {
 			colors: {
 				'wp-admin': 'var(--wp-admin-theme-color)',
+				'grey-b': 'var(--nfd-wba-color-borders)',
 				brand: {
 					DEFAULT:
 						'rgb(var(--nfd-wba-color-brand-rgb) / <alpha-value>)',
@@ -29,7 +30,10 @@ module.exports = {
 			},
 			fontSize: {
 				md: ['15px', '24px'],
-				sm: ['12px', '19px'],
+				sm: ['13px', '21px'],
+			},
+			gridTemplateColumns: {
+				'library-modal': 'var(--nfd-wba-sidebar-width) 1fr',
 			},
 		},
 		screens: {

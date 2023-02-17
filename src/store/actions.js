@@ -16,7 +16,6 @@ export function setIsModalOpen(isOpen) {
  *
  * @param {string} activeCategory
  * @return {Object} Action object.
- * @example setActivePatternCategory('favorites')
  */
 export function setActivePatternCategory(activeCategory) {
 	return {

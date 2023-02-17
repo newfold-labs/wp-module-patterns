@@ -13,7 +13,7 @@ import { store as nfdPatternsStore } from '../../../store';
 
 const Header = () => {
 	return (
-		<header className="nfd-wba-sticky nfd-wba-top-0 nfd-wba-flex nfd-wba-min-h-[68px] nfd-wba-items-center nfd-wba-justify-end nfd-wba-border-0 nfd-wba-border-b nfd-wba-border-solid nfd-wba-border-black/10 nfd-wba-py-4 nfd-wba-px-6">
+		<header className="nfd-wba-modal__header nfd-wba-justify-end">
 			<Button
 				className="nfd-wba-text-current hover:nfd-wba-text-dark"
 				showTooltip={false}

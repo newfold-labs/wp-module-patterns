@@ -25,7 +25,7 @@ const ListElement = forwardRef(
 			<li className="nfd-wba-m-0 nfd-wba-p-0">
 				<button
 					className={classNames(
-						'nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-2 nfd-wba-pl-6 nfd-wba-transition-all nfd-wba-duration-100',
+						'nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[43px] nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-2 nfd-wba-pl-6 nfd-wba-transition-all nfd-wba-duration-100',
 						category?.count && 'nfd-wba-pr-4',
 						!category?.count && 'nfd-wba-pr-6',
 						activePatternCategory !== category?.title &&
@@ -38,10 +38,10 @@ const ListElement = forwardRef(
 					ref={ref}
 					{...otherProps}
 				>
-					<span>{category?.label}</span>
+					<span className="nfd-wba-text-left">{category?.label}</span>
 
 					{category?.count && (
-						<span className="nfd-wba-rounded-full nfd-wba-bg-grey nfd-wba-py-1 nfd-wba-px-3 nfd-wba-text-sm nfd-wba-font-medium nfd-wba-text-dark-lighter nfd-wba-antialiased">
+						<span className="nfd-wba-rounded-full nfd-wba-bg-grey nfd-wba-py-1 nfd-wba-px-3 nfd-wba-text-sm nfd-wba-text-dark-lighter">
 							{category.count}
 						</span>
 					)}

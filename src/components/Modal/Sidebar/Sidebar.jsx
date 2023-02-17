@@ -13,11 +13,11 @@ import TemplatesList from './TemplatesList';
 
 const Sidebar = ({ selectedTab, setSelectedTab }) => {
 	return (
-		<div className="nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[var(--nfd-wba-sidebar-width)] nfd-wba-shrink-0 nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-solid md:nfd-wba-border-r md:nfd-wba-border-black/10">
+		<div className="nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[var(--nfd-wba-sidebar-width)] nfd-wba-shrink-0 nfd-wba-flex-col nfd-wba-overflow-y-auto nfd-wba-border-0 nfd-wba-border-r nfd-wba-border-solid nfd-wba-border-grey-b">
 			<Logo />
 
 			<TabPanel
-				className="nfd-wba-tab-panel nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-black/10"
+				className="nfd-wba-tab-panel nfd-wba-flex nfd-wba-grow nfd-wba-flex-col"
 				activeClass="nfd-wba--is-active"
 				initialTabName={selectedTab}
 				onSelect={(tab) => {
