@@ -14,8 +14,8 @@ import debounce from 'lodash/debounce';
 /**
  * Internal dependencies
  */
-import { store as nfdPatternsStore } from '../../../store';
-import { NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME } from '../../../constants';
+import { store as nfdPatternsStore } from '../../../../store';
+import { NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME } from '../../../../constants';
 
 const KeywordFilter = () => {
 	const searchRef = useRef('');
@@ -28,9 +28,12 @@ const KeywordFilter = () => {
 
 	// Debounce search value changes in store.
 	useEffect(() => {
-		const delayedSearch = debounce(() => {
-			dispatch(nfdPatternsStore).setKeywordsFilter(searchValue);
-		}, NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME);
+		const delayedSearch = debounce(
+			() => {
+				dispatch(nfdPatternsStore).setKeywordsFilter(searchValue);
+			},
+			searchValue === '' ? 0 : NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
+		);
 
 		delayedSearch();
 

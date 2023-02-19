@@ -15,7 +15,7 @@ import classNames from 'classnames';
 import { store as nfdPatternsStore } from '../../../store';
 
 const ListElement = forwardRef(
-	({ category, className, ...otherProps }, ref) => {
+	({ category, className, icon, ...otherProps }, ref) => {
 		const { activePatternCategory } = useSelect((select) => ({
 			activePatternCategory:
 				select(nfdPatternsStore).getActivePatternCategory(),
@@ -29,7 +29,7 @@ const ListElement = forwardRef(
 						category?.count && 'nfd-wba-pr-4',
 						!category?.count && 'nfd-wba-pr-6',
 						activePatternCategory !== category?.title &&
-							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-bg-grey/30 hover:nfd-wba-text-dark', // inactive
+							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-bg-grey/50 hover:nfd-wba-text-dark', // inactive
 						activePatternCategory === category?.title &&
 							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-text-brand', // active
 						className
@@ -38,7 +38,10 @@ const ListElement = forwardRef(
 					ref={ref}
 					{...otherProps}
 				>
-					<span className="nfd-wba-text-left">{category?.label}</span>
+					<span className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-1.5 nfd-wba-text-left">
+						{icon && icon}
+						<span>{category?.label}</span>
+					</span>
 
 					{category?.count && (
 						<span className="nfd-wba-rounded-full nfd-wba-bg-grey nfd-wba-py-1 nfd-wba-px-3 nfd-wba-text-sm nfd-wba-text-dark-lighter">

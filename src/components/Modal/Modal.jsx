@@ -33,22 +33,21 @@ const Modal = () => {
 		return null;
 	}
 
-	console.log('rerender');
-
 	return (
 		<WPModal
+			className="nfd-wba-modal nfd-wba-shadow-none sm:nfd-wba-max-h-[90%] md:nfd-wba-max-w-[90%]"
 			__experimentalHideHeader={true}
 			aria-expanded={true}
-			className="nfd-wba-modal nfd-wba-shadow-none sm:nfd-wba-max-h-[90%] md:nfd-wba-max-w-[90%]"
+			isFullScreen={true}
 			onRequestClose={() =>
 				dispatch(nfdPatternsStore).setIsModalOpen(false)
 			}
-			isFullScreen={true}
 		>
 			<div className="nfd-wba-grid nfd-wba-grow nfd-wba-grid-cols-library-modal nfd-wba-bg-white nfd-wba-text-dark-lighter">
 				<Sidebar
 					selectedTab={selectedTab}
 					setSelectedTab={setSelectedTab}
+					isSiteEditor={isSiteEditor}
 				/>
 
 				<Content selectedTab={selectedTab} />
