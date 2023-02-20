@@ -28,11 +28,11 @@ function LoadingBar({ isComplete }) {
 	}, [progress]);
 
 	if (isFinished) {
-		// return null;
+		return null;
 	}
 
 	return (
-		<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-z-10 nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pb-40">
+		<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pb-40">
 			<Logo size="large" color="brand" />
 
 			<div
