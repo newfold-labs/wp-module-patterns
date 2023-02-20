@@ -22,6 +22,7 @@ import { store as nfdPatternsStore } from '../../../store';
  */
 import useSWR from 'swr';
 import ListElement from './ListElement';
+import Skeleton from './Skeleton';
 
 /**
  * Fetcher function for useSWR.
@@ -56,7 +57,7 @@ const PatternsList = ({ isSiteEditor }) => {
 
 	return (
 		<>
-			{!data && isValidating && <Loading />}
+			{!data && isValidating && <Skeleton count={7} />}
 			{!data && error && <ErrorLoading />}
 
 			{data && (

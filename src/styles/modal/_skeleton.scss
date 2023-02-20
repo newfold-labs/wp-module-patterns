@@ -1,0 +1,37 @@
+/* -------------------------------------------------------------------------- */
+/*                               Skeleton styles                              */
+/* -------------------------------------------------------------------------- */
+.nfd-wba-skeleton--item {
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		position: absolute;
+		content: "";
+		height: 100%;
+		width: 100%;
+
+		background-image: linear-gradient(
+			to right,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(0, 0, 0, 0.03) 50%,
+			rgba(255, 255, 255, 0) 100%
+		);
+		background-repeat: no-repeat;
+		background-size: 450px 400px;
+		animation: nfd-wba-skeleton-pulse 1s linear infinite;
+	}
+
+	& + .nfd-wba-skeleton--item:before {
+		animation-delay: var(--nfd-wba-skeleton-delay, 0s);
+	}
+}
+
+@keyframes nfd-wba-skeleton-pulse {
+	0% {
+		background-position: -450px 0;
+	}
+	100% {
+		background-position: 450px 0;
+	}
+}
