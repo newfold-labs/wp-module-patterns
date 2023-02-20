@@ -84,8 +84,13 @@
 /*                              Tab panel styles.                             */
 /* -------------------------------------------------------------------------- */
 .nfd-wba-tab-panel .components-tab-panel__tabs {
-  display: flex;
   border-bottom: solid 1px var(--nfd-wba-color-borders);
+  display: flex;
+}
+.nfd-wba-tab-panel .components-tab-panel__tab-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 .nfd-wba-tab-panel .components-tab-panel__tabs-item {
   color: currentColor;
@@ -106,6 +111,35 @@
   outline: none;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               Skeleton styles                              */
+/* -------------------------------------------------------------------------- */
+.nfd-wba-skeleton--item {
+  position: relative;
+  overflow: hidden;
+}
+.nfd-wba-skeleton--item:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.03) 50%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 450px 400px;
+  animation: nfd-wba-skeleton-pulse 1s linear infinite;
+}
+.nfd-wba-skeleton--item + .nfd-wba-skeleton--item:before {
+  animation-delay: var(--nfd-wba-skeleton-delay, 0s);
+}
+
+@keyframes nfd-wba-skeleton-pulse {
+  0% {
+    background-position: -450px 0;
+  }
+  100% {
+    background-position: 450px 0;
+  }
+}
 /* -------------------------------------------------------------------------- */
 /*         Patterns modal styles that we cannot target with Tailwind.         */
 /* -------------------------------------------------------------------------- */
@@ -153,8 +187,8 @@
   bottom: 0px;
   left: 0px;
 }
-.nfd-wba-z-10 {
-  z-index: 10;
+.nfd-wba-z-\[2\] {
+  z-index: 2;
 }
 .nfd-wba-m-0 {
   margin: 0px;
@@ -172,12 +206,6 @@
 .nfd-wba-ml-auto {
   margin-left: auto;
 }
-.nfd-wba-mt-4 {
-  margin-top: 1rem;
-}
-.nfd-wba-mt-8 {
-  margin-top: 2rem;
-}
 .nfd-wba-mt-2 {
   margin-top: 0.5rem;
 }
@@ -190,11 +218,20 @@
 .nfd-wba-h-2 {
   height: 0.5rem;
 }
+.nfd-wba-h-4 {
+  height: 1rem;
+}
+.nfd-wba-h-6 {
+  height: 1.5rem;
+}
 .nfd-wba-h-9 {
   height: 2.25rem;
 }
 .nfd-wba-min-h-\[43px\] {
   min-height: 43px;
+}
+.nfd-wba-w-8 {
+  width: 2rem;
 }
 .nfd-wba-w-full {
   width: 100%;
@@ -267,9 +304,6 @@
 .nfd-wba-gap-y-10 {
   row-gap: 2.5rem;
 }
-.nfd-wba-gap-y-4 {
-  row-gap: 1rem;
-}
 .nfd-wba-gap-y-6 {
   row-gap: 1.5rem;
 }
@@ -278,6 +312,9 @@
 }
 .nfd-wba-overflow-y-auto {
   overflow-y: auto;
+}
+.nfd-wba-rounded {
+  border-radius: 0.25rem;
 }
 .nfd-wba-rounded-full {
   border-radius: 9999px;
@@ -359,6 +396,9 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.nfd-wba-pb-40 {
+  padding-bottom: 10rem;
+}
 .nfd-wba-pl-6 {
   padding-left: 1.5rem;
 }
@@ -368,11 +408,11 @@
 .nfd-wba-pr-6 {
   padding-right: 1.5rem;
 }
-.nfd-wba-pb-20 {
-  padding-bottom: 5rem;
+.nfd-wba-pt-\[10vh\] {
+  padding-top: 10vh;
 }
-.nfd-wba-pb-40 {
-  padding-bottom: 10rem;
+.nfd-wba-pt-\[5vh\] {
+  padding-top: 5vh;
 }
 .nfd-wba-text-left {
   text-align: left;
@@ -383,6 +423,10 @@
 .nfd-wba-text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.nfd-wba-text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 .nfd-wba-text-md {
   font-size: 15px;
@@ -395,10 +439,6 @@
 .nfd-wba-text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.nfd-wba-text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 .nfd-wba-font-light {
   font-weight: 300;
@@ -424,16 +464,9 @@
   --tw-text-opacity: 1;
   color: rgb(var(--nfd-wba-color-dark-lighter-rgb) / var(--tw-text-opacity));
 }
-.nfd-wba-text-grey-darker {
-  --tw-text-opacity: 1;
-  color: rgb(var(--nfd-wba-color-grey-darker-rgb) / var(--tw-text-opacity));
-}
 .nfd-wba-text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.nfd-wba-text-dark-lighter\/80 {
-  color: rgb(var(--nfd-wba-color-dark-lighter-rgb) / 0.8);
 }
 .nfd-wba-shadow-none {
   --tw-shadow: 0 0 #0000;
