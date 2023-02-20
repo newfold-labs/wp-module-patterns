@@ -19,14 +19,16 @@ const Content = ({ selectedTab }) => {
 		activePatternsCategory,
 		activeTemplatesCategory,
 		isContentLoading,
+		isSidebarLoading,
 		keywordsFilter,
 	} = useSelect((select) => ({
 		activePatternsCategory:
 			select(nfdPatternsStore).getActivePatternsCategory(),
 		activeTemplatesCategory:
 			select(nfdPatternsStore).getActiveTemplatesCategory(),
-		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
 		isContentLoading: select(nfdPatternsStore).isContentLoading(),
+		isSidebarLoading: select(nfdPatternsStore).isSidebarLoading(),
+		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
 	}));
 
 	const { data, isValidating } = usePatterns('test');
@@ -42,7 +44,7 @@ const Content = ({ selectedTab }) => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{/* {<LoadingBar isComplete={data} />} */}
+				{<LoadingBar isComplete={data} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					{keywordsFilter && (
@@ -65,6 +67,7 @@ const Content = ({ selectedTab }) => {
 									activePatternsCategory,
 									activeTemplatesCategory,
 									isContentLoading,
+									isSidebarLoading,
 									keywordsFilter,
 									data,
 								},

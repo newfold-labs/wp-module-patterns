@@ -9,6 +9,16 @@ export function isModalOpen(state) {
 }
 
 /**
+ * Checks if sidebar is loading.
+ *
+ * @param {*} state
+ * @return {boolean} True if the sidebar/categories is loading, false otherwise.
+ */
+export function isSidebarLoading(state) {
+	return state.modal.isSidebarLoading;
+}
+
+/**
  * Checks if content is loading.
  *
  * @param {*} state

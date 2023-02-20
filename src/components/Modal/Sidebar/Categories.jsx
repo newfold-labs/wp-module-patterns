@@ -2,9 +2,9 @@
  * WordPress dependencies
  */
 import { useDispatch } from '@wordpress/data';
-import { useMemo } from '@wordpress/element';
+import { useEffect, useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { Icon, starFilled } from '@wordpress/icons';
+import { Icon, starEmpty } from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -16,14 +16,22 @@ import ErrorLoading from './ErrorLoading';
 /**
  * External dependencies
  */
+import useCategories from '../../../hooks/useCategories';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
-import useCategories from '../../../hooks/useCategories';
 
 const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 	const { data, error, isValidating } = useCategories(type);
-	const { setActivePatternsCategory, setActiveTemplatesCategory } =
-		useDispatch(nfdPatternsStore);
+	const {
+		setActivePatternsCategory,
+		setActiveTemplatesCategory,
+		setIsSidebarLoading,
+	} = useDispatch(nfdPatternsStore);
+
+	// Set global state when the categories are loading.
+	useEffect(() => {
+		setIsSidebarLoading(!data && isValidating);
+	}, [data, isValidating, setIsSidebarLoading]);
 
 	// useEffect(() => {
 	// 	// ako nema selected, podesi DEFAULT iz constants
@@ -59,66 +67,42 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 			{!data && error && <ErrorLoading />}
 
 			{data && (
-				<>
-					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5">
-						{filteredCategories.map((category) => {
-							return (
-								<ListElement
-									key={category.id}
-									category={category}
-									categoryType={type}
-									onClick={() => {
-										setActiveCategory(category?.title);
-									}}
-								/>
-							);
-						})}
-					</ul>
-
-					<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-grey-b nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5">
-						{type === 'patterns' && (
+				<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5">
+					{filteredCategories.map((category) => {
+						return (
 							<ListElement
-								category={{
-									id: 'favorite-patterns',
-									label: __('Favorites', 'nfd-wonder-blocks'),
-									title: 'favorite_patterns',
-									count: 3,
-								}}
-								icon={
-									<Icon
-										fill="currentColor"
-										className="-nfd-wba-ml-1"
-										icon={starFilled}
-									/>
-								}
+								key={category.id}
+								category={category}
+								categoryType={type}
 								onClick={() => {
-									setActiveCategory('favorite_patterns');
+									setActiveCategory(category?.title);
 								}}
 							/>
-						)}
+						);
+					})}
 
-						{type === 'templates' && (
-							<ListElement
-								category={{
-									id: 'favorite-templates',
-									label: __('Favorites', 'nfd-wonder-blocks'),
-									title: 'favorite_templates',
-									count: 3,
-								}}
-								icon={
-									<Icon
-										fill="currentColor"
-										className="-nfd-wba-ml-1"
-										icon={starFilled}
-									/>
-								}
-								onClick={() => {
-									setActiveCategory('favorite_templates');
-								}}
+					{/* Add Favorites list element. Depends on the type. */}
+					<ListElement
+						className="nfd-wba-mt-4"
+						category={{
+							id: `favorite-${type}`,
+							label: __('Favorites', 'nfd-wonder-blocks'),
+							title: `favorite_${type}`,
+							count: 3, // todo fetch favorites count
+						}}
+						categoryType={type}
+						icon={
+							<Icon
+								fill="currentColor"
+								className="-nfd-wba-ml-1"
+								icon={starEmpty}
 							/>
-						)}
-					</ul>
-				</>
+						}
+						onClick={() => {
+							setActiveCategory(`favorite_${type}`);
+						}}
+					/>
+				</ul>
 			)}
 		</>
 	);

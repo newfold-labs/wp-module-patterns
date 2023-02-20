@@ -2,14 +2,14 @@
  * Internal dependencies
  */
 import { fetcher } from '../helpers/fetcher';
-import { REST_URL, DEFAULT_PATTERNS_CATEGORY } from '../constants';
+import { REST_URL } from '../constants';
 
 /**
  * External dependencies
  */
 import useSWR from 'swr';
 
-const usePatterns = (category = DEFAULT_PATTERNS_CATEGORY) => {
+const usePatterns = () => {
 	const { data, error, isValidating } = useSWR(
 		{
 			url: `${REST_URL}/patterns`,

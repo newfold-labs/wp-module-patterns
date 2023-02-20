@@ -55,9 +55,9 @@ const ListElement = forwardRef(
 					ref={ref}
 					{...otherProps}
 				>
-					<span className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-1.5 nfd-wba-text-left">
-						{icon && icon}
+					<span className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-left">
 						<span>{category?.label}</span>
+						{icon && icon}
 					</span>
 
 					{category?.count && (

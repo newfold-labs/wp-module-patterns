@@ -18,6 +18,12 @@ export function modal(
 				isOpen: action.isOpen,
 			};
 
+		case 'SET_SIDEBAR_LOADING':
+			return {
+				...state,
+				isSidebarLoading: action.isSidebarLoading,
+			};
+
 		case 'SET_CONTENT_LOADING':
 			return {
 				...state,

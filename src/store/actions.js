@@ -25,6 +25,19 @@ export function setIsContentLoading(isContentLoading) {
 }
 
 /**
+ * Sets sidebar loading state.
+ *
+ * @param {boolean} isSidebarLoading Loading state.
+ * @return {Object} Action object.
+ */
+export function setIsSidebarLoading(isSidebarLoading) {
+	return {
+		type: 'SET_SIDEBAR_LOADING',
+		isSidebarLoading,
+	};
+}
+
+/**
  * Sets the active patterns category.
  *
  * @param {string} activeCategory Active category.
