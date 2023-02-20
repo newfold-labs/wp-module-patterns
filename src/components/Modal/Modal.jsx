@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { Modal as WPModal } from '@wordpress/components';
-import { dispatch, useSelect } from '@wordpress/data';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { useMemo, useState } from '@wordpress/element';
 
 /**
@@ -14,6 +14,7 @@ import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
 	const [selectedTab, setSelectedTab] = useState('patterns');
+	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
 	const { editedPostType, isModalOpen, getEditedPostId, isEditingTemplate } =
@@ -39,9 +40,7 @@ const Modal = () => {
 			__experimentalHideHeader={true}
 			aria-expanded={true}
 			isFullScreen={true}
-			onRequestClose={() =>
-				dispatch(nfdPatternsStore).setIsModalOpen(false)
-			}
+			onRequestClose={() => setIsModalOpen(false)}
 		>
 			<div className="nfd-wba-grid nfd-wba-grow nfd-wba-grid-cols-library-modal nfd-wba-bg-white nfd-wba-text-dark-lighter">
 				<Sidebar
