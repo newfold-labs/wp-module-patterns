@@ -2,8 +2,8 @@
  * WordPress dependencies
  */
 import apiFetch from '@wordpress/api-fetch';
-import { useMemo } from '@wordpress/element';
 import { dispatch } from '@wordpress/data';
+import { useMemo } from '@wordpress/element';
 import { Icon, starFilled } from '@wordpress/icons';
 
 /**
@@ -13,9 +13,8 @@ import {
 	NFD_WONDER_BLOCKS_REST_URL,
 	NFD_WONDER_BLOCKS_SITE_EDITOR_CATEGORIES,
 } from '../../../constants';
-import ErrorLoading from '../../ErrorLoading';
-import Loading from '../../Loading';
 import { store as nfdPatternsStore } from '../../../store';
+import ErrorLoading from '../Sidebar/ErrorLoading';
 
 /**
  * External dependencies
