@@ -18,7 +18,7 @@ const Content = ({ selectedTab }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			setData(true);
-		}, 6000);
+		}, 1000);
 	});
 
 	const { activePatternCategory, keywordsFilter } = useSelect((select) => ({
@@ -35,7 +35,7 @@ const Content = ({ selectedTab }) => {
 				{keywordsFilter && (
 					<h1 className="nfd-wba-my-0 nfd-wba-text-2xl nfd-wba-font-normal nfd-wba-text-dark">
 						{sprintf(
-							// translators: %s is the keywords filter
+							// translators: %s is the keywords filter value
 							__('Results for %s', 'nfd-wonder-blocks'),
 							keywordsFilter
 						)}
