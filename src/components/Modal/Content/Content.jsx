@@ -9,6 +9,7 @@ import { sprintf, __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import { store as nfdPatternsStore } from '../../../store';
+import DesignList from './DesignList/DesignList';
 import Header from './Header/Header';
 import LoadingBar from './LoadingBar';
 
@@ -46,11 +47,18 @@ const Content = ({ selectedTab }) => {
 
 				<pre className="nfd-wba-m-0 nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
 					{JSON.stringify(
-						{ selectedTab, activePatternCategory, keywordsFilter },
+						{
+							selectedTab,
+							activePatternCategory,
+							keywordsFilter,
+							data,
+						},
 						null,
 						2
 					)}
 				</pre>
+
+				{data && <DesignList data={data} />}
 			</div>
 		</div>
 	);
