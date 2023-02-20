@@ -4,7 +4,7 @@
 import { useRef, useState, useEffect } from '@wordpress/element';
 import { SearchControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { dispatch } from '@wordpress/data';
+import { useDispatch } from '@wordpress/data';
 
 /**
  * External dependencies
@@ -15,11 +15,13 @@ import debounce from 'lodash/debounce';
  * Internal dependencies
  */
 import { store as nfdPatternsStore } from '../../../../store';
-import { NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME } from '../../../../constants';
+import { INPUT_DEBOUNCE_TIME } from '../../../../constants';
 
 const KeywordFilter = () => {
 	const searchRef = useRef('');
 	const [searchValue, setSearchValue] = useState('');
+
+	const { setKeywordsFilter } = useDispatch(nfdPatternsStore);
 
 	// Focus the search input on mount.
 	useEffect(() => {
@@ -30,15 +32,15 @@ const KeywordFilter = () => {
 	useEffect(() => {
 		const delayedSearch = debounce(
 			() => {
-				dispatch(nfdPatternsStore).setKeywordsFilter(searchValue);
+				setKeywordsFilter(searchValue);
 			},
-			searchValue === '' ? 0 : NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
+			searchValue === '' ? 0 : INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
 		);
 
 		delayedSearch();
 
 		return delayedSearch.cancel;
-	}, [searchValue]);
+	}, [searchValue, setKeywordsFilter]);
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-3">

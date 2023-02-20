@@ -32,7 +32,7 @@ const DesignItem = ({ item }) => {
 	const insertDesignHandler = async () => {
 		try {
 			await blockInserter(blocks);
-			createSuccessNotice(__('Success!', 'nfd-wonder-blocks'), {
+			createSuccessNotice(__('Pattern added!', 'nfd-wonder-blocks'), {
 				type: 'snackbar',
 			});
 		} catch (error) {

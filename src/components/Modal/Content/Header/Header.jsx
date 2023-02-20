@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { Button } from '@wordpress/components';
-import { dispatch } from '@wordpress/data';
+import { useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { closeSmall } from '@wordpress/icons';
 
@@ -15,6 +15,7 @@ import TrialNotice from './TrialNotice';
 
 const Header = () => {
 	const showTrial = true;
+	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
 	return (
 		<header className="nfd-wba-modal__header">
@@ -26,7 +27,7 @@ const Header = () => {
 					className="nfd-wba-ml-auto nfd-wba-text-current hover:nfd-wba-text-dark"
 					showTooltip={false}
 					onClick={() => {
-						dispatch(nfdPatternsStore).setIsModalOpen(false);
+						setIsModalOpen(false);
 					}}
 					icon={closeSmall}
 					iconSize={24}

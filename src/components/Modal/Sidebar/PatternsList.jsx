@@ -2,17 +2,14 @@
  * WordPress dependencies
  */
 import apiFetch from '@wordpress/api-fetch';
-import { dispatch } from '@wordpress/data';
+import { useDispatch } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
 import { Icon, starFilled } from '@wordpress/icons';
 
 /**
  * Internal dependencies
  */
-import {
-	NFD_WONDER_BLOCKS_REST_URL,
-	NFD_WONDER_BLOCKS_SITE_EDITOR_CATEGORIES,
-} from '../../../constants';
+import { REST_URL, SITE_EDITOR_CATEGORIES } from '../../../constants';
 import { store as nfdPatternsStore } from '../../../store';
 import ErrorLoading from '../Sidebar/ErrorLoading';
 
@@ -34,20 +31,19 @@ const fetcher = (...args) => apiFetch(...args).then((res) => res);
 const PatternsList = ({ isSiteEditor }) => {
 	const { data, error, isValidating } = useSWR(
 		{
-			url: `${NFD_WONDER_BLOCKS_REST_URL}/categories`,
+			url: `${REST_URL}/categories`,
 			method: 'GET',
 		},
 		fetcher
 	);
 
+	const { setActivePatternCategory } = useDispatch(nfdPatternsStore);
+
 	// Filter the categories if we are not in the site editor.
 	const filteredCategories = useMemo(() => {
 		if (!isSiteEditor) {
 			return data?.filter(
-				(category) =>
-					!NFD_WONDER_BLOCKS_SITE_EDITOR_CATEGORIES.includes(
-						category.title
-					)
+				(category) => !SITE_EDITOR_CATEGORIES.includes(category.title)
 			);
 		}
 
@@ -68,9 +64,7 @@ const PatternsList = ({ isSiteEditor }) => {
 									key={category.id}
 									category={category}
 									onClick={() => {
-										dispatch(
-											nfdPatternsStore
-										).setActivePatternCategory(
+										setActivePatternCategory(
 											category?.title
 										);
 									}}
@@ -95,9 +89,7 @@ const PatternsList = ({ isSiteEditor }) => {
 								/>
 							}
 							onClick={() => {
-								dispatch(
-									nfdPatternsStore
-								).setActivePatternCategory('favorites');
+								setActivePatternCategory('favorites');
 							}}
 						/>
 					</ul>

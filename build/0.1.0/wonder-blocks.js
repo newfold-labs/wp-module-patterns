@@ -601,7 +601,7 @@ const DesignItem = _ref => {
   const insertDesignHandler = async () => {
     try {
       await (0,_helpers_blockInserter__WEBPACK_IMPORTED_MODULE_5__.blockInserter)(blocks);
-      createSuccessNotice((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Success!', 'nfd-wonder-blocks'), {
+      createSuccessNotice((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Pattern added!', 'nfd-wonder-blocks'), {
         type: 'snackbar'
       });
     } catch (error) {
@@ -693,6 +693,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const Header = () => {
   const showTrial = true;
+  const {
+    setIsModalOpen
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
     className: "nfd-wba-modal__header"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_KeywordFilter__WEBPACK_IMPORTED_MODULE_5__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -701,7 +704,7 @@ const Header = () => {
     className: "nfd-wba-ml-auto nfd-wba-text-current hover:nfd-wba-text-dark",
     showTooltip: false,
     onClick: () => {
-      (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.dispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store).setIsModalOpen(false);
+      setIsModalOpen(false);
     },
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
     iconSize: 24,
@@ -754,6 +757,9 @@ __webpack_require__.r(__webpack_exports__);
 const KeywordFilter = () => {
   const searchRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)('');
   const [searchValue, setSearchValue] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const {
+    setKeywordsFilter
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_5__.store);
 
   // Focus the search input on mount.
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
@@ -763,13 +769,13 @@ const KeywordFilter = () => {
   // Debounce search value changes in store.
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const delayedSearch = lodash_debounce__WEBPACK_IMPORTED_MODULE_4___default()(() => {
-      (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.dispatch)(_store__WEBPACK_IMPORTED_MODULE_5__.store).setKeywordsFilter(searchValue);
-    }, searchValue === '' ? 0 : _constants__WEBPACK_IMPORTED_MODULE_6__.NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
+      setKeywordsFilter(searchValue);
+    }, searchValue === '' ? 0 : _constants__WEBPACK_IMPORTED_MODULE_6__.INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
     );
 
     delayedSearch();
     return delayedSearch.cancel;
-  }, [searchValue]);
+  }, [searchValue, setKeywordsFilter]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-3"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SearchControl, {
@@ -1099,14 +1105,17 @@ const PatternsList = _ref => {
     error,
     isValidating
   } = (0,swr__WEBPACK_IMPORTED_MODULE_6__["default"])({
-    url: `${_constants__WEBPACK_IMPORTED_MODULE_3__.NFD_WONDER_BLOCKS_REST_URL}/categories`,
+    url: `${_constants__WEBPACK_IMPORTED_MODULE_3__.REST_URL}/categories`,
     method: 'GET'
   }, fetcher);
+  const {
+    setActivePatternCategory
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store);
 
   // Filter the categories if we are not in the site editor.
   const filteredCategories = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
     if (!isSiteEditor) {
-      return data === null || data === void 0 ? void 0 : data.filter(category => !_constants__WEBPACK_IMPORTED_MODULE_3__.NFD_WONDER_BLOCKS_SITE_EDITOR_CATEGORIES.includes(category.title));
+      return data === null || data === void 0 ? void 0 : data.filter(category => !_constants__WEBPACK_IMPORTED_MODULE_3__.SITE_EDITOR_CATEGORIES.includes(category.title));
     }
     return data;
   }, [isSiteEditor, data]);
@@ -1119,7 +1128,7 @@ const PatternsList = _ref => {
       key: category.id,
       category: category,
       onClick: () => {
-        (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.dispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store).setActivePatternCategory(category === null || category === void 0 ? void 0 : category.title);
+        setActivePatternCategory(category === null || category === void 0 ? void 0 : category.title);
       }
     });
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
@@ -1137,7 +1146,7 @@ const PatternsList = _ref => {
       icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_10__["default"]
     }),
     onClick: () => {
-      (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.dispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store).setActivePatternCategory('favorites');
+      setActivePatternCategory('favorites');
     }
   }))));
 };
@@ -1324,13 +1333,16 @@ const ToolbarButton = () => {
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => ({
     isModalOpen: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).isModalOpen()
   }));
+  const {
+    setIsModalOpen
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_5__.store);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {
       icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"]
     }),
     text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Wonder Blocks', 'nfd-wonder-blocks'),
     className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('nfd-wba-ml-2 nfd-wba-flex nfd-wba-h-9 nfd-wba-shrink-0 nfd-wba-gap-1 nfd-wba-bg-brand nfd-wba-text-white hover:nfd-wba-bg-brand-darker hover:nfd-wba-text-white focus-visible:nfd-wba-text-white active:!nfd-wba-text-white', isModalOpen && '!nfd-wba-bg-dark'),
-    onClick: () => (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.dispatch)(_store__WEBPACK_IMPORTED_MODULE_5__.store).setIsModalOpen(true)
+    onClick: () => setIsModalOpen(true)
   }));
 };
 /* harmony default export */ __webpack_exports__["default"] = (ToolbarButton);
@@ -1346,18 +1358,18 @@ const ToolbarButton = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME": function() { return /* binding */ NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME; },
+/* harmony export */   "INPUT_DEBOUNCE_TIME": function() { return /* binding */ INPUT_DEBOUNCE_TIME; },
 /* harmony export */   "NFD_WONDER_BLOCKS_MODAL_ID": function() { return /* binding */ NFD_WONDER_BLOCKS_MODAL_ID; },
-/* harmony export */   "NFD_WONDER_BLOCKS_REST_URL": function() { return /* binding */ NFD_WONDER_BLOCKS_REST_URL; },
-/* harmony export */   "NFD_WONDER_BLOCKS_SITE_EDITOR_CATEGORIES": function() { return /* binding */ NFD_WONDER_BLOCKS_SITE_EDITOR_CATEGORIES; },
-/* harmony export */   "NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID": function() { return /* binding */ NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID; }
+/* harmony export */   "NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID": function() { return /* binding */ NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID; },
+/* harmony export */   "REST_URL": function() { return /* binding */ REST_URL; },
+/* harmony export */   "SITE_EDITOR_CATEGORIES": function() { return /* binding */ SITE_EDITOR_CATEGORIES; }
 /* harmony export */ });
 var _window$nfdWonderBloc;
-const NFD_WONDER_BLOCKS_REST_URL = ((_window$nfdWonderBloc = window.nfdWonderBlocks) === null || _window$nfdWonderBloc === void 0 ? void 0 : _window$nfdWonderBloc.restURL) || '';
 const NFD_WONDER_BLOCKS_MODAL_ID = 'nfd-wba-modal';
 const NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID = 'nfd-wba-toolbar-button';
-const NFD_WONDER_BLOCKS_INPUT_DEBOUNCE_TIME = 800;
-const NFD_WONDER_BLOCKS_SITE_EDITOR_CATEGORIES = ['headers', 'footers'];
+const REST_URL = ((_window$nfdWonderBloc = window.nfdWonderBlocks) === null || _window$nfdWonderBloc === void 0 ? void 0 : _window$nfdWonderBloc.restURL) || '';
+const INPUT_DEBOUNCE_TIME = 800;
+const SITE_EDITOR_CATEGORIES = ['headers', 'footers'];
 
 /***/ }),
 
