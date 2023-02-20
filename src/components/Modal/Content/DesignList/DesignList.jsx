@@ -3,10 +3,16 @@
  */
 import DesignItem from './DesignItem';
 
-const DesignList = () => {
+const DesignList = ({ data }) => {
+	if (!data) {
+		return null;
+	}
+
 	return (
-		<div>
-			<DesignItem item={{ content: '<p>Easy easy!</p>' }} />
+		<div className="nfd-wba-grid nfd-wba-grid-cols-1 nfd-wba-bg-red-500 lg:nfd-wba-grid-cols-3">
+			{data?.map((item) => (
+				<DesignItem key={item.key} item={item} />
+			))}
 		</div>
 	);
 };

@@ -8,8 +8,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import Logo from '../../Logo';
-import PatternsList from './PatternsList';
-import TemplatesList from './TemplatesList';
+import Categories from './Categories';
 
 const Sidebar = ({ selectedTab, setSelectedTab, isSiteEditor }) => {
 	return (
@@ -38,11 +37,10 @@ const Sidebar = ({ selectedTab, setSelectedTab, isSiteEditor }) => {
 			>
 				{(tab) => (
 					<>
-						{tab?.name === 'patterns' && (
-							<PatternsList isSiteEditor={isSiteEditor} />
-						)}
-
-						{tab?.name === 'templates' && <TemplatesList />}
+						<Categories
+							isSiteEditor={isSiteEditor}
+							type={tab.name}
+						/>
 					</>
 				)}
 			</TabPanel>

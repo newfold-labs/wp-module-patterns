@@ -9,13 +9,13 @@ export function isModalOpen(state) {
 }
 
 /**
- * Gets the active pattern category.
+ * Checks if content is loading.
  *
  * @param {*} state
- * @return {string} The active pattern category.
+ * @return {boolean} True if the content is loading, false otherwise.
  */
-export function getActivePatternCategory(state) {
-	return state.patterns.activeCategory;
+export function isContentLoading(state) {
+	return state.modal.isContentLoading;
 }
 
 /**
@@ -25,5 +25,25 @@ export function getActivePatternCategory(state) {
  * @return {string} The keywords filter value.
  */
 export function getKeywordsFilter(state) {
-	return state.patterns.keywordsFilter;
+	return state.modal.keywordsFilter;
+}
+
+/**
+ * Gets the active patterns category.
+ *
+ * @param {*} state
+ * @return {string} The active pattern category.
+ */
+export function getActivePatternsCategory(state) {
+	return state.patterns.activeCategory;
+}
+
+/**
+ * Gets the active templates category.
+ *
+ * @param {*} state
+ * @return {string} The active templates category.
+ */
+export function getActiveTemplatesCategory(state) {
+	return state.templates.activeCategory;
 }

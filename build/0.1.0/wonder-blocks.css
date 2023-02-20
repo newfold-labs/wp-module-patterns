@@ -262,6 +262,9 @@
 .nfd-wba-list-none {
   list-style-type: none;
 }
+.nfd-wba-grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
 .nfd-wba-grid-cols-library-modal {
   grid-template-columns: var(--nfd-wba-sidebar-width) 1fr;
 }
@@ -307,11 +310,17 @@
 .nfd-wba-gap-y-6 {
   row-gap: 1.5rem;
 }
+.nfd-wba-overflow-auto {
+  overflow: auto;
+}
 .nfd-wba-overflow-hidden {
   overflow: hidden;
 }
 .nfd-wba-overflow-y-auto {
   overflow-y: auto;
+}
+.nfd-wba-whitespace-pre-wrap {
+  white-space: pre-wrap;
 }
 .nfd-wba-rounded {
   border-radius: 0.25rem;
@@ -351,6 +360,10 @@
 .nfd-wba-bg-grey {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--nfd-wba-color-grey-rgb) / var(--tw-bg-opacity));
+}
+.nfd-wba-bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 .nfd-wba-bg-transparent {
   background-color: transparent;
@@ -407,9 +420,6 @@
 }
 .nfd-wba-pr-6 {
   padding-right: 1.5rem;
-}
-.nfd-wba-pt-\[10vh\] {
-  padding-top: 10vh;
 }
 .nfd-wba-pt-\[5vh\] {
   padding-top: 5vh;
@@ -512,6 +522,11 @@
 @media (min-width: 782px) {
   .md\:nfd-wba-max-w-\[90\%\] {
     max-width: 90%;
+  }
+}
+@media (min-width: 1080px) {
+  .lg\:nfd-wba-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

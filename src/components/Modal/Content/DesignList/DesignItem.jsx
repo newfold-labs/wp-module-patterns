@@ -4,7 +4,7 @@
 import { rawHandler } from '@wordpress/blocks';
 import { useDispatch } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { sprintf, __ } from '@wordpress/i18n';
 import { store as noticesStore } from '@wordpress/notices';
 
 /**
@@ -15,8 +15,8 @@ import { store as nfdPatternsStore } from '../../../../store';
 
 const DesignItem = ({ item }) => {
 	const blocks = useMemo(
-		() => rawHandler({ HTML: item.content }),
-		[item.content]
+		() => rawHandler({ HTML: item.source }),
+		[item.source]
 	);
 
 	const { createErrorNotice, createSuccessNotice } =
@@ -32,9 +32,16 @@ const DesignItem = ({ item }) => {
 	const insertDesignHandler = async () => {
 		try {
 			await blockInserter(blocks);
-			createSuccessNotice(__('Pattern added!', 'nfd-wonder-blocks'), {
-				type: 'snackbar',
-			});
+			createSuccessNotice(
+				sprintf(
+					// translators: %s is the pattern title
+					__('"%s" pattern successfully added.', 'nfd-wonder-blocks'),
+					item.title
+				),
+				{
+					type: 'snackbar',
+				}
+			);
 		} catch (error) {
 			createErrorNotice(
 				__(
@@ -63,7 +70,7 @@ const DesignItem = ({ item }) => {
 				}
 			}}
 		>
-			DesignItem
+			{item.title}
 		</button>
 	);
 };

@@ -1,7 +1,7 @@
 /**
  * Toggles the patterns modal.
  *
- * @param {boolean} isOpen
+ * @param {boolean} isOpen Modal open state.
  * @return {Object} Action object.
  */
 export function setIsModalOpen(isOpen) {
@@ -12,14 +12,40 @@ export function setIsModalOpen(isOpen) {
 }
 
 /**
- * Sets the active pattern category.
+ * Sets content loading state.
  *
- * @param {string} activeCategory
+ * @param {boolean} isContentLoading Loading state.
  * @return {Object} Action object.
  */
-export function setActivePatternCategory(activeCategory) {
+export function setIsContentLoading(isContentLoading) {
 	return {
-		type: 'SET_ACTIVE_PATTERN_CATEGORY',
+		type: 'SET_CONTENT_LOADING',
+		isContentLoading,
+	};
+}
+
+/**
+ * Sets the active patterns category.
+ *
+ * @param {string} activeCategory Active category.
+ * @return {Object} Action object.
+ */
+export function setActivePatternsCategory(activeCategory) {
+	return {
+		type: 'SET_ACTIVE_PATTERNS_CATEGORY',
+		activeCategory,
+	};
+}
+
+/**
+ * Sets the active templates category.
+ *
+ * @param {string} activeCategory Active category.
+ * @return {Object} Action object.
+ */
+export function setActiveTemplatesCategory(activeCategory) {
+	return {
+		type: 'SET_ACTIVE_TEMPLATES_CATEGORY',
 		activeCategory,
 	};
 }
