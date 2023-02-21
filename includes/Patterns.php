@@ -5,6 +5,7 @@ namespace NewfoldLabs\WP\Module\Patterns;
 use NewfoldLabs\WP\ModuleLoader\Container;
 use NewfoldLabs\WP\Module\Patterns\Permissions;
 use NewfoldLabs\WP\Module\Patterns\Library\Admin as PatternsLibrary;
+use NewfoldLabs\WP\Module\Patterns\Api\RestApi;
 
 class Patterns {
 
@@ -29,6 +30,7 @@ class Patterns {
 		}
 
 		new CSSUtilities();
-	}
 
+		new RestApi();
+	}
 }

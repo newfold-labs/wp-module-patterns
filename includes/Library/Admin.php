@@ -44,7 +44,8 @@ final class Admin {
 				array(
 					'nonce' => \wp_create_nonce('wp_rest'),
 					// 'baseUrl' => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
-					'restURL' => 'http://localhost:3000',
+					'restURL' => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
+					// 'restURL' => 'http://localhost:3000',
 				)
 			);
 
