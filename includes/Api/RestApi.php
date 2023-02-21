@@ -24,6 +24,7 @@ final class RestApi {
 	 */
 	public function register_routes() {
 		RestApiController::get( '/categories', array( PatternCategoriesController::class, 'index' ) );
+		RestApiController::get( '/templateCategories', array( TemplateCategoriesController::class, 'index' ) );
 		RestApiController::get( '/patterns', array( PatternsController::class, 'index' ) );
 	}
 }

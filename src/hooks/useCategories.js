@@ -16,6 +16,9 @@ const useCategories = (type = 'patterns') => {
 		{
 			url: `${REST_URL}/${endpoint}`,
 			method: 'GET',
+			headers: {
+				'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
+			},
 		},
 		fetcher
 	);
