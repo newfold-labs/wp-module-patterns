@@ -7,14 +7,15 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import Logo from './Logo';
-import PatternsList from './PatternsList';
-import TemplatesList from './TemplatesList';
+import Logo from '../../Logo';
+import Categories from './Categories';
 
-const Sidebar = ({ selectedTab, setSelectedTab }) => {
+const Sidebar = ({ selectedTab, setSelectedTab, isSiteEditor }) => {
 	return (
 		<div className="nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[var(--nfd-wba-sidebar-width)] nfd-wba-shrink-0 nfd-wba-flex-col nfd-wba-overflow-y-auto nfd-wba-border-0 nfd-wba-border-r nfd-wba-border-solid nfd-wba-border-grey-b">
-			<Logo />
+			<div className="nfd-wba-modal__header nfd-wba-justify-start">
+				<Logo />
+			</div>
 
 			<TabPanel
 				className="nfd-wba-tab-panel nfd-wba-flex nfd-wba-grow nfd-wba-flex-col"
@@ -36,8 +37,10 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
 			>
 				{(tab) => (
 					<>
-						{tab?.name === 'patterns' && <PatternsList />}
-						{tab?.name === 'templates' && <TemplatesList />}
+						<Categories
+							isSiteEditor={isSiteEditor}
+							type={tab.name}
+						/>
 					</>
 				)}
 			</TabPanel>

@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { Modal as WPModal } from '@wordpress/components';
-import { dispatch, useSelect } from '@wordpress/data';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { useMemo, useState } from '@wordpress/element';
 
 /**
@@ -14,6 +14,7 @@ import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
 	const [selectedTab, setSelectedTab] = useState('patterns');
+	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
 	const { editedPostType, isModalOpen, getEditedPostId, isEditingTemplate } =
@@ -33,22 +34,19 @@ const Modal = () => {
 		return null;
 	}
 
-	console.log('rerender');
-
 	return (
 		<WPModal
+			className="nfd-wba-modal nfd-wba-shadow-none sm:nfd-wba-max-h-[90%] md:nfd-wba-max-w-[90%]"
 			__experimentalHideHeader={true}
 			aria-expanded={true}
-			className="nfd-wba-modal nfd-wba-shadow-none sm:nfd-wba-max-h-[90%] md:nfd-wba-max-w-[90%]"
-			onRequestClose={() =>
-				dispatch(nfdPatternsStore).setIsModalOpen(false)
-			}
 			isFullScreen={true}
+			onRequestClose={() => setIsModalOpen(false)}
 		>
 			<div className="nfd-wba-grid nfd-wba-grow nfd-wba-grid-cols-library-modal nfd-wba-bg-white nfd-wba-text-dark-lighter">
 				<Sidebar
 					selectedTab={selectedTab}
 					setSelectedTab={setSelectedTab}
+					isSiteEditor={isSiteEditor}
 				/>
 
 				<Content selectedTab={selectedTab} />

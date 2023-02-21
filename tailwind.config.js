@@ -30,7 +30,7 @@ module.exports = {
 			},
 			fontSize: {
 				md: ['15px', '24px'],
-				sm: ['13px', '21px'],
+				sm: ['12px', '19px'],
 			},
 			gridTemplateColumns: {
 				'library-modal': 'var(--nfd-wba-sidebar-width) 1fr',

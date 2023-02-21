@@ -32,9 +32,11 @@
 		"webpack-merge": "^5.8.0"
 	},
 	"dependencies": {
+		"@tanem/react-nprogress": "^5.0.29",
 		"@wordpress/icons": "^9.18.0",
 		"classnames": "^2.3.2",
 		"concurrently": "^7.6.0",
+		"lodash": "^4.17.21",
 		"swr": "^2.0.3"
 	}
 }

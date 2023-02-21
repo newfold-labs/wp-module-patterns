@@ -3,8 +3,14 @@
 /* -------------------------------------------------------------------------- */
 .nfd-wba-tab-panel {
 	.components-tab-panel__tabs {
-		display: flex;
 		border-bottom: solid 1px var(--nfd-wba-color-borders);
+		display: flex;
+	}
+
+	.components-tab-panel__tab-content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
 	}
 
 	.components-tab-panel__tabs-item {

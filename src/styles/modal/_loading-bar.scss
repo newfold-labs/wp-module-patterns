@@ -1,0 +1,23 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Loading Bar                                */
+/* -------------------------------------------------------------------------- */
+.nfd-wba-loading-bar {
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	&:before {
+		background: var(--nfd-wba-color-grey);
+	}
+
+	&:after {
+		background-color: var(--nfd-wba-color-brand);
+		transform: scale3d(var(--nfd-wba-loading-progress, 0.1), 1, 1);
+		transform-origin: left;
+		transition: transform var(--nfd-wba-transition-duration)
+			var(--nfd-wba-transition-timing);
+	}
+}

@@ -1,0 +1,20 @@
+/* -------------------------------------------------------------------------- */
+/*                                Form styles.                                */
+/* -------------------------------------------------------------------------- */
+.nfd-wba-keyword-filter {
+	.components-base-control__field {
+		margin: 0;
+	}
+
+	.components-search-control__input {
+		height: 40px !important;
+
+		&:disabled {
+			opacity: 0.75;
+
+			& + .components-search-control__icon {
+				opacity: 0.5;
+			}
+		}
+	}
+}
