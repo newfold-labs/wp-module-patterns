@@ -14,6 +14,9 @@ const usePatterns = () => {
 		{
 			url: `${REST_URL}/patterns`,
 			method: 'GET',
+			headers: {
+				'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
+			},
 		},
 		fetcher
 	);
