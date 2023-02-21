@@ -47,4 +47,12 @@ final class Permissions {
 		return \is_user_logged_in() && \current_user_can( self::EDITOR );
 	}
 
+	/**
+	 * Confirm user is logged in and has admin user capabilities.
+	 *
+	 * @return boolean
+	 */
+	public static function is_authorized_admin() {
+		return \is_user_logged_in() && \current_user_can( self::ADMIN );
+	}
 }
