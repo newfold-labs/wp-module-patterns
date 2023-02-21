@@ -31,6 +31,9 @@ const PatternsList = () => {
 		{
 			url: `${NFD_WONDER_BLOCKS_REST_URL}/categories`,
 			method: 'GET',
+			headers: {
+				'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
+			},
 		},
 		fetcher
 	);
