@@ -13,9 +13,6 @@ class PatternCategoriesController {
 
 		$response = RestRequest::get( '/categories' );
 
-		return new \WP_REST_Response(
-            $response,
-            wp_remote_retrieve_response_code( $response )
-        );
+		return new \WP_REST_Response( $response );
 	}
 } 
