@@ -6,12 +6,14 @@ import Masonry from 'react-masonry-css';
 /**
  * WordPress dependencies
  */
-import { useEffect, useState, memo } from '@wordpress/element';
+
+import { memo, useEffect, useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
 import DesignItem from './DesignItem';
+import NoResults from './NoResults';
 
 const DesignList = ({ data }) => {
 	const [isDelayed, setIsDelayed] = useState(true);
@@ -44,7 +46,7 @@ const DesignList = ({ data }) => {
 				className="nfd-wba-design-list -nfd-wba-ml-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-w-auto"
 				columnClassName="nfd-wba-design-list__column nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
 			>
-				{data?.length === 0 && <p>No results</p>}
+				{data?.length === 0 && <NoResults />}
 
 				{data?.map((item) => (
 					<DesignItem key={item.key} item={item} />
