@@ -10,18 +10,15 @@ import { Icon, starEmpty } from '@wordpress/icons';
  * Internal dependencies
  */
 import { SITE_EDITOR_CATEGORIES } from '../../../constants';
+import useCategories from '../../../hooks/useCategories';
 import { store as nfdPatternsStore } from '../../../store';
 import ErrorLoading from './ErrorLoading';
-
-/**
- * External dependencies
- */
-import useCategories from '../../../hooks/useCategories';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
 
 const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 	const { data, error, isValidating } = useCategories(type);
+
 	const {
 		setActivePatternsCategory,
 		setActiveTemplatesCategory,
@@ -32,10 +29,6 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 	useEffect(() => {
 		setIsSidebarLoading(!data && isValidating);
 	}, [data, isValidating, setIsSidebarLoading]);
-
-	// useEffect(() => {
-	// 	// ako nema selected, podesi DEFAULT iz constants
-	// }, []);
 
 	/**
 	 * Set the active category.
