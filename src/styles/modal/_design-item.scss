@@ -1,0 +1,33 @@
+/* -------------------------------------------------------------------------- */
+/*                             Design Item styles                             */
+/* -------------------------------------------------------------------------- */
+.nfd-wba-design-item--template {
+	.block-editor-block-preview__container {
+		max-height: 450px;
+	}
+
+	.block-editor-block-preview__container:before {
+		transition: backdrop-filter var(--nfd-wba-transition-duration)
+			var(--nfd-wba-transition-timing);
+	}
+
+	&.nfd-wba-inserting-design .block-editor-block-preview__container:before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		backdrop-filter: grayscale(1);
+		z-index: 1;
+	}
+
+	iframe {
+		transition: transform 1.5s ease-in-out;
+		max-height: unset !important;
+	}
+
+	&:hover {
+		iframe {
+			transition-duration: 0.5s;
+			transform: translateY(-600px);
+		}
+	}
+}

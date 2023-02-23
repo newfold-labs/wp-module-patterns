@@ -1,8 +1,8 @@
 /**
  * WordPress dependencies
  */
-import { useDispatch } from '@wordpress/data';
-import { useEffect, useMemo } from '@wordpress/element';
+import { useDispatch, useSelect } from '@wordpress/data';
+import { useEffect, useMemo, useCallback } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Icon, starEmpty } from '@wordpress/icons';
 
@@ -10,45 +10,48 @@ import { Icon, starEmpty } from '@wordpress/icons';
  * Internal dependencies
  */
 import { SITE_EDITOR_CATEGORIES } from '../../../constants';
+import useCategories from '../../../hooks/useCategories';
 import { store as nfdPatternsStore } from '../../../store';
 import ErrorLoading from './ErrorLoading';
-
-/**
- * External dependencies
- */
-import useCategories from '../../../hooks/useCategories';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
 
 const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 	const { data, error, isValidating } = useCategories(type);
+
 	const {
 		setActivePatternsCategory,
 		setActiveTemplatesCategory,
 		setIsSidebarLoading,
 	} = useDispatch(nfdPatternsStore);
 
+	const { activePatternsCategory } = useSelect((select) => {
+		return {
+			activePatternsCategory:
+				select(nfdPatternsStore).getActivePatternsCategory(),
+		};
+	}, []);
+
 	// Set global state when the categories are loading.
 	useEffect(() => {
 		setIsSidebarLoading(!data && isValidating);
 	}, [data, isValidating, setIsSidebarLoading]);
-
-	// useEffect(() => {
-	// 	// ako nema selected, podesi DEFAULT iz constants
-	// }, []);
 
 	/**
 	 * Set the active category.
 	 *
 	 * @param {string} category
 	 */
-	const setActiveCategory = (category) => {
-		if (type === 'patterns') {
-			setActivePatternsCategory(category);
-		} else {
-			setActiveTemplatesCategory(category);
-		}
-	};
+	const setActiveCategory = useCallback(
+		(category) => {
+			if (type === 'patterns') {
+				setActivePatternsCategory(category);
+			} else {
+				setActiveTemplatesCategory(category);
+			}
+		},
+		[setActivePatternsCategory, setActiveTemplatesCategory, type]
+	);
 
 	// Filter the categories if we are not in the site editor.
 	const filteredCategories = useMemo(() => {
@@ -60,6 +63,13 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 
 		return data;
 	}, [isSiteEditor, data]);
+
+	// Set the active category to the first when the categories are loaded.
+	useEffect(() => {
+		if (data && !activePatternsCategory) {
+			setActiveCategory(data[0]?.title);
+		}
+	}, [activePatternsCategory, data, setActiveCategory]);
 
 	return (
 		<>

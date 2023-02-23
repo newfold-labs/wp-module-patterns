@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+import { Snackbar } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
@@ -8,20 +9,23 @@ import { sprintf, __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
+import useFavorites from '../../../hooks/useFavorites';
 import usePatterns from '../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../store';
 import DesignList from './DesignList/DesignList';
 import Header from './Header/Header';
 import LoadingBar from './LoadingBar';
 
-const Content = ({ selectedTab }) => {
+const Content = () => {
 	const {
 		activePatternsCategory,
 		activeTemplatesCategory,
 		isContentLoading,
 		isSidebarLoading,
 		keywordsFilter,
+		activeTab,
 	} = useSelect((select) => ({
+		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activePatternsCategory:
 			select(nfdPatternsStore).getActivePatternsCategory(),
 		activeTemplatesCategory:
@@ -31,7 +35,10 @@ const Content = ({ selectedTab }) => {
 		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
 	}));
 
-	const { data, isValidating } = usePatterns('test');
+	// Fetch data.
+	const { data, isValidating } = usePatterns();
+	// const { data: favData } = useFavorites(selectedTab);
+
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
 	// Set the global content loading state when the data is loading.
@@ -60,21 +67,21 @@ const Content = ({ selectedTab }) => {
 					{data && <DesignList data={data} />}
 
 					{
-						<pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
-							{JSON.stringify(
-								{
-									selectedTab,
-									activePatternsCategory,
-									activeTemplatesCategory,
-									isContentLoading,
-									isSidebarLoading,
-									keywordsFilter,
-									data,
-								},
-								null,
-								2
-							)}
-						</pre>
+						// <pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
+						// 	{JSON.stringify(
+						// 		{
+						// 			activeTab,
+						// 			activePatternsCategory,
+						// 			activeTemplatesCategory,
+						// 			isContentLoading,
+						// 			isSidebarLoading,
+						// 			keywordsFilter,
+						// 			data,
+						// 		},
+						// 		null,
+						// 		2
+						// 	)}
+						// </pre>
 					}
 				</div>
 			</div>

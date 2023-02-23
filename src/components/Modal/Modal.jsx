@@ -2,8 +2,8 @@
  * WordPress dependencies
  */
 import { Modal as WPModal } from '@wordpress/components';
-import { useSelect, useDispatch } from '@wordpress/data';
-import { useMemo, useState } from '@wordpress/element';
+import { useDispatch, useSelect } from '@wordpress/data';
+import { useMemo } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -13,7 +13,6 @@ import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
-	const [selectedTab, setSelectedTab] = useState('patterns');
 	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
@@ -43,13 +42,8 @@ const Modal = () => {
 			onRequestClose={() => setIsModalOpen(false)}
 		>
 			<div className="nfd-wba-grid nfd-wba-grow nfd-wba-grid-cols-library-modal nfd-wba-bg-white nfd-wba-text-dark-lighter">
-				<Sidebar
-					selectedTab={selectedTab}
-					setSelectedTab={setSelectedTab}
-					isSiteEditor={isSiteEditor}
-				/>
-
-				<Content selectedTab={selectedTab} />
+				<Sidebar isSiteEditor={isSiteEditor} />
+				<Content />
 			</div>
 		</WPModal>
 	);

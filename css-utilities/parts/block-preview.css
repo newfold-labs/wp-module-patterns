@@ -1,0 +1,15 @@
+/* -------------------------------------------------------------------------- */
+/*                            Block preview styles                            */
+/* -------------------------------------------------------------------------- */
+.block-editor-block-preview__content-iframe
+	.is-root-container:has(div[class*="nfd-"]) {
+	padding: 0;
+}
+
+.block-editor-block-preview__content-iframe .is-root-container > .nfd-py-stack {
+	padding: var(--nfd-cp-p-base, 2.375rem) !important;
+}
+
+.nfd-wba-modal * {
+	box-sizing: border-box !important;
+}

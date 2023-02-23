@@ -10,10 +10,11 @@
 		height: 40px !important;
 
 		&:disabled {
-			opacity: 0.75;
+			cursor: wait;
+			opacity: 0.8;
 
 			& + .components-search-control__icon {
-				opacity: 0.5;
+				opacity: 0.8;
 			}
 		}
 	}

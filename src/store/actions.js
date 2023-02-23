@@ -75,3 +75,16 @@ export function setKeywordsFilter(keywordsFilter) {
 		keywordsFilter,
 	};
 }
+
+/**
+ * Set active tab in sidebar modal.
+ *
+ * @param {string} activeTab Active tab.
+ * @return {Object} Action object.
+ */
+export function setActiveTab(activeTab) {
+	return {
+		type: 'SET_ACTIVE_TAB',
+		activeTab,
+	};
+}
