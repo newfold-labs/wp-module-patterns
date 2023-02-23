@@ -2,6 +2,7 @@
 
 namespace NewfoldLabs\WP\Module\Patterns\Api;
 
+use NewfoldLabs\WP\Module\Patterns\Api\Controllers\FavoritesController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PatternCategoriesController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PatternsController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\RestApiController;
@@ -26,5 +27,10 @@ final class RestApi {
 		RestApiController::get( '/categories', array( PatternCategoriesController::class, 'index' ) );
 		RestApiController::get( '/templateCategories', array( TemplateCategoriesController::class, 'index' ) );
 		RestApiController::get( '/patterns', array( PatternsController::class, 'index' ) );
+
+		RestApiController::get( '/favorites/patterns', array( FavoritesController::class, 'index' ) );
+		RestApiController::get( '/favorites/templates', array( FavoritesController::class, 'index' ) );
+		RestApiController::post( '/favorites/patterns', array( FavoritesController::class, 'add' ) );
+		RestApiController::post( '/favorites/templates', array( FavoritesController::class, 'add' ) );
 	}
 }
