@@ -475,6 +475,19 @@ p[style*="text-decoration"] > a {
 .nfd-absolute-header:not([style*="margin"]) {
 	margin: 0 !important;
 }
+/* -------------------------------------------------------------------------- */
+/*                            Block preview styles                            */
+/* -------------------------------------------------------------------------- */
+.block-editor-block-preview__content-iframe
+	.is-root-container:has(div[class*="nfd-"]) {
+	padding: 0 !important;
+}
+.block-editor-block-preview__content-iframe .is-root-container > .nfd-py-stack:not([style*="padding"]) {
+	padding: var(--nfd-cp-p-base, 2.375rem) !important;
+}
+.nfd-wba-modal * {
+	box-sizing: border-box !important;
+}
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;
