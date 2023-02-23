@@ -9,9 +9,16 @@ class PatternsController {
 	 * Return all patterns.
 	 *
 	 */
-	public static function index() {
+	public static function index( $request ) {
+	
+		$params = $request->get_query_params();
 
-		$response = RestRequest::get( '/patterns' );
+		$response = RestRequest::get(
+			'/patterns',
+			array(
+				'category' => isset( $params['category'] ) ? sanitize_text_field( $params['category'] ) : '',
+			)
+		);
 
 		return new \WP_REST_Response( $response );
 	}

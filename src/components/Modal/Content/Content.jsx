@@ -15,14 +15,16 @@ import DesignList from './DesignList/DesignList';
 import Header from './Header/Header';
 import LoadingBar from './LoadingBar';
 
-const Content = ({ selectedTab = 'patterns' }) => {
+const Content = () => {
 	const {
 		activePatternsCategory,
 		activeTemplatesCategory,
 		isContentLoading,
 		isSidebarLoading,
 		keywordsFilter,
+		activeTab,
 	} = useSelect((select) => ({
+		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activePatternsCategory:
 			select(nfdPatternsStore).getActivePatternsCategory(),
 		activeTemplatesCategory:
@@ -33,11 +35,8 @@ const Content = ({ selectedTab = 'patterns' }) => {
 	}));
 
 	// Fetch data.
-	const { data, isValidating } = usePatterns('test');
-	const { data: favData } = useFavorites(selectedTab);
-
-	// Fetch favorites (type = selectedTab)
-	// const { data: favoritesData } = useFavorites(selectedTab); // u sebi treba da ima useEffect koji na promenu data izvrsava dispatch
+	const { data, isValidating } = usePatterns();
+	// const { data: favData } = useFavorites(selectedTab);
 
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
@@ -50,12 +49,8 @@ const Content = ({ selectedTab = 'patterns' }) => {
 		<div className="nfd-wba-flex nfd-wba-min-w-[400px] nfd-wba-grow nfd-wba-flex-col nfd-wba-overflow-y-auto">
 			<Header />
 
-			<pre className="nfd-wba-whitespace-pre-wrap nfd-wba-bg-grey-b nfd-wba-p-6">
-				{JSON.stringify(favData, null, 2)}
-			</pre>
-
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{<LoadingBar isComplete={data} />}
+				{/* {<LoadingBar isComplete={data} />} */}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					{keywordsFilter && (
@@ -74,7 +69,7 @@ const Content = ({ selectedTab = 'patterns' }) => {
 						// <pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
 						// 	{JSON.stringify(
 						// 		{
-						// 			selectedTab,
+						// 			activeTab,
 						// 			activePatternsCategory,
 						// 			activeTemplatesCategory,
 						// 			isContentLoading,

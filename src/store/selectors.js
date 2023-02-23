@@ -39,6 +39,16 @@ export function getKeywordsFilter(state) {
 }
 
 /**
+ * Get active tab in sidebar.
+ *
+ * @param {*} state
+ * @return {string} The active tab.
+ */
+export function getActiveTab(state) {
+	return state.modal.activeTab;
+}
+
+/**
  * Gets the active patterns category.
  *
  * @param {*} state

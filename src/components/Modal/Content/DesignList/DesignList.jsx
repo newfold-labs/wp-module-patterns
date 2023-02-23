@@ -6,7 +6,7 @@ import Masonry from 'react-masonry-css';
 /**
  * WordPress dependencies
  */
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useState, memo } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -44,6 +44,8 @@ const DesignList = ({ data }) => {
 				className="nfd-wba-design-list -nfd-wba-ml-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-w-auto"
 				columnClassName="nfd-wba-design-list__column nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
 			>
+				{data?.length === 0 && <p>No results</p>}
+
 				{data?.map((item) => (
 					<DesignItem key={item.key} item={item} />
 				))}
@@ -51,4 +53,4 @@ const DesignList = ({ data }) => {
 		</>
 	);
 };
-export default DesignList;
+export default memo(DesignList);

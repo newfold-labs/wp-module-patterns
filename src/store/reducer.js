@@ -3,11 +3,21 @@
  */
 import { combineReducers } from '@wordpress/data';
 
+/**
+ * Internal dependencies
+ */
+import {
+	DEFAULT_ACTIVE_TAB,
+	DEFAULT_PATTERNS_CATEGORY,
+	DEFAULT_TEMPLATES_CATEGORY,
+} from '../constants';
+
 export function modal(
 	state = {
 		isOpen: false,
 		isContentLoading: false,
 		keywordsFilter: '',
+		activeTab: DEFAULT_ACTIVE_TAB,
 	},
 	action
 ) {
@@ -35,6 +45,12 @@ export function modal(
 				...state,
 				keywordsFilter: action.keywordsFilter,
 			};
+
+		case 'SET_ACTIVE_TAB':
+			return {
+				...state,
+				activeTab: action.activeTab,
+			};
 	}
 
 	return state;
@@ -42,7 +58,7 @@ export function modal(
 
 export function patterns(
 	state = {
-		activeCategory: null,
+		activeCategory: DEFAULT_PATTERNS_CATEGORY,
 	},
 	action
 ) {
@@ -59,7 +75,7 @@ export function patterns(
 
 export function templates(
 	state = {
-		activeCategory: null,
+		activeCategory: DEFAULT_TEMPLATES_CATEGORY,
 	},
 	action
 ) {
