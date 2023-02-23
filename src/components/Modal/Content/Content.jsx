@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+import { Snackbar } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
@@ -50,7 +51,7 @@ const Content = () => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{/* {<LoadingBar isComplete={data} />} */}
+				{<LoadingBar isComplete={data} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					{keywordsFilter && (

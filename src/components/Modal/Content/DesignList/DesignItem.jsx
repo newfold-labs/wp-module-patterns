@@ -5,11 +5,12 @@ import apiFetch from '@wordpress/api-fetch';
 import { BlockPreview } from '@wordpress/block-editor';
 import { rawHandler } from '@wordpress/blocks';
 import { Button } from '@wordpress/components';
-import { useDispatch } from '@wordpress/data';
-import { memo, useMemo } from '@wordpress/element';
+import { useDispatch, useSelect } from '@wordpress/data';
+import { memo, useMemo, useState } from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
 import { Icon, plus, starEmpty, starFilled } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
+import classNames from 'classnames';
 import { REST_URL } from '../../../../constants';
 
 /**
@@ -19,6 +20,9 @@ import { blockInserter } from '../../../../helpers/blockInserter';
 import { store as nfdPatternsStore } from '../../../../store';
 
 const DesignItem = ({ item }) => {
+	const [favorite, setFavorite] = useState(false);
+	const [insertingDesign, setInsertingDesign] = useState(false);
+
 	const blocks = useMemo(
 		() => rawHandler({ HTML: item.source }),
 		[item.source]
@@ -28,6 +32,10 @@ const DesignItem = ({ item }) => {
 		useDispatch(noticesStore);
 	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
+	const { activeTab } = useSelect((select) => ({
+		activeTab: select(nfdPatternsStore).getActiveTab(),
+	}));
+
 	/**
 	 * Insert the pattern or a collection of patterns (template) into the editor.
 	 *
@@ -35,38 +43,51 @@ const DesignItem = ({ item }) => {
 	 * @throws {Error} If the pattern cannot be inserted.
 	 */
 	const insertDesignHandler = async () => {
-		try {
-			await blockInserter(blocks);
-			createSuccessNotice(
-				sprintf(
-					// translators: %s is the pattern title
+		setInsertingDesign(true);
+
+		setTimeout(async () => {
+			try {
+				await blockInserter(blocks);
+				createSuccessNotice(
+					sprintf(
+						// translators: %s is the pattern title
+						__(
+							'"%s" pattern successfully inserted.',
+							'nfd-wonder-blocks'
+						),
+						item.title
+					),
+					{
+						type: 'snackbar',
+					}
+				);
+			} catch (error) {
+				createErrorNotice(
 					__(
-						'"%s" pattern successfully inserted.',
+						'Failed to insert the pattern. Please try again.',
 						'nfd-wonder-blocks'
 					),
-					item.title
-				),
-				{
-					type: 'snackbar',
-				}
-			);
-		} catch (error) {
-			createErrorNotice(
-				__(
-					'Failed to insert the pattern. Please try again.',
-					'nfd-wonder-blocks'
-				),
-				{
-					type: 'snackbar',
-					explicitDismiss: true,
-				}
-			);
-		} finally {
-			setIsModalOpen(false);
-		}
+					{
+						type: 'snackbar',
+						explicitDismiss: true,
+					}
+				);
+			} finally {
+				setInsertingDesign(false);
+				setIsModalOpen(false);
+			}
+		}, 30);
 	};
 
+	/**
+	 * Add or remove the pattern from the favorites list.
+	 *
+	 * @return {void}
+	 * @throws {Error} If the pattern cannot be added or removed.
+	 */
 	const addToFavoritesHandler = async () => {
+		setFavorite((prev) => !prev);
+
 		await apiFetch({
 			url: `${REST_URL}/favorites/patterns`,
 			method: 'POST',
@@ -80,7 +101,12 @@ const DesignItem = ({ item }) => {
 	return (
 		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-hidden nfd-wba-rounded-b-md">
 			<div
-				className="nfd-wba-cursor-pointer nfd-wba-overflow-hidden nfd-wba-rounded-t-md nfd-wba-border nfd-wba-border-solid nfd-wba-border-grey"
+				className={classNames(
+					'nfd-wba-design-item nfd-wba-cursor-pointer nfd-wba-overflow-hidden nfd-wba-rounded-t-md nfd-wba-border nfd-wba-border-solid nfd-wba-border-grey nfd-wba-transition-opacity',
+					activeTab === 'templates' &&
+						'nfd-wba-design-item--template',
+					insertingDesign && 'nfd-wba-inserting-design'
+				)}
 				role="button"
 				tabIndex="0"
 				onClick={() => insertDesignHandler()}
@@ -103,26 +129,31 @@ const DesignItem = ({ item }) => {
 				<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-1">
 					<Button
 						className="nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white"
+						isBusy={insertingDesign}
+						isPressed={insertingDesign}
 						label={__('Insert', 'nfd-wonder-blocks')}
+						onClick={() => insertDesignHandler()}
 						icon={
 							<Icon
 								fill="currentColor"
 								className="nfd-wba-shrink-0"
 								icon={plus}
-								onClick={() => insertDesignHandler()}
 							/>
 						}
 					/>
 
 					<Button
-						className="nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white"
+						className={classNames(
+							'nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white',
+							favorite && 'nfd-wba-text-dark'
+						)}
 						label={__('Add to Favorites', 'nfd-wonder-blocks')}
+						onClick={() => addToFavoritesHandler()}
 						icon={
 							<Icon
-								fill="currentColor"
 								className="nfd-wba-shrink-0"
-								icon={starEmpty}
-								onClick={() => addToFavoritesHandler()}
+								fill="currentColor"
+								icon={favorite ? starFilled : starEmpty}
 							/>
 						}
 					/>
