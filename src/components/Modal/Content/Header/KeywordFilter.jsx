@@ -18,7 +18,7 @@ import { INPUT_DEBOUNCE_TIME } from '../../../../constants';
 import { store as nfdPatternsStore } from '../../../../store';
 
 const KeywordFilter = () => {
-	const searchRef = useRef('');
+	const searchRef = useRef(null);
 	const [searchValue, setSearchValue] = useState('');
 
 	const { setKeywordsFilter } = useDispatch(nfdPatternsStore);
@@ -26,11 +26,6 @@ const KeywordFilter = () => {
 		isSidebarLoading: select(nfdPatternsStore).isSidebarLoading(),
 		isContentLoading: select(nfdPatternsStore).isContentLoading(),
 	}));
-
-	// Focus the search input on mount.
-	useEffect(() => {
-		searchRef.current.focus();
-	}, []);
 
 	// Debounce search value changes in store.
 	useEffect(() => {
