@@ -29,7 +29,7 @@ module.exports = {
 				DEFAULT: 'var(--nfd-wba-transition-timing)',
 			},
 			fontSize: {
-				md: ['15px', '24px'],
+				md: ['14px', '22px'],
 				sm: ['12px', '19px'],
 			},
 			gridTemplateColumns: {
