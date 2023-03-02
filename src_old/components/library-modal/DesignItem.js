@@ -6,10 +6,10 @@ import { dispatch } from '../../helpers/events';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { BlockPreview } from '@wordpress/block-editor';
 import { rawHandler } from '@wordpress/blocks';
-import { useMemo, memo } from '@wordpress/element';
+import { memo, useMemo } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 const DesignItem = memo(({ item }) => {
 	const blocks = useMemo(
