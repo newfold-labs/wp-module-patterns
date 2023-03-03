@@ -11,6 +11,7 @@ import { Icon, starEmpty } from '@wordpress/icons';
  */
 import { SITE_EDITOR_CATEGORIES } from '../../../constants';
 import useCategories from '../../../hooks/useCategories';
+import useFavorites from '../../../hooks/useFavorites';
 import { store as nfdPatternsStore } from '../../../store';
 import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
@@ -18,6 +19,7 @@ import Skeleton from './Skeleton';
 
 const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 	const { data, error, isValidating } = useCategories(type);
+	const { data: favoritesData } = useFavorites();
 
 	const {
 		setActivePatternsCategory,
@@ -101,7 +103,10 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 							id: `favorite-${type}`,
 							label: __('Favorites', 'nfd-wonder-blocks'),
 							title: 'favorites',
-							count: 3, // todo fetch favorites count
+							count:
+								favoritesData && Array.isArray(favoritesData)
+									? favoritesData.length
+									: 0,
 						}}
 						categoryType={type}
 						icon={
