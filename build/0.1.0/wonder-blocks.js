@@ -1161,7 +1161,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const Modal = () => {
   const {
-    setIsModalOpen
+    setIsModalOpen,
+    setActiveTab
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_3__.store);
 
   // Check if we are editing a template, via site editor or page.
@@ -1184,6 +1185,14 @@ const Modal = () => {
   const isSiteEditor = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
     return isEditingTemplate || !!editedPostType;
   }, [isEditingTemplate, editedPostType]);
+
+  // Check if we should automatically open the modal and pre-select.
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const search = new URLSearchParams(window.location.search);
+    if (search.has('nfd-wb-modal')) {
+      setIsModalOpen(true);
+    }
+  }, [setIsModalOpen]);
   if (!isModalOpen) {
     return null;
   }
