@@ -31,9 +31,8 @@ final class RestApi {
 		RestApiController::get( '/templates', array( TemplatesController::class, 'index' ) );
 		RestApiController::get( '/templateCategories', array( TemplateCategoriesController::class, 'index' ) );
 
-		RestApiController::get( '/favorites/patterns', array( FavoritesController::class, 'index' ) );
-		RestApiController::get( '/favorites/templates', array( FavoritesController::class, 'index' ) );
-		RestApiController::post( '/favorites/patterns', array( FavoritesController::class, 'add' ) );
-		RestApiController::post( '/favorites/templates', array( FavoritesController::class, 'add' ) );
+		RestApiController::get( '/favorites', array( FavoritesController::class, 'index' ) );
+		RestApiController::post( '/favorites', array( FavoritesController::class, 'add' ) );
+		RestApiController::delete( '/favorites', array( FavoritesController::class, 'delete' ) );
 	}
 }

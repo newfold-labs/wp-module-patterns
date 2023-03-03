@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import classNames from 'classnames';
+
+/**
  * WordPress dependencies
  */
 import apiFetch from '@wordpress/api-fetch';
@@ -6,22 +11,23 @@ import { BlockPreview } from '@wordpress/block-editor';
 import { rawHandler } from '@wordpress/blocks';
 import { Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { memo, useMemo, useState } from '@wordpress/element';
+import { memo, useMemo, useState, useEffect } from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
 import { Icon, plus, starEmpty, starFilled } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
-import classNames from 'classnames';
-import { REST_URL } from '../../../../constants';
 
 /**
  * Internal dependencies
  */
+import { REST_URL } from '../../../../constants';
 import { blockInserter } from '../../../../helpers/blockInserter';
+import useFavorites from '../../../../hooks/useFavorites';
 import { store as nfdPatternsStore } from '../../../../store';
 
 const DesignItem = ({ item }) => {
-	const [favorite, setFavorite] = useState(false);
+	const [isFavorite, setIsFavorite] = useState(false);
 	const [insertingDesign, setInsertingDesign] = useState(false);
+	const { data: favData, mutate } = useFavorites();
 
 	const blocks = useMemo(
 		() => rawHandler({ HTML: item.source }),
@@ -35,6 +41,14 @@ const DesignItem = ({ item }) => {
 	const { activeTab } = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
 	}));
+
+	useEffect(() => {
+		// console.log(favData);
+		// Check if the item.title is in the favorites list.
+		const isFav = favData.find((fav) => fav.title === item.title);
+
+		setIsFavorite(!!isFav);
+	}, [favData, item.title]);
 
 	/**
 	 * Insert the pattern or a collection of patterns (template) into the editor.
@@ -86,16 +100,25 @@ const DesignItem = ({ item }) => {
 	 * @throws {Error} If the pattern cannot be added or removed.
 	 */
 	const addToFavoritesHandler = async () => {
-		setFavorite((prev) => !prev);
+		setIsFavorite((prev) => !prev);
 
-		await apiFetch({
-			url: `${REST_URL}/favorites/patterns`,
-			method: 'POST',
-			data: item,
+		// Add helper functions to add/remove favorites!
+
+		const method = isFavorite ? 'DELETE' : 'POST';
+
+		const d = await apiFetch({
+			url: `${REST_URL}/favorites`,
+			method,
+			data: {
+				...item,
+				type: activeTab,
+			},
 			headers: {
 				'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
 			},
 		});
+
+		mutate();
 	};
 
 	return (
@@ -145,7 +168,7 @@ const DesignItem = ({ item }) => {
 					<Button
 						className={classNames(
 							'nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white',
-							favorite && 'nfd-wba-text-dark'
+							isFavorite && 'nfd-wba-text-dark'
 						)}
 						label={__('Add to Favorites', 'nfd-wonder-blocks')}
 						onClick={() => addToFavoritesHandler()}
@@ -153,7 +176,7 @@ const DesignItem = ({ item }) => {
 							<Icon
 								className="nfd-wba-shrink-0"
 								fill="currentColor"
-								icon={favorite ? starFilled : starEmpty}
+								icon={isFavorite ? starFilled : starEmpty}
 							/>
 						}
 					/>

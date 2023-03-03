@@ -44,21 +44,22 @@ const usePatterns = () => {
 	const url = new URL(`${REST_URL}/${endpoint}`);
 	url.searchParams.append('category', activeCategory);
 
-	const { data, error, isValidating } = useSWR(
-		{
-			url: url.href,
-			method: 'GET',
-			headers: {
-				'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
-			},
-		},
-		fetcher
-	);
+	const { data, error, isValidating } = useSWR({ url: url.href }, fetcher);
+
+	if (activeCategory === 'favorites') {
+		return {
+			data: null,
+			isError: null,
+			isValidating: null,
+			isFavorites: true,
+		};
+	}
 
 	return {
 		data,
 		isError: error,
 		isValidating,
+		isFavorites: false,
 	};
 };
 

@@ -3,7 +3,7 @@
  */
 import { Modal as WPModal } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useMemo } from '@wordpress/element';
+import { useEffect, useMemo } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -13,7 +13,7 @@ import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
-	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
+	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
 	const { editedPostType, isModalOpen, getEditedPostId, isEditingTemplate } =
@@ -28,6 +28,14 @@ const Modal = () => {
 	const isSiteEditor = useMemo(() => {
 		return isEditingTemplate || !!editedPostType;
 	}, [isEditingTemplate, editedPostType]);
+
+	// Check if we should automatically open the modal and pre-select.
+	useEffect(() => {
+		const search = new URLSearchParams(window.location.search);
+		if (search.has('nfd-wb-modal')) {
+			setIsModalOpen(true);
+		}
+	}, [setIsModalOpen]);
 
 	if (!isModalOpen) {
 		return null;

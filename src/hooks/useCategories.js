@@ -15,10 +15,6 @@ const useCategories = (type = 'patterns') => {
 	const { data, error, isValidating } = useSWR(
 		{
 			url: `${REST_URL}/${endpoint}`,
-			method: 'GET',
-			headers: {
-				'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
-			},
 		},
 		fetcher
 	);

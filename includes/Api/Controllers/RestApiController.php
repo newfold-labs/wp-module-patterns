@@ -96,6 +96,30 @@ class RestApiController extends \WP_REST_Controller {
 			)
         );
     }
+    
+    /**
+     * Handle DELETE request.
+     *
+     * @param string $namespace - The api name space.
+     * @param string $endpoint  - The endpoint.
+     * @param string $callback  - The callback to run.
+     *
+     * @return void
+     */
+    public function deleteHandler( $namespace, $endpoint, $callback ) {
+        \register_rest_route(
+            $namespace,
+            $endpoint,
+            array(
+                'methods' => 'DELETE',
+                'callback' => $callback,
+                'permission_callback' => array(
+                    $this,
+                    'checkPermission',
+				),
+			)
+        );
+    }
 	
 	/**
      * The caller
