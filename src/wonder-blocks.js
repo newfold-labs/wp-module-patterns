@@ -1,8 +1,17 @@
+/**
+ * Styles.
+ */
 import './styles/app.scss';
 
+/**
+ * WordPress dependencies
+ */
 import domReady from '@wordpress/dom-ready';
 import { render } from '@wordpress/element';
 
+/**
+ * Internal dependencies
+ */
 import {
 	NFD_WONDER_BLOCKS_MODAL_ID,
 	NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID,
@@ -10,6 +19,8 @@ import {
 
 import Modal from './components/Modal/Modal';
 import ToolbarButton from './components/ToolbarButton';
+import './blocks/register-category';
+import './blocks/block';
 
 domReady(() => {
 	renderModal(NFD_WONDER_BLOCKS_MODAL_ID);

@@ -60,6 +60,10 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 
 	// Filter the categories if we are not in the site editor.
 	const filteredCategories = useMemo(() => {
+		if (!data || !Array.isArray(data)) {
+			return null;
+		}
+
 		if (!isSiteEditor) {
 			return data?.filter(
 				(category) => !SITE_EDITOR_CATEGORIES.includes(category.title)
@@ -83,7 +87,7 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 
 			{data && (
 				<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5">
-					{filteredCategories.map((category) => {
+					{filteredCategories?.map((category) => {
 						return (
 							<ListElement
 								key={category.id}

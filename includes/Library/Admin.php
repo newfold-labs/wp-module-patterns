@@ -45,6 +45,7 @@ final class Admin {
 					'nonce' => \wp_create_nonce('wp_rest'),
 					// 'baseUrl' => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
 					'restURL' => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
+                    'assets' => \esc_url(NFD_WONDER_BLOCKS_URL . '/assets'),
 					// 'restURL' => 'http://localhost:3000',
 				)
 			);

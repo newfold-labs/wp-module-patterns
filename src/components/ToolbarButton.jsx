@@ -3,7 +3,6 @@
  */
 import { Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
 import { buttons, Icon } from '@wordpress/icons';
 import classNames from 'classnames';
 
@@ -23,7 +22,7 @@ const ToolbarButton = () => {
 		<>
 			<Button
 				icon={<Icon icon={buttons} />}
-				text={__('Wonder Blocks', 'nfd-wonder-blocks')}
+				text="Wonder Blocks"
 				className={classNames(
 					'nfd-wba-ml-2 nfd-wba-flex nfd-wba-h-9 nfd-wba-shrink-0 nfd-wba-gap-1 nfd-wba-bg-brand nfd-wba-text-white hover:nfd-wba-bg-brand-darker hover:nfd-wba-text-white focus-visible:nfd-wba-text-white active:!nfd-wba-text-white'
 				)}
