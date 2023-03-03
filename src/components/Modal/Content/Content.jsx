@@ -1,7 +1,6 @@
 /**
  * WordPress dependencies
  */
-import { Snackbar } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
@@ -36,8 +35,8 @@ const Content = () => {
 	}));
 
 	// Fetch data.
-	const { data, isValidating } = usePatterns();
-	// const { data: favData } = useFavorites(selectedTab);
+	const { data, isValidating, isFavorites } = usePatterns();
+	const { data: favData } = useFavorites();
 
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
@@ -51,7 +50,7 @@ const Content = () => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{<LoadingBar isComplete={data} />}
+				{/* {<LoadingBar isComplete={data} />} */}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					{keywordsFilter && (
@@ -64,24 +63,26 @@ const Content = () => {
 						</h1>
 					)}
 
-					{data && <DesignList data={data} />}
+					{data && !isFavorites && <DesignList data={data} />}
+					{favData && isFavorites && <DesignList data={favData} />}
 
 					{
-						// <pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
-						// 	{JSON.stringify(
-						// 		{
-						// 			activeTab,
-						// 			activePatternsCategory,
-						// 			activeTemplatesCategory,
-						// 			isContentLoading,
-						// 			isSidebarLoading,
-						// 			keywordsFilter,
-						// 			data,
-						// 		},
-						// 		null,
-						// 		2
-						// 	)}
-						// </pre>
+						<pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
+							{JSON.stringify(
+								{
+									activeTab,
+									activePatternsCategory,
+									activeTemplatesCategory,
+									isContentLoading,
+									isSidebarLoading,
+									keywordsFilter,
+									isFavorites,
+									favData,
+								},
+								null,
+								2
+							)}
+						</pre>
 					}
 				</div>
 			</div>

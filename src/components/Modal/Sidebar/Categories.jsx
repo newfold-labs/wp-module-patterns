@@ -44,7 +44,10 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 	 */
 	const setActiveCategory = useCallback(
 		(category) => {
-			if (type === 'patterns') {
+			if (category === 'favorites') {
+				setActivePatternsCategory(category);
+				setActiveTemplatesCategory(category);
+			} else if (type === 'patterns') {
 				setActivePatternsCategory(category);
 			} else {
 				setActiveTemplatesCategory(category);
@@ -97,7 +100,7 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 						category={{
 							id: `favorite-${type}`,
 							label: __('Favorites', 'nfd-wonder-blocks'),
-							title: `favorite_${type}`,
+							title: 'favorites',
 							count: 3, // todo fetch favorites count
 						}}
 						categoryType={type}
@@ -109,7 +112,7 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 							/>
 						}
 						onClick={() => {
-							setActiveCategory(`favorite_${type}`);
+							setActiveCategory('favorites');
 						}}
 					/>
 				</ul>
