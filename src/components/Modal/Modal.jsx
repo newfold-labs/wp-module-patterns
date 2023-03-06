@@ -13,7 +13,7 @@ import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
-	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
+	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
 	const { editedPostType, isModalOpen, getEditedPostId, isEditingTemplate } =

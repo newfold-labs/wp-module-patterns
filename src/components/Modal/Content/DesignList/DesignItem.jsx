@@ -43,9 +43,11 @@ const DesignItem = ({ item }) => {
 	}));
 
 	useEffect(() => {
-		// console.log(favData);
-		// Check if the item.title is in the favorites list.
-		const isFav = favData.find((fav) => fav.title === item.title);
+		let isFav = false;
+
+		if (favData && Array.isArray(favData)) {
+			isFav = favData.find((fav) => fav.title === item.title);
+		}
 
 		setIsFavorite(!!isFav);
 	}, [favData, item.title]);
