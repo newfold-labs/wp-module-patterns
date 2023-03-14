@@ -1,8 +1,8 @@
 /**
  * WordPress dependencies
  */
-import { forwardRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
+import { forwardRef } from '@wordpress/element';
 
 /**
  * External dependencies
