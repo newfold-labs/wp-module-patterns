@@ -9,6 +9,8 @@ import './styles/app.scss';
 import domReady from '@wordpress/dom-ready';
 import { render } from '@wordpress/element';
 
+import { subscribe } from '@wordpress/data';
+
 /**
  * Internal dependencies
  */
@@ -47,10 +49,12 @@ const renderModal = (elementId) => {
  * Add the Wonder Blocks trigger button.
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
-const unsubscribeToolbarButton = window?.wp?.data?.subscribe(() => {
+
+const registerCallback = () => {
 	window.requestAnimationFrame(() => {
 		// Do not add the button again if it has been already added.
 		if (document.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
+			unsubscribe();
 			return;
 		}
 
@@ -80,7 +84,8 @@ const unsubscribeToolbarButton = window?.wp?.data?.subscribe(() => {
 		// Render the button.
 		render(<ToolbarButton />, buttonContainer);
 
-		// Unsubscribe the function once the button is added.
-		unsubscribeToolbarButton();
+		unsubscribe();
 	});
-});
+};
+
+const unsubscribe = subscribe(registerCallback);
