@@ -8,6 +8,8 @@
 @use "design-item";
 
 .nfd-wba-modal {
+	--wp-admin-theme-color: var(--nfd-wba-color-brand);
+
 	.components-modal__content {
 		display: flex;
 		padding: 0;
