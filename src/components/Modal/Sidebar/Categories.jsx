@@ -2,48 +2,45 @@
  * WordPress dependencies
  */
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect, useMemo, useCallback } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
-import { Icon, starEmpty } from '@wordpress/icons';
+import { memo, useCallback, useEffect, useMemo } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
-import { SITE_EDITOR_CATEGORIES } from '../../../constants';
+import {
+	DEFAULT_PATTERNS_CATEGORY,
+	DEFAULT_TEMPLATES_CATEGORY,
+	SITE_EDITOR_CATEGORIES,
+} from '../../../constants';
 import useCategories from '../../../hooks/useCategories';
-import useFavorites from '../../../hooks/useFavorites';
 import { store as nfdPatternsStore } from '../../../store';
 import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
 
-const Categories = ({ isSiteEditor, type = 'patterns' }) => {
+const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
+	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
-	const { data: favoritesData } = useFavorites();
 
+	// Store actions and states.
 	const {
+		setIsSidebarLoading,
 		setActivePatternsCategory,
 		setActiveTemplatesCategory,
-		setIsSidebarLoading,
 	} = useDispatch(nfdPatternsStore);
 
-	const { activePatternsCategory } = useSelect((select) => {
-		return {
-			activePatternsCategory:
-				select(nfdPatternsStore).getActivePatternsCategory(),
-		};
-	}, []);
+	const { activePatternsCategory, activeTemplatesCategory } = useSelect(
+		(select) => {
+			return {
+				activePatternsCategory:
+					select(nfdPatternsStore).getActivePatternsCategory(),
+				activeTemplatesCategory:
+					select(nfdPatternsStore).getActiveTemplatesCategory(),
+			};
+		}
+	);
 
-	// Set global state when the categories are loading.
-	useEffect(() => {
-		setIsSidebarLoading(!data && isValidating);
-	}, [data, isValidating, setIsSidebarLoading]);
-
-	/**
-	 * Set the active category.
-	 *
-	 * @param {string} category
-	 */
+	// Set the active category.
 	const setActiveCategory = useCallback(
 		(category) => {
 			if (category === 'favorites') {
@@ -58,8 +55,48 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 		[setActivePatternsCategory, setActiveTemplatesCategory, type]
 	);
 
-	// Filter the categories if we are not in the site editor.
+	// Check if category exists in the array.
+	const isCategoryValid = useCallback(
+		(category) => {
+			if (category === 'favorites') {
+				return true;
+			}
+
+			return data?.some((cat) => cat.title === category);
+		},
+		[data]
+	);
+
+	// Set sidebar loading state.
+	useEffect(() => {
+		setIsSidebarLoading(!data && isValidating);
+	}, [data, isValidating, setIsSidebarLoading]);
+
+	// Check if the active category is valid - set defaults if needed.
+	useEffect(() => {
+		const activeCat =
+			type === 'patterns'
+				? activePatternsCategory
+				: activeTemplatesCategory;
+
+		if (!isCategoryValid(activeCat)) {
+			setActiveCategory(
+				'patterns' === type
+					? DEFAULT_PATTERNS_CATEGORY
+					: DEFAULT_TEMPLATES_CATEGORY
+			);
+		}
+	}, [
+		activePatternsCategory,
+		activeTemplatesCategory,
+		isCategoryValid,
+		setActiveCategory,
+		type,
+	]);
+
+	// Remove unnecessary categories - depending on current page.
 	const filteredCategories = useMemo(() => {
+		// SWR returns an object with error data if there is an error.
 		if (!data || !Array.isArray(data)) {
 			return null;
 		}
@@ -72,13 +109,6 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 
 		return data;
 	}, [isSiteEditor, data]);
-
-	// Set the active category to the first when the categories are loaded.
-	useEffect(() => {
-		if (data && !activePatternsCategory) {
-			setActiveCategory(data[0]?.title);
-		}
-	}, [activePatternsCategory, data, setActiveCategory]);
 
 	return (
 		<>
@@ -99,34 +129,10 @@ const Categories = ({ isSiteEditor, type = 'patterns' }) => {
 							/>
 						);
 					})}
-
-					{/* Add Favorites list element. Depends on the type. */}
-					<ListElement
-						className="nfd-wba-mt-4"
-						category={{
-							id: `favorite-${type}`,
-							label: __('Favorites', 'nfd-wonder-blocks'),
-							title: 'favorites',
-							count:
-								favoritesData && Array.isArray(favoritesData)
-									? favoritesData.length
-									: 0,
-						}}
-						categoryType={type}
-						icon={
-							<Icon
-								fill="currentColor"
-								className="-nfd-wba-ml-1"
-								icon={starEmpty}
-							/>
-						}
-						onClick={() => {
-							setActiveCategory('favorites');
-						}}
-					/>
 				</ul>
 			)}
 		</>
 	);
 };
-export default Categories;
+
+export default memo(Categories);
