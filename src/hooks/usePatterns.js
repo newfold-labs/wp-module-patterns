@@ -46,6 +46,10 @@ const usePatterns = () => {
 
 	const { data, error, isValidating } = useSWR({ url: url.href }, fetcher);
 
+	const dataWithType = data?.map((pattern) => {
+		return { ...pattern, type: endpoint };
+	});
+
 	if (activeCategory === 'favorites') {
 		return {
 			data: null,
@@ -56,7 +60,7 @@ const usePatterns = () => {
 	}
 
 	return {
-		data,
+		data: dataWithType,
 		isError: error,
 		isValidating,
 		isFavorites: false,
