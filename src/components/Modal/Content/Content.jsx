@@ -3,7 +3,6 @@
  */
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
-import { sprintf, __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -11,18 +10,18 @@ import { sprintf, __ } from '@wordpress/i18n';
 import useFavorites from '../../../hooks/useFavorites';
 import usePatterns from '../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../store';
+import ContentTitle from './ContentTitle';
 import DesignList from './DesignList/DesignList';
 import Header from './Header/Header';
 import LoadingBar from './LoadingBar';
 
 const Content = () => {
 	const {
-		// activePatternsCategory,
-		// activeTemplatesCategory,
-		// isContentLoading,
-		// isSidebarLoading,
+		activePatternsCategory,
+		activeTemplatesCategory,
+		isSidebarLoading,
 		keywordsFilter,
-		// activeTab,
+		activeTab,
 	} = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activePatternsCategory:
@@ -53,37 +52,33 @@ const Content = () => {
 				{<LoadingBar isComplete={isFavorites ? favData : data} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
-					{keywordsFilter && (
-						<h1 className="nfd-wba-my-0 nfd-wba-text-2xl nfd-wba-font-normal nfd-wba-text-dark">
-							{sprintf(
-								// translators: %s is the keywords filter value
-								__('Results for %s', 'nfd-wonder-blocks'),
-								keywordsFilter
-							)}
-						</h1>
-					)}
+					<ContentTitle
+						activeTab={activeTab}
+						title={keywordsFilter}
+						currentCategory={
+							activeTab === 'patterns'
+								? activePatternsCategory
+								: activeTemplatesCategory
+						}
+					/>
 
 					{data && !isFavorites && <DesignList data={data} />}
 					{favData && isFavorites && <DesignList data={favData} />}
 
-					{/* {
+					{
 						<pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
 							{JSON.stringify(
 								{
 									activeTab,
 									activePatternsCategory,
 									activeTemplatesCategory,
-									isContentLoading,
 									isSidebarLoading,
-									keywordsFilter,
-									isFavorites,
-									favData,
 								},
 								null,
 								2
 							)}
 						</pre>
-					} */}
+					}
 				</div>
 			</div>
 		</div>
