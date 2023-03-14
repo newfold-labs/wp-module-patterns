@@ -16,13 +16,17 @@ const Modal = () => {
 	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
-	const { editedPostType, isModalOpen, getEditedPostId, isEditingTemplate } =
-		useSelect((select) => ({
-			editedPostType: select('core/edit-site')?.getEditedPostType(),
-			getEditedPostId: select('core/edit-site')?.getEditedPostId(),
-			isEditingTemplate: select('core/edit-post')?.isEditingTemplate(),
-			isModalOpen: select(nfdPatternsStore).isModalOpen(),
-		}));
+	const {
+		editedPostType,
+		isModalOpen,
+		// editedPostId,
+		isEditingTemplate,
+	} = useSelect((select) => ({
+		editedPostType: select('core/edit-site')?.getEditedPostType(),
+		// editedPostId: select('core/edit-site')?.getEditedPostId(),
+		isEditingTemplate: select('core/edit-post')?.isEditingTemplate(),
+		isModalOpen: select(nfdPatternsStore).isModalOpen(),
+	}));
 
 	// Check if we are editing a template, via page or site editor.
 	const isSiteEditor = useMemo(() => {
@@ -31,8 +35,9 @@ const Modal = () => {
 
 	// Check if we should automatically open the modal and pre-select.
 	useEffect(() => {
-		const search = new URLSearchParams(window.location.search);
-		if (search.has('nfd-wb-modal')) {
+		const searchParams = new URLSearchParams(window.location.search);
+
+		if (searchParams.has('wonder-blocks-library')) {
 			setIsModalOpen(true);
 		}
 	}, [setIsModalOpen]);
