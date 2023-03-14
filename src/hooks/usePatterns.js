@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import useSWR from 'swr';
+
+/**
  * WordPress dependencies
  */
 import { useSelect } from '@wordpress/data';
@@ -13,11 +18,6 @@ import {
 } from '../constants';
 import { fetcher } from '../helpers/fetcher';
 import { store as nfdPatternsStore } from '../store';
-
-/**
- * External dependencies
- */
-import useSWR from 'swr';
 
 const usePatterns = () => {
 	const { activePatternsCategory, activeTemplatesCategory, activeTab } =
@@ -46,9 +46,13 @@ const usePatterns = () => {
 
 	const { data, error, isValidating } = useSWR({ url: url.href }, fetcher);
 
-	const dataWithType = data?.map((pattern) => {
-		return { ...pattern, type: endpoint };
-	});
+	let dataWithType = null;
+
+	if (data && Array.isArray(data)) {
+		dataWithType = data?.map((pattern) => {
+			return { ...pattern, type: endpoint };
+		});
+	}
 
 	if (activeCategory === 'favorites') {
 		return {
