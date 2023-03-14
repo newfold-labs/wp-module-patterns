@@ -25,6 +25,8 @@ const ListElement = forwardRef(
 			})
 		);
 
+		const categoryCount = category?.count ?? null; // 0 is a valid count.
+
 		/**
 		 * Check if the category is active.
 		 *
@@ -43,8 +45,8 @@ const ListElement = forwardRef(
 				<button
 					className={classNames(
 						'nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[43px] nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-2 nfd-wba-pl-6 nfd-wba-transition-all nfd-wba-duration-100',
-						category?.count && 'nfd-wba-pr-4',
-						!category?.count && 'nfd-wba-pr-6',
+						categoryCount !== null && 'nfd-wba-pr-4',
+						categoryCount === null && 'nfd-wba-pr-6',
 						!isActiveCategory() &&
 							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-bg-grey/50 hover:nfd-wba-text-dark', // inactive
 						isActiveCategory() &&
@@ -60,9 +62,9 @@ const ListElement = forwardRef(
 						{icon && icon}
 					</span>
 
-					{category?.count && (
+					{categoryCount !== null && (
 						<span className="nfd-wba-rounded-full nfd-wba-bg-grey nfd-wba-py-1 nfd-wba-px-3 nfd-wba-text-sm nfd-wba-text-dark-lighter">
-							{category.count}
+							{categoryCount}
 						</span>
 					)}
 				</button>
