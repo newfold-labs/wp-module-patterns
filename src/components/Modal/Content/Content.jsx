@@ -17,12 +17,12 @@ import LoadingBar from './LoadingBar';
 
 const Content = () => {
 	const {
-		activePatternsCategory,
-		activeTemplatesCategory,
-		isContentLoading,
-		isSidebarLoading,
+		// activePatternsCategory,
+		// activeTemplatesCategory,
+		// isContentLoading,
+		// isSidebarLoading,
 		keywordsFilter,
-		activeTab,
+		// activeTab,
 	} = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activePatternsCategory:
@@ -50,7 +50,7 @@ const Content = () => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{/* {<LoadingBar isComplete={data} />} */}
+				{<LoadingBar isComplete={isFavorites ? favData : data} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					{keywordsFilter && (
@@ -66,7 +66,7 @@ const Content = () => {
 					{data && !isFavorites && <DesignList data={data} />}
 					{favData && isFavorites && <DesignList data={favData} />}
 
-					{
+					{/* {
 						<pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
 							{JSON.stringify(
 								{
@@ -83,7 +83,7 @@ const Content = () => {
 								2
 							)}
 						</pre>
-					}
+					} */}
 				</div>
 			</div>
 		</div>
