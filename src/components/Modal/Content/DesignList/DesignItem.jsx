@@ -104,11 +104,9 @@ const DesignItem = ({ item }) => {
 	const addToFavoritesHandler = async () => {
 		setIsFavorite((prev) => !prev);
 
-		// Add helper functions to add/remove favorites!
-
 		const method = isFavorite ? 'DELETE' : 'POST';
 
-		const d = await apiFetch({
+		await apiFetch({
 			url: `${REST_URL}/favorites`,
 			method,
 			data: {
@@ -123,12 +121,14 @@ const DesignItem = ({ item }) => {
 		mutate();
 	};
 
+	console.log({ item });
+
 	return (
 		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-hidden nfd-wba-rounded-b-md">
 			<div
 				className={classNames(
 					'nfd-wba-design-item nfd-wba-cursor-pointer nfd-wba-overflow-hidden nfd-wba-rounded-t-md nfd-wba-border nfd-wba-border-solid nfd-wba-border-grey nfd-wba-transition-opacity',
-					activeTab === 'templates' &&
+					item?.type === 'templates' &&
 						'nfd-wba-design-item--template',
 					insertingDesign && 'nfd-wba-inserting-design'
 				)}
@@ -172,7 +172,14 @@ const DesignItem = ({ item }) => {
 							'nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white',
 							isFavorite && 'nfd-wba-text-dark'
 						)}
-						label={__('Add to Favorites', 'nfd-wonder-blocks')}
+						label={
+							isFavorite
+								? __(
+										'Remove from Favorites',
+										'nfd-wonder-blocks'
+								  )
+								: __('Add to Favorites', 'nfd-wonder-blocks')
+						}
 						onClick={() => addToFavoritesHandler()}
 						icon={
 							<Icon
