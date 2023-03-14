@@ -11,7 +11,7 @@ import { BlockPreview } from '@wordpress/block-editor';
 import { rawHandler } from '@wordpress/blocks';
 import { Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { memo, useMemo, useState, useEffect } from '@wordpress/element';
+import { memo, useEffect, useMemo, useState } from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
 import { Icon, plus, starEmpty, starFilled } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
@@ -68,7 +68,7 @@ const DesignItem = ({ item }) => {
 					sprintf(
 						// translators: %s is the pattern title
 						__(
-							'"%s" pattern successfully inserted.',
+							'"%s" pattern successfully added.',
 							'nfd-wonder-blocks'
 						),
 						item.title
@@ -80,7 +80,7 @@ const DesignItem = ({ item }) => {
 			} catch (error) {
 				createErrorNotice(
 					__(
-						'Failed to insert the pattern. Please try again.',
+						'Failed to add pattern. Please try again.',
 						'nfd-wonder-blocks'
 					),
 					{
@@ -106,22 +106,31 @@ const DesignItem = ({ item }) => {
 
 		const method = isFavorite ? 'DELETE' : 'POST';
 
-		await apiFetch({
-			url: `${REST_URL}/favorites`,
-			method,
-			data: {
-				...item,
-				type: activeTab,
-			},
-			headers: {
-				'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
-			},
+		const updater = async () =>
+			await apiFetch({
+				url: `${REST_URL}/favorites`,
+				method,
+				data: {
+					...item,
+					type: activeTab,
+				},
+				headers: {
+					'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
+				},
+			});
+
+		const newData =
+			method === 'DELETE'
+				? favData.filter((fav) => fav.id !== item.id)
+				: [...favData, { ...item, type: activeTab }];
+
+		mutate(updater, {
+			optimisticData: [...newData],
+			rollbackOnError: false,
+			populateCache: true,
+			revalidate: false,
 		});
-
-		mutate();
 	};
-
-	console.log({ item });
 
 	return (
 		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-hidden nfd-wba-rounded-b-md">
@@ -156,7 +165,7 @@ const DesignItem = ({ item }) => {
 						className="nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white"
 						isBusy={insertingDesign}
 						isPressed={insertingDesign}
-						label={__('Insert', 'nfd-wonder-blocks')}
+						label={__('Add pattern to page', 'nfd-wonder-blocks')}
 						onClick={() => insertDesignHandler()}
 						icon={
 							<Icon

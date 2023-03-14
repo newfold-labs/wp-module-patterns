@@ -25,13 +25,13 @@ const Header = () => {
 				{showTrial && <TrialNotice />}
 				<Button
 					className="nfd-wba-ml-auto nfd-wba-text-current hover:nfd-wba-text-dark"
-					showTooltip={false}
+					showTooltip={true}
 					onClick={() => {
 						setIsModalOpen(false);
 					}}
 					icon={closeSmall}
 					iconSize={24}
-					label={__('Close', 'nfd-wonder-blocks')}
+					label={__('Close dialog', 'nfd-wonder-blocks')}
 				/>
 			</div>
 		</header>
