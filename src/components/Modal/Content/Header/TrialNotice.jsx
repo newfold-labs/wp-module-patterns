@@ -1,4 +1,4 @@
 const TrialNotice = () => {
-	return <div>Trial Notice / CTB</div>;
+	return null;
 };
 export default TrialNotice;
