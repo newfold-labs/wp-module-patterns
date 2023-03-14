@@ -9,6 +9,8 @@ module.exports = {
 					DEFAULT:
 						'rgb(var(--nfd-wba-color-brand-rgb) / <alpha-value>)',
 					darker: 'rgb(var(--nfd-wba-color-brand-darker-rgb) / <alpha-value>)',
+					'darker-10':
+						'rgb(var(--nfd-wba-color-brand-darker-10-rgb) / <alpha-value>)',
 				},
 				grey: {
 					DEFAULT:
