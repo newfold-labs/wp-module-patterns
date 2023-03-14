@@ -20,7 +20,7 @@ setCategories([
 ]);
 
 /**
- * Function to register a block collection for our block(s).
+ * Function to register a block collection for our blocks.
  */
 registerBlockCollection('nfd-wonder-blocks', {
 	title: 'Wonder Blocks',

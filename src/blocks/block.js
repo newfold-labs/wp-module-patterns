@@ -9,29 +9,40 @@ import { buttons } from '@wordpress/icons';
 /**
  * Internal dependencies
  */
-import metadata from './block.json';
+import { DEFAULT_PATTERNS_CATEGORY } from '../constants';
 import { store as nfdPatternsStore } from '../store';
+import metadata from './block.json';
+import { variations } from './variations';
 
 registerBlockType(metadata, {
-	icon: buttons,
+	icon: {
+		foreground: 'var(--nfd-wba-color-brand)',
+		src: buttons,
+	},
 	category: 'nfd-wonder-blocks',
 	example: {
 		attributes: {
 			preview: window.nfdWonderBlocks?.assets + '/images/preview.png',
 		},
 	},
-
+	variations: [...variations],
 	edit: function Edit({ clientId, attributes }) {
 		const { removeBlock } = useDispatch('core/block-editor');
-		const { setIsModalOpen } = useDispatch(nfdPatternsStore);
+		const { setIsModalOpen, setActivePatternsCategory, setActiveTab } =
+			useDispatch(nfdPatternsStore);
 
 		useEffect(() => {
 			if (attributes.preview) {
 				return;
 			}
 
-			if (attributes.search) {
-				addTermToSearchParams(attributes.search);
+			// Set active category and "patterns" tab.
+			if (attributes.category) {
+				setActiveTab('patterns');
+				setActivePatternsCategory(attributes.category);
+			} else {
+				setActiveTab('patterns');
+				setActivePatternsCategory(DEFAULT_PATTERNS_CATEGORY);
 			}
 
 			// Open modal
@@ -39,7 +50,14 @@ registerBlockType(metadata, {
 
 			// Remove empty block
 			removeBlock(clientId);
-		}, [clientId, attributes, removeBlock, setIsModalOpen]);
+		}, [
+			clientId,
+			attributes,
+			removeBlock,
+			setIsModalOpen,
+			setActivePatternsCategory,
+			setActiveTab,
+		]);
 
 		return (
 			<img
@@ -50,13 +68,3 @@ registerBlockType(metadata, {
 		);
 	},
 });
-
-const addTermToSearchParams = (term) => {
-	const params = new URLSearchParams(window.location.search);
-	params.append('nfd-patternType', term);
-	window.history.replaceState(
-		null,
-		null,
-		window.location.pathname + '?' + params.toString()
-	);
-};

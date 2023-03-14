@@ -10,7 +10,7 @@
 		"preview": {
 			"type": "string"
 		},
-		"search": {
+		"category": {
 			"type": "string"
 		}
 	}
