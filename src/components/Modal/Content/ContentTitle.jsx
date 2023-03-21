@@ -22,12 +22,16 @@ const ContentTitle = ({ activeTab, currentCategory, title }) => {
 		return null;
 	}
 
-	if (!activeCategory?.label && !title) {
+	if (!activeCategory?.label && !title && currentCategory !== 'favorites') {
 		return null;
 	}
 
 	return (
 		<h1 className="nfd-wba-my-0 nfd-wba-mb-8 nfd-wba-text-2xl nfd-wba-font-light nfd-wba-text-dark">
+			{!title &&
+				currentCategory === 'favorites' &&
+				__('Favorites', 'nfd-wonder-blocks')}
+
 			{title &&
 				sprintf(
 					// translators: %s: search keywords.
