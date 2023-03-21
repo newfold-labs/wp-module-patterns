@@ -17,6 +17,15 @@ const useFavorites = () => {
 		fetcher
 	);
 
+	if (!Array.isArray(data)) {
+		return {
+			data: null,
+			isError: error,
+			isValidating,
+			mutate,
+		};
+	}
+
 	return {
 		data,
 		isError: error,

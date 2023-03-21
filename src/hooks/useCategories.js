@@ -19,6 +19,14 @@ const useCategories = (type = 'patterns') => {
 		fetcher
 	);
 
+	if (!Array.isArray(data)) {
+		return {
+			data: null,
+			isError: error,
+			isValidating,
+		};
+	}
+
 	return {
 		data,
 		isError: error,

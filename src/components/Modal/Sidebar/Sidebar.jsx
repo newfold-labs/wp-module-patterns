@@ -44,12 +44,9 @@ const Sidebar = ({ isSiteEditor }) => {
 						id: `favorites`,
 						label: __('Favorites', 'nfd-wonder-blocks'),
 						title: 'favorites',
-						count:
-							favoritesData && Array.isArray(favoritesData)
-								? favoritesData.length
-								: 0,
+						count: favoritesData?.length,
 					}}
-					categoryType="favorites"
+					categoryType={activeTab}
 					icon={
 						<Icon
 							fill="currentColor"
