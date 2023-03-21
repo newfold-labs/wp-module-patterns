@@ -43,10 +43,7 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 	// Set the active category.
 	const setActiveCategory = useCallback(
 		(category) => {
-			if (category === 'favorites') {
-				setActivePatternsCategory(category);
-				setActiveTemplatesCategory(category);
-			} else if (type === 'patterns') {
+			if (type === 'patterns') {
 				setActivePatternsCategory(category);
 			} else {
 				setActiveTemplatesCategory(category);
@@ -55,52 +52,13 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 		[setActivePatternsCategory, setActiveTemplatesCategory, type]
 	);
 
-	// Check if category exists in the array.
-	const isCategoryValid = useCallback(
-		(category) => {
-			if (category === 'favorites') {
-				return true;
-			}
-
-			return data?.some((cat) => cat.title === category);
-		},
-		[data]
-	);
-
 	// Set sidebar loading state.
 	useEffect(() => {
 		setIsSidebarLoading(!data && isValidating);
 	}, [data, isValidating, setIsSidebarLoading]);
 
-	// Check if the active category is valid - set defaults if needed.
-	useEffect(() => {
-		const activeCat =
-			type === 'patterns'
-				? activePatternsCategory
-				: activeTemplatesCategory;
-
-		if (!isCategoryValid(activeCat)) {
-			setActiveCategory(
-				'patterns' === type
-					? DEFAULT_PATTERNS_CATEGORY
-					: DEFAULT_TEMPLATES_CATEGORY
-			);
-		}
-	}, [
-		activePatternsCategory,
-		activeTemplatesCategory,
-		isCategoryValid,
-		setActiveCategory,
-		type,
-	]);
-
 	// Remove unnecessary categories - depending on current page.
 	const filteredCategories = useMemo(() => {
-		// SWR returns an object with error data if there is an error.
-		if (!data || !Array.isArray(data)) {
-			return null;
-		}
-
 		if (!isSiteEditor) {
 			return data?.filter(
 				(category) => !SITE_EDITOR_CATEGORIES.includes(category.title)

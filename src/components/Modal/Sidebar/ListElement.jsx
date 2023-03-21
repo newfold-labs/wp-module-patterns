@@ -35,16 +35,18 @@ const ListElement = forwardRef(
 		const isActiveCategory = () => {
 			if (categoryType === 'patterns') {
 				return activePatternsCategory === category?.title;
+			} else if (categoryType === 'templates') {
+				return activeTemplatesCategory === category?.title;
 			}
 
-			return activeTemplatesCategory === category?.title;
+			return false;
 		};
 
 		return (
 			<li className="nfd-wba-m-0 nfd-wba-p-0">
 				<button
 					className={classNames(
-						'nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[43px] nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-2 nfd-wba-pl-6 nfd-wba-transition-all nfd-wba-duration-100',
+						'nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[48px] nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-2 nfd-wba-pl-6 nfd-wba-text-base nfd-wba-transition-all nfd-wba-duration-100',
 						categoryCount !== null && 'nfd-wba-pr-4',
 						categoryCount === null && 'nfd-wba-pr-6',
 						!isActiveCategory() &&
