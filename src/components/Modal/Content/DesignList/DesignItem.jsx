@@ -13,7 +13,7 @@ import { Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { memo, useEffect, useMemo, useState } from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
-import { Icon, plus, starEmpty, starFilled } from '@wordpress/icons';
+import { Icon } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
 
 /**
@@ -23,6 +23,7 @@ import { REST_URL } from '../../../../constants';
 import { blockInserter } from '../../../../helpers/blockInserter';
 import useFavorites from '../../../../hooks/useFavorites';
 import { store as nfdPatternsStore } from '../../../../store';
+import { heart, heartEmpty, plus } from '../../../Icons';
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -135,54 +136,44 @@ const DesignItem = ({ item }) => {
 	};
 
 	return (
-		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-hidden nfd-wba-rounded-b-md">
-			<div
-				className={classNames(
-					'nfd-wba-design-item nfd-wba-cursor-pointer nfd-wba-overflow-hidden nfd-wba-rounded-t-md nfd-wba-border nfd-wba-border-solid nfd-wba-border-grey nfd-wba-transition-opacity',
-					item?.type === 'templates' &&
-						'nfd-wba-design-item--template',
-					insertingDesign && 'nfd-wba-inserting-design'
-				)}
-				role="button"
-				tabIndex="0"
-				onClick={() => insertDesignHandler()}
-				onKeyUp={(e) => {
-					if (e.key === 'Enter') {
-						insertDesignHandler();
-					}
-				}}
-			>
-				{blocks && (
-					<BlockPreview blocks={blocks} viewportWidth={1140} />
-				)}
+		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-6 nfd-wba-overflow-hidden nfd-wba-rounded-2xl nfd-wba-bg-grey nfd-wba-p-6">
+			<div className="nfd-wba-rounded-lg nfd-wba-border-2 nfd-wba-border-dashed nfd-wba-border-grey-darker nfd-wba-p-8">
+				<div
+					className={classNames(
+						'nfd-wba-design-item nfd-wba-cursor-pointer nfd-wba-overflow-hidden nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-shadow-design-item nfd-wba-transition-opacity',
+						item?.type === 'templates' &&
+							'nfd-wba-design-item--template',
+						insertingDesign && 'nfd-wba-inserting-design'
+					)}
+					role="button"
+					tabIndex="0"
+					onClick={() => insertDesignHandler()}
+					onKeyUp={(e) => {
+						if (e.key === 'Enter') {
+							insertDesignHandler();
+						}
+					}}
+				>
+					{blocks && (
+						<BlockPreview blocks={blocks} viewportWidth={1140} />
+					)}
+				</div>
 			</div>
 
-			<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-bg-grey nfd-wba-px-6 nfd-wba-py-3">
-				<h2 className="nfd-wba-m-0 nfd-wba-text-md nfd-wba-font-normal">
+			<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-bg-grey">
+				<h2 className="nfd-wba-m-0 nfd-wba-text-lg nfd-wba-font-normal">
 					{item.title}
 				</h2>
 
 				<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-1">
 					<Button
-						className="nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white"
-						isBusy={insertingDesign}
-						isPressed={insertingDesign}
-						label={__('Add pattern to page', 'nfd-wonder-blocks')}
-						onClick={() => insertDesignHandler()}
-						icon={
-							<Icon
-								fill="currentColor"
-								className="nfd-wba-shrink-0"
-								icon={plus}
-							/>
-						}
-					/>
-
-					<Button
 						className={classNames(
-							'nfd-wba-h-8 nfd-wba-w-8 !nfd-wba-min-w-0 nfd-wba-bg-white',
-							isFavorite && 'nfd-wba-text-dark'
+							'nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600',
+							isFavorite
+								? 'nfd-wba-text-red-600'
+								: 'nfd-wba-text-zinc-500'
 						)}
+						showTooltip={true}
 						label={
 							isFavorite
 								? __(
@@ -196,7 +187,25 @@ const DesignItem = ({ item }) => {
 							<Icon
 								className="nfd-wba-shrink-0"
 								fill="currentColor"
-								icon={isFavorite ? starFilled : starEmpty}
+								size={24}
+								icon={isFavorite ? heart : heartEmpty}
+							/>
+						}
+					/>
+
+					<Button
+						className="nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50"
+						isBusy={insertingDesign}
+						isPressed={insertingDesign}
+						label={__('Add pattern to page', 'nfd-wonder-blocks')}
+						showTooltip={true}
+						onClick={() => insertDesignHandler()}
+						icon={
+							<Icon
+								fill="currentColor"
+								className="nfd-wba-shrink-0"
+								size={24}
+								icon={plus}
 							/>
 						}
 					/>

@@ -5,6 +5,10 @@
 	.components-tab-panel__tabs {
 		border-bottom: solid 1px var(--nfd-wba-color-borders);
 		display: flex;
+
+		.components-button {
+			font-size: 14px;
+		}
 	}
 
 	.components-tab-panel__tab-content {

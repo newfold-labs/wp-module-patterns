@@ -6,8 +6,11 @@
 	padding: 0;
 }
 
-.block-editor-block-preview__content-iframe .is-root-container > .nfd-py-stack {
-	padding: var(--nfd-cp-p-base, 2.375rem) !important;
+.block-editor-block-preview__content-iframe
+	.is-root-container
+	> .nfd-container.has-white-background-color {
+	padding: 0 !important;
+	/* padding: calc(var(--nfd-cp-p-base, 2.375rem) * 2) !important; */
 }
 
 .nfd-wba-modal * {
