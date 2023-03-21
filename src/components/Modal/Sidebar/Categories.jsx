@@ -3,6 +3,8 @@
  */
 import { useDispatch, useSelect } from '@wordpress/data';
 import { memo, useCallback, useEffect, useMemo } from '@wordpress/element';
+import { Icon } from '@wordpress/icons';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -12,7 +14,9 @@ import {
 	DEFAULT_TEMPLATES_CATEGORY,
 	SITE_EDITOR_CATEGORIES,
 } from '../../../constants';
+import heart from '../../Icons/heart';
 import useCategories from '../../../hooks/useCategories';
+import useFavorites from '../../../hooks/useFavorites';
 import { store as nfdPatternsStore } from '../../../store';
 import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
@@ -21,6 +25,7 @@ import Skeleton from './Skeleton';
 const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
+	const { data: favoritesData } = useFavorites();
 
 	// Store actions and states.
 	const {
@@ -28,17 +33,6 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 		setActivePatternsCategory,
 		setActiveTemplatesCategory,
 	} = useDispatch(nfdPatternsStore);
-
-	const { activePatternsCategory, activeTemplatesCategory } = useSelect(
-		(select) => {
-			return {
-				activePatternsCategory:
-					select(nfdPatternsStore).getActivePatternsCategory(),
-				activeTemplatesCategory:
-					select(nfdPatternsStore).getActiveTemplatesCategory(),
-			};
-		}
-	);
 
 	// Set the active category.
 	const setActiveCategory = useCallback(
@@ -87,6 +81,31 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 							/>
 						);
 					})}
+
+					{/* Add Favorites list element. Depends on the type. */}
+
+					<ListElement
+						className="nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-grey-b"
+						category={{
+							id: `favorites`,
+							label: __('Favorites', 'nfd-wonder-blocks'),
+							title: 'favorites',
+							count: favoritesData?.length,
+						}}
+						categoryType={type}
+						icon={
+							<Icon
+								fill="currentColor"
+								className="-nfd-wba-ml-1 nfd-wba-fill-red-600"
+								icon={heart}
+								size={16}
+							/>
+						}
+						onClick={() => {
+							setActivePatternsCategory('favorites');
+							setActiveTemplatesCategory('favorites');
+						}}
+					/>
 				</ul>
 			)}
 		</>

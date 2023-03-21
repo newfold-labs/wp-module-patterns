@@ -45,6 +45,10 @@ const DesignItem = ({ item }) => {
 	useEffect(() => {
 		let isFav = false;
 
+		if (!Array.isArray(favData)) {
+			return;
+		}
+
 		isFav = favData.find((fav) => fav.title === item.title);
 
 		setIsFavorite(!!isFav);
