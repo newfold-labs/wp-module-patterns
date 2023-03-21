@@ -4,12 +4,12 @@
 .nfd-wba-list-element {
 	&:before {
 		background-color: var(--nfd-wba-color-brand);
-		bottom: 5px;
+		bottom: 7px;
 		content: "";
 		display: block;
 		left: 0;
 		position: absolute;
-		top: 5px;
+		top: 7px;
 		transform-origin: left;
 		transform: scaleX(0);
 		transition: transform var(--nfd-wba-transition-duration)
