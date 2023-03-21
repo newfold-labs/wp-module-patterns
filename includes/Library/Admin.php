@@ -12,6 +12,7 @@ final class Admin {
 	 */
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
+		add_action( 'init', array( $this, 'register_block_patterns' ) );
 	}
 
 	/**
@@ -54,5 +55,20 @@ final class Admin {
 			\wp_enqueue_style( 'nfd-wonder-blocks' );
 		}
 	}
-
+	
+	/**
+	 * Disable opening default WP Patterns modal on empty pages.
+	 */
+	public function register_block_patterns() {
+		
+		$patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+		
+		foreach ( $patterns as $pattern ) {
+			if ( ! empty( $pattern['blockTypes'] ) && in_array( 'core/post-content', $pattern['blockTypes'] ) ) {
+				unregister_block_pattern( $pattern['name'] );
+				$pattern['blockTypes'] = array_diff( $pattern['blockTypes'], array( 'core/post-content' ) );
+				register_block_pattern( $pattern['name'], $pattern );
+			}
+		}
+	}
 }
