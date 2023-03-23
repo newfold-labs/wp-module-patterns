@@ -10,7 +10,7 @@ import classNames from 'classnames';
 
 const Logo = ({ size = 'regular', color = 'dark' }) => {
 	return (
-		<div className="nfd-wba-m-0 -nfd-wba-ml-1 nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-xl nfd-wba-font-normal nfd-wba-text-dark">
+		<div className="nfd-wba-m-0 -nfd-wba-ml-1 nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-lg nfd-wba-font-normal nfd-wba-text-dark">
 			<Icon
 				className={classNames(
 					color === 'brand' && 'nfd-wba-fill-brand'
