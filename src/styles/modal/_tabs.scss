@@ -3,7 +3,6 @@
 /* -------------------------------------------------------------------------- */
 .nfd-wba-tab-panel {
 	.components-tab-panel__tabs {
-		border-bottom: solid 1px var(--nfd-wba-color-borders);
 		display: flex;
 
 		.components-button {
@@ -20,9 +19,14 @@
 	.components-tab-panel__tabs-item {
 		color: currentColor;
 		flex-grow: 1;
+		height: unset;
 		margin-bottom: -1px;
-		padding-bottom: 0;
+		padding-bottom: 16px;
 		padding-top: 0;
+
+		&:not(.nfd-wba--is-active) {
+			font-weight: 400;
+		}
 
 		&:first-child {
 			padding-left: 24px;
