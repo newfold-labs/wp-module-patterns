@@ -24,7 +24,7 @@ const Sidebar = ({ isSiteEditor }) => {
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[var(--nfd-wba-sidebar-width)] nfd-wba-shrink-0 nfd-wba-flex-col nfd-wba-overflow-y-auto nfd-wba-border-0 nfd-wba-border-r nfd-wba-border-solid nfd-wba-border-grey-b">
-			<div className="nfd-wba-modal__header nfd-wba-justify-start">
+			<div className="nfd-wba-modal__header nfd-wba-justify-start nfd-wba-border-b-0">
 				<Logo />
 			</div>
 

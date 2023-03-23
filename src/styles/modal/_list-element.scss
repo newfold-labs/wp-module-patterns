@@ -22,4 +22,28 @@
 			transform: scaleX(1);
 		}
 	}
+
+	&.nfd-wba-list-element--favorites {
+		&:after {
+			content: "";
+			background-color: var(--nfd-wba-color-borders);
+			height: 1px;
+			left: 1.5rem;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+}
+
+.nfd-wba-list-elements--is-filtered {
+	.nfd-wba-list-element {
+		&.nfd-wba--is-active {
+			color: currentColor;
+
+			&:before {
+				transform: scaleX(0);
+			}
+		}
+	}
 }

@@ -1,20 +1,33 @@
 /* -------------------------------------------------------------------------- */
 /*                                Form styles.                                */
 /* -------------------------------------------------------------------------- */
-.nfd-wba-keyword-filter {
-	.components-base-control__field {
-		margin: 0;
-	}
 
-	.components-search-control__input {
-		height: 40px !important;
+.components-search-control {
+	&.nfd-wba-keyword-filter {
+		.components-base-control__field {
+			align-items: center;
+			display: flex;
+			gap: 12px;
+			margin: 0;
 
-		&:disabled {
-			cursor: wait;
-			opacity: 0.8;
+			.components-base-control__label {
+				margin: 0;
+				text-transform: none;
+				font-size: 14px;
+				line-height: 20px;
+				font-weight: 500;
+			}
+		}
 
-			& + .components-search-control__icon {
-				opacity: 0.8;
+		input[type="search"].components-search-control__input {
+			border-radius: 8px;
+			font-size: 16px;
+			height: 36px;
+			line-height: 20px;
+
+			&:disabled {
+				cursor: wait;
+				opacity: 1;
 			}
 		}
 	}

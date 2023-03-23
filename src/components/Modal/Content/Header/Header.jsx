@@ -4,7 +4,7 @@
 import { Button } from '@wordpress/components';
 import { useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
-import { closeSmall } from '@wordpress/icons';
+import { close } from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -29,7 +29,7 @@ const Header = () => {
 					onClick={() => {
 						setIsModalOpen(false);
 					}}
-					icon={closeSmall}
+					icon={close}
 					iconSize={24}
 					label={__('Close dialog', 'nfd-wonder-blocks')}
 				/>

@@ -137,7 +137,7 @@ const DesignItem = ({ item }) => {
 
 	return (
 		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-6 nfd-wba-overflow-hidden nfd-wba-rounded-2xl nfd-wba-bg-grey nfd-wba-p-6">
-			<div className="nfd-wba-rounded-lg nfd-wba-border-2 nfd-wba-border-dashed nfd-wba-border-grey-darker nfd-wba-p-8">
+			<div className="nfd-wba-rounded-lg nfd-wba-border-2 nfd-wba-border-dashed nfd-wba-border-grey-darker nfd-wba-p-4">
 				<div
 					className={classNames(
 						'nfd-wba-design-item nfd-wba-cursor-pointer nfd-wba-overflow-hidden nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-shadow-design-item nfd-wba-transition-opacity',
@@ -161,7 +161,7 @@ const DesignItem = ({ item }) => {
 			</div>
 
 			<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-bg-grey">
-				<h2 className="nfd-wba-m-0 nfd-wba-text-xl nfd-wba-font-normal">
+				<h2 className="nfd-wba-m-0 nfd-wba-text-lg nfd-wba-font-normal">
 					{item.title}
 				</h2>
 

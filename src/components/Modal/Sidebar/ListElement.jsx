@@ -52,14 +52,14 @@ const ListElement = forwardRef(
 						!isActiveCategory() &&
 							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-text-brand', // inactive
 						isActiveCategory() &&
-							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-font-semibold nfd-wba-text-brand', // active
+							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-text-brand', // active
 						className
 					)}
 					type="button"
 					ref={ref}
 					{...otherProps}
 				>
-					<span className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-left">
+					<span className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-3 nfd-wba-text-left">
 						<span>{category?.label}</span>
 						{icon && icon}
 					</span>
@@ -67,7 +67,7 @@ const ListElement = forwardRef(
 					{categoryCount !== null && (
 						<span
 							className={classNames(
-								'nfd-wba-py-1 nfd-wba-px-3 nfd-wba-text-sm nfd-wba-text-dark-lighter',
+								'nfd-wba-py-1 nfd-wba-px-[14px] nfd-wba-text-sm nfd-wba-text-dark-lighter',
 								category?.title !== 'favorites' &&
 									'nfd-wba-rounded-full nfd-wba-bg-grey'
 							)}

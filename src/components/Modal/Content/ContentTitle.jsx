@@ -27,7 +27,7 @@ const ContentTitle = ({ activeTab, currentCategory, title }) => {
 	}
 
 	return (
-		<h1 className="nfd-wba-my-0 nfd-wba-mb-8 nfd-wba-text-2xl nfd-wba-font-light nfd-wba-text-dark">
+		<h1 className="nfd-wba-my-0 nfd-wba-mb-8 nfd-wba-text-[26px] nfd-wba-font-light nfd-wba-text-dark">
 			{!title &&
 				currentCategory === 'favorites' &&
 				__('Favorites', 'nfd-wonder-blocks')}
