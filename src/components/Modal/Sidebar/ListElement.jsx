@@ -50,9 +50,9 @@ const ListElement = forwardRef(
 						categoryCount !== null && 'nfd-wba-pr-4',
 						categoryCount === null && 'nfd-wba-pr-6',
 						!isActiveCategory() &&
-							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-bg-grey/50 hover:nfd-wba-text-dark', // inactive
+							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-text-brand', // inactive
 						isActiveCategory() &&
-							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-text-brand', // active
+							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-font-semibold nfd-wba-text-brand', // active
 						className
 					)}
 					type="button"

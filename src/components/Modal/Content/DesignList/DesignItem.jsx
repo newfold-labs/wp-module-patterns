@@ -161,11 +161,11 @@ const DesignItem = ({ item }) => {
 			</div>
 
 			<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-bg-grey">
-				<h2 className="nfd-wba-m-0 nfd-wba-text-lg nfd-wba-font-normal">
+				<h2 className="nfd-wba-m-0 nfd-wba-text-xl nfd-wba-font-normal">
 					{item.title}
 				</h2>
 
-				<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-1">
+				<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-3">
 					<Button
 						className={classNames(
 							'nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600',
