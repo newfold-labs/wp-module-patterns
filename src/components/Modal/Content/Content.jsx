@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect, useMemo } from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -37,14 +37,6 @@ const Content = () => {
 	const { data, isValidating, isFavorites } = usePatterns();
 	const { data: favData } = useFavorites();
 
-	const filteredFavItems = useMemo(() => {
-		if (!favData) {
-			return null;
-		}
-
-		return favData?.filter((item) => item?.type === activeTab);
-	}, [favData, activeTab]);
-
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
 	// Set the global content loading state when the data is loading.
@@ -57,11 +49,7 @@ const Content = () => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{
-					<LoadingBar
-						isComplete={isFavorites ? filteredFavItems : data}
-					/>
-				}
+				{<LoadingBar isComplete={isFavorites ? favData : data} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					<ContentTitle
@@ -75,9 +63,7 @@ const Content = () => {
 					/>
 
 					{data && !isFavorites && <DesignList data={data} />}
-					{filteredFavItems && isFavorites && (
-						<DesignList data={filteredFavItems} />
-					)}
+					{favData && isFavorites && <DesignList data={favData} />}
 
 					{
 						<pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">

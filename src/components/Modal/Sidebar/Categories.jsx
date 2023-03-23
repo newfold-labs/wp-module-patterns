@@ -62,13 +62,6 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 		return data;
 	}, [isSiteEditor, data]);
 
-	const favoritesCount = useMemo(() => {
-		if (!favoritesData) {
-			return 0;
-		}
-		return favoritesData?.filter((item) => item.type === type).length;
-	}, [favoritesData, type]);
-
 	return (
 		<>
 			{!data && isValidating && <Skeleton count={7} />}
@@ -97,7 +90,7 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 							id: `favorites`,
 							label: __('Favorites', 'nfd-wonder-blocks'),
 							title: 'favorites',
-							count: favoritesCount,
+							count: favoritesData?.length,
 						}}
 						categoryType={type}
 						icon={
