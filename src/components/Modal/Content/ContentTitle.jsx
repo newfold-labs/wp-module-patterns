@@ -35,7 +35,7 @@ const ContentTitle = ({ activeTab, currentCategory, title }) => {
 			{title &&
 				sprintf(
 					// translators: %s: search keywords.
-					__('Search Results for: %s', 'nfd-wonder-blocks'),
+					__('Results for %s', 'nfd-wonder-blocks'),
 					title
 				)}
 			{!title && activeCategory?.label}
