@@ -6,8 +6,7 @@ use NewfoldLabs\WP\Module\Patterns\Api\RestRequest;
 class TemplatesController {
 
 	/**
-	 * Return templates based on cateory.
-	 *
+	 * Return templates based on category.
 	 */
 	public static function index( $request ) {
 	

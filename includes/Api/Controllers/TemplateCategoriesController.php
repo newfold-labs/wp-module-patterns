@@ -7,7 +7,6 @@ class TemplateCategoriesController {
 
 	/**
 	 * Return all template categories.
-	 *
 	 */
 	public static function index() {
 
