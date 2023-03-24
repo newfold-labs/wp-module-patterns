@@ -93,10 +93,11 @@ const usePatterns = (onlyFavorites = false) => {
 			data: activeCategory !== 'favorites' ? dataWithType : data,
 			isError: error,
 			isValidating,
-			isFavorites: activeCategory !== 'favorites' ? false : true,
+			isFavorites:
+				activeCategory !== 'favorites' || keywords ? false : true,
 			mutate,
 		};
-	}, [data, activeCategory, error, isValidating, endpoint, mutate]);
+	}, [data, activeCategory, error, isValidating, endpoint, keywords, mutate]);
 };
 
 export default usePatterns;
