@@ -63,7 +63,7 @@ const Content = () => {
 
 					{isError && <Error />}
 
-					{(!data || data?.length === 0) && (
+					{(!data || data?.length === 0) && !isError && (
 						<NoResults isFavorites={isFavorites} />
 					)}
 
