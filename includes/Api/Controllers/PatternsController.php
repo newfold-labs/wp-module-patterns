@@ -27,6 +27,10 @@ class PatternsController {
 			'/patterns',
 			$args			
 		);
+		
+		if ( \is_wp_error( $response ) ) {
+			return new \WP_REST_Response( $response->get_error_message(), 503 );
+		}
 
 		return new \WP_REST_Response( $response );
 	}
