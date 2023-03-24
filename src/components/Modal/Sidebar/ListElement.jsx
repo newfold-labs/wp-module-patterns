@@ -52,7 +52,7 @@ const ListElement = forwardRef(
 						!isActiveCategory() &&
 							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-text-brand', // inactive
 						isActiveCategory() &&
-							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-text-brand', // active
+							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-font-medium nfd-wba-text-brand', // active
 						className
 					)}
 					type="button"

@@ -53,11 +53,20 @@ const usePatterns = (onlyFavorites = false) => {
 	const endpoint = activeTab === 'patterns' ? 'patterns' : 'templates';
 
 	let url = null;
+	let restUrl = '';
+
+	// Check if REST_URL starts with http or https.
+	if (typeof REST_URL === 'string' && REST_URL.startsWith('http')) {
+		restUrl = REST_URL;
+	} else {
+		// if not, assume it's a relative path.
+		restUrl = window.location.origin + REST_URL;
+	}
 
 	if (onlyFavorites || (activeCategory === 'favorites' && !keywords)) {
-		url = new URL(`${REST_URL}/favorites`);
+		url = new URL(`${restUrl}/favorites`);
 	} else {
-		url = new URL(`${REST_URL}/${endpoint}`);
+		url = new URL(`${restUrl}/${endpoint}`);
 
 		if (keywords) {
 			url.searchParams.append('keywords', keywords);

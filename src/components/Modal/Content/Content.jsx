@@ -11,6 +11,8 @@ import usePatterns from '../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../store';
 import ContentTitle from './ContentTitle';
 import DesignList from './DesignList/DesignList';
+import Error from './DesignList/Error';
+import NoResults from './DesignList/NoResults';
 import Header from './Header/Header';
 import LoadingBar from './LoadingBar';
 
@@ -32,7 +34,7 @@ const Content = () => {
 	}));
 
 	// Fetch data.
-	const { data, isValidating, isFavorites } = usePatterns();
+	const { data, isValidating, isFavorites, isError } = usePatterns();
 
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
@@ -46,7 +48,7 @@ const Content = () => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{<LoadingBar isComplete={data} />}
+				{<LoadingBar isComplete={data || !!isError} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					<ContentTitle
@@ -59,7 +61,13 @@ const Content = () => {
 						}
 					/>
 
-					<DesignList data={data} isFavorites={isFavorites} />
+					{isError && <Error />}
+
+					{(!data || data?.length === 0) && (
+						<NoResults isFavorites={isFavorites} />
+					)}
+
+					{data && data?.length > 0 && <DesignList data={data} />}
 				</div>
 			</div>
 		</div>
