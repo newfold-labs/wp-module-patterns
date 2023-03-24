@@ -12,13 +12,20 @@ class PatternsController {
 	public static function index( $request ) {
 	
 		$params = $request->get_query_params();
+		
+		$args = array();
+		
+		if ( isset( $params['category'] ) ) {
+			$args['category_like'] = sanitize_text_field( $params['category'] );
+		}
+		
+		if ( isset( $params['keywords'] ) ) {
+			$args['keywords_like'] = sanitize_text_field( $params['keywords'] );
+		}
 
 		$response = RestRequest::get(
 			'/patterns',
-			array(
-				'category'      => isset( $params['category'] ) ? sanitize_text_field( $params['category'] ) : '',
-				'keywords_like' => isset( $params['keywords'] ) ? sanitize_text_field( $params['keywords'] ) : '',
-			)
+			$args			
 		);
 
 		return new \WP_REST_Response( $response );
