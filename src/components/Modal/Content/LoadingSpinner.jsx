@@ -3,6 +3,11 @@
  */
 import Logo from '../../Logo';
 
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
 function LoadingBar({ isComplete }) {
 	if (isComplete) {
 		return null;
@@ -19,7 +24,11 @@ function LoadingBar({ isComplete }) {
 			<div
 				className="nfd-wba-inline-block nfd-wba-h-[60px] nfd-wba-w-[60px] nfd-wba-animate-spin nfd-wba-rounded-full nfd-wba-border-2 nfd-wba-border-solid nfd-wba-border-brand nfd-wba-border-r-brand/10 nfd-wba-align-[-0.125em]"
 				role="status"
-			></div>
+			>
+				<span className="nfd-wba-sr-only">
+					{__('Loading…', 'nfd-wonder-blocks')}
+				</span>
+			</div>
 		</div>
 	);
 }

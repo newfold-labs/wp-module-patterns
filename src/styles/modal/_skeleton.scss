@@ -4,22 +4,31 @@
 .nfd-wba-skeleton--item {
 	position: relative;
 	overflow: hidden;
+	isolation: isolate;
 
 	&:before {
 		position: absolute;
 		content: "";
 		height: 100%;
 		width: 100%;
+		top: 0;
+		left: 0;
+		transform: translateX(-100%);
+		z-index: -1;
+		min-width: 200px;
 
 		background-image: linear-gradient(
-			to right,
-			rgba(255, 255, 255, 0) 0%,
-			rgba(0, 0, 0, 0.03) 50%,
-			rgba(255, 255, 255, 0) 100%
+			90deg,
+			rgba(0, 0, 0, 0) 0,
+			rgba(0, 0, 0, 0.02) 25%,
+			rgba(0, 0, 0, 0.05) 50%,
+			rgba(0, 0, 0, 0.02) 75%,
+			rgba(0, 0, 0, 0)
 		);
+
 		background-repeat: no-repeat;
-		background-size: 450px 400px;
-		animation: nfd-wba-skeleton-pulse 1s linear infinite;
+		background-size: 100% 100%;
+		animation: nfd-wba-skeleton-pulse 3s infinite;
 	}
 
 	& + .nfd-wba-skeleton--item:before {
@@ -28,10 +37,7 @@
 }
 
 @keyframes nfd-wba-skeleton-pulse {
-	0% {
-		background-position: -450px 0;
-	}
 	100% {
-		background-position: 450px 0;
+		transform: translateX(100%);
 	}
 }

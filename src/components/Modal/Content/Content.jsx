@@ -15,21 +15,24 @@ import Error from './DesignList/Error';
 import NoResults from './DesignList/NoResults';
 import Header from './Header/Header';
 import LoadingSpinner from './LoadingSpinner';
+import Skeleton from './Skeleton';
 
 const Content = () => {
 	const {
 		activePatternsCategory,
-		activeTemplatesCategory,
-		keywordsFilter,
 		activeTab,
+		activeTemplatesCategory,
+		isContentLoading,
+		isSidebarLoading,
+		keywordsFilter,
 	} = useSelect((select) => ({
-		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activePatternsCategory:
 			select(nfdPatternsStore).getActivePatternsCategory(),
+		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activeTemplatesCategory:
 			select(nfdPatternsStore).getActiveTemplatesCategory(),
-		isContentLoading: select(nfdPatternsStore).isContentLoading(),
 		isSidebarLoading: select(nfdPatternsStore).isSidebarLoading(),
+		isContentLoading: select(nfdPatternsStore).isContentLoading(),
 		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
 	}));
 
@@ -43,14 +46,14 @@ const Content = () => {
 		setIsContentLoading(!data && isValidating);
 	}, [data, isValidating, setIsContentLoading]);
 
-	console.log({ data, isValidating, isFavorites, isError });
-
 	return (
 		<div className="nfd-wba-flex nfd-wba-min-w-[400px] nfd-wba-grow nfd-wba-flex-col nfd-wba-overflow-y-auto">
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{<LoadingSpinner isComplete={data || !!isError} />}
+				{isSidebarLoading && (
+					<LoadingSpinner isComplete={data || !!isError} />
+				)}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					<ContentTitle
@@ -62,6 +65,8 @@ const Content = () => {
 								: activeTemplatesCategory
 						}
 					/>
+
+					{!isSidebarLoading && isContentLoading && <Skeleton />}
 
 					{isError && <Error />}
 

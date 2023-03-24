@@ -70,7 +70,7 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 
 	return (
 		<>
-			{!data && isValidating && <Skeleton count={7} />}
+			{!data && isValidating && <Skeleton count={14} />}
 			{!data && error && <ErrorLoading />}
 
 			{data && (
