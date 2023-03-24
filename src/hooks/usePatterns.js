@@ -20,14 +20,19 @@ import { fetcher } from '../helpers/fetcher';
 import { store as nfdPatternsStore } from '../store';
 
 const usePatterns = () => {
-	const { activePatternsCategory, activeTemplatesCategory, activeTab } =
-		useSelect((select) => ({
-			activePatternsCategory:
-				select(nfdPatternsStore).getActivePatternsCategory(),
-			activeTemplatesCategory:
-				select(nfdPatternsStore).getActiveTemplatesCategory(),
-			activeTab: select(nfdPatternsStore).getActiveTab(),
-		}));
+	const {
+		activePatternsCategory,
+		activeTemplatesCategory,
+		activeTab,
+		keywords,
+	} = useSelect((select) => ({
+		activePatternsCategory:
+			select(nfdPatternsStore).getActivePatternsCategory(),
+		activeTemplatesCategory:
+			select(nfdPatternsStore).getActiveTemplatesCategory(),
+		activeTab: select(nfdPatternsStore).getActiveTab(),
+		keywords: select(nfdPatternsStore).getKeywordsFilter(),
+	}));
 
 	// Active category.
 	let activeCategory = null;
@@ -43,6 +48,7 @@ const usePatterns = () => {
 	// Build request URL.
 	const url = new URL(`${REST_URL}/${endpoint}`);
 	url.searchParams.append('category', activeCategory);
+	url.searchParams.append('keywords', keywords);
 
 	const { data, error, isValidating } = useSWR({ url: url.href }, fetcher);
 

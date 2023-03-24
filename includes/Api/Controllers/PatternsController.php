@@ -16,7 +16,8 @@ class PatternsController {
 		$response = RestRequest::get(
 			'/patterns',
 			array(
-				'category' => isset( $params['category'] ) ? sanitize_text_field( $params['category'] ) : '',
+				'category'      => isset( $params['category'] ) ? sanitize_text_field( $params['category'] ) : '',
+				'keywords_like' => isset( $params['keywords'] ) ? sanitize_text_field( $params['keywords'] ) : '',
 			)
 		);
 
