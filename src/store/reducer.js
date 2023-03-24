@@ -46,6 +46,12 @@ export function modal(
 				keywordsFilter: action.keywordsFilter,
 			};
 
+		case 'SET_SHOULD_RESET_KEYWORDS':
+			return {
+				...state,
+				shouldResetKeywords: !!action.shouldResetKeywords,
+			};
+
 		case 'SET_ACTIVE_TAB':
 			return {
 				...state,

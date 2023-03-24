@@ -77,6 +77,19 @@ export function setKeywordsFilter(keywordsFilter) {
 }
 
 /**
+ * Sets if keywords filter should be reset.
+ *
+ * @param {boolean} shouldResetKeywords Should reset keywords filter.
+ * @return {Object} Action object.
+ */
+export function setShouldResetKeywords(shouldResetKeywords) {
+	return {
+		type: 'SET_SHOULD_RESET_KEYWORDS',
+		shouldResetKeywords,
+	};
+}
+
+/**
  * Set active tab in sidebar modal.
  *
  * @param {string} activeTab Active tab.

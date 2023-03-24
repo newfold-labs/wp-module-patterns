@@ -14,7 +14,8 @@ import Logo from '../../Logo';
 import Categories from './Categories';
 
 const Sidebar = ({ isSiteEditor }) => {
-	const { setActiveTab } = useDispatch(nfdPatternsStore);
+	const { setActiveTab, setShouldResetKeywords } =
+		useDispatch(nfdPatternsStore);
 
 	const { activeTab } = useSelect((select) => {
 		return {
@@ -34,6 +35,7 @@ const Sidebar = ({ isSiteEditor }) => {
 				initialTabName={activeTab}
 				onSelect={(tab) => {
 					setActiveTab(tab);
+					setShouldResetKeywords(true);
 				}}
 				tabs={[
 					{

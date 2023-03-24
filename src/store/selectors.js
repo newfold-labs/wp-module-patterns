@@ -39,6 +39,16 @@ export function getKeywordsFilter(state) {
 }
 
 /**
+ * Gets if keywords should be reset.
+ *
+ * @param {*} state
+ * @return {boolean} Should reset keywords.
+ */
+export function shouldResetKeywords(state) {
+	return state.modal.shouldResetKeywords;
+}
+
+/**
  * Get active tab in sidebar.
  *
  * @param {*} state
