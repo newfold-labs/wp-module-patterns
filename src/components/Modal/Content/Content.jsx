@@ -7,7 +7,6 @@ import { useEffect } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import useFavorites from '../../../hooks/useFavorites';
 import usePatterns from '../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../store';
 import ContentTitle from './ContentTitle';
@@ -34,7 +33,6 @@ const Content = () => {
 
 	// Fetch data.
 	const { data, isValidating, isFavorites } = usePatterns();
-	const { data: favData } = useFavorites();
 
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
@@ -48,7 +46,7 @@ const Content = () => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{<LoadingBar isComplete={isFavorites ? favData : data} />}
+				{<LoadingBar isComplete={data} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					<ContentTitle
@@ -61,12 +59,7 @@ const Content = () => {
 						}
 					/>
 
-					{data && !isFavorites && (
-						<DesignList data={data} isFavorites={false} />
-					)}
-					{favData && isFavorites && (
-						<DesignList data={favData} isFavorites={true} />
-					)}
+					<DesignList data={data} isFavorites={isFavorites} />
 				</div>
 			</div>
 		</div>

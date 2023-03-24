@@ -21,14 +21,14 @@ import { store as noticesStore } from '@wordpress/notices';
  */
 import { REST_URL } from '../../../../constants';
 import { blockInserter } from '../../../../helpers/blockInserter';
-import useFavorites from '../../../../hooks/useFavorites';
+import usePatterns from '../../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus } from '../../../Icons';
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [insertingDesign, setInsertingDesign] = useState(false);
-	const { data: favData, mutate } = useFavorites();
+	const { data, mutate } = usePatterns(true);
 
 	const blocks = useMemo(
 		() => rawHandler({ HTML: item.source }),
@@ -46,14 +46,14 @@ const DesignItem = ({ item }) => {
 	useEffect(() => {
 		let isFav = false;
 
-		if (!Array.isArray(favData)) {
+		if (!Array.isArray(data)) {
 			return;
 		}
 
-		isFav = favData.find((fav) => fav.title === item.title);
+		isFav = data.find((fav) => fav.title === item.title);
 
 		setIsFavorite(!!isFav);
-	}, [favData, item.title]);
+	}, [data, item.title]);
 
 	/**
 	 * Insert the pattern or a collection of patterns (template) into the editor.
@@ -124,8 +124,8 @@ const DesignItem = ({ item }) => {
 
 		const newData =
 			method === 'DELETE'
-				? favData.filter((fav) => fav.id !== item.id)
-				: [...favData, { ...item, type: activeTab }];
+				? data.filter((fav) => fav.id !== item.id)
+				: [...data, { ...item, type: activeTab }];
 
 		mutate(updater, {
 			optimisticData: [...newData],

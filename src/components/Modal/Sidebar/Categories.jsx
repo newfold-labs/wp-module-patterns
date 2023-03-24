@@ -16,7 +16,7 @@ import { Icon } from '@wordpress/icons';
  */
 import { SITE_EDITOR_CATEGORIES } from '../../../constants';
 import useCategories from '../../../hooks/useCategories';
-import useFavorites from '../../../hooks/useFavorites';
+import usePatterns from '../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../store';
 import { heart } from '../../Icons';
 import ErrorLoading from './ErrorLoading';
@@ -26,13 +26,14 @@ import Skeleton from './Skeleton';
 const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
-	const { data: favoritesData } = useFavorites();
+	const { data: favoritesData } = usePatterns(true);
 
 	// Store actions and states.
 	const {
 		setIsSidebarLoading,
 		setActivePatternsCategory,
 		setActiveTemplatesCategory,
+		setShouldResetKeywords,
 	} = useDispatch(nfdPatternsStore);
 
 	const { keywordsFilter } = useSelect((select) => ({
@@ -87,6 +88,7 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 								categoryType={type}
 								onClick={() => {
 									setActiveCategory(category?.title);
+									setShouldResetKeywords(true);
 								}}
 							/>
 						);
@@ -94,7 +96,7 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 
 					{/* Add Favorites list element. */}
 					<ListElement
-						className="nfd-wba-list-element--favorites nfd-wba-mt-2 nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-grey-b"
+						className="nfd-wba-list-element--favorites nfd-wba-mt-2 nfd-wba-border-0"
 						category={{
 							id: `favorites`,
 							label: __('Favorites', 'nfd-wonder-blocks'),
@@ -113,6 +115,7 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 						onClick={() => {
 							setActivePatternsCategory('favorites');
 							setActiveTemplatesCategory('favorites');
+							setShouldResetKeywords(true);
 						}}
 					/>
 				</ul>

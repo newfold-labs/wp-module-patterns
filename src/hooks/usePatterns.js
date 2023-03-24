@@ -6,6 +6,7 @@ import useSWR from 'swr';
 /**
  * WordPress dependencies
  */
+import { useMemo } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 
 /**
@@ -19,7 +20,13 @@ import {
 import { fetcher } from '../helpers/fetcher';
 import { store as nfdPatternsStore } from '../store';
 
-const usePatterns = () => {
+/**
+ * Custom hook to fetch patterns.
+ *
+ * @param {boolean} onlyFavorites If true is passed, it will return only the favorites.
+ * @return {Object} Object containing the patterns, error and loading state.
+ */
+const usePatterns = (onlyFavorites = false) => {
 	const {
 		activePatternsCategory,
 		activeTemplatesCategory,
@@ -45,36 +52,42 @@ const usePatterns = () => {
 	// Can be either "patterns" or "templates".
 	const endpoint = activeTab === 'patterns' ? 'patterns' : 'templates';
 
-	// Build request URL.
-	const url = new URL(`${REST_URL}/${endpoint}`);
-	url.searchParams.append('category', activeCategory);
-	url.searchParams.append('keywords', keywords);
+	let url = null;
 
-	const { data, error, isValidating } = useSWR({ url: url.href }, fetcher);
+	if (onlyFavorites || (activeCategory === 'favorites' && !keywords)) {
+		url = new URL(`${REST_URL}/favorites`);
+	} else {
+		url = new URL(`${REST_URL}/${endpoint}`);
 
-	let dataWithType = null;
-
-	if (data && Array.isArray(data)) {
-		dataWithType = data?.map((pattern) => {
-			return { ...pattern, type: endpoint };
-		});
+		if (keywords) {
+			url.searchParams.append('keywords', keywords);
+		} else {
+			url.searchParams.append('category', activeCategory);
+		}
 	}
 
-	if (activeCategory === 'favorites') {
+	const { data, error, isValidating, mutate } = useSWR(
+		{ url: url?.href },
+		fetcher
+	);
+
+	return useMemo(() => {
+		let dataWithType = null;
+
+		if (data && Array.isArray(data)) {
+			dataWithType = data?.map((pattern) => {
+				return { ...pattern, type: endpoint };
+			});
+		}
+
 		return {
-			data: null,
-			isError: null,
-			isValidating: null,
-			isFavorites: true,
+			data: activeCategory !== 'favorites' ? dataWithType : data,
+			isError: error,
+			isValidating,
+			isFavorites: activeCategory !== 'favorites' ? false : true,
+			mutate,
 		};
-	}
-
-	return {
-		data: dataWithType,
-		isError: error,
-		isValidating,
-		isFavorites: false,
-	};
+	}, [data, activeCategory, error, isValidating, endpoint, mutate]);
 };
 
 export default usePatterns;
