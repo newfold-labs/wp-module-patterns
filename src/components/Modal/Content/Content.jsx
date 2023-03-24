@@ -14,7 +14,7 @@ import DesignList from './DesignList/DesignList';
 import Error from './DesignList/Error';
 import NoResults from './DesignList/NoResults';
 import Header from './Header/Header';
-import LoadingBar from './LoadingBar';
+import LoadingSpinner from './LoadingSpinner';
 
 const Content = () => {
 	const {
@@ -43,12 +43,14 @@ const Content = () => {
 		setIsContentLoading(!data && isValidating);
 	}, [data, isValidating, setIsContentLoading]);
 
+	console.log({ data, isValidating, isFavorites, isError });
+
 	return (
 		<div className="nfd-wba-flex nfd-wba-min-w-[400px] nfd-wba-grow nfd-wba-flex-col nfd-wba-overflow-y-auto">
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{<LoadingBar isComplete={data || !!isError} />}
+				{<LoadingSpinner isComplete={data || !!isError} />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					<ContentTitle
