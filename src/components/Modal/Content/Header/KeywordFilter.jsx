@@ -46,7 +46,9 @@ const KeywordFilter = () => {
 			<SearchControl
 				className="nfd-wba-keyword-filter nfd-wba-m-0"
 				disabled={isSidebarLoading || isContentLoading}
-				placeholder={__('Keywords', 'nfd-wonder-blocks')}
+				label={__('Search', 'nfd-wonder-blocks')}
+				hideLabelFromVision={false}
+				placeholder=""
 				ref={searchRef}
 				value={searchValue}
 				onChange={(value) => {

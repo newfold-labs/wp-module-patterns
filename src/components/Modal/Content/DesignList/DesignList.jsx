@@ -15,7 +15,7 @@ import { memo } from '@wordpress/element';
 import DesignItem from './DesignItem';
 import NoResults from './NoResults';
 
-const DesignList = ({ data }) => {
+const DesignList = ({ data, isFavorites }) => {
 	if (!data) {
 		return null;
 	}
@@ -26,7 +26,7 @@ const DesignList = ({ data }) => {
 
 	return (
 		<>
-			{data?.length === 0 && <NoResults />}
+			{data?.length === 0 && <NoResults isFavorites={isFavorites} />}
 			<Masonry
 				breakpointCols={{
 					default: 3,

@@ -19,7 +19,6 @@ const Content = () => {
 	const {
 		activePatternsCategory,
 		activeTemplatesCategory,
-		isSidebarLoading,
 		keywordsFilter,
 		activeTab,
 	} = useSelect((select) => ({
@@ -51,7 +50,7 @@ const Content = () => {
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
 				{<LoadingBar isComplete={isFavorites ? favData : data} />}
 
-				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
+				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
 					<ContentTitle
 						activeTab={activeTab}
 						title={keywordsFilter}
@@ -62,23 +61,12 @@ const Content = () => {
 						}
 					/>
 
-					{data && !isFavorites && <DesignList data={data} />}
-					{favData && isFavorites && <DesignList data={favData} />}
-
-					{
-						<pre className="nfd-wba-m-0 nfd-wba-whitespace-pre-wrap nfd-wba-rounded-md nfd-wba-bg-grey nfd-wba-p-6">
-							{JSON.stringify(
-								{
-									activeTab,
-									activePatternsCategory,
-									activeTemplatesCategory,
-									isSidebarLoading,
-								},
-								null,
-								2
-							)}
-						</pre>
-					}
+					{data && !isFavorites && (
+						<DesignList data={data} isFavorites={false} />
+					)}
+					{favData && isFavorites && (
+						<DesignList data={favData} isFavorites={true} />
+					)}
 				</div>
 			</div>
 		</div>

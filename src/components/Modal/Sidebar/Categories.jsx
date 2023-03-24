@@ -1,23 +1,24 @@
 /**
+ * External dependencies
+ */
+import classNames from 'classnames';
+
+/**
  * WordPress dependencies
  */
 import { useDispatch, useSelect } from '@wordpress/data';
 import { memo, useCallback, useEffect, useMemo } from '@wordpress/element';
-import { Icon } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
+import { Icon } from '@wordpress/icons';
 
 /**
  * Internal dependencies
  */
-import {
-	DEFAULT_PATTERNS_CATEGORY,
-	DEFAULT_TEMPLATES_CATEGORY,
-	SITE_EDITOR_CATEGORIES,
-} from '../../../constants';
-import heart from '../../Icons/heart';
+import { SITE_EDITOR_CATEGORIES } from '../../../constants';
 import useCategories from '../../../hooks/useCategories';
 import useFavorites from '../../../hooks/useFavorites';
 import { store as nfdPatternsStore } from '../../../store';
+import { heart } from '../../Icons';
 import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
@@ -33,6 +34,10 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 		setActivePatternsCategory,
 		setActiveTemplatesCategory,
 	} = useDispatch(nfdPatternsStore);
+
+	const { keywordsFilter } = useSelect((select) => ({
+		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
+	}));
 
 	// Set the active category.
 	const setActiveCategory = useCallback(
@@ -68,7 +73,12 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 			{!data && error && <ErrorLoading />}
 
 			{data && (
-				<ul className="nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5">
+				<ul
+					className={classNames(
+						'nfd-wba-list-elements nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5',
+						!!keywordsFilter && 'nfd-wba-list-elements--is-filtered'
+					)}
+				>
 					{filteredCategories?.map((category) => {
 						return (
 							<ListElement
@@ -82,10 +92,9 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 						);
 					})}
 
-					{/* Add Favorites list element. Depends on the type. */}
-
+					{/* Add Favorites list element. */}
 					<ListElement
-						className="nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-grey-b"
+						className="nfd-wba-list-element--favorites nfd-wba-mt-2 nfd-wba-border-0 nfd-wba-border-t nfd-wba-border-solid nfd-wba-border-grey-b"
 						category={{
 							id: `favorites`,
 							label: __('Favorites', 'nfd-wonder-blocks'),
