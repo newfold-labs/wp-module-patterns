@@ -34,12 +34,14 @@ const KeywordFilter = () => {
 	useEffect(() => {
 		const delayedSearch = debounce(
 			() => {
-				setKeywordsFilter(searchValue);
+				setKeywordsFilter(searchValue.trim());
 			},
-			searchValue === '' ? 0 : INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
+			searchValue.trim() === '' ? 0 : INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
 		);
 
-		delayedSearch();
+		if (typeof searchValue === 'string') {
+			delayedSearch();
+		}
 
 		return delayedSearch.cancel;
 	}, [searchValue, setKeywordsFilter]);
