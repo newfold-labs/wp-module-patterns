@@ -6,6 +6,7 @@ use NewfoldLabs\WP\ModuleLoader\Container;
 use NewfoldLabs\WP\Module\Patterns\Permissions;
 use NewfoldLabs\WP\Module\Patterns\Library\Admin as PatternsLibrary;
 use NewfoldLabs\WP\Module\Patterns\Api\RestApi;
+use NewfoldLabs\WP\Module\Patterns\Admin\CTA;
 
 class Patterns {
 
@@ -27,10 +28,10 @@ class Patterns {
 
 		if ( Permissions::is_editor() ) {
 			new PatternsLibrary();
+            new CTA();
 		}
 
 		new CSSUtilities();
-
 		new RestApi();
 	}
 }
