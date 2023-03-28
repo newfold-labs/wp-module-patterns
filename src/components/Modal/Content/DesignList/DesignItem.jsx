@@ -11,7 +11,13 @@ import { BlockPreview } from '@wordpress/block-editor';
 import { rawHandler } from '@wordpress/blocks';
 import { Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { memo, useEffect, useMemo, useState } from '@wordpress/element';
+import {
+	memo,
+	useCallback,
+	useEffect,
+	useMemo,
+	useState,
+} from '@wordpress/element';
 import { sprintf, __ } from '@wordpress/i18n';
 import { Icon } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
@@ -23,7 +29,7 @@ import { REST_URL } from '../../../../constants';
 import { blockInserter } from '../../../../helpers/blockInserter';
 import usePatterns from '../../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../../store';
-import { heart, heartEmpty, plus } from '../../../Icons';
+import { heart, heartEmpty, plus, trash } from '../../../Icons';
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -39,9 +45,23 @@ const DesignItem = ({ item }) => {
 		useDispatch(noticesStore);
 	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
-	const { activeTab } = useSelect((select) => ({
-		activeTab: select(nfdPatternsStore).getActiveTab(),
-	}));
+	const { activeTab, activeTemplatesCategory, activePatternsCategory } =
+		useSelect((select) => ({
+			activeTab: select(nfdPatternsStore).getActiveTab(),
+			activeTemplatesCategory:
+				select(nfdPatternsStore).getActiveTemplatesCategory(),
+			activePatternsCategory:
+				select(nfdPatternsStore).getActivePatternsCategory(),
+		}));
+
+	const shouldShowTrash = useCallback(() => {
+		return (
+			(activeTab === 'patterns' &&
+				activePatternsCategory === 'favorites') ||
+			(activeTab === 'templates' &&
+				activeTemplatesCategory === 'favorites')
+		);
+	}, [activePatternsCategory, activeTab, activeTemplatesCategory]);
 
 	useEffect(() => {
 		let isFav = false;
@@ -101,12 +121,18 @@ const DesignItem = ({ item }) => {
 	/**
 	 * Add or remove the pattern from the favorites list.
 	 *
+	 * @param {Object} toggleState The toggle state.
+	 *
 	 * @return {void}
 	 * @throws {Error} If the pattern cannot be added or removed.
 	 */
-	const addToFavoritesHandler = async () => {
-		setIsFavorite((prev) => !prev);
+	const favoritesClickHandler = async (toggleState = true) => {
+		// Do nothing if the pattern is already in the favorites list and toggleState is false.
+		if (isFavorite && !toggleState) {
+			return;
+		}
 
+		setIsFavorite((prev) => !prev);
 		const method = isFavorite ? 'DELETE' : 'POST';
 
 		const updater = async () =>
@@ -166,33 +192,57 @@ const DesignItem = ({ item }) => {
 				</h2>
 
 				<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-3">
-					<Button
-						className={classNames(
-							'nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600',
-							isFavorite
-								? 'nfd-wba-text-red-600'
-								: 'nfd-wba-text-zinc-500'
-						)}
-						showTooltip={true}
-						label={
-							isFavorite
-								? __(
-										'Remove from Favorites',
-										'nfd-wonder-blocks'
-								  )
-								: __('Add to Favorites', 'nfd-wonder-blocks')
-						}
-						onClick={() => addToFavoritesHandler()}
-						icon={
-							<Icon
-								className="nfd-wba-shrink-0"
-								fill="currentColor"
-								size={24}
-								icon={isFavorite ? heart : heartEmpty}
-							/>
-						}
-					/>
+					{!shouldShowTrash() && (
+						<Button
+							className={classNames(
+								'nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100',
+								isFavorite
+									? 'nfd-wba-cursor-default !nfd-wba-text-red-600'
+									: 'nfd-wba-cursor-not-pointer nfd-wba-text-zinc-500 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600'
+							)}
+							showTooltip={true}
+							label={
+								isFavorite
+									? __('In Favorites', 'nfd-wonder-blocks')
+									: __(
+											'Add to Favorites',
+											'nfd-wonder-blocks'
+									  )
+							}
+							onClick={() => favoritesClickHandler(false)}
+							icon={
+								<Icon
+									className="nfd-wba-shrink-0"
+									fill="currentColor"
+									size={24}
+									icon={isFavorite ? heart : heartEmpty}
+								/>
+							}
+						/>
+					)}
 
+					{shouldShowTrash() && (
+						<Button
+							className={classNames(
+								'nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600'
+							)}
+							showTooltip={true}
+							label={__(
+								'Remove from Favorites',
+								'nfd-wonder-blocks'
+							)}
+							onClick={() => favoritesClickHandler()}
+							icon={
+								<Icon
+									className="nfd-wba-shrink-0"
+									fill="currentColor"
+									width={32}
+									height={32}
+									icon={trash}
+								/>
+							}
+						/>
+					)}
 					<Button
 						className="nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50"
 						isBusy={insertingDesign}
