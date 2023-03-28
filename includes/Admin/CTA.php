@@ -24,7 +24,7 @@ class CTA {
         // Translators: %1$s is the opening anchor tag, %2$s is "Wonder Blocks", and %3$s is the closing anchor tag.
         $cta_text = sprintf(
             __( 'Create pages fast with the %1$s%2$s Pattern Library%3$s.', 'nfd-wonder-blocks' ),
-            '<a href=\"' . esc_url( admin_url('post-new.php?post_type=page&wonder-blocks-library') ) . '\">',
+            '<a href=\"' . esc_url( admin_url('post-new.php?post_type=page&wonder-blocks-library=templates') ) . '\">',
             'Wonder Blocks',
             '</a>'
         );
