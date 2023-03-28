@@ -1,5 +1,4 @@
-import heart from './heart';
-import heartEmpty from './heartEmpty';
-import plus from './plus';
-
-export { heart, heartEmpty, plus };
+export { default as heart } from './heart';
+export { default as heartEmpty } from './heartEmpty';
+export { default as plus } from './plus';
+export { default as trash } from './trash';
