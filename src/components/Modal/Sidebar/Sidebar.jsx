@@ -52,7 +52,7 @@ const Sidebar = ({ isSiteEditor }) => {
 					<>
 						<Categories
 							isSiteEditor={isSiteEditor}
-							type={tab.name} // "patterns" | "templates"
+							type={tab.name}
 						/>
 					</>
 				)}

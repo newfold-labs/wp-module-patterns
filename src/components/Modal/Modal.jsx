@@ -13,7 +13,7 @@ import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
-	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
+	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
 	const {
@@ -35,11 +35,37 @@ const Modal = () => {
 
 	// Check if we should automatically open the modal and pre-select.
 	useEffect(() => {
-		const searchParams = new URLSearchParams(window.location.search);
+		const searchParams = new URLSearchParams(window?.location?.search);
+		let timer;
 
 		if (searchParams.has('wonder-blocks-library')) {
-			setIsModalOpen(true);
+			timer = setTimeout(() => {
+				if (searchParams.get('wonder-blocks-library') === 'templates') {
+					setActiveTab('templates');
+				}
+
+				setIsModalOpen(true);
+			}, 300);
 		}
+
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [setActiveTab, setIsModalOpen]);
+
+	// Open the modal automatically on new post.
+	useEffect(() => {
+		let timer;
+
+		if (window?.location?.pathname?.includes('post-new.php')) {
+			timer = setTimeout(() => {
+				setIsModalOpen(true);
+			}, 300);
+		}
+
+		return () => {
+			clearTimeout(timer);
+		};
 	}, [setIsModalOpen]);
 
 	if (!isModalOpen) {
