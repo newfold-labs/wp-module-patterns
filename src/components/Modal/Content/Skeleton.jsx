@@ -38,7 +38,7 @@ const Skeleton = ({ count = 6, minHeight = 120, maxHeight = 320 }) => {
 };
 export default memo(Skeleton);
 
-const SkeletonItem = ({ height }) => {
+export const SkeletonItem = ({ height }) => {
 	return (
 		<div className="nfd-wba-skeleton--item nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-w-full nfd-wba-flex-col nfd-wba-gap-6 nfd-wba-rounded-2xl nfd-wba-bg-grey nfd-wba-p-6">
 			<div

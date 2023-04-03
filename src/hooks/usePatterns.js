@@ -77,7 +77,12 @@ const usePatterns = (onlyFavorites = false) => {
 
 	const { data, error, isValidating, mutate } = useSWR(
 		{ url: url?.href },
-		fetcher
+		fetcher,
+		{
+			revalidateOnFocus: false,
+			revalidateOnReconnect: true,
+			dedupingInterval: 6000, // 6 seconds
+		}
 	);
 
 	return useMemo(() => {

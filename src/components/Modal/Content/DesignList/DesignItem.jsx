@@ -27,6 +27,7 @@ import { store as noticesStore } from '@wordpress/notices';
  */
 import { REST_URL } from '../../../../constants';
 import { blockInserter } from '../../../../helpers/blockInserter';
+import { optimizePreview } from '../../../../helpers/optimizePreview';
 import usePatterns from '../../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
@@ -38,6 +39,11 @@ const DesignItem = ({ item }) => {
 
 	const blocks = useMemo(
 		() => rawHandler({ HTML: item.source }),
+		[item.source]
+	);
+
+	const previewBlocks = useMemo(
+		() => rawHandler({ HTML: optimizePreview(item.source) }),
 		[item.source]
 	);
 
@@ -90,10 +96,7 @@ const DesignItem = ({ item }) => {
 				createSuccessNotice(
 					sprintf(
 						// translators: %s is the pattern title
-						__(
-							'"%s" pattern successfully added.',
-							'nfd-wonder-blocks'
-						),
+						__('Block pattern "%s" inserted.', 'nfd-wonder-blocks'),
 						item.title
 					),
 					{
@@ -103,12 +106,11 @@ const DesignItem = ({ item }) => {
 			} catch (error) {
 				createErrorNotice(
 					__(
-						'Failed to add pattern. Please try again.',
+						'Failed to insert block pattern. Please try again.',
 						'nfd-wonder-blocks'
 					),
 					{
 						type: 'snackbar',
-						explicitDismiss: true,
 					}
 				);
 			} finally {
@@ -166,7 +168,7 @@ const DesignItem = ({ item }) => {
 			<div className="nfd-wba-rounded-lg nfd-wba-border-2 nfd-wba-border-dashed nfd-wba-border-grey-darker nfd-wba-p-4">
 				<div
 					className={classNames(
-						'nfd-wba-design-item nfd-wba-cursor-pointer nfd-wba-overflow-hidden nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-shadow-design-item nfd-wba-transition-opacity',
+						'nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-overflow-hidden nfd-wba-rounded-sm nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-bg-white nfd-wba-shadow-design-item nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand',
 						item?.type === 'templates' &&
 							'nfd-wba-design-item--template',
 						insertingDesign && 'nfd-wba-inserting-design'
@@ -180,8 +182,11 @@ const DesignItem = ({ item }) => {
 						}
 					}}
 				>
-					{blocks && (
-						<BlockPreview blocks={blocks} viewportWidth={1140} />
+					{previewBlocks && (
+						<BlockPreview
+							blocks={previewBlocks}
+							viewportWidth={1140}
+						/>
 					)}
 				</div>
 			</div>

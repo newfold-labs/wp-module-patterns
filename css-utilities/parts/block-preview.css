@@ -10,7 +10,6 @@
 	.is-root-container
 	> .nfd-container.has-white-background-color {
 	padding: 0 !important;
-	/* padding: calc(var(--nfd-cp-p-base, 2.375rem) * 2) !important; */
 }
 
 .nfd-wba-modal * {

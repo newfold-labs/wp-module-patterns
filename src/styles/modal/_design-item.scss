@@ -1,9 +1,20 @@
 /* -------------------------------------------------------------------------- */
 /*                             Design Item styles                             */
 /* -------------------------------------------------------------------------- */
+:root {
+	--nfd-wba-design-item--template-height: 500px;
+}
+
+.nfd-wba-design-item {
+	&:focus-visible {
+		outline: 2px solid var(--nfd-wba-color-brand);
+		outline-offset: 2px;
+	}
+}
+
 .nfd-wba-design-item--template {
 	.block-editor-block-preview__container {
-		max-height: 450px;
+		max-height: var(--nfd-wba-design-item--template-height);
 	}
 
 	.block-editor-block-preview__container:before {
@@ -20,14 +31,18 @@
 	}
 
 	iframe {
-		transition: transform 1.5s ease-in-out;
+		transition: transform 6s linear;
 		max-height: unset !important;
 	}
 
 	&:hover {
 		iframe {
-			transition-duration: 0.5s;
-			transform: translateY(-600px);
+			--nfd-wba-scroll-value: calc(
+				97% - var(--nfd-wba-design-item--template-height)
+			);
+
+			transition-duration: 12s;
+			transform: translateY(calc(var(--nfd-wba-scroll-value) * -1));
 		}
 	}
 }
