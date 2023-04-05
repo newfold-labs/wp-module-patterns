@@ -44,7 +44,7 @@ final class Admin {
 				'nfdWonderBlocks',
 				array(
 					'nonce'      => \wp_create_nonce('wp_rest'),
-					'restURL'    => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
+					'nfdRestURL' => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
 					// 'supportURL' => \esc_url_raw( 'https://newfoldlabs.com/support' ),
                     'assets'     => \esc_url(NFD_WONDER_BLOCKS_URL . '/assets'),
 				)

@@ -11,6 +11,7 @@ import { BlockPreview } from '@wordpress/block-editor';
 import { rawHandler } from '@wordpress/blocks';
 import { Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
+import { store as editorStore } from '@wordpress/editor';
 import {
 	memo,
 	useCallback,
@@ -18,17 +19,22 @@ import {
 	useMemo,
 	useState,
 } from '@wordpress/element';
-import { sprintf, __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import { Icon } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
+import { cleanForSlug } from '@wordpress/url';
 
 /**
  * Internal dependencies
  */
-import { REST_URL } from '../../../../constants';
+import {
+	NFD_REST_URL,
+	WONDER_BLOCKS_BLANK_TEMPLATE_SLUG,
+} from '../../../../constants';
 import { blockInserter } from '../../../../helpers/blockInserter';
 import { optimizePreview } from '../../../../helpers/optimizePreview';
 import usePatterns from '../../../../hooks/usePatterns';
+import usePostTemplates from '../../../../hooks/usePostTemplates';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
 
@@ -36,6 +42,7 @@ const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [insertingDesign, setInsertingDesign] = useState(false);
 	const { data, mutate } = usePatterns(true);
+	const { getBlankTemplate } = usePostTemplates();
 
 	const blocks = useMemo(
 		() => rawHandler({ HTML: item.source }),
@@ -49,16 +56,23 @@ const DesignItem = ({ item }) => {
 
 	const { createErrorNotice, createSuccessNotice } =
 		useDispatch(noticesStore);
+	const { editPost } = useDispatch(editorStore);
 	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
-	const { activeTab, activeTemplatesCategory, activePatternsCategory } =
-		useSelect((select) => ({
-			activeTab: select(nfdPatternsStore).getActiveTab(),
-			activeTemplatesCategory:
-				select(nfdPatternsStore).getActiveTemplatesCategory(),
-			activePatternsCategory:
-				select(nfdPatternsStore).getActivePatternsCategory(),
-		}));
+	const {
+		activeTab,
+		activeTemplatesCategory,
+		activePatternsCategory,
+		selectedTemplateSlug,
+	} = useSelect((select) => ({
+		activeTab: select(nfdPatternsStore).getActiveTab(),
+		activeTemplatesCategory:
+			select(nfdPatternsStore).getActiveTemplatesCategory(),
+		activePatternsCategory:
+			select(nfdPatternsStore).getActivePatternsCategory(),
+		selectedTemplateSlug:
+			select(editorStore).getEditedPostAttribute('template'),
+	}));
 
 	const shouldShowTrash = useCallback(() => {
 		return (
@@ -68,6 +82,14 @@ const DesignItem = ({ item }) => {
 				activeTemplatesCategory === 'favorites')
 		);
 	}, [activePatternsCategory, activeTab, activeTemplatesCategory]);
+
+	const shouldSetBlankTemplate = useCallback(() => {
+		return (
+			item?.type === 'templates' &&
+			selectedTemplateSlug !==
+				cleanForSlug(WONDER_BLOCKS_BLANK_TEMPLATE_SLUG)
+		);
+	}, [item?.type, selectedTemplateSlug]);
 
 	useEffect(() => {
 		let isFav = false;
@@ -90,34 +112,48 @@ const DesignItem = ({ item }) => {
 	const insertDesignHandler = async () => {
 		setInsertingDesign(true);
 
-		setTimeout(async () => {
-			try {
-				await blockInserter(blocks);
-				createSuccessNotice(
-					sprintf(
-						// translators: %s is the pattern title
-						__('Block pattern "%s" inserted.', 'nfd-wonder-blocks'),
-						item.title
-					),
-					{
-						type: 'snackbar',
-					}
-				);
-			} catch (error) {
-				createErrorNotice(
-					__(
-						'Failed to insert block pattern. Please try again.',
-						'nfd-wonder-blocks'
-					),
-					{
-						type: 'snackbar',
-					}
-				);
-			} finally {
-				setInsertingDesign(false);
-				setIsModalOpen(false);
+		try {
+			if (shouldSetBlankTemplate()) {
+				// Get or create a blank template.
+				const blankTemplate = await getBlankTemplate();
+
+				if (blankTemplate) {
+					// Assign the template to the post.
+					editPost({ template: blankTemplate?.slug || '' });
+				}
 			}
-		}, 30);
+
+			// Insert the pattern.
+			await blockInserter(blocks);
+
+			// Show a success notice.
+			createSuccessNotice(
+				sprintf(
+					// translators: %s is the pattern title
+					__('Block pattern "%s" inserted.', 'nfd-wonder-blocks'),
+					item.title
+				),
+				{
+					type: 'snackbar',
+				}
+			);
+		} catch (error) {
+			createErrorNotice(
+				__(
+					'Failed to insert block pattern. Please try again.',
+					'nfd-wonder-blocks'
+				),
+				{
+					type: 'snackbar',
+				}
+			);
+
+			// eslint-disable-next-line no-console
+			console.warn(error);
+		} finally {
+			setInsertingDesign(false);
+			setIsModalOpen(false);
+		}
 	};
 
 	/**
@@ -139,7 +175,7 @@ const DesignItem = ({ item }) => {
 
 		const updater = async () =>
 			await apiFetch({
-				url: `${REST_URL}/favorites`,
+				url: `${NFD_REST_URL}/favorites`,
 				method,
 				data: {
 					...item,

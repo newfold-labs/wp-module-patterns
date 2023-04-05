@@ -15,7 +15,7 @@ import { useSelect } from '@wordpress/data';
 import {
 	DEFAULT_PATTERNS_CATEGORY,
 	DEFAULT_TEMPLATES_CATEGORY,
-	REST_URL,
+	NFD_REST_URL,
 } from '../constants';
 import { fetcher } from '../helpers/fetcher';
 import { store as nfdPatternsStore } from '../store';
@@ -55,12 +55,12 @@ const usePatterns = (onlyFavorites = false) => {
 	let url = null;
 	let restUrl = '';
 
-	// Check if REST_URL starts with http or https.
-	if (typeof REST_URL === 'string' && REST_URL.startsWith('http')) {
-		restUrl = REST_URL;
+	// Check if NFD_REST_URL starts with http or https.
+	if (typeof NFD_REST_URL === 'string' && NFD_REST_URL.startsWith('http')) {
+		restUrl = NFD_REST_URL;
 	} else {
 		// if not, assume it's a relative path.
-		restUrl = window.location.origin + REST_URL;
+		restUrl = window.location.origin + NFD_REST_URL;
 	}
 
 	if (onlyFavorites || (activeCategory === 'favorites' && !keywords)) {
