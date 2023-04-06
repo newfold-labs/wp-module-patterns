@@ -40,6 +40,7 @@
 	.nfd-wba-list-element {
 		&.nfd-wba--is-active {
 			color: currentColor;
+			font-weight: inherit;
 
 			&:before {
 				transform: scaleX(0);
