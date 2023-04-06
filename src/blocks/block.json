@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"name": "wonder-blocks/library",
 	"title": "Wonder Blocks",
-	"description": "Add patterns and full page templates tailored for your site.",
+	"description": "Add patterns and page templates tailored for your site.",
 	"keywords": ["template", "patterns", "blocks"],
 	"textdomain": "nfd-wonder-blocks",
 	"attributes": {

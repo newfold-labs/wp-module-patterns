@@ -15,6 +15,11 @@ import {
 	quote,
 } from '@wordpress/icons';
 
+/**
+ * Internal dependencies
+ */
+import { heartSmall } from '../components/Icons';
+
 export const variations = [
 	{
 		name: 'gallery',
@@ -25,7 +30,7 @@ export const variations = [
 		category: 'nfd-wonder-blocks',
 		attributes: { category: 'gallersdsdy' },
 		title: __('Gallery Patterns', 'nfd-wonder-blocks'),
-		description: __('Add gallery patterns.', 'nfd-wonder-blocks'),
+		description: __('Add Gallery patterns.', 'nfd-wonder-blocks'),
 		keywords: [
 			__('images', 'nfd-wonder-blocks'),
 			__('photos', 'nfd-wonder-blocks'),
@@ -41,7 +46,7 @@ export const variations = [
 		category: 'nfd-wonder-blocks',
 		attributes: { category: 'blog' },
 		title: __('Blog Patterns', 'nfd-wonder-blocks'),
-		description: __('Add blog patterns.', 'nfd-wonder-blocks'),
+		description: __('Add Blog patterns.', 'nfd-wonder-blocks'),
 		keywords: [
 			__('articles', 'nfd-wonder-blocks'),
 			__('posts', 'nfd-wonder-blocks'),
@@ -176,12 +181,15 @@ export const variations = [
 		name: 'favorites',
 		icon: {
 			foreground: 'var(--nfd-wba-color-brand)',
-			src: quote,
+			src: heartSmall,
 		},
 		category: 'nfd-wonder-blocks',
 		attributes: { category: 'favorites' },
 		title: __('My Favorite Patterns', 'nfd-wonder-blocks'),
-		description: __('Add Testimonial patterns.', 'nfd-wonder-blocks'),
+		description: __(
+			'A collection of favorite patterns.',
+			'nfd-wonder-blocks'
+		),
 		keywords: [
 			__('liked', 'nfd-wonder-blocks'),
 			__('saved', 'nfd-wonder-blocks'),
