@@ -18,7 +18,9 @@ import DesignItem from './DesignItem';
 
 const DesignList = ({ data }) => {
 	// useAsyncList is a hook that helps to render the list of items asynchronously.
-	const currentShown = useAsyncList(data);
+	const currentShown = useAsyncList(data, {
+		step: 2,
+	});
 
 	if (!data || !Array.isArray(data)) {
 		return null;
@@ -35,11 +37,14 @@ const DesignList = ({ data }) => {
 				className="nfd-wba-design-list -nfd-wba-ml-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-w-auto"
 				columnClassName="nfd-wba-design-list__column nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
 			>
-				{data?.map((pattern) => {
+				{data?.map((pattern, index) => {
 					const isShown = currentShown.includes(pattern);
 
 					return isShown ? (
-						<DesignItem key={pattern.key} item={pattern} />
+						<DesignItem
+							key={`${pattern.key}-${index}`}
+							item={pattern}
+						/>
 					) : (
 						<SkeletonItem height={150} />
 					);
