@@ -81,7 +81,7 @@ const usePatterns = (onlyFavorites = false) => {
 		{
 			revalidateOnFocus: false,
 			revalidateOnReconnect: true,
-			dedupingInterval: 6000, // 6 seconds
+			shouldRetryOnError: false,
 		}
 	);
 
