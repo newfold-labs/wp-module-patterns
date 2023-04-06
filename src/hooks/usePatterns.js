@@ -79,9 +79,11 @@ const usePatterns = (onlyFavorites = false) => {
 		{ url: url?.href },
 		fetcher,
 		{
+			revalidateIfStale: false,
 			revalidateOnFocus: false,
 			revalidateOnReconnect: true,
-			shouldRetryOnError: false,
+			errorRetryCount: 3,
+			dedupingInterval: 5000, // 5 seconds
 		}
 	);
 
