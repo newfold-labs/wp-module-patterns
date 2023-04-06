@@ -45,7 +45,7 @@ class RestRequest {
         }
 
         // Some special cases for library development.
-        $this->baseUrl = 'http://localhost:3000'; // @todo
+        $this->baseUrl = 'http://localhost:3003'; // @todo
 
         $this->data = [
             'wp_language' => \get_locale(),

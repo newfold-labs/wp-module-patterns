@@ -11,11 +11,12 @@
 	"scripts": {
 		"build": "concurrently \"wp-scripts build ./src/wonder-blocks.js\" \"npm run utils:prod\"",
 		"format": "wp-scripts format ./src",
-		"start": "concurrently \"wp-scripts start ./src/wonder-blocks.js\" \"npm run utils:dev\"",
+		"start": "concurrently \"wp-scripts start ./src/wonder-blocks.js\" \"npm run utils:dev\" \"npm run json-server\"",
 		"lint:js": "wp-scripts lint-js ./src",
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
 		"utils:dev": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css -w --env development",
-		"utils:prod": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css --env production"
+		"utils:prod": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css --env production",
+		"json-server": "json-server --watch api.dev.json --port 3003"
 	},
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^14.0.0",
@@ -23,6 +24,7 @@
 		"@wordpress/scripts": "^25.4.0",
 		"autoprefixer": "^10.4.13",
 		"cssnano": "^5.1.15",
+		"json-server": "^0.17.3",
 		"postcss": "^8.4.21",
 		"postcss-cli": "^10.1.0",
 		"postcss-import": "^15.1.0",
