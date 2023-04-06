@@ -3,7 +3,7 @@
  */
 import { Modal as WPModal } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect, useMemo } from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -17,21 +17,21 @@ const Modal = () => {
 
 	// Check if we are editing a template, via site editor or page.
 	const {
-		editedPostType,
 		isModalOpen,
+		// editedPostType,
 		// editedPostId,
-		isEditingTemplate,
+		// isEditingTemplate,
 	} = useSelect((select) => ({
-		editedPostType: select('core/edit-site')?.getEditedPostType(),
-		// editedPostId: select('core/edit-site')?.getEditedPostId(),
-		isEditingTemplate: select('core/edit-post')?.isEditingTemplate(),
 		isModalOpen: select(nfdPatternsStore).isModalOpen(),
+		// editedPostType: select('core/edit-site')?.getEditedPostType(),
+		// editedPostId: select('core/edit-site')?.getEditedPostId(),
+		// isEditingTemplate: select('core/edit-post')?.isEditingTemplate(),
 	}));
 
 	// Check if we are editing a template, via page or site editor.
-	const isSiteEditor = useMemo(() => {
-		return isEditingTemplate || !!editedPostType;
-	}, [isEditingTemplate, editedPostType]);
+	// const isSiteEditor = useMemo(() => {
+	// 	return isEditingTemplate || !!editedPostType;
+	// }, [isEditingTemplate, editedPostType]);
 
 	// Check if we should automatically open the modal and pre-select.
 	useEffect(() => {
@@ -81,10 +81,11 @@ const Modal = () => {
 			onRequestClose={() => setIsModalOpen(false)}
 		>
 			<div className="nfd-wba-grid nfd-wba-grow nfd-wba-grid-cols-library-modal nfd-wba-bg-white nfd-wba-text-dark-lighter">
-				<Sidebar isSiteEditor={isSiteEditor} />
+				<Sidebar />
 				<Content />
 			</div>
 		</WPModal>
 	);
 };
+
 export default Modal;

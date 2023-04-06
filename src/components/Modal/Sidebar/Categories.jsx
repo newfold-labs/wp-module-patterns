@@ -7,14 +7,13 @@ import classNames from 'classnames';
  * WordPress dependencies
  */
 import { useDispatch, useSelect } from '@wordpress/data';
-import { memo, useCallback, useEffect, useMemo } from '@wordpress/element';
+import { memo, useCallback, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Icon } from '@wordpress/icons';
 
 /**
  * Internal dependencies
  */
-import { SITE_EDITOR_CATEGORIES } from '../../../constants';
 import useCategories from '../../../hooks/useCategories';
 import usePatterns from '../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../store';
@@ -23,7 +22,7 @@ import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
 
-const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
+const Categories = ({ type = 'patterns' }) => {
 	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
 	const { data: favoritesData } = usePatterns(true);
@@ -57,17 +56,6 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 		setIsSidebarLoading(!data && isValidating);
 	}, [data, isValidating, setIsSidebarLoading]);
 
-	// Remove unnecessary categories - depending on current page.
-	const filteredCategories = useMemo(() => {
-		if (!isSiteEditor) {
-			return data?.filter(
-				(category) => !SITE_EDITOR_CATEGORIES.includes(category.title)
-			);
-		}
-
-		return data;
-	}, [isSiteEditor, data]);
-
 	return (
 		<>
 			{!data && isValidating && <Skeleton count={14} />}
@@ -80,7 +68,7 @@ const Categories = ({ isSiteEditor = false, type = 'patterns' }) => {
 						!!keywordsFilter && 'nfd-wba-list-elements--is-filtered'
 					)}
 				>
-					{filteredCategories?.map((category) => {
+					{data?.map((category) => {
 						return (
 							<ListElement
 								key={category.id}
