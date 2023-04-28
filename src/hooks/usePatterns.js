@@ -23,10 +23,10 @@ import { store as nfdPatternsStore } from '../store';
 /**
  * Custom hook to fetch patterns.
  *
- * @param {boolean} onlyFavorites If true is passed, it will return only the favorites.
+ * @param {boolean} params.onlyFavorites - Whether to fetch only favorites.
  * @return {Object} Object containing the patterns, error and loading state.
  */
-const usePatterns = (onlyFavorites = false) => {
+const usePatterns = ({ onlyFavorites = false } = {}) => {
 	const {
 		activePatternsCategory,
 		activeTemplatesCategory,

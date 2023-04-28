@@ -25,7 +25,7 @@ import Skeleton from './Skeleton';
 const Categories = ({ type = 'patterns' }) => {
 	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
-	const { data: favoritesData } = usePatterns(true);
+	const { data: favoritesData } = usePatterns({ onlyFavorites: true });
 
 	// Store actions and states.
 	const {
