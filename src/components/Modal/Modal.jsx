@@ -53,21 +53,6 @@ const Modal = () => {
 		};
 	}, [setActiveTab, setIsModalOpen]);
 
-	// Open the modal automatically on new post.
-	useEffect(() => {
-		let timer;
-
-		if (window?.location?.pathname?.includes('post-new.php')) {
-			timer = setTimeout(() => {
-				setIsModalOpen(true);
-			}, 300);
-		}
-
-		return () => {
-			clearTimeout(timer);
-		};
-	}, [setIsModalOpen]);
-
 	if (!isModalOpen) {
 		return null;
 	}
