@@ -2,7 +2,7 @@
 
 namespace NewfoldLabs\WP\Module\Patterns\Api;
 
-class RestRequest {
+class RemoteRequest {
 	
 	/**
      * The API endpoint
@@ -38,8 +38,7 @@ class RestRequest {
      * @param \WP_REST_Request $request - The request.
      * @return void
      */
-    public function __construct( $request )
-    {
+    public function __construct( $request ) {
         if ( ! \wp_verify_nonce( sanitize_text_field( wp_unslash( $request->get_header( 'x_wp_nonce' ) ) ), 'wp_rest' ) ) {
             return;
         }
@@ -72,8 +71,7 @@ class RestRequest {
      *
      * @return array
      */
-    public function getHandler( $endpoint, $data = [], $headers = [] )
-    {
+    public function getHandler( $endpoint, $data = [], $headers = [] ) {
         $url = \esc_url_raw(
             \add_query_arg(
                 \urlencode_deep( \urldecode_deep( array_merge( $this->data, $data ) ) ),

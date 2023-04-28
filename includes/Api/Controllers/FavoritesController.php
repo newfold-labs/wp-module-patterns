@@ -1,8 +1,6 @@
 <?php
 namespace NewfoldLabs\WP\Module\Patterns\Api\Controllers;
 
-use NewfoldLabs\WP\Module\Patterns\Api\RestRequest;
-
 class FavoritesController {
 
 	/**

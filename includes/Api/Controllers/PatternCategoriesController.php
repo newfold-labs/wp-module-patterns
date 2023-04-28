@@ -1,7 +1,7 @@
 <?php
 namespace NewfoldLabs\WP\Module\Patterns\Api\Controllers;
 
-use NewfoldLabs\WP\Module\Patterns\Api\RestRequest;
+use NewfoldLabs\WP\Module\Patterns\Library\Categories;
 
 class PatternCategoriesController {
 
@@ -11,8 +11,8 @@ class PatternCategoriesController {
 	 */
 	public static function index() {
 
-		$response = RestRequest::get( '/categories' );
+		$categories = Categories::get( 'patterns' );
 
-		return new \WP_REST_Response( $response );
+		return new \WP_REST_Response( $categories );
 	}
-} 
+}

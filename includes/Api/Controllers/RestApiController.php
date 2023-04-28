@@ -1,7 +1,7 @@
 <?php
 namespace NewfoldLabs\WP\Module\Patterns\Api\Controllers;
 
-use NewfoldLabs\WP\Module\Patterns\Api\RestRequest;
+use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 use NewfoldLabs\WP\Module\Patterns\Permissions;
 
 class RestApiController extends \WP_REST_Controller {
@@ -24,7 +24,7 @@ class RestApiController extends \WP_REST_Controller {
             function ( $response, $handler, $request ) {
                 
                 if ( $request->get_header( 'x_nfd_wonder_blocks' ) ) {
-                    RestRequest::init( $request );
+                    RemoteRequest::init( $request );
                 }
 
                 return $response;
