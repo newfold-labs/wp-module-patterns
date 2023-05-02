@@ -1,8 +1,14 @@
 /**
+ * External dependencies
+ */
+import { useInView } from 'react-intersection-observer';
+
+/**
  * WordPress dependencies
  */
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -18,6 +24,8 @@ import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
 
 const Content = () => {
+	const [loadMoreRef, inView] = useInView();
+
 	const {
 		activePatternsCategory,
 		activeTab,
@@ -37,7 +45,8 @@ const Content = () => {
 	}));
 
 	// Fetch data.
-	const { data, isValidating, isFavorites, isError } = usePatterns();
+	const { data, isValidating, isFavorites, isError, size, setSize, hasMore } =
+		usePatterns();
 
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
@@ -45,6 +54,14 @@ const Content = () => {
 	useEffect(() => {
 		setIsContentLoading(!data && isValidating);
 	}, [data, isValidating, setIsContentLoading]);
+
+	// Fetches when the load more is in view
+	useEffect(() => {
+		if (hasMore && inView) {
+			setSize(size + 1);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [inView, hasMore]);
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-min-w-[400px] nfd-wba-grow nfd-wba-flex-col nfd-wba-overflow-y-auto">
@@ -74,7 +91,34 @@ const Content = () => {
 						<NoResults isFavorites={isFavorites} />
 					)}
 
-					{data && data?.length > 0 && <DesignList data={data} />}
+					{data && data?.length > 0 && (
+						<>
+							<DesignList data={data} />
+
+							{hasMore && (
+								<>
+									<div className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6">
+										<div
+											className="nfd-wba-inline-block nfd-wba-h-[60px] nfd-wba-w-[60px] nfd-wba-animate-spin nfd-wba-rounded-full nfd-wba-border-2 nfd-wba-border-solid nfd-wba-border-brand nfd-wba-border-r-brand/10 nfd-wba-align-[-0.125em]"
+											role="status"
+										>
+											<span className="nfd-wba-sr-only">
+												{__(
+													'Loading…',
+													'nfd-wonder-blocks'
+												)}
+											</span>
+										</div>
+									</div>
+									<div
+										className="relative flex flex-col items-end justify-end -top-1/4 h-4"
+										ref={loadMoreRef}
+										style={{ zIndex: -1 }}
+									/>
+								</>
+							)}
+						</>
+					)}
 				</div>
 			</div>
 		</div>

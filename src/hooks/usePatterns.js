@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import useSWR from 'swr';
+import useSWRInfinite from 'swr/infinite';
 
 /**
  * WordPress dependencies
@@ -26,7 +26,7 @@ import { store as nfdPatternsStore } from '../store';
  * @param {boolean} params.onlyFavorites - Whether to fetch only favorites.
  * @return {Object} Object containing the patterns, error and loading state.
  */
-const usePatterns = ({ onlyFavorites = false } = {}) => {
+const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 	const {
 		activePatternsCategory,
 		activeTemplatesCategory,
@@ -75,8 +75,17 @@ const usePatterns = ({ onlyFavorites = false } = {}) => {
 		}
 	}
 
-	const { data, error, isValidating, mutate } = useSWR(
-		{ url: url?.href },
+	const getKey = (pageIndex, previousPageData) => {
+		if (previousPageData && !previousPageData.length) return null;
+
+		url.searchParams.set('page', pageIndex + 1);
+		url.searchParams.set('per_page', perPage);
+
+		return { url: url.href };
+	};
+
+	const { data, error, isValidating, mutate, size, setSize } = useSWRInfinite(
+		getKey,
 		fetcher,
 		{
 			revalidateIfStale: false,
@@ -90,21 +99,39 @@ const usePatterns = ({ onlyFavorites = false } = {}) => {
 	return useMemo(() => {
 		let dataWithType = null;
 
-		if (data && Array.isArray(data)) {
-			dataWithType = data?.map((pattern) => {
+		const items = data ? [].concat(...data) : [];
+
+		if (items && Array.isArray(items)) {
+			dataWithType = items?.map((pattern) => {
 				return { ...pattern, type: endpoint };
 			});
 		}
 
+		console.log({ data });
+
 		return {
-			data: activeCategory !== 'favorites' ? dataWithType : data,
+			data: activeCategory !== 'favorites' ? dataWithType : items,
+			hasMore: data && data[data.length - 1]?.length === perPage,
 			isError: error,
 			isValidating,
 			isFavorites:
 				activeCategory !== 'favorites' || keywords ? false : true,
 			mutate,
+			size,
+			setSize,
 		};
-	}, [data, activeCategory, error, isValidating, endpoint, keywords, mutate]);
+	}, [
+		data,
+		activeCategory,
+		perPage,
+		error,
+		isValidating,
+		keywords,
+		mutate,
+		size,
+		setSize,
+		endpoint,
+	]);
 };
 
 export default usePatterns;
