@@ -107,8 +107,6 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 			});
 		}
 
-		console.log({ data });
-
 		return {
 			data: activeCategory !== 'favorites' ? dataWithType : items,
 			hasMore: data && data[data.length - 1]?.length === perPage,
