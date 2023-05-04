@@ -24,8 +24,7 @@ class Categories {
 		// If the transient is empty, get the categories from the remote API.
 		if ( false === $data ) {
 			$data = RemoteRequest::get( "/{$endpoint}" );
-			// set_transient( "wba_{$type}_categories", $data, 60 * 60 * 24 );
-			set_transient( "wba_{$type}_categories", $data, 5 );
+			set_transient( "wba_{$type}_categories", $data, 60 * 60 * 24 );
 		}
 
 		// Return the categories.
