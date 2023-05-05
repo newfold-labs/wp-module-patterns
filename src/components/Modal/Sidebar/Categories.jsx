@@ -25,7 +25,10 @@ import Skeleton from './Skeleton';
 const Categories = ({ type = 'patterns' }) => {
 	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
-	const { data: favoritesData } = usePatterns({ onlyFavorites: true });
+	const { data: favoritesData } = usePatterns({
+		onlyFavorites: true,
+		perPage: -1,
+	});
 
 	// Store actions and states.
 	const {
@@ -64,7 +67,7 @@ const Categories = ({ type = 'patterns' }) => {
 			{data && (
 				<ul
 					className={classNames(
-						'nfd-wba-list-elements nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-px-0 nfd-wba-text-md nfd-wba-leading-5',
+						'nfd-wba-list-elements nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-px-0 nfd-wba-py-4 nfd-wba-text-md nfd-wba-leading-5',
 						!!keywordsFilter && 'nfd-wba-list-elements--is-filtered'
 					)}
 				>

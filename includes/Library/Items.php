@@ -61,7 +61,7 @@ class Items {
 			if ( \is_wp_error( $data ) ) {
 				return new \WP_REST_Response( $data->get_error_message(), 503 );
 			}
-			
+
 			set_transient( "wba_{$type}_{$id}", $data, 60 * 60 * 24 );
 		}
 		

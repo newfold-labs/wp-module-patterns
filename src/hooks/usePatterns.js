@@ -78,8 +78,10 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 	const getKey = (pageIndex, previousPageData) => {
 		if (previousPageData && !previousPageData.length) return null;
 
-		url.searchParams.set('page', pageIndex + 1);
-		url.searchParams.set('per_page', perPage);
+		if (perPage > 0) {
+			url.searchParams.set('page', pageIndex + 1);
+			url.searchParams.set('per_page', perPage);
+		}
 
 		return { url: url.href };
 	};
