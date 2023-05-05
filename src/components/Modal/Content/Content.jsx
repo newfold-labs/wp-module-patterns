@@ -100,14 +100,15 @@ const Content = () => {
 								className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6"
 								ref={loadMoreRef}
 							>
-								{hasMore && <Spinner size={40} />}
-								{!hasMore && (
-									<div>
+								{hasMore ? (
+									<Spinner size={40} />
+								) : (
+									<p className="nfd-wba-text-md">
 										{__(
 											'No more items to show',
 											'nfd-wonder-blocks'
 										)}
-									</div>
+									</p>
 								)}
 							</div>
 						</>
