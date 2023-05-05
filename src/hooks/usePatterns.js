@@ -28,7 +28,7 @@ import { store as nfdPatternsStore } from '../store';
  * @param {number}  params.perPage       - Number of items per page.
  * @return {Object} Object containing the patterns, error and loading state.
  */
-const usePatterns = ({ onlyFavorites = false, perPage = 4 }) => {
+const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 	const {
 		activePatternsCategory,
 		activeTemplatesCategory,
@@ -45,6 +45,7 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 }) => {
 
 	// Active category.
 	let activeCategory = null;
+
 	if (activeTab === 'patterns') {
 		activeCategory = activePatternsCategory || DEFAULT_PATTERNS_CATEGORY;
 	} else {
@@ -78,7 +79,9 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 }) => {
 	}
 
 	const getKey = (pageIndex, previousPageData) => {
-		if (previousPageData && !previousPageData.length) return null;
+		if (previousPageData && !previousPageData.length) {
+			return null;
+		}
 
 		if (perPage > 0) {
 			url.searchParams.set('page', pageIndex + 1);
@@ -96,7 +99,7 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 }) => {
 			revalidateOnFocus: false,
 			revalidateOnReconnect: true,
 			errorRetryCount: 3,
-			dedupingInterval: 5000, // 5 seconds
+			dedupingInterval: 5000,
 		}
 	);
 

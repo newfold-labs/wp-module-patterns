@@ -25,10 +25,7 @@ import Skeleton from './Skeleton';
 const Categories = ({ type = 'patterns' }) => {
 	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
-	const { data: favoritesData } = usePatterns({
-		onlyFavorites: true,
-		perPage: -1,
-	});
+	const { data: allFavs } = usePatterns({ onlyFavorites: true, perPage: -1 });
 
 	// Store actions and states.
 	const {
@@ -92,7 +89,7 @@ const Categories = ({ type = 'patterns' }) => {
 							id: `favorites`,
 							label: __('Favorites', 'nfd-wonder-blocks'),
 							title: 'favorites',
-							count: favoritesData?.length,
+							count: allFavs?.length,
 						}}
 						categoryType={type}
 						icon={

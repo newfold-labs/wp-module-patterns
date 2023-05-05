@@ -7,7 +7,7 @@ import apiFetch from '@wordpress/api-fetch';
  * @return {Promise} Returns the response of the apiFetch function.
  */
 
-export const fetcher = ({ ...args }) => {
+export const fetcher = async ({ ...args }) => {
 	const defaultOptions = {
 		method: 'GET',
 		headers: {
@@ -17,5 +17,6 @@ export const fetcher = ({ ...args }) => {
 
 	const mergedOptions = { ...defaultOptions, ...args };
 
-	return apiFetch(mergedOptions).then((res) => res);
+	const res = await apiFetch(mergedOptions);
+	return res;
 };

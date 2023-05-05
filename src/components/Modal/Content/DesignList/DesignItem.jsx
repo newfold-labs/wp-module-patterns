@@ -41,7 +41,13 @@ import { heart, heartEmpty, plus, trash } from '../../../Icons';
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [insertingDesign, setInsertingDesign] = useState(false);
-	const { data, mutate } = usePatterns({ onlyFavorites: true, perPage: -1 });
+	const { data, mutate } = usePatterns({ onlyFavorites: true });
+
+	const { data: allFavs, mutate: mutateAllFavs } = usePatterns({
+		onlyFavorites: true,
+		perPage: -1,
+	});
+
 	const { getBlankTemplate } = usePostTemplates();
 
 	const blocks = useMemo(
@@ -191,8 +197,20 @@ const DesignItem = ({ item }) => {
 				? data.filter((fav) => fav.id !== item.id)
 				: [...data, { ...item, type: activeTab }];
 
+		const updatedFavs =
+			method === 'DELETE'
+				? allFavs.filter((fav) => fav.id !== item.id)
+				: [...allFavs, { ...item, type: activeTab }];
+
 		mutate(updater, {
 			optimisticData: [...newData],
+			rollbackOnError: false,
+			populateCache: true,
+			revalidate: false,
+		});
+
+		mutateAllFavs(() => [...updatedFavs], {
+			optimisticData: [...updatedFavs],
 			rollbackOnError: false,
 			populateCache: true,
 			revalidate: false,
