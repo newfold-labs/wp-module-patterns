@@ -187,7 +187,7 @@ export const variations = [
 		attributes: { category: 'favorites' },
 		title: __('My Favorite Patterns', 'nfd-wonder-blocks'),
 		description: __(
-			'A collection of favorite patterns.',
+			"A collection of patterns you've selected.",
 			'nfd-wonder-blocks'
 		),
 		keywords: [
