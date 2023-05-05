@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
  */
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -25,7 +25,7 @@ import Skeleton from './Skeleton';
 import Spinner from './Spinner';
 
 const Content = () => {
-	const [loadMoreRef, inView] = useInView();
+	const [loadMoreRef, inView] = useInView({ threshold: 0 });
 
 	const {
 		activePatternsCategory,
@@ -53,7 +53,7 @@ const Content = () => {
 
 	// Set the global content loading state when the data is loading.
 	useEffect(() => {
-		setIsContentLoading(!data && isValidating);
+		setIsContentLoading((!data || data.length === 0) && isValidating);
 	}, [data, isValidating, setIsContentLoading]);
 
 	// Fetches when the load more is in view
@@ -69,9 +69,7 @@ const Content = () => {
 			<Header />
 
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
-				{isSidebarLoading && (
-					<LoadingSpinner isComplete={data || !!isError} />
-				)}
+				{isSidebarLoading && !isError && <LoadingSpinner />}
 
 				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-px-6 nfd-wba-py-8">
 					<ContentTitle
@@ -84,11 +82,13 @@ const Content = () => {
 						}
 					/>
 
-					{!isSidebarLoading && isContentLoading && <Skeleton />}
+					{!isSidebarLoading && isContentLoading && !isError && (
+						<Skeleton />
+					)}
 
 					{isError && <Error />}
 
-					{(!data || data?.length === 0) && !isError && (
+					{data?.length === 0 && !isError && !isValidating && (
 						<NoResults isFavorites={isFavorites} />
 					)}
 
@@ -96,26 +96,18 @@ const Content = () => {
 						<>
 							<DesignList data={data} />
 
-							<div className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6">
-								{hasMore && (
-									<>
-										<Spinner size={40} />
-
-										<div
-											ref={loadMoreRef}
-											style={{ zIndex: -1 }}
-										/>
-									</>
-								)}
+							<div
+								className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6"
+								ref={loadMoreRef}
+							>
+								{hasMore && <Spinner size={40} />}
 								{!hasMore && (
-									<>
-										<div>
-											{__(
-												'No more items to show',
-												'nfd-wonder-blocks'
-											)}
-										</div>
-									</>
+									<div>
+										{__(
+											'No more items to show',
+											'nfd-wonder-blocks'
+										)}
+									</div>
 								)}
 							</div>
 						</>

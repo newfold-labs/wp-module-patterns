@@ -67,7 +67,7 @@ const ListElement = forwardRef(
 					{categoryCount !== null && (
 						<span
 							className={classNames(
-								'nfd-wba-py-1 nfd-wba-px-[14px] nfd-wba-text-sm nfd-wba-text-dark-lighter',
+								'nfd-wba-px-[14px] nfd-wba-py-1 nfd-wba-text-sm nfd-wba-text-dark-lighter',
 								category?.title !== 'favorites' &&
 									'nfd-wba-rounded-full nfd-wba-bg-grey'
 							)}

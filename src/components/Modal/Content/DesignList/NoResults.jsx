@@ -26,7 +26,7 @@ const NoResults = ({ isFavorites }) => {
 		<div className="nfd-wba-flex nfd-wba-grow nfd-wba-items-center nfd-wba-justify-center">
 			<div className="nfd-wba-state-message nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[640px] nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-8 nfd-wba-pb-[10%]">
 				{svg}
-				<p className="nfd-wba-m-0 nfd-wba-text-center nfd-wba-text-2xl nfd-wba-font-light nfd-wba-text-dark">
+				<p className="nfd-wba-m-0 nfd-wba-max-w-[420px] nfd-wba-text-center nfd-wba-text-2xl nfd-wba-font-light nfd-wba-text-dark">
 					{title}
 				</p>
 			</div>
