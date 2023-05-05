@@ -1,12 +1,8 @@
 /**
- * External dependencies
+ * Internal dependencies
  */
 import Logo from '../../Logo';
-
-/**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
+import Spinner from './Spinner';
 
 function LoadingBar({ isComplete }) {
 	if (isComplete) {
@@ -21,14 +17,7 @@ function LoadingBar({ isComplete }) {
 				One moment while we load content tailored for your site.
 			</h2>
 
-			<div
-				className="nfd-wba-inline-block nfd-wba-h-[60px] nfd-wba-w-[60px] nfd-wba-animate-spin nfd-wba-rounded-full nfd-wba-border-2 nfd-wba-border-solid nfd-wba-border-brand nfd-wba-border-r-brand/10 nfd-wba-align-[-0.125em]"
-				role="status"
-			>
-				<span className="nfd-wba-sr-only">
-					{__('Loading…', 'nfd-wonder-blocks')}
-				</span>
-			</div>
+			<Spinner />
 		</div>
 	);
 }

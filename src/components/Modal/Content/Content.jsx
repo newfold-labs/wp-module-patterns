@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
  */
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -22,6 +22,7 @@ import NoResults from './DesignList/NoResults';
 import Header from './Header/Header';
 import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
+import Spinner from './Spinner';
 
 const Content = () => {
 	const [loadMoreRef, inView] = useInView();
@@ -72,7 +73,7 @@ const Content = () => {
 					<LoadingSpinner isComplete={data || !!isError} />
 				)}
 
-				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-py-8 nfd-wba-px-6">
+				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-px-6 nfd-wba-py-8">
 					<ContentTitle
 						activeTab={activeTab}
 						title={keywordsFilter}
@@ -95,28 +96,28 @@ const Content = () => {
 						<>
 							<DesignList data={data} />
 
-							{hasMore && (
-								<>
-									<div className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6">
+							<div className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6">
+								{hasMore && (
+									<>
+										<Spinner size={40} />
+
 										<div
-											className="nfd-wba-inline-block nfd-wba-h-[60px] nfd-wba-w-[60px] nfd-wba-animate-spin nfd-wba-rounded-full nfd-wba-border-2 nfd-wba-border-solid nfd-wba-border-brand nfd-wba-border-r-brand/10 nfd-wba-align-[-0.125em]"
-											role="status"
-										>
-											<span className="nfd-wba-sr-only">
-												{__(
-													'Loading…',
-													'nfd-wonder-blocks'
-												)}
-											</span>
+											ref={loadMoreRef}
+											style={{ zIndex: -1 }}
+										/>
+									</>
+								)}
+								{!hasMore && (
+									<>
+										<div>
+											{__(
+												'No more items to show',
+												'nfd-wonder-blocks'
+											)}
 										</div>
-									</div>
-									<div
-										className="relative flex flex-col items-end justify-end -top-1/4 h-4"
-										ref={loadMoreRef}
-										style={{ zIndex: -1 }}
-									/>
-								</>
-							)}
+									</>
+								)}
+							</div>
 						</>
 					)}
 				</div>

@@ -234,7 +234,7 @@ const DesignItem = ({ item }) => {
 
 				<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-3">
 					{item?.isPremium && (
-						<span className="nfd-wba-rounded nfd-wba-bg-dark nfd-wba-py-[5px] nfd-wba-px-[10px] nfd-wba-text-white">
+						<span className="nfd-wba-rounded nfd-wba-bg-dark nfd-wba-px-[10px] nfd-wba-py-[5px] nfd-wba-text-white">
 							Premium
 						</span>
 					)}
