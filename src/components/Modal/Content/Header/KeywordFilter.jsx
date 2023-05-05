@@ -23,12 +23,10 @@ const KeywordFilter = () => {
 	const { setKeywordsFilter, setShouldResetKeywords } =
 		useDispatch(nfdPatternsStore);
 
-	const { isSidebarLoading, isContentLoading, shouldResetKeywords } =
-		useSelect((select) => ({
-			isSidebarLoading: select(nfdPatternsStore).isSidebarLoading(),
-			isContentLoading: select(nfdPatternsStore).isContentLoading(),
-			shouldResetKeywords: select(nfdPatternsStore).shouldResetKeywords(),
-		}));
+	const { isSidebarLoading, shouldResetKeywords } = useSelect((select) => ({
+		isSidebarLoading: select(nfdPatternsStore).isSidebarLoading(),
+		shouldResetKeywords: select(nfdPatternsStore).shouldResetKeywords(),
+	}));
 
 	// Debounce search value changes in store.
 	useEffect(() => {
@@ -39,8 +37,10 @@ const KeywordFilter = () => {
 			searchValue.trim() === '' ? 0 : INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
 		);
 
-		if (typeof searchValue === 'string') {
+		if (typeof searchValue === 'string' && searchValue.trim().length >= 2) {
 			delayedSearch();
+		} else {
+			setKeywordsFilter(''); // Clear the filter if the searchValue has less than 3 chars
 		}
 
 		return delayedSearch.cancel;
@@ -57,7 +57,7 @@ const KeywordFilter = () => {
 		<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-3">
 			<SearchControl
 				className="nfd-wba-keyword-filter nfd-wba-m-0"
-				disabled={isSidebarLoading || isContentLoading}
+				disabled={isSidebarLoading}
 				label={__('Search', 'nfd-wonder-blocks')}
 				hideLabelFromVision={false}
 				placeholder=""
