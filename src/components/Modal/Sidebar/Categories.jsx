@@ -6,7 +6,7 @@ import classNames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { useDispatch, useSelect } from '@wordpress/data';
+import { useDispatch } from '@wordpress/data';
 import { memo, useCallback, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Icon } from '@wordpress/icons';
@@ -35,10 +35,6 @@ const Categories = ({ type = 'patterns' }) => {
 		setShouldResetKeywords,
 	} = useDispatch(nfdPatternsStore);
 
-	const { keywordsFilter } = useSelect((select) => ({
-		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
-	}));
-
 	// Set the active category.
 	const setActiveCategory = useCallback(
 		(category) => {
@@ -64,8 +60,7 @@ const Categories = ({ type = 'patterns' }) => {
 			{data && (
 				<ul
 					className={classNames(
-						'nfd-wba-list-elements nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-px-0 nfd-wba-py-4 nfd-wba-text-md nfd-wba-leading-5',
-						!!keywordsFilter && 'nfd-wba-list-elements--is-filtered'
+						'nfd-wba-list-elements nfd-wba-m-0 nfd-wba-flex nfd-wba-list-none nfd-wba-flex-col nfd-wba-px-0 nfd-wba-py-4 nfd-wba-text-md nfd-wba-leading-5'
 					)}
 				>
 					{data?.map((category) => {

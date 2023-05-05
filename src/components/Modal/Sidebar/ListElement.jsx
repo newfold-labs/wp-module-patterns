@@ -16,14 +16,17 @@ import { store as nfdPatternsStore } from '../../../store';
 
 const ListElement = forwardRef(
 	({ category, categoryType, className, icon, ...otherProps }, ref) => {
-		const { activePatternsCategory, activeTemplatesCategory } = useSelect(
-			(select) => ({
-				activePatternsCategory:
-					select(nfdPatternsStore).getActivePatternsCategory(),
-				activeTemplatesCategory:
-					select(nfdPatternsStore).getActiveTemplatesCategory(),
-			})
-		);
+		const {
+			activePatternsCategory,
+			activeTemplatesCategory,
+			keywordsFilter,
+		} = useSelect((select) => ({
+			activePatternsCategory:
+				select(nfdPatternsStore).getActivePatternsCategory(),
+			activeTemplatesCategory:
+				select(nfdPatternsStore).getActiveTemplatesCategory(),
+			keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
+		}));
 
 		const categoryCount = category?.count ?? null; // 0 is a valid count.
 
@@ -33,6 +36,10 @@ const ListElement = forwardRef(
 		 * @return {boolean} True if the category is active within the categoryType prop.
 		 */
 		const isActiveCategory = () => {
+			if (keywordsFilter) {
+				return false;
+			}
+
 			if (categoryType === 'patterns') {
 				return activePatternsCategory === category?.title;
 			} else if (categoryType === 'templates') {

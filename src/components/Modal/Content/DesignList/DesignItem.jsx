@@ -70,6 +70,7 @@ const DesignItem = ({ item }) => {
 		activeTemplatesCategory,
 		activePatternsCategory,
 		selectedTemplateSlug,
+		keywords,
 	} = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activeTemplatesCategory:
@@ -78,17 +79,38 @@ const DesignItem = ({ item }) => {
 			select(nfdPatternsStore).getActivePatternsCategory(),
 		selectedTemplateSlug:
 			select(editorStore).getEditedPostAttribute('template'),
+		keywords: select(nfdPatternsStore).getKeywordsFilter(),
 	}));
 
+	/**
+	 * Check if the trash icon should be shown.
+	 *
+	 * @return {boolean}
+	 */
 	const shouldShowTrash = useCallback(() => {
 		return (
 			(activeTab === 'patterns' &&
-				activePatternsCategory === 'favorites') ||
+				activePatternsCategory === 'favorites' &&
+				isFavorite &&
+				!keywords) ||
 			(activeTab === 'templates' &&
-				activeTemplatesCategory === 'favorites')
+				activeTemplatesCategory === 'favorites' &&
+				isFavorite &&
+				!keywords)
 		);
-	}, [activePatternsCategory, activeTab, activeTemplatesCategory]);
+	}, [
+		activePatternsCategory,
+		activeTab,
+		activeTemplatesCategory,
+		isFavorite,
+		keywords,
+	]);
 
+	/**
+	 * Check if blank template should be set
+	 *
+	 * @return {boolean}
+	 */
 	const shouldSetBlankTemplate = useCallback(() => {
 		return (
 			item?.type === 'templates' &&
