@@ -6,23 +6,34 @@
  */
 export const optimizePreview = (html) => {
 	return html.replace(
-		/https?:\/\/\S*w=(\d+)(?:\S*h=(\d+))?\S*q=(\d+)\S*/g,
-		(url, width, height, quality) => {
-			// Reduce width by half.
-			const reducedWidth = Math.floor(Number(width) / 2);
-			let reducedUrl = url.replace(`w=${width}`, `w=${reducedWidth}`);
+		/https?:\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-;]*)?/g,
+		(url) => {
+			const width = url.match(/w=(\d+)/);
+			const height = url.match(/h=(\d+)/);
+			const quality = url.match(/q=(\d+)/);
 
-			// Reduce height by half if it exists.
+			let reducedUrl = url;
+
+			// Reduce width by half.
+			if (width) {
+				const reducedWidth = Math.floor(Number(width[1]) / 2);
+				reducedUrl = url.replace(`w=${width[1]}`, `w=${reducedWidth}`);
+			}
+
+			// Reduce height by half.
 			if (height) {
-				const reducedHeight = Math.floor(Number(height) / 2);
+				const reducedHeight = Math.floor(Number(height[1]) / 2);
+
 				reducedUrl = reducedUrl.replace(
-					`h=${height}`,
+					`h=${height[1]}`,
 					`h=${reducedHeight}`
 				);
 			}
 
 			// Set quality to 50.
-			reducedUrl = reducedUrl.replace(`q=${quality}`, 'q=50');
+			if (quality) {
+				reducedUrl = reducedUrl.replace(`${quality[0]}`, 'q=50');
+			}
 
 			return reducedUrl;
 		}
