@@ -24,7 +24,12 @@ class Categories {
 		// If the transient is empty, get the categories from the remote API.
 		if ( false === $data ) {
 			$data = RemoteRequest::get( "/{$endpoint}" );
-			set_transient( "wba_{$type}_categories", $data, 60 * 60 * 24 );
+			
+			if ( \is_wp_error( $data ) ) {
+				return new \WP_REST_Response( $data->get_error_message(), 503 );
+			}
+
+			set_transient( "wba_{$type}_categories", $data, DAY_IN_SECONDS );
 		}
 
 		// Return the categories.
