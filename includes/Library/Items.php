@@ -3,6 +3,7 @@
 namespace NewfoldLabs\WP\Module\Patterns\Library;
 
 use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
+use NewfoldLabs\WP\Module\Patterns\SiteClassification;
 
 class Items {
 	
@@ -44,10 +45,12 @@ class Items {
 		$args = wp_parse_args(
 			$args,
 			array(
-				'primary_type'   => '',
-				'secondary_type' => '',
+				'primary_type'   => SiteClassification::get_primary_type(),
+				'secondary_type' => SiteClassification::get_secondary_type(),
 			)
 		);
+		
+		error_log( print_r( $args, true ));
 		
 		// Ensure we only get templates or patterns.
 		$id   = md5( serialize( $args ) );
@@ -62,7 +65,7 @@ class Items {
 				return new \WP_REST_Response( $data->get_error_message(), 503 );
 			}
 
-			set_transient( "wba_{$type}_{$id}", $data, 60 * 60 * 24 );
+			set_transient( "wba_{$type}_{$id}", $data, DAY_IN_SECONDS );
 		}
 		
 		return $data;
