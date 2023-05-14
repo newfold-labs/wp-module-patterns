@@ -15,16 +15,8 @@ import classNames from 'classnames';
 import { store as nfdPatternsStore } from '../../../store';
 
 const ListElement = forwardRef(
-	({ category, categoryType, className, icon, ...otherProps }, ref) => {
-		const {
-			activePatternsCategory,
-			activeTemplatesCategory,
-			keywordsFilter,
-		} = useSelect((select) => ({
-			activePatternsCategory:
-				select(nfdPatternsStore).getActivePatternsCategory(),
-			activeTemplatesCategory:
-				select(nfdPatternsStore).getActiveTemplatesCategory(),
+	({ category, className, icon, isActive, ...otherProps }, ref) => {
+		const { keywordsFilter } = useSelect((select) => ({
 			keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
 		}));
 
@@ -40,13 +32,7 @@ const ListElement = forwardRef(
 				return false;
 			}
 
-			if (categoryType === 'patterns') {
-				return activePatternsCategory === category?.title;
-			} else if (categoryType === 'templates') {
-				return activeTemplatesCategory === category?.title;
-			}
-
-			return false;
+			return isActive;
 		};
 
 		return (

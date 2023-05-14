@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
  * WordPress dependencies
  */
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect } from '@wordpress/element';
+import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -19,12 +19,12 @@ import ContentTitle from './ContentTitle';
 import DesignList from './DesignList/DesignList';
 import Error from './DesignList/Error';
 import NoResults from './DesignList/NoResults';
-import Header from './Header/Header';
 import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
 import Spinner from './Spinner';
 
 const Content = () => {
+	const [ready, setReady] = useState(false);
 	const [loadMoreRef, inView] = useInView({ threshold: 0 });
 
 	const {
@@ -64,14 +64,23 @@ const Content = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [inView, hasMore]);
 
-	return (
-		<div className="nfd-wba-flex nfd-wba-min-w-[400px] nfd-wba-grow nfd-wba-flex-col nfd-wba-overflow-y-auto">
-			<Header />
+	// Delay showing the content to avoid flickering
+	useEffect(() => {
+		let t = setTimeout(() => {
+			setReady(true);
+		}, 300);
 
+		return () => {
+			clearTimeout(t);
+		};
+	}, []);
+
+	return (
+		<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]">
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
 				{isSidebarLoading && !isError && <LoadingSpinner />}
 
-				<div className="nfd-wba-absolute nfd-wba-inset-0 nfd-wba-flex nfd-wba-flex-col nfd-wba-overflow-auto nfd-wba-px-6 nfd-wba-py-8">
+				<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6">
 					<ContentTitle
 						activeTab={activeTab}
 						title={keywordsFilter}
@@ -82,9 +91,8 @@ const Content = () => {
 						}
 					/>
 
-					{!isSidebarLoading && isContentLoading && !isError && (
-						<Skeleton />
-					)}
+					{(!isSidebarLoading && isContentLoading && !isError) ||
+						(!ready && <Skeleton />)}
 
 					{isError && <Error />}
 
@@ -92,25 +100,18 @@ const Content = () => {
 						<NoResults isFavorites={isFavorites} />
 					)}
 
-					{data && data?.length > 0 && (
+					{ready && data && data?.length > 0 && (
 						<>
 							<DesignList data={data} />
 
-							<div
-								className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6"
-								ref={loadMoreRef}
-							>
-								{hasMore ? (
+							{hasMore && (
+								<div
+									className="nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6"
+									ref={loadMoreRef}
+								>
 									<Spinner size={40} />
-								) : (
-									<p className="nfd-wba-text-md">
-										{__(
-											'No more items to show',
-											'nfd-wonder-blocks'
-										)}
-									</p>
-								)}
-							</div>
+								</div>
+							)}
 						</>
 					)}
 				</div>

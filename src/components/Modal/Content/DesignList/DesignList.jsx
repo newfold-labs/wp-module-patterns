@@ -24,10 +24,10 @@ const DesignList = ({ data }) => {
 				breakpointCols={{
 					default: 2,
 					1600: 2,
-					960: 1,
+					1100: 1,
 				}}
-				className="nfd-wba-design-list -nfd-wba-ml-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-w-auto"
-				columnClassName="nfd-wba-design-list__column nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
+				className="nfd-wba-design-list nfd-wba-flex nfd-wba-w-auto sm:-nfd-wba-ml-[var(--nfd-wba-masonry-gap)]"
+				columnClassName="nfd-wba-design-list__column sm:nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
 			>
 				{data?.map((pattern, index) => (
 					<DesignItem

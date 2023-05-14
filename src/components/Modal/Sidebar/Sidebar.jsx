@@ -24,13 +24,13 @@ const Sidebar = () => {
 	});
 
 	return (
-		<div className="nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[var(--nfd-wba-sidebar-width)] nfd-wba-shrink-0 nfd-wba-flex-col nfd-wba-overflow-y-auto nfd-wba-border-0 nfd-wba-border-r nfd-wba-border-solid nfd-wba-border-grey-b">
-			<div className="nfd-wba-modal__header nfd-wba-justify-start nfd-wba-border-b-0">
+		<div className="nfd-wba-mx-4 nfd-wba-mt-1 nfd-wba-flex nfd-wba-shrink-0 nfd-wba-flex-col nfd-wba-border-0 sm:nfd-wba-row-span-2 sm:nfd-wba-mx-0 sm:nfd-wba-mt-0 sm:nfd-wba-w-full sm:nfd-wba-overflow-y-auto sm:nfd-wba-border-r sm:nfd-wba-border-solid sm:nfd-wba-border-grey-b">
+			<div className="nfd-wba-modal__header nfd-wba-modal__sidebar-header nfd-wba-justify-center nfd-wba-rounded-t nfd-wba-border !nfd-wba-border-b-0 nfd-wba-border-solid nfd-wba-border-grey-b sm:nfd-wba-justify-start sm:nfd-wba-rounded-none sm:nfd-wba-border-none">
 				<Logo />
 			</div>
 
 			<TabPanel
-				className="nfd-wba-tab-panel nfd-wba-flex nfd-wba-grow nfd-wba-flex-col"
+				className="nfd-wba-tab-panel nfd-wba-z-10 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col"
 				activeClass="nfd-wba--is-active"
 				initialTabName={activeTab}
 				onSelect={(tab) => {

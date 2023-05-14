@@ -1,6 +1,8 @@
 /* -------------------------------------------------------------------------- */
 /*                                CSS Variables                               */
 /* -------------------------------------------------------------------------- */
+@use "mixins" as m;
+
 :root {
 	/* --------------------------------- Colors --------------------------------- */
 	/* Dark. */
@@ -30,13 +32,18 @@
 	--nfd-wba-color-grey-darker: #aeaeae;
 	--nfd-wba-color-grey-darker-rgb: 174 174 174;
 
-	--nfd-wba-color-borders: rgba(0, 0, 0, 0.1);
+	/* --nfd-wba-color-borders: rgba(0, 0, 0, 0.1); */
+	--nfd-wba-color-borders: #cccccc;
 
 	/* ---------------------------------- Sizes --------------------------------- */
 	--nfd-wba-sidebar-width: 290px;
 	--nfd-wba-header-height: 70px;
 	--nfd-wba-border-radius--lg: 8px;
 	--nfd-wba-masonry-gap: 24px;
+
+	@include m.responsive(small) {
+		--nfd-wba-masonry-gap: 32px;
+	}
 
 	/* ------------------------------- Transition ------------------------------- */
 	--nfd-wba-transition-duration: 100ms;
