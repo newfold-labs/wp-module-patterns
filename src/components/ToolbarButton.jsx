@@ -8,7 +8,7 @@ import classNames from 'classnames';
  */
 import { ToolbarButton as WPToolbarButton } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { buttons, Icon } from '@wordpress/icons';
+import { Icon, buttons } from '@wordpress/icons';
 
 /**
  * Internal dependencies
