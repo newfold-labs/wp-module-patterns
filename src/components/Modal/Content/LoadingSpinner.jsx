@@ -4,7 +4,7 @@
 import Logo from '../../Logo';
 import Spinner from './Spinner';
 
-function LoadingBar({ isComplete }) {
+function LoadingSpinner({ isComplete }) {
 	if (isComplete) {
 		return null;
 	}
@@ -21,4 +21,4 @@ function LoadingBar({ isComplete }) {
 		</div>
 	);
 }
-export default LoadingBar;
+export default LoadingSpinner;

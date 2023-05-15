@@ -8,7 +8,6 @@ import { useInView } from 'react-intersection-observer';
  */
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -66,7 +65,7 @@ const Content = () => {
 
 	// Delay showing the content to avoid flickering
 	useEffect(() => {
-		let t = setTimeout(() => {
+		const t = setTimeout(() => {
 			setReady(true);
 		}, 300);
 
