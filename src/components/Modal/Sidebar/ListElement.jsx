@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { useSelect } from '@wordpress/data';
+
 import { forwardRef } from '@wordpress/element';
 
 /**
@@ -9,31 +9,9 @@ import { forwardRef } from '@wordpress/element';
  */
 import classNames from 'classnames';
 
-/**
- * Internal dependencies
- */
-import { store as nfdPatternsStore } from '../../../store';
-
 const ListElement = forwardRef(
 	({ category, className, icon, isActive, ...otherProps }, ref) => {
-		const { keywordsFilter } = useSelect((select) => ({
-			keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
-		}));
-
 		const categoryCount = category?.count ?? null; // 0 is a valid count.
-
-		/**
-		 * Check if the category is active.
-		 *
-		 * @return {boolean} True if the category is active within the categoryType prop.
-		 */
-		const isActiveCategory = () => {
-			if (keywordsFilter) {
-				return false;
-			}
-
-			return isActive;
-		};
 
 		return (
 			<li className="nfd-wba-m-0 nfd-wba-p-0">
@@ -42,9 +20,9 @@ const ListElement = forwardRef(
 						'nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[48px] nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-2 nfd-wba-pl-6 nfd-wba-text-base nfd-wba-transition-all nfd-wba-duration-100 focus-visible:nfd-wba-outline-brand',
 						categoryCount !== null && 'nfd-wba-pr-4',
 						categoryCount === null && 'nfd-wba-pr-6',
-						!isActiveCategory() &&
+						!isActive &&
 							'nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-text-brand', // inactive
-						isActiveCategory() &&
+						isActive &&
 							'nfd-wba--is-active nfd-wba-pointer-events-none nfd-wba-font-medium nfd-wba-text-brand', // active
 						className
 					)}

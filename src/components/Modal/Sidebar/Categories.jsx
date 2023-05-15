@@ -89,7 +89,7 @@ const Categories = ({ type = 'patterns' }) => {
 	 * Set active category depending if Pattern or Category.
 	 *
 	 * @param {string} category Category title.
-	 * @returns {void}
+	 * @return {void}
 	 */
 	const setActiveCategory = useCallback(
 		(category) => {
@@ -106,7 +106,7 @@ const Categories = ({ type = 'patterns' }) => {
 	 * Handle category change.
 	 *
 	 * @param {string} categoryTitle Category title.
-	 * @returns {void}
+	 * @return {void}
 	 */
 	const handleCategoryChange = useCallback(
 		(categoryTitle) => {
@@ -119,14 +119,14 @@ const Categories = ({ type = 'patterns' }) => {
 	/**
 	 * Get active category.
 	 *
-	 * @returns {string} Active category.
+	 * @return {string} Active category.
 	 */
 	const getActiveCategory = useCallback(() => {
 		if (type === 'patterns') {
 			return activePatternsCategory;
-		} else {
-			return activeTemplatesCategory;
 		}
+
+		return activeTemplatesCategory;
 	}, [activePatternsCategory, activeTemplatesCategory, type]);
 
 	return (
@@ -157,6 +157,7 @@ const Categories = ({ type = 'patterns' }) => {
 									key={category.id}
 									category={category}
 									isActive={
+										!keywordsFilter &&
 										category?.title === getActiveCategory()
 									}
 									onClick={() => {
