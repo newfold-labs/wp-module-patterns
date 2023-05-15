@@ -13,8 +13,8 @@ class CTA {
             return;
         }
         
-        add_action( 'admin_footer', array( $this, 'add_cta_to_add_new_button' ) );
-        add_action( 'admin_head', array( $this, 'add_style' ) );
+        \add_action( 'admin_footer', array( $this, 'add_cta_to_add_new_button' ) );
+        \add_action( 'admin_head', array( $this, 'add_style' ) );
     }
     
     /**
@@ -24,7 +24,7 @@ class CTA {
         // Translators: %1$s is the opening anchor tag, %2$s is "Wonder Blocks", and %3$s is the closing anchor tag.
         $cta_text = sprintf(
             __( 'Create pages fast with the %1$s%2$s Pattern Library%3$s.', 'nfd-wonder-blocks' ),
-            '<a href=\"' . esc_url( admin_url('post-new.php?post_type=page&wonder-blocks-library=templates') ) . '\">',
+            '<a href=\"' . \esc_url( \admin_url('post-new.php?post_type=page&wonder-blocks-library=templates') ) . '\">',
             'Wonder Blocks',
             '</a>'
         );

@@ -11,18 +11,22 @@ class Items {
 	 * Get items.
 	 * 
 	 * @param array $args Array of arguments.
-	 * @return array
+	 * @return array|WP_Error $data Array of items or WP_Error.
 	*/
 	public static function get( $type = 'patterns', $args = array() ) {
 		
 		$data = self::get_cached_data( $type );
 		
+		if ( \is_wp_error( $data ) ) {
+			return $data;
+		}
+		
 		if ( isset( $args['category'] ) ) {
-			$data = self::filter( $data, 'category', sanitize_text_field( $args['category'] ) );
+			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
 		}
 		
 		if ( isset( $args['keywords'] ) ) {
-			$data = self::filter( $data, 'keywords', sanitize_text_field( $args['keywords'] ) );
+			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}
 		
 		if ( isset( $args['per_page'] ) ) {
@@ -49,23 +53,21 @@ class Items {
 				'secondary_type' => SiteClassification::get_secondary_type(),
 			)
 		);
-		
-		error_log( print_r( $args, true ));
-		
+
 		// Ensure we only get templates or patterns.
 		$id   = md5( serialize( $args ) );
 		$type = $type === 'templates' ? 'templates' : 'patterns';
-		$data = get_transient( "wba_{$type}_{$id}" );		
+		$data = \get_transient( "wba_{$type}_{$id}" );		
 
 		if ( false === $data ) {
 			
 			$data = RemoteRequest::get( "/{$type}", $args );
 			
 			if ( \is_wp_error( $data ) ) {
-				return new \WP_REST_Response( $data->get_error_message(), 503 );
+				return $data;
 			}
 
-			set_transient( "wba_{$type}_{$id}", $data, DAY_IN_SECONDS );
+			\set_transient( "wba_{$type}_{$id}", $data, DAY_IN_SECONDS );
 		}
 		
 		return $data;

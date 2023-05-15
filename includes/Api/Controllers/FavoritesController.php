@@ -27,15 +27,15 @@ class FavoritesController {
 	public static function add( $request ) {
 
 		$body = $request->get_json_params();
-		$type = sanitize_text_field( $body['type'] );
+		$type = \sanitize_text_field( $body['type'] );
 
 		if ( ! in_array( $type, array( 'patterns', 'templates' ) ) ) {
 			return new \WP_REST_Response( __( 'Invalid request', 'nfd-wonder-blocks' ), 400 );			
 		}
 
 		$item = array(
-			'id'     => sanitize_text_field( $body['id'] ),
-			'title'  => sanitize_text_field( $body['title'] ),
+			'id'     => \sanitize_text_field( $body['id'] ),
+			'title'  => \sanitize_text_field( $body['title'] ),
 			'source' => $body['source']
 		);
 
@@ -53,15 +53,15 @@ class FavoritesController {
 	public static function delete( $request ) {
 
 		$body = $request->get_json_params();
-		$type = sanitize_text_field( $body['type']);
+		$type = \sanitize_text_field( $body['type']);
 
 		if ( ! in_array( $type, array( 'patterns', 'templates' ) ) ) {
 			return new \WP_REST_Response( __( 'Invalid request', 'nfd-wonder-blocks' ), 400 );			
 		}
 
 		$item = array(
-			'id'     => sanitize_text_field( $body['id'] ),
-			'title'  => sanitize_text_field( $body['title'] ),
+			'id'     => \sanitize_text_field( $body['id'] ),
+			'title'  => \sanitize_text_field( $body['title'] ),
 			'source' => $body['source'],
 		);
 

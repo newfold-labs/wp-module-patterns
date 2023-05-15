@@ -2,6 +2,7 @@
 namespace NewfoldLabs\WP\Module\Patterns\Api\Controllers;
 
 use NewfoldLabs\WP\Module\Patterns\Library\Categories;
+use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 
 class TemplateCategoriesController {
 
@@ -10,8 +11,12 @@ class TemplateCategoriesController {
 	 */
 	public static function index() {
 		
-		$categories = Categories::get( 'templates' );
+		$data = Categories::get( 'templates' );
+		
+		if ( \is_wp_error( $data ) ) {
+			return new \WP_REST_Response( RemoteRequest::formatErrorData( $data ), 503 );
+		}
 
-		return new \WP_REST_Response( $categories );
+		return new \WP_REST_Response( $data );
 	}
 } 

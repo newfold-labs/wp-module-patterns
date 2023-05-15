@@ -11,8 +11,8 @@ final class Admin {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
-		add_action( 'init', array( $this, 'register_block_patterns' ) );
+		\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
+		\add_action( 'init', array( $this, 'register_block_patterns' ) );
 	}
 
 	/**
@@ -43,10 +43,10 @@ final class Admin {
 				'nfd-wonder-blocks',
 				'nfdWonderBlocks',
 				array(
-					'nonce'      => \wp_create_nonce('wp_rest'),
-					'nfdRestURL' => \esc_url_raw( rest_url( 'nfd-wonder-blocks/v1' ) ),
+					'nonce'      => \wp_create_nonce( 'wp_rest' ),
+					'nfdRestURL' => \esc_url_raw( \rest_url( 'nfd-wonder-blocks/v1' ) ),
 					// 'supportURL' => \esc_url_raw( 'https://newfoldlabs.com/support' ),
-                    'assets'     => \esc_url(NFD_WONDER_BLOCKS_URL . '/assets'),
+                    'assets'     => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
 				)
 			);
 
@@ -64,9 +64,9 @@ final class Admin {
 		
 		foreach ( $patterns as $pattern ) {
 			if ( ! empty( $pattern['blockTypes'] ) && in_array( 'core/post-content', $pattern['blockTypes'] ) ) {
-				unregister_block_pattern( $pattern['name'] );
+				\unregister_block_pattern( $pattern['name'] );
 				$pattern['blockTypes'] = array_diff( $pattern['blockTypes'], array( 'core/post-content' ) );
-				register_block_pattern( $pattern['name'], $pattern );
+				\register_block_pattern( $pattern['name'], $pattern );
 			}
 		}
 	}

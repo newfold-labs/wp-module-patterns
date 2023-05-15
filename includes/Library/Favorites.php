@@ -11,9 +11,9 @@ class Favorites {
 	*/
 	public static function get( $args = array() ) {
 		
-		$user_id = get_current_user_id();
+		$user_id = \get_current_user_id();
 		
-		$data = get_user_meta( $user_id, 'nfd_wb_favorites', true );		
+		$data = \get_user_meta( $user_id, 'nfd_wb_favorites', true );		
 		$data = is_array( $data ) ? $data : array();
 		
 		if ( isset( $args['per_page'] ) ) {
@@ -32,16 +32,16 @@ class Favorites {
 	 */
 	public static function add( $item, $type ) {
 
-		$user_id = get_current_user_id();		
+		$user_id = \get_current_user_id();		
 
 		$item = array(
-			'id'     => sanitize_text_field( $item['id'] ),
-			'title'  => sanitize_text_field( $item['title'] ),
+			'id'     => \sanitize_text_field( $item['id'] ),
+			'title'  => \sanitize_text_field( $item['title'] ),
 			'source' => $item['source'],
 			'type'   => $type
 		);
 
-		$data = get_user_meta( $user_id, 'nfd_wb_favorites', true );
+		$data = \get_user_meta( $user_id, 'nfd_wb_favorites', true );
 
 		if ( ! is_array( $data ) ) {
 			$data = array();
@@ -51,7 +51,7 @@ class Favorites {
 			$data[] = $item;
 		}
 
-		update_user_meta( $user_id, 'nfd_wb_favorites', $data );
+		\update_user_meta( $user_id, 'nfd_wb_favorites', $data );
 
 		return $data;
 	}
@@ -64,9 +64,9 @@ class Favorites {
 	 */
 	public static function delete( $item ) {
 		
-		$user_id = get_current_user_id();
+		$user_id = \get_current_user_id();
 
-		$favorites = get_user_meta( $user_id, 'nfd_wb_favorites', true );
+		$favorites = \get_user_meta( $user_id, 'nfd_wb_favorites', true );
 
 		if ( ! is_array( $favorites ) ) {
 			$favorites = array();
@@ -82,7 +82,7 @@ class Favorites {
 			}
 		}
 
-		update_user_meta( $user_id, 'nfd_wb_favorites', $data );
+		\update_user_meta( $user_id, 'nfd_wb_favorites', $data );
 
 		return $data;
 	}

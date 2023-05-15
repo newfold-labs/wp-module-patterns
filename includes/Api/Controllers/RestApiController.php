@@ -19,7 +19,7 @@ class RestApiController extends \WP_REST_Controller {
     public function __construct() {
         $this->namespace = 'nfd-wonder-blocks/v1';
         
-        add_filter(
+        \add_filter(
             'rest_request_before_callbacks',
             function ( $response, $handler, $request ) {
                 
@@ -42,7 +42,7 @@ class RestApiController extends \WP_REST_Controller {
     public function checkPermission() {
         
         // Check for the nonce on the server (used by WP REST).
-        if ( isset ( $_SERVER['HTTP_X_WP_NONCE'] ) && \wp_verify_nonce( sanitize_text_field ( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' ) ) {
+        if ( isset ( $_SERVER['HTTP_X_WP_NONCE'] ) && \wp_verify_nonce( \sanitize_text_field ( \wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' ) ) {
             return Permissions::is_editor();
         }
 

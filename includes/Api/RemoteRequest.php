@@ -39,7 +39,7 @@ class RemoteRequest {
      * @return void
      */
     public function __construct( $request ) {
-        if ( ! \wp_verify_nonce( sanitize_text_field( wp_unslash( $request->get_header( 'x_wp_nonce' ) ) ), 'wp_rest' ) ) {
+        if ( ! \wp_verify_nonce( \sanitize_text_field( \wp_unslash( $request->get_header( 'x_wp_nonce' ) ) ), 'wp_rest' ) ) {
             return;
         }
 
@@ -137,5 +137,19 @@ class RemoteRequest {
         $r = self::$instance;
 
         return $r->$name( ...$arguments );
+    }
+    
+    /**
+     * Format error data
+     *
+     * @param \WP_Error $error
+     * @return array
+     */
+    public static function formatErrorData( \WP_Error $error ) {
+        return array(
+            'code'    => $error->get_error_code(),
+            'message' => $error->get_error_message(),
+            'data'    => $error->get_error_data(),
+        );
     }
 }
