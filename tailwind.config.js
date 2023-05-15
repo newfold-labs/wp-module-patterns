@@ -35,17 +35,14 @@ module.exports = {
 				md: ['14px', '22px'],
 				sm: ['12px', '19px'],
 			},
-			gridTemplateColumns: {
-				'library-modal': 'var(--nfd-wba-sidebar-width) 1fr',
-			},
 			boxShadow: {
 				'design-item': '0px 0px 14px rgba(143, 142, 131, 0.25)',
 			},
 		},
 		screens: {
-			sm: '600px',
+			sm: '782px',
 			md: '782px',
-			lg: '1080px',
+			lg: '1024px',
 			xl: '1440px',
 		},
 	},

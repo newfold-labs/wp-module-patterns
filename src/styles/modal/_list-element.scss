@@ -1,6 +1,27 @@
 /* -------------------------------------------------------------------------- */
 /*                              List item styles.                             */
 /* -------------------------------------------------------------------------- */
+@use "../_mixins" as m;
+
+.nfd-wba-list-elements {
+	@include m.responsive(small) {
+		display: none;
+	}
+}
+
+.nfd-wba-list-elements--is-filtered {
+	.nfd-wba-list-element {
+		&.nfd-wba--is-active {
+			color: currentColor;
+			font-weight: inherit;
+
+			&:before {
+				transform: scaleX(0);
+			}
+		}
+	}
+}
+
 .nfd-wba-list-element {
 	&:before {
 		background-color: var(--nfd-wba-color-brand);
@@ -32,19 +53,6 @@
 			position: absolute;
 			right: 0;
 			top: 0;
-		}
-	}
-}
-
-.nfd-wba-list-elements--is-filtered {
-	.nfd-wba-list-element {
-		&.nfd-wba--is-active {
-			color: currentColor;
-			font-weight: inherit;
-
-			&:before {
-				transform: scaleX(0);
-			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*         Patterns modal styles that we cannot target with Tailwind.         */
 /* -------------------------------------------------------------------------- */
+@use "../mixins" as m;
 @use "list-element";
 @use "loading-bar";
 @use "tabs";
@@ -10,27 +11,64 @@
 .nfd-wba-modal {
 	--wp-admin-theme-color: var(--nfd-wba-color-brand);
 
+	@include m.responsive(medium) {
+		&.components-modal__frame.is-full-screen {
+			width: calc(100vw - 24px);
+			min-height: calc(100vh - 24px);
+			max-width: unset;
+		}
+	}
+
 	.components-modal__content {
-		display: flex;
 		padding: 0;
+		display: flex;
+		justify-content: flex-start;
+
+		@include m.responsive(small) {
+			display: block;
+		}
 	}
 
 	&__header {
 		align-items: center;
-		backdrop-filter: blur(5px);
-		background-color: rgba(255, 255, 255, 0.9);
 		border-bottom: solid 1px var(--nfd-wba-color-borders);
 		display: flex;
 		flex-shrink: 0;
 		gap: 16px;
-		min-height: var(--nfd-wba-header-height);
+		height: var(--nfd-wba-header-height);
 		padding: 0 24px;
-		position: sticky;
-		top: 0;
-		z-index: 3;
+
+		&:not(.nfd-wba-modal__sidebar-header) {
+			@include m.responsive(small) {
+				--nfd-wba-header-height: 60px;
+				position: sticky;
+				top: 0;
+				order: -1;
+				z-index: 10;
+				backdrop-filter: blur(5px);
+				background-color: rgba(255, 255, 255, 0.9);
+				border-bottom: none;
+				padding: 0 16px;
+			}
+		}
+
+		.components-search-control__icon {
+			transform: rotate(-90deg);
+		}
 	}
 }
 
 .nfd-wba-state-message > svg {
 	max-width: 620px;
+}
+
+.nfd-wba-library-modal-grid {
+	display: grid;
+	grid-template-columns: var(--nfd-wba-sidebar-width) 1fr;
+	grid-template-rows: 70px 1fr;
+
+	@include m.responsive(small) {
+		display: flex;
+		flex-direction: column;
+	}
 }

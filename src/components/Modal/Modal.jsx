@@ -11,27 +11,15 @@ import { useEffect } from '@wordpress/element';
 import { store as nfdPatternsStore } from '../../store';
 import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
+import Header from './Content/Header/Header';
 
 const Modal = () => {
 	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
 
 	// Check if we are editing a template, via site editor or page.
-	const {
-		isModalOpen,
-		// editedPostType,
-		// editedPostId,
-		// isEditingTemplate,
-	} = useSelect((select) => ({
+	const { isModalOpen } = useSelect((select) => ({
 		isModalOpen: select(nfdPatternsStore).isModalOpen(),
-		// editedPostType: select('core/edit-site')?.getEditedPostType(),
-		// editedPostId: select('core/edit-site')?.getEditedPostId(),
-		// isEditingTemplate: select('core/edit-post')?.isEditingTemplate(),
 	}));
-
-	// Check if we are editing a template, via page or site editor.
-	// const isSiteEditor = useMemo(() => {
-	// 	return isEditingTemplate || !!editedPostType;
-	// }, [isEditingTemplate, editedPostType]);
 
 	// Check if we should automatically open the modal and pre-select.
 	useEffect(() => {
@@ -65,8 +53,9 @@ const Modal = () => {
 			isFullScreen={true}
 			onRequestClose={() => setIsModalOpen(false)}
 		>
-			<div className="nfd-wba-grid nfd-wba-grow nfd-wba-grid-cols-library-modal nfd-wba-bg-white nfd-wba-text-dark-lighter">
+			<div className="nfd-wba-library-modal-grid nfd-wba-grow nfd-wba-bg-white nfd-wba-text-dark-lighter">
 				<Sidebar />
+				<Header />
 				<Content />
 			</div>
 		</WPModal>

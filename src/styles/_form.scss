@@ -1,6 +1,37 @@
 /* -------------------------------------------------------------------------- */
 /*                                Form styles.                                */
 /* -------------------------------------------------------------------------- */
+@use "mixins" as m;
+
+.nfd-wba-modal .nfd-wba-modal__categories-select {
+	display: none;
+
+	.components-input-control__container {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		border-radius: 0.25rem;
+	}
+
+	select {
+		font-size: 1rem !important;
+	}
+
+	.components-input-control__backdrop {
+		border-color: var(--nfd-wba-color-borders) !important;
+	}
+
+	.components-input-control-suffix-wrapper {
+		padding-right: 1rem;
+	}
+
+	@include m.responsive(small) {
+		display: flex;
+	}
+}
+
+.nfd-wba-search-toggle svg {
+	transform: rotate(-90deg);
+}
 
 .components-search-control {
 	&.nfd-wba-keyword-filter {
@@ -21,7 +52,7 @@
 
 		input[type="search"].components-search-control__input {
 			border-radius: 8px;
-			font-size: 16px;
+			font-size: 1rem;
 			height: 36px;
 			line-height: 20px;
 

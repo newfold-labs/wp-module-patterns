@@ -1,0 +1,21 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Mixins                                   */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Responsive mixin 
+ * @param {string} $breakpoint - breakpoint name. Possible values are: small
+*/
+@mixin responsive($breakpoint) {
+	@if $breakpoint == small {
+		@media only screen and (max-width: 782px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == medium {
+		@media only screen and (min-width: 600px) and (max-width: 1024px) {
+			@content;
+		}
+	}
+}

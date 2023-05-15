@@ -1,9 +1,18 @@
 /* -------------------------------------------------------------------------- */
 /*                              Tab panel styles.                             */
 /* -------------------------------------------------------------------------- */
+@use "../_mixins.scss" as m;
+
 .nfd-wba-tab-panel {
 	.components-tab-panel__tabs {
 		display: flex;
+
+		@include m.responsive(small) {
+			border-bottom-left-radius: 0.25rem;
+			border-bottom-right-radius: 0.25rem;
+			border: solid 1px var(--nfd-wba-color-borders);
+			border-top: none;
+		}
 
 		.components-button {
 			font-size: 14px;
@@ -24,17 +33,57 @@
 		padding-bottom: 16px;
 		padding-top: 0;
 
+		&:before {
+			top: -8px;
+			left: 1px;
+			right: 0;
+			bottom: 0;
+
+			@include m.responsive(small) {
+				inset: -2px;
+			}
+		}
+
+		@include m.responsive(small) {
+			font-size: 1rem;
+			justify-content: center;
+			min-height: 36px;
+			padding: 8px 12px;
+			margin-left: -1px;
+			margin-right: -1px;
+		}
+
 		&:not(.nfd-wba--is-active) {
 			font-weight: 400;
+
+			@include m.responsive(small) {
+				font-weight: 500;
+			}
 		}
 
 		&:first-child {
 			padding-left: 24px;
+
+			@include m.responsive(small) {
+				border-bottom-left-radius: 0.25rem;
+			}
+		}
+
+		&:last-child {
+			@include m.responsive(small) {
+				border-bottom-right-radius: 0.25rem;
+			}
 		}
 
 		&.nfd-wba--is-active {
 			box-shadow: inset 0 -3px var(--wp-admin-theme-color);
 			color: var(--nfd-wba-color-dark);
+
+			@include m.responsive(small) {
+				background-color: var(--wp-admin-theme-color);
+				box-shadow: none;
+				color: #fff;
+			}
 		}
 
 		&:not(.nfd-wba--is-active):focus {

@@ -23,6 +23,7 @@ const Header = () => {
 
 			<div className="nfd-items-center nfd-wba-ml-auto nfd-wba-flex nfd-wba-gap-x-4">
 				{showTrial && <TrialNotice />}
+
 				<Button
 					className="nfd-wba-ml-auto nfd-wba-text-current hover:nfd-wba-text-dark"
 					showTooltip={true}
