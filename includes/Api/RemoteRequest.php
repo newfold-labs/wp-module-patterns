@@ -44,7 +44,7 @@ class RemoteRequest {
         }
 
         // Some special cases for library development.
-        $this->baseUrl = 'http://localhost:3003'; // @todo
+        $this->baseUrl = 'https://patterns.hiive.cloud'; // @todo
 
         $this->data = [
             'wp_language' => \get_locale(),

@@ -24,16 +24,16 @@ class Items {
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
 		}
-		
+
 		if ( isset( $args['keywords'] ) ) {
 			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}
-		
+
 		if ( isset( $args['per_page'] ) ) {
 			$page = isset( $args['page'] ) ? $args['page'] : 1;
 			$data = array_slice( $data, ( $page - 1 ) * $args['per_page'], $args['per_page'] );			
 		}
-		
+
 		return $data;
 	}
 	
@@ -66,10 +66,14 @@ class Items {
 			if ( \is_wp_error( $data ) ) {
 				return $data;
 			}
+			
+			if ( isset( $data['data'] ) ) {
+				$data = $data['data'];
+			}
 
 			\set_transient( "wba_{$type}_{$id}", $data, DAY_IN_SECONDS );
 		}
-		
+
 		return $data;
 	}
 	
@@ -115,11 +119,11 @@ class Items {
  
 		foreach ( $data as $item ) {
 
-			if ( isset( $item['category'] ) ) {
+			if ( isset( $item['categories'] ) ) {
+				
+				$item['categories'] = (array) $item['categories'];
 
-				$item['category'] = (array) $item['category'];
-
-				foreach( $item['category'] as $v ) {		
+				foreach( $item['categories'] as $v ) {						
 					if ( strpos( $v, $value ) !== false ) {
 						$filtered[] = $item;
 					}

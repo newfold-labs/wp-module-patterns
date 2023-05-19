@@ -51,13 +51,13 @@ const DesignItem = ({ item }) => {
 	const { getBlankTemplate } = usePostTemplates();
 
 	const blocks = useMemo(
-		() => rawHandler({ HTML: item.source }),
-		[item.source]
+		() => rawHandler({ HTML: item.content }),
+		[item.content]
 	);
 
 	const previewBlocks = useMemo(
-		() => rawHandler({ HTML: optimizePreview(item.source) }),
-		[item.source]
+		() => rawHandler({ HTML: optimizePreview(item.content) }),
+		[item.content]
 	);
 
 	const { createErrorNotice, createSuccessNotice } =
