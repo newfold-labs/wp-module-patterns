@@ -34,9 +34,9 @@ class FavoritesController {
 		}
 
 		$item = array(
-			'id'     => \sanitize_text_field( $body['id'] ),
-			'title'  => \sanitize_text_field( $body['title'] ),
-			'source' => $body['source']
+			'id'      => \sanitize_text_field( $body['id'] ),
+			'title'   => \sanitize_text_field( $body['title'] ),
+			'content' => $body['content']
 		);
 
 		$data = Favorites::add( $item, $type );
@@ -60,9 +60,9 @@ class FavoritesController {
 		}
 
 		$item = array(
-			'id'     => \sanitize_text_field( $body['id'] ),
-			'title'  => \sanitize_text_field( $body['title'] ),
-			'source' => $body['source'],
+			'id'      => \sanitize_text_field( $body['id'] ),
+			'title'   => \sanitize_text_field( $body['title'] ),
+			'content' => $body['content'],
 		);
 
 		$data = Favorites::delete( $item );

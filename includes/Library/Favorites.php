@@ -35,10 +35,10 @@ class Favorites {
 		$user_id = \get_current_user_id();		
 
 		$item = array(
-			'id'     => \sanitize_text_field( $item['id'] ),
-			'title'  => \sanitize_text_field( $item['title'] ),
-			'source' => $item['source'],
-			'type'   => $type
+			'id'      => \sanitize_text_field( $item['id'] ),
+			'title'   => \sanitize_text_field( $item['title'] ),
+			'content' => $item['content'],
+			'type'    => $type
 		);
 
 		$data = \get_user_meta( $user_id, 'nfd_wb_favorites', true );
