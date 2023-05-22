@@ -13,6 +13,8 @@ import {
 	postFeaturedImage,
 	postList,
 	quote,
+	header,
+	footer,
 } from '@wordpress/icons';
 
 /**
@@ -28,7 +30,7 @@ export const variations = [
 			src: gallery,
 		},
 		category: 'nfd-wonder-blocks',
-		attributes: { category: 'gallersdsdy' },
+		attributes: { category: 'gallery' },
 		title: __('Gallery Patterns', 'nfd-wonder-blocks'),
 		description: __('Add Gallery patterns.', 'nfd-wonder-blocks'),
 		keywords: [
@@ -60,7 +62,7 @@ export const variations = [
 			src: button,
 		},
 		category: 'nfd-wonder-blocks',
-		attributes: { category: 'cta' },
+		attributes: { category: 'call-to-action' },
 		title: __('Call to Action Patterns', 'nfd-wonder-blocks'),
 		description: __('Add Call to Action patterns.', 'nfd-wonder-blocks'),
 		keywords: [
@@ -136,7 +138,7 @@ export const variations = [
 			src: columns,
 		},
 		category: 'nfd-wonder-blocks',
-		attributes: { category: 'pricing' },
+		attributes: { category: 'pricing-table' },
 		title: __('Pricing Table Patterns', 'nfd-wonder-blocks'),
 		description: __('Add Pricing Table patterns.', 'nfd-wonder-blocks'),
 		keywords: [
@@ -176,6 +178,28 @@ export const variations = [
 			__('feedback', 'nfd-wonder-blocks'),
 			__('ratings', 'nfd-wonder-blocks'),
 		],
+	},
+	{
+		name: 'header',
+		icon: {
+			foreground: 'var(--nfd-wba-color-brand)',
+			src: header,
+		},
+		category: 'nfd-wonder-blocks',
+		attributes: { category: 'header' },
+		title: __('Header Patterns', 'nfd-wonder-blocks'),
+		description: __('Add Header patterns.', 'nfd-wonder-blocks'),
+	},
+	{
+		name: 'footer',
+		icon: {
+			foreground: 'var(--nfd-wba-color-brand)',
+			src: footer,
+		},
+		category: 'nfd-wonder-blocks',
+		attributes: { category: 'footer' },
+		title: __('Footer Patterns', 'nfd-wonder-blocks'),
+		description: __('Add Footer patterns.', 'nfd-wonder-blocks'),
 	},
 	{
 		name: 'favorites',
