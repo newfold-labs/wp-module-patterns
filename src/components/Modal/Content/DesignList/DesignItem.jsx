@@ -41,7 +41,7 @@ import { heart, heartEmpty, plus, trash } from '../../../Icons';
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [insertingDesign, setInsertingDesign] = useState(false);
-	const { data, mutate } = usePatterns({ onlyFavorites: true, perPage: -1 });
+	const { data, mutate } = usePatterns({ onlyFavorites: true });
 
 	const { data: allFavs, mutate: mutateAllFavs } = usePatterns({
 		onlyFavorites: true,
@@ -122,14 +122,14 @@ const DesignItem = ({ item }) => {
 	useEffect(() => {
 		let isFav = false;
 
-		if (!Array.isArray(data)) {
+		if (!Array.isArray(allFavs)) {
 			return;
 		}
 
-		isFav = data.find((fav) => fav.id === item.id);
+		isFav = allFavs.find((fav) => fav.id === item.id);
 
 		setIsFavorite(!!isFav);
-	}, [data, item.id]);
+	}, [allFavs, item.id]);
 
 	/**
 	 * Insert the pattern or a collection of patterns (template) into the editor.
