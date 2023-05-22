@@ -41,7 +41,7 @@ import { heart, heartEmpty, plus, trash } from '../../../Icons';
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [insertingDesign, setInsertingDesign] = useState(false);
-	const { data, mutate } = usePatterns({ onlyFavorites: true });
+	const { data, mutate } = usePatterns({ onlyFavorites: true, perPage: -1 });
 
 	const { data: allFavs, mutate: mutateAllFavs } = usePatterns({
 		onlyFavorites: true,
