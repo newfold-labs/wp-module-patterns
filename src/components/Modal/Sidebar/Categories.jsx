@@ -176,7 +176,10 @@ const Categories = ({ type = 'patterns' }) => {
 								title: 'favorites',
 								count: allFavs?.length,
 							}}
-							isActive={getActiveCategory() === 'favorites'}
+							isActive={
+								!keywordsFilter &&
+								getActiveCategory() === 'favorites'
+							}
 							icon={
 								<Icon
 									fill="currentColor"
