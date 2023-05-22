@@ -36,27 +36,24 @@ registerBlockType(metadata, {
 				return;
 			}
 
-			// Set active category and "patterns" tab.
-			if (attributes.category) {
-				setActiveTab('patterns');
-				setActivePatternsCategory(attributes.category);
-			} else {
-				setActiveTab('patterns');
-				setActivePatternsCategory(DEFAULT_PATTERNS_CATEGORY);
-			}
-
-			// Open modal
-			setIsModalOpen(true);
-
-			// Remove empty block
 			removeBlock(clientId);
+
+			setActiveTab('patterns');
+			setActivePatternsCategory(
+				attributes.category
+					? attributes.category
+					: DEFAULT_PATTERNS_CATEGORY
+			);
+
+			setIsModalOpen(true);
 		}, [
+			attributes.category,
+			attributes.preview,
 			clientId,
-			attributes,
 			removeBlock,
-			setIsModalOpen,
 			setActivePatternsCategory,
 			setActiveTab,
+			setIsModalOpen,
 		]);
 
 		return (
