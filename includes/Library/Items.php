@@ -5,12 +5,17 @@ namespace NewfoldLabs\WP\Module\Patterns\Library;
 use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 use NewfoldLabs\WP\Module\Patterns\SiteClassification;
 
+/**
+ * Library for items.
+ */
 class Items {
 
 	/**
 	 * Get items.
 	 *
-	 * @param array $args Array of arguments.
+	 * @param string $type Type of items to get.
+	 * @param array  $args Array of arguments.
+	 *
 	 * @return array|WP_Error $data Array of items or WP_Error.
 	 */
 	public static function get( $type = 'patterns', $args = array() ) {
@@ -40,7 +45,8 @@ class Items {
 	/**
 	 * Get all items from transients or remote API.
 	 *
-	 * @param array $args
+	 * @param string $type Type of items to get.
+	 * @param array  $args Array of arguments.
 	 *
 	 * @return array $data
 	 */
@@ -55,8 +61,8 @@ class Items {
 		);
 
 		// Ensure we only get templates or patterns.
-		$id   = md5( serialize( $args ) );
-		$type = $type === 'templates' ? 'templates' : 'patterns';
+		$id   = md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
+		$type = 'templates' === $type ? 'templates' : 'patterns';
 		$data = \get_transient( "wba_{$type}_{$id}" );
 
 		if ( false === $data ) {
@@ -80,9 +86,9 @@ class Items {
 	/**
 	 * Filter data by key and value.
 	 *
-	 * @param array  $data
-	 * @param string $key
-	 * @param string $value
+	 * @param array  $data  Array of data.
+	 * @param string $key   Key to filter by.
+	 * @param string $value Value to filter by.
 	 *
 	 * @return array $filtered
 	 */
@@ -108,8 +114,8 @@ class Items {
 	/**
 	 * Filter an array by category.
 	 *
-	 * @param array  $data
-	 * @param string $value
+	 * @param array  $data  Array of data.
+	 * @param string $value Value to filter by.
 	 *
 	 * @return array $filtered
 	 */
@@ -137,8 +143,8 @@ class Items {
 	/**
 	 * Filter an array by keywords.
 	 *
-	 * @param array  $data
-	 * @param string $value
+	 * @param array  $data  Array of data.
+	 * @param string $value Value to filter by.
 	 *
 	 * @return array $filtered
 	 */

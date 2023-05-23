@@ -5,6 +5,9 @@ namespace NewfoldLabs\WP\Module\Patterns;
 use NewfoldLabs\WP\Module\Data\SiteClassification\PrimaryType;
 use NewfoldLabs\WP\Module\Data\SiteClassification\SecondaryType;
 
+/**
+ * Site classification.
+ */
 class SiteClassification {
 
 	/**

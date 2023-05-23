@@ -2,6 +2,9 @@
 
 namespace NewfoldLabs\WP\Module\Patterns\Library;
 
+/**
+ * Favorites library.
+ */
 class Favorites {
 	/**
 	 * Get items.
@@ -27,8 +30,10 @@ class Favorites {
 	/**
 	 * Add to Favorites.
 	 *
-	 * @param WP_REST_Request $request
-	 * @return WP_REST_Response
+	 * @param array  $item Item to add.
+	 * @param string $type Type of item to add.
+	 *
+	 * @return array $data Updated array of favorite items.
 	 */
 	public static function add( $item, $type ) {
 
@@ -47,7 +52,7 @@ class Favorites {
 			$data = array();
 		}
 
-		if ( ! in_array( $item, $data ) ) {
+		if ( ! in_array( $item, $data, true ) ) {
 			$data[] = $item;
 		}
 
@@ -59,8 +64,9 @@ class Favorites {
 	/**
 	 * Remove from Favorites.
 	 *
-	 * @param WP_REST_Request $request
-	 * @return WP_REST_Response
+	 * @param array $item Item to add.
+	 *
+	 * @return array $data Updated array of favorite items.
 	 */
 	public static function delete( $item ) {
 

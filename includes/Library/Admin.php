@@ -63,7 +63,7 @@ final class Admin {
 		$patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 
 		foreach ( $patterns as $pattern ) {
-			if ( ! empty( $pattern['blockTypes'] ) && in_array( 'core/post-content', $pattern['blockTypes'] ) ) {
+			if ( ! empty( $pattern['blockTypes'] ) && in_array( 'core/post-content', $pattern['blockTypes'], true ) ) {
 				\unregister_block_pattern( $pattern['name'] );
 				$pattern['blockTypes'] = array_diff( $pattern['blockTypes'], array( 'core/post-content' ) );
 				\register_block_pattern( $pattern['name'], $pattern );

@@ -4,6 +4,9 @@ namespace NewfoldLabs\WP\Module\Patterns\Api\Controllers;
 use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 use NewfoldLabs\WP\Module\Patterns\Permissions;
 
+/**
+ * RestApiController class.
+ */
 class RestApiController extends \WP_REST_Controller {
 
 	/**
@@ -58,7 +61,7 @@ class RestApiController extends \WP_REST_Controller {
 	 *
 	 * @return void
 	 */
-	public function getHandler( $namespace, $endpoint, $callback ) {
+	public function get_handler( $namespace, $endpoint, $callback ) {
 		\register_rest_route(
 			$namespace,
 			$endpoint,
@@ -82,7 +85,7 @@ class RestApiController extends \WP_REST_Controller {
 	 *
 	 * @return void
 	 */
-	public function postHandler( $namespace, $endpoint, $callback ) {
+	public function post_handler( $namespace, $endpoint, $callback ) {
 		\register_rest_route(
 			$namespace,
 			$endpoint,
@@ -106,7 +109,7 @@ class RestApiController extends \WP_REST_Controller {
 	 *
 	 * @return void
 	 */
-	public function deleteHandler( $namespace, $endpoint, $callback ) {
+	public function delete_handler( $namespace, $endpoint, $callback ) {
 		\register_rest_route(
 			$namespace,
 			$endpoint,
@@ -130,7 +133,7 @@ class RestApiController extends \WP_REST_Controller {
 	 * @return mixed
 	 */
 	public static function __callStatic( $name, array $arguments ) {
-		$name = "{$name}Handler";
+		$name = "{$name}_handler";
 
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new static();

@@ -2,6 +2,9 @@
 
 namespace NewfoldLabs\WP\Module\Patterns\Admin;
 
+/**
+ * CTA for the edit pages screen.
+ */
 class CTA {
 
 	/**
@@ -21,11 +24,10 @@ class CTA {
 	 * Add custom HTML to the Add New button on the Pages screen.
 	 */
 	public function add_cta_to_add_new_button() {
-		// Translators: %1$s is the opening anchor tag, %2$s is "Wonder Blocks", and %3$s is the closing anchor tag.
 		$cta_text = sprintf(
-			__( 'Create pages fast with the %1$s%2$s Pattern Library%3$s.', 'nfd-wonder-blocks' ),
+			// Translators: %1$s is the opening anchor tag, %2$s is the closing anchor tag.
+			__( 'Create pages fast with the %1$sPattern Library%2$s.', 'nfd-wonder-blocks' ),
 			'<a href=\"' . \esc_url( \admin_url( 'post-new.php?post_type=page&wonder-blocks-library=templates' ) ) . '\">',
-			'Wonder Blocks',
 			'</a>'
 		);
 
@@ -35,7 +37,7 @@ class CTA {
 				let pageTitleAction = document.querySelector('.wrap .page-title-action');
 				if (pageTitleAction) {
 					let newElement = document.createElement('span');
-					newElement.innerHTML = "<?php echo $cta_text; ?>"
+					newElement.innerHTML = "<?php echo $cta_text; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>"; 
 					newElement.classList.add('nfd-wba-cta-edit-screen');
 					pageTitleAction.insertAdjacentElement('afterend', newElement);
 				}
@@ -53,7 +55,7 @@ class CTA {
 			:root {
 				--nfd-wba-cta-text-color: #1e1e1e;
 			}
-			
+
 			.nfd-wba-cta-edit-screen {
 				font-size: 16px;
 				line-height: 19px;
@@ -62,11 +64,11 @@ class CTA {
 				margin-left: 16px;
 				color: var(--nfd-wba-cta-text-color);
 			}
-			
+
 			.nfd-wba-cta-edit-screen a {
 				text-decoration: none;
 			}
-			
+
 			@media only screen and (max-width: 960px) {
 				.nfd-wba-cta-edit-screen {
 					display: block;
@@ -86,6 +88,6 @@ class CTA {
 	private function is_edit_page_screen() {
 		global $pagenow;
 
-		return $pagenow === 'edit.php' && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'page';
+		return 'edit.php' === $pagenow && isset( $_GET['post_type'] ) && 'page' === $_GET['post_type']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 }

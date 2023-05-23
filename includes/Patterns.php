@@ -8,6 +8,9 @@ use NewfoldLabs\WP\Module\Patterns\Library\Admin as PatternsLibrary;
 use NewfoldLabs\WP\Module\Patterns\Api\RestApi;
 use NewfoldLabs\WP\Module\Patterns\Admin\CTA;
 
+/**
+ * Patterns module.
+ */
 class Patterns {
 
 	/**
@@ -20,7 +23,7 @@ class Patterns {
 	/**
 	 * Constructor.
 	 *
-	 * @param Container $container
+	 * @param Container $container Dependency injection container.
 	 */
 	public function __construct( Container $container ) {
 

@@ -33,9 +33,7 @@ final class Permissions {
 	 * @return boolean
 	 */
 	public static function can_manage_themes() {
-		return \is_user_logged_in() &&
-			   \current_user_can( self::INSTALL_THEMES ) &&
-			   \current_user_can( self::EDIT_THEMES );
+		return \is_user_logged_in() && \current_user_can( self::INSTALL_THEMES ) && \current_user_can( self::EDIT_THEMES );
 	}
 
 	/**

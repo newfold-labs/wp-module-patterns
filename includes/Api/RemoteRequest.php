@@ -2,6 +2,9 @@
 
 namespace NewfoldLabs\WP\Module\Patterns\Api;
 
+/**
+ * Remote request class.
+ */
 class RemoteRequest {
 
 	/**
@@ -9,7 +12,7 @@ class RemoteRequest {
 	 *
 	 * @var string
 	 */
-	public $baseUrl = '';
+	public $base_url = '';
 
 	/**
 	 * Request data sent to the server
@@ -44,7 +47,7 @@ class RemoteRequest {
 		}
 
 		// Some special cases for library development.
-		$this->baseUrl = 'https://patterns.hiive.cloud'; // @todo
+		$this->base_url = 'https://patterns.hiive.cloud'; // @todo
 
 		$this->data = array(
 			'wp_language'       => \get_locale(),
@@ -71,11 +74,11 @@ class RemoteRequest {
 	 *
 	 * @return array
 	 */
-	public function getHandler( $endpoint, $data = array(), $headers = array() ) {
+	public function get_handler( $endpoint, $data = array(), $headers = array() ) {
 		$url = \esc_url_raw(
 			\add_query_arg(
 				\urlencode_deep( \urldecode_deep( array_merge( $this->data, $data ) ) ),
-				$this->baseUrl . $endpoint
+				$this->base_url . $endpoint
 			)
 		);
 
@@ -89,8 +92,8 @@ class RemoteRequest {
 			return $response;
 		}
 
-		$responseBody = \wp_remote_retrieve_body( $response );
-		return json_decode( $responseBody, true );
+		$response_body = \wp_remote_retrieve_body( $response );
+		return json_decode( $response_body, true );
 	}
 
 	/**
@@ -102,9 +105,9 @@ class RemoteRequest {
 	 *
 	 * @return array
 	 */
-	public function postHandler( $endpoint, $data = array(), $headers = array() ) {
+	public function post_handler( $endpoint, $data = array(), $headers = array() ) {
 		$response = \wp_remote_post(
-			$this->baseUrl . $endpoint,
+			$this->base_url . $endpoint,
 			array(
 				'headers' => array_merge( $this->headers, $headers ),
 				'body'    => array_merge( $this->data, $data ),
@@ -114,8 +117,8 @@ class RemoteRequest {
 			return $response;
 		}
 
-		$responseBody = \wp_remote_retrieve_body( $response );
-		return json_decode( $responseBody, true );
+		$response_body = \wp_remote_retrieve_body( $response );
+		return json_decode( $response_body, true );
 	}
 
 	/**
@@ -128,12 +131,12 @@ class RemoteRequest {
 	 */
 	public static function __callStatic( $name, array $arguments ) {
 
-		if ( $name === 'init' ) {
+		if ( 'init' === $name ) {
 			self::$instance = new static( $arguments[0] );
 			return;
 		}
 
-		$name = "{$name}Handler";
+		$name = "{$name}_handler";
 		$r    = self::$instance;
 
 		return $r->$name( ...$arguments );
@@ -142,10 +145,10 @@ class RemoteRequest {
 	/**
 	 * Format error data
 	 *
-	 * @param \WP_Error $error
+	 * @param \WP_Error $error - The error.
 	 * @return array
 	 */
-	public static function formatErrorData( \WP_Error $error ) {
+	public static function format_error_data( \WP_Error $error ) {
 		return array(
 			'code'    => $error->get_error_code(),
 			'message' => $error->get_error_message(),

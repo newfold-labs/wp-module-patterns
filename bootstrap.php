@@ -1,8 +1,4 @@
 <?php
-/**
- * Newfold Labs WordPress Patterns Module.
- */
-
 use NewfoldLabs\WP\ModuleLoader\Container;
 use NewfoldLabs\WP\Module\Patterns\Patterns;
 use function NewfoldLabs\WP\ModuleLoader\register;
