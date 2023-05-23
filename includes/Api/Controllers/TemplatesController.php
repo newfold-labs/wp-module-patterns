@@ -10,11 +10,11 @@ class TemplatesController {
 	 * Return templates based on category.
 	 */
 	public static function index( $request ) {
-	
+
 		$params = $request->get_query_params();
 
 		$data = Items::get( 'templates', $params );
-		
+
 		if ( \is_wp_error( $data ) ) {
 			return new \WP_REST_Response( RemoteRequest::formatErrorData( $data ), 503 );
 		}

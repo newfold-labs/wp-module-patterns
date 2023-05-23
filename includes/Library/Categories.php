@@ -5,7 +5,7 @@ namespace NewfoldLabs\WP\Module\Patterns\Library;
 use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 
 class Categories {
-	
+
 	/**
 	 * Get the categories from transient or the remote API.
 	 *
@@ -13,10 +13,10 @@ class Categories {
 	 * @return array
 	 */
 	public static function get( $type = 'patterns' ) {
-		
+
 		// Ensure we only get templates or patterns.
 		$type = $type === 'templates' ? 'templates' : 'patterns';
-		
+
 		// Get the categories from the transient.
 		$data = \get_transient( "wba_{$type}_categories" );
 
@@ -24,12 +24,12 @@ class Categories {
 		if ( false === $data ) {
 
 			$data = RemoteRequest::get(
-				"/categories",
+				'/categories',
 				array(
-					'type' => $type
+					'type' => $type,
 				)
 			);
-			
+
 			// @todo: remove this when API returns the template categories.
 			if ( 'templates' === $type ) {
 				$data = array(
@@ -41,11 +41,11 @@ class Categories {
 					),
 				);
 			}
-			
+
 			if ( \is_wp_error( $data ) ) {
 				return $data;
 			}
-			
+
 			if ( isset( $data['data'] ) ) {
 				$data = $data['data'];
 			}

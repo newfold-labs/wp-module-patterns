@@ -5,138 +5,138 @@ use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 use NewfoldLabs\WP\Module\Patterns\Permissions;
 
 class RestApiController extends \WP_REST_Controller {
-	
-	/**
-     * The class instance.
-     *
-     * @var $instance
-     */
-    protected static $instance = null;
-	
-	/**
-     * The constructor
-     */
-    public function __construct() {
-        $this->namespace = 'nfd-wonder-blocks/v1';
-        
-        \add_filter(
-            'rest_request_before_callbacks',
-            function ( $response, $handler, $request ) {
-                
-                if ( $request->get_header( 'x_nfd_wonder_blocks' ) ) {
-                    RemoteRequest::init( $request );
-                }
 
-                return $response;
-            },
-            10,
-            3
-        );
-    }
-	
 	/**
-     * Check the authorization of the request
-     *
-     * @return boolean
-     */
-    public function checkPermission() {
-        
-        // Check for the nonce on the server (used by WP REST).
-        if ( isset ( $_SERVER['HTTP_X_WP_NONCE'] ) && \wp_verify_nonce( \sanitize_text_field ( \wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' ) ) {
-            return Permissions::is_editor();
-        }
+	 * The class instance.
+	 *
+	 * @var $instance
+	 */
+	protected static $instance = null;
 
-        return false;
-    }
+	/**
+	 * The constructor
+	 */
+	public function __construct() {
+		$this->namespace = 'nfd-wonder-blocks/v1';
 
-    /**
-     * Handle GET request.
-     *
-     * @param string   $namespace - The api name space.
-     * @param string   $endpoint  - The endpoint.
-     * @param function $callback  - The callback to run.
-     *
-     * @return void
-     */
-    public function getHandler( $namespace, $endpoint, $callback ) {
-        \register_rest_route(
-            $namespace,
-            $endpoint,
-            array(
-                'methods' => 'GET',
-                'callback' => $callback,
-                'permission_callback' => array(
-                    $this,
-                    'checkPermission',
+		\add_filter(
+			'rest_request_before_callbacks',
+			function ( $response, $handler, $request ) {
+
+				if ( $request->get_header( 'x_nfd_wonder_blocks' ) ) {
+					RemoteRequest::init( $request );
+				}
+
+				return $response;
+			},
+			10,
+			3
+		);
+	}
+
+	/**
+	 * Check the authorization of the request
+	 *
+	 * @return boolean
+	 */
+	public function checkPermission() {
+
+		// Check for the nonce on the server (used by WP REST).
+		if ( isset( $_SERVER['HTTP_X_WP_NONCE'] ) && \wp_verify_nonce( \sanitize_text_field( \wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' ) ) {
+			return Permissions::is_editor();
+		}
+
+		return false;
+	}
+
+	/**
+	 * Handle GET request.
+	 *
+	 * @param string   $namespace - The api name space.
+	 * @param string   $endpoint  - The endpoint.
+	 * @param function $callback  - The callback to run.
+	 *
+	 * @return void
+	 */
+	public function getHandler( $namespace, $endpoint, $callback ) {
+		\register_rest_route(
+			$namespace,
+			$endpoint,
+			array(
+				'methods'             => 'GET',
+				'callback'            => $callback,
+				'permission_callback' => array(
+					$this,
+					'checkPermission',
 				),
 			)
-        );
-    }
+		);
+	}
 
-    /**
-     * Handle POST request.
-     *
-     * @param string $namespace - The api name space.
-     * @param string $endpoint  - The endpoint.
-     * @param string $callback  - The callback to run.
-     *
-     * @return void
-     */
-    public function postHandler( $namespace, $endpoint, $callback ) {
-        \register_rest_route(
-            $namespace,
-            $endpoint,
-            array(
-                'methods' => 'POST',
-                'callback' => $callback,
-                'permission_callback' => array(
-                    $this,
-                    'checkPermission',
-				),
-			)
-        );
-    }
-    
-    /**
-     * Handle DELETE request.
-     *
-     * @param string $namespace - The api name space.
-     * @param string $endpoint  - The endpoint.
-     * @param string $callback  - The callback to run.
-     *
-     * @return void
-     */
-    public function deleteHandler( $namespace, $endpoint, $callback ) {
-        \register_rest_route(
-            $namespace,
-            $endpoint,
-            array(
-                'methods' => 'DELETE',
-                'callback' => $callback,
-                'permission_callback' => array(
-                    $this,
-                    'checkPermission',
-				),
-			)
-        );
-    }
-	
 	/**
-     * The caller
-     *
-     * @param string $name      - The name of the method to call.
-     * @param array  $arguments - The arguments to pass in.
-     *
-     * @return mixed
-     */
-    public static function __callStatic( $name, array $arguments ) {
-        $name = "{$name}Handler";
+	 * Handle POST request.
+	 *
+	 * @param string $namespace - The api name space.
+	 * @param string $endpoint  - The endpoint.
+	 * @param string $callback  - The callback to run.
+	 *
+	 * @return void
+	 */
+	public function postHandler( $namespace, $endpoint, $callback ) {
+		\register_rest_route(
+			$namespace,
+			$endpoint,
+			array(
+				'methods'             => 'POST',
+				'callback'            => $callback,
+				'permission_callback' => array(
+					$this,
+					'checkPermission',
+				),
+			)
+		);
+	}
 
-        if ( is_null( self::$instance ) ) {
-            self::$instance = new static();
-        }
+	/**
+	 * Handle DELETE request.
+	 *
+	 * @param string $namespace - The api name space.
+	 * @param string $endpoint  - The endpoint.
+	 * @param string $callback  - The callback to run.
+	 *
+	 * @return void
+	 */
+	public function deleteHandler( $namespace, $endpoint, $callback ) {
+		\register_rest_route(
+			$namespace,
+			$endpoint,
+			array(
+				'methods'             => 'DELETE',
+				'callback'            => $callback,
+				'permission_callback' => array(
+					$this,
+					'checkPermission',
+				),
+			)
+		);
+	}
 
-        $r = self::$instance;
-        return $r->$name( $r->namespace, ...$arguments );
-    }	
+	/**
+	 * The caller
+	 *
+	 * @param string $name      - The name of the method to call.
+	 * @param array  $arguments - The arguments to pass in.
+	 *
+	 * @return mixed
+	 */
+	public static function __callStatic( $name, array $arguments ) {
+		$name = "{$name}Handler";
+
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new static();
+		}
+
+		$r = self::$instance;
+		return $r->$name( $r->namespace, ...$arguments );
+	}
 }

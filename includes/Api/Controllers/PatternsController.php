@@ -8,10 +8,9 @@ class PatternsController {
 
 	/**
 	 * Return all patterns.
-	 *
 	 */
 	public static function index( $request ) {
-		
+
 		$params = $request->get_query_params();
 
 		$data = Items::get( 'patterns', $params );

@@ -6,21 +6,21 @@ use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 use NewfoldLabs\WP\Module\Patterns\SiteClassification;
 
 class Items {
-	
-	/** 
+
+	/**
 	 * Get items.
-	 * 
+	 *
 	 * @param array $args Array of arguments.
 	 * @return array|WP_Error $data Array of items or WP_Error.
-	*/
+	 */
 	public static function get( $type = 'patterns', $args = array() ) {
-		
+
 		$data = self::get_cached_data( $type );
-		
+
 		if ( \is_wp_error( $data ) ) {
 			return $data;
 		}
-		
+
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
 		}
@@ -31,21 +31,21 @@ class Items {
 
 		if ( isset( $args['per_page'] ) ) {
 			$page = isset( $args['page'] ) ? $args['page'] : 1;
-			$data = array_slice( $data, ( $page - 1 ) * $args['per_page'], $args['per_page'] );			
+			$data = array_slice( $data, ( $page - 1 ) * $args['per_page'], $args['per_page'] );
 		}
 
 		return $data;
 	}
-	
+
 	/**
 	 * Get all items from transients or remote API.
 	 *
 	 * @param array $args
-	 * 
+	 *
 	 * @return array $data
 	 */
-	private static function get_cached_data( $type = 'patterns', $args = array()) {
-		
+	private static function get_cached_data( $type = 'patterns', $args = array() ) {
+
 		$args = wp_parse_args(
 			$args,
 			array(
@@ -57,16 +57,16 @@ class Items {
 		// Ensure we only get templates or patterns.
 		$id   = md5( serialize( $args ) );
 		$type = $type === 'templates' ? 'templates' : 'patterns';
-		$data = \get_transient( "wba_{$type}_{$id}" );		
+		$data = \get_transient( "wba_{$type}_{$id}" );
 
 		if ( false === $data ) {
-			
+
 			$data = RemoteRequest::get( "/{$type}", $args );
-			
+
 			if ( \is_wp_error( $data ) ) {
 				return $data;
 			}
-			
+
 			if ( isset( $data['data'] ) ) {
 				$data = $data['data'];
 			}
@@ -76,14 +76,14 @@ class Items {
 
 		return $data;
 	}
-	
+
 	/**
 	 * Filter data by key and value.
 	 *
-	 * @param array $data
+	 * @param array  $data
 	 * @param string $key
 	 * @param string $value
-	 * 
+	 *
 	 * @return array $filtered
 	 */
 	private static function filter( $data, $key, $value ) {
@@ -91,7 +91,7 @@ class Items {
 		if ( ! is_array( $data ) ) {
 			return array();
 		}
-		
+
 		if ( empty( $data ) ) {
 			return array();
 		}
@@ -99,31 +99,31 @@ class Items {
 		if ( 'category' === $key ) {
 			return self::filter_by_category( $data, $value );
 		}
-		
+
 		if ( 'keywords' === $key ) {
 			return self::filter_by_keywords( $data, $value );
 		}
 	}
-	
+
 	/**
 	 * Filter an array by category.
 	 *
-	 * @param array $data
+	 * @param array  $data
 	 * @param string $value
-	 * 
+	 *
 	 * @return array $filtered
 	 */
 	private static function filter_by_category( $data, $value ) {
 
 		$filtered = array();
- 
+
 		foreach ( $data as $item ) {
 
 			if ( isset( $item['categories'] ) ) {
-				
+
 				$item['categories'] = (array) $item['categories'];
 
-				foreach( $item['categories'] as $v ) {						
+				foreach ( $item['categories'] as $v ) {
 					if ( strpos( $v, $value ) !== false ) {
 						$filtered[] = $item;
 					}
@@ -133,28 +133,28 @@ class Items {
 
 		return $filtered;
 	}
-	
+
 	/**
 	 * Filter an array by keywords.
 	 *
-	 * @param array $data
+	 * @param array  $data
 	 * @param string $value
-	 * 
+	 *
 	 * @return array $filtered
 	 */
 	private static function filter_by_keywords( $data, $value ) {
 
 		$filtered = array();
- 
+
 		foreach ( $data as $item ) {
-			
+
 			if ( false !== strpos( strtolower( $item['title'] ), $value ) ) {
 				$filtered[] = $item;
 			} elseif ( isset( $item['keywords'] ) ) {
 
 				$item['keywords'] = (array) $item['keywords'];
 
-				foreach( $item['keywords'] as $v ) {		
+				foreach ( $item['keywords'] as $v ) {
 					if ( strpos( $v, $value ) !== false ) {
 						$filtered[] = $item;
 					}

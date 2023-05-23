@@ -28,7 +28,7 @@ class Patterns {
 
 		if ( Permissions::is_editor() ) {
 			new PatternsLibrary();
-            new CTA();
+			new CTA();
 		}
 
 		new CSSUtilities();
