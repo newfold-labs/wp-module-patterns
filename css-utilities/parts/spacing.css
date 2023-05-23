@@ -9,9 +9,9 @@
 	margin-bottom: 0;
 }
 
-/* Stack children */
+/* Horizontally stack children. RTL supported. */
 .nfd-overlap-children-sm > *:not(:first-child) {
-	margin-left: -1rem;
+	margin-inline-start: -1rem;
 }
 
 /* Grid */
