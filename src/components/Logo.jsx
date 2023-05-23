@@ -26,7 +26,7 @@ const Logo = ({ size = 'regular', color = 'dark' }) => {
 					color === 'brand' && 'nfd-wba-text-brand'
 				)}
 			>
-				Wonder Blocks
+				Library
 			</span>
 		</div>
 	);

@@ -10,7 +10,7 @@ function nfd_wp_module_patterns_register() {
 	register(
 		array(
 			'name'     => 'wp-module-patterns',
-			'label'    => __( 'Wonder Blocks', 'nfd-wp-module-patterns' ),
+			'label'    => __( 'Patterns & Templates', 'nfd-wp-module-patterns' ),
 			'callback' => function ( Container $container ) {
 
 				// Set Global Constants.

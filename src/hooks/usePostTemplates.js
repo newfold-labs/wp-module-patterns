@@ -40,11 +40,7 @@ const usePostTemplates = () => {
 		if (!foundTemplate) {
 			foundTemplate = await __unstableCreateTemplate({
 				slug,
-				title: sprintf(
-					// translators: %s "Wonder Blocks", the name of the product.
-					__('%s Blank Template', 'nfd-wonder-blocks'),
-					'Wonder Blocks'
-				),
+				title: __('Blank Template', 'nfd-wonder-blocks'),
 				content: serialize([
 					createBlock('core/post-content', {
 						layout: { inherit: true },
