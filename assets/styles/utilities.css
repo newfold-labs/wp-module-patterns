@@ -236,9 +236,10 @@
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
-/* Stack children */
+/* Horizontally stack children. RTL supported. */
 .nfd-overlap-children-sm > *:not(:first-child) {
-	margin-left: -1rem !important;
+	-webkit-margin-start: -1rem !important;
+	        margin-inline-start: -1rem !important;
 }
 /* Grid */
 .nfd-grid-cols-1-2-1 {
