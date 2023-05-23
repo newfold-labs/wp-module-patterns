@@ -27,22 +27,14 @@ class Categories {
 		// If the transient is empty, get the categories from the remote API.
 		if ( false === $data ) {
 
-			$data = RemoteRequest::get(
-				'/categories',
-				array(
-					'type' => $type,
-				)
-			);
-
-			// @todo: remove this when API returns the template categories.
 			if ( 'templates' === $type ) {
-				$data = array(
+				$data = self::get_template_categories();
+			} else {
+				$data = RemoteRequest::get(
+					'/categories',
 					array(
-						'id'    => '344566',
-						'label' => 'Home',
-						'title' => 'home',
-						'count' => '4',
-					),
+						'type' => $type,
+					)
 				);
 			}
 
@@ -59,5 +51,57 @@ class Categories {
 
 		// Return the categories.
 		return $data;
+	}
+
+	/**
+	 * Get template categories from the templates array.
+	 *
+	 * @return array $categories Array of template categories.
+	 */
+	private static function get_template_categories() {
+
+		// Get the templates.
+		$templates  = Items::get( 'templates' );
+		$categories = array();
+
+		// Return the empty categories array if there is an error.
+		if ( \is_wp_error( $templates ) ) {
+			return $categories;
+		}
+
+		// Iterate through the templates and get the categories.
+		if ( is_array( $templates ) && ! empty( $templates ) ) {
+			foreach ( $templates as $template ) {
+				
+				// Check if the template belongs to categories.
+				if ( isset( $template['categories'] ) ) {
+
+					// Ensure the categories are an array.
+					$_categories = is_array( $template['categories'] ) ? $template['categories'] : explode( ',', str_replace( ' ', '', $template['categories'] ) );
+
+					foreach ( $_categories as $_category_slug ) {
+
+						$category_slug = sanitize_text_field( $_category_slug );
+
+						$category_item = array(
+							'id'    => md5( $category_slug ),
+							'title' => $category_slug,
+							'label' => ucwords( str_replace( '-', ' ', $category_slug ) ),
+						);
+
+						if ( ! isset( $categories[ $category_item['id'] ] ) ) {
+							$categories[ $category_item['id'] ] = $category_item;
+						}
+					}
+				}
+			}
+		}
+
+		// Get only the values of the categories.
+		if ( ! empty( $categories ) ) {
+			$categories = array_values( $categories );
+		}
+
+		return $categories;
 	}
 }
