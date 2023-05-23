@@ -13,7 +13,7 @@ const currentCategories = select('core/blocks').getCategories();
 setCategories([
 	{
 		slug: 'nfd-wonder-blocks',
-		title: 'Wonder Blocks',
+		title: 'Patterns & Templates',
 		icon: null,
 	},
 	...currentCategories,
@@ -23,6 +23,6 @@ setCategories([
  * Function to register a block collection for our blocks.
  */
 registerBlockCollection('nfd-wonder-blocks', {
-	title: 'Wonder Blocks',
+	title: 'Patterns & Templates',
 	icon: <Icon icon={buttons} />,
 });
