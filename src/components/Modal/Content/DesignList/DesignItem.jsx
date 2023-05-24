@@ -268,9 +268,7 @@ const DesignItem = ({ item }) => {
 			</div>
 
 			<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-bg-grey">
-				<h2 className="nfd-wba-m-0 nfd-wba-text-lg nfd-wba-font-normal">
-					{item.title}
-				</h2>
+				<div></div>
 
 				<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-3">
 					{item?.isPremium && (
