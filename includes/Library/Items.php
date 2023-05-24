@@ -29,7 +29,7 @@ class Items {
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
 		}
-
+		
 		if ( isset( $args['keywords'] ) ) {
 			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}
@@ -76,6 +76,8 @@ class Items {
 			if ( isset( $data['data'] ) ) {
 				$data = $data['data'];
 			}
+
+			$data = self::add_featured_categories( $data );
 
 			\set_transient( "wba_{$type}_{$id}", $data, DAY_IN_SECONDS );
 		}
@@ -169,5 +171,66 @@ class Items {
 		}
 
 		return $filtered;
+	}
+
+	/**
+	 * Get featured items.
+	 *
+	 * @return array
+	 */
+	private static function get_featured_slugs() {
+
+		$featured = array(
+			'home-1',
+			'home-2',
+			'header-1',
+			'cta-3',
+			'header-2',
+		);
+
+		return apply_filters( 'bptds_featured_items', $featured );
+	}
+
+	/**
+	 * Check if item is featured.
+	 *
+	 * @param string $slug
+	 * @return boolean
+	 */
+	private static function is_featured( $slug ) {
+
+		$featured = self::get_featured_slugs();
+
+		return in_array( $slug, $featured, true );
+	}
+
+	/**
+	 * Add featured category to item if it belongs to a featured category.
+	 *
+	 * @param [type] $data
+	 * @return void
+	 */
+	private static function add_featured_categories( $data ) {
+		$data = array_map(
+			function( $item ) {
+				if ( self::is_featured( $item['slug'] ) ) {
+
+					if ( ! isset( $item['categories'] ) ) {
+						$item['categories'] = array();
+					}
+
+					if ( ! is_array( $item['categories'] ) ) {
+						$item['categories'] = array( $item['categories'] );
+					}
+
+					$item['categories'][] = 'featured';
+				}
+
+				return $item;
+			},
+			$data
+		);
+
+		return $data;
 	}
 }

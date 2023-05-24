@@ -46,6 +46,8 @@ class Categories {
 				$data = $data['data'];
 			}
 
+			$data = self::add_featured_category( $data );
+
 			\set_transient( "wba_{$type}_categories", $data, DAY_IN_SECONDS );
 		}
 
@@ -72,7 +74,7 @@ class Categories {
 		// Iterate through the templates and get the categories.
 		if ( is_array( $templates ) && ! empty( $templates ) ) {
 			foreach ( $templates as $template ) {
-				
+
 				// Check if the template belongs to categories.
 				if ( isset( $template['categories'] ) ) {
 
@@ -103,5 +105,31 @@ class Categories {
 		}
 
 		return $categories;
+	}
+
+	/**
+	 * Manually add the featured category to the categories array.
+	 *
+	 * @param array $data Array of categories.
+	 * @return array $data Array of categories with the featured category.
+	 */
+	private static function add_featured_category( $data ) {
+
+		$featured_category = array(
+			'id'    => '64552d7e137ae',
+			'title' => 'featured',
+			'label' => 'Featured',
+		);
+
+		$data = array_filter(
+			$data,
+			function( $category ) {
+				return $category['title'] !== 'featured';
+			}
+		);
+
+		$data = array_merge( array( $featured_category ), $data );
+
+		return $data;
 	}
 }

@@ -7,7 +7,7 @@ export const SUPPORT_URL = window.nfdWonderBlocks?.supportURL || '#';
 export const INPUT_DEBOUNCE_TIME = 800;
 
 export const DEFAULT_ACTIVE_TAB = 'patterns';
-export const DEFAULT_PATTERNS_CATEGORY = 'header';
-export const DEFAULT_TEMPLATES_CATEGORY = 'home';
+export const DEFAULT_PATTERNS_CATEGORY = 'featured';
+export const DEFAULT_TEMPLATES_CATEGORY = 'featured';
 
 export const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = 'wonder-blocks-blank-template';
