@@ -110,10 +110,19 @@ const Categories = ({ type = 'patterns' }) => {
 	 */
 	const handleCategoryChange = useCallback(
 		(categoryTitle) => {
-			setActiveCategory(categoryTitle);
+			const categoryExists = data.some(function (item) {
+				return item.title === categoryTitle;
+			});
+
+			if (categoryExists) {
+				setActiveCategory(categoryTitle);
+			} else if (data.length > 0 && data[0].title) {
+				setActiveCategory(data[0].title);
+			}
+
 			setShouldResetKeywords(true);
 		},
-		[setActiveCategory, setShouldResetKeywords]
+		[setActiveCategory, setShouldResetKeywords, data]
 	);
 
 	/**
@@ -122,12 +131,31 @@ const Categories = ({ type = 'patterns' }) => {
 	 * @return {string} Active category.
 	 */
 	const getActiveCategory = useCallback(() => {
+		let activeCategory = '';
+
 		if (type === 'patterns') {
-			return activePatternsCategory;
+			activeCategory = activePatternsCategory;
+		} else {
+			activeCategory = activeTemplatesCategory;
 		}
 
-		return activeTemplatesCategory;
-	}, [activePatternsCategory, activeTemplatesCategory, type]);
+		const categoryExists = data.some(function (item) {
+			return item.title === activeCategory;
+		});
+
+		if (!categoryExists && data.length > 0 && data[0].title) {
+			activeCategory = data[0].title;
+			setActiveCategory(activeCategory);
+		}
+
+		return activeCategory;
+	}, [
+		type,
+		data,
+		activePatternsCategory,
+		activeTemplatesCategory,
+		setActiveCategory,
+	]);
 
 	return (
 		<>
