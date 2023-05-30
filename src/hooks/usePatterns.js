@@ -6,8 +6,8 @@ import useSWRInfinite from 'swr/infinite';
 /**
  * WordPress dependencies
  */
-import { useMemo } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
+import { useMemo } from '@wordpress/element';
 
 /**
  * Internal dependencies

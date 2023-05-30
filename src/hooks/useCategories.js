@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
-import { fetcher } from '../helpers/fetcher';
 import { NFD_REST_URL } from '../constants';
+import { fetcher } from '../helpers/fetcher';
 
 /**
  * External dependencies

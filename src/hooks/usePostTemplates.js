@@ -5,8 +5,7 @@ import { createBlock, serialize } from '@wordpress/blocks';
 import { store as coreStore } from '@wordpress/core-data';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { store as editPostStore } from '@wordpress/edit-post';
-// import { useCallback } from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import { cleanForSlug } from '@wordpress/url';
 
 /**
