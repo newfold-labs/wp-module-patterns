@@ -110,9 +110,11 @@ const Categories = ({ type = 'patterns' }) => {
 	 */
 	const handleCategoryChange = useCallback(
 		(categoryTitle) => {
-			const categoryExists = data.some(function (item) {
-				return item.title === categoryTitle;
-			});
+			const categoryExists =
+				'favorites' === categoryTitle ||
+				data.some(function (item) {
+					return item.title === categoryTitle;
+				});
 
 			if (categoryExists) {
 				setActiveCategory(categoryTitle);
@@ -139,9 +141,11 @@ const Categories = ({ type = 'patterns' }) => {
 			activeCategory = activeTemplatesCategory;
 		}
 
-		const categoryExists = data.some(function (item) {
-			return item.title === activeCategory;
-		});
+		const categoryExists =
+			'favorites' === activeCategory ||
+			data.some(function (item) {
+				return item.title === activeCategory;
+			});
 
 		if (!categoryExists && data.length > 0 && data[0].title) {
 			activeCategory = data[0].title;
