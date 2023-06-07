@@ -181,11 +181,21 @@ class Items {
 	private static function get_featured_slugs() {
 
 		$featured = array(
+			'pricing-table-2',
+			'features-9',
+			'hero-4',
+			'cta-22',
+			'gallery-2',
+			'cta-7',
+			'faq-2',
+			'features-4',
+			'pricing-table-6',
+			'features-5',
+			'gallery-6',
 			'home-1',
 			'home-2',
-			'header-1',
-			'cta-3',
-			'header-2',
+			'home-4',
+			'home-5',
 		);
 
 		return apply_filters( 'bptds_featured_items', $featured );
