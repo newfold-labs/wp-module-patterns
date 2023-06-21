@@ -12,7 +12,7 @@ final class Admin {
 	 */
 	public function __construct() {
 		\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
-		\add_action( 'init', array( $this, 'register_block_patterns' ) );
+		\add_action( 'load-page-new.php', array( $this, 'register_block_patterns' ) );
 	}
 
 	/**
