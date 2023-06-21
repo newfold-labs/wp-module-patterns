@@ -6,13 +6,30 @@ namespace NewfoldLabs\WP\Module\Patterns\Library;
  * Admin library class
  */
 final class Admin {
+	/**
+	 * Admin pages that require WonderBlock assets.
+	 *
+	 * @var array
+	 */
+	private static $admin_pages = array( 'page', 'post', 'page-new', 'post-new', 'site-editor' );
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
+		foreach ( self::$admin_pages as $admin_page ) {
+			\add_action( "load-{$admin_page}.php", array( __CLASS__, 'load_wonder_blocks' ) );
+		}
+	}
+
+	/**
+	 * Load wonder block assets into the respective admin editor page and suppress the core patterns modal.
+	 *
+	 * @return void
+	 */
+	public static function load_wonder_blocks() {
 		\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
-		\add_action( 'load-page-new.php', array( $this, 'register_block_patterns' ) );
+		self::register_block_patterns();
 	}
 
 	/**
@@ -45,7 +62,6 @@ final class Admin {
 				array(
 					'nonce'      => \wp_create_nonce( 'wp_rest' ),
 					'nfdRestURL' => \esc_url_raw( \rest_url( 'nfd-wonder-blocks/v1' ) ),
-					// 'supportURL' => \esc_url_raw( 'https://newfoldlabs.com/support' ),
 					'assets'     => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
 				)
 			);
@@ -58,7 +74,7 @@ final class Admin {
 	/**
 	 * Disable opening default WP Patterns modal on empty pages.
 	 */
-	public function register_block_patterns() {
+	public static function register_block_patterns() {
 
 		$patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 
