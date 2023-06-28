@@ -36,6 +36,7 @@ module.exports = {
 		'nfd-p-8',
 		'nfd-p-10',
 		'nfd-py-0',
+		'nfd-py-4',
 		'nfd-py-5',
 		'nfd-px-0',
 		'nfd-px-4',
