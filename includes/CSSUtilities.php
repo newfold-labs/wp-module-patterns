@@ -10,6 +10,7 @@ class CSSUtilities {
 	public function __construct() {
 		\add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 		\add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue' ) );
+		\add_filter( 'enqueue_nfd_wonder_blocks_utilities', array( $this, 'enqueue' ) );
 	}
 
 	/**
