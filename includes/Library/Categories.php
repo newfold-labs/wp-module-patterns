@@ -116,7 +116,7 @@ class Categories {
 	private static function add_featured_category( $data ) {
 
 		$featured_category = array(
-			'id'    => '64552d7e137ae',
+			'id'    => '99262afa-322a-4f3c-92e4-c297ba153763',
 			'title' => 'featured',
 			'label' => 'Featured',
 		);
