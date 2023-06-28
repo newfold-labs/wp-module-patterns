@@ -78,6 +78,10 @@ class Items {
 			}
 
 			$data = self::add_featured_categories( $data );
+			
+			if ( 'templates' === $type ) {
+				$data = self::add_template_parts( $data );
+			}
 
 			\set_transient( "wba_{$type}_{$id}", $data, DAY_IN_SECONDS );
 		}
@@ -242,5 +246,52 @@ class Items {
 		);
 
 		return $data;
+	}
+	
+	/**
+	 * Add template parts to templates.
+	 *
+	 * @param array $data Array of templates.
+	 * @return array $data Array of templates with template parts.
+	 */
+	private static function add_template_parts( $data ) {
+		
+		$template_parts = self::get_template_parts();
+
+		$data = array_map(
+			function( $item ) use ( $template_parts ) {
+				if ( isset( $template_parts[ $item['slug'] ] ) ) {
+					$item['templateParts'] = array(
+						'slug'    => $template_parts[ $item['slug'] ],
+						'content' => '',
+					);
+				}
+				return $item;
+			},
+			$data
+		);
+		
+		return $data;
+	}
+	
+	/**
+	 * Get template parts.
+	 *
+	 * @return array $template_parts
+	 */
+	private static function get_template_parts() {
+		
+		$template_parts = array(
+			'home-1' => array(
+				'header' => array(					
+					'slug' => 'header-1',
+				),
+				'footer' => array(
+					'slug' => 'footer-1',
+				),
+ 			)
+		);
+		
+		return apply_filters( 'bptds_template_parts', $template_parts );
 	}
 }

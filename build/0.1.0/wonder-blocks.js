@@ -2052,7 +2052,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/notices */ "@wordpress/notices");
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_notices__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
@@ -2062,8 +2062,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_optimizePreview__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../helpers/optimizePreview */ "./src/helpers/optimizePreview.js");
 /* harmony import */ var _hooks_usePatterns__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../hooks/usePatterns */ "./src/hooks/usePatterns.js");
 /* harmony import */ var _hooks_usePostTemplates__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../hooks/usePostTemplates */ "./src/hooks/usePostTemplates.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
-/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../Icons */ "./src/components/Icons/index.js");
+/* harmony import */ var _hooks_useTemplateParts__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../hooks/useTemplateParts */ "./src/hooks/useTemplateParts.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
+/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../Icons */ "./src/components/Icons/index.js");
 
 /**
  * External dependencies
@@ -2095,6 +2096,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const DesignItem = _ref => {
   let {
     item
@@ -2117,12 +2119,9 @@ const DesignItem = _ref => {
   const {
     getBlankTemplate
   } = (0,_hooks_usePostTemplates__WEBPACK_IMPORTED_MODULE_15__["default"])();
-  const blocks = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_4__.rawHandler)({
-    HTML: item.content
-  }), [item.content]);
-  const previewBlocks = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_4__.rawHandler)({
-    HTML: (0,_helpers_optimizePreview__WEBPACK_IMPORTED_MODULE_13__.optimizePreview)(item.content)
-  }), [item.content]);
+  const {
+    getTemplatePart
+  } = (0,_hooks_useTemplateParts__WEBPACK_IMPORTED_MODULE_16__["default"])();
   const {
     createErrorNotice,
     createSuccessNotice
@@ -2132,20 +2131,49 @@ const DesignItem = _ref => {
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_6__.useDispatch)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_7__.store);
   const {
     setIsModalOpen
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_6__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_16__.store);
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_6__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_17__.store);
   const {
     activeTab,
     activeTemplatesCategory,
     activePatternsCategory,
     selectedTemplateSlug,
-    keywords
+    keywords,
+    currentTheme
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_6__.useSelect)(select => ({
-    activeTab: select(_store__WEBPACK_IMPORTED_MODULE_16__.store).getActiveTab(),
-    activeTemplatesCategory: select(_store__WEBPACK_IMPORTED_MODULE_16__.store).getActiveTemplatesCategory(),
-    activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_16__.store).getActivePatternsCategory(),
+    activeTab: select(_store__WEBPACK_IMPORTED_MODULE_17__.store).getActiveTab(),
+    activeTemplatesCategory: select(_store__WEBPACK_IMPORTED_MODULE_17__.store).getActiveTemplatesCategory(),
+    activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_17__.store).getActivePatternsCategory(),
     selectedTemplateSlug: select(_wordpress_editor__WEBPACK_IMPORTED_MODULE_7__.store).getEditedPostAttribute('template'),
-    keywords: select(_store__WEBPACK_IMPORTED_MODULE_16__.store).getKeywordsFilter()
+    keywords: select(_store__WEBPACK_IMPORTED_MODULE_17__.store).getKeywordsFilter(),
+    currentTheme: select('core').getCurrentTheme()
   }));
+
+  /**
+   * Check if we should add template parts to a template.
+   */
+  const contentWithTemplateParts = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    if ((item === null || item === void 0 ? void 0 : item.type) === 'templates' && item !== null && item !== void 0 && item.templateParts) {
+      var _item$templateParts, _item$templateParts2;
+      let content = item === null || item === void 0 ? void 0 : item.content;
+      if (item !== null && item !== void 0 && (_item$templateParts = item.templateParts) !== null && _item$templateParts !== void 0 && _item$templateParts.header) {
+        content = `<!-- wp:template-part {"slug":"wb-${item === null || item === void 0 ? void 0 : item.templateParts.header.slug}","theme":"${currentTheme.stylesheet}","area":"header"} /-->${content}`;
+      }
+      if (item !== null && item !== void 0 && (_item$templateParts2 = item.templateParts) !== null && _item$templateParts2 !== void 0 && _item$templateParts2.footer) {
+        content = `${content}<!-- wp:template-part {"slug":"wb-${item === null || item === void 0 ? void 0 : item.templateParts.footer.slug}","theme":"${currentTheme.stylesheet}","area":"footer"} /-->`;
+      }
+      return content;
+    }
+    return item === null || item === void 0 ? void 0 : item.content;
+  }, [item === null || item === void 0 ? void 0 : item.content, item === null || item === void 0 ? void 0 : item.templateParts, item === null || item === void 0 ? void 0 : item.type, currentTheme]);
+  const blocks = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_4__.rawHandler)({
+    HTML: contentWithTemplateParts()
+  }), [contentWithTemplateParts]);
+  const headerTemplatePart = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_4__.rawHandler)({
+    HTML: '<!-- wp:template-part {"slug":"wb-header-1","theme":"yith-wonder","area":"header"} /-->'
+  }), []);
+  const previewBlocks = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_4__.rawHandler)({
+    HTML: (0,_helpers_optimizePreview__WEBPACK_IMPORTED_MODULE_13__.optimizePreview)(contentWithTemplateParts())
+  }), [contentWithTemplateParts]);
 
   /**
    * Check if the trash icon should be shown.
@@ -2182,19 +2210,33 @@ const DesignItem = _ref => {
   const insertDesignHandler = async () => {
     setInsertingDesign(true);
     try {
-      if (shouldSetBlankTemplate()) {
-        // Get or create a blank template.
-        const blankTemplate = await getBlankTemplate();
-        if (blankTemplate) {
-          // Assign the template to the post.
-          editPost({
-            template: (blankTemplate === null || blankTemplate === void 0 ? void 0 : blankTemplate.slug) || ''
-          });
+      if ((item === null || item === void 0 ? void 0 : item.type) === 'templates' && item !== null && item !== void 0 && item.templateParts) {
+        var _item$templateParts3, _item$templateParts4;
+        if (shouldSetBlankTemplate()) {
+          // Get or create a blank template.
+          const blankTemplate = await getBlankTemplate();
+          if (blankTemplate) {
+            // Assign the template to the post.
+            editPost({
+              template: (blankTemplate === null || blankTemplate === void 0 ? void 0 : blankTemplate.slug) || ''
+            });
+          }
         }
-      }
 
-      // Insert the pattern.
-      await (0,_helpers_blockInserter__WEBPACK_IMPORTED_MODULE_12__.blockInserter)(blocks);
+        // Get Header Template Part.
+        const templatePartHeader = await getTemplatePart(`wb-${item === null || item === void 0 ? void 0 : (_item$templateParts3 = item.templateParts) === null || _item$templateParts3 === void 0 ? void 0 : _item$templateParts3.header.slug}`, 'header', 'header content');
+
+        // Get Footer Template Part.
+        const templatePartFooter = await getTemplatePart(`wb-${item === null || item === void 0 ? void 0 : (_item$templateParts4 = item.templateParts) === null || _item$templateParts4 === void 0 ? void 0 : _item$templateParts4.footer.slug}`, 'footer', 'footer content');
+
+        // Insert blocks when both template parts are available.
+        if (templatePartHeader && templatePartFooter) {
+          await (0,_helpers_blockInserter__WEBPACK_IMPORTED_MODULE_12__.blockInserter)(blocks);
+        }
+      } else {
+        // Insert the pattern.
+        await (0,_helpers_blockInserter__WEBPACK_IMPORTED_MODULE_12__.blockInserter)(blocks);
+      }
 
       // Show a success notice.
       createSuccessNotice((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.sprintf)(
@@ -2291,23 +2333,23 @@ const DesignItem = _ref => {
     showTooltip: true,
     label: isFavorite ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('In Favorites', 'nfd-wonder-blocks') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Add to Favorites', 'nfd-wonder-blocks'),
     onClick: () => favoritesClickHandler(false),
-    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_18__["default"], {
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_19__["default"], {
       className: "nfd-wba-shrink-0",
       fill: "currentColor",
       size: 24,
-      icon: isFavorite ? _Icons__WEBPACK_IMPORTED_MODULE_17__.heart : _Icons__WEBPACK_IMPORTED_MODULE_17__.heartEmpty
+      icon: isFavorite ? _Icons__WEBPACK_IMPORTED_MODULE_18__.heart : _Icons__WEBPACK_IMPORTED_MODULE_18__.heartEmpty
     })
   }), shouldShowTrash() && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600'),
     showTooltip: true,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Remove from Favorites', 'nfd-wonder-blocks'),
     onClick: () => favoritesClickHandler(),
-    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_18__["default"], {
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_19__["default"], {
       className: "nfd-wba-shrink-0",
       fill: "currentColor",
       width: 32,
       height: 32,
-      icon: _Icons__WEBPACK_IMPORTED_MODULE_17__.trash
+      icon: _Icons__WEBPACK_IMPORTED_MODULE_18__.trash
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
     className: "nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50",
@@ -2316,11 +2358,11 @@ const DesignItem = _ref => {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Add pattern to page', 'nfd-wonder-blocks'),
     showTooltip: true,
     onClick: () => insertDesignHandler(),
-    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_18__["default"], {
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_19__["default"], {
       fill: "currentColor",
       className: "nfd-wba-shrink-0",
       size: 24,
-      icon: _Icons__WEBPACK_IMPORTED_MODULE_17__.plus
+      icon: _Icons__WEBPACK_IMPORTED_MODULE_18__.plus
     })
   }))));
 };
@@ -3564,6 +3606,61 @@ const optimizePreview = html => {
 
 /***/ }),
 
+/***/ "./src/helpers/templateUtils.js":
+/*!**************************************!*\
+  !*** ./src/helpers/templateUtils.js ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "areTemplatesIdentical": function() { return /* binding */ areTemplatesIdentical; },
+/* harmony export */   "getUniqueTemplatePartTitle": function() { return /* binding */ getUniqueTemplatePartTitle; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Compare two templates to see if they are identical.
+ *
+ * @param {string} template1 Template 1 content.
+ * @param {string} template2 Template 2 content.
+ * @return {boolean}          Whether the templates are identical.
+ */
+const areTemplatesIdentical = (template1, template2) => {
+  // Serialize the templates to JSON
+  const template1Json = JSON.stringify(wp.blocks.parse(template1));
+  const template2Json = JSON.stringify(wp.blocks.parse(template2));
+
+  // Compare the JSON strings
+  return template1Json === template2Json;
+};
+
+/**
+ * Return a unique template part title based on
+ * the given title and existing template parts.
+ *
+ * @param {string} title         The original template part title.
+ * @param {Object} templateParts The array of template part entities.
+ * @return {string} A unique template part title.
+ */
+const getUniqueTemplatePartTitle = (title, templateParts) => {
+  const lowercaseTitle = title.toLowerCase();
+  const existingTitles = templateParts.map(templatePart => templatePart.title.rendered.toLowerCase());
+  if (!existingTitles.includes(lowercaseTitle)) {
+    return title;
+  }
+  let suffix = 2;
+  while (existingTitles.includes(`${lowercaseTitle} ${suffix}`)) {
+    suffix++;
+  }
+  return `${title} ${suffix}`;
+};
+
+/***/ }),
+
 /***/ "./src/hooks/useCategories.js":
 /*!************************************!*\
   !*** ./src/hooks/useCategories.js ***!
@@ -3776,6 +3873,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
 /* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_url__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
+/* harmony import */ var _helpers_templateUtils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../helpers/templateUtils */ "./src/helpers/templateUtils.js");
 /**
  * WordPress dependencies
  */
@@ -3790,6 +3888,7 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
+
 const usePostTemplates = () => {
   const {
     __unstableCreateTemplate
@@ -3802,32 +3901,127 @@ const usePostTemplates = () => {
       per_page: -1
     })
   }));
-  const getBlankTemplate = async () => {
-    const slug = (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_5__.cleanForSlug)(_constants__WEBPACK_IMPORTED_MODULE_6__.WONDER_BLOCKS_BLANK_TEMPLATE_SLUG);
 
+  // Get the blank template.
+  const getBlankTemplate = async () => {
+    const blankTemplate = {
+      slug: (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_5__.cleanForSlug)(_constants__WEBPACK_IMPORTED_MODULE_6__.WONDER_BLOCKS_BLANK_TEMPLATE_SLUG),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Blank Template', 'nfd-wonder-blocks'),
+      content: (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.serialize)([(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('core/post-content', {
+        layout: {
+          inherit: true
+        }
+      })])
+    };
+    return await getTemplate(blankTemplate.slug, blankTemplate.title, blankTemplate.content);
+  };
+
+  // Check if a template exists or create a new one and return it.
+  const getTemplate = async (slug, title, content) => {
     // Check if the template already exists.
     let foundTemplate = templates === null || templates === void 0 ? void 0 : templates.find(template => template.slug === slug);
+
+    // If the template exists, check if it's identical to the one we want to create.
+    if (foundTemplate) {
+      const isIdentical = (0,_helpers_templateUtils__WEBPACK_IMPORTED_MODULE_7__.areTemplatesIdentical)(foundTemplate.content.raw, content);
+      if (!isIdentical) {
+        // If the template is not identical, ask if we need to update or create new.
+      }
+    }
 
     // If the template doesn't exist, create it.
     if (!foundTemplate) {
       foundTemplate = await __unstableCreateTemplate({
         slug,
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Blank Template', 'nfd-wonder-blocks'),
-        content: (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.serialize)([(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('core/post-content', {
-          layout: {
-            inherit: true
-          }
-        })])
+        title,
+        content
       });
     }
     return foundTemplate;
   };
   return {
     templates,
-    getBlankTemplate
+    getBlankTemplate,
+    getTemplate
   };
 };
 /* harmony default export */ __webpack_exports__["default"] = (usePostTemplates);
+
+/***/ }),
+
+/***/ "./src/hooks/useTemplateParts.js":
+/*!***************************************!*\
+  !*** ./src/hooks/useTemplateParts.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
+/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_url__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helpers_templateUtils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/templateUtils */ "./src/helpers/templateUtils.js");
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+const useTemplateParts = () => {
+  const {
+    saveEntityRecord
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useDispatch)(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_0__.store);
+  const {
+    existingTemplateParts
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => ({
+    existingTemplateParts: select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_0__.store).getEntityRecords('postType', 'wp_template_part', {
+      status: 'publish',
+      per_page: -1
+    })
+  }));
+
+  /**
+   * Check if a template part exists and return it.
+   * If it doesn't exist, create it and return it.
+   *
+   * @param {string} title   The template part title.
+   * @param {string} area    The template part area.
+   * @param {string} content The template part default content.
+   * @return {Object} The template part entity.
+   */
+  const getTemplatePart = async function (title, area) {
+    let content = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    let foundTemplatePart = existingTemplateParts === null || existingTemplateParts === void 0 ? void 0 : existingTemplateParts.find(templatePart => {
+      return templatePart.title.rendered === title && templatePart.area === area;
+    });
+    if (!foundTemplatePart) {
+      const uniqueTitle = (0,_helpers_templateUtils__WEBPACK_IMPORTED_MODULE_3__.getUniqueTemplatePartTitle)(title, existingTemplateParts);
+      const cleanSlug = (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_2__.cleanForSlug)(uniqueTitle);
+      foundTemplatePart = await saveEntityRecord('postType', 'wp_template_part', {
+        slug: cleanSlug,
+        title: uniqueTitle,
+        content: content || '',
+        area
+      }, {
+        throwOnError: true
+      });
+    }
+    return foundTemplatePart;
+  };
+  return {
+    existingTemplateParts,
+    getTemplatePart
+  };
+};
+/* harmony default export */ __webpack_exports__["default"] = (useTemplateParts);
 
 /***/ }),
 

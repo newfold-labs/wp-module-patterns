@@ -35,6 +35,7 @@ import { blockInserter } from '../../../../helpers/blockInserter';
 import { optimizePreview } from '../../../../helpers/optimizePreview';
 import usePatterns from '../../../../hooks/usePatterns';
 import usePostTemplates from '../../../../hooks/usePostTemplates';
+import useTemplateParts from '../../../../hooks/useTemplateParts';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
 
@@ -49,16 +50,7 @@ const DesignItem = ({ item }) => {
 	});
 
 	const { getBlankTemplate } = usePostTemplates();
-
-	const blocks = useMemo(
-		() => rawHandler({ HTML: item.content }),
-		[item.content]
-	);
-
-	const previewBlocks = useMemo(
-		() => rawHandler({ HTML: optimizePreview(item.content) }),
-		[item.content]
-	);
+	const { getTemplatePart } = useTemplateParts();
 
 	const { createErrorNotice, createSuccessNotice } =
 		useDispatch(noticesStore);
@@ -71,6 +63,7 @@ const DesignItem = ({ item }) => {
 		activePatternsCategory,
 		selectedTemplateSlug,
 		keywords,
+		currentTheme,
 	} = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activeTemplatesCategory:
@@ -80,7 +73,47 @@ const DesignItem = ({ item }) => {
 		selectedTemplateSlug:
 			select(editorStore).getEditedPostAttribute('template'),
 		keywords: select(nfdPatternsStore).getKeywordsFilter(),
+		currentTheme: select('core').getCurrentTheme(),
 	}));
+
+	/**
+	 * Check if we should add template parts to a template.
+	 */
+	const contentWithTemplateParts = useCallback(() => {
+		if (item?.type === 'templates' && item?.templateParts) {
+			let content = item?.content;
+
+			if (item?.templateParts?.header) {
+				content = `<!-- wp:template-part {"slug":"wb-${item?.templateParts.header.slug}","theme":"${currentTheme.stylesheet}","area":"header"} /-->${content}`;
+			}
+
+			if (item?.templateParts?.footer) {
+				content = `${content}<!-- wp:template-part {"slug":"wb-${item?.templateParts.footer.slug}","theme":"${currentTheme.stylesheet}","area":"footer"} /-->`;
+			}
+
+			return content;
+		}
+
+		return item?.content;
+	}, [item?.content, item?.templateParts, item?.type, currentTheme]);
+
+	const blocks = useMemo(
+		() => rawHandler({ HTML: contentWithTemplateParts() }),
+		[contentWithTemplateParts]
+	);
+
+	const headerTemplatePart = useMemo(
+		() =>
+			rawHandler({
+				HTML: '<!-- wp:template-part {"slug":"wb-header-1","theme":"yith-wonder","area":"header"} /-->',
+			}),
+		[]
+	);
+
+	const previewBlocks = useMemo(
+		() => rawHandler({ HTML: optimizePreview(contentWithTemplateParts()) }),
+		[contentWithTemplateParts]
+	);
 
 	/**
 	 * Check if the trash icon should be shown.
@@ -141,18 +174,39 @@ const DesignItem = ({ item }) => {
 		setInsertingDesign(true);
 
 		try {
-			if (shouldSetBlankTemplate()) {
-				// Get or create a blank template.
-				const blankTemplate = await getBlankTemplate();
+			if (item?.type === 'templates' && item?.templateParts) {
+				if (shouldSetBlankTemplate()) {
+					// Get or create a blank template.
+					const blankTemplate = await getBlankTemplate();
 
-				if (blankTemplate) {
-					// Assign the template to the post.
-					editPost({ template: blankTemplate?.slug || '' });
+					if (blankTemplate) {
+						// Assign the template to the post.
+						editPost({ template: blankTemplate?.slug || '' });
+					}
 				}
-			}
 
-			// Insert the pattern.
-			await blockInserter(blocks);
+				// Get Header Template Part.
+				const templatePartHeader = await getTemplatePart(
+					`wb-${item?.templateParts?.header.slug}`,
+					'header',
+					'header content'
+				);
+
+				// Get Footer Template Part.
+				const templatePartFooter = await getTemplatePart(
+					`wb-${item?.templateParts?.footer.slug}`,
+					'footer',
+					'footer content'
+				);
+
+				// Insert blocks when both template parts are available.
+				if (templatePartHeader && templatePartFooter) {
+					await blockInserter(blocks);
+				}
+			} else {
+				// Insert the pattern.
+				await blockInserter(blocks);
+			}
 
 			// Show a success notice.
 			createSuccessNotice(
