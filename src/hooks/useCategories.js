@@ -13,9 +13,7 @@ const useCategories = (type = 'patterns') => {
 	const endpoint = type === 'patterns' ? 'categories' : 'templateCategories';
 
 	const { data, error, isValidating } = useSWR(
-		{
-			url: `${NFD_REST_URL}/${endpoint}`,
-		},
+		{ url: `${NFD_REST_URL}/${endpoint}` },
 		fetcher
 	);
 
