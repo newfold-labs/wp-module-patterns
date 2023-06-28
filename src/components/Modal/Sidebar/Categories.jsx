@@ -26,10 +26,10 @@ const Categories = ({ type = 'patterns' }) => {
 	// Format categories for mobile dropdown
 	// prettier-ignore
 	const formattedCategoriesForMobile = useMemo(() => {
-		return data?.reduce((result, category) => {
+		return data?.reduce((result, category) => {            
             // Handle undefined values
             const label = category.label || '';
-            const count = category.count || '';
+            const count = category.count ?? '';
             const title = category.title || '';
             
             let formattedLabel = label;
