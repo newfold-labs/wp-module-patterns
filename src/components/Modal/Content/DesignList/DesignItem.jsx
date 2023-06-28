@@ -22,19 +22,14 @@ import {
 import { __, sprintf } from '@wordpress/i18n';
 import { Icon } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
-import { cleanForSlug } from '@wordpress/url';
 
 /**
  * Internal dependencies
  */
-import {
-	NFD_REST_URL,
-	WONDER_BLOCKS_BLANK_TEMPLATE_SLUG,
-} from '../../../../constants';
+import { NFD_REST_URL } from '../../../../constants';
 import { blockInserter } from '../../../../helpers/blockInserter';
 import { optimizePreview } from '../../../../helpers/optimizePreview';
 import usePatterns from '../../../../hooks/usePatterns';
-import usePostTemplates from '../../../../hooks/usePostTemplates';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
 
@@ -47,8 +42,6 @@ const DesignItem = ({ item }) => {
 		onlyFavorites: true,
 		perPage: -1,
 	});
-
-	const { getBlankTemplate } = usePostTemplates();
 
 	const blocks = useMemo(
 		() => rawHandler({ HTML: item.content }),
@@ -71,6 +64,7 @@ const DesignItem = ({ item }) => {
 		activePatternsCategory,
 		selectedTemplateSlug,
 		keywords,
+		currentTheme,
 	} = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
 		activeTemplatesCategory:
@@ -80,6 +74,7 @@ const DesignItem = ({ item }) => {
 		selectedTemplateSlug:
 			select(editorStore).getEditedPostAttribute('template'),
 		keywords: select(nfdPatternsStore).getKeywordsFilter(),
+		currentTheme: select('core').getCurrentTheme(),
 	}));
 
 	/**
@@ -107,17 +102,17 @@ const DesignItem = ({ item }) => {
 	]);
 
 	/**
-	 * Check if blank template should be set
+	 * Check if a template should be set
 	 *
 	 * @return {boolean}
 	 */
-	const shouldSetBlankTemplate = useCallback(() => {
+	const shouldUpdateTemplate = useCallback(() => {
 		return (
 			item?.type === 'templates' &&
-			selectedTemplateSlug !==
-				cleanForSlug(WONDER_BLOCKS_BLANK_TEMPLATE_SLUG)
+			currentTheme.template === 'yith-wonder' &&
+			selectedTemplateSlug !== 'no-title'
 		);
-	}, [item?.type, selectedTemplateSlug]);
+	}, [item?.type, selectedTemplateSlug, currentTheme]);
 
 	useEffect(() => {
 		let isFav = false;
@@ -141,14 +136,9 @@ const DesignItem = ({ item }) => {
 		setInsertingDesign(true);
 
 		try {
-			if (shouldSetBlankTemplate()) {
-				// Get or create a blank template.
-				const blankTemplate = await getBlankTemplate();
-
-				if (blankTemplate) {
-					// Assign the template to the post.
-					editPost({ template: blankTemplate?.slug || '' });
-				}
+			if (shouldUpdateTemplate()) {
+				// Assign "Yith Wonder - No Title" template to the post.
+				editPost({ template: 'no-title' || '' });
 			}
 
 			// Insert the pattern.
