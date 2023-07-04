@@ -25,7 +25,7 @@ class Categories {
 		$data = \get_transient( "wba_{$type}_categories" );
 
 		// If the transient is empty, get the categories from the remote API.
-		if ( false === $data ) {
+		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
 
 			if ( 'templates' === $type ) {
 				$data = self::get_template_categories();

@@ -65,7 +65,7 @@ class Items {
 		$type = 'templates' === $type ? 'templates' : 'patterns';
 		$data = \get_transient( "wba_{$type}_{$id}" );
 
-		if ( false === $data ) {
+		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
 
 			$data = RemoteRequest::get( "/{$type}", $args );
 

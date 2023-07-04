@@ -46,15 +46,16 @@ class RemoteRequest {
 			return;
 		}
 
-		// Some special cases for library development.
-		$this->base_url = 'https://patterns.hiive.cloud'; // @todo
-
+		if ( \defined( 'NFD_WB_DEV_MODE') && NFD_WB_DEV_MODE ) {
+			$this->base_url = 'http://localhost:8888';
+		} else {
+			$this->base_url = 'https://patterns.hiive.cloud';
+		}
+		
+		
 		$this->data = array(
 			'wp_language'       => \get_locale(),
 			'wp_theme'          => \get_option( 'template' ),
-			// 'mode' => Config::$environment,
-			// 'uuid' => User::data('uuid'),
-			// 'library_version' => Config::$version,
 			'wp_active_plugins' => $request->get_method() === 'POST' ? \get_option( 'active_plugins' ) : array(),
 		);
 
