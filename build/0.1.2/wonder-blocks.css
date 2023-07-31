@@ -1009,10 +1009,5 @@
     max-width: 90%;
   }
 }
-@media (min-width: 1024px) {
-  .lg\:nfd-wba-inline {
-    display: inline;
-  }
-}
 
 /*# sourceMappingURL=wonder-blocks.css.map*/
