@@ -25,18 +25,14 @@ const ToolbarButton = () => {
 	return (
 		<WPToolbarButton
 			icon={<Icon icon={buttons} />}
+			text="Wonder Blocks"
 			className={classNames(
 				'nfd-wba-ml-2 nfd-wba-flex !nfd-wba-h-9 nfd-wba-shrink-0 nfd-wba-bg-brand nfd-wba-text-white hover:nfd-wba-bg-brand-darker hover:nfd-wba-text-white focus-visible:nfd-wba-text-white active:nfd-wba-bg-brand-darker-10 active:!nfd-wba-text-white',
 				isModalOpen && '!nfd-wba-bg-dark nfd-wba-text-white'
 			)}
 			isPressed={isModalOpen}
 			onClick={() => setIsModalOpen(true)}
-		>
-			<span>Patterns</span>
-			<span className="nfd-wba-hidden lg:nfd-wba-inline">
-				&nbsp;& Templates
-			</span>
-		</WPToolbarButton>
+		/>
 	);
 };
 

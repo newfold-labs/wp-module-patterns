@@ -60,7 +60,7 @@ registerBlockType(metadata, {
 			<img
 				style={{ display: 'block', maxWidth: '100%' }}
 				src={attributes.preview}
-				alt="Patterns & Templates"
+				alt="Wonder Blocks"
 			/>
 		);
 	},
