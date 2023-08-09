@@ -21,6 +21,7 @@ import NoResults from './DesignList/NoResults';
 import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
 import Spinner from './Spinner';
+import { trackHiiveEvent } from '../../../helpers/analytics';
 
 const Content = () => {
 	const [ready, setReady] = useState(false);
@@ -73,6 +74,25 @@ const Content = () => {
 			clearTimeout(t);
 		};
 	}, []);
+
+	useEffect(() => {
+		if (!keywordsFilter) {
+			return;
+		}
+
+		// @todo: need to take pagination into account.
+		const eventData = {
+			label_key: 'search_term',
+			search_term: keywordsFilter,
+			count: data?.length,
+		};
+
+		if (activeTab === 'patterns') {
+			trackHiiveEvent('pattern_searched', eventData);
+		} else if (activeTab === 'templates') {
+			trackHiiveEvent('template_searched', eventData);
+		}
+	}, [activeTab, data?.length, keywordsFilter]);
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]">

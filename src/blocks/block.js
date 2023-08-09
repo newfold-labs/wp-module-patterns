@@ -13,6 +13,7 @@ import { DEFAULT_PATTERNS_CATEGORY } from '../constants';
 import { store as nfdPatternsStore } from '../store';
 import metadata from './block.json';
 import { variations } from './variations';
+import { trackHiiveEvent } from '../helpers/analytics';
 
 registerBlockType(metadata, {
 	icon: {
@@ -44,6 +45,11 @@ registerBlockType(metadata, {
 					? attributes.category
 					: DEFAULT_PATTERNS_CATEGORY
 			);
+
+			trackHiiveEvent('modal_open', {
+				label_key: 'trigger',
+				trigger: 'block',
+			});
 
 			setIsModalOpen(true);
 		}, [

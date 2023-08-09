@@ -1,6 +1,727 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/data/namespace.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/data/namespace.js ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   namespace: () => (/* binding */ namespace)
+/* harmony export */ });
+const namespace = {
+	urls: {
+		single: undefined,
+		batch: undefined,
+	},
+	queue: {
+		events: [],
+		threshold: 100,
+	},
+	debounce: {
+		time: undefined,
+		instance: undefined,
+	},
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/events/HiiveEvent.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/events/HiiveEvent.js ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   HiiveEvent: () => (/* binding */ HiiveEvent)
+/* harmony export */ });
+/**
+ * Defines the structure of a Hiive analytics event.
+ *
+ * @class HiiveEvent
+ */
+class HiiveEvent {
+	/**
+	 * Constructor for the HiiveEvent class.
+	 *
+	 * @param {string} category  The category of the event (This actual value will depend on the URL you are reporting to).
+	 * @param {string} action    The action that triggered the event (The actual value will depend on the URL you are reporting to).
+	 * @param {Object} data      Data related to the event.
+	 * @param {string} namespace The namespace that the event belongs to.
+	 */
+	constructor( category, action, data, namespace ) {
+		this.category = category;
+		this.action = action;
+		this.data = data;
+		this.namespace = namespace;
+	}
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/events/index.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/events/index.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   HiiveEvent: () => (/* reexport safe */ _HiiveEvent__WEBPACK_IMPORTED_MODULE_0__.HiiveEvent)
+/* harmony export */ });
+/* harmony import */ var _HiiveEvent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HiiveEvent */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/events/HiiveEvent.js");
+// Exports related to Hiive events.
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/index.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/index.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   HiiveAnalytics: () => (/* binding */ HiiveAnalytics),
+/* harmony export */   HiiveEvent: () => (/* reexport safe */ _events__WEBPACK_IMPORTED_MODULE_1__.HiiveEvent)
+/* harmony export */ });
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/events/index.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/index.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+/**
+ * Determines whether Hiive analytics have been initialized or not for a particular namespace.
+ *
+ * @param {string} namespace The namespace the check.
+ * @return {boolean} whether Hiive analytics have been initialized or not for a particular namespace.
+ */
+const initialized = ( namespace ) => {
+	if ( window?.nfdUIAnalytics?.hiive ) {
+		return namespace in window.nfdUIAnalytics.hiive;
+	}
+	return false;
+};
+
+/**
+ * Validates that the parameter is an instance of HiiveEvent.
+ *
+ * @param {Object} event Any valid JS Object.
+ * @return {boolean} whether the param is a valid HiiveEvent instance or not.
+ */
+const validate = ( event ) => {
+	if ( ! ( event instanceof _events__WEBPACK_IMPORTED_MODULE_1__.HiiveEvent ) ) {
+		return false;
+	}
+
+	return true;
+};
+
+/**
+ * Initializes the module to send out Hiive analytics events.
+ *
+ * @param {Object} param0                          Data to initialize Hiive analytics.
+ * @param {Object} param0.settings                 Settings that define the behavior of HiiveAnalytics.
+ * @param {Object} param0.settings.debounce        Settings related to the debounce.
+ * @param {number} param0.settings.debounce.time   The interval that must pass once an event has been tracked after which a batch request gets placed automatically to the batch URL.
+ * @param {Object} param0.settings.queue           Settings related to the Hiive events queue.
+ * @param {number} param0.settings.queue.threshold The limit that the number of events in the queue must cross after which a batch request gets placed automatically to the batch URL.
+ * @param {Object} param0.urls                     Contains URL's to report analytics.
+ * @param {string} param0.urls.single              The URL that can handle a single event.
+ * @param {string} param0.urls.batch               The URL that can handle an array of events.
+ * @param {string} param0.namespace                The namespace to initialize.
+ * @return {boolean} Whether the module was initialized or not.
+ */
+const initialize = async ( {
+	namespace,
+	urls: { single, batch } = {},
+	settings: { debounce: { time } = {}, queue: { threshold = 100 } = {} } = {},
+} ) => {
+	if ( ! namespace ) {
+		return false;
+	}
+
+	// If the module is already initialized then skip initialization.
+	if ( initialized( namespace ) ) {
+		return true;
+	}
+
+	// If no reporting URL's are defined then fail initialization.
+	if ( ! ( single || batch ) ) {
+		return false;
+	}
+
+	(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).initializeNamespace( namespace );
+
+	// Update Redux store with all the required data.
+	(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveUrls(
+		{
+			single,
+			batch,
+		},
+		namespace
+	);
+	(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveDebounceTime( time, namespace );
+	(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveEventsQueueThreshold( threshold, namespace );
+
+	// This helps us quickly determine whether Hiive analytics have been enabled.
+	if ( window.nfdUIAnalytics?.hiive ) {
+		window.nfdUIAnalytics.hiive[ namespace ] = true;
+	} else {
+		window.nfdUIAnalytics = {
+			hiive: {
+				[ namespace ]: true,
+			},
+		};
+	}
+
+	return true;
+};
+
+/**
+ * Tracks the event by putting it in a queue.
+ *
+ * @param {HiiveEvent} event The event object to track.
+ * @return {boolean} whether the event has been successfully queued for tracking or not.
+ */
+const track = ( event ) => {
+	// Do not perform any activity if the module has not been initialized or the event is not valid.
+	if ( ! ( validate( event ) && initialized( event.namespace ) ) ) {
+		return false;
+	}
+	const namespace = event.namespace;
+	delete event.namespace;
+	// Add the event to a queue of tracked events.
+	const events = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).getHiiveEventsQueue( namespace );
+	events.push( event );
+	(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveEventsQueue( events, namespace );
+
+	// If the number of events in the queue have crossed the threshold then dispatch all of them.
+	const threshold = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).getHiiveEventsQueueThreshold( namespace );
+	if ( threshold && threshold < events.length ) {
+		dispatchEvents( namespace );
+	}
+
+	// Reset the debounce setTimeout instance.
+	resetDebounceInstance( namespace );
+
+	return true;
+};
+
+/**
+ * Reports the event to urls.single defined during initialization.
+ *
+ * @param {HiiveEvent} event The event object to send.
+ * @return {Promise<boolean>} whether the event has been successfully sent or not.
+ */
+const send = async ( event ) => {
+	// Do not perform any activity if the module has not been initialized or the event is not valid.
+	if ( ! ( validate( event ) && initialized( event.namespace ) ) ) {
+		return false;
+	}
+
+	const namespace = event.namespace;
+	delete event.namespace;
+
+	const url = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).getHiiveSingleUrl( namespace );
+	if ( ! url ) {
+		return false;
+	}
+
+	try {
+		await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()( {
+			url,
+			method: 'POST',
+			data: event,
+		} );
+	} catch ( error ) {
+		console.error( error );
+		return false;
+	}
+};
+
+/**
+ * Reports all the queued events to urls.batch defined during initialization.
+ *
+ * @param {string} namespace The namespace whose events must be dispatched.
+ * @return {Promise<boolean>} whether or not all the events were sent to the batchUrl successfully.
+ */
+const dispatchEvents = async ( namespace ) => {
+	if ( ! namespace || ! initialized( namespace ) ) {
+		return false;
+	}
+
+	const url = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).getHiiveBatchUrl( namespace );
+	if ( ! url ) {
+		return false;
+	}
+
+	// If there are no events to report then return.
+	const events = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).getHiiveEventsQueue( namespace );
+	if ( 0 === events.length ) {
+		return true;
+	}
+
+	// Rare case: Do this so that any other dispatchEvents calls do not dispatch redundant data.
+	(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveEventsQueue( [], namespace );
+
+	try {
+		await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()( {
+			url,
+			method: 'POST',
+			data: events,
+		} );
+	} catch ( error ) {
+		// [TODO] Figure out a better error handling method and clear the queue.
+		console.error( error );
+		(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveEventsQueue( events, namespace );
+	}
+
+	return true;
+};
+
+/**
+ * Resets the debounce instance countdown.
+ *
+ * @param {string} namespace The namespace in which the debounce instance should be reset.
+ * @return {boolean} whether the reset occurred successfully or not.
+ */
+const resetDebounceInstance = ( namespace ) => {
+	if ( ! namespace ) {
+		return false;
+	}
+
+	const debounce = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).getHiiveDebounce( namespace );
+
+	if ( ! debounce.time ) {
+		return false;
+	}
+
+	clearInterval( debounce.instance );
+	(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveDebounceInstance(
+		setTimeout( () => {
+			dispatchEvents( namespace );
+			(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveDebounceInstance(
+				undefined,
+				namespace
+			);
+		}, debounce.time ),
+		namespace
+	);
+	return true;
+};
+
+/**
+ * Disables the debounce.
+ *
+ * @param {string} namespace The namespace in which the debounce instance should be disabled.
+ * @return {boolean} whether the debounce has been successfully disabled or not.
+ */
+const disableDebounce = ( namespace ) => {
+	if ( ! namespace ) {
+		return false;
+	}
+
+	const debounce = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).getHiiveDebounce( namespace );
+	if ( debounce.instance ) {
+		clearInterval( debounce.instance );
+		(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveDebounceInstance( undefined, namespace );
+		(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)( _store__WEBPACK_IMPORTED_MODULE_2__.store ).updateHiiveDebounceTime( undefined, namespace );
+	}
+	return true;
+};
+
+const HiiveAnalytics = {
+	initialize,
+	initialized,
+	validate,
+	track,
+	send,
+	dispatchEvents,
+	disableDebounce,
+};
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/index.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/index.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   HiiveAnalytics: () => (/* reexport safe */ _hiive__WEBPACK_IMPORTED_MODULE_0__.HiiveAnalytics),
+/* harmony export */   HiiveEvent: () => (/* reexport safe */ _hiive__WEBPACK_IMPORTED_MODULE_0__.HiiveEvent)
+/* harmony export */ });
+/* harmony import */ var _hiive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hiive */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/index.js");
+// Exports for the Hiive Platform.
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/actions.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/actions.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initializeNamespace: () => (/* binding */ initializeNamespace),
+/* harmony export */   updateHiiveDebounceInstance: () => (/* binding */ updateHiiveDebounceInstance),
+/* harmony export */   updateHiiveDebounceTime: () => (/* binding */ updateHiiveDebounceTime),
+/* harmony export */   updateHiiveEventsQueue: () => (/* binding */ updateHiiveEventsQueue),
+/* harmony export */   updateHiiveEventsQueueThreshold: () => (/* binding */ updateHiiveEventsQueueThreshold),
+/* harmony export */   updateHiiveUrls: () => (/* binding */ updateHiiveUrls)
+/* harmony export */ });
+/**
+ * Initialize a Hiive Event namespace.
+ *
+ * @param {string} namespace The namespace to be initialized.
+ * @return {Object} Type of action to perform with data.
+ */
+function initializeNamespace( namespace ) {
+	return {
+		type: 'INITIALIZE_NAMESPACE',
+		namespace,
+	};
+}
+
+/**
+ * Update the Hiive URLs.
+ *
+ * @param {Object} urls      The Hiive URLs.
+ * @param {string} namespace The namespace in which the URL's must be updated.
+ * @return {Object} Type of action to perform with data.
+ */
+function updateHiiveUrls( urls, namespace ) {
+	return {
+		type: 'UPDATE_HIIVE_URLS',
+		urls,
+		namespace,
+	};
+}
+
+/**
+ * Update the Hiive events queue.
+ *
+ * @param {Array}  events    An array of events to be queued.
+ * @param {string} namespace The namespace in which the queue must be updated.
+ * @return {Object} Type of action to perform with data.
+ */
+function updateHiiveEventsQueue( events, namespace ) {
+	return {
+		type: 'UPDATE_HIIVE_EVENTS_QUEUE',
+		events,
+		namespace,
+	};
+}
+
+/**
+ *
+ * @param {number} threshold The threshold for the queue.
+ * @param {string} namespace The namespace in which the threshold must be updated.
+ * @return {Object} Type of action to perform with data.
+ */
+function updateHiiveEventsQueueThreshold( threshold, namespace ) {
+	return {
+		type: 'UPDATE_HIIVE_EVENTS_QUEUE_THRESHOLD',
+		threshold,
+		namespace,
+	};
+}
+
+/**
+ * Update the Hiive events dispatch debounce time.
+ *
+ * @param {number} debounceTime The time to wait.
+ * @param {string} namespace    The namespace in which the debounce time must be updated.
+ * @return {Object} Type of action to perform with data.
+ */
+function updateHiiveDebounceTime( debounceTime, namespace ) {
+	return {
+		type: 'UPDATE_HIIVE_DEBOUNCE_TIME',
+		debounceTime,
+		namespace,
+	};
+}
+
+/**
+ * Updates the Hiive debounce instance.
+ *
+ * @param {Object} instance  A setTimeout instance of the debounce.
+ * @param {string} namespace The namespace in which the debounce instance must be updated.
+ * @return {Object} Type of action to perform with data.
+ */
+function updateHiiveDebounceInstance( instance, namespace ) {
+	return {
+		type: 'UPDATE_HIIVE_DEBOUNCE_INSTANCE',
+		instance,
+		namespace,
+	};
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/constants.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/constants.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   STORE_NAME: () => (/* binding */ STORE_NAME)
+/* harmony export */ });
+/**
+ * The name for the Redux store of this package.
+ */
+const STORE_NAME = 'newfold/ui-analytics';
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/index.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/index.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   nfdUIAnalyticsStoreConfig: () => (/* binding */ nfdUIAnalyticsStoreConfig),
+/* harmony export */   store: () => (/* binding */ store)
+/* harmony export */ });
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducer */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/reducer.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/actions.js");
+/* harmony import */ var _selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./selectors */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/selectors.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./constants */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/constants.js");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+
+/**
+ * The Redux store configuration.
+ */
+const nfdUIAnalyticsStoreConfig = {
+	reducer: _reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
+	actions: _actions__WEBPACK_IMPORTED_MODULE_1__,
+	selectors: _selectors__WEBPACK_IMPORTED_MODULE_2__,
+};
+
+const store = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.createReduxStore)( _constants__WEBPACK_IMPORTED_MODULE_3__.STORE_NAME, nfdUIAnalyticsStoreConfig );
+(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.register)( store );
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/reducer.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/reducer.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   hiive: () => (/* binding */ hiive)
+/* harmony export */ });
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hiive_data_namespace__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hiive/data/namespace */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/hiive/data/namespace.js");
+
+
+
+
+/**
+ * A reducer for Hiive related actions.
+ *
+ * @param {Object} state  The current state of the store.
+ * @param {Object} action The action to be performed to change the state.
+ * @return {Object} state The new state of the store after the action is performed.
+ */
+const hiive = ( state, action ) => {
+	switch ( action.type ) {
+		case 'INITIALIZE_NAMESPACE': {
+			return {
+				...state,
+				[ action.namespace ]: _hiive_data_namespace__WEBPACK_IMPORTED_MODULE_1__.namespace,
+			};
+		}
+		case 'UPDATE_HIIVE_URLS':
+			return {
+				...state,
+				[ action.namespace ]: {
+					...state[ action.namespace ],
+					urls: {
+						single: action.urls.single,
+						batch: action.urls.batch,
+					},
+				},
+			};
+		case 'UPDATE_HIIVE_EVENTS_QUEUE':
+			return {
+				...state,
+				[ action.namespace ]: {
+					...state[ action.namespace ],
+					queue: {
+						events: action.events,
+						threshold: state[ action.namespace ].queue.threshold,
+					},
+				},
+			};
+		case 'UPDATE_HIIVE_EVENTS_QUEUE_THRESHOLD': {
+			return {
+				...state,
+				[ action.namespace ]: {
+					...state[ action.namespace ],
+					queue: {
+						events: state[ action.namespace ].queue.events,
+						threshold: action.threshold,
+					},
+				},
+			};
+		}
+		case 'UPDATE_HIIVE_DEBOUNCE_TIME':
+			return {
+				...state,
+				[ action.namespace ]: {
+					...state[ action.namespace ],
+					debounce: {
+						time: action.debounceTime,
+						instance: state[ action.namespace ].debounce.instance,
+					},
+				},
+			};
+		case 'UPDATE_HIIVE_DEBOUNCE_INSTANCE':
+			return {
+				...state,
+				[ action.namespace ]: {
+					...state[ action.namespace ],
+					debounce: {
+						time: state[ action.namespace ].debounce.time,
+						instance: action.instance,
+					},
+				},
+			};
+	}
+	return state;
+};
+
+/**
+ * Combines all the reducers in this file.
+ */
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.combineReducers)( {
+	hiive,
+} ));
+
+
+/***/ }),
+
+/***/ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/selectors.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@newfold-labs/js-utility-ui-analytics/src/store/selectors.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getHiiveBatchUrl: () => (/* binding */ getHiiveBatchUrl),
+/* harmony export */   getHiiveDebounce: () => (/* binding */ getHiiveDebounce),
+/* harmony export */   getHiiveEventsQueue: () => (/* binding */ getHiiveEventsQueue),
+/* harmony export */   getHiiveEventsQueueThreshold: () => (/* binding */ getHiiveEventsQueueThreshold),
+/* harmony export */   getHiiveSingleUrl: () => (/* binding */ getHiiveSingleUrl)
+/* harmony export */ });
+/**
+ * Retrieves all the queued Hiive events.
+ *
+ * @param {Object} state     The current state of the redux store.
+ * @param {string} namespace The namespace from which the events must be retrieved.
+ * @return {Array} events An array of events that are queued.
+ */
+function getHiiveEventsQueue( state, namespace ) {
+	return state.hiive[ namespace ]?.queue.events;
+}
+
+/**
+ *
+ * @param {*}      state     The current state of the redux store.
+ * @param {string} namespace The namespace from which the threshold must be read.
+ * @return {Array} threshold Threshold of the queue.
+ */
+function getHiiveEventsQueueThreshold( state, namespace ) {
+	return state.hiive[ namespace ]?.queue.threshold;
+}
+
+/**
+ * Retrieves the default Hiive URL.
+ *
+ * @param {Object} state     The current state of the redux store.
+ * @param {string} namespace The namespace from which the single URL must be read.
+ * @return {string} The default URL in the store.
+ */
+function getHiiveSingleUrl( state, namespace ) {
+	return state.hiive[ namespace ]?.urls.single;
+}
+
+/**
+ * Retrieves the batch Hiive URL.
+ *
+ * @param {*}      state     The current state of the redux store.
+ * @param {string} namespace The namespace from which the batch URL must be read.
+ * @return {string} The batch URL in the store.
+ */
+function getHiiveBatchUrl( state, namespace ) {
+	return state.hiive[ namespace ]?.urls.batch;
+}
+
+/**
+ * Retrieves debounce data.
+ *
+ * @param {Object} state     The current state of the redux store.
+ * @param {string} namespace The namespace from which the Hiive debounce must be read.
+ * @return {Object} The debounce data.
+ */
+function getHiiveDebounce( state, namespace ) {
+	return state.hiive[ namespace ]?.debounce;
+}
+
+
+/***/ }),
+
 /***/ "./src/svg/Error.svg":
 /*!***************************!*\
   !*** ./src/svg/Error.svg ***!
@@ -10,7 +731,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReactComponent": () => (/* binding */ SvgError),
+/* harmony export */   ReactComponent: () => (/* binding */ SvgError),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
@@ -180,7 +901,7 @@ var SvgError = function SvgError(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReactComponent": () => (/* binding */ SvgNoFavorites),
+/* harmony export */   ReactComponent: () => (/* binding */ SvgNoFavorites),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
@@ -521,7 +1242,7 @@ var SvgNoFavorites = function SvgNoFavorites(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReactComponent": () => (/* binding */ SvgNoResults),
+/* harmony export */   ReactComponent: () => (/* binding */ SvgNoResults),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
@@ -1088,7 +1809,7 @@ const footer = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "gallery": () => (/* binding */ gallery)
+/* harmony export */   gallery: () => (/* binding */ gallery)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -1384,12 +2105,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/buttons.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/buttons.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store */ "./src/store/index.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block.json */ "./src/blocks/block.json");
 /* harmony import */ var _variations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./variations */ "./src/blocks/variations.js");
-var _window$nfdWonderBloc;
+/* harmony import */ var _helpers_analytics__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../helpers/analytics */ "./src/helpers/analytics.js");
 
 /**
  * WordPress dependencies
@@ -1406,23 +2127,23 @@ var _window$nfdWonderBloc;
 
 
 
+
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_5__, {
   icon: {
     foreground: 'var(--nfd-wba-color-brand)',
-    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"]
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   category: 'nfd-wonder-blocks',
   example: {
     attributes: {
-      preview: ((_window$nfdWonderBloc = window.nfdWonderBlocks) === null || _window$nfdWonderBloc === void 0 ? void 0 : _window$nfdWonderBloc.assets) + '/images/preview.png'
+      preview: window.nfdWonderBlocks?.assets + '/images/preview.png'
     }
   },
   variations: [..._variations__WEBPACK_IMPORTED_MODULE_6__.variations],
-  edit: function Edit(_ref) {
-    let {
-      clientId,
-      attributes
-    } = _ref;
+  edit: function Edit({
+    clientId,
+    attributes
+  }) {
     const {
       removeBlock
     } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)('core/block-editor');
@@ -1438,6 +2159,10 @@ var _window$nfdWonderBloc;
       removeBlock(clientId);
       setActiveTab('patterns');
       setActivePatternsCategory(attributes.category ? attributes.category : _constants__WEBPACK_IMPORTED_MODULE_3__.DEFAULT_PATTERNS_CATEGORY);
+      (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_7__.trackHiiveEvent)('modal_open', {
+        label_key: 'trigger',
+        trigger: 'block'
+      });
       setIsModalOpen(true);
     }, [attributes.category, attributes.preview, clientId, removeBlock, setActivePatternsCategory, setActiveTab, setIsModalOpen]);
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
@@ -1508,7 +2233,7 @@ const currentCategories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "variations": () => (/* binding */ variations)
+/* harmony export */   variations: () => (/* binding */ variations)
 /* harmony export */ });
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
@@ -1716,7 +2441,7 @@ const variations = [{
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "heartSmall": () => (/* binding */ heartSmall)
+/* harmony export */   heartSmall: () => (/* binding */ heartSmall)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -1784,11 +2509,11 @@ const heartEmpty = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElem
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "heart": () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "heartEmpty": () => (/* reexport safe */ _heartEmpty__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "heartSmall": () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__.heartSmall),
-/* harmony export */   "plus": () => (/* reexport safe */ _plus__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   "trash": () => (/* reexport safe */ _trash__WEBPACK_IMPORTED_MODULE_3__["default"])
+/* harmony export */   heart: () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   heartEmpty: () => (/* reexport safe */ _heartEmpty__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   heartSmall: () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__.heartSmall),
+/* harmony export */   plus: () => (/* reexport safe */ _plus__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   trash: () => (/* reexport safe */ _trash__WEBPACK_IMPORTED_MODULE_3__["default"])
 /* harmony export */ });
 /* harmony import */ var _heart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./heart */ "./src/components/Icons/heart.jsx");
 /* harmony import */ var _heartEmpty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./heartEmpty */ "./src/components/Icons/heartEmpty.jsx");
@@ -1920,7 +2645,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_intersection_observer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-intersection-observer */ "./node_modules/react-intersection-observer/react-intersection-observer.modern.mjs");
+/* harmony import */ var react_intersection_observer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-intersection-observer */ "./node_modules/react-intersection-observer/react-intersection-observer.modern.mjs");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _hooks_usePatterns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/usePatterns */ "./src/hooks/usePatterns.js");
@@ -1932,6 +2657,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LoadingSpinner */ "./src/components/Modal/Content/LoadingSpinner.jsx");
 /* harmony import */ var _Skeleton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Skeleton */ "./src/components/Modal/Content/Skeleton.jsx");
 /* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Spinner */ "./src/components/Modal/Content/Spinner.jsx");
+/* harmony import */ var _helpers_analytics__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../helpers/analytics */ "./src/helpers/analytics.js");
 
 /**
  * External dependencies
@@ -1956,9 +2682,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const Content = () => {
   const [ready, setReady] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const [loadMoreRef, inView] = (0,react_intersection_observer__WEBPACK_IMPORTED_MODULE_11__.useInView)({
+  const [loadMoreRef, inView] = (0,react_intersection_observer__WEBPACK_IMPORTED_MODULE_12__.useInView)({
     threshold: 0
   });
   const {
@@ -2013,6 +2740,23 @@ const Content = () => {
       clearTimeout(t);
     };
   }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!keywordsFilter) {
+      return;
+    }
+
+    // @todo: need to take pagination into account.
+    const eventData = {
+      label_key: 'search_term',
+      search_term: keywordsFilter,
+      count: data?.length
+    };
+    if (activeTab === 'patterns') {
+      (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('pattern_searched', eventData);
+    } else if (activeTab === 'templates') {
+      (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('template_searched', eventData);
+    }
+  }, [activeTab, data?.length, keywordsFilter]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -2023,9 +2767,9 @@ const Content = () => {
     activeTab: activeTab,
     title: keywordsFilter,
     currentCategory: activeTab === 'patterns' ? activePatternsCategory : activeTemplatesCategory
-  }), !isSidebarLoading && isContentLoading && !isError || !ready && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Skeleton__WEBPACK_IMPORTED_MODULE_9__["default"], null), isError && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_Error__WEBPACK_IMPORTED_MODULE_6__["default"], null), (data === null || data === void 0 ? void 0 : data.length) === 0 && !isError && !isValidating && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_NoResults__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), !isSidebarLoading && isContentLoading && !isError || !ready && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Skeleton__WEBPACK_IMPORTED_MODULE_9__["default"], null), isError && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_Error__WEBPACK_IMPORTED_MODULE_6__["default"], null), data?.length === 0 && !isError && !isValidating && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_NoResults__WEBPACK_IMPORTED_MODULE_7__["default"], {
     isFavorites: isFavorites
-  }), ready && data && (data === null || data === void 0 ? void 0 : data.length) > 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_DesignList__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), ready && data && data?.length > 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_DesignList__WEBPACK_IMPORTED_MODULE_5__["default"], {
     data: data
   }), hasMore && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6",
@@ -2122,7 +2866,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/notices */ "@wordpress/notices");
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_notices__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../constants */ "./src/constants.js");
@@ -2131,6 +2875,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_usePatterns__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../hooks/usePatterns */ "./src/hooks/usePatterns.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
 /* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../Icons */ "./src/components/Icons/index.js");
+/* harmony import */ var _helpers_analytics__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../helpers/analytics */ "./src/helpers/analytics.js");
 
 /**
  * External dependencies
@@ -2160,10 +2905,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const DesignItem = _ref => {
-  let {
-    item
-  } = _ref;
+
+const DesignItem = ({
+  item
+}) => {
   const [isFavorite, setIsFavorite] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [insertingDesign, setInsertingDesign] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const {
@@ -2226,8 +2971,29 @@ const DesignItem = _ref => {
    * @return {boolean}
    */
   const shouldUpdateTemplate = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
-    return (item === null || item === void 0 ? void 0 : item.type) === 'templates' && currentTheme.template === 'yith-wonder' && selectedTemplateSlug !== 'no-title';
-  }, [item === null || item === void 0 ? void 0 : item.type, selectedTemplateSlug, currentTheme]);
+    return item?.type === 'templates' && currentTheme.template === 'yith-wonder' && selectedTemplateSlug !== 'no-title';
+  }, [item?.type, selectedTemplateSlug, currentTheme]);
+
+  /**
+   * Track events.
+   *
+   * @return {void}
+   */
+  const trackInsertEvents = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    if (activeTab === 'patterns') {
+      (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_16__.trackHiiveEvent)('pattern_inserted', {
+        label_key: 'pattern_slug',
+        pattern_id: item.id,
+        pattern_slug: item.slug
+      });
+    } else if (activeTab === 'templates') {
+      (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_16__.trackHiiveEvent)('template_inserted', {
+        label_key: 'template_slug',
+        template_id: item.id,
+        template_slug: item.slug
+      });
+    }
+  }, [activeTab, item.id, item.slug]);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     let isFav = false;
     if (!Array.isArray(allFavs)) {
@@ -2255,6 +3021,7 @@ const DesignItem = _ref => {
 
       // Insert the pattern.
       await (0,_helpers_blockInserter__WEBPACK_IMPORTED_MODULE_11__.blockInserter)(blocks);
+      trackInsertEvents();
 
       // Show a success notice.
       createSuccessNotice((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.sprintf)(
@@ -2283,8 +3050,7 @@ const DesignItem = _ref => {
    * @return {void}
    * @throws {Error} If the pattern cannot be added or removed.
    */
-  const favoritesClickHandler = async function () {
-    let toggleState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  const favoritesClickHandler = async (toggleState = true) => {
     // Do nothing if the pattern is already in the favorites list and toggleState is false.
     if (isFavorite && !toggleState) {
       return;
@@ -2322,13 +3088,30 @@ const DesignItem = _ref => {
       populateCache: true,
       revalidate: false
     });
+
+    // if is favorite track event
+    if (isFavorite) {
+      if (activeTab === 'patterns') {
+        (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_16__.trackHiiveEvent)('pattern_favorited', {
+          label_key: 'pattern_slug',
+          pattern_id: item.id,
+          pattern_slug: item.slug
+        });
+      } else if (activeTab === 'templates') {
+        (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_16__.trackHiiveEvent)('template_favorited', {
+          label_key: 'template_slug',
+          template_id: item.id,
+          template_slug: item.slug
+        });
+      }
+    }
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-6 nfd-wba-overflow-hidden nfd-wba-rounded-2xl nfd-wba-bg-grey nfd-wba-p-6"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-rounded-lg nfd-wba-border-2 nfd-wba-border-dashed nfd-wba-border-grey-darker nfd-wba-p-4"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-overflow-hidden nfd-wba-rounded-sm nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-bg-white nfd-wba-shadow-design-item nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand', (item === null || item === void 0 ? void 0 : item.type) === 'templates' && 'nfd-wba-design-item--template', insertingDesign && 'nfd-wba-inserting-design'),
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-overflow-hidden nfd-wba-rounded-sm nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-bg-white nfd-wba-shadow-design-item nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand', item?.type === 'templates' && 'nfd-wba-design-item--template', insertingDesign && 'nfd-wba-inserting-design'),
     role: "button",
     tabIndex: "0",
     onClick: () => insertDesignHandler(),
@@ -2344,14 +3127,14 @@ const DesignItem = _ref => {
     className: "nfd-wba-flex nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-bg-grey"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-3"
-  }, (item === null || item === void 0 ? void 0 : item.isPremium) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  }, item?.isPremium && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "nfd-wba-rounded nfd-wba-bg-dark nfd-wba-px-[10px] nfd-wba-py-[5px] nfd-wba-text-white"
   }, "Premium"), !shouldShowTrash() && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100', isFavorite ? 'nfd-wba-cursor-default !nfd-wba-text-red-600' : 'nfd-wba-cursor-not-pointer nfd-wba-text-zinc-500 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600'),
     showTooltip: true,
     label: isFavorite ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('In Favorites', 'nfd-wonder-blocks') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Add to Favorites', 'nfd-wonder-blocks'),
     onClick: () => favoritesClickHandler(false),
-    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_17__["default"], {
       className: "nfd-wba-shrink-0",
       fill: "currentColor",
       size: 24,
@@ -2362,7 +3145,7 @@ const DesignItem = _ref => {
     showTooltip: true,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Remove from Favorites', 'nfd-wonder-blocks'),
     onClick: () => favoritesClickHandler(),
-    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_17__["default"], {
       className: "nfd-wba-shrink-0",
       fill: "currentColor",
       width: 32,
@@ -2376,7 +3159,7 @@ const DesignItem = _ref => {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Add pattern to page', 'nfd-wonder-blocks'),
     showTooltip: true,
     onClick: () => insertDesignHandler(),
-    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_17__["default"], {
       fill: "currentColor",
       className: "nfd-wba-shrink-0",
       size: 24,
@@ -2810,7 +3593,7 @@ function LoadingSpinner(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SkeletonItem": () => (/* binding */ SkeletonItem),
+/* harmony export */   SkeletonItem: () => (/* binding */ SkeletonItem),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -2940,6 +3723,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Content_Content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Content/Content */ "./src/components/Modal/Content/Content.jsx");
 /* harmony import */ var _Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sidebar/Sidebar */ "./src/components/Modal/Sidebar/Sidebar.jsx");
 /* harmony import */ var _Content_Header_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Content/Header/Header */ "./src/components/Modal/Content/Header/Header.jsx");
+/* harmony import */ var _helpers_analytics__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../helpers/analytics */ "./src/helpers/analytics.js");
 
 /**
  * WordPress dependencies
@@ -2951,6 +3735,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
+
 
 
 
@@ -2970,14 +3755,17 @@ const Modal = () => {
 
   // Check if we should automatically open the modal and pre-select.
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    var _window, _window$location;
-    const searchParams = new URLSearchParams((_window = window) === null || _window === void 0 ? void 0 : (_window$location = _window.location) === null || _window$location === void 0 ? void 0 : _window$location.search);
+    const searchParams = new URLSearchParams(window?.location?.search);
     let timer;
     if (searchParams.has('wonder-blocks-library')) {
       timer = setTimeout(() => {
         if (searchParams.get('wonder-blocks-library') === 'templates') {
           setActiveTab('templates');
         }
+        (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_7__.trackHiiveEvent)('modal_open', {
+          label_key: 'trigger',
+          trigger: 'url'
+        });
         setIsModalOpen(true);
       }, 300);
     }
@@ -3392,7 +4180,7 @@ const Sidebar = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SkeletonItem": () => (/* binding */ SkeletonItem),
+/* harmony export */   SkeletonItem: () => (/* binding */ SkeletonItem),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -3461,9 +4249,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/buttons.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/buttons.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store */ "./src/store/index.js");
+/* harmony import */ var _helpers_analytics__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers/analytics */ "./src/helpers/analytics.js");
 
 /**
  * External dependencies
@@ -3481,6 +4270,7 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
+
 const ToolbarButton = () => {
   const {
     isModalOpen
@@ -3491,13 +4281,19 @@ const ToolbarButton = () => {
     setIsModalOpen
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
-    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"]
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"]
     }),
     text: "Wonder Blocks",
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('nfd-wba-ml-2 nfd-wba-flex !nfd-wba-h-9 nfd-wba-shrink-0 nfd-wba-bg-brand nfd-wba-text-white hover:nfd-wba-bg-brand-darker hover:nfd-wba-text-white focus-visible:nfd-wba-text-white active:nfd-wba-bg-brand-darker-10 active:!nfd-wba-text-white', isModalOpen && '!nfd-wba-bg-dark nfd-wba-text-white'),
     isPressed: isModalOpen,
-    onClick: () => setIsModalOpen(true)
+    onClick: () => {
+      (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_5__.trackHiiveEvent)('modal_open', {
+        label_key: 'trigger',
+        trigger: 'toolbarButton'
+      });
+      setIsModalOpen(true);
+    }
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ToolbarButton);
@@ -3513,28 +4309,57 @@ const ToolbarButton = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DEFAULT_ACTIVE_TAB": () => (/* binding */ DEFAULT_ACTIVE_TAB),
-/* harmony export */   "DEFAULT_PATTERNS_CATEGORY": () => (/* binding */ DEFAULT_PATTERNS_CATEGORY),
-/* harmony export */   "DEFAULT_TEMPLATES_CATEGORY": () => (/* binding */ DEFAULT_TEMPLATES_CATEGORY),
-/* harmony export */   "INPUT_DEBOUNCE_TIME": () => (/* binding */ INPUT_DEBOUNCE_TIME),
-/* harmony export */   "NFD_REST_URL": () => (/* binding */ NFD_REST_URL),
-/* harmony export */   "NFD_WONDER_BLOCKS_MODAL_ID": () => (/* binding */ NFD_WONDER_BLOCKS_MODAL_ID),
-/* harmony export */   "NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID": () => (/* binding */ NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID),
-/* harmony export */   "SUPPORT_URL": () => (/* binding */ SUPPORT_URL),
-/* harmony export */   "WONDER_BLOCKS_BLANK_TEMPLATE_SLUG": () => (/* binding */ WONDER_BLOCKS_BLANK_TEMPLATE_SLUG),
-/* harmony export */   "WP_REST_NAMESPACE": () => (/* binding */ WP_REST_NAMESPACE)
+/* harmony export */   DEFAULT_ACTIVE_TAB: () => (/* binding */ DEFAULT_ACTIVE_TAB),
+/* harmony export */   DEFAULT_PATTERNS_CATEGORY: () => (/* binding */ DEFAULT_PATTERNS_CATEGORY),
+/* harmony export */   DEFAULT_TEMPLATES_CATEGORY: () => (/* binding */ DEFAULT_TEMPLATES_CATEGORY),
+/* harmony export */   HIIVE_ANALYTICS_CATEGORY: () => (/* binding */ HIIVE_ANALYTICS_CATEGORY),
+/* harmony export */   INPUT_DEBOUNCE_TIME: () => (/* binding */ INPUT_DEBOUNCE_TIME),
+/* harmony export */   NFD_REST_URL: () => (/* binding */ NFD_REST_URL),
+/* harmony export */   NFD_WONDER_BLOCKS_MODAL_ID: () => (/* binding */ NFD_WONDER_BLOCKS_MODAL_ID),
+/* harmony export */   NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID: () => (/* binding */ NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID),
+/* harmony export */   SUPPORT_URL: () => (/* binding */ SUPPORT_URL),
+/* harmony export */   WONDER_BLOCKS_BLANK_TEMPLATE_SLUG: () => (/* binding */ WONDER_BLOCKS_BLANK_TEMPLATE_SLUG),
+/* harmony export */   WP_REST_NAMESPACE: () => (/* binding */ WP_REST_NAMESPACE)
 /* harmony export */ });
-var _window$nfdWonderBloc, _window$nfdWonderBloc2;
 const NFD_WONDER_BLOCKS_MODAL_ID = 'nfd-wba-modal';
 const NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID = 'nfd-wba-toolbar-button';
-const NFD_REST_URL = ((_window$nfdWonderBloc = window.nfdWonderBlocks) === null || _window$nfdWonderBloc === void 0 ? void 0 : _window$nfdWonderBloc.nfdRestURL) || '';
+const NFD_REST_URL = window.nfdWonderBlocks?.nfdRestURL || '';
 const WP_REST_NAMESPACE = '/wp/v2';
-const SUPPORT_URL = ((_window$nfdWonderBloc2 = window.nfdWonderBlocks) === null || _window$nfdWonderBloc2 === void 0 ? void 0 : _window$nfdWonderBloc2.supportURL) || '#';
+const SUPPORT_URL = window.nfdWonderBlocks?.supportURL || '#';
 const INPUT_DEBOUNCE_TIME = 800;
 const DEFAULT_ACTIVE_TAB = 'patterns';
 const DEFAULT_PATTERNS_CATEGORY = 'featured';
 const DEFAULT_TEMPLATES_CATEGORY = 'featured';
 const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = 'wonder-blocks-blank-template';
+const HIIVE_ANALYTICS_CATEGORY = 'wonder_blocks';
+
+/***/ }),
+
+/***/ "./src/helpers/analytics.js":
+/*!**********************************!*\
+  !*** ./src/helpers/analytics.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   trackHiiveEvent: () => (/* binding */ trackHiiveEvent)
+/* harmony export */ });
+/* harmony import */ var _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @newfold-labs/js-utility-ui-analytics */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
+
+
+const trackHiiveEvent = (action, data) => {
+  data = {
+    ...data,
+    page: window.location.pathname + window.location.search // todo: check if this is what we want.
+  };
+
+  const hiiveEvent = new _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__.HiiveEvent(_constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY, action, data, _constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY);
+  console.log(hiiveEvent);
+  _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__.HiiveAnalytics.track(hiiveEvent);
+};
 
 /***/ }),
 
@@ -3547,7 +4372,7 @@ const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = 'wonder-blocks-blank-template';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "blockInserter": () => (/* binding */ blockInserter)
+/* harmony export */   blockInserter: () => (/* binding */ blockInserter)
 /* harmony export */ });
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
@@ -3601,7 +4426,7 @@ const blockInserter = blocks => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "fetcher": () => (/* binding */ fetcher)
+/* harmony export */   fetcher: () => (/* binding */ fetcher)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
@@ -3642,7 +4467,7 @@ const fetcher = _ref => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "optimizePreview": () => (/* binding */ optimizePreview)
+/* harmony export */   optimizePreview: () => (/* binding */ optimizePreview)
 /* harmony export */ });
 /**
  * Optimize block pattern preview image size.
@@ -3885,14 +4710,14 @@ const usePatterns = function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "setActivePatternsCategory": () => (/* binding */ setActivePatternsCategory),
-/* harmony export */   "setActiveTab": () => (/* binding */ setActiveTab),
-/* harmony export */   "setActiveTemplatesCategory": () => (/* binding */ setActiveTemplatesCategory),
-/* harmony export */   "setIsContentLoading": () => (/* binding */ setIsContentLoading),
-/* harmony export */   "setIsModalOpen": () => (/* binding */ setIsModalOpen),
-/* harmony export */   "setIsSidebarLoading": () => (/* binding */ setIsSidebarLoading),
-/* harmony export */   "setKeywordsFilter": () => (/* binding */ setKeywordsFilter),
-/* harmony export */   "setShouldResetKeywords": () => (/* binding */ setShouldResetKeywords)
+/* harmony export */   setActivePatternsCategory: () => (/* binding */ setActivePatternsCategory),
+/* harmony export */   setActiveTab: () => (/* binding */ setActiveTab),
+/* harmony export */   setActiveTemplatesCategory: () => (/* binding */ setActiveTemplatesCategory),
+/* harmony export */   setIsContentLoading: () => (/* binding */ setIsContentLoading),
+/* harmony export */   setIsModalOpen: () => (/* binding */ setIsModalOpen),
+/* harmony export */   setIsSidebarLoading: () => (/* binding */ setIsSidebarLoading),
+/* harmony export */   setKeywordsFilter: () => (/* binding */ setKeywordsFilter),
+/* harmony export */   setShouldResetKeywords: () => (/* binding */ setShouldResetKeywords)
 /* harmony export */ });
 /**
  * Toggles the patterns modal.
@@ -4009,7 +4834,7 @@ function setActiveTab(activeTab) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "STORE_NAME": () => (/* binding */ STORE_NAME)
+/* harmony export */   STORE_NAME: () => (/* binding */ STORE_NAME)
 /* harmony export */ });
 /**
  * Identifier for Newfold Wonder Blocks data store.
@@ -4029,8 +4854,8 @@ const STORE_NAME = 'newfold/wonder-blocks';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "nfdWonderBlocksStoreOptions": () => (/* binding */ nfdWonderBlocksStoreOptions),
-/* harmony export */   "store": () => (/* binding */ store)
+/* harmony export */   nfdWonderBlocksStoreOptions: () => (/* binding */ nfdWonderBlocksStoreOptions),
+/* harmony export */   store: () => (/* binding */ store)
 /* harmony export */ });
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
@@ -4063,9 +4888,9 @@ const store = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.createReduxStore)(
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "modal": () => (/* binding */ modal),
-/* harmony export */   "patterns": () => (/* binding */ patterns),
-/* harmony export */   "templates": () => (/* binding */ templates)
+/* harmony export */   modal: () => (/* binding */ modal),
+/* harmony export */   patterns: () => (/* binding */ patterns),
+/* harmony export */   templates: () => (/* binding */ templates)
 /* harmony export */ });
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
@@ -4166,14 +4991,14 @@ function templates() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getActivePatternsCategory": () => (/* binding */ getActivePatternsCategory),
-/* harmony export */   "getActiveTab": () => (/* binding */ getActiveTab),
-/* harmony export */   "getActiveTemplatesCategory": () => (/* binding */ getActiveTemplatesCategory),
-/* harmony export */   "getKeywordsFilter": () => (/* binding */ getKeywordsFilter),
-/* harmony export */   "isContentLoading": () => (/* binding */ isContentLoading),
-/* harmony export */   "isModalOpen": () => (/* binding */ isModalOpen),
-/* harmony export */   "isSidebarLoading": () => (/* binding */ isSidebarLoading),
-/* harmony export */   "shouldResetKeywords": () => (/* binding */ shouldResetKeywords)
+/* harmony export */   getActivePatternsCategory: () => (/* binding */ getActivePatternsCategory),
+/* harmony export */   getActiveTab: () => (/* binding */ getActiveTab),
+/* harmony export */   getActiveTemplatesCategory: () => (/* binding */ getActiveTemplatesCategory),
+/* harmony export */   getKeywordsFilter: () => (/* binding */ getKeywordsFilter),
+/* harmony export */   isContentLoading: () => (/* binding */ isContentLoading),
+/* harmony export */   isModalOpen: () => (/* binding */ isModalOpen),
+/* harmony export */   isSidebarLoading: () => (/* binding */ isSidebarLoading),
+/* harmony export */   shouldResetKeywords: () => (/* binding */ shouldResetKeywords)
 /* harmony export */ });
 /**
  * Checks if the patterns modal is open.
@@ -5661,10 +6486,10 @@ function _extends() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "InView": () => (/* binding */ InView),
-/* harmony export */   "defaultFallbackInView": () => (/* binding */ defaultFallbackInView),
-/* harmony export */   "observe": () => (/* binding */ observe),
-/* harmony export */   "useInView": () => (/* binding */ useInView)
+/* harmony export */   InView: () => (/* binding */ InView),
+/* harmony export */   defaultFallbackInView: () => (/* binding */ defaultFallbackInView),
+/* harmony export */   observe: () => (/* binding */ observe),
+/* harmony export */   useInView: () => (/* binding */ useInView)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -6136,43 +6961,43 @@ function useInView({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "IS_REACT_LEGACY": () => (/* binding */ IS_REACT_LEGACY),
-/* harmony export */   "IS_SERVER": () => (/* binding */ IS_SERVER),
-/* harmony export */   "OBJECT": () => (/* binding */ OBJECT),
-/* harmony export */   "SWRConfig": () => (/* binding */ SWRConfig),
-/* harmony export */   "SWRGlobalState": () => (/* binding */ SWRGlobalState),
-/* harmony export */   "UNDEFINED": () => (/* binding */ UNDEFINED),
-/* harmony export */   "cache": () => (/* binding */ cache),
-/* harmony export */   "compare": () => (/* binding */ compare),
-/* harmony export */   "createCacheHelper": () => (/* binding */ createCacheHelper),
-/* harmony export */   "defaultConfig": () => (/* binding */ defaultConfig),
-/* harmony export */   "defaultConfigOptions": () => (/* binding */ defaultConfigOptions),
-/* harmony export */   "getTimestamp": () => (/* binding */ getTimestamp),
-/* harmony export */   "hasRequestAnimationFrame": () => (/* binding */ hasRequestAnimationFrame),
-/* harmony export */   "initCache": () => (/* binding */ initCache),
-/* harmony export */   "internalMutate": () => (/* binding */ internalMutate),
-/* harmony export */   "isDocumentDefined": () => (/* binding */ isDocumentDefined),
-/* harmony export */   "isFunction": () => (/* binding */ isFunction),
-/* harmony export */   "isUndefined": () => (/* binding */ isUndefined),
-/* harmony export */   "isWindowDefined": () => (/* binding */ isWindowDefined),
-/* harmony export */   "mergeConfigs": () => (/* binding */ mergeConfigs),
-/* harmony export */   "mergeObjects": () => (/* binding */ mergeObjects),
-/* harmony export */   "mutate": () => (/* binding */ mutate),
-/* harmony export */   "noop": () => (/* binding */ noop),
-/* harmony export */   "normalize": () => (/* binding */ normalize),
-/* harmony export */   "preload": () => (/* binding */ preload),
-/* harmony export */   "preset": () => (/* binding */ preset),
-/* harmony export */   "rAF": () => (/* binding */ rAF),
-/* harmony export */   "revalidateEvents": () => (/* binding */ constants),
-/* harmony export */   "serialize": () => (/* binding */ serialize),
-/* harmony export */   "slowConnection": () => (/* binding */ slowConnection),
-/* harmony export */   "stableHash": () => (/* binding */ stableHash),
-/* harmony export */   "subscribeCallback": () => (/* binding */ subscribeCallback),
-/* harmony export */   "useIsomorphicLayoutEffect": () => (/* binding */ useIsomorphicLayoutEffect),
-/* harmony export */   "useSWRConfig": () => (/* binding */ useSWRConfig),
-/* harmony export */   "useStateWithDeps": () => (/* binding */ useStateWithDeps),
-/* harmony export */   "withArgs": () => (/* binding */ withArgs),
-/* harmony export */   "withMiddleware": () => (/* binding */ withMiddleware)
+/* harmony export */   IS_REACT_LEGACY: () => (/* binding */ IS_REACT_LEGACY),
+/* harmony export */   IS_SERVER: () => (/* binding */ IS_SERVER),
+/* harmony export */   OBJECT: () => (/* binding */ OBJECT),
+/* harmony export */   SWRConfig: () => (/* binding */ SWRConfig),
+/* harmony export */   SWRGlobalState: () => (/* binding */ SWRGlobalState),
+/* harmony export */   UNDEFINED: () => (/* binding */ UNDEFINED),
+/* harmony export */   cache: () => (/* binding */ cache),
+/* harmony export */   compare: () => (/* binding */ compare),
+/* harmony export */   createCacheHelper: () => (/* binding */ createCacheHelper),
+/* harmony export */   defaultConfig: () => (/* binding */ defaultConfig),
+/* harmony export */   defaultConfigOptions: () => (/* binding */ defaultConfigOptions),
+/* harmony export */   getTimestamp: () => (/* binding */ getTimestamp),
+/* harmony export */   hasRequestAnimationFrame: () => (/* binding */ hasRequestAnimationFrame),
+/* harmony export */   initCache: () => (/* binding */ initCache),
+/* harmony export */   internalMutate: () => (/* binding */ internalMutate),
+/* harmony export */   isDocumentDefined: () => (/* binding */ isDocumentDefined),
+/* harmony export */   isFunction: () => (/* binding */ isFunction),
+/* harmony export */   isUndefined: () => (/* binding */ isUndefined),
+/* harmony export */   isWindowDefined: () => (/* binding */ isWindowDefined),
+/* harmony export */   mergeConfigs: () => (/* binding */ mergeConfigs),
+/* harmony export */   mergeObjects: () => (/* binding */ mergeObjects),
+/* harmony export */   mutate: () => (/* binding */ mutate),
+/* harmony export */   noop: () => (/* binding */ noop),
+/* harmony export */   normalize: () => (/* binding */ normalize),
+/* harmony export */   preload: () => (/* binding */ preload),
+/* harmony export */   preset: () => (/* binding */ preset),
+/* harmony export */   rAF: () => (/* binding */ rAF),
+/* harmony export */   revalidateEvents: () => (/* binding */ constants),
+/* harmony export */   serialize: () => (/* binding */ serialize),
+/* harmony export */   slowConnection: () => (/* binding */ slowConnection),
+/* harmony export */   stableHash: () => (/* binding */ stableHash),
+/* harmony export */   subscribeCallback: () => (/* binding */ subscribeCallback),
+/* harmony export */   useIsomorphicLayoutEffect: () => (/* binding */ useIsomorphicLayoutEffect),
+/* harmony export */   useSWRConfig: () => (/* binding */ useSWRConfig),
+/* harmony export */   useStateWithDeps: () => (/* binding */ useStateWithDeps),
+/* harmony export */   withArgs: () => (/* binding */ withArgs),
+/* harmony export */   withMiddleware: () => (/* binding */ withMiddleware)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -6917,12 +7742,12 @@ setupDevTools();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SWRConfig": () => (/* binding */ SWRConfig),
+/* harmony export */   SWRConfig: () => (/* binding */ SWRConfig),
 /* harmony export */   "default": () => (/* binding */ useSWR),
-/* harmony export */   "mutate": () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.mutate),
-/* harmony export */   "preload": () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.preload),
-/* harmony export */   "unstable_serialize": () => (/* binding */ unstable_serialize),
-/* harmony export */   "useSWRConfig": () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.useSWRConfig)
+/* harmony export */   mutate: () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.mutate),
+/* harmony export */   preload: () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.preload),
+/* harmony export */   unstable_serialize: () => (/* binding */ unstable_serialize),
+/* harmony export */   useSWRConfig: () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.useSWRConfig)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var use_sync_external_store_shim_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! use-sync-external-store/shim/index.js */ "./node_modules/use-sync-external-store/shim/index.js");
@@ -7450,8 +8275,8 @@ const unstable_serialize = (key)=>(0,swr_internal__WEBPACK_IMPORTED_MODULE_2__.s
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ useSWRInfinite),
-/* harmony export */   "infinite": () => (/* binding */ infinite),
-/* harmony export */   "unstable_serialize": () => (/* binding */ unstable_serialize)
+/* harmony export */   infinite: () => (/* binding */ infinite),
+/* harmony export */   unstable_serialize: () => (/* binding */ unstable_serialize)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var swr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swr */ "./node_modules/swr/core/dist/index.mjs");
@@ -7803,10 +8628,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
-/* harmony import */ var _components_Modal_Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Modal/Modal */ "./src/components/Modal/Modal.jsx");
-/* harmony import */ var _components_ToolbarButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/ToolbarButton */ "./src/components/ToolbarButton.jsx");
+/* harmony import */ var _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @newfold-labs/js-utility-ui-analytics */ "./node_modules/@newfold-labs/js-utility-ui-analytics/src/index.js");
+/* harmony import */ var _blocks_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/block */ "./src/blocks/block.js");
 /* harmony import */ var _blocks_register_category__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/register-category */ "./src/blocks/register-category.js");
-/* harmony import */ var _blocks_block__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/block */ "./src/blocks/block.js");
+/* harmony import */ var _components_Modal_Modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Modal/Modal */ "./src/components/Modal/Modal.jsx");
+/* harmony import */ var _components_ToolbarButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/ToolbarButton */ "./src/components/ToolbarButton.jsx");
 
 /**
  * Styles.
@@ -7828,7 +8654,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_2___default()(() => {
+  initializeHiiveAnalytics();
   renderModal(_constants__WEBPACK_IMPORTED_MODULE_4__.NFD_WONDER_BLOCKS_MODAL_ID);
 });
 
@@ -7845,7 +8673,25 @@ const renderModal = elementId => {
   if (!document.getElementById(elementId)) {
     document.body.append(modalRoot);
   }
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Modal_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], null), modalRoot);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Modal_Modal__WEBPACK_IMPORTED_MODULE_8__["default"], null), modalRoot);
+};
+
+/**
+ * Initialize Hiive Analytics.
+ */
+const initializeHiiveAnalytics = () => {
+  _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_5__.HiiveAnalytics.initialize({
+    namespace: _constants__WEBPACK_IMPORTED_MODULE_4__.HIIVE_ANALYTICS_CATEGORY,
+    urls: {
+      single: `${_constants__WEBPACK_IMPORTED_MODULE_4__.NFD_REST_URL}/events`,
+      batch: `${_constants__WEBPACK_IMPORTED_MODULE_4__.NFD_REST_URL}/events/batch`
+    },
+    settings: {
+      debounce: {
+        time: 3000
+      }
+    }
+  });
 };
 
 /**
@@ -7855,7 +8701,6 @@ const renderModal = elementId => {
 
 const registerCallback = () => {
   window.requestAnimationFrame(() => {
-    var _document$querySelect, _document$querySelect2;
     // Do not add the button again if it has been already added.
     if (document.getElementById(_constants__WEBPACK_IMPORTED_MODULE_4__.NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
       unsubscribe();
@@ -7873,13 +8718,13 @@ const registerCallback = () => {
     buttonContainer.classList.add('nfd-wba-shrink-0');
 
     // Append the button container to the block editor.
-    (_document$querySelect = document.querySelector('.edit-post-header-toolbar')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.append(buttonContainer);
+    document.querySelector('.edit-post-header-toolbar')?.append(buttonContainer);
 
     // Append the button container to the FSE.
-    (_document$querySelect2 = document.querySelector('.edit-site-header_start')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.append(buttonContainer);
+    document.querySelector('.edit-site-header_start')?.append(buttonContainer);
 
     // Render the button.
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_ToolbarButton__WEBPACK_IMPORTED_MODULE_6__["default"], null), buttonContainer);
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_ToolbarButton__WEBPACK_IMPORTED_MODULE_9__["default"], null), buttonContainer);
     unsubscribe();
   });
 };

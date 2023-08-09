@@ -15,16 +15,20 @@ import { subscribe } from '@wordpress/data';
  * Internal dependencies
  */
 import {
+	HIIVE_ANALYTICS_CATEGORY,
+	NFD_REST_URL,
 	NFD_WONDER_BLOCKS_MODAL_ID,
 	NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID,
 } from './constants';
 
+import { HiiveAnalytics } from '@newfold-labs/js-utility-ui-analytics';
+import './blocks/block';
+import './blocks/register-category';
 import Modal from './components/Modal/Modal';
 import ToolbarButton from './components/ToolbarButton';
-import './blocks/register-category';
-import './blocks/block';
 
 domReady(() => {
+	initializeHiiveAnalytics();
 	renderModal(NFD_WONDER_BLOCKS_MODAL_ID);
 });
 
@@ -43,6 +47,24 @@ const renderModal = (elementId) => {
 	}
 
 	render(<Modal />, modalRoot);
+};
+
+/**
+ * Initialize Hiive Analytics.
+ */
+const initializeHiiveAnalytics = () => {
+	HiiveAnalytics.initialize({
+		namespace: HIIVE_ANALYTICS_CATEGORY,
+		urls: {
+			single: `${NFD_REST_URL}/events`,
+			batch: `${NFD_REST_URL}/events/batch`,
+		},
+		settings: {
+			debounce: {
+				time: 3000,
+			},
+		},
+	});
 };
 
 /**

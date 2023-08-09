@@ -11,3 +11,5 @@ export const DEFAULT_PATTERNS_CATEGORY = 'featured';
 export const DEFAULT_TEMPLATES_CATEGORY = 'featured';
 
 export const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = 'wonder-blocks-blank-template';
+
+export const HIIVE_ANALYTICS_CATEGORY = 'wonder_blocks';

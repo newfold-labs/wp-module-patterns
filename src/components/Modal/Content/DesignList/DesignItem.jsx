@@ -32,6 +32,7 @@ import { optimizePreview } from '../../../../helpers/optimizePreview';
 import usePatterns from '../../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
+import { trackHiiveEvent } from '../../../../helpers/analytics';
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -114,6 +115,27 @@ const DesignItem = ({ item }) => {
 		);
 	}, [item?.type, selectedTemplateSlug, currentTheme]);
 
+	/**
+	 * Track events.
+	 *
+	 * @return {void}
+	 */
+	const trackInsertEvents = useCallback(() => {
+		if (activeTab === 'patterns') {
+			trackHiiveEvent('pattern_inserted', {
+				label_key: 'pattern_slug',
+				pattern_id: item.id,
+				pattern_slug: item.slug,
+			});
+		} else if (activeTab === 'templates') {
+			trackHiiveEvent('template_inserted', {
+				label_key: 'template_slug',
+				template_id: item.id,
+				template_slug: item.slug,
+			});
+		}
+	}, [activeTab, item.id, item.slug]);
+
 	useEffect(() => {
 		let isFav = false;
 
@@ -143,6 +165,8 @@ const DesignItem = ({ item }) => {
 
 			// Insert the pattern.
 			await blockInserter(blocks);
+
+			trackInsertEvents();
 
 			// Show a success notice.
 			createSuccessNotice(
@@ -227,6 +251,23 @@ const DesignItem = ({ item }) => {
 			populateCache: true,
 			revalidate: false,
 		});
+
+		// if is favorite track event
+		if (isFavorite) {
+			if (activeTab === 'patterns') {
+				trackHiiveEvent('pattern_favorited', {
+					label_key: 'pattern_slug',
+					pattern_id: item.id,
+					pattern_slug: item.slug,
+				});
+			} else if (activeTab === 'templates') {
+				trackHiiveEvent('template_favorited', {
+					label_key: 'template_slug',
+					template_id: item.id,
+					template_slug: item.slug,
+				});
+			}
+		}
 	};
 
 	return (

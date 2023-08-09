@@ -14,6 +14,7 @@ import { Icon, buttons } from '@wordpress/icons';
  * Internal dependencies
  */
 import { store as nfdPatternsStore } from '../store';
+import { trackHiiveEvent } from '../helpers/analytics';
 
 const ToolbarButton = () => {
 	const { isModalOpen } = useSelect((select) => ({
@@ -31,7 +32,14 @@ const ToolbarButton = () => {
 				isModalOpen && '!nfd-wba-bg-dark nfd-wba-text-white'
 			)}
 			isPressed={isModalOpen}
-			onClick={() => setIsModalOpen(true)}
+			onClick={() => {
+				trackHiiveEvent('modal_open', {
+					label_key: 'trigger',
+					trigger: 'toolbarButton',
+				});
+
+				setIsModalOpen(true);
+			}}
 		/>
 	);
 };
