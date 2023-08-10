@@ -10,7 +10,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReactComponent": () => (/* binding */ SvgError),
+/* harmony export */   ReactComponent: () => (/* binding */ SvgError),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
@@ -180,7 +180,7 @@ var SvgError = function SvgError(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReactComponent": () => (/* binding */ SvgNoFavorites),
+/* harmony export */   ReactComponent: () => (/* binding */ SvgNoFavorites),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
@@ -521,7 +521,7 @@ var SvgNoFavorites = function SvgNoFavorites(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReactComponent": () => (/* binding */ SvgNoResults),
+/* harmony export */   ReactComponent: () => (/* binding */ SvgNoResults),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
@@ -1088,7 +1088,7 @@ const footer = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "gallery": () => (/* binding */ gallery)
+/* harmony export */   gallery: () => (/* binding */ gallery)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -1508,7 +1508,7 @@ const currentCategories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "variations": () => (/* binding */ variations)
+/* harmony export */   variations: () => (/* binding */ variations)
 /* harmony export */ });
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
@@ -1716,7 +1716,7 @@ const variations = [{
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "heartSmall": () => (/* binding */ heartSmall)
+/* harmony export */   heartSmall: () => (/* binding */ heartSmall)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -1784,11 +1784,11 @@ const heartEmpty = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElem
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "heart": () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "heartEmpty": () => (/* reexport safe */ _heartEmpty__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "heartSmall": () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__.heartSmall),
-/* harmony export */   "plus": () => (/* reexport safe */ _plus__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   "trash": () => (/* reexport safe */ _trash__WEBPACK_IMPORTED_MODULE_3__["default"])
+/* harmony export */   heart: () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   heartEmpty: () => (/* reexport safe */ _heartEmpty__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   heartSmall: () => (/* reexport safe */ _heart__WEBPACK_IMPORTED_MODULE_0__.heartSmall),
+/* harmony export */   plus: () => (/* reexport safe */ _plus__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   trash: () => (/* reexport safe */ _trash__WEBPACK_IMPORTED_MODULE_3__["default"])
 /* harmony export */ });
 /* harmony import */ var _heart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./heart */ "./src/components/Icons/heart.jsx");
 /* harmony import */ var _heartEmpty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./heartEmpty */ "./src/components/Icons/heartEmpty.jsx");
@@ -2810,7 +2810,7 @@ function LoadingSpinner(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SkeletonItem": () => (/* binding */ SkeletonItem),
+/* harmony export */   SkeletonItem: () => (/* binding */ SkeletonItem),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -3392,7 +3392,7 @@ const Sidebar = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SkeletonItem": () => (/* binding */ SkeletonItem),
+/* harmony export */   SkeletonItem: () => (/* binding */ SkeletonItem),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -3513,16 +3513,16 @@ const ToolbarButton = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DEFAULT_ACTIVE_TAB": () => (/* binding */ DEFAULT_ACTIVE_TAB),
-/* harmony export */   "DEFAULT_PATTERNS_CATEGORY": () => (/* binding */ DEFAULT_PATTERNS_CATEGORY),
-/* harmony export */   "DEFAULT_TEMPLATES_CATEGORY": () => (/* binding */ DEFAULT_TEMPLATES_CATEGORY),
-/* harmony export */   "INPUT_DEBOUNCE_TIME": () => (/* binding */ INPUT_DEBOUNCE_TIME),
-/* harmony export */   "NFD_REST_URL": () => (/* binding */ NFD_REST_URL),
-/* harmony export */   "NFD_WONDER_BLOCKS_MODAL_ID": () => (/* binding */ NFD_WONDER_BLOCKS_MODAL_ID),
-/* harmony export */   "NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID": () => (/* binding */ NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID),
-/* harmony export */   "SUPPORT_URL": () => (/* binding */ SUPPORT_URL),
-/* harmony export */   "WONDER_BLOCKS_BLANK_TEMPLATE_SLUG": () => (/* binding */ WONDER_BLOCKS_BLANK_TEMPLATE_SLUG),
-/* harmony export */   "WP_REST_NAMESPACE": () => (/* binding */ WP_REST_NAMESPACE)
+/* harmony export */   DEFAULT_ACTIVE_TAB: () => (/* binding */ DEFAULT_ACTIVE_TAB),
+/* harmony export */   DEFAULT_PATTERNS_CATEGORY: () => (/* binding */ DEFAULT_PATTERNS_CATEGORY),
+/* harmony export */   DEFAULT_TEMPLATES_CATEGORY: () => (/* binding */ DEFAULT_TEMPLATES_CATEGORY),
+/* harmony export */   INPUT_DEBOUNCE_TIME: () => (/* binding */ INPUT_DEBOUNCE_TIME),
+/* harmony export */   NFD_REST_URL: () => (/* binding */ NFD_REST_URL),
+/* harmony export */   NFD_WONDER_BLOCKS_MODAL_ID: () => (/* binding */ NFD_WONDER_BLOCKS_MODAL_ID),
+/* harmony export */   NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID: () => (/* binding */ NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID),
+/* harmony export */   SUPPORT_URL: () => (/* binding */ SUPPORT_URL),
+/* harmony export */   WONDER_BLOCKS_BLANK_TEMPLATE_SLUG: () => (/* binding */ WONDER_BLOCKS_BLANK_TEMPLATE_SLUG),
+/* harmony export */   WP_REST_NAMESPACE: () => (/* binding */ WP_REST_NAMESPACE)
 /* harmony export */ });
 var _window$nfdWonderBloc, _window$nfdWonderBloc2;
 const NFD_WONDER_BLOCKS_MODAL_ID = 'nfd-wba-modal';
@@ -3547,7 +3547,7 @@ const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = 'wonder-blocks-blank-template';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "blockInserter": () => (/* binding */ blockInserter)
+/* harmony export */   blockInserter: () => (/* binding */ blockInserter)
 /* harmony export */ });
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
@@ -3601,7 +3601,7 @@ const blockInserter = blocks => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "fetcher": () => (/* binding */ fetcher)
+/* harmony export */   fetcher: () => (/* binding */ fetcher)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
@@ -3642,7 +3642,7 @@ const fetcher = _ref => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "optimizePreview": () => (/* binding */ optimizePreview)
+/* harmony export */   optimizePreview: () => (/* binding */ optimizePreview)
 /* harmony export */ });
 /**
  * Optimize block pattern preview image size.
@@ -3885,14 +3885,14 @@ const usePatterns = function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "setActivePatternsCategory": () => (/* binding */ setActivePatternsCategory),
-/* harmony export */   "setActiveTab": () => (/* binding */ setActiveTab),
-/* harmony export */   "setActiveTemplatesCategory": () => (/* binding */ setActiveTemplatesCategory),
-/* harmony export */   "setIsContentLoading": () => (/* binding */ setIsContentLoading),
-/* harmony export */   "setIsModalOpen": () => (/* binding */ setIsModalOpen),
-/* harmony export */   "setIsSidebarLoading": () => (/* binding */ setIsSidebarLoading),
-/* harmony export */   "setKeywordsFilter": () => (/* binding */ setKeywordsFilter),
-/* harmony export */   "setShouldResetKeywords": () => (/* binding */ setShouldResetKeywords)
+/* harmony export */   setActivePatternsCategory: () => (/* binding */ setActivePatternsCategory),
+/* harmony export */   setActiveTab: () => (/* binding */ setActiveTab),
+/* harmony export */   setActiveTemplatesCategory: () => (/* binding */ setActiveTemplatesCategory),
+/* harmony export */   setIsContentLoading: () => (/* binding */ setIsContentLoading),
+/* harmony export */   setIsModalOpen: () => (/* binding */ setIsModalOpen),
+/* harmony export */   setIsSidebarLoading: () => (/* binding */ setIsSidebarLoading),
+/* harmony export */   setKeywordsFilter: () => (/* binding */ setKeywordsFilter),
+/* harmony export */   setShouldResetKeywords: () => (/* binding */ setShouldResetKeywords)
 /* harmony export */ });
 /**
  * Toggles the patterns modal.
@@ -4009,7 +4009,7 @@ function setActiveTab(activeTab) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "STORE_NAME": () => (/* binding */ STORE_NAME)
+/* harmony export */   STORE_NAME: () => (/* binding */ STORE_NAME)
 /* harmony export */ });
 /**
  * Identifier for Newfold Wonder Blocks data store.
@@ -4029,8 +4029,8 @@ const STORE_NAME = 'newfold/wonder-blocks';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "nfdWonderBlocksStoreOptions": () => (/* binding */ nfdWonderBlocksStoreOptions),
-/* harmony export */   "store": () => (/* binding */ store)
+/* harmony export */   nfdWonderBlocksStoreOptions: () => (/* binding */ nfdWonderBlocksStoreOptions),
+/* harmony export */   store: () => (/* binding */ store)
 /* harmony export */ });
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
@@ -4063,9 +4063,9 @@ const store = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.createReduxStore)(
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "modal": () => (/* binding */ modal),
-/* harmony export */   "patterns": () => (/* binding */ patterns),
-/* harmony export */   "templates": () => (/* binding */ templates)
+/* harmony export */   modal: () => (/* binding */ modal),
+/* harmony export */   patterns: () => (/* binding */ patterns),
+/* harmony export */   templates: () => (/* binding */ templates)
 /* harmony export */ });
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
@@ -4166,14 +4166,14 @@ function templates() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getActivePatternsCategory": () => (/* binding */ getActivePatternsCategory),
-/* harmony export */   "getActiveTab": () => (/* binding */ getActiveTab),
-/* harmony export */   "getActiveTemplatesCategory": () => (/* binding */ getActiveTemplatesCategory),
-/* harmony export */   "getKeywordsFilter": () => (/* binding */ getKeywordsFilter),
-/* harmony export */   "isContentLoading": () => (/* binding */ isContentLoading),
-/* harmony export */   "isModalOpen": () => (/* binding */ isModalOpen),
-/* harmony export */   "isSidebarLoading": () => (/* binding */ isSidebarLoading),
-/* harmony export */   "shouldResetKeywords": () => (/* binding */ shouldResetKeywords)
+/* harmony export */   getActivePatternsCategory: () => (/* binding */ getActivePatternsCategory),
+/* harmony export */   getActiveTab: () => (/* binding */ getActiveTab),
+/* harmony export */   getActiveTemplatesCategory: () => (/* binding */ getActiveTemplatesCategory),
+/* harmony export */   getKeywordsFilter: () => (/* binding */ getKeywordsFilter),
+/* harmony export */   isContentLoading: () => (/* binding */ isContentLoading),
+/* harmony export */   isModalOpen: () => (/* binding */ isModalOpen),
+/* harmony export */   isSidebarLoading: () => (/* binding */ isSidebarLoading),
+/* harmony export */   shouldResetKeywords: () => (/* binding */ shouldResetKeywords)
 /* harmony export */ });
 /**
  * Checks if the patterns modal is open.
@@ -5661,10 +5661,10 @@ function _extends() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "InView": () => (/* binding */ InView),
-/* harmony export */   "defaultFallbackInView": () => (/* binding */ defaultFallbackInView),
-/* harmony export */   "observe": () => (/* binding */ observe),
-/* harmony export */   "useInView": () => (/* binding */ useInView)
+/* harmony export */   InView: () => (/* binding */ InView),
+/* harmony export */   defaultFallbackInView: () => (/* binding */ defaultFallbackInView),
+/* harmony export */   observe: () => (/* binding */ observe),
+/* harmony export */   useInView: () => (/* binding */ useInView)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -6136,43 +6136,43 @@ function useInView({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "IS_REACT_LEGACY": () => (/* binding */ IS_REACT_LEGACY),
-/* harmony export */   "IS_SERVER": () => (/* binding */ IS_SERVER),
-/* harmony export */   "OBJECT": () => (/* binding */ OBJECT),
-/* harmony export */   "SWRConfig": () => (/* binding */ SWRConfig),
-/* harmony export */   "SWRGlobalState": () => (/* binding */ SWRGlobalState),
-/* harmony export */   "UNDEFINED": () => (/* binding */ UNDEFINED),
-/* harmony export */   "cache": () => (/* binding */ cache),
-/* harmony export */   "compare": () => (/* binding */ compare),
-/* harmony export */   "createCacheHelper": () => (/* binding */ createCacheHelper),
-/* harmony export */   "defaultConfig": () => (/* binding */ defaultConfig),
-/* harmony export */   "defaultConfigOptions": () => (/* binding */ defaultConfigOptions),
-/* harmony export */   "getTimestamp": () => (/* binding */ getTimestamp),
-/* harmony export */   "hasRequestAnimationFrame": () => (/* binding */ hasRequestAnimationFrame),
-/* harmony export */   "initCache": () => (/* binding */ initCache),
-/* harmony export */   "internalMutate": () => (/* binding */ internalMutate),
-/* harmony export */   "isDocumentDefined": () => (/* binding */ isDocumentDefined),
-/* harmony export */   "isFunction": () => (/* binding */ isFunction),
-/* harmony export */   "isUndefined": () => (/* binding */ isUndefined),
-/* harmony export */   "isWindowDefined": () => (/* binding */ isWindowDefined),
-/* harmony export */   "mergeConfigs": () => (/* binding */ mergeConfigs),
-/* harmony export */   "mergeObjects": () => (/* binding */ mergeObjects),
-/* harmony export */   "mutate": () => (/* binding */ mutate),
-/* harmony export */   "noop": () => (/* binding */ noop),
-/* harmony export */   "normalize": () => (/* binding */ normalize),
-/* harmony export */   "preload": () => (/* binding */ preload),
-/* harmony export */   "preset": () => (/* binding */ preset),
-/* harmony export */   "rAF": () => (/* binding */ rAF),
-/* harmony export */   "revalidateEvents": () => (/* binding */ constants),
-/* harmony export */   "serialize": () => (/* binding */ serialize),
-/* harmony export */   "slowConnection": () => (/* binding */ slowConnection),
-/* harmony export */   "stableHash": () => (/* binding */ stableHash),
-/* harmony export */   "subscribeCallback": () => (/* binding */ subscribeCallback),
-/* harmony export */   "useIsomorphicLayoutEffect": () => (/* binding */ useIsomorphicLayoutEffect),
-/* harmony export */   "useSWRConfig": () => (/* binding */ useSWRConfig),
-/* harmony export */   "useStateWithDeps": () => (/* binding */ useStateWithDeps),
-/* harmony export */   "withArgs": () => (/* binding */ withArgs),
-/* harmony export */   "withMiddleware": () => (/* binding */ withMiddleware)
+/* harmony export */   IS_REACT_LEGACY: () => (/* binding */ IS_REACT_LEGACY),
+/* harmony export */   IS_SERVER: () => (/* binding */ IS_SERVER),
+/* harmony export */   OBJECT: () => (/* binding */ OBJECT),
+/* harmony export */   SWRConfig: () => (/* binding */ SWRConfig),
+/* harmony export */   SWRGlobalState: () => (/* binding */ SWRGlobalState),
+/* harmony export */   UNDEFINED: () => (/* binding */ UNDEFINED),
+/* harmony export */   cache: () => (/* binding */ cache),
+/* harmony export */   compare: () => (/* binding */ compare),
+/* harmony export */   createCacheHelper: () => (/* binding */ createCacheHelper),
+/* harmony export */   defaultConfig: () => (/* binding */ defaultConfig),
+/* harmony export */   defaultConfigOptions: () => (/* binding */ defaultConfigOptions),
+/* harmony export */   getTimestamp: () => (/* binding */ getTimestamp),
+/* harmony export */   hasRequestAnimationFrame: () => (/* binding */ hasRequestAnimationFrame),
+/* harmony export */   initCache: () => (/* binding */ initCache),
+/* harmony export */   internalMutate: () => (/* binding */ internalMutate),
+/* harmony export */   isDocumentDefined: () => (/* binding */ isDocumentDefined),
+/* harmony export */   isFunction: () => (/* binding */ isFunction),
+/* harmony export */   isUndefined: () => (/* binding */ isUndefined),
+/* harmony export */   isWindowDefined: () => (/* binding */ isWindowDefined),
+/* harmony export */   mergeConfigs: () => (/* binding */ mergeConfigs),
+/* harmony export */   mergeObjects: () => (/* binding */ mergeObjects),
+/* harmony export */   mutate: () => (/* binding */ mutate),
+/* harmony export */   noop: () => (/* binding */ noop),
+/* harmony export */   normalize: () => (/* binding */ normalize),
+/* harmony export */   preload: () => (/* binding */ preload),
+/* harmony export */   preset: () => (/* binding */ preset),
+/* harmony export */   rAF: () => (/* binding */ rAF),
+/* harmony export */   revalidateEvents: () => (/* binding */ constants),
+/* harmony export */   serialize: () => (/* binding */ serialize),
+/* harmony export */   slowConnection: () => (/* binding */ slowConnection),
+/* harmony export */   stableHash: () => (/* binding */ stableHash),
+/* harmony export */   subscribeCallback: () => (/* binding */ subscribeCallback),
+/* harmony export */   useIsomorphicLayoutEffect: () => (/* binding */ useIsomorphicLayoutEffect),
+/* harmony export */   useSWRConfig: () => (/* binding */ useSWRConfig),
+/* harmony export */   useStateWithDeps: () => (/* binding */ useStateWithDeps),
+/* harmony export */   withArgs: () => (/* binding */ withArgs),
+/* harmony export */   withMiddleware: () => (/* binding */ withMiddleware)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -6917,12 +6917,12 @@ setupDevTools();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SWRConfig": () => (/* binding */ SWRConfig),
+/* harmony export */   SWRConfig: () => (/* binding */ SWRConfig),
 /* harmony export */   "default": () => (/* binding */ useSWR),
-/* harmony export */   "mutate": () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.mutate),
-/* harmony export */   "preload": () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.preload),
-/* harmony export */   "unstable_serialize": () => (/* binding */ unstable_serialize),
-/* harmony export */   "useSWRConfig": () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.useSWRConfig)
+/* harmony export */   mutate: () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.mutate),
+/* harmony export */   preload: () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.preload),
+/* harmony export */   unstable_serialize: () => (/* binding */ unstable_serialize),
+/* harmony export */   useSWRConfig: () => (/* reexport safe */ swr_internal__WEBPACK_IMPORTED_MODULE_2__.useSWRConfig)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var use_sync_external_store_shim_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! use-sync-external-store/shim/index.js */ "./node_modules/use-sync-external-store/shim/index.js");
@@ -7450,8 +7450,8 @@ const unstable_serialize = (key)=>(0,swr_internal__WEBPACK_IMPORTED_MODULE_2__.s
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ useSWRInfinite),
-/* harmony export */   "infinite": () => (/* binding */ infinite),
-/* harmony export */   "unstable_serialize": () => (/* binding */ unstable_serialize)
+/* harmony export */   infinite: () => (/* binding */ infinite),
+/* harmony export */   unstable_serialize: () => (/* binding */ unstable_serialize)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var swr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swr */ "./node_modules/swr/core/dist/index.mjs");
