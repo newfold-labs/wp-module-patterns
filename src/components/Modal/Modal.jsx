@@ -8,11 +8,11 @@ import { useEffect } from '@wordpress/element';
 /**
  * Internal dependencies
  */
+import { trackHiiveEvent } from '../../helpers/analytics';
 import { store as nfdPatternsStore } from '../../store';
 import Content from './Content/Content';
-import Sidebar from './Sidebar/Sidebar';
 import Header from './Content/Header/Header';
-import { trackHiiveEvent } from '../../helpers/analytics';
+import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
 	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);

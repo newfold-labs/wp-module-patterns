@@ -27,12 +27,12 @@ import { store as noticesStore } from '@wordpress/notices';
  * Internal dependencies
  */
 import { NFD_REST_URL } from '../../../../constants';
+import { trackHiiveEvent } from '../../../../helpers/analytics';
 import { blockInserter } from '../../../../helpers/blockInserter';
 import { optimizePreview } from '../../../../helpers/optimizePreview';
 import usePatterns from '../../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
-import { trackHiiveEvent } from '../../../../helpers/analytics';
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -116,7 +116,7 @@ const DesignItem = ({ item }) => {
 	}, [item?.type, selectedTemplateSlug, currentTheme]);
 
 	/**
-	 * Track events.
+	 * Track insert events.
 	 *
 	 * @return {void}
 	 */
@@ -252,7 +252,7 @@ const DesignItem = ({ item }) => {
 			revalidate: false,
 		});
 
-		// if is favorite track event
+		// if is added to favorites - track event
 		if (isFavorite) {
 			if (activeTab === 'patterns') {
 				trackHiiveEvent('pattern_favorited', {

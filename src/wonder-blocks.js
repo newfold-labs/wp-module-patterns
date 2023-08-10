@@ -4,6 +4,11 @@
 import './styles/app.scss';
 
 /**
+ * External dependencies
+ */
+import { HiiveAnalytics } from '@newfold-labs/js-utility-ui-analytics';
+
+/**
  * WordPress dependencies
  */
 import domReady from '@wordpress/dom-ready';
@@ -21,7 +26,6 @@ import {
 	NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID,
 } from './constants';
 
-import { HiiveAnalytics } from '@newfold-labs/js-utility-ui-analytics';
 import './blocks/block';
 import './blocks/register-category';
 import Modal from './components/Modal/Modal';

@@ -13,8 +13,8 @@ import { Icon, buttons } from '@wordpress/icons';
 /**
  * Internal dependencies
  */
-import { store as nfdPatternsStore } from '../store';
 import { trackHiiveEvent } from '../helpers/analytics';
+import { store as nfdPatternsStore } from '../store';
 
 const ToolbarButton = () => {
 	const { isModalOpen } = useSelect((select) => ({
