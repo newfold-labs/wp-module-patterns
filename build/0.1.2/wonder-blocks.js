@@ -4357,7 +4357,6 @@ const trackHiiveEvent = (action, data) => {
   };
 
   const hiiveEvent = new _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__.HiiveEvent(_constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY, action, data, _constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY);
-  console.log(hiiveEvent);
   _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__.HiiveAnalytics.track(hiiveEvent);
 };
 

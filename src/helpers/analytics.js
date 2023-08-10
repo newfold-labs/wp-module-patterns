@@ -16,7 +16,5 @@ export const trackHiiveEvent = (action, data) => {
 		HIIVE_ANALYTICS_CATEGORY
 	);
 
-	console.log(hiiveEvent);
-
 	HiiveAnalytics.track(hiiveEvent);
 };
