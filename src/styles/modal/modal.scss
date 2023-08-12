@@ -27,6 +27,10 @@
 		@include m.responsive(small) {
 			display: block;
 		}
+
+		& > div {
+			flex-grow: 1;
+		}
 	}
 
 	&__header {
