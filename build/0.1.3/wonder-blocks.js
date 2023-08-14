@@ -3055,6 +3055,23 @@ const DesignItem = ({
     if (isFavorite && !toggleState) {
       return;
     }
+
+    // Track favorite events.
+    if (!isFavorite) {
+      if (activeTab === 'patterns') {
+        (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('pattern_favorited', {
+          label_key: 'pattern_slug',
+          pattern_id: item.id,
+          pattern_slug: item.slug
+        });
+      } else if (activeTab === 'templates') {
+        (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('template_favorited', {
+          label_key: 'template_slug',
+          template_id: item.id,
+          template_slug: item.slug
+        });
+      }
+    }
     setIsFavorite(prev => !prev);
     const method = isFavorite ? 'DELETE' : 'POST';
     const updater = async () => await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
@@ -3088,23 +3105,6 @@ const DesignItem = ({
       populateCache: true,
       revalidate: false
     });
-
-    // if is added to favorites - track event
-    if (isFavorite) {
-      if (activeTab === 'patterns') {
-        (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('pattern_favorited', {
-          label_key: 'pattern_slug',
-          pattern_id: item.id,
-          pattern_slug: item.slug
-        });
-      } else if (activeTab === 'templates') {
-        (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('template_favorited', {
-          label_key: 'template_slug',
-          template_id: item.id,
-          template_slug: item.slug
-        });
-      }
-    }
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-6 nfd-wba-overflow-hidden nfd-wba-rounded-2xl nfd-wba-bg-grey nfd-wba-p-6"
@@ -4353,7 +4353,7 @@ __webpack_require__.r(__webpack_exports__);
 const trackHiiveEvent = (action, data) => {
   data = {
     ...data,
-    page: window.location.pathname + window.location.search // todo: check if this is what we want.
+    page: window.location.href // todo: check if this is what we want.
   };
 
   const hiiveEvent = new _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__.HiiveEvent(_constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY, action, data, _constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY);

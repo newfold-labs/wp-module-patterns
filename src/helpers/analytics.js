@@ -7,7 +7,7 @@ import { HIIVE_ANALYTICS_CATEGORY } from '../constants';
 export const trackHiiveEvent = (action, data) => {
 	data = {
 		...data,
-		page: window.location.pathname + window.location.search, // todo: check if this is what we want.
+		page: window.location.href, // todo: check if this is what we want.
 	};
 	const hiiveEvent = new HiiveEvent(
 		HIIVE_ANALYTICS_CATEGORY,
