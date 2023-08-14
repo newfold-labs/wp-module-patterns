@@ -212,6 +212,23 @@ const DesignItem = ({ item }) => {
 			return;
 		}
 
+		// Track favorite events.
+		if (!isFavorite) {
+			if (activeTab === 'patterns') {
+				trackHiiveEvent('pattern_favorited', {
+					label_key: 'pattern_slug',
+					pattern_id: item.id,
+					pattern_slug: item.slug,
+				});
+			} else if (activeTab === 'templates') {
+				trackHiiveEvent('template_favorited', {
+					label_key: 'template_slug',
+					template_id: item.id,
+					template_slug: item.slug,
+				});
+			}
+		}
+
 		setIsFavorite((prev) => !prev);
 		const method = isFavorite ? 'DELETE' : 'POST';
 
@@ -251,23 +268,6 @@ const DesignItem = ({ item }) => {
 			populateCache: true,
 			revalidate: false,
 		});
-
-		// if is added to favorites - track event
-		if (isFavorite) {
-			if (activeTab === 'patterns') {
-				trackHiiveEvent('pattern_favorited', {
-					label_key: 'pattern_slug',
-					pattern_id: item.id,
-					pattern_slug: item.slug,
-				});
-			} else if (activeTab === 'templates') {
-				trackHiiveEvent('template_favorited', {
-					label_key: 'template_slug',
-					template_id: item.id,
-					template_slug: item.slug,
-				});
-			}
-		}
 	};
 
 	return (
