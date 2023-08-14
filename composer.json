@@ -31,10 +31,10 @@
 	},
 	"scripts": {
 		"lint": [
-			"vendor/bin/phpcs . --standard=Newfold"
+			"vendor/bin/phpcs . --ignore=*/build/* --standard=Newfold -d error_reporting=\"E_ALL&~E_DEPRECATED\""
 		],
 		"clean": [
-			"vendor/bin/phpcbf . --standard=Newfold"
+			"vendor/bin/phpcbf . --ignore=*/build/* --standard=Newfold -d error_reporting=\"E_ALL&~E_DEPRECATED\""
 		]
 	},
 	"config": {
