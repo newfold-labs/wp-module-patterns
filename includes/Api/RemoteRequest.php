@@ -46,13 +46,12 @@ class RemoteRequest {
 			return;
 		}
 
-		if ( \defined( 'NFD_WB_DEV_MODE') && NFD_WB_DEV_MODE ) {
+		if ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) {
 			$this->base_url = 'http://localhost:8888';
 		} else {
 			$this->base_url = 'https://patterns.hiive.cloud';
 		}
-		
-		
+
 		$this->data = array(
 			'wp_language'       => \get_locale(),
 			'wp_theme'          => \get_option( 'template' ),

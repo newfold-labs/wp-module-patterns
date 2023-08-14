@@ -29,7 +29,7 @@ class Items {
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
 		}
-		
+
 		if ( isset( $args['keywords'] ) ) {
 			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}

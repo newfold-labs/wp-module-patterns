@@ -162,7 +162,6 @@ const Categories = ({ type = 'patterns' }) => {
 		<>
 			{!data && isValidating && <Skeleton count={14} />}
 			{!data && error && <ErrorLoading />}
-
 			{data && (
 				<>
 					<SelectControl
