@@ -27,15 +27,21 @@ class Categories {
 		// If the transient is empty or if we are in dev mode get the categories from the remote API.
 		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
 
-			$data = RemoteRequest::get(
-				'/categories',
-				array(
-					'type' => $type,
-				)
-			);
+			$data = RemoteRequest::get("/categories/{$type}");
 
+            // Check if we can get the categories with the type param
 			if ( \is_wp_error( $data ) ) {
-				return $data;
+                if ( 'remote_request_error' === $data->get_error_code() ) {
+                    // Try endpoint with 'type' param
+                    $data = RemoteRequest::get(
+                        '/categories',
+                        array(
+                            'type' => $type,
+                        )
+                    );
+                } else {
+                    return $data;
+                }
 			}
 
 			if ( isset( $data['data'] ) ) {
