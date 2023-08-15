@@ -27,21 +27,21 @@ class Categories {
 		// If the transient is empty or if we are in dev mode get the categories from the remote API.
 		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
 
-			$data = RemoteRequest::get("/categories/{$type}");
+			$data = RemoteRequest::get( "/categories/{$type}" );
 
-            // Check if we can get the categories with the type param
+			// Check if we can get the categories with the type param
 			if ( \is_wp_error( $data ) ) {
-                if ( 'remote_request_error' === $data->get_error_code() ) {
-                    // Try endpoint with 'type' param
-                    $data = RemoteRequest::get(
-                        '/categories',
-                        array(
-                            'type' => $type,
-                        )
-                    );
-                } else {
-                    return $data;
-                }
+				if ( 'remote_request_error' === $data->get_error_code() ) {
+					// Try endpoint with 'type' param
+					$data = RemoteRequest::get(
+						'/categories',
+						array(
+							'type' => $type,
+						)
+					);
+				} else {
+					return $data;
+				}
 			}
 
 			if ( isset( $data['data'] ) ) {
@@ -71,17 +71,17 @@ class Categories {
 		$data = array_filter(
 			$data,
 			function( $category ) {
-				return $category['title'] !== 'featured';
+				return 'featured' !== $category['title'];
 			}
 		);
 
-		$id = self::generateUuidV4();
+		$id = self::generate_uuid_v4();
 
 		$featured_category = array(
 			'id'    => $id,
 			'title' => 'featured',
 			'label' => 'Featured',
-			'count' => $type === 'templates' ? 4 : 11,
+			'count' => 'templates' === $type ? 4 : 11,
 		);
 
 		$data = array_merge( array( $featured_category ), $data );
@@ -92,17 +92,17 @@ class Categories {
 	/**
 	 * Temporary solution to add UUIDs to manual categories.
 	 */
-	private static function generateUuidV4() {
+	private static function generate_uuid_v4() {
 		return sprintf(
 			'%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
-			mt_rand( 0, 0xffff ),
-			mt_rand( 0, 0xffff ),
-			mt_rand( 0, 0xffff ),
-			mt_rand( 0, 0x0fff ) | 0x4000,
-			mt_rand( 0, 0x3fff ) | 0x8000,
-			mt_rand( 0, 0xffff ),
-			mt_rand( 0, 0xffff ),
-			mt_rand( 0, 0xffff )
+			wp_rand( 0, 0xffff ),
+			wp_rand( 0, 0xffff ),
+			wp_rand( 0, 0xffff ),
+			wp_rand( 0, 0x0fff ) | 0x4000,
+			wp_rand( 0, 0x3fff ) | 0x8000,
+			wp_rand( 0, 0xffff ),
+			wp_rand( 0, 0xffff ),
+			wp_rand( 0, 0xffff )
 		);
 	}
 }

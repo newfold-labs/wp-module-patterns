@@ -91,19 +91,19 @@ class RemoteRequest {
 		if ( \is_wp_error( $response ) ) {
 			return $response;
 		}
-        
-        // Check for other errors
-        $status_code = \wp_remote_retrieve_response_code( $response );
 
-	    if ( $status_code < 200 || $status_code >= 300 ) {
-		    return new \WP_Error(
-                'remote_request_error',
-                \wp_remote_retrieve_response_message( $response ),
-                array(
-                    'status_code' => $status_code,
-                )               
-            );
-	    }
+		// Check for other errors
+		$status_code = \wp_remote_retrieve_response_code( $response );
+
+		if ( $status_code < 200 || $status_code >= 300 ) {
+			return new \WP_Error(
+				'remote_request_error',
+				\wp_remote_retrieve_response_message( $response ),
+				array(
+					'status_code' => $status_code,
+				)
+			);
+		}
 
 		$response_body = \wp_remote_retrieve_body( $response );
 		return json_decode( $response_body, true );
