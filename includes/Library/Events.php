@@ -20,12 +20,12 @@ final class Events {
 	 * @var array
 	 */
 	protected static $valid_actions = array(
-		'template_inserted'  => true, // 
-		'template_searched'  => true, //
-		'pattern_searched'   => true, //
-		'pattern_inserted'   => true, //
-		'pattern_favorited'  => true, //
-		'template_favorited' => true, //
+		'template_inserted'  => true,
+		'template_searched'  => true,
+		'pattern_searched'   => true,
+		'pattern_inserted'   => true,
+		'pattern_favorited'  => true,
+		'template_favorited' => true,
 		'modal_open'         => true,
   	);
 
