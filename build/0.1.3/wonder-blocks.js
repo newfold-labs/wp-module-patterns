@@ -2712,7 +2712,8 @@ const Content = () => {
     isError,
     size,
     setSize,
-    hasMore
+    hasMore,
+    totalCount
   } = (0,_hooks_usePatterns__WEBPACK_IMPORTED_MODULE_2__["default"])();
   const {
     setIsContentLoading
@@ -2741,19 +2742,20 @@ const Content = () => {
     };
   }, []);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (!keywordsFilter) {
+    if (!keywordsFilter || null === totalCount) {
       return;
     }
     const eventData = {
       label_key: 'search_term',
-      search_term: keywordsFilter
+      search_term: keywordsFilter,
+      count: totalCount
     };
     if (activeTab === 'patterns') {
       (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('pattern_searched', eventData);
     } else if (activeTab === 'templates') {
       (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('template_searched', eventData);
     }
-  }, [activeTab, keywordsFilter]);
+  }, [activeTab, totalCount, keywordsFilter]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -4354,6 +4356,7 @@ const trackHiiveEvent = (action, data) => {
   };
 
   const hiiveEvent = new _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__.HiiveEvent(_constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY, action, data, _constants__WEBPACK_IMPORTED_MODULE_1__.HIIVE_ANALYTICS_CATEGORY);
+  console.log(hiiveEvent);
   _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_0__.HiiveAnalytics.track(hiiveEvent);
 };
 
@@ -4596,11 +4599,10 @@ __webpack_require__.r(__webpack_exports__);
  * @param {number}  params.perPage       - Number of items per page.
  * @return {Object} Object containing the patterns, error and loading state.
  */
-const usePatterns = function () {
-  let {
-    onlyFavorites = false,
-    perPage = 4
-  } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+const usePatterns = ({
+  onlyFavorites = false,
+  perPage = 4
+} = {}) => {
   const {
     activePatternsCategory,
     activeTemplatesCategory,
@@ -4670,11 +4672,11 @@ const usePatterns = function () {
     dedupingInterval: 5000
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useMemo)(() => {
-    var _data;
     let dataWithType = null;
-    const items = data ? [].concat(...data) : [];
+    const items = data ? data[0].items : [];
+    const totalCount = data ? data[0].totalCount : null;
     if (items && Array.isArray(items)) {
-      dataWithType = items === null || items === void 0 ? void 0 : items.map(pattern => {
+      dataWithType = items?.map(pattern => {
         return {
           ...pattern,
           type: endpoint
@@ -4683,7 +4685,8 @@ const usePatterns = function () {
     }
     return {
       data: activeCategory !== 'favorites' ? dataWithType : items,
-      hasMore: data && ((_data = data[data.length - 1]) === null || _data === void 0 ? void 0 : _data.length) === perPage,
+      hasMore: data && data[data.length - 1]?.length === perPage,
+      totalCount,
       isError: error,
       isValidating,
       isFavorites: activeCategory !== 'favorites' || keywords ? false : true,

@@ -46,8 +46,16 @@ const Content = () => {
 	}));
 
 	// Fetch data.
-	const { data, isValidating, isFavorites, isError, size, setSize, hasMore } =
-		usePatterns();
+	const {
+		data,
+		isValidating,
+		isFavorites,
+		isError,
+		size,
+		setSize,
+		hasMore,
+		totalCount,
+	} = usePatterns();
 
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
@@ -76,13 +84,14 @@ const Content = () => {
 	}, []);
 
 	useEffect(() => {
-		if (!keywordsFilter) {
+		if (!keywordsFilter || null === totalCount) {
 			return;
 		}
 
 		const eventData = {
 			label_key: 'search_term',
 			search_term: keywordsFilter,
+			count: totalCount,
 		};
 
 		if (activeTab === 'patterns') {
@@ -90,7 +99,7 @@ const Content = () => {
 		} else if (activeTab === 'templates') {
 			trackHiiveEvent('template_searched', eventData);
 		}
-	}, [activeTab, keywordsFilter]);
+	}, [activeTab, totalCount, keywordsFilter]);
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]">

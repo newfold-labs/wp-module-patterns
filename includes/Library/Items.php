@@ -33,13 +33,18 @@ class Items {
 		if ( isset( $args['keywords'] ) ) {
 			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}
+		
+		$count = count( $data );
 
 		if ( isset( $args['per_page'] ) ) {
 			$page = isset( $args['page'] ) ? $args['page'] : 1;
 			$data = array_slice( $data, ( $page - 1 ) * $args['per_page'], $args['per_page'] );
 		}
 
-		return $data;
+		return array(
+			'items'      => $data,
+			'totalCount' => $count
+		);
 	}
 
 	/**

@@ -106,7 +106,8 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 	return useMemo(() => {
 		let dataWithType = null;
 
-		const items = data ? [].concat(...data) : [];
+		const items = data ? data[0].items : [];
+		const totalCount = data ? data[0].totalCount : null;
 
 		if (items && Array.isArray(items)) {
 			dataWithType = items?.map((pattern) => {
@@ -117,6 +118,7 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 		return {
 			data: activeCategory !== 'favorites' ? dataWithType : items,
 			hasMore: data && data[data.length - 1]?.length === perPage,
+			totalCount,
 			isError: error,
 			isValidating,
 			isFavorites:
