@@ -26,8 +26,8 @@ import {
 	NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID,
 } from './constants';
 
-import './blocks/block';
 import './blocks/register-category';
+import './blocks/block';
 import Modal from './components/Modal/Modal';
 import ToolbarButton from './components/ToolbarButton';
 

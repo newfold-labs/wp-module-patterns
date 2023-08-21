@@ -3838,10 +3838,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Categories = _ref => {
-  let {
-    type = 'patterns'
-  } = _ref;
+const Categories = ({
+  type = 'patterns'
+}) => {
   // Fetch data.
   const {
     data,
@@ -3859,7 +3858,7 @@ const Categories = _ref => {
   // prettier-ignore
   const formattedCategoriesForMobile = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
     var _allFavs$length;
-    return data === null || data === void 0 ? void 0 : data.reduce((result, category) => {
+    return data?.reduce((result, category) => {
       var _category$count;
       // Handle undefined values
       const label = category.label || '';
@@ -3876,7 +3875,7 @@ const Categories = _ref => {
       }];
     }, [{
       value: 'favorites',
-      label: `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Favorites', 'nfd-wonder-blocks')} (${(_allFavs$length = allFavs === null || allFavs === void 0 ? void 0 : allFavs.length) !== null && _allFavs$length !== void 0 ? _allFavs$length : 0})`
+      label: `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Favorites', 'nfd-wonder-blocks')} (${(_allFavs$length = allFavs?.length) !== null && _allFavs$length !== void 0 ? _allFavs$length : 0})`
     }]).sort((a, b) => {
       if (a.value === 'favorites') {
         return 1; // Move 'favorites' to the end
@@ -3974,13 +3973,13 @@ const Categories = _ref => {
     __nextHasNoMarginBottom: true
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "nfd-wba-list-elements nfd-wba-m-0 nfd-wba-list-none nfd-wba-flex-col nfd-wba-px-0 nfd-wba-py-4 nfd-wba-text-md nfd-wba-leading-5 sm:nfd-wba-flex"
-  }, data === null || data === void 0 ? void 0 : data.map(category => {
+  }, data?.map(category => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ListElement__WEBPACK_IMPORTED_MODULE_9__["default"], {
       key: category.id,
       category: category,
-      isActive: !keywordsFilter && (category === null || category === void 0 ? void 0 : category.title) === getActiveCategory(),
+      isActive: !keywordsFilter && category?.title === getActiveCategory(),
       onClick: () => {
-        handleCategoryChange(category === null || category === void 0 ? void 0 : category.title);
+        handleCategoryChange(category?.title);
       }
     });
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ListElement__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -3989,7 +3988,7 @@ const Categories = _ref => {
       id: 'favorites',
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Favorites', 'nfd-wonder-blocks'),
       title: 'favorites',
-      count: allFavs === null || allFavs === void 0 ? void 0 : allFavs.length
+      count: allFavs?.length
     },
     isActive: !keywordsFilter && getActiveCategory() === 'favorites',
     icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -8629,8 +8628,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
-/* harmony import */ var _blocks_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/block */ "./src/blocks/block.js");
-/* harmony import */ var _blocks_register_category__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/register-category */ "./src/blocks/register-category.js");
+/* harmony import */ var _blocks_register_category__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/register-category */ "./src/blocks/register-category.js");
+/* harmony import */ var _blocks_block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/block */ "./src/blocks/block.js");
 /* harmony import */ var _components_Modal_Modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Modal/Modal */ "./src/components/Modal/Modal.jsx");
 /* harmony import */ var _components_ToolbarButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/ToolbarButton */ "./src/components/ToolbarButton.jsx");
 
