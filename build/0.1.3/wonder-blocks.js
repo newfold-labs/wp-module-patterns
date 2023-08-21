@@ -2744,16 +2744,20 @@ const Content = () => {
     if (!keywordsFilter) {
       return;
     }
+    if (hasMore && data?.length === 0) {
+      return;
+    }
     const eventData = {
       label_key: 'search_term',
-      search_term: keywordsFilter
+      search_term: keywordsFilter,
+      count: data?.length
     };
     if (activeTab === 'patterns') {
       (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('pattern_searched', eventData);
     } else if (activeTab === 'templates') {
       (0,_helpers_analytics__WEBPACK_IMPORTED_MODULE_11__.trackHiiveEvent)('template_searched', eventData);
     }
-  }, [activeTab, keywordsFilter]);
+  }, [activeTab, data?.length, keywordsFilter]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
