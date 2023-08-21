@@ -242,7 +242,8 @@
 }
 /* Horizontally stack children. RTL supported. */
 .nfd-overlap-children-sm > *:not(:first-child) {
-	margin-inline-start: -1rem !important;
+	-webkit-margin-start: -1rem !important;
+	        margin-inline-start: -1rem !important;
 }
 /* Grid */
 .nfd-grid-cols-1-2-1 {

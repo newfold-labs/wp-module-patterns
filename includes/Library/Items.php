@@ -29,7 +29,7 @@ class Items {
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
 		}
-		
+
 		if ( isset( $args['keywords'] ) ) {
 			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}
@@ -204,8 +204,8 @@ class Items {
 	/**
 	 * Check if item is featured.
 	 *
-	 * @param string $slug
-	 * @return boolean
+	 * @param string $slug Slug of item.
+	 * @return boolean $is_featured True if item is featured.
 	 */
 	private static function is_featured( $slug ) {
 
@@ -217,8 +217,8 @@ class Items {
 	/**
 	 * Add featured category to item if it belongs to a featured category.
 	 *
-	 * @param [type] $data
-	 * @return void
+	 * @param object $data List of items
+	 * @return object $data List of items updated with featured category
 	 */
 	private static function add_featured_categories( $data ) {
 		$data = array_map(
