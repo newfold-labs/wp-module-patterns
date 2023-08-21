@@ -10,6 +10,7 @@ import { buttons } from '@wordpress/icons';
  * Internal dependencies
  */
 import { DEFAULT_PATTERNS_CATEGORY } from '../constants';
+import { trackHiiveEvent } from '../helpers/analytics';
 import { store as nfdPatternsStore } from '../store';
 import metadata from './block.json';
 import { variations } from './variations';
@@ -44,6 +45,11 @@ registerBlockType(metadata, {
 					? attributes.category
 					: DEFAULT_PATTERNS_CATEGORY
 			);
+
+			trackHiiveEvent('modal_open', {
+				label_key: 'trigger',
+				trigger: 'block',
+			});
 
 			setIsModalOpen(true);
 		}, [

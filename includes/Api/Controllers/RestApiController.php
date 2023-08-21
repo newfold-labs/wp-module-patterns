@@ -61,17 +61,18 @@ class RestApiController extends \WP_REST_Controller {
 	 *
 	 * @return void
 	 */
-	public function get_handler( $namespace, $endpoint, $callback ) {
+	public function get_handler( $namespace, $endpoint, $callback, $args = array() ) {
 		\register_rest_route(
 			$namespace,
 			$endpoint,
 			array(
-				'methods'             => 'GET',
+				'methods'             => \WP_REST_Server::READABLE,
 				'callback'            => $callback,
 				'permission_callback' => array(
 					$this,
 					'checkPermission',
 				),
+				'args'                => $args,
 			)
 		);
 	}
@@ -85,17 +86,18 @@ class RestApiController extends \WP_REST_Controller {
 	 *
 	 * @return void
 	 */
-	public function post_handler( $namespace, $endpoint, $callback ) {
+	public function post_handler( $namespace, $endpoint, $callback, $args = array() ) {
 		\register_rest_route(
 			$namespace,
 			$endpoint,
 			array(
-				'methods'             => 'POST',
+				'methods'             => \WP_REST_Server::CREATABLE,
 				'callback'            => $callback,
 				'permission_callback' => array(
 					$this,
 					'checkPermission',
 				),
+				'args'                => $args,
 			)
 		);
 	}
@@ -109,7 +111,7 @@ class RestApiController extends \WP_REST_Controller {
 	 *
 	 * @return void
 	 */
-	public function delete_handler( $namespace, $endpoint, $callback ) {
+	public function delete_handler( $namespace, $endpoint, $callback, $args = array() ) {
 		\register_rest_route(
 			$namespace,
 			$endpoint,
@@ -120,6 +122,7 @@ class RestApiController extends \WP_REST_Controller {
 					$this,
 					'checkPermission',
 				),
+				'args'                => $args
 			)
 		);
 	}

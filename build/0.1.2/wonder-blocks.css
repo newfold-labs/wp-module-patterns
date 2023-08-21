@@ -307,9 +307,6 @@
     display: block;
   }
 }
-.nfd-wba-modal .components-modal__content > div {
-  flex-grow: 1;
-}
 .nfd-wba-modal__header {
   align-items: center;
   border-bottom: solid 1px var(--nfd-wba-color-borders);

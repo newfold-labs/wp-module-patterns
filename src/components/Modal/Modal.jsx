@@ -8,10 +8,11 @@ import { useEffect } from '@wordpress/element';
 /**
  * Internal dependencies
  */
+import { trackHiiveEvent } from '../../helpers/analytics';
 import { store as nfdPatternsStore } from '../../store';
 import Content from './Content/Content';
-import Sidebar from './Sidebar/Sidebar';
 import Header from './Content/Header/Header';
+import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
 	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
@@ -31,6 +32,11 @@ const Modal = () => {
 				if (searchParams.get('wonder-blocks-library') === 'templates') {
 					setActiveTab('templates');
 				}
+
+				trackHiiveEvent('modal_open', {
+					label_key: 'trigger',
+					trigger: 'url',
+				});
 
 				setIsModalOpen(true);
 			}, 300);
