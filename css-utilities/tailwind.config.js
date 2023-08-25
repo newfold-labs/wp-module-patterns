@@ -71,5 +71,6 @@ module.exports = {
 		'md:nfd-items-start',
 		'md:nfd-self-start',
 		'md:nfd-grid-cols-1',
+		'md:nfd-basis-full',
 	],
 };

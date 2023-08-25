@@ -66,6 +66,10 @@
 	padding-right: var(--nfd-cp-p-base, 2.375rem);
 }
 
+.nfd-pt-lg {
+	padding-top: var(--nfd-cp-spacing-y-lg);
+}
+
 .nfd-pb-lg {
 	padding-bottom: var(--nfd-cp-spacing-y-lg);
 }
