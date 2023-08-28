@@ -17,14 +17,20 @@
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
 		"utils:dev": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css -w --env development",
 		"utils:prod": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css --env production",
-		"json-server": "json-server --watch api.dev.json --port 3003"
+		"json-server": "json-server --watch api.dev.json --port 3003",
+		"cypress": "npx cypress open",
+		"test:e2e": "npx cypress run"
 	},
 	"devDependencies": {
+		"@testing-library/cypress": "^9.0.0",
 		"@wordpress/eslint-plugin": "^14.6.0",
 		"@wordpress/prettier-config": "^2.16.0",
 		"@wordpress/scripts": "^26.4.0",
 		"autoprefixer": "^10.4.14",
 		"cssnano": "^6.0.1",
+		"cypress": "^12.17.4",
+		"cypress-axe": "^1.4.0",
+		"cypress-real-events": "^1.10.0",
 		"eslint": "^8.40.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"json-server": "^0.17.3",
