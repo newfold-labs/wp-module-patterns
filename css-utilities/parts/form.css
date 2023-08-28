@@ -1,0 +1,16 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Form styles                                */
+/* -------------------------------------------------------------------------- */
+
+.nfd-form-items-grow > div {
+	flex-grow: 1;
+}
+
+.nfd-jp-form__textarea {
+	resize: vertical;
+}
+
+.nfd-jp-form__submit .wp-block-button__link {
+	padding-block-start: 12px;
+	padding-block-end: 12px;
+}

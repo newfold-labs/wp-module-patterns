@@ -39,6 +39,7 @@ class CSSUtilities {
 		if ( 'yith-wonder' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
 				--nfd-cp-container: var(--wp--style--global--content-size, 1140px);
+                --nfd-cp-container: 1200px;
 				--nfd-cp-p-base: 2.375rem;
 				
 				--nfd-cp-text-md: var(--wp--preset--font-size--small, 1.0625rem);
