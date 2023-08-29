@@ -10,6 +10,7 @@ import { Icon } from '@wordpress/icons';
 /**
  * Internal dependencies
  */
+import { SITE_EDITOR_CATEGORIES } from '../../../constants';
 import useCategories from '../../../hooks/useCategories';
 import usePatterns from '../../../hooks/usePatterns';
 import { store as nfdPatternsStore } from '../../../store';
@@ -18,15 +19,26 @@ import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
 
-const Categories = ({ type = 'patterns' }) => {
+const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 	// Fetch data.
 	const { data, error, isValidating } = useCategories(type);
 	const { data: allFavs } = usePatterns({ onlyFavorites: true, perPage: -1 });
 
+	// Remove SITE_EDITOR_CATEGORIES if we are not in the Site Editor.
+	const filteredCategories = useMemo(() => {
+		if (!isSiteEditor) {
+			return data?.filter(
+				(category) => !SITE_EDITOR_CATEGORIES.includes(category.title)
+			);
+		}
+
+		return data;
+	}, [isSiteEditor, data]);
+
 	// Format categories for mobile dropdown
 	// prettier-ignore
 	const formattedCategoriesForMobile = useMemo(() => {
-		return data?.reduce((result, category) => {            
+		return filteredCategories?.reduce((result, category) => {            
             // Handle undefined values
             const label = category.label || '';
             const count = category.count ?? '';
@@ -58,7 +70,7 @@ const Categories = ({ type = 'patterns' }) => {
             
             return 0; // Maintain the original order
         });
-	}, [data, allFavs]);
+	}, [filteredCategories, allFavs?.length]);
 
 	// Store actions and states.
 	const {
@@ -179,7 +191,7 @@ const Categories = ({ type = 'patterns' }) => {
 					/>
 
 					<ul className="nfd-wba-list-elements nfd-wba-m-0 nfd-wba-list-none nfd-wba-flex-col nfd-wba-px-0 nfd-wba-py-4 nfd-wba-text-md nfd-wba-leading-5 sm:nfd-wba-flex">
-						{data?.map((category) => {
+						{filteredCategories?.map((category) => {
 							return (
 								<ListElement
 									key={category.id}
