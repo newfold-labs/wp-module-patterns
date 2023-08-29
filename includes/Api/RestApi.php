@@ -35,7 +35,7 @@ final class RestApi {
 		RestApiController::get( '/favorites', array( FavoritesController::class, 'index' ) );
 		RestApiController::post( '/favorites', array( FavoritesController::class, 'add' ) );
 		RestApiController::delete( '/favorites', array( FavoritesController::class, 'delete' ) );
-		
+
 		RestApiController::post( '/events', array( EventsController::class, 'send' ), EventsController::get_send_event_args() );
 		RestApiController::post( '/events/batch', array( EventsController::class, 'send_batch' ) );
 	}

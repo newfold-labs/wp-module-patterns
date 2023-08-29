@@ -58,6 +58,7 @@ class RestApiController extends \WP_REST_Controller {
 	 * @param string   $namespace - The api name space.
 	 * @param string   $endpoint  - The endpoint.
 	 * @param function $callback  - The callback to run.
+	 * @param array    $args      - The arguments to pass in.
 	 *
 	 * @return void
 	 */
@@ -83,6 +84,7 @@ class RestApiController extends \WP_REST_Controller {
 	 * @param string $namespace - The api name space.
 	 * @param string $endpoint  - The endpoint.
 	 * @param string $callback  - The callback to run.
+	 * @param array  $args      - The arguments to pass in.
 	 *
 	 * @return void
 	 */
@@ -108,6 +110,7 @@ class RestApiController extends \WP_REST_Controller {
 	 * @param string $namespace - The api name space.
 	 * @param string $endpoint  - The endpoint.
 	 * @param string $callback  - The callback to run.
+	 * @param array  $args      - The arguments to pass in.
 	 *
 	 * @return void
 	 */
@@ -122,7 +125,7 @@ class RestApiController extends \WP_REST_Controller {
 					$this,
 					'checkPermission',
 				),
-				'args'                => $args
+				'args'                => $args,
 			)
 		);
 	}

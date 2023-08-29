@@ -45,7 +45,6 @@ final class Admin {
 				array(
 					'nonce'      => \wp_create_nonce( 'wp_rest' ),
 					'nfdRestURL' => \esc_url_raw( \rest_url( 'nfd-wonder-blocks/v1' ) ),
-					// 'supportURL' => \esc_url_raw( 'https://newfoldlabs.com/support' ),
 					'assets'     => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
 				)
 			);
@@ -59,7 +58,6 @@ final class Admin {
 	 * Disable opening default WP Patterns modal on empty pages.
 	 */
 	public function register_block_patterns() {
-
 		$patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 
 		foreach ( $patterns as $pattern ) {

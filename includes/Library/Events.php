@@ -27,7 +27,7 @@ final class Events {
 		'pattern_favorited'  => true,
 		'template_favorited' => true,
 		'modal_open'         => true,
-  	);
+	);
 
 	/**
 	 * Returns the list of valid actions that an event can perform
@@ -46,7 +46,7 @@ final class Events {
 	public static function get_category() {
 		return self::$category;
 	}
-	
+
 	/**
 	 * Sends a Hiive Event to the data module API.
 	 *
@@ -73,7 +73,7 @@ final class Events {
 		if ( $response->is_error() ) {
 			return $response->as_error();
 		}
-		
+
 		return $response;
 	}
 
@@ -84,14 +84,14 @@ final class Events {
 	 * @return boolean
 	 */
 	public static function validate_action( $action ) {
-		$valid_actions = Events::get_valid_actions();
+		$valid_actions = self::get_valid_actions();
 		if ( ! isset( $valid_actions[ $action ] ) ) {
 			return false;
 		}
 
 		return true;
 	}
-	
+
 	/**
 	 * Validates the category of an event.
 	 *
@@ -99,7 +99,7 @@ final class Events {
 	 * @return boolean
 	 */
 	public static function validate_category( $category ) {
-		return Events::get_category() === $category;
+		return self::get_category() === $category;
 	}
 
 	/**

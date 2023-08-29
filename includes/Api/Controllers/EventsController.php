@@ -26,7 +26,7 @@ class EventsController {
 
 		return new \WP_REST_Response( $data );
 	}
-	
+
 	/**
 	 * Sends an array of Hiive Events to the data module API programmatically.
 	 *
@@ -36,7 +36,7 @@ class EventsController {
 	public static function send_batch( \WP_REST_Request $request ) {
 		$events = $request->get_json_params();
 		if ( ! rest_is_array( $events ) ) {
-			
+
 			$error = new \WP_Error(
 				'nfd_wonder_blocks_error',
 				__( 'Request does not contain an array of events.', 'nfd-wonder-blocks' )
@@ -67,7 +67,7 @@ class EventsController {
 					'data' => $response_errors,
 				)
 			);
-			
+
 			return new \WP_REST_Response( RemoteRequest::format_error_data( $error ), 503 );
 		}
 
@@ -76,7 +76,7 @@ class EventsController {
 			202
 		);
 	}
-	
+
 	/**
 	 * Args for a single event.
 	 *
@@ -91,7 +91,7 @@ class EventsController {
 				'sanitize_callback' => 'sanitize_title',
 				'validate_callback' => array( Events::class, 'validate_action' ),
 			),
-			'category' => array(	
+			'category' => array(
 				'default'           => Events::get_category(),
 				'description'       => __( 'Event category', 'nfd-wonder-blocks' ),
 				'type'              => 'string',
