@@ -504,12 +504,28 @@ p[style*="text-decoration"] > a {
 .nfd-form-items-grow > div {
 	flex-grow: 1 !important;
 }
-.nfd-jp-form__textarea {
+.nfd-jp-form textarea {
 	resize: vertical !important;
 }
-.nfd-jp-form__submit .wp-block-button__link {
+.nfd-jp-form .wp-block-button__link {
 	padding-block-start: 12px !important;
 	padding-block-end: 12px !important;
+}
+.nfd-jp-form
+	.jetpack-field-checkbox
+	.jetpack-field-label
+	.jetpack-field-label__input,
+.nfd-jp-form
+	.jetpack-field-consent
+	.jetpack-field-label
+	.jetpack-field-label__input,
+.nfd-jp-form .consent {
+	text-transform: none !important;
+	line-height: 1.5em !important;
+	font-size: 1rem !important;
+}
+.nfd-jp-form input[type="checkbox"] {
+	padding: 0 !important;
 }
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
