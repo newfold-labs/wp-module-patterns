@@ -10,6 +10,8 @@
 	},
 	"scripts": {
 		"build": "concurrently \"wp-scripts build ./src/wonder-blocks.js\" \"npm run utils:prod\"",
+		"clean": "rm -rf ./build ./assets/styles",
+		"clean:node_modules": "rm -rf node_modules",
 		"format": "wp-scripts format ./src",
 		"start": "concurrently \"wp-scripts start ./src/wonder-blocks.js\" \"npm run utils:dev\"",
 		"start:local": "concurrently \"wp-scripts start ./src/wonder-blocks.js\" \"npm run utils:dev\" \"npm run json-server\"",
@@ -38,7 +40,7 @@
 		"webpack-merge": "^5.8.0"
 	},
 	"dependencies": {
-		"@newfold-labs/js-utility-ui-analytics": "^1.2.0",
+		"@newfold-labs/js-utility-ui-analytics": "1.2.0",
 		"@wordpress/icons": "^9.24.0",
 		"classnames": "^2.3.2",
 		"concurrently": "^8.0.1",
