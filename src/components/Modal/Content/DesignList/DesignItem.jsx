@@ -31,6 +31,7 @@ import { trackHiiveEvent } from '../../../../helpers/analytics';
 import { blockInserter } from '../../../../helpers/blockInserter';
 import { optimizePreview } from '../../../../helpers/optimizePreview';
 import usePatterns from '../../../../hooks/usePatterns';
+import useReplacePlaceholders from '../../../../hooks/useReplacePlaceholders';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
 
@@ -39,19 +40,33 @@ const DesignItem = ({ item }) => {
 	const [insertingDesign, setInsertingDesign] = useState(false);
 	const { data, mutate } = usePatterns({ onlyFavorites: true });
 
+	const { adminEmail } = useSelect((select) => ({
+		adminEmail: select('core').getEntityRecord('root', 'site')?.email,
+	}));
+
+	const replace = useReplacePlaceholders();
+	const replacePlaceholders = useMemo(() => {
+		return {
+			'email@example.com': adminEmail,
+		};
+	}, [adminEmail]);
+
 	const { data: allFavs, mutate: mutateAllFavs } = usePatterns({
 		onlyFavorites: true,
 		perPage: -1,
 	});
 
-	const blocks = useMemo(
-		() => rawHandler({ HTML: item.content }),
-		[item.content]
-	);
+	const rawContent = item?.content ?? '';
+
+	const content = useMemo(() => {
+		return replace(rawContent, replacePlaceholders);
+	}, [replace, rawContent, replacePlaceholders]);
+
+	const blocks = useMemo(() => rawHandler({ HTML: content }), [content]);
 
 	const previewBlocks = useMemo(
-		() => rawHandler({ HTML: optimizePreview(item.content) }),
-		[item.content]
+		() => rawHandler({ HTML: optimizePreview(rawContent) }),
+		[rawContent]
 	);
 
 	const { createErrorNotice, createSuccessNotice } =
