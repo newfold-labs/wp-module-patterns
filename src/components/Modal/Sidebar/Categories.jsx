@@ -172,7 +172,7 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 
 	return (
 		<>
-			{!data && isValidating && <Skeleton count={14} />}
+			{!data && isValidating && <Skeleton count={12} />}
 			{!data && error && <ErrorLoading />}
 			{data && (
 				<>
