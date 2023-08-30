@@ -27,11 +27,12 @@ import { store as noticesStore } from '@wordpress/notices';
  * Internal dependencies
  */
 import { NFD_REST_URL } from '../../../../constants';
-import { trackHiiveEvent } from '../../../../helpers/analytics';
-import { blockInserter } from '../../../../helpers/blockInserter';
-import { optimizePreview } from '../../../../helpers/optimizePreview';
-import usePatterns from '../../../../hooks/usePatterns';
-import useReplacePlaceholders from '../../../../hooks/useReplacePlaceholders';
+import {
+	blockInserter,
+	optimizePreview,
+	trackHiiveEvent,
+} from '../../../../helpers';
+import { usePatterns, useReplacePlaceholders } from '../../../../hooks';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
 

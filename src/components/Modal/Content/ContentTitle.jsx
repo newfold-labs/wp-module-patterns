@@ -7,7 +7,7 @@ import { sprintf, __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import useCategories from '../../../hooks/useCategories';
+import { useCategories } from '../../../hooks';
 
 const ContentTitle = ({ activeTab, currentCategory, title }) => {
 	// Fetch data.

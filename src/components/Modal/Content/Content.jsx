@@ -12,8 +12,10 @@ import { useEffect, useState } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import usePatterns from '../../../hooks/usePatterns';
+import { trackHiiveEvent } from '../../../helpers';
+import { usePatterns } from '../../../hooks';
 import { store as nfdPatternsStore } from '../../../store';
+
 import ContentTitle from './ContentTitle';
 import DesignList from './DesignList/DesignList';
 import Error from './DesignList/Error';
@@ -21,7 +23,6 @@ import NoResults from './DesignList/NoResults';
 import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
 import Spinner from './Spinner';
-import { trackHiiveEvent } from '../../../helpers/analytics';
 
 const Content = () => {
 	const [ready, setReady] = useState(false);

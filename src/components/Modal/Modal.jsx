@@ -8,7 +8,7 @@ import { useEffect, useMemo } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import { trackHiiveEvent } from '../../helpers/analytics';
+import { trackHiiveEvent } from '../../helpers';
 import { store as nfdPatternsStore } from '../../store';
 import Content from './Content/Content';
 import Header from './Content/Header/Header';

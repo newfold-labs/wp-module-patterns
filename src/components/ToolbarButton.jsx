@@ -13,7 +13,8 @@ import { Icon, buttons } from '@wordpress/icons';
 /**
  * Internal dependencies
  */
-import { trackHiiveEvent } from '../helpers/analytics';
+import { BRAND_NAME } from '../constants';
+import { trackHiiveEvent } from '../helpers';
 import { store as nfdPatternsStore } from '../store';
 
 const ToolbarButton = () => {
@@ -41,7 +42,7 @@ const ToolbarButton = () => {
 			}}
 		>
 			<span className="nfd-wba-ml-0.5 nfd-wba-hidden lg:nfd-wba-inline">
-				Wonder Blocks
+				{BRAND_NAME}
 			</span>
 		</WPToolbarButton>
 	);

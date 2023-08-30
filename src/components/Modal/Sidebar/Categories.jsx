@@ -11,20 +11,20 @@ import { Icon } from '@wordpress/icons';
  * Internal dependencies
  */
 import { SITE_EDITOR_CATEGORIES } from '../../../constants';
-import useCategories from '../../../hooks/useCategories';
-import usePatterns from '../../../hooks/usePatterns';
+import { useCategories, usePatterns } from '../../../hooks';
 import { store as nfdPatternsStore } from '../../../store';
+
 import { heart } from '../../Icons';
 import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
 
 const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
-	// Fetch data.
+	// Fetch data
 	const { data, error, isValidating } = useCategories(type);
 	const { data: allFavs } = usePatterns({ onlyFavorites: true, perPage: -1 });
 
-	// Remove SITE_EDITOR_CATEGORIES if we are not in the Site Editor.
+	// Remove SITE_EDITOR_CATEGORIES if we are not in the Site Editor
 	const filteredCategories = useMemo(() => {
 		if (!isSiteEditor) {
 			return data?.filter(
