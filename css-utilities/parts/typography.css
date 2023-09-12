@@ -117,3 +117,7 @@
 .nfd-text-md .wp-block-button__link {
 	font-size: inherit;
 }
+
+.nfd-text-balance {
+	text-wrap: balance;
+}
