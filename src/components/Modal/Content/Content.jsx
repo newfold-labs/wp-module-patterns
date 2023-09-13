@@ -23,6 +23,7 @@ import NoResults from './DesignList/NoResults';
 import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
 import Spinner from './Spinner';
+import UpdateNotice from './UpdateNotice';
 
 const Content = () => {
 	const [ready, setReady] = useState(false);
@@ -104,6 +105,7 @@ const Content = () => {
 				{isSidebarLoading && !isError && <LoadingSpinner />}
 
 				<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6">
+					<UpdateNotice />
 					<ContentTitle
 						activeTab={activeTab}
 						title={keywordsFilter}

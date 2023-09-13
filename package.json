@@ -26,6 +26,7 @@
 		"@wordpress/prettier-config": "^2.16.0",
 		"@wordpress/scripts": "^26.4.0",
 		"autoprefixer": "^10.4.14",
+		"concurrently": "^8.0.1",
 		"cssnano": "^6.0.1",
 		"eslint": "^8.40.0",
 		"eslint-plugin-prettier": "^4.2.1",
@@ -43,10 +44,10 @@
 		"@newfold-labs/js-utility-ui-analytics": "1.2.0",
 		"@wordpress/icons": "^9.24.0",
 		"classnames": "^2.3.2",
-		"concurrently": "^8.0.1",
 		"lodash": "^4.17.21",
 		"react-intersection-observer": "^9.4.3",
 		"react-masonry-css": "^1.0.16",
-		"swr": "^2.1.5"
+		"swr": "^2.1.5",
+		"compare-versions": "^6.1.0"
 	}
 }
