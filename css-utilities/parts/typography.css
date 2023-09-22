@@ -73,7 +73,7 @@
 }
 
 .nfd-text-huge:not([style*="letter-spacing"]) {
-	letter-spacing: -0.02em;
+	letter-spacing: -0.025em;
 }
 
 .nfd-text-huge:not([style*="font-weight"]) {
@@ -90,7 +90,7 @@
 }
 
 .nfd-text-giga:not([style*="letter-spacing"]) {
-	letter-spacing: -0.02em;
+	letter-spacing: -0.03em;
 }
 
 .nfd-text-giga:not([style*="font-weight"]) {

@@ -11,8 +11,8 @@
 }
 
 .nfd-jp-form .wp-block-button__link {
-	padding-block-start: 12px;
-	padding-block-end: 12px;
+	padding-block-start: 10px;
+	padding-block-end: 10px;
 }
 
 .nfd-jp-form
@@ -26,7 +26,8 @@
 .nfd-jp-form .consent {
 	text-transform: none;
 	line-height: 1.5em !important;
-	font-size: 1rem !important;
+	font-size: 0.875rem !important;
+	text-wrap: balance;
 }
 
 .nfd-jp-form input[type="checkbox"] {
