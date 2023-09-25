@@ -123,13 +123,39 @@ const DesignItem = ({ item }) => {
 	 *
 	 * @return {boolean}
 	 */
-	const shouldUpdateTemplate = useCallback(() => {
-		return (
+	const resolveTemplateUpdate = useCallback(() => {
+		if (
 			item?.type === 'templates' &&
-			currentTheme.template === 'yith-wonder' &&
-			selectedTemplateSlug !== 'no-title'
-		);
-	}, [item?.type, selectedTemplateSlug, currentTheme]);
+			currentTheme.template === 'yith-wonder'
+		) {
+			if (
+				item?.slug.includes('coming-soon') ||
+				item?.slug.includes('link-in-bio')
+			) {
+				if (selectedTemplateSlug !== 'no-header-footer') {
+					return 'no-header-footer';
+				}
+			} else if (selectedTemplateSlug !== 'no-title') {
+				return 'no-title';
+			}
+		}
+
+		return false;
+	}, [item?.type, item?.slug, currentTheme.template, selectedTemplateSlug]);
+
+	/**
+	 * Update the template if needed.
+	 *
+	 * @return {void}
+	 */
+	const updateTemplate = useCallback(() => {
+		const template = resolveTemplateUpdate();
+		if (template) {
+			editPost({
+				template,
+			});
+		}
+	}, [resolveTemplateUpdate, editPost]);
 
 	/**
 	 * Track insert events.
@@ -174,10 +200,8 @@ const DesignItem = ({ item }) => {
 		setInsertingDesign(true);
 
 		try {
-			if (shouldUpdateTemplate()) {
-				// Assign "Yith Wonder - No Title" template to the post.
-				editPost({ template: 'no-title' || '' });
-			}
+			// Update the template if needed.
+			updateTemplate();
 
 			// Insert the pattern.
 			await blockInserter(blocks);
