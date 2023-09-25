@@ -74,6 +74,7 @@ module.exports = {
 		'nfd-rounded',
 		'nfd-row-start-1',
 		'nfd-shrink-0',
+		'nfd-text-left',
 		'nfd-top-10',
 		'nfd-w-full',
 	],
