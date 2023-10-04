@@ -127,6 +127,9 @@
 	padding-top: 1.25rem !important;
 	padding-bottom: 1.25rem !important;
 }
+.nfd-text-left {
+	text-align: left !important;
+}
 /* prettier-ignore */
 :root {
 	/* Typography */
@@ -491,6 +494,10 @@ p[style*="text-decoration"] > a {
 	right: 0 !important;
 	z-index: 10 !important;
 }
+/* Fix dots separator align */
+.is-style-dots.nfd-text-left::before {
+	padding-left: 0 !important;
+}
 .nfd-absolute-header:not([style*="margin"]) {
 	margin: 0 !important;
 }
@@ -513,8 +520,22 @@ p[style*="text-decoration"] > a {
 /* -------------------------------------------------------------------------- */
 /*                                 Form styles                                */
 /* -------------------------------------------------------------------------- */
-.nfd-form-items-grow > div {
+.nfd-form-items-grow > div:not(.wp-block-jetpack-button) {
 	flex-grow: 1 !important;
+}
+.nfd-jp-form.nfd-text-center .consent {
+	text-align: center !important;
+}
+.nfd-jp-form .contact-form-submission .go-back-message .link {
+	color: currentColor !important;
+	text-decoration: underline !important;
+}
+.nfd-jp-form .contact-form-submission .go-back-message {
+	margin-top: 0 !important;
+}
+.nfd-jp-form .contact-form-submission {
+	border-color: currentColor !important;
+	padding: calc(0.5 * var(--nfd-cp-spacing-y-md)) 0 !important;
 }
 .nfd-jp-form textarea {
 	resize: vertical !important;
