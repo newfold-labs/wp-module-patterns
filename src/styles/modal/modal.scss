@@ -28,7 +28,7 @@
 			display: block;
 		}
 
-		& > div {
+		& > div:not(.nfd-wba-library-modal-grid) {
 			display: flex;
 			flex-grow: 1;
 		}
