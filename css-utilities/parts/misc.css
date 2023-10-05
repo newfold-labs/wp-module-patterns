@@ -59,7 +59,7 @@ p[style*="text-decoration"] > a {
 	margin: 0 !important;
 }
 
-/* ----------------- Cover Block full height with admin bar ----------------- */
+/* ----------------------- Offset admin bar from 100vh ---------------------- */
 :is([style*="min-height:100vh"]) {
 	min-height: calc(100vh - var(--wp-admin--admin-bar--height));
 }
