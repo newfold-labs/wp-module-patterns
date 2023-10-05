@@ -45,6 +45,7 @@ class CSSUtilities {
 				--nfd-cp-text-sm: var(--wp--preset--font-size--x-small, 0.875rem);
 				--nfd-cp-text-md: var(--wp--preset--font-size--small, 1.0625rem);
                 --nfd-cp-text-lg: var(--wp--preset--font-size--medium, 1.625rem);
+                --nfd-cp-text-huge: var(--wp--preset--font-size--huge, 2.25rem);
                 
                 --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
                 --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
