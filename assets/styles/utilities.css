@@ -131,33 +131,32 @@
 	text-align: left !important;
 }
 /* prettier-ignore */
-:root {
+:where(:root) {
 	/* Typography */
-	--nfd-cp-text-sm--default: 14px !important;
-    --nfd-cp-text-base--default: 16px !important;
-	--nfd-cp-text-md--default: 18px !important;
-	--nfd-cp-text-lg--default: clamp(1.625rem, 1.546875rem + 0.25vw, 1.75rem) !important; /* 26px - 28px */
-    --nfd-cp-text-xl--default: clamp(1.75rem, 1.3594rem + 1.25vw, 2.375rem) !important; /* 28px - 38px */
-	--nfd-cp-text-huge--default: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem) !important; /* 32px - 52px */
-	--nfd-cp-text-giga--default: clamp(3.25rem, 2.546875rem + 2.25vw, 4.375rem) !important; /* 52px - 70px */
+	--nfd-cp-text-sm: 0.875rem;
+    --nfd-cp-text-base: 1rem;
+	--nfd-cp-text-md: 1.125rem;
+	--nfd-cp-text-lg: clamp(1.625rem, 1.546875rem + 0.25vw, 1.75rem); /* 26px - 28px */
+    --nfd-cp-text-xl: clamp(1.75rem, 1.3594rem + 1.25vw, 2.375rem); /* 28px - 38px */
+	--nfd-cp-text-huge: clamp(2.25rem, 1.4688rem + 2.5000vw, 3.5rem); /* 32px - 52px */
+	--nfd-cp-text-giga: clamp(3.25rem, 2.546875rem + 2.25vw, 4.375rem); /* 52px - 70px */
 	
 	/* Spacing */
-	--nfd-cp-spacing-x-lg: clamp(2rem, 7vw, 6.25rem) !important;
-	--nfd-cp-spacing-y-lg: clamp(4rem, 7vw, 6.25rem) !important;
-
-    --nfd-cp-spacing-x-md: clamp(2rem, 7vw, 3.5rem) !important;
-    --nfd-cp-spacing-y-md: clamp(3rem, 7vw, 3.5rem) !important;
+	--nfd-cp-spacing-x-lg: clamp(2rem, 7vw, 6.25rem);
+	--nfd-cp-spacing-y-lg: clamp(4rem, 7vw, 6.25rem);
+    --nfd-cp-spacing-x-md: clamp(2rem, 7vw, 3.5rem);
+    --nfd-cp-spacing-y-md: clamp(3rem, 7vw, 3.5rem);
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Font sizes¸                                */
 /* -------------------------------------------------------------------------- */
 /* Small */
 .nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-sm, var(--nfd-cp-text-sm--default)) !important;
+	font-size: var(--nfd-cp-text-sm) !important;
 }
 /* Base */
 .nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-base, var(--nfd-cp-text-base--default)) !important;
+	font-size: var(--nfd-cp-text-base) !important;
 }
 /* prettier-ignore */
 .nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) .wp-block-button:not([class*="font-size"]):not([style*="font-size"]) > .wp-block-button__link,
@@ -168,14 +167,14 @@
 }
 /* Medium */
 .nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default)) !important;
+	font-size: var(--nfd-cp-text-md) !important;
 }
 .nfd-text-md:not([style*="line-height"]) {
 	line-height: 1.6 !important;
 }
 /* Large */
 .nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-lg, var(--nfd-cp-text-lg--default)) !important;
+	font-size: var(--nfd-cp-text-lg) !important;
 }
 .nfd-text-lg:not([style*="line-height"]) {
 	line-height: 1.2 !important;
@@ -188,7 +187,7 @@
 }
 /* Extra Large */
 .nfd-text-xl:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-xl, var(--nfd-cp-text-xl--default)) !important;
+	font-size: var(--nfd-cp-text-xl) !important;
 }
 .nfd-text-xl:not([style*="line-height"]) {
 	line-height: 1.2 !important;
@@ -201,7 +200,7 @@
 }
 /* Huge */
 .nfd-text-huge:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-huge, var(--nfd-cp-text-huge--default)) !important;
+	font-size: var(--nfd-cp-text-huge) !important;
 }
 .nfd-text-huge:not([style*="line-height"]) {
 	line-height: 1.125 !important;
@@ -214,7 +213,7 @@
 }
 /* Giga */
 .nfd-text-giga:not([class="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-giga, var(--nfd-cp-text-giga--default)) !important;
+	font-size: var(--nfd-cp-text-giga) !important;
 }
 .nfd-text-giga:not([style*="line-height"]) {
 	line-height: 1.1 !important;
@@ -501,6 +500,10 @@ p[style*="text-decoration"] > a {
 .nfd-absolute-header:not([style*="margin"]) {
 	margin: 0 !important;
 }
+/* ----------------------- Offset admin bar from 100vh ---------------------- */
+:is([style*="min-height:100vh"]) {
+	min-height: calc(100vh - var(--wp-admin--admin-bar--height)) !important;
+}
 /* -------------------------------------------------------------------------- */
 /*                            Block preview styles                            */
 /* -------------------------------------------------------------------------- */
@@ -560,6 +563,95 @@ p[style*="text-decoration"] > a {
 }
 .nfd-jp-form input[type="checkbox"] {
 	padding: 0 !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                 Dividers                                 */
+/* -------------------------------------------------------------------------- */
+[class*="nfd-divider-"] {
+	--nfd-divider-size: 50px !important;
+	position: relative !important;
+}
+[class*="nfd-divider-"]::after {
+	position: absolute !important;
+	content: "" !important;
+	pointer-events: none !important;
+	z-index: 10 !important;
+	background: inherit !important;
+	left: 0 !important;
+	bottom: calc(-1 * var(--nfd-divider-size)) !important;
+	width: 100% !important;
+	height: var(--nfd-divider-size) !important;
+}
+/* ---------------------------- ZigZag Divider ---------------------------- */
+.nfd-divider-zigzag {
+	--nfd-divider-size: 8px !important;
+}
+.nfd-divider-zigzag::after {
+	-webkit-mask: conic-gradient(
+			from -45deg at bottom,
+			#0000,
+			#000 1deg 89deg,
+			#0000 90deg
+		)
+		50% / calc(var(--nfd-divider-size) * 2) 100% !important;
+	        mask: conic-gradient(
+			from -45deg at bottom,
+			#0000,
+			#000 1deg 89deg,
+			#0000 90deg
+		)
+		50% / calc(var(--nfd-divider-size) * 2) 100% !important;
+}
+/* ---------------------------- Slant Divider ----------------------------- */
+.nfd-divider-slant,
+.nfd-divider-slant-invert {
+	--nfd-divider-size: 80px !important;
+}
+.nfd-divider-slant::after {
+	-webkit-clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
+}
+.nfd-divider-slant-invert::after {
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
+}
+/* ---------------------------- Arrow Divider ----------------------------- */
+.nfd-divider-arrow {
+	--nfd-divider-size: 16px !important;
+}
+.nfd-divider-arrow::after {
+	left: 50% !important;
+	width: calc(var(--nfd-divider-size) * 2) !important;
+	height: calc(var(--nfd-divider-size) * 2) !important;
+	transform: translateX(-50%) rotate(45deg) !important;
+	bottom: calc(var(--nfd-divider-size) * -1) !important;
+}
+/* --------------------------- Triangle Divider --------------------------- */
+.nfd-divider-triangle {
+	--nfd-divider-size: 80px !important;
+}
+.nfd-divider-triangle::after {
+	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
+}
+/* --------------------------- Ellipse Divider ---------------------------- */
+.nfd-divider-ellipse {
+	--nfd-divider-size: 50px !important;
+}
+.nfd-divider-ellipse::after {
+	-webkit-clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%) !important;
+	        clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%) !important;
+}
+/* ---------------------------- Rounded Divider --------------------------- */
+.nfd-divider-rounded {
+	--nfd-divider-size: 50px !important;
+}
+.nfd-divider-rounded::after {
+	border-bottom-left-radius: var(--nfd-divider-size) !important;
+	border-bottom-right-radius: var(--nfd-divider-size) !important;
 }
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {

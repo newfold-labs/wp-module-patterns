@@ -1,0 +1,93 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Dividers                                 */
+/* -------------------------------------------------------------------------- */
+
+[class*="nfd-divider-"] {
+	--nfd-divider-size: 50px;
+	position: relative;
+}
+
+[class*="nfd-divider-"]::after {
+	position: absolute;
+	content: "";
+	pointer-events: none;
+	z-index: 10;
+	background: inherit;
+	left: 0;
+	bottom: calc(-1 * var(--nfd-divider-size));
+	width: 100%;
+	height: var(--nfd-divider-size);
+}
+
+/* ---------------------------- ZigZag Divider ---------------------------- */
+.nfd-divider-zigzag {
+	--nfd-divider-size: 8px;
+}
+
+.nfd-divider-zigzag::after {
+	mask: conic-gradient(
+			from -45deg at bottom,
+			#0000,
+			#000 1deg 89deg,
+			#0000 90deg
+		)
+		50% / calc(var(--nfd-divider-size) * 2) 100%;
+}
+
+/* ---------------------------- Slant Divider ----------------------------- */
+.nfd-divider-slant,
+.nfd-divider-slant-invert {
+	--nfd-divider-size: 80px;
+}
+
+.nfd-divider-slant::after {
+	clip-path: polygon(0 0, 100% 0, 0 100%);
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px);
+}
+
+.nfd-divider-slant-invert::after {
+	clip-path: polygon(0 0, 100% 0, 100% 100%);
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px);
+}
+
+/* ---------------------------- Arrow Divider ----------------------------- */
+.nfd-divider-arrow {
+	--nfd-divider-size: 16px;
+}
+
+.nfd-divider-arrow::after {
+	left: 50%;
+	width: calc(var(--nfd-divider-size) * 2);
+	height: calc(var(--nfd-divider-size) * 2);
+	transform: translateX(-50%) rotate(45deg);
+	bottom: calc(var(--nfd-divider-size) * -1);
+}
+
+/* --------------------------- Triangle Divider --------------------------- */
+.nfd-divider-triangle {
+	--nfd-divider-size: 80px;
+}
+
+.nfd-divider-triangle::after {
+	clip-path: polygon(0 0, 100% 0, 50% 100%);
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px);
+}
+
+/* --------------------------- Ellipse Divider ---------------------------- */
+.nfd-divider-ellipse {
+	--nfd-divider-size: 50px;
+}
+
+.nfd-divider-ellipse::after {
+	clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%);
+}
+
+/* ---------------------------- Rounded Divider --------------------------- */
+.nfd-divider-rounded {
+	--nfd-divider-size: 50px;
+}
+
+.nfd-divider-rounded::after {
+	border-bottom-left-radius: var(--nfd-divider-size);
+	border-bottom-right-radius: var(--nfd-divider-size);
+}
