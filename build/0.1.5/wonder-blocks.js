@@ -2146,7 +2146,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function addAttributes(settings) {
-  // Add new extUtilities attribute to block settings.
   return {
     ...settings,
     attributes: {

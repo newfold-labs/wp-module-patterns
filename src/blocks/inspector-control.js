@@ -13,7 +13,6 @@ import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 
 function addAttributes(settings) {
-	// Add new extUtilities attribute to block settings.
 	return {
 		...settings,
 		attributes: {
