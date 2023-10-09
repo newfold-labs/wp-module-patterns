@@ -1,91 +1,93 @@
 /* -------------------------------------------------------------------------- */
-/*                                 Separators                                 */
+/*                                 Dividers                                 */
 /* -------------------------------------------------------------------------- */
 
-[class*="is-style-nfd-separator-"] {
-	--nfd-separator-size: 50px;
+[class*="nfd-divider-"] {
+	--nfd-divider-size: 50px;
 	position: relative;
 }
 
-[class*="is-style-nfd-separator-"]::after {
+[class*="nfd-divider-"]::after {
 	position: absolute;
 	content: "";
 	pointer-events: none;
 	z-index: 10;
 	background: inherit;
 	left: 0;
-	bottom: calc(-1 * var(--nfd-separator-size));
+	bottom: calc(-1 * var(--nfd-divider-size));
 	width: 100%;
-	height: var(--nfd-separator-size);
+	height: var(--nfd-divider-size);
 }
 
-/* ---------------------------- ZigZag Separator ---------------------------- */
-.is-style-nfd-separator-zigzag {
-	--nfd-separator-size: 8px;
+/* ---------------------------- ZigZag Divider ---------------------------- */
+.nfd-divider-zigzag {
+	--nfd-divider-size: 8px;
 }
 
-.is-style-nfd-separator-zigzag::after {
+.nfd-divider-zigzag::after {
 	mask: conic-gradient(
 			from -45deg at bottom,
 			#0000,
 			#000 1deg 89deg,
 			#0000 90deg
 		)
-		50% / calc(var(--nfd-separator-size) * 2) 100%;
+		50% / calc(var(--nfd-divider-size) * 2) 100%;
 }
 
-/* ---------------------------- Slant Separator ----------------------------- */
-.is-style-nfd-separator-slant,
-.is-style-nfd-separator-slant-invert {
-	--nfd-separator-size: 80px;
+/* ---------------------------- Slant Divider ----------------------------- */
+.nfd-divider-slant,
+.nfd-divider-slant-invert {
+	--nfd-divider-size: 80px;
 }
 
-.is-style-nfd-separator-slant::after {
+.nfd-divider-slant::after {
 	clip-path: polygon(0 0, 100% 0, 0 100%);
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px);
 }
 
-.is-style-nfd-separator-slant-invert::after {
+.nfd-divider-slant-invert::after {
 	clip-path: polygon(0 0, 100% 0, 100% 100%);
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px);
 }
 
-/* ---------------------------- Arrow Separator ----------------------------- */
-.is-style-nfd-separator-arrow {
-	--nfd-separator-size: 16px;
+/* ---------------------------- Arrow Divider ----------------------------- */
+.nfd-divider-arrow {
+	--nfd-divider-size: 16px;
 }
 
-.is-style-nfd-separator-arrow::after {
+.nfd-divider-arrow::after {
 	left: 50%;
-	width: calc(var(--nfd-separator-size) * 2);
-	height: calc(var(--nfd-separator-size) * 2);
+	width: calc(var(--nfd-divider-size) * 2);
+	height: calc(var(--nfd-divider-size) * 2);
 	transform: translateX(-50%) rotate(45deg);
-	bottom: calc(var(--nfd-separator-size) * -1);
+	bottom: calc(var(--nfd-divider-size) * -1);
 }
 
-/* --------------------------- Triangle Separator --------------------------- */
-.is-style-nfd-separator-triangle {
-	--nfd-separator-size: 80px;
+/* --------------------------- Triangle Divider --------------------------- */
+.nfd-divider-triangle {
+	--nfd-divider-size: 80px;
 }
 
-.is-style-nfd-separator-triangle::after {
+.nfd-divider-triangle::after {
 	clip-path: polygon(0 0, 100% 0, 50% 100%);
-	bottom: calc(calc(-1 * var(--nfd-separator-size)) + 1px);
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px);
 }
 
-/* --------------------------- Ellipse Separator ---------------------------- */
-.is-style-nfd-separator-ellipse {
-	--nfd-separator-size: 50px;
+/* --------------------------- Ellipse Divider ---------------------------- */
+.nfd-divider-ellipse {
+	--nfd-divider-size: 50px;
 }
 
-.is-style-nfd-separator-ellipse::after {
-	clip-path: ellipse(50% var(--nfd-separator-size) at 50% 0%);
+.nfd-divider-ellipse::after {
+	clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%);
 }
 
-/* ---------------------------- Rounded Separator --------------------------- */
-.is-style-nfd-separator-rounded {
-	--nfd-separator-size: 50px;
+/* ---------------------------- Rounded Divider --------------------------- */
+.nfd-divider-rounded {
+	--nfd-divider-size: 50px;
 }
 
-.is-style-nfd-separator-rounded::after {
-	border-bottom-left-radius: var(--nfd-separator-size);
-	border-bottom-right-radius: var(--nfd-separator-size);
+.nfd-divider-rounded::after {
+	border-bottom-left-radius: var(--nfd-divider-size);
+	border-bottom-right-radius: var(--nfd-divider-size);
 }

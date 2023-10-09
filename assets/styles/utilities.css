@@ -565,91 +565,93 @@ p[style*="text-decoration"] > a {
 	padding: 0 !important;
 }
 /* -------------------------------------------------------------------------- */
-/*                                 Separators                                 */
+/*                                 Dividers                                 */
 /* -------------------------------------------------------------------------- */
-[class*="is-style-nfd-separator-"] {
-	--nfd-separator-size: 50px !important;
+[class*="nfd-divider-"] {
+	--nfd-divider-size: 50px !important;
 	position: relative !important;
 }
-[class*="is-style-nfd-separator-"]::after {
+[class*="nfd-divider-"]::after {
 	position: absolute !important;
 	content: "" !important;
 	pointer-events: none !important;
 	z-index: 10 !important;
 	background: inherit !important;
 	left: 0 !important;
-	bottom: calc(-1 * var(--nfd-separator-size)) !important;
+	bottom: calc(-1 * var(--nfd-divider-size)) !important;
 	width: 100% !important;
-	height: var(--nfd-separator-size) !important;
+	height: var(--nfd-divider-size) !important;
 }
-/* ---------------------------- ZigZag Separator ---------------------------- */
-.is-style-nfd-separator-zigzag {
-	--nfd-separator-size: 8px !important;
+/* ---------------------------- ZigZag Divider ---------------------------- */
+.nfd-divider-zigzag {
+	--nfd-divider-size: 8px !important;
 }
-.is-style-nfd-separator-zigzag::after {
+.nfd-divider-zigzag::after {
 	-webkit-mask: conic-gradient(
 			from -45deg at bottom,
 			#0000,
 			#000 1deg 89deg,
 			#0000 90deg
 		)
-		50% / calc(var(--nfd-separator-size) * 2) 100% !important;
+		50% / calc(var(--nfd-divider-size) * 2) 100% !important;
 	        mask: conic-gradient(
 			from -45deg at bottom,
 			#0000,
 			#000 1deg 89deg,
 			#0000 90deg
 		)
-		50% / calc(var(--nfd-separator-size) * 2) 100% !important;
+		50% / calc(var(--nfd-divider-size) * 2) 100% !important;
 }
-/* ---------------------------- Slant Separator ----------------------------- */
-.is-style-nfd-separator-slant,
-.is-style-nfd-separator-slant-invert {
-	--nfd-separator-size: 80px !important;
+/* ---------------------------- Slant Divider ----------------------------- */
+.nfd-divider-slant,
+.nfd-divider-slant-invert {
+	--nfd-divider-size: 80px !important;
 }
-.is-style-nfd-separator-slant::after {
+.nfd-divider-slant::after {
 	-webkit-clip-path: polygon(0 0, 100% 0, 0 100%) !important;
 	        clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
 }
-.is-style-nfd-separator-slant-invert::after {
+.nfd-divider-slant-invert::after {
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
 	        clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
 }
-/* ---------------------------- Arrow Separator ----------------------------- */
-.is-style-nfd-separator-arrow {
-	--nfd-separator-size: 16px !important;
+/* ---------------------------- Arrow Divider ----------------------------- */
+.nfd-divider-arrow {
+	--nfd-divider-size: 16px !important;
 }
-.is-style-nfd-separator-arrow::after {
+.nfd-divider-arrow::after {
 	left: 50% !important;
-	width: calc(var(--nfd-separator-size) * 2) !important;
-	height: calc(var(--nfd-separator-size) * 2) !important;
+	width: calc(var(--nfd-divider-size) * 2) !important;
+	height: calc(var(--nfd-divider-size) * 2) !important;
 	transform: translateX(-50%) rotate(45deg) !important;
-	bottom: calc(var(--nfd-separator-size) * -1) !important;
+	bottom: calc(var(--nfd-divider-size) * -1) !important;
 }
-/* --------------------------- Triangle Separator --------------------------- */
-.is-style-nfd-separator-triangle {
-	--nfd-separator-size: 80px !important;
+/* --------------------------- Triangle Divider --------------------------- */
+.nfd-divider-triangle {
+	--nfd-divider-size: 80px !important;
 }
-.is-style-nfd-separator-triangle::after {
+.nfd-divider-triangle::after {
 	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
 	        clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
-	bottom: calc(calc(-1 * var(--nfd-separator-size)) + 1px) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
 }
-/* --------------------------- Ellipse Separator ---------------------------- */
-.is-style-nfd-separator-ellipse {
-	--nfd-separator-size: 50px !important;
+/* --------------------------- Ellipse Divider ---------------------------- */
+.nfd-divider-ellipse {
+	--nfd-divider-size: 50px !important;
 }
-.is-style-nfd-separator-ellipse::after {
-	-webkit-clip-path: ellipse(50% var(--nfd-separator-size) at 50% 0%) !important;
-	        clip-path: ellipse(50% var(--nfd-separator-size) at 50% 0%) !important;
+.nfd-divider-ellipse::after {
+	-webkit-clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%) !important;
+	        clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%) !important;
 }
-/* ---------------------------- Rounded Separator --------------------------- */
-.is-style-nfd-separator-rounded {
-	--nfd-separator-size: 50px !important;
+/* ---------------------------- Rounded Divider --------------------------- */
+.nfd-divider-rounded {
+	--nfd-divider-size: 50px !important;
 }
-.is-style-nfd-separator-rounded::after {
-	border-bottom-left-radius: var(--nfd-separator-size) !important;
-	border-bottom-right-radius: var(--nfd-separator-size) !important;
+.nfd-divider-rounded::after {
+	border-bottom-left-radius: var(--nfd-divider-size) !important;
+	border-bottom-right-radius: var(--nfd-divider-size) !important;
 }
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
