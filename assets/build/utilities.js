@@ -3,10 +3,10 @@
   var ViewportAnimationObserver = class {
     constructor(options = {}) {
       this.options = {
-        activeClass: "nfd-wb-in-viewport",
+        activeClass: "nfd-wb-animated-in",
         root: null,
         rootMargin: "0px",
-        threshold: 0.5,
+        threshold: 0.3,
         ...options
       };
     }

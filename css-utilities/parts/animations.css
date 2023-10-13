@@ -1,0 +1,74 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Animations                                 */
+/* -------------------------------------------------------------------------- */
+
+:root {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 1400ms;
+	--nfd-wb-anim-transition-delay: 50ms;
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.32, 1, 0.65, 1);
+
+	--nfd-wb-anim-transition: all var(--nfd-wb-anim-transition-duration)
+		var(--nfd-wb-anim-transition-easing-function)
+		var(--nfd-wb-anim-transition-delay);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	/* no important */
+	:root {
+		--nfd-wb-anim-transition-duration: 0ms;
+		--nfd-wb-anim-transition-delay: 0ms;
+	}
+}
+
+/* ----------------------------- Fade In Bottom ----------------------------- */
+/* Initial state */
+:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom) {
+	/* no important */
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay);
+
+	opacity: 0;
+	transform: translate3d(0, 75px, 0);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+/* Final state */
+:where(body:not(.block-editor-page) .nfd-wb-animated-in.nfd-wb-fade-in-bottom) {
+	/* no important */
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+/* --------------------------------- Delays --------------------------------- */
+.nfd-delay-50 {
+	--nfd-wb-anim-transition-delay: 50ms;
+}
+
+.nfd-delay-150 {
+	--nfd-wb-anim-transition-delay: 150ms;
+}
+
+.nfd-delay-300 {
+	--nfd-wb-anim-transition-delay: 300ms;
+}
+
+.nfd-delay-450 {
+	--nfd-wb-anim-transition-delay: 450ms;
+}
+
+.nfd-delay-600 {
+	--nfd-wb-anim-transition-delay: 600ms;
+}
+
+.nfd-delay-750 {
+	--nfd-wb-anim-transition-delay: 750ms;
+}
+
+.nfd-delay-900 {
+	--nfd-wb-anim-transition-delay: 900ms;
+}
