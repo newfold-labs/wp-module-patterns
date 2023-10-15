@@ -159,15 +159,25 @@
 		var(--nfd-wb-anim-transition-easing-function)
 		var(--nfd-wb-anim-transition-delay);
 }
+/* No animations on mobile or reduced motion */
 @media (prefers-reduced-motion: reduce) {
-	:root {
-		--nfd-wb-anim-transition-duration: 0ms;
-		--nfd-wb-anim-transition-delay: 0ms;
+	.nfd-wb-animate {
+		transition: none !important;
 	}
 }
+@media (max-width: 782px) {
+	.nfd-wb-animate {
+		transition: none !important;
+	}
+}
+/* Max width fixes for 'reveal' animations */
+.wp-block-heading[class*="nfd-wb-reveal"],
+p[class*="nfd-wb-reveal"] {
+	max-width: -moz-fit-content !important;
+	max-width: fit-content !important;
+}
 /* ----------------------------- Fade In Bottom ----------------------------- */
-/* Initial state */
-:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom) {
+:where(body:not(.block-editor-page) [class*="nfd-wb-fade-in"]) {
 	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
 			var(--nfd-wb-anim-transition-easing-function)
 			var(--nfd-wb-anim-transition-delay),
@@ -175,14 +185,90 @@
 			var(--nfd-wb-anim-transition-easing-function)
 			var(--nfd-wb-anim-transition-delay);
 
-	opacity: 0;
-	transform: translate3d(0, 75px, 0);
 	transition: var(--nfd-wb-anim-transition);
 }
-/* Final state */
-:where(body:not(.block-editor-page) .nfd-wb-animated-in.nfd-wb-fade-in-bottom) {
+:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom) {
+	opacity: 0;
+	transform: translate3d(0, 64px, 0);
+	transition: var(--nfd-wb-anim-transition);
+}
+.nfd-wb-animated-in.nfd-wb-fade-in-bottom {
 	opacity: 1;
 	transform: translate3d(0, 0, 0);
+}
+:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom-short) {
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform: translate3d(0, 24px, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+.nfd-wb-animated-in.nfd-wb-fade-in-bottom-short {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+/* -------------------------------- Twist In -------------------------------- */
+:where(body:not(.block-editor-page) div:has(> .nfd-wb-twist-in)) {
+	perspective: 2000px;
+}
+:where(body:not(.block-editor-page) .nfd-wb-twist-in) {
+	--nfd-wb-anim-transition-duration: 1000ms !important;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay) !important;
+	opacity: 0 !important;
+	transform: rotateY(25deg) rotateZ(-5deg) !important;
+	transition: var(--nfd-wb-anim-transition) !important;
+}
+.nfd-wb-animated-in.nfd-wb-twist-in {
+	opacity: 1 !important;
+	transform: rotateY(0deg) rotateZ(0deg) !important;
+}
+/* ---------------------------- Reveal Animations --------------------------- */
+:where(body:not(.block-editor-page) .nfd-wb-curtain-reveal-right) {
+	position: relative !important;
+	overflow: hidden !important;
+}
+:where(body:not(.block-editor-page) .nfd-wb-curtain-reveal-right::before) {
+	--nfd-wb-anim-transition-duration: 900ms !important;
+
+	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
+		var(--nfd-wb-anim-transition-easing-function)
+		var(--nfd-wb-anim-transition-delay) !important;
+
+	transition: var(--nfd-wb-anim-transition) !important;
+	content: "" !important;
+	position: absolute !important;
+	inset: 0 !important;
+	background: var(--wp--preset--color--secondary) !important;
+	z-index: 1 !important;
+	pointer-events: none !important;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+}
+.nfd-wb-animated-in.nfd-wb-curtain-reveal-right::before {
+	-webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%) !important;
+	        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%) !important;
+}
+/* Mask reveal animations require DOM parent to be used for intersection observer */
+:where(body:not(.block-editor-page) .nfd-wb-mask-reveal-right) {
+	--nfd-wb-anim-transition-duration: 1500ms !important;
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.64, 0, 0.37, 1) !important;
+	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
+		var(--nfd-wb-anim-transition-easing-function)
+		var(--nfd-wb-anim-transition-delay) !important;
+
+	transition: var(--nfd-wb-anim-transition) !important;
+	-webkit-clip-path: inset(0 100% 0 0) !important;
+	        clip-path: inset(0 100% 0 0) !important;
+}
+.nfd-wb-animated-in > .nfd-wb-mask-reveal-right {
+	-webkit-clip-path: inset(0 0 0 0) !important;
+	        clip-path: inset(0 0 0 0) !important;
 }
 /* --------------------------------- Delays --------------------------------- */
 .nfd-delay-50 {
@@ -205,6 +291,12 @@
 }
 .nfd-delay-900 {
 	--nfd-wb-anim-transition-delay: 900ms !important;
+}
+.nfd-delay-1050 {
+	--nfd-wb-anim-transition-delay: 1050ms !important;
+}
+.nfd-delay-1200 {
+	--nfd-wb-anim-transition-delay: 1200ms !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                            Block preview styles                            */
@@ -362,6 +454,7 @@ p[style*="text-decoration"] > a {
 /* ----------------------- Offset admin bar from 100vh ---------------------- */
 :is([style*="min-height:100vh"]) {
 	min-height: calc(100vh - var(--wp-admin--admin-bar--height)) !important;
+	min-height: calc(100dvh - var(--wp-admin--admin-bar--height)) !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Query Loop                                 */

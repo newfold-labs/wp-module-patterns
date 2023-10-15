@@ -4,16 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	viewportAnimation();
 });
 
+// listen for wonder-blocks/toolbar-button-added event
+document.addEventListener('wonder-blocks/toolbar-button-added', () => {
+	viewportAnimation();
+});
+
 /**
  * Handles viewport animations (entrance/exit).
  */
 function viewportAnimation() {
+	const isGutenberg = document.body.classList.contains('block-editor-page');
+
 	const viewportAnimationObserver = new ViewportAnimationObserver({
-		// activeClass: 'nfd-wb-in-viewport'
-		threshold: 0.2, // at least 20% of the element is in the viewport
+		root: isGutenberg
+			? document.querySelector('.interface-interface-skeleton__content') // Gutenberg scroll container
+			: null,
+		threshold: 0.4, // at least 0% of the element is in the viewport
 	});
 
 	const elementsToAnimate = document.querySelectorAll('.nfd-wb-animate');
 
-	viewportAnimationObserver.observeElements(elementsToAnimate);
+	if (!isGutenberg) {
+		viewportAnimationObserver.observeElements(elementsToAnimate);
+	}
 }

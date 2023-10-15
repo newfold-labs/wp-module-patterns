@@ -8,7 +8,7 @@ export class ViewportAnimationObserver {
 			activeClass: 'nfd-wb-animated-in',
 			root: null,
 			rootMargin: '0px',
-			threshold: 0.3,
+			threshold: 0,
 			...options,
 		};
 	}
@@ -29,7 +29,15 @@ export class ViewportAnimationObserver {
 			this.options
 		);
 
-		elements.forEach((element) => observer.observe(element));
+		elements.forEach((element) => {
+			let elementToWatch = element;
+
+			if (element.classList.contains('nfd-wb-mask-reveal-right')) {
+				elementToWatch = element.parentElement;
+			}
+
+			observer.observe(elementToWatch);
+		});
 	}
 
 	/**

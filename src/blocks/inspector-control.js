@@ -116,12 +116,20 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					label: 'Fade In Bottom',
 				},
 				{
+					value: 'nfd-wb-fade-in-bottom-short',
+					label: 'Fade In Bottom Short',
+				},
+				{
 					value: 'nfd-wb-twist-in',
 					label: 'Twist In',
 				},
 				{
-					value: 'nfd-wb-reveal-in-bottom',
-					label: 'Reveal In Bottom',
+					value: 'nfd-wb-curtain-reveal-right',
+					label: 'Curtain Reveal Right',
+				},
+				{
+					value: 'nfd-wb-mask-reveal-right',
+					label: 'Mask Reveal Right',
 				},
 			],
 			[]
@@ -160,6 +168,14 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 				{
 					value: 'nfd-delay-900',
 					label: '900ms',
+				},
+				{
+					value: 'nfd-delay-1050',
+					label: '1050ms',
+				},
+				{
+					value: 'nfd-delay-1200',
+					label: '1200ms',
 				},
 			],
 			[]

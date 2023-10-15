@@ -6,7 +6,7 @@
         activeClass: "nfd-wb-animated-in",
         root: null,
         rootMargin: "0px",
-        threshold: 0.3,
+        threshold: 0,
         ...options
       };
     }
@@ -23,7 +23,13 @@
         this._handleIntersection.bind(this),
         this.options
       );
-      elements.forEach((element) => observer.observe(element));
+      elements.forEach((element) => {
+        let elementToWatch = element;
+        if (element.classList.contains("nfd-wb-mask-reveal-right")) {
+          elementToWatch = element.parentElement;
+        }
+        observer.observe(elementToWatch);
+      });
     }
     /**
      * Handle intersection events to trigger animations.
@@ -46,14 +52,20 @@
   document.addEventListener("DOMContentLoaded", () => {
     viewportAnimation();
   });
+  document.addEventListener("wonder-blocks/toolbar-button-added", () => {
+    viewportAnimation();
+  });
   function viewportAnimation() {
+    const isGutenberg = document.body.classList.contains("block-editor-page");
     const viewportAnimationObserver = new ViewportAnimationObserver({
-      // activeClass: 'nfd-wb-in-viewport'
-      threshold: 0.2
-      // at least 20% of the element is in the viewport
+      root: isGutenberg ? document.querySelector(".interface-interface-skeleton__content") : null,
+      threshold: 0.4
+      // at least 0% of the element is in the viewport
     });
     const elementsToAnimate = document.querySelectorAll(".nfd-wb-animate");
-    viewportAnimationObserver.observeElements(elementsToAnimate);
+    if (!isGutenberg) {
+      viewportAnimationObserver.observeElements(elementsToAnimate);
+    }
   }
 })();
 //# sourceMappingURL=utilities.js.map

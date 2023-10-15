@@ -13,17 +13,27 @@
 		var(--nfd-wb-anim-transition-delay);
 }
 
+/* No animations on mobile or reduced motion */
 @media (prefers-reduced-motion: reduce) {
-	/* no important */
-	:root {
-		--nfd-wb-anim-transition-duration: 0ms;
-		--nfd-wb-anim-transition-delay: 0ms;
+	.nfd-wb-animate {
+		transition: none;
 	}
 }
 
+@media (max-width: 782px) {
+	.nfd-wb-animate {
+		transition: none;
+	}
+}
+
+/* Max width fixes for 'reveal' animations */
+.wp-block-heading[class*="nfd-wb-reveal"],
+p[class*="nfd-wb-reveal"] {
+	max-width: fit-content;
+}
+
 /* ----------------------------- Fade In Bottom ----------------------------- */
-/* Initial state */
-:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom) {
+:where(body:not(.block-editor-page) [class*="nfd-wb-fade-in"]) {
 	/* no important */
 	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
 			var(--nfd-wb-anim-transition-easing-function)
@@ -32,16 +42,103 @@
 			var(--nfd-wb-anim-transition-easing-function)
 			var(--nfd-wb-anim-transition-delay);
 
-	opacity: 0;
-	transform: translate3d(0, 75px, 0);
 	transition: var(--nfd-wb-anim-transition);
 }
 
-/* Final state */
-:where(body:not(.block-editor-page) .nfd-wb-animated-in.nfd-wb-fade-in-bottom) {
+:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom) {
+	/* no important */
+	opacity: 0;
+	transform: translate3d(0, 64px, 0);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+.nfd-wb-animated-in.nfd-wb-fade-in-bottom {
 	/* no important */
 	opacity: 1;
 	transform: translate3d(0, 0, 0);
+}
+
+:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom-short) {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform: translate3d(0, 24px, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+.nfd-wb-animated-in.nfd-wb-fade-in-bottom-short {
+	/* no important */
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+
+/* -------------------------------- Twist In -------------------------------- */
+:where(body:not(.block-editor-page) div:has(> .nfd-wb-twist-in)) {
+	/* no important */
+	perspective: 2000px;
+}
+
+:where(body:not(.block-editor-page) .nfd-wb-twist-in) {
+	--nfd-wb-anim-transition-duration: 1000ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay);
+	opacity: 0;
+	transform: rotateY(25deg) rotateZ(-5deg);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+.nfd-wb-animated-in.nfd-wb-twist-in {
+	opacity: 1;
+	transform: rotateY(0deg) rotateZ(0deg);
+}
+
+/* ---------------------------- Reveal Animations --------------------------- */
+:where(body:not(.block-editor-page) .nfd-wb-curtain-reveal-right) {
+	position: relative;
+	overflow: hidden;
+}
+
+:where(body:not(.block-editor-page) .nfd-wb-curtain-reveal-right::before) {
+	--nfd-wb-anim-transition-duration: 900ms;
+
+	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
+		var(--nfd-wb-anim-transition-easing-function)
+		var(--nfd-wb-anim-transition-delay);
+
+	transition: var(--nfd-wb-anim-transition);
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: var(--wp--preset--color--secondary);
+	z-index: 1;
+	pointer-events: none;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.nfd-wb-animated-in.nfd-wb-curtain-reveal-right::before {
+	clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+/* Mask reveal animations require DOM parent to be used for intersection observer */
+:where(body:not(.block-editor-page) .nfd-wb-mask-reveal-right) {
+	--nfd-wb-anim-transition-duration: 1500ms;
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.64, 0, 0.37, 1);
+	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
+		var(--nfd-wb-anim-transition-easing-function)
+		var(--nfd-wb-anim-transition-delay);
+
+	transition: var(--nfd-wb-anim-transition);
+	clip-path: inset(0 100% 0 0);
+}
+
+.nfd-wb-animated-in > .nfd-wb-mask-reveal-right {
+	clip-path: inset(0 0 0 0);
 }
 
 /* --------------------------------- Delays --------------------------------- */
@@ -71,4 +168,12 @@
 
 .nfd-delay-900 {
 	--nfd-wb-anim-transition-delay: 900ms;
+}
+
+.nfd-delay-1050 {
+	--nfd-wb-anim-transition-delay: 1050ms;
+}
+
+.nfd-delay-1200 {
+	--nfd-wb-anim-transition-delay: 1200ms;
 }
