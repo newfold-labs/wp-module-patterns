@@ -51,6 +51,14 @@ export class ViewportAnimationObserver {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
 				entry.target.classList.add(this.options.activeClass);
+
+				// Sync with parent element
+				entry.target
+					.querySelectorAll('.nfd-wb-animate')
+					.forEach((element) => {
+						element.classList.add(this.options.activeClass);
+					});
+
 				observer.unobserve(entry.target);
 			}
 		});
