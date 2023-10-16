@@ -19,7 +19,7 @@ function viewportAnimation() {
 		root: isGutenberg
 			? document.querySelector('.interface-interface-skeleton__content') // Gutenberg scroll container
 			: null,
-		threshold: 0.4, // at least 0% of the element is in the viewport
+		threshold: 0.2, // at least 20% of the element is in the viewport
 	});
 
 	const elementsToAnimate = document.querySelectorAll('.nfd-wb-animate');
