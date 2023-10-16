@@ -3,3 +3,5 @@ vendor
 .DS_Store
 .vscode
 .npmrc
+TODO.txt
+TODO.md
