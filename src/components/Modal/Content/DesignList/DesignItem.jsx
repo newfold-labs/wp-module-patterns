@@ -126,7 +126,7 @@ const DesignItem = ({ item }) => {
 	const resolveTemplateUpdate = useCallback(() => {
 		if (
 			item?.type === 'templates' &&
-			currentTheme.template === 'yith-wonder'
+			currentTheme?.template === 'yith-wonder'
 		) {
 			if (
 				item?.slug.includes('coming-soon') ||
@@ -141,7 +141,7 @@ const DesignItem = ({ item }) => {
 		}
 
 		return false;
-	}, [item?.type, item?.slug, currentTheme.template, selectedTemplateSlug]);
+	}, [item?.type, item?.slug, currentTheme?.template, selectedTemplateSlug]);
 
 	/**
 	 * Update the template if needed.
