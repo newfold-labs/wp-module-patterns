@@ -6,7 +6,7 @@
 	/* no important */
 	--nfd-wb-anim-transition-duration: 1400ms;
 	--nfd-wb-anim-transition-delay: 50ms;
-	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.32, 1, 0.65, 1);
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 1, 0.65, 1);
 
 	--nfd-wb-anim-transition: all var(--nfd-wb-anim-transition-duration)
 		var(--nfd-wb-anim-transition-easing-function)
@@ -128,7 +128,7 @@
 /* Mask reveal animations require DOM parent to be used for intersection observer */
 :where(body:not(.block-editor-page) .nfd-wb-reveal-right) {
 	--nfd-wb-anim-transition-duration: 1500ms;
-	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.1, 0, 0.1, 1);
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 0, 0, 1);
 	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
 		var(--nfd-wb-anim-transition-easing-function)
 		var(--nfd-wb-anim-transition-delay);
