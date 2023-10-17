@@ -32,7 +32,7 @@ export class ViewportAnimationObserver {
 		elements.forEach((element) => {
 			let elementToWatch = element;
 
-			if (element.classList.contains('nfd-wb-mask-reveal-right')) {
+			if (element.classList.contains('nfd-wb-reveal-right')) {
 				elementToWatch = element.parentElement;
 			}
 

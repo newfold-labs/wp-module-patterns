@@ -117,20 +117,28 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					label: 'Fade In Bottom',
 				},
 				{
+					value: 'nfd-wb-fade-in-top-short',
+					label: 'Fade In Top Short',
+				},
+				{
+					value: 'nfd-wb-fade-in-right-short',
+					label: 'Fade In Right Short',
+				},
+				{
 					value: 'nfd-wb-fade-in-bottom-short',
 					label: 'Fade In Bottom Short',
+				},
+				{
+					value: 'nfd-wb-fade-in-left-short',
+					label: 'Fade In Left Short',
 				},
 				{
 					value: 'nfd-wb-twist-in',
 					label: 'Twist In',
 				},
 				{
-					value: 'nfd-wb-curtain-reveal-right',
-					label: 'Curtain Reveal Right',
-				},
-				{
-					value: 'nfd-wb-mask-reveal-right',
-					label: 'Mask Reveal Right',
+					value: 'nfd-wb-reveal-right',
+					label: 'Reveal Right',
 				},
 			],
 			[]
@@ -237,11 +245,11 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 				)}
 				<InspectorControls>
 					<PanelBody
-						title={__('Animation', 'nfd-wonder-blocks')}
-						initialOpen={true}
+						title={__('Entrance Animations', 'nfd-wonder-blocks')}
+						initialOpen={false}
 					>
 						<SelectControl
-							label={__('Style', 'nfd-wonder-blocks')}
+							label={__('Animation', 'nfd-wonder-blocks')}
 							options={customAnimationStyles}
 							value={selectedAnimation}
 							onChange={(selectedItem) => {

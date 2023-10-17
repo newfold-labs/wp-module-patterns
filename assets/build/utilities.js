@@ -25,7 +25,7 @@
       );
       elements.forEach((element) => {
         let elementToWatch = element;
-        if (element.classList.contains("nfd-wb-mask-reveal-right")) {
+        if (element.classList.contains("nfd-wb-reveal-right")) {
           elementToWatch = element.parentElement;
         }
         observer.observe(elementToWatch);
@@ -42,6 +42,9 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(this.options.activeClass);
+          entry.target.querySelectorAll(".nfd-wb-animate").forEach((element) => {
+            element.classList.add(this.options.activeClass);
+          });
           observer.unobserve(entry.target);
         }
       });
@@ -59,8 +62,8 @@
     const isGutenberg = document.body.classList.contains("block-editor-page");
     const viewportAnimationObserver = new ViewportAnimationObserver({
       root: isGutenberg ? document.querySelector(".interface-interface-skeleton__content") : null,
-      threshold: 0.4
-      // at least 0% of the element is in the viewport
+      threshold: 0.2
+      // at least 20% of the element is in the viewport
     });
     const elementsToAnimate = document.querySelectorAll(".nfd-wb-animate");
     if (!isGutenberg) {
