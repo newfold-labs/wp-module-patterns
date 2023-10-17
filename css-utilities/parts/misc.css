@@ -63,3 +63,9 @@ p[style*="text-decoration"] > a {
 :is([style*="min-height:100vh"]) {
 	min-height: calc(100vh - var(--wp-admin--admin-bar--height));
 }
+
+@supports (height: 100dvh) {
+	:is([style*="height:100vh"]) {
+		height: calc(100dvh - var(--wp-admin--admin-bar--height));
+	}
+}
