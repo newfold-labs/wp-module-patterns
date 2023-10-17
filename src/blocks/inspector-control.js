@@ -2,6 +2,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 import {
 	Button,
 	PanelBody,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
 	SelectControl,
 } from '@wordpress/components';

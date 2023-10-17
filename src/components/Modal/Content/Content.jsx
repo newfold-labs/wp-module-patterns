@@ -82,6 +82,10 @@ const Content = () => {
 			return;
 		}
 
+		if (hasMore === undefined) {
+			return;
+		}
+
 		if (hasMore && data?.length === 0) {
 			return;
 		}
@@ -97,7 +101,7 @@ const Content = () => {
 		} else if (activeTab === 'templates') {
 			trackHiiveEvent('template_searched', eventData);
 		}
-	}, [activeTab, data?.length, keywordsFilter]);
+	}, [activeTab, data?.length, hasMore, keywordsFilter]);
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]">

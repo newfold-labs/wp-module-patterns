@@ -1,6 +1,6 @@
 {
 	"name": "@newfold-labs/wp-module-patterns",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "Wonder Blocks",
 	"license": "GPL-2.0-or-later",
 	"private": true,
@@ -10,15 +10,15 @@
 	},
 	"scripts": {
 		"build": "concurrently \"wp-scripts build ./src/wonder-blocks.js\" \"npm run utils:prod\"",
-		"clean": "rm -rf ./build ./assets/build",
+		"clean": "rm -rf ./build ./assets/styles",
 		"clean:node_modules": "rm -rf node_modules",
 		"format": "wp-scripts format ./src",
 		"start": "concurrently \"wp-scripts start ./src/wonder-blocks.js\" \"npm run utils:dev\"",
 		"start:local": "concurrently \"wp-scripts start ./src/wonder-blocks.js\" \"npm run utils:dev\" \"npm run json-server\"",
 		"lint:js": "wp-scripts lint-js ./src",
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
-		"utils:dev": "concurrently \"postcss ./css-utilities/utilities.css -o ./assets/build/utilities.css -w --env development\" \"esbuild --bundle ./assets/scripts/utilities.js --sourcemap --outfile=./assets/build/utilities.js --target=es2020 --watch\"",
-		"utils:prod": "concurrently \"postcss ./css-utilities/utilities.css -o ./assets/build/utilities.css --env production\" \"esbuild --bundle ./assets/scripts/utilities.js --minify --outfile=./assets/build/utilities.js --target=es2020 && rm ./assets/build/utilities.js.map\"",
+		"utils:dev": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css -w --env development",
+		"utils:prod": "postcss ./css-utilities/utilities.css -o ./assets/styles/utilities.css --env production",
 		"json-server": "json-server --watch api.dev.json --port 3003"
 	},
 	"devDependencies": {
@@ -28,7 +28,6 @@
 		"autoprefixer": "^10.4.16",
 		"concurrently": "^8.2.1",
 		"cssnano": "^6.0.1",
-		"esbuild": "^0.19.4",
 		"eslint": "^8.51.0",
 		"eslint-plugin-prettier": "^5.0.1",
 		"json-server": "^0.17.4",
@@ -39,16 +38,16 @@
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.6",
 		"tailwindcss": "^3.3.3",
-		"webpack-merge": "^5.9.0"
+		"webpack-merge": "^5.10.0"
 	},
 	"dependencies": {
 		"@newfold-labs/js-utility-ui-analytics": "1.2.0",
 		"@wordpress/icons": "^9.34.0",
 		"classnames": "^2.3.2",
-		"compare-versions": "^6.1.0",
 		"lodash": "^4.17.21",
 		"react-intersection-observer": "^9.5.2",
 		"react-masonry-css": "^1.0.16",
-		"swr": "^2.2.4"
+		"swr": "^2.2.4",
+		"compare-versions": "^6.1.0"
 	}
 }
