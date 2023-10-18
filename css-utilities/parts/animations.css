@@ -26,8 +26,13 @@
 	}
 }
 
+/* Allow animations to be replayed. This attribute is removed from element with JS, causing the animation to be replayed */
+.nfd-wb-animate[data-replay-animation] {
+	transition: none;
+}
+
 /* --------------------------------- Fade In -------------------------------- */
-:where(body:not(.block-editor-page) [class*="nfd-wb-fade-in"]) {
+[class*="nfd-wb-fade-in"] {
 	/* no important */
 	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
 			var(--nfd-wb-anim-transition-easing-function)
@@ -38,16 +43,18 @@
 
 	transition: var(--nfd-wb-anim-transition);
 }
-/* Fade In Bottom (long) */
-:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom) {
+/* Bottom (long) */
+.nfd-wb-fade-in-bottom {
 	/* no important */
+	--nfd-wb-anim-transition-duration: 1200ms;
+
 	opacity: 0;
-	transform: translate3d(0, 80px, 0);
+	transform: translate3d(0, 90px, 0);
 	transition: var(--nfd-wb-anim-transition);
 }
 
-/* Fade In Bottom Short */
-:where(body:not(.block-editor-page) .nfd-wb-fade-in-bottom-short) {
+/* Bottom */
+.nfd-wb-fade-in-bottom-short {
 	/* no important */
 	--nfd-wb-anim-transition-duration: 600ms;
 
@@ -57,8 +64,8 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-/* Fade In Top Short */
-:where(body:not(.block-editor-page) .nfd-wb-fade-in-top-short) {
+/* Top */
+.nfd-wb-fade-in-top-short {
 	/* no important */
 	--nfd-wb-anim-transition-duration: 600ms;
 
@@ -68,8 +75,8 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-/* Fade In Left Short */
-:where(body:not(.block-editor-page) .nfd-wb-fade-in-left-short) {
+/* Left */
+.nfd-wb-fade-in-left-short {
 	/* no important */
 	--nfd-wb-anim-transition-duration: 600ms;
 
@@ -79,8 +86,8 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-/* Fade In Right Short */
-:where(body:not(.block-editor-page) .nfd-wb-fade-in-right-short) {
+/* Right */
+.nfd-wb-fade-in-right-short {
 	/* no important */
 	--nfd-wb-anim-transition-duration: 600ms;
 
@@ -90,19 +97,20 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-.nfd-wb-animated-in[class*="nfd-wb-fade-in"] {
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-fade-in"] {
 	/* no important */
 	opacity: 1;
 	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
 }
 
 /* -------------------------------- Twist In -------------------------------- */
-:where(body:not(.block-editor-page) div:has(> .nfd-wb-twist-in)) {
+div:has(> .nfd-wb-twist-in) {
 	/* no important */
 	perspective: 1200px;
 }
 
-:where(body:not(.block-editor-page) .nfd-wb-twist-in) {
+.nfd-wb-twist-in {
+	/* no important */
 	--nfd-wb-anim-transition-duration: 1000ms;
 
 	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
@@ -117,7 +125,7 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-.nfd-wb-animated-in.nfd-wb-twist-in {
+.nfd-wb-animated-in:not([data-replay-animation]).nfd-wb-twist-in {
 	opacity: 1;
 	transform: translateY(0px) scale(1) rotateY(0deg) rotateZ(0deg)
 		translateZ(0);
@@ -126,7 +134,8 @@
 /* ---------------------------- Reveal Animations --------------------------- */
 
 /* Mask reveal animations require DOM parent to be used for intersection observer */
-:where(body:not(.block-editor-page) .nfd-wb-reveal-right) {
+.nfd-wb-reveal-right {
+	/* no important */
 	--nfd-wb-anim-transition-duration: 1500ms;
 	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 0, 0, 1);
 	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
@@ -137,7 +146,7 @@
 	clip-path: inset(0 100% 0 0);
 }
 
-.nfd-wb-animated-in > .nfd-wb-reveal-right {
+.nfd-wb-animated-in > .nfd-wb-reveal-right:not([data-replay-animation]) {
 	clip-path: inset(0 0 0 0);
 }
 
@@ -176,4 +185,12 @@
 
 .nfd-delay-1200 {
 	--nfd-wb-anim-transition-delay: 1200ms;
+}
+
+.nfd-delay-1350 {
+	--nfd-wb-anim-transition-delay: 1350ms;
+}
+
+.nfd-delay-1500 {
+	--nfd-wb-anim-transition-delay: 1500ms;
 }

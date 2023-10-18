@@ -186,6 +186,14 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					value: 'nfd-delay-1200',
 					label: '1200ms',
 				},
+				{
+					value: 'nfd-delay-1350',
+					label: '1350ms',
+				},
+				{
+					value: 'nfd-delay-1500',
+					label: '1500ms',
+				},
 			],
 			[]
 		);
@@ -196,8 +204,8 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 				{name === 'core/group' && isTopLevel && (
 					<InspectorControls>
 						<PanelBody
-							title={__('Divider Style', 'nfd-wonder-blocks')}
-							initialOpen={true}
+							title={__('Section Divider', 'nfd-wonder-blocks')}
+							initialOpen={false}
 						>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
@@ -243,6 +251,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 						</PanelBody>
 					</InspectorControls>
 				)}
+
 				<InspectorControls>
 					<PanelBody
 						title={__('Entrance Animations', 'nfd-wonder-blocks')}
@@ -256,8 +265,20 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 								props.setAttributes({
 									nfdAnimation: selectedItem,
 								});
+
+								document.dispatchEvent(
+									new CustomEvent(
+										'wonder-blocks/animation-changed',
+										{
+											detail: {
+												clientId: props?.clientId,
+											},
+										}
+									)
+								);
 							}}
 						/>
+
 						<SelectControl
 							label={__('Delay', 'nfd-wonder-blocks')}
 							options={customAnimationDelay}
