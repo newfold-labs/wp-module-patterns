@@ -4,6 +4,7 @@ import {
 	PanelBody,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
+	SelectControl,
 } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
@@ -19,6 +20,14 @@ function addAttributes(settings) {
 		attributes: {
 			...settings.attributes,
 			nfdGroupDivider: {
+				type: 'string',
+				default: '',
+			},
+			nfdAnimation: {
+				type: 'string',
+				default: '',
+			},
+			nfdAnimationDelay: {
 				type: 'string',
 				default: '',
 			},
@@ -46,6 +55,9 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const { name, clientId } = props;
 
 		const activeStyle = props?.attributes?.nfdGroupDivider ?? 'default';
+		const selectedAnimation = props?.attributes?.nfdAnimation ?? '';
+		const selectedAnimationDelay =
+			props?.attributes?.nfdAnimationDelay ?? '';
 
 		const isTopLevel = useSelect(
 			(select) => {
@@ -55,7 +67,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[clientId]
 		);
 
-		const customStyles = useMemo(
+		const customDividerStyles = useMemo(
 			() => [
 				{
 					name: '',
@@ -94,18 +106,110 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[]
 		);
 
+		const customAnimationStyles = useMemo(
+			() => [
+				{
+					value: '',
+					label: 'None',
+				},
+				{
+					value: 'nfd-wb-fade-in-bottom',
+					label: 'Fade In Bottom',
+				},
+				{
+					value: 'nfd-wb-fade-in-top-short',
+					label: 'Fade In Top Short',
+				},
+				{
+					value: 'nfd-wb-fade-in-right-short',
+					label: 'Fade In Right Short',
+				},
+				{
+					value: 'nfd-wb-fade-in-bottom-short',
+					label: 'Fade In Bottom Short',
+				},
+				{
+					value: 'nfd-wb-fade-in-left-short',
+					label: 'Fade In Left Short',
+				},
+				{
+					value: 'nfd-wb-twist-in',
+					label: 'Twist In',
+				},
+				{
+					value: 'nfd-wb-reveal-right',
+					label: 'Reveal Right',
+				},
+			],
+			[]
+		);
+
+		const customAnimationDelay = useMemo(
+			() => [
+				{
+					value: '',
+					label: 'None',
+				},
+				{
+					value: 'nfd-delay-50',
+					label: '50ms',
+				},
+				{
+					value: 'nfd-delay-150',
+					label: '150ms',
+				},
+				{
+					value: 'nfd-delay-300',
+					label: '300ms',
+				},
+				{
+					value: 'nfd-delay-450',
+					label: '450ms',
+				},
+				{
+					value: 'nfd-delay-600',
+					label: '600ms',
+				},
+				{
+					value: 'nfd-delay-750',
+					label: '750ms',
+				},
+				{
+					value: 'nfd-delay-900',
+					label: '900ms',
+				},
+				{
+					value: 'nfd-delay-1050',
+					label: '1050ms',
+				},
+				{
+					value: 'nfd-delay-1200',
+					label: '1200ms',
+				},
+				{
+					value: 'nfd-delay-1350',
+					label: '1350ms',
+				},
+				{
+					value: 'nfd-delay-1500',
+					label: '1500ms',
+				},
+			],
+			[]
+		);
+
 		return (
 			<>
 				<BlockEdit {...props} />
 				{name === 'core/group' && isTopLevel && (
 					<InspectorControls>
 						<PanelBody
-							title={__('Divider Style', 'nfd-wonder-blocks')}
-							initialOpen={true}
+							title={__('Section Divider', 'nfd-wonder-blocks')}
+							initialOpen={false}
 						>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
-									{customStyles.map((style) => {
+									{customDividerStyles.map((style) => {
 										const buttonText = style.isDefault
 											? __('Default', 'nfd-wonder-blocks')
 											: style.label || style.name;
@@ -147,6 +251,46 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 						</PanelBody>
 					</InspectorControls>
 				)}
+
+				<InspectorControls>
+					<PanelBody
+						title={__('Entrance Animations', 'nfd-wonder-blocks')}
+						initialOpen={false}
+					>
+						<SelectControl
+							label={__('Animation', 'nfd-wonder-blocks')}
+							options={customAnimationStyles}
+							value={selectedAnimation}
+							onChange={(selectedItem) => {
+								props.setAttributes({
+									nfdAnimation: selectedItem,
+								});
+
+								document.dispatchEvent(
+									new CustomEvent(
+										'wonder-blocks/animation-changed',
+										{
+											detail: {
+												clientId: props?.clientId,
+											},
+										}
+									)
+								);
+							}}
+						/>
+
+						<SelectControl
+							label={__('Delay', 'nfd-wonder-blocks')}
+							options={customAnimationDelay}
+							value={selectedAnimationDelay}
+							onChange={(selectedItem) => {
+								props.setAttributes({
+									nfdAnimationDelay: selectedItem,
+								});
+							}}
+						/>
+					</PanelBody>
+				</InspectorControls>
 			</>
 		);
 	};
@@ -154,9 +298,16 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 
 function addSaveProps(saveElementProps, blockType, attributes) {
 	const generatedClasses = saveElementProps?.className ?? [];
-	const classes = attributes?.nfdGroupDivider
-		? [attributes.nfdGroupDivider]
-		: [];
+	const classes = [
+		...(attributes?.nfdGroupDivider ? [attributes.nfdGroupDivider] : []),
+		...(attributes?.nfdAnimation
+			? ['nfd-wb-animate', attributes.nfdAnimation]
+			: []),
+		...(attributes?.nfdAnimationDelay && attributes?.nfdAnimation
+			? [attributes.nfdAnimationDelay]
+			: []),
+	];
+
 	const additionalClasses = attributes?.className ?? [];
 
 	if (!classes) {

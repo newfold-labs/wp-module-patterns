@@ -76,7 +76,6 @@ const initializeHiiveAnalytics = () => {
  * Add the Wonder Blocks trigger button.
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
-
 const registerCallback = () => {
 	window.requestAnimationFrame(() => {
 		// Do not add the button again if it has been already added.
@@ -110,6 +109,9 @@ const registerCallback = () => {
 
 		// Render the button.
 		render(<ToolbarButton />, buttonContainer);
+
+		// Dispatch 'wonder-blocks/toolbar-button-added' event.
+		document.dispatchEvent(new Event('wonder-blocks/toolbar-button-added'));
 
 		unsubscribe();
 	});

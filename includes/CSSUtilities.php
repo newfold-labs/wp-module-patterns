@@ -21,12 +21,20 @@ class CSSUtilities {
 
 		\wp_register_style( 
 			'nfd-wonder-blocks-utilities',
-			NFD_WONDER_BLOCKS_URL . '/assets/styles/utilities.css',
+			NFD_WONDER_BLOCKS_URL . '/assets/build/utilities.css',
 			array(),
 			NFD_WONDER_BLOCKS_VERSION
 		);
+        
+        \wp_register_script(
+            'nfd-wonder-blocks-utilities',
+            NFD_WONDER_BLOCKS_URL . '/assets/build/utilities.js',
+            array(),
+            NFD_WONDER_BLOCKS_VERSION,
+        );
 
 		\wp_enqueue_style( 'nfd-wonder-blocks-utilities' );
+		\wp_enqueue_script( 'nfd-wonder-blocks-utilities' );
 		
 		\wp_add_inline_style( 'nfd-wonder-blocks-utilities', $this->get_inline_css() );
 	}
@@ -53,7 +61,6 @@ class CSSUtilities {
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
                 
 				--nfd-cp-p-stack: calc(var(--wp--custom--vertical-spacing) / 2);
-				
 			}";
 		}
 
