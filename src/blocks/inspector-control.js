@@ -71,36 +71,36 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			() => [
 				{
 					name: '',
-					label: 'Default',
+					label: __('Default', 'nfd-wonder-blocks'),
 					isDefault: true,
 				},
 				{
 					name: 'nfd-divider-arrow',
-					label: 'Arrow',
+					label: __('Arrow', 'nfd-wonder-blocks'),
 				},
 				{
 					name: 'nfd-divider-ellipse',
-					label: 'Ellipse',
+					label: __('Ellipse', 'nfd-wonder-blocks'),
 				},
 				{
 					name: 'nfd-divider-rounded',
-					label: 'Rounded',
+					label: __('Rounded', 'nfd-wonder-blocks'),
 				},
 				{
 					name: 'nfd-divider-slant',
-					label: 'Slant',
+					label: __('Slant', 'nfd-wonder-blocks'),
 				},
 				{
 					name: 'nfd-divider-slant-invert',
-					label: 'Slant Invert',
+					label: __('Slant Invert', 'nfd-wonder-blocks'),
 				},
 				{
 					name: 'nfd-divider-triangle',
-					label: 'Triangle',
+					label: __('Triangle', 'nfd-wonder-blocks'),
 				},
 				{
 					name: 'nfd-divider-zigzag',
-					label: 'Zigzag',
+					label: __('Zigzag', 'nfd-wonder-blocks'),
 				},
 			],
 			[]
@@ -110,35 +110,39 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			() => [
 				{
 					value: '',
-					label: 'None',
+					label: __('None', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-wb-fade-in-bottom',
-					label: 'Fade In Bottom',
+					label: __('Fade In Bottom', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-wb-fade-in-top-short',
-					label: 'Fade In Top Short',
+					label: __('Fade In Top Short', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-wb-fade-in-right-short',
-					label: 'Fade In Right Short',
+					label: __('Fade In Right Short', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-wb-fade-in-bottom-short',
-					label: 'Fade In Bottom Short',
+					label: __('Fade In Bottom Short', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-wb-fade-in-left-short',
-					label: 'Fade In Left Short',
+					label: __('Fade In Left Short', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-wb-twist-in',
-					label: 'Twist In',
+					label: __('Twist In', 'nfd-wonder-blocks'),
+				},
+				{
+					value: 'nfd-wb-zoom-in',
+					label: __('Zoom In', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-wb-reveal-right',
-					label: 'Reveal Right',
+					label: __('Reveal Right', 'nfd-wonder-blocks'),
 				},
 			],
 			[]
@@ -148,51 +152,51 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			() => [
 				{
 					value: '',
-					label: 'None',
+					label: __('None', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-50',
-					label: '50ms',
+					label: __('50ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-150',
-					label: '150ms',
+					label: __('150ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-300',
-					label: '300ms',
+					label: __('300ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-450',
-					label: '450ms',
+					label: __('450ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-600',
-					label: '600ms',
+					label: __('600ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-750',
-					label: '750ms',
+					label: __('750ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-900',
-					label: '900ms',
+					label: __('900ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-1050',
-					label: '1050ms',
+					label: __('1050ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-1200',
-					label: '1200ms',
+					label: __('1200ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-1350',
-					label: '1350ms',
+					label: __('1350ms', 'nfd-wonder-blocks'),
 				},
 				{
 					value: 'nfd-delay-1500',
-					label: '1500ms',
+					label: __('1500ms', 'nfd-wonder-blocks'),
 				},
 			],
 			[]
