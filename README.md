@@ -27,6 +27,21 @@ composer require newfold-labs/wp-module-wp-module-patterns
 npm run start
 ```
 
+Before running the project, you'll need to add your GitHub Auth Token to `.npmrc` for private repo access.
+
+1. Generate a GitHub personal access token if you haven't:  
+   [GitHub Token Settings](https://github.com/settings/tokens).
+
+2. Locate the `.npmrc` file in your project. 
+
+3. Add your GitHub token in `.npmrc`:
+
+    ```
+    //npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN_HERE
+    ```
+
+4. Save the file.
+
 ## More on NewFold WordPress Modules
 
 -   <a href="https://github.com/bluehost/endurance-wp-module-loader#endurance-wordpress-modules">What are modules?</a>
