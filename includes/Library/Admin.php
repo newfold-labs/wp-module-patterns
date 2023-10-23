@@ -71,6 +71,14 @@ final class Admin {
 			}
 		}
 
+		// Remove Yith Wonder patterns.
+		$all_registered_patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+		foreach ( $all_registered_patterns as $pattern ) {
+			if ( strpos( $pattern['name'], 'yith-wonder/' ) !== false && ! in_array( 'yith-wonder-pages', $pattern['categories'], true ) ) {
+				\unregister_block_pattern( $pattern['name'] );
+			}
+		}
+
 		// Add Wonder Blocks patterns.
 		$wb_patterns = Items::get_data_from_transients( 'patterns' );
 
