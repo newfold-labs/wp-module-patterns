@@ -56,9 +56,11 @@ final class Admin {
 	}
 
 	/**
-	 * Disable opening default WP Patterns modal on empty pages.
+	 * Register Block Patterns
 	 */
 	public function register_block_patterns() {
+
+		// Disable opening default WP Patterns modal on empty pages.
 		$patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 
 		foreach ( $patterns as $pattern ) {
@@ -66,6 +68,48 @@ final class Admin {
 				\unregister_block_pattern( $pattern['name'] );
 				$pattern['blockTypes'] = array_diff( $pattern['blockTypes'], array( 'core/post-content' ) );
 				\register_block_pattern( $pattern['name'], $pattern );
+			}
+		}
+
+		// Add Wonder Blocks patterns.
+		$wb_patterns = Items::get_data_from_transients( 'patterns' );
+
+		if ( is_array( $wb_patterns ) && ! empty( $wb_patterns ) ) {
+
+			$wb_pattern_categories = \get_transient( 'wba_patterns_categories' );
+
+			// Register Wonder Blocks pattern categories.
+			if ( is_array( $wb_pattern_categories ) && ! empty( $wb_pattern_categories ) ) {
+				foreach ( $wb_pattern_categories as $category ) {
+					register_block_pattern_category(
+						'wonder-blocks-' . $category['title'],
+						array( 'label' => 'Wonder Blocks - ' . $category['label'] )
+					);
+				}
+			}
+
+			foreach ( $wb_patterns as $pattern ) {
+
+				$categories = array();
+
+				// Build categories array.
+				if ( is_array( $pattern['categories'] ) && ! empty( $pattern['categories'] ) ) {
+					foreach ( $pattern['categories'] as $category ) {
+						$categories[] = 'wonder-blocks-' . $category;
+					}
+				} elseif ( is_string( $pattern['categories'] ) ) {
+					$categories[] = 'wonder-blocks-' . $pattern['categories'];
+				}
+
+				\register_block_pattern(
+					'wonder-blocks/' . $pattern['title'],
+					array(
+						'title'       => $pattern['title'],
+						'content'     => $pattern['content'],
+						'description' => $pattern['title'],
+						'categories'  => $categories,
+					)
+				);
 			}
 		}
 	}
