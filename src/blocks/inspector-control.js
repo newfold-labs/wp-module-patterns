@@ -14,22 +14,25 @@ import { __ } from '@wordpress/i18n';
 
 import classnames from 'classnames';
 
-function addAttributes(settings) {
+function addAttributes(settings, name) {
+	if (name === 'core/group') {
+		settings.attributes = {
+			...settings.attributes,
+			nfdGroupDivider: {
+				type: 'string',
+			},
+		};
+	}
+
 	return {
 		...settings,
 		attributes: {
 			...settings.attributes,
-			nfdGroupDivider: {
-				type: 'string',
-				default: '',
-			},
 			nfdAnimation: {
 				type: 'string',
-				default: '',
 			},
 			nfdAnimationDelay: {
 				type: 'string',
-				default: '',
 			},
 		},
 	};
@@ -318,7 +321,6 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 		return saveElementProps;
 	}
 
-	// EK seems to be converting string values to objects in some situations
 	const normalizeAsArray = (item) => {
 		switch (Object.prototype.toString.call(item)) {
 			case '[object String]':
@@ -360,6 +362,6 @@ addFilter(
 
 addFilter(
 	'blocks.getSaveContent.extraProps',
-	'nfd-wonder-blocks/utilities/extra-props',
+	'nfd-wonder-blocks/utilities/extraProps',
 	addSaveProps
 );
