@@ -63,7 +63,7 @@ class Items {
 		// Ensure we only get templates or patterns.
 		$id   = md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
 		$type = 'templates' === $type ? 'templates' : 'patterns';
-		$data = \get_transient( "wba_{$type}_{$id}" );
+		$data = self::get_data_from_transients( $type, $args );
 
 		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
 
@@ -84,6 +84,32 @@ class Items {
 
 		return $data;
 	}
+
+	/**
+	 * Get data from transients.
+	 *
+	 * @param string $type Type of items to get.
+	 * @param array  $args Array of arguments.
+	 *
+	 * @return array $data
+	 */
+	public static function get_data_from_transients( $type = 'patterns', $args = array() ) {
+		$args = wp_parse_args(
+			$args,
+			array(
+				'primary_type'   => SiteClassification::get_primary_type(),
+				'secondary_type' => SiteClassification::get_secondary_type(),
+			)
+		);
+
+		// Ensure we only get templates or patterns.
+		$id   = md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
+		$type = 'templates' === $type ? 'templates' : 'patterns';
+		$data = \get_transient( "wba_{$type}_{$id}" );
+
+		return $data;
+	}
+
 
 	/**
 	 * Filter data by key and value.
