@@ -30,7 +30,7 @@ class CSSUtilities {
             'nfd-wonder-blocks-utilities',
             NFD_WONDER_BLOCKS_URL . '/assets/build/utilities.js',
             array(),
-            NFD_WONDER_BLOCKS_VERSION,
+            NFD_WONDER_BLOCKS_VERSION
         );
 
 		\wp_enqueue_style( 'nfd-wonder-blocks-utilities' );
