@@ -3334,8 +3334,12 @@ const DesignItem = ({
     const timerId = setTimeout(() => {
       setLoading(false);
     }, 600);
+    const timerId2 = setTimeout(() => {
+      setLoading(prev => !prev);
+    }, 1000);
     return () => {
       clearTimeout(timerId);
+      clearTimeout(timerId2);
     };
   }, [activeTab, activeTemplatesCategory, activePatternsCategory]);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_8__.useEffect)(() => {

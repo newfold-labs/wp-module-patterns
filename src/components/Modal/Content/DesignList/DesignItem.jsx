@@ -321,8 +321,13 @@ const DesignItem = ({ item }) => {
 			setLoading(false);
 		}, 600);
 
+		const timerId2 = setTimeout(() => {
+			setLoading((prev) => !prev);
+		}, 1000);
+
 		return () => {
 			clearTimeout(timerId);
+			clearTimeout(timerId2);
 		};
 	}, [activeTab, activeTemplatesCategory, activePatternsCategory]);
 
