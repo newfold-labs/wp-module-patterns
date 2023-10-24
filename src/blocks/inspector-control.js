@@ -14,7 +14,20 @@ import { __ } from '@wordpress/i18n';
 
 import classnames from 'classnames';
 
+// These block types do not support custom attributes.
+const skipBlockTypes = [
+	'core/archives',
+	'core/calendar',
+	'core/latest-comments',
+	'core/rss',
+	'core/tag-cloud',
+];
+
 function addAttributes(settings, name) {
+	if (skipBlockTypes.includes(name)) {
+		return settings;
+	}
+
 	if (name === 'core/group') {
 		settings.attributes = {
 			...settings.attributes,
@@ -259,45 +272,50 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					</InspectorControls>
 				)}
 
-				<InspectorControls>
-					<PanelBody
-						title={__('Entrance Animations', 'nfd-wonder-blocks')}
-						initialOpen={false}
-					>
-						<SelectControl
-							label={__('Animation', 'nfd-wonder-blocks')}
-							options={customAnimationStyles}
-							value={selectedAnimation}
-							onChange={(selectedItem) => {
-								props.setAttributes({
-									nfdAnimation: selectedItem,
-								});
+				{!skipBlockTypes.includes(name) && (
+					<InspectorControls>
+						<PanelBody
+							title={__(
+								'Entrance Animations',
+								'nfd-wonder-blocks'
+							)}
+							initialOpen={false}
+						>
+							<SelectControl
+								label={__('Animation', 'nfd-wonder-blocks')}
+								options={customAnimationStyles}
+								value={selectedAnimation}
+								onChange={(selectedItem) => {
+									props.setAttributes({
+										nfdAnimation: selectedItem,
+									});
 
-								document.dispatchEvent(
-									new CustomEvent(
-										'wonder-blocks/animation-changed',
-										{
-											detail: {
-												clientId: props?.clientId,
-											},
-										}
-									)
-								);
-							}}
-						/>
+									document.dispatchEvent(
+										new CustomEvent(
+											'wonder-blocks/animation-changed',
+											{
+												detail: {
+													clientId: props?.clientId,
+												},
+											}
+										)
+									);
+								}}
+							/>
 
-						<SelectControl
-							label={__('Delay', 'nfd-wonder-blocks')}
-							options={customAnimationDelay}
-							value={selectedAnimationDelay}
-							onChange={(selectedItem) => {
-								props.setAttributes({
-									nfdAnimationDelay: selectedItem,
-								});
-							}}
-						/>
-					</PanelBody>
-				</InspectorControls>
+							<SelectControl
+								label={__('Delay', 'nfd-wonder-blocks')}
+								options={customAnimationDelay}
+								value={selectedAnimationDelay}
+								onChange={(selectedItem) => {
+									props.setAttributes({
+										nfdAnimationDelay: selectedItem,
+									});
+								}}
+							/>
+						</PanelBody>
+					</InspectorControls>
+				)}
 			</>
 		);
 	};
