@@ -36,7 +36,6 @@ import {
 import { usePatterns, useReplacePlaceholders } from '../../../../hooks';
 import { store as nfdPatternsStore } from '../../../../store';
 import { heart, heartEmpty, plus, trash } from '../../../Icons';
-import { SkeletonItem } from '../Skeleton';
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);

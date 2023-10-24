@@ -3054,7 +3054,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/notices */ "@wordpress/notices");
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_wordpress_notices__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../constants */ "./src/constants.js");
@@ -3062,7 +3062,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../hooks */ "./src/hooks/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
 /* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../Icons */ "./src/components/Icons/index.js");
-/* harmony import */ var _Skeleton__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Skeleton */ "./src/components/Modal/Content/Skeleton.jsx");
 
 /**
  * External dependencies
@@ -3086,7 +3085,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -3404,7 +3402,7 @@ const DesignItem = ({
     showTooltip: true,
     label: isFavorite ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)('In Favorites', 'nfd-wonder-blocks') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)('Add to Favorites', 'nfd-wonder-blocks'),
     onClick: () => favoritesClickHandler(false),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_17__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"], {
       className: "nfd-wba-shrink-0",
       fill: "currentColor",
       size: 24,
@@ -3415,7 +3413,7 @@ const DesignItem = ({
     showTooltip: true,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)('Remove from Favorites', 'nfd-wonder-blocks'),
     onClick: () => favoritesClickHandler(),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_17__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"], {
       className: "nfd-wba-shrink-0",
       fill: "currentColor",
       width: 32,
@@ -3429,7 +3427,7 @@ const DesignItem = ({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)('Add pattern to page', 'nfd-wonder-blocks'),
     showTooltip: true,
     onClick: () => insertDesignHandler(),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_17__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"], {
       fill: "currentColor",
       className: "nfd-wba-shrink-0",
       size: 24,

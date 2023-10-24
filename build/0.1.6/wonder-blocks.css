@@ -884,9 +884,6 @@
   --tw-text-opacity: 1;
   color: rgb(113 113 122 / var(--tw-text-opacity));
 }
-.nfd-wba-opacity-0 {
-  opacity: 0;
-}
 .nfd-wba-shadow-design-item {
   --tw-shadow: 0px 0px 14px rgba(143, 142, 131, 0.25);
   --tw-shadow-colored: 0px 0px 14px var(--tw-shadow-color);
@@ -909,9 +906,6 @@
 }
 .nfd-wba-duration-100 {
   transition-duration: 100ms;
-}
-.nfd-wba-duration-500 {
-  transition-duration: 500ms;
 }
 .hover\:nfd-wba-bg-brand-darker:hover {
   --tw-bg-opacity: 1;
