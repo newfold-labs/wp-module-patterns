@@ -14,22 +14,38 @@ import { __ } from '@wordpress/i18n';
 
 import classnames from 'classnames';
 
-function addAttributes(settings) {
+// These block types do not support custom attributes.
+const skipBlockTypes = [
+	'core/archives',
+	'core/calendar',
+	'core/latest-comments',
+	'core/rss',
+	'core/tag-cloud',
+];
+
+function addAttributes(settings, name) {
+	if (skipBlockTypes.includes(name)) {
+		return settings;
+	}
+
+	if (name === 'core/group') {
+		settings.attributes = {
+			...settings.attributes,
+			nfdGroupDivider: {
+				type: 'string',
+			},
+		};
+	}
+
 	return {
 		...settings,
 		attributes: {
 			...settings.attributes,
-			nfdGroupDivider: {
-				type: 'string',
-				default: '',
-			},
 			nfdAnimation: {
 				type: 'string',
-				default: '',
 			},
 			nfdAnimationDelay: {
 				type: 'string',
-				default: '',
 			},
 		},
 	};
@@ -256,45 +272,50 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					</InspectorControls>
 				)}
 
-				<InspectorControls>
-					<PanelBody
-						title={__('Entrance Animations', 'nfd-wonder-blocks')}
-						initialOpen={false}
-					>
-						<SelectControl
-							label={__('Animation', 'nfd-wonder-blocks')}
-							options={customAnimationStyles}
-							value={selectedAnimation}
-							onChange={(selectedItem) => {
-								props.setAttributes({
-									nfdAnimation: selectedItem,
-								});
+				{!skipBlockTypes.includes(name) && (
+					<InspectorControls>
+						<PanelBody
+							title={__(
+								'Entrance Animations',
+								'nfd-wonder-blocks'
+							)}
+							initialOpen={false}
+						>
+							<SelectControl
+								label={__('Animation', 'nfd-wonder-blocks')}
+								options={customAnimationStyles}
+								value={selectedAnimation}
+								onChange={(selectedItem) => {
+									props.setAttributes({
+										nfdAnimation: selectedItem,
+									});
 
-								document.dispatchEvent(
-									new CustomEvent(
-										'wonder-blocks/animation-changed',
-										{
-											detail: {
-												clientId: props?.clientId,
-											},
-										}
-									)
-								);
-							}}
-						/>
+									document.dispatchEvent(
+										new CustomEvent(
+											'wonder-blocks/animation-changed',
+											{
+												detail: {
+													clientId: props?.clientId,
+												},
+											}
+										)
+									);
+								}}
+							/>
 
-						<SelectControl
-							label={__('Delay', 'nfd-wonder-blocks')}
-							options={customAnimationDelay}
-							value={selectedAnimationDelay}
-							onChange={(selectedItem) => {
-								props.setAttributes({
-									nfdAnimationDelay: selectedItem,
-								});
-							}}
-						/>
-					</PanelBody>
-				</InspectorControls>
+							<SelectControl
+								label={__('Delay', 'nfd-wonder-blocks')}
+								options={customAnimationDelay}
+								value={selectedAnimationDelay}
+								onChange={(selectedItem) => {
+									props.setAttributes({
+										nfdAnimationDelay: selectedItem,
+									});
+								}}
+							/>
+						</PanelBody>
+					</InspectorControls>
+				)}
 			</>
 		);
 	};
@@ -318,7 +339,6 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 		return saveElementProps;
 	}
 
-	// EK seems to be converting string values to objects in some situations
 	const normalizeAsArray = (item) => {
 		switch (Object.prototype.toString.call(item)) {
 			case '[object String]':
@@ -360,6 +380,6 @@ addFilter(
 
 addFilter(
 	'blocks.getSaveContent.extraProps',
-	'nfd-wonder-blocks/utilities/extra-props',
+	'nfd-wonder-blocks/utilities/extraProps',
 	addSaveProps
 );
