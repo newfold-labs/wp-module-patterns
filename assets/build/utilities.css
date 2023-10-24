@@ -336,6 +336,10 @@ div:has(> .nfd-wb-twist-in) {
 	.is-root-container:has(div[class*="nfd-"]) {
 	padding: 0 !important;
 }
+.block-editor-block-preview__content-iframe [style*="min-height: 100vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:100vh"] {
+	min-height: 800px !important;
+}
 .block-editor-block-preview__content-iframe .nfd-stretch-cover-child {
 	min-height: 800px !important;
 }

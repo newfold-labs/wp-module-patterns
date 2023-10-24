@@ -31,18 +31,24 @@
 	}
 
 	iframe {
-		transition: transform 6s ease !important;
-		max-height: unset !important;
+		--offset: calc(500px / var(--nfd-wba-design-item--scale));
+		--transition-duration: calc(
+			var(--nfd-wba-design-item--scroll-duration, 0s) / 2
+		);
+		--nfd-wba-translate-offset: calc(-100% + var(--offset));
+
+		--hover-transition-duration: var(
+			--nfd-wba-design-item--scroll-duration,
+			0s
+		);
+
+		transition: transform var(--transition-duration, 0s) !important;
 	}
 
 	&:hover {
 		iframe {
-			--nfd-wba-scroll-value: calc(
-				97% - var(--nfd-wba-design-item--template-height)
-			);
-
-			transition-duration: 12s;
-			transform: translateY(calc(var(--nfd-wba-scroll-value) * -1));
+			transition: transform var(--hover-transition-duration, 0s) !important;
+			transform: translateY(var(--nfd-wba-translate-offset));
 		}
 	}
 }
