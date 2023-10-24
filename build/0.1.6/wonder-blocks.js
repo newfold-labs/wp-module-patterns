@@ -2151,22 +2151,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addAttributes(settings) {
+
+// These block types do not support custom attributes.
+const skipBlockTypes = ['core/archives', 'core/calendar', 'core/latest-comments', 'core/rss', 'core/tag-cloud'];
+function addAttributes(settings, name) {
+  if (skipBlockTypes.includes(name)) {
+    return settings;
+  }
+  if (name === 'core/group') {
+    settings.attributes = {
+      ...settings.attributes,
+      nfdGroupDivider: {
+        type: 'string'
+      }
+    };
+  }
   return {
     ...settings,
     attributes: {
       ...settings.attributes,
-      nfdGroupDivider: {
-        type: 'string',
-        default: ''
-      },
       nfdAnimation: {
-        type: 'string',
-        default: ''
+        type: 'string'
       },
       nfdAnimationDelay: {
-        type: 'string',
-        default: ''
+        type: 'string'
       }
     }
   };
@@ -2315,7 +2323,7 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
         numberOfLines: 1,
         className: "block-editor-block-styles__item-text"
       }, buttonText));
-    }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    }))))), !skipBlockTypes.includes(name) && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Entrance Animations', 'nfd-wonder-blocks'),
       initialOpen: false
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
@@ -2352,8 +2360,6 @@ function addSaveProps(saveElementProps, blockType, attributes) {
   if (!classes) {
     return saveElementProps;
   }
-
-  // EK seems to be converting string values to objects in some situations
   const normalizeAsArray = item => {
     switch (Object.prototype.toString.call(item)) {
       case '[object String]':
@@ -2372,7 +2378,7 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_6__.addFilter)('blocks.registerBlockType', 'nfd-wonder-blocks/utilities/attributes', addAttributes);
 (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_6__.addFilter)('blocks.registerBlockType', 'nfd-wonder-blocks/utilities/addEditProps', addEditProps);
 (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_6__.addFilter)('editor.BlockEdit', 'nfd-wonder-blocks/utilities/inspectorControl', withInspectorControls);
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_6__.addFilter)('blocks.getSaveContent.extraProps', 'nfd-wonder-blocks/utilities/extra-props', addSaveProps);
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_6__.addFilter)('blocks.getSaveContent.extraProps', 'nfd-wonder-blocks/utilities/extraProps', addSaveProps);
 
 /***/ }),
 
