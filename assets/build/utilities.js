@@ -116,6 +116,9 @@
     const clientId = event?.detail?.clientId;
     viewportAnimation(clientId);
   });
+  document.addEventListener("wonder-blocks/block-order-changed", () => {
+    viewportAnimation();
+  });
   function viewportAnimation(clientId = null) {
     const isGutenberg = document.body.classList.contains("block-editor-page");
     const viewportAnimationObserver = new ViewportAnimationObserver({

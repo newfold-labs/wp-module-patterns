@@ -15,6 +15,11 @@ document.addEventListener('wonder-blocks/animation-changed', (event) => {
 	viewportAnimation(clientId);
 });
 
+// listen for wonder-blocks/block-order-changed event
+document.addEventListener('wonder-blocks/block-order-changed', () => {
+	viewportAnimation();
+});
+
 /**
  * Handles viewport animations (entrance/exit).
  * @param {string | null} clientId - The block's client ID.
