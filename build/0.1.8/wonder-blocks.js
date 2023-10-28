@@ -2231,6 +2231,9 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
     }, {
       name: 'nfd-divider-zigzag',
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Zigzag', 'nfd-wonder-blocks')
+    }, {
+      name: 'nfd-divider-clouds',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Clouds', 'nfd-wonder-blocks')
     }], []);
     const customAnimationStyles = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useMemo)(() => [{
       value: '',

@@ -118,6 +118,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					name: 'nfd-divider-zigzag',
 					label: __('Zigzag', 'nfd-wonder-blocks'),
 				},
+				{
+					name: 'nfd-divider-clouds',
+					label: __('Clouds', 'nfd-wonder-blocks'),
+				},
 			],
 			[]
 		);
