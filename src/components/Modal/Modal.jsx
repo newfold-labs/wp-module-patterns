@@ -9,6 +9,7 @@ import { useEffect, useMemo } from '@wordpress/element';
  * Internal dependencies
  */
 import { trackHiiveEvent } from '../../helpers';
+import useMonitorBlockOrder from '../../hooks/useMonitorBlockOrder';
 import { store as nfdPatternsStore } from '../../store';
 import Content from './Content/Content';
 import Header from './Content/Header/Header';
@@ -29,6 +30,9 @@ const Modal = () => {
 	const isSiteEditor = useMemo(() => {
 		return isEditingTemplate || !!editedPostType;
 	}, [isEditingTemplate, editedPostType]);
+
+	// Monitor block order.
+	useMonitorBlockOrder();
 
 	// Check if we should automatically open the modal and pre-select.
 	useEffect(() => {
