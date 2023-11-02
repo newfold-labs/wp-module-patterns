@@ -3355,32 +3355,51 @@ const DesignItem = ({
       const container = blockRef.current;
       const frame = container?.querySelector('iframe[title]');
       const contentDocument = frame?.contentDocument;
-      const speedConstant = 600; // pixels per second
-
       if (contentDocument) {
         const rootContainer = contentDocument.querySelector('.is-root-container');
         const height = rootContainer?.scrollHeight || 0;
         let scale = container.querySelector('[style*="scale"]')?.style?.transform?.match(/scale\((.*?)\)/)?.[1];
-        scale = scale ? parseFloat(scale) : null;
-        const scaledOffset = 500 / scale;
-        if (height <= scaledOffset) {
-          frame.style.setProperty('--nfd-wba-translate-offset', `0px`);
+        scale = scale ? parseFloat(scale) : 1;
+
+        // Reset offset if height is less than 500px
+        const scollerHeight = window.innerWidth * 0.3; // 30vw
+        const scaledOffset = scollerHeight / scale;
+        if (height < scaledOffset) {
+          frame.style.setProperty('--offset', `100%`);
+        } else {
+          frame.style.setProperty('--offset', `${scaledOffset}px`);
         }
         frame.style.maxHeight = `${height}px`;
         frame.style.setProperty('--nfd-wba-design-item--scale', scale);
-        const duration = height / speedConstant;
-        frame?.style.setProperty('--nfd-wba-design-item--scroll-duration', `${duration}s`);
+
+        // constant scroll speed
+        const speedConstant = 200 / (scale * 2) + 300; // pixels per second
+
+        frame?.style.setProperty('--nfd-wba-design-item--scroll-duration', `${height / speedConstant}s`);
       } else {
+        clearTimeout(timerId);
         timerId = setTimeout(adjustIframeHeight, 300); // Retry after 300ms
       }
     };
 
-    adjustIframeHeight(); // Initial call
+    // Set up the resize event listener
+    const onResize = () => {
+      clearTimeout(timerId); // Clear any existing timers
+      timerId = setTimeout(adjustIframeHeight, 500); // Throttle resize calls
+    };
+
+    // Add resize listener
+    window.addEventListener('resize', onResize);
+
+    // Initial call
+    adjustIframeHeight();
+    timerId = setTimeout(adjustIframeHeight, 1000); // give browser time to render
 
     return () => {
       clearTimeout(timerId); // Clear the timer
+      window.removeEventListener('resize', onResize); // Remove resize listener
     };
-  }, [loading]);
+  }, [item?.type, loading]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-6 nfd-wba-overflow-hidden nfd-wba-rounded-2xl nfd-wba-bg-grey nfd-wba-p-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {

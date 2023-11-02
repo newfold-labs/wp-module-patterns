@@ -248,7 +248,7 @@
 /*                             Design Item styles                             */
 /* -------------------------------------------------------------------------- */
 :root {
-  --nfd-wba-design-item--template-height: 500px;
+  --nfd-wba-design-item--template-height: 30vw;
 }
 
 .nfd-wba-design-item:focus-visible {
@@ -257,7 +257,7 @@
 }
 
 .nfd-wba-design-item--template .block-editor-block-preview__container {
-  height: var(--nfd-wba-design-item--template-height);
+  max-height: var(--nfd-wba-design-item--template-height);
 }
 .nfd-wba-design-item--template .block-editor-block-preview__container:before {
   transition: -webkit-backdrop-filter var(--nfd-wba-transition-duration) var(--nfd-wba-transition-timing);
@@ -273,7 +273,10 @@
   z-index: 1;
 }
 .nfd-wba-design-item--template iframe {
-  --offset: calc(500px / var(--nfd-wba-design-item--scale));
+  --offset: calc(
+  	var(--nfd-wba-design-item--template-height) /
+  		var(--nfd-wba-design-item--scale)
+  );
   --transition-duration: calc(
   	var(--nfd-wba-design-item--scroll-duration, 0s) / 2
   );

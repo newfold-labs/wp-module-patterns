@@ -338,8 +338,6 @@ const DesignItem = ({ item }) => {
 			const frame = container?.querySelector('iframe[title]');
 			const contentDocument = frame?.contentDocument;
 
-			const speedConstant = 600; // pixels per second
-
 			if (contentDocument) {
 				const rootContainer =
 					contentDocument.querySelector('.is-root-container');
@@ -350,36 +348,52 @@ const DesignItem = ({ item }) => {
 					.querySelector('[style*="scale"]')
 					?.style?.transform?.match(/scale\((.*?)\)/)?.[1];
 
-				scale = scale ? parseFloat(scale) : null;
+				scale = scale ? parseFloat(scale) : 1;
 
-				const scaledOffset = 500 / scale;
+				// Reset offset if height is less than 500px
+				const scollerHeight = window.innerWidth * 0.3; // 30vw
+				const scaledOffset = scollerHeight / scale;
 
-				if (height <= scaledOffset) {
-					frame.style.setProperty(
-						'--nfd-wba-translate-offset',
-						`0px`
-					);
+				if (height < scaledOffset) {
+					frame.style.setProperty('--offset', `100%`);
+				} else {
+					frame.style.setProperty('--offset', `${scaledOffset}px`);
 				}
 
 				frame.style.maxHeight = `${height}px`;
 				frame.style.setProperty('--nfd-wba-design-item--scale', scale);
 
-				const duration = height / speedConstant;
+				// constant scroll speed
+				const speedConstant = 200 / (scale * 2) + 300; // pixels per second
+
 				frame?.style.setProperty(
 					'--nfd-wba-design-item--scroll-duration',
-					`${duration}s`
+					`${height / speedConstant}s`
 				);
 			} else {
+				clearTimeout(timerId);
 				timerId = setTimeout(adjustIframeHeight, 300); // Retry after 300ms
 			}
 		};
 
-		adjustIframeHeight(); // Initial call
+		// Set up the resize event listener
+		const onResize = () => {
+			clearTimeout(timerId); // Clear any existing timers
+			timerId = setTimeout(adjustIframeHeight, 500); // Throttle resize calls
+		};
+
+		// Add resize listener
+		window.addEventListener('resize', onResize);
+
+		// Initial call
+		adjustIframeHeight();
+		timerId = setTimeout(adjustIframeHeight, 1000); // give browser time to render
 
 		return () => {
 			clearTimeout(timerId); // Clear the timer
+			window.removeEventListener('resize', onResize); // Remove resize listener
 		};
-	}, [loading]);
+	}, [item?.type, loading]);
 
 	return (
 		<>
