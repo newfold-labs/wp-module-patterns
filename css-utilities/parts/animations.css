@@ -116,13 +116,29 @@
 			var(--nfd-wb-anim-transition-delay);
 
 	opacity: 0;
-	transform: scale3d(0.3, 0.3, 0.3);
+	transform: scale3d(0.4, 0.4, 0.4);
 	transition: var(--nfd-wb-anim-transition);
 }
 
-.nfd-wb-animated-in:not([data-replay-animation]).nfd-wb-zoom-in {
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-zoom-"] {
 	opacity: 1;
 	transform: scale3d(1, 1, 1);
+}
+
+.nfd-wb-zoom-in-short {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay);
+
+	opacity: 0;
+	transform: scale3d(0.92, 0.92, 0.92);
+	transition: var(--nfd-wb-anim-transition);
 }
 
 /* -------------------------------- Twist In -------------------------------- */

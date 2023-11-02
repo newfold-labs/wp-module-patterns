@@ -2257,6 +2257,9 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
       value: 'nfd-wb-zoom-in',
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Zoom In', 'nfd-wonder-blocks')
     }, {
+      value: 'nfd-wb-zoom-in-short',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Zoom In Short', 'nfd-wonder-blocks')
+    }, {
       value: 'nfd-wb-reveal-right',
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Reveal Right', 'nfd-wonder-blocks')
     }], []);
