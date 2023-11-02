@@ -14,7 +14,7 @@
 
 .nfd-wba-design-item--template {
 	.block-editor-block-preview__container {
-		max-height: var(--nfd-wba-design-item--template-height);
+		height: var(--nfd-wba-design-item--template-height);
 	}
 
 	.block-editor-block-preview__container:before {
