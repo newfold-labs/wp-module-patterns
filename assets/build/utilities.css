@@ -574,6 +574,13 @@ p[style*="text-decoration"] > a {
 [class*="nfd-divider-"] {
 	--nfd-divider-size: 0px;
 	position: relative;
+	z-index: 13;
+}
+[class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+	z-index: 12 !important;
+}
+[class*="nfd-divider-"] ~ [class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+	z-index: 11 !important;
 }
 [class*="nfd-divider-"]::before {
 	position: absolute !important;
