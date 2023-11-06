@@ -9,6 +9,7 @@
 @import "parts/form";
 @import "parts/misc";
 @import "parts/query";
+@import "parts/blog";
 @import "parts/separator";
 @import "parts/spacing";
 @import "parts/typography";

@@ -506,6 +506,11 @@ p[style*="text-decoration"] > a {
 		min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px)) !important;
 	}
 }
+/* ---------------------------- Backdrop Filters ---------------------------- */
+.nfd-backdrop-blur-sm {
+	-webkit-backdrop-filter: blur(8px) !important;
+	        backdrop-filter: blur(8px) !important;
+}
 /* -------------------------------------------------------------------------- */
 /*                                 Query Loop                                 */
 /* -------------------------------------------------------------------------- */
@@ -567,6 +572,34 @@ p[style*="text-decoration"] > a {
 }
 .nfd-wk-loop .wp-block-post-title > a:hover {
 	text-decoration-line: underline !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                    Blog                                    */
+/* -------------------------------------------------------------------------- */
+.nfd-query-loop-1 :where(.wp-block-post-author__avatar img) {
+	display: block;
+	border-radius: 999px;
+}
+[class*="nfd-query-loop-"] :where(.wp-block-post-author__content) {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.nfd-query-loop-1 :where(.wp-block-cover) {
+	aspect-ratio: 2 / 1.1;
+}
+[class*="nfd-query-loop-"] :where(.wp-block-categories) {
+	display: flex;
+	gap: 8px;
+	list-style: none;
+	padding: 0;
+}
+[class*="nfd-query-loop-"] :where(.wp-block-categories a) {
+	color: inherit !important;
+}
+.nfd-query-loop-2 .wp-block-cover__background {
+	-webkit-mask-image: linear-gradient(to bottom, transparent 25%, black 75%) !important;
+	mask-image: linear-gradient(to bottom, transparent 25%, black 75%) !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Dividers                                 */

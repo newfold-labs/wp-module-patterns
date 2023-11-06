@@ -69,3 +69,8 @@ p[style*="text-decoration"] > a {
 		min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
 	}
 }
+
+/* ---------------------------- Backdrop Filters ---------------------------- */
+.nfd-backdrop-blur-sm {
+	backdrop-filter: blur(8px);
+}
