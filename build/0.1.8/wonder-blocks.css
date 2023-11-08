@@ -339,9 +339,6 @@
     padding: 0 16px;
   }
 }
-.nfd-wba-modal__header .components-search-control__icon {
-  transform: rotate(-90deg);
-}
 
 .nfd-wba-state-message > svg {
   max-width: 620px;

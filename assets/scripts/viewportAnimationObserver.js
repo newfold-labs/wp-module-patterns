@@ -25,6 +25,12 @@ export class ViewportAnimationObserver {
 			return;
 		}
 
+		// Don't run in the block preview iframe
+		// prettier-ignore
+		if ( document.documentElement.classList.contains('block-editor-block-preview__content-iframe') ) {
+			return;
+		}
+
 		function wrappedMutationCallback(mutationsList, observer) {
 			this._mutationCallback(mutationsList, observer, clientId);
 		}

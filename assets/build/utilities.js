@@ -21,6 +21,9 @@
       if (!("IntersectionObserver" in window)) {
         return;
       }
+      if (document.documentElement.classList.contains("block-editor-block-preview__content-iframe")) {
+        return;
+      }
       function wrappedMutationCallback(mutationsList, observer) {
         this._mutationCallback(mutationsList, observer, clientId);
       }

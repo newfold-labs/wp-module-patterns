@@ -22,3 +22,10 @@
 .nfd-wba-modal * {
 	box-sizing: border-box !important;
 }
+
+/* Disable animations in the BlockPreview component */
+.block-editor-block-preview__content-iframe .nfd-wb-animate {
+	transition: none;
+	transform: none;
+	opacity: 1;
+}
