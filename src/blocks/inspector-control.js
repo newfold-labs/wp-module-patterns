@@ -161,6 +161,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					label: __('Zoom In', 'nfd-wonder-blocks'),
 				},
 				{
+					value: 'nfd-wb-zoom-in-short',
+					label: __('Zoom In Short', 'nfd-wonder-blocks'),
+				},
+				{
 					value: 'nfd-wb-reveal-right',
 					label: __('Reveal Right', 'nfd-wonder-blocks'),
 				},

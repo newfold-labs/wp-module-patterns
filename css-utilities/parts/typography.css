@@ -2,12 +2,12 @@
 /*                                 Font sizes¸                                */
 /* -------------------------------------------------------------------------- */
 
-/* Small */
+/* ----------------------------------- SM ----------------------------------- */
 .nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-sm);
 }
 
-/* Base */
+/* ---------------------------------- Base ---------------------------------- */
 .nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-base);
 }
@@ -20,7 +20,7 @@
 	font-size: inherit;
 }
 
-/* Medium */
+/* ----------------------------------- MD ----------------------------------- */
 .nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-md);
 }
@@ -29,13 +29,13 @@
 	line-height: 1.6;
 }
 
-/* Large */
+/* ----------------------------------- LG ----------------------------------- */
 .nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-lg);
 }
 
 .nfd-text-lg:not([style*="line-height"]) {
-	line-height: 1.2;
+	line-height: 1.4;
 }
 
 .nfd-text-lg:not([style*="letter-spacing"]) {
@@ -46,24 +46,24 @@
 	font-weight: 500;
 }
 
-/* Extra Large */
+/* ----------------------------------- XL ----------------------------------- */
 .nfd-text-xl:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-xl);
 }
 
 .nfd-text-xl:not([style*="line-height"]) {
-	line-height: 1.2;
+	line-height: 1.25;
 }
 
 .nfd-text-xl:not([style*="letter-spacing"]) {
-	letter-spacing: -0.01em;
+	letter-spacing: -0.015em;
 }
 
 .nfd-text-xl:not([style*="font-weight"]) {
 	font-weight: 500;
 }
 
-/* Huge */
+/* ---------------------------------- Huge ---------------------------------- */
 .nfd-text-huge:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-huge);
 }
@@ -80,7 +80,7 @@
 	font-weight: 500;
 }
 
-/* Giga */
+/* ---------------------------------- Giga ---------------------------------- */
 .nfd-text-giga:not([class="font-size"]):not([style*="font-size"]) {
 	font-size: var(--nfd-cp-text-giga);
 }

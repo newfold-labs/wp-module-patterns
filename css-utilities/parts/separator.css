@@ -6,6 +6,15 @@
 	/* no important */
 	--nfd-divider-size: 0px;
 	position: relative;
+	z-index: 13;
+}
+
+[class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+	z-index: 12;
+}
+
+[class*="nfd-divider-"] ~ [class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+	z-index: 11;
 }
 
 [class*="nfd-divider-"]::before,

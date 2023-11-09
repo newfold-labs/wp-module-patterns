@@ -21,6 +21,9 @@
       if (!("IntersectionObserver" in window)) {
         return;
       }
+      if (document.documentElement.classList.contains("block-editor-block-preview__content-iframe")) {
+        return;
+      }
       function wrappedMutationCallback(mutationsList, observer) {
         this._mutationCallback(mutationsList, observer, clientId);
       }
@@ -115,6 +118,9 @@
   document.addEventListener("wonder-blocks/animation-changed", (event) => {
     const clientId = event?.detail?.clientId;
     viewportAnimation(clientId);
+  });
+  document.addEventListener("wonder-blocks/block-order-changed", () => {
+    viewportAnimation();
   });
   function viewportAnimation(clientId = null) {
     const isGutenberg = document.body.classList.contains("block-editor-page");
