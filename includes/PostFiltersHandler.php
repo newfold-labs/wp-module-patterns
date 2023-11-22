@@ -87,7 +87,7 @@ class PostFiltersHandler {
 				$post->post_author  = get_the_author_meta( 'ID' );
 				$post->post_date    = $this->get_random_date_last_week();
 				$post->post_status  = 'publish';
-				$post->post_content = "This is placeholder text, designed to illustrate how actual text will look in this space. It doesn't contain meaningful content but mimics the flow and length of real sentences. Use it to evaluate layout, typography, and overall design before replacing it with your final, relevant content.";
+				$post->post_content = __( "This is placeholder text, designed to illustrate how actual text will look in this space. It doesn't contain meaningful content but mimics the flow and length of real sentences. Use it to evaluate layout, typography, and overall design before replacing it with your final, relevant content.", 'wp-module-patterns' );
 				$post->filter       = 'raw'; // Important!
 
 				$posts[] = $post;
