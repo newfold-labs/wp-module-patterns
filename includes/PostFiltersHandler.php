@@ -81,13 +81,14 @@ class PostFiltersHandler {
 		if ( $post_type === 'post' && is_array( $post_status ) && in_array( 'publish', $post_status ) && count( $posts ) < 2 ) {
 
 			for ( $i = 1; $i <= 5; $i++ ) {
-				$post              = new \stdClass();
-				$post->ID          = -1 * $i;
-				$post->post_title  = $this->posts_data[ $i ]['title'];
-				$post->post_author = get_the_author_meta( 'ID' );
-				$post->post_date   = $this->get_random_date_last_week();
-				$post->post_status = 'publish';
-				$post->filter      = 'raw'; // Important!
+				$post               = new \stdClass();
+				$post->ID           = -1 * $i;
+				$post->post_title   = $this->posts_data[ $i ]['title'];
+				$post->post_author  = get_the_author_meta( 'ID' );
+				$post->post_date    = $this->get_random_date_last_week();
+				$post->post_status  = 'publish';
+				$post->post_content = "This is placeholder text, designed to illustrate how actual text will look in this space. It doesn't contain meaningful content but mimics the flow and length of real sentences. Use it to evaluate layout, typography, and overall design before replacing it with your final, relevant content.";
+				$post->filter       = 'raw'; // Important!
 
 				$posts[] = $post;
 			}
