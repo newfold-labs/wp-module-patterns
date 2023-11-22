@@ -70,7 +70,7 @@ class Categories {
 
 		$data = array_filter(
 			$data,
-			function( $category ) {
+			function ( $category ) {
 				return 'featured' !== $category['title'];
 			}
 		);
