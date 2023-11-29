@@ -6,6 +6,7 @@ describe( 'Wonder Blocks', function () {
 	} );
 
 	it( 'Wonder Blocks button exists', () => {
+		cy.get( 'body' ).click( { force: true } ); // clear welcome guide
 		cy.get( '#nfd-wba-toolbar-button' ).should( 'exist' );
 	} );
 
