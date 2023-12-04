@@ -12,7 +12,7 @@ Dynamic WordPress patterns library for WordPress sites at Newfold Digital.
 ### 1. Add the Newfold Satis to your `composer.json`.
 
 ```bash
-composer config repositories.newfold composer https://newfold.github.io/satis
+composer config repositories.newfold composer https://newfold-labs.github.io/satis
 ```
 
 ### 2. Require the `newfold-labs/wp-module-wp-module-patterns` package.
