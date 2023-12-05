@@ -40,14 +40,6 @@ Add GitHub Auth Token to `.npmrc` for private repo access.
 
 4. Save the file.
 
-
-## Releases
-
-Prior to tagging a release, it is essential to verify that the version has been appropriately incremented in both the PHP and JavaScript components. Specifically, ensure that the PHP constant NFD_WONDER_BLOCKS_VERSION has been updated to the intended release version, as indicated on line 18 of the `/bootstrap.php` file. This PHP constant dictates the expected location of build files for the module.
-
-Simultaneously, confirm that the JavaScript release version aligns with the desired release by checking line 3 in the `package.json` file. This package version is crucial for the build process, guiding the placement of files within the build directory and subsequently within a version-specific subdirectory.
-
-
 ### Local cloud-patterns platform
 
 If using local cloud-patterns platform, define `NFD_WB_DEV_MODE` as true in wp-config.php. This will switch the API fetch source from patterns.hiive.cloud to localhost:8888 and disable caching of the results.
@@ -66,6 +58,11 @@ With `NFD_WB_DEV_MODE` enabled, all API requests will be directed to localhost:8
 npm run start
 ```
 
+## Releases
+
+Prior to tagging a release, it is essential to verify that the version has been appropriately incremented in both the PHP and JavaScript components. Specifically, ensure that the PHP constant NFD_WONDER_BLOCKS_VERSION has been updated to the intended release version, as indicated on line 18 of the `/bootstrap.php` file. This PHP constant dictates the expected location of build files for the module.
+
+Simultaneously, confirm that the JavaScript release version aligns with the desired release by checking line 3 in the `package.json` file. This package version is crucial for the build process, guiding the placement of files within the build directory and subsequently within a version-specific subdirectory.
 
 ## More on NewFold WordPress Modules
 
