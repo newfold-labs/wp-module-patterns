@@ -64,6 +64,8 @@ Prior to tagging a release, it is essential to verify that the version has been 
 
 Simultaneously, confirm that the JavaScript release version aligns with the desired release by checking line 3 in the `package.json` file. This package version is crucial for the build process, guiding the placement of files within the build directory and subsequently within a version-specific subdirectory.
 
+Subsequently, execute a build operation using the command npm run build to generate the most recent set of build files. Ensure that these files are committed to the repository, as they are essential components to be incorporated into the upcoming release.
+
 ## More on NewFold WordPress Modules
 
 -   <a href="https://github.com/bluehost/endurance-wp-module-loader#endurance-wordpress-modules">What are modules?</a>
