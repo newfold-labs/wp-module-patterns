@@ -12,7 +12,7 @@ Dynamic WordPress patterns library for WordPress sites at Newfold Digital.
 1. Add the Newfold Satis to your `composer.json`.
 
 ```bash
-composer config repositories.newfold composer https://newfold.github.io/satis
+composer config repositories.newfold composer https://newfold-labs.github.io/satis
 ```
 
 2. Require the `newfold-labs/wp-module-patterns` package.
@@ -30,7 +30,7 @@ Add GitHub Auth Token to `.npmrc` for private repo access.
 1. Generate a GitHub personal access token if you haven't:  
    [GitHub Token Settings](https://github.com/settings/tokens).
 
-2. Locate the `.npmrc` file in your project. 
+2. Locate the `.npmrc` file in your project.
 
 3. Add your GitHub token in `.npmrc`:
 
