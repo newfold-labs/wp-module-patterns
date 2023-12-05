@@ -54,6 +54,16 @@ class Categories {
 			\set_transient( "wba_{$type}_categories", $data, DAY_IN_SECONDS );
 		}
 
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			$_data = array();
+			foreach ( $data as $key => $value ) {
+				if ( ! in_array( $value['title'], array( 'products', 'shop' ), true ) ) {
+					$_data[] = $value;
+				}
+			}
+			$data = $_data;
+		}
+
 		// Return the categories.
 		return $data;
 	}

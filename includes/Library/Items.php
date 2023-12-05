@@ -39,6 +39,15 @@ class Items {
 			$data = array_slice( $data, ( $page - 1 ) * $args['per_page'], $args['per_page'] );
 		}
 
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			$data = array_filter(
+				$data,
+				function ( $item ) {
+					return ! in_array( 'products', $item['categories'] );
+				}
+			);
+		}
+
 		return $data;
 	}
 
