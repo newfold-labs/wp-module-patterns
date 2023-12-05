@@ -37,7 +37,6 @@ module.exports = {
 		'md:nfd-self-start',
 		'md:nfd-text-center',
 		'md:nfd-text-left',
-		'nfd-aspect-square',
 		'nfd-col-end-10',
 		'nfd-col-end-13',
 		'nfd-col-end-7',

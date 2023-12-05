@@ -1,1 +1,144 @@
-(()=>{var c=class{constructor({clientId:e,...n}={}){this.options={activeClass:"nfd-wb-animated-in",root:null,rootMargin:"0px",threshold:0,...n}}observeElements(e,n=null,t=!1){if(!("IntersectionObserver"in window)||document.documentElement.classList.contains("block-editor-block-preview__content-iframe"))return;function a(o,s){this._mutationCallback(o,s,n)}let i=new IntersectionObserver(this._handleIntersection.bind(this),this.options),d=new MutationObserver(a.bind(this)),u=new MutationObserver(this._handleClassMutation.bind(this));e.forEach(o=>{let s=o;o.classList.contains("nfd-wb-reveal-right")&&(s=o.parentElement),i.observe(s),t&&(u.observe(s,{attributes:!0,attributeFilter:["class"]}),d.observe(s,{attributes:!0,attributeFilter:["class"]}))})}_handleIntersection(e,n){e.forEach(t=>{t.isIntersecting&&(t.target.classList.add(this.options.activeClass),t.target.querySelectorAll(".nfd-wb-animate").forEach(a=>{a.classList.add(this.options.activeClass)}),n.unobserve(t.target))})}_handleClassMutation(e){e.forEach(n=>{if(n?.type==="attributes"){let t=n.target;t.classList.contains("nfd-wb-animated-in")||t.classList.add("nfd-wb-animated-in")}})}_mutationCallback(e,n,t=null){e.forEach(a=>{if(a?.type==="attributes"){let i=a.target;t&&t===i.getAttribute("data-block")&&(i.getAttribute("data-replay-animation")===null&&(i.setAttribute("data-replay-animation",!0),setTimeout(()=>{i.removeAttribute("data-replay-animation")},50)),n.disconnect())}})}};document.addEventListener("DOMContentLoaded",()=>{l()});document.addEventListener("wonder-blocks/toolbar-button-added",()=>{l()});document.addEventListener("wonder-blocks/animation-changed",r=>{let e=r?.detail?.clientId;l(e)});document.addEventListener("wonder-blocks/block-order-changed",()=>{l()});function l(r=null){let e=document.body.classList.contains("block-editor-page"),n=new c({root:e?document.querySelector(".interface-interface-skeleton__content"):null,threshold:.2});setTimeout(()=>{let t=Array.from(document.getElementsByClassName("nfd-wb-animate"));n.observeElements(t,r,e)},10)}})();
+(() => {
+  // assets/scripts/viewportAnimationObserver.js
+  var ViewportAnimationObserver = class {
+    constructor({ clientId, ...otherOptions } = {}) {
+      this.options = {
+        activeClass: "nfd-wb-animated-in",
+        root: null,
+        rootMargin: "0px",
+        threshold: 0,
+        ...otherOptions
+      };
+    }
+    /**
+     * Observe elements to trigger animations.
+     *
+     * @param {NodeList}      elements    - Elements to observe.
+     * @param {string | null} clientId    - The block's client ID.
+     * @param {boolean}       isGutenberg - Whether or not the page is in Gutenberg.
+     */
+    observeElements(elements, clientId = null, isGutenberg = false) {
+      if (!("IntersectionObserver" in window)) {
+        return;
+      }
+      if (document.documentElement.classList.contains("block-editor-block-preview__content-iframe")) {
+        return;
+      }
+      function wrappedMutationCallback(mutationsList, observer) {
+        this._mutationCallback(mutationsList, observer, clientId);
+      }
+      const intersectionObserver = new IntersectionObserver(
+        this._handleIntersection.bind(this),
+        this.options
+      );
+      const mutationObserver = new MutationObserver(
+        wrappedMutationCallback.bind(this)
+      );
+      const classMutationObserver = new MutationObserver(
+        this._handleClassMutation.bind(this)
+      );
+      elements.forEach((element) => {
+        let elementToWatch = element;
+        if (element.classList.contains("nfd-wb-reveal-right")) {
+          elementToWatch = element.parentElement;
+        }
+        intersectionObserver.observe(elementToWatch);
+        if (isGutenberg) {
+          classMutationObserver.observe(elementToWatch, {
+            attributes: true,
+            attributeFilter: ["class"]
+          });
+          mutationObserver.observe(elementToWatch, {
+            attributes: true,
+            attributeFilter: ["class"]
+          });
+        }
+      });
+    }
+    /**
+     * Handle intersection events to trigger animations.
+     *
+     * @param {Array<IntersectionObserverEntry>} entries  - Intersection entries.
+     * @param {IntersectionObserver}             observer - The observer instance.
+     * @private
+     */
+    _handleIntersection(entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(this.options.activeClass);
+          entry.target.querySelectorAll(".nfd-wb-animate").forEach((element) => {
+            element.classList.add(this.options.activeClass);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }
+    _handleClassMutation(entries) {
+      entries.forEach((entry) => {
+        if (entry?.type === "attributes") {
+          const target = entry.target;
+          if (!target.classList.contains("nfd-wb-animated-in")) {
+            target.classList.add("nfd-wb-animated-in");
+          }
+        }
+      });
+    }
+    /**
+     * Callback function for the MutationObserver.
+     *
+     * @param {MutationRecord[]} entries  - List of mutations.
+     * @param {MutationObserver} observer - The observer instance.
+     * @param {string | null}    clientId - The block's client ID.
+     */
+    _mutationCallback(entries, observer, clientId = null) {
+      entries.forEach((entry) => {
+        if (entry?.type === "attributes") {
+          const target = entry.target;
+          if (clientId && clientId === target.getAttribute("data-block")) {
+            if (target.getAttribute("data-replay-animation") === null) {
+              target.setAttribute("data-replay-animation", true);
+              setTimeout(() => {
+                target.removeAttribute("data-replay-animation");
+              }, 50);
+            }
+            observer.disconnect();
+          }
+        }
+      });
+    }
+  };
+
+  // assets/scripts/utilities.js
+  document.addEventListener("DOMContentLoaded", () => {
+    viewportAnimation();
+  });
+  document.addEventListener("wonder-blocks/toolbar-button-added", () => {
+    viewportAnimation();
+  });
+  document.addEventListener("wonder-blocks/animation-changed", (event) => {
+    const clientId = event?.detail?.clientId;
+    viewportAnimation(clientId);
+  });
+  document.addEventListener("wonder-blocks/block-order-changed", () => {
+    viewportAnimation();
+  });
+  function viewportAnimation(clientId = null) {
+    const isGutenberg = document.body.classList.contains("block-editor-page");
+    const viewportAnimationObserver = new ViewportAnimationObserver({
+      root: isGutenberg ? document.querySelector(".interface-interface-skeleton__content") : null,
+      threshold: 0.2
+      // at least 20% of the element is in the viewport
+    });
+    setTimeout(() => {
+      const elementsToAnimate = Array.from(
+        document.getElementsByClassName("nfd-wb-animate")
+      );
+      viewportAnimationObserver.observeElements(
+        elementsToAnimate,
+        clientId,
+        isGutenberg
+      );
+    }, 10);
+  }
+})();
+//# sourceMappingURL=utilities.js.map
