@@ -42,6 +42,12 @@ Before running the project, you'll need to add your GitHub Auth Token to `.npmrc
 
 4. Save the file.
 
+## Releases
+
+Prior to tagging a release, it is essential to verify that the version has been appropriately incremented in both the PHP and JavaScript components. Specifically, ensure that the PHP constant NFD_WONDER_BLOCKS_VERSION has been updated to the intended release version, as indicated on line 18 of the `/bootstrap.php` file. This PHP constant dictates the expected location of build files for the module.
+
+Simultaneously, confirm that the JavaScript release version aligns with the desired release by checking line 3 in the `package.json` file. This package version is crucial for the build process, guiding the placement of files within the build directory and subsequently within a version-specific subdirectory.
+
 ## More on NewFold WordPress Modules
 
 -   <a href="https://github.com/bluehost/endurance-wp-module-loader#endurance-wordpress-modules">What are modules?</a>
