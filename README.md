@@ -35,7 +35,8 @@ Add GitHub Auth Token to `.npmrc` for private repo access.
 3. Add your GitHub token in `.npmrc`:
 
     ```
-    //npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN_HERE
+	@newfold-labs:registry=https://npm.pkg.github.com/
+	//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN_HERE
     ```
 
 4. Save the file.
