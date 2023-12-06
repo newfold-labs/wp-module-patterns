@@ -60,11 +60,63 @@ npm run start
 
 ## Releases
 
-Prior to tagging a release, it is essential to verify that the version has been appropriately incremented in both the PHP and JavaScript components. Specifically, ensure that the PHP constant NFD_WONDER_BLOCKS_VERSION has been updated to the intended release version, as indicated on line 18 of the `/bootstrap.php` file. This PHP constant dictates the expected location of build files for the module.
+To ensure a smooth and error-free release, follow these detailed instructions closely.
 
-Simultaneously, confirm that the JavaScript release version aligns with the desired release by checking line 3 in the `package.json` file. This package version is crucial for the build process, guiding the placement of files within the build directory and subsequently within a version-specific subdirectory.
+### Initial Setup
 
-Subsequently, execute a build operation using the command npm run build to generate the most recent set of build files. Ensure that these files are committed to the repository, as they are essential components to be incorporated into the upcoming release.
+1. Checkout a new branch for the release using the format `release/<new_version>`.
+
+2. Run `npm install --legacy-peer-deps` to install necessary npm packages.
+
+3. Execute `composer install` to install PHP dependencies.
+
+### Version Updates
+
+It is essential to verify that the version has been appropriately incremented in both the PHP and JavaScript components. Specifically, ensure that:
+
+1. PHP constant `NFD_WONDER_BLOCKS_VERSION` has been updated to the intended release version on line 18 of the file `/bootstrap.php`. This PHP constant dictates the expected location of build files for the module. For example:
+
+```
+define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.11' );
+```
+
+2. JavaScript release version aligns with the desired release by checking line 3 in the `package.json` file. For example:
+
+```
+"version": "0.1.11",
+```
+
+### Build
+
+1. Run `npm run lint:js` to ensure JavaScript code quality.
+
+2. Execute `npm run build` to build the most recent set of build files.
+
+3. Run `composer clean` to ensure that PHP code standards are met.
+
+4. Delete the old build files from the `/build` directory.
+
+Ensure that these files are committed to the repository, as they are essential components to be incorporated into the upcoming release.
+
+### Final Steps
+
+1. Commit all changes and push them to the repository.
+
+2. Create a Pull Request (PR) to the main branch for peer approval. Teammates can check out this branch to verify everything is in order.
+
+3. After approval, merge the PR into the main branch.
+
+### Create a Release on GitHub
+
+1. Go to [New Release](https://github.com/newfold-labs/wp-module-patterns/releases/new).
+
+2. Ensure the tag number matches the updated version.
+
+3. Set the title as `Version <new_version>`.
+
+4. Generate release notes and publish the release.
+
+5. Confirm that `<new_version>` exists on both [GitHub Tags](https://github.com/newfold-labs/wp-module-patterns/tags) and [Satis](https://newfold-labs.github.io/satis/#patterns).
 
 ## More on NewFold WordPress Modules
 
