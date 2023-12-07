@@ -439,7 +439,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 */
 :where(:root) {
 	--wndb--color--surface: hsla(240, 7%, 95%, 1) !important;
-	--wndb--color--surface--foreground: hsla(240, 7%, 18%, 1) !important;
+	--wndb--color--surface--contrast: hsla(240, 7%, 18%, 1) !important;
+	--wndb--color--surface--dark: hsla(240, 7%, 15%, 1) !important;
+	--wndb--color--surface--dark-contrast: hsla(0, 0%, 100%, 1) !important;
 
 	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
 }
@@ -448,13 +450,33 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-bg-gray-100:not(.has-background) {
 	background-color: var(--wndb--color--surface) !important;
 }
-.nfd-bg-surface:not(.has-text-color) {
+.nfd-bg-surface:not(.has-text-color),
+.nfd-bg-gray-100:not(.has-text-color) {
 	color: var(--wndb--color--surface--foreground) !important;
+}
+/* Surface Dark */
+.nfd-bg-surface-dark:not(.has-background),
+.nfd-bg-gray-800:not(.has-background) {
+	background-color: var(--wndb--color--surface--dark) !important;
+}
+.nfd-bg-surface-dark:not(.has-text-color),
+.nfd-bg-gray-800:not(.has-text-color) {
+	color: var(--wndb--color--surface--dark-contrast) !important;
+}
+.nfd-border-surface-dark
+	[style*='-width:']:not(.has-border-color):not([style*='border-left-color']):not([style*='border-right-color']):not([style*='border-top-color']):not(
+		[style*='border-bottom-color']
+	) {
+	border-color: var(--wndb--color--surface--dark) !important;
 }
 /* Primary */
 .nfd-bg-primary:not(.has-background),
 .nfd-bg-accent:not(.has-background) {
 	background-color: var(--wndb--color--primary) !important;
+}
+.nfd-bg-primary:not(.has-text-color),
+.nfd-bg-accent:not(.has-text-color) {
+	color: var(--wndb--color--surface--dark-contrast) !important;
 }
 .nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
