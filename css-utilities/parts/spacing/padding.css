@@ -1,0 +1,81 @@
+/**
+* Padding specific utilities
+*/
+
+:where(:root) {
+	/**
+    * Default spacing scale factor
+    */
+	--wndb--padding-factor: 1;
+
+	/*
+    * Default padding base
+    */
+	--wndb--p: 2.375rem;
+
+	/**
+    * sm
+    */
+	--wndb--p--sm: 1.5rem;
+
+	/**
+    * md
+    */
+	--wndb--p--md: 2rem;
+}
+
+/* ---------------------------------- Small --------------------------------- */
+.wndb-p-sm {
+	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.wndb-px-sm {
+	padding-inline: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.wndb-py-sm {
+	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.wndb-pt-sm {
+	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.wndb-pb-sm {
+	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.wndb-pl-sm {
+	padding-left: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+/* --------------------------------- Medium --------------------------------- */
+.wndb-p-md {
+	padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.wndb-px-md {
+	padding-inline: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.wndb-py-md {
+	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.wndb-pt-md {
+	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.wndb-pb-md {
+	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.wndb-p-card-md {
+	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+/* --------------------------------- Offset --------------------------------- */
+.wndb-pl-offset-md {
+	padding-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) - 3px);
+	margin-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) * -1);
+}

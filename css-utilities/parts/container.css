@@ -1,0 +1,48 @@
+/**
+* NFD Container (.nfd-container)
+*
+* This is meant to be used on top-level group block and it
+* controlls the width of the content inside it and sets some default
+* styling for our patterns (removes margins, sets font size...).
+* 
+* Requires "Inner blocks use content width" to be enabled on the group.
+*
+* The default width values can be overriden with:
+*   1. The "content" and "wide" options in the block settings.
+*   2. By inheriting "width" and "wide width" from the active theme.
+*
+* We are keeping the specificity of the selectors low so that it can be
+* easily overriden by the theme or Gutenberg options.
+*/
+
+:where(:root) {
+	/* no important */
+
+	/*
+    * Default and wide container width. 
+    * This is used if the width is not inherited from the theme.
+    */
+	--wndb--container: 1200px;
+	--wndb--container--wide: 1340px;
+}
+
+/* ----------------------------- Container width ---------------------------- */
+.wndb-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
+.editor-styles-wrapper .wndb-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
+	/* no important */
+	width: 100%;
+	max-width: var(--wndb--container);
+}
+
+/* ------------------------------- Wide width ------------------------------- */
+.wndb-container:is(.is-layout-constrained) > .alignwide,
+.editor-styles-wrapper .wndb-container:is(.is-layout-constrained) > .alignwide {
+	/* no important */
+	width: 100%;
+	max-width: var(--wndb--container--wide);
+}
+
+/* ----------------------------- Inline padding ----------------------------- */
+.wndb-container:not(.alignfull) {
+	padding-inline: var(--wndb--p);
+}

@@ -1,0 +1,10 @@
+/* Horizontally overlap children. */
+.wndb-overlap-x,
+.editor-styles-wrapper .wndb-overlap-x {
+	/* no important */
+	gap: 0;
+}
+
+.wndb-overlap-x > *:not(:first-child) {
+	margin-inline-start: -1rem;
+}

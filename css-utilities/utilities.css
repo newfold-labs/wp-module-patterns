@@ -1,14 +1,22 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import "parts/defaults";
-@import "parts/animations";
-@import "parts/block-preview";
-@import "parts/colors";
-@import "parts/form";
-@import "parts/misc";
-@import "parts/blog";
-@import "parts/separator";
-@import "parts/spacing";
-@import "parts/typography";
+/* Refactored */
+@import 'parts/container';
+@import 'parts/spacing/spacing';
+@import 'parts/border/border';
+@import 'parts/typography/typography';
+@import 'parts/colors';
+
+/* Not-refactored yet */
+/* @import 'parts/defaults';
+@import 'parts/animations';
+@import 'parts/block-preview';
+@import 'parts/colors';
+@import 'parts/form';
+@import 'parts/misc';
+@import 'parts/blog';
+@import 'parts/separator';
+@import 'parts/spacing';
+@import 'parts/typography'; */

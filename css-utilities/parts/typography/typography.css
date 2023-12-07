@@ -1,0 +1,46 @@
+/**
+* Typography related utilities
+*/
+
+@import './misc.css';
+
+:where(:root) {
+	/**
+    * Default text scale factor
+    */
+	--wndb--text-scale-factor: 1;
+
+	/* Scale */
+	--wndb--text--sm: 0.875rem;
+	--wndb--text--base: 1rem;
+	--wndb--text--huge: clamp(2.25rem, 1.4688rem + 2.5vw, 3.5rem);
+}
+
+/* Small */
+.wndb-text-sm:not([class*='font-size']):not([style*='font-size']) {
+	font-size: calc(var(--wndb--text--sm) * var(--wndb--text-scale-factor));
+}
+
+/* Base */
+.wndb-text-base:not([class*='font-size']):not([style*='font-size']) {
+	font-size: calc(var(--wndb--text--base) * var(--wndb--text-scale-factor));
+}
+
+/* Huge */
+:where(.wndb-text-huge:not([class*='font-size']):not([style*='font-size'])) {
+	font-size: calc(var(--wndb--text--huge) * var(--wndb--text-scale-factor));
+	text-wrap: balance;
+	max-width: var(--wndb--max-w--prose);
+}
+
+.wndb-text-huge:not([style*='line-height']) {
+	line-height: 1.16667;
+}
+
+.wndb-text-huge:not([style*='letter-spacing']) {
+	letter-spacing: -0.045em;
+}
+
+.wndb-text-huge:not([style*='font-weight']) {
+	font-weight: 500;
+}

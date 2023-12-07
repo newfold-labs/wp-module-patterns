@@ -1,0 +1,42 @@
+/**
+* Border radius specific utilities
+*/
+
+:where(:root) {
+	/**
+    * Default border radius scale factor
+    */
+	--wndb--rounded--scale-factor: 1;
+
+	/**
+    * Border radius scale
+    */
+	--wndb--border--radius--sm: 0.25rem;
+	--wndb--border--radius--md: 0.5rem;
+	--wndb--border--radius--lg: 0.75rem;
+	--wndb--border--radius--xl: 1rem;
+}
+
+.wndb-rounded-none {
+	border-radius: 0;
+}
+
+.wndb-rounded-sm {
+	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor));
+}
+
+.wndb-rounded {
+	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor));
+}
+
+.wndb-rounded-lg {
+	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor));
+}
+
+.wndb-rounded-xl {
+	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor));
+}
+
+.wndb-rounded-full {
+	border-radius: calc(9999px * var(--wndb--rounded--scale-factor));
+}

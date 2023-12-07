@@ -37,6 +37,15 @@ module.exports = () => {
 					) {
 						rule.selector += ':not([style*="margin"])';
 					}
+
+					// Add the :not() exceptions to border-radius
+					if (
+						new RegExp('(\\w*:)?-?rounded(-[a-z]+)?').test(
+							rule.selector
+						)
+					) {
+						rule.selector += ':not([style*="-radius"])';
+					}
 				});
 			},
 			require('autoprefixer')({ grid: true }),

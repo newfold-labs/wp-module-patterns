@@ -1,0 +1,24 @@
+:where(:root) {
+	--wndb--max-w--prose: 65ch;
+}
+
+.wndb-max-w-prose: {
+	max-width: var(--wndb--max-w--prose);
+}
+
+:where(.wndb-text-balance) {
+	text-wrap: balance;
+	max-width: var(--wndb--max-w--prose);
+}
+
+.wndb-text-balance > p {
+	text-wrap: balance;
+}
+
+.wndb-text-pretty {
+	text-wrap: pretty;
+}
+
+.wndb-text-pretty-all > * {
+	text-wrap: pretty;
+}
