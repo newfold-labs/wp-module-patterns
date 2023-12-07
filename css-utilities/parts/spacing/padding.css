@@ -25,57 +25,57 @@
 }
 
 /* ---------------------------------- Small --------------------------------- */
-.wndb-p-sm {
+.nfd-p-sm {
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
-.wndb-px-sm {
+.nfd-px-sm {
 	padding-inline: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
-.wndb-py-sm {
+.nfd-py-sm {
 	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
-.wndb-pt-sm {
+.nfd-pt-sm {
 	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
-.wndb-pb-sm {
+.nfd-pb-sm {
 	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
-.wndb-pl-sm {
+.nfd-pl-sm {
 	padding-left: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
 /* --------------------------------- Medium --------------------------------- */
-.wndb-p-md {
+.nfd-p-md {
 	padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
-.wndb-px-md {
+.nfd-px-md {
 	padding-inline: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
-.wndb-py-md {
+.nfd-py-md {
 	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
-.wndb-pt-md {
+.nfd-pt-md {
 	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
-.wndb-pb-md {
+.nfd-pb-md {
 	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
-.wndb-p-card-md {
+.nfd-p-card-md {
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
 /* --------------------------------- Offset --------------------------------- */
-.wndb-pl-offset-md {
+.nfd-pl-offset-md {
 	padding-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) - 3px);
 	margin-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) * -1);
 }

@@ -19,56 +19,56 @@
 }
 
 /* Small */
-.wndb-text-sm:not([class*='font-size']):not([style*='font-size']) {
+.nfd-text-sm:not([class*='font-size']):not([style*='font-size']) {
 	font-size: calc(var(--wndb--text--sm) * var(--wndb--text-scale-factor));
 }
 
 /* Base */
-.wndb-text-base:not([class*='font-size']):not([style*='font-size']) {
+.nfd-text-base:not([class*='font-size']):not([style*='font-size']) {
 	font-size: calc(var(--wndb--text--base) * var(--wndb--text-scale-factor));
 }
 
 /* Medium */
-.wndb-text-md:not([class*='font-size']):not([style*='font-size']) {
+.nfd-text-md:not([class*='font-size']):not([style*='font-size']) {
 	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor));
 }
 
-.wndb-text-md:not([style*='line-height']) {
+.nfd-text-md:not([style*='line-height']) {
 	line-height: 1.55;
 }
 
 /* Large */
-.wndb-text-lg:not([class*='font-size']):not([style*='font-size']) {
+.nfd-text-lg:not([class*='font-size']):not([style*='font-size']) {
 	font-size: calc(var(--wndb--text--lg) * var(--wndb--text-scale-factor));
 }
 
-.wndb-text-lg:not([style*='line-height']) {
+.nfd-text-lg:not([style*='line-height']) {
 	line-height: 1.4;
 }
 
-.wndb-text-lg:not([style*='letter-spacing']) {
+.nfd-text-lg:not([style*='letter-spacing']) {
 	letter-spacing: -0.025em;
 }
 
-.wndb-text-lg:not([style*='font-weight']) {
+.nfd-text-lg:not([style*='font-weight']) {
 	font-weight: 500;
 }
 
 /* Huge */
-:where(.wndb-text-huge:not([class*='font-size']):not([style*='font-size'])) {
+:where(.nfd-text-huge:not([class*='font-size']):not([style*='font-size'])) {
 	font-size: calc(var(--wndb--text--huge) * var(--wndb--text-scale-factor));
 	text-wrap: balance;
 	max-width: var(--wndb--max-w--prose);
 }
 
-.wndb-text-huge:not([style*='line-height']) {
+.nfd-text-huge:not([style*='line-height']) {
 	line-height: 1.16667;
 }
 
-.wndb-text-huge:not([style*='letter-spacing']) {
+.nfd-text-huge:not([style*='letter-spacing']) {
 	letter-spacing: -0.045em;
 }
 
-.wndb-text-huge:not([style*='font-weight']) {
+.nfd-text-huge:not([style*='font-weight']) {
 	font-weight: 500;
 }

@@ -17,26 +17,26 @@
 	--wndb--border--radius--xl: 1rem;
 }
 
-.wndb-rounded-none {
+.nfd-rounded-none {
 	border-radius: 0;
 }
 
-.wndb-rounded-sm {
+.nfd-rounded-sm {
 	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor));
 }
 
-.wndb-rounded {
+.nfd-rounded {
 	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor));
 }
 
-.wndb-rounded-lg {
+.nfd-rounded-lg {
 	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor));
 }
 
-.wndb-rounded-xl {
+.nfd-rounded-xl {
 	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor));
 }
 
-.wndb-rounded-full {
+.nfd-rounded-full {
 	border-radius: calc(9999px * var(--wndb--rounded--scale-factor));
 }

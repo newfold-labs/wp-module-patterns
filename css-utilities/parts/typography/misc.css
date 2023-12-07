@@ -2,23 +2,23 @@
 	--wndb--max-w--prose: 65ch;
 }
 
-.wndb-max-w-prose {
+.nfd-max-w-prose {
 	max-width: var(--wndb--max-w--prose);
 }
 
-:where(.wndb-text-balance) {
+:where(.nfd-text-balance) {
 	text-wrap: balance;
 	max-width: var(--wndb--max-w--prose);
 }
 
-.wndb-text-balance > p {
+.nfd-text-balance > p {
 	text-wrap: balance;
 }
 
-.wndb-text-pretty {
+.nfd-text-pretty {
 	text-wrap: pretty;
 }
 
-.wndb-text-pretty > p {
+.nfd-text-pretty > p {
 	text-wrap: pretty;
 }

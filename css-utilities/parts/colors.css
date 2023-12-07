@@ -13,27 +13,29 @@
 }
 
 /* Surface */
-.wndb-bg-surface:not(.has-background) {
+.nfd-bg-surface:not(.has-background),
+.nfd-bg-gray-100:not(.has-background) {
 	background-color: var(--wndb--color--surface);
 }
 
-.wndb-bg-surface:not(.has-text-color) {
+.nfd-bg-surface:not(.has-text-color) {
 	color: var(--wndb--color--surface--foreground);
 }
 
 /* Primary */
-.wndb-bg-primary:not(.has-background) {
+.nfd-bg-primary:not(.has-background),
+.nfd-bg-accent:not(.has-background) {
 	background-color: var(--wndb--color--primary);
 }
 
-.wndb-text-primary:not(.has-text-color),
+.nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary);
 }
 
 /* Faded text */
-.wndb-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.wndb-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
-.wndb-text-faded time:not(.has-text-color):not(.has-background) {
+.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-faded time:not(.has-text-color):not(.has-background) {
 	opacity: 0.75;
 }
