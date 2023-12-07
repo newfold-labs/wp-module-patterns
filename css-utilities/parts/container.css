@@ -27,6 +27,11 @@
 }
 
 /* ----------------------------- Container width ---------------------------- */
+body .is-layout-constrained:has(.wndb-container.is-layout-constrained) > .wndb-container.is-layout-constrained {
+	width: 100%;
+	max-width: unset;
+}
+
 .wndb-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
 .editor-styles-wrapper .wndb-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
 	/* no important */

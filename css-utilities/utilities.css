@@ -8,6 +8,7 @@
 @import 'parts/border/border';
 @import 'parts/typography/typography';
 @import 'parts/colors';
+@import 'parts/shadows';
 
 /* Not-refactored yet */
 /* @import 'parts/defaults';

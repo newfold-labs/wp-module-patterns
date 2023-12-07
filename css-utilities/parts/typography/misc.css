@@ -2,7 +2,7 @@
 	--wndb--max-w--prose: 65ch;
 }
 
-.wndb-max-w-prose: {
+.wndb-max-w-prose {
 	max-width: var(--wndb--max-w--prose);
 }
 
@@ -19,6 +19,6 @@
 	text-wrap: pretty;
 }
 
-.wndb-text-pretty-all > * {
+.wndb-text-pretty > p {
 	text-wrap: pretty;
 }

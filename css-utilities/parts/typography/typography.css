@@ -13,6 +13,8 @@
 	/* Scale */
 	--wndb--text--sm: 0.875rem;
 	--wndb--text--base: 1rem;
+	--wndb--text--md: 1.125rem;
+	--wndb--text--lg: 1.5rem;
 	--wndb--text--huge: clamp(2.25rem, 1.4688rem + 2.5vw, 3.5rem);
 }
 
@@ -24,6 +26,32 @@
 /* Base */
 .wndb-text-base:not([class*='font-size']):not([style*='font-size']) {
 	font-size: calc(var(--wndb--text--base) * var(--wndb--text-scale-factor));
+}
+
+/* Medium */
+.wndb-text-md:not([class*='font-size']):not([style*='font-size']) {
+	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor));
+}
+
+.wndb-text-md:not([style*='line-height']) {
+	line-height: 1.55;
+}
+
+/* Large */
+.wndb-text-lg:not([class*='font-size']):not([style*='font-size']) {
+	font-size: calc(var(--wndb--text--lg) * var(--wndb--text-scale-factor));
+}
+
+.wndb-text-lg:not([style*='line-height']) {
+	line-height: 1.4;
+}
+
+.wndb-text-lg:not([style*='letter-spacing']) {
+	letter-spacing: -0.025em;
+}
+
+.wndb-text-lg:not([style*='font-weight']) {
+	font-weight: 500;
 }
 
 /* Huge */

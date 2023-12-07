@@ -154,6 +154,10 @@
 	--wndb--container--wide: 1340px;
 }
 /* ----------------------------- Container width ---------------------------- */
+body .is-layout-constrained:has(.wndb-container.is-layout-constrained) > .wndb-container.is-layout-constrained {
+	width: 100% !important;
+	max-width: unset !important;
+}
 .wndb-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
 .editor-styles-wrapper .wndb-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
 	width: 100%;
@@ -355,7 +359,7 @@
 :where(:root) {
 	--wndb--max-w--prose: 65ch !important;
 }
-.wndb-max-w-prose: {
+.wndb-max-w-prose {
 	max-width: var(--wndb--max-w--prose) !important;
 }
 :where(.wndb-text-balance) {
@@ -368,7 +372,7 @@
 .wndb-text-pretty {
 	text-wrap: pretty !important;
 }
-.wndb-text-pretty-all > * {
+.wndb-text-pretty > p {
 	text-wrap: pretty !important;
 }
 :where(:root) {
@@ -380,6 +384,8 @@
 	/* Scale */
 	--wndb--text--sm: 0.875rem !important;
 	--wndb--text--base: 1rem !important;
+	--wndb--text--md: 1.125rem !important;
+	--wndb--text--lg: 1.5rem !important;
 	--wndb--text--huge: clamp(2.25rem, 1.4688rem + 2.5vw, 3.5rem) !important;
 }
 /* Small */
@@ -389,6 +395,26 @@
 /* Base */
 .wndb-text-base:not([class*='font-size']):not([style*='font-size']) {
 	font-size: calc(var(--wndb--text--base) * var(--wndb--text-scale-factor)) !important;
+}
+/* Medium */
+.wndb-text-md:not([class*='font-size']):not([style*='font-size']) {
+	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor)) !important;
+}
+.wndb-text-md:not([style*='line-height']) {
+	line-height: 1.55 !important;
+}
+/* Large */
+.wndb-text-lg:not([class*='font-size']):not([style*='font-size']) {
+	font-size: calc(var(--wndb--text--lg) * var(--wndb--text-scale-factor)) !important;
+}
+.wndb-text-lg:not([style*='line-height']) {
+	line-height: 1.4 !important;
+}
+.wndb-text-lg:not([style*='letter-spacing']) {
+	letter-spacing: -0.025em !important;
+}
+.wndb-text-lg:not([style*='font-weight']) {
+	font-weight: 500 !important;
 }
 /* Huge */
 :where(.wndb-text-huge:not([class*='font-size']):not([style*='font-size'])) {
@@ -414,12 +440,44 @@
 :where(:root) {
 	--wndb--color--surface: hsla(240, 7%, 95%, 1) !important;
 	--wndb--color--surface--foreground: hsla(240, 7%, 18%, 1) !important;
+
+	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
 }
+/* Surface */
 .wndb-bg-surface:not(.has-background) {
 	background-color: var(--wndb--color--surface) !important;
 }
 .wndb-bg-surface:not(.has-text-color) {
 	color: var(--wndb--color--surface--foreground) !important;
+}
+/* Primary */
+.wndb-bg-primary:not(.has-background) {
+	background-color: var(--wndb--color--primary) !important;
+}
+.wndb-text-primary:not(.has-text-color),
+.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
+	color: var(--wndb--color--primary) !important;
+}
+/* Faded text */
+.wndb-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.wndb-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
+.wndb-text-faded time:not(.has-text-color):not(.has-background) {
+	opacity: 0.75 !important;
+}
+/**
+* Shadows
+*
+* box-shadow related utilities.
+*/
+:where(:root) {
+	--wndb--shadow--xs: 0 1px 2px 0 rgba(18, 18, 23, 0.08) !important;
+	--wndb--shadow--sm: 0 1px 3px 0 rgba(18, 18, 23, 0.1), 0 1px 2px 0 rgba(18, 18, 23, 0.06) !important;
+}
+.wndb-shadow-xs:not([style*='box-shadow']) {
+	box-shadow: var(--wndb--shadow--xs) !important;
+}
+.wndb-shadow-sm {
+	box-shadow: var(--wndb--shadow--sm) !important;
 }
 /* Not-refactored yet */
 /* @import 'parts/defaults';
