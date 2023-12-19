@@ -33,7 +33,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 
 .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
-.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
+.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
+.nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
+.editor-styles-wrapper .nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
 	/* no important */
 	width: 100%;
 	max-width: var(--wndb--container);

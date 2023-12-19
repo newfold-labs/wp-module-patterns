@@ -82,7 +82,7 @@
 .nfd-overflow-hidden {
 	overflow: hidden !important;
 }
-.nfd-rounded:not([style*="-radius"]) {
+.nfd-rounded {
 	border-radius: 0.25rem !important;
 }
 .nfd-p-0:not([style*="padding"]) {
@@ -159,7 +159,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	max-width: unset !important;
 }
 .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
-.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
+.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
+.nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
+.editor-styles-wrapper .nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
 	width: 100%;
 	max-width: var(--wndb--container);
 }
@@ -335,22 +337,22 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--border--radius--lg: 0.75rem !important;
 	--wndb--border--radius--xl: 1rem !important;
 }
-.nfd-rounded-none:not([style*="-radius"]) {
+.nfd-rounded-none {
 	border-radius: 0 !important;
 }
-.nfd-rounded-sm:not([style*="-radius"]) {
+.nfd-rounded-sm {
 	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded:not([style*="-radius"]) {
+.nfd-rounded {
 	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-lg:not([style*="-radius"]) {
+.nfd-rounded-lg {
 	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-xl:not([style*="-radius"]) {
+.nfd-rounded-xl {
 	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-full:not([style*="-radius"]) {
+.nfd-rounded-full {
 	border-radius: calc(9999px * var(--wndb--rounded--scale-factor)) !important;
 }
 /**
@@ -503,6 +505,24 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-shadow-sm:not([style*='box-shadow']) {
 	box-shadow: var(--wndb--shadow--sm) !important;
 }
+/* -------------------------------------------------------------------------- */
+/*                                   Slider                                   */
+/* -------------------------------------------------------------------------- */
+.nfd-scroll-slider {
+	flex-wrap: nowrap !important;
+	height: 100vh !important;
+	overflow-y: auto !important;
+	scroll-snap-type: y mandatory !important;
+
+	-ms-overflow-style: none !important; /* IE and Edge */
+	scrollbar-width: none !important; /* Firefox */
+}
+.nfd-scroll-slider::-webkit-scrollbar {
+	display: none !important;
+}
+.nfd-scroll-slider > * {
+	scroll-snap-align: start !important;
+}
 /* Not-refactored yet */
 /* @import 'parts/defaults';
 @import 'parts/animations';
@@ -558,7 +578,7 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	.md\:nfd-self-start {
 		align-self: flex-start !important;
 	}
-	.md\:nfd-rounded-lg:not([style*="-radius"]) {
+	.md\:nfd-rounded-lg {
 		border-radius: 0.5rem !important;
 	}
 	.md\:nfd-border-none {

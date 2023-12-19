@@ -1,0 +1,21 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Slider                                   */
+/* -------------------------------------------------------------------------- */
+
+.nfd-scroll-slider {
+	flex-wrap: nowrap;
+	height: 100vh;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.nfd-scroll-slider::-webkit-scrollbar {
+	display: none;
+}
+
+.nfd-scroll-slider > * {
+	scroll-snap-align: start;
+}

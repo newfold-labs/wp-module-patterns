@@ -9,6 +9,7 @@
 @import 'parts/typography/typography';
 @import 'parts/colors';
 @import 'parts/shadows';
+@import 'parts/slider';
 
 /* Not-refactored yet */
 /* @import 'parts/defaults';
