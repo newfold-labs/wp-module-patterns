@@ -13,6 +13,7 @@ final class Admin {
 	public function __construct() {
 		\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
 		\add_action( 'init', array( $this, 'register_block_patterns' ) );
+		\add_filter( 'admin_body_class', array( $this, 'add_admin_body_class' ) );
 	}
 
 	/**
@@ -71,14 +72,6 @@ final class Admin {
 			}
 		}
 
-		// Remove Yith Wonder patterns.
-		$all_registered_patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
-		foreach ( $all_registered_patterns as $pattern ) {
-			if ( strpos( $pattern['name'], 'yith-wonder/' ) !== false && ! in_array( 'yith-wonder-pages', $pattern['categories'], true ) ) {
-				\unregister_block_pattern( $pattern['name'] );
-			}
-		}
-
 		// Add Wonder Blocks patterns.
 		$wb_patterns = Items::get_data_from_transients( 'patterns' );
 
@@ -120,5 +113,21 @@ final class Admin {
 				);
 			}
 		}
+	}
+	
+	/**
+	 * Add custom admin class on block editor pages.
+	 *
+	 * @param string $classes Body classes.
+	 * @return string
+	 */
+	function add_admin_body_class( $classes ) {
+		$current_screen = get_current_screen();
+
+		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
+			$classes .= ' nfd-wb--hide-theme-patterns';
+		}
+	
+		return $classes;
 	}
 }
