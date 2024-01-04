@@ -34,7 +34,7 @@
 }
 
 .nfd-text-md:not([style*='line-height']) {
-	line-height: 1.55;
+	line-height: 1.5;
 }
 
 /* Large */
@@ -47,7 +47,7 @@
 }
 
 .nfd-text-lg:not([style*='letter-spacing']) {
-	letter-spacing: -0.025em;
+	letter-spacing: -0.02em;
 }
 
 .nfd-text-lg:not([style*='font-weight']) {
@@ -66,7 +66,7 @@
 }
 
 .nfd-text-huge:not([style*='letter-spacing']) {
-	letter-spacing: -0.045em;
+	letter-spacing: -0.04em;
 }
 
 .nfd-text-huge:not([style*='font-weight']) {

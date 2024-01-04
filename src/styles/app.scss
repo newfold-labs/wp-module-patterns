@@ -6,3 +6,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nfd-wb--hide-theme-patterns
+	[aria-label^="Wonder - "]:not([aria-label="Wonder - Pages"]) {
+	display: none;
+}

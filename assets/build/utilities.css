@@ -82,7 +82,7 @@
 .nfd-overflow-hidden {
 	overflow: hidden !important;
 }
-.nfd-rounded {
+.nfd-rounded:not([style*="-radius"]) {
 	border-radius: 0.25rem !important;
 }
 .nfd-p-0:not([style*="padding"]) {
@@ -337,22 +337,22 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--border--radius--lg: 0.75rem !important;
 	--wndb--border--radius--xl: 1rem !important;
 }
-.nfd-rounded-none {
+.nfd-rounded-none:not([style*="-radius"]) {
 	border-radius: 0 !important;
 }
-.nfd-rounded-sm {
+.nfd-rounded-sm:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded {
+.nfd-rounded:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-lg {
+.nfd-rounded-lg:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-xl {
+.nfd-rounded-xl:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-full {
+.nfd-rounded-full:not([style*="-radius"]) {
 	border-radius: calc(9999px * var(--wndb--rounded--scale-factor)) !important;
 }
 /**
@@ -403,7 +403,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor)) !important;
 }
 .nfd-text-md:not([style*='line-height']) {
-	line-height: 1.55 !important;
+	line-height: 1.5 !important;
 }
 /* Large */
 .nfd-text-lg:not([class*='font-size']):not([style*='font-size']) {
@@ -413,7 +413,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	line-height: 1.4 !important;
 }
 .nfd-text-lg:not([style*='letter-spacing']) {
-	letter-spacing: -0.025em !important;
+	letter-spacing: -0.02em !important;
 }
 .nfd-text-lg:not([style*='font-weight']) {
 	font-weight: 500 !important;
@@ -428,7 +428,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	line-height: 1.16667 !important;
 }
 .nfd-text-huge:not([style*='letter-spacing']) {
-	letter-spacing: -0.045em !important;
+	letter-spacing: -0.04em !important;
 }
 .nfd-text-huge:not([style*='font-weight']) {
 	font-weight: 500 !important;
@@ -578,7 +578,7 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	.md\:nfd-self-start {
 		align-self: flex-start !important;
 	}
-	.md\:nfd-rounded-lg {
+	.md\:nfd-rounded-lg:not([style*="-radius"]) {
 		border-radius: 0.5rem !important;
 	}
 	.md\:nfd-border-none {
