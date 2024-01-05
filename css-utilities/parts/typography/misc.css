@@ -1,5 +1,5 @@
 :where(:root) {
-	--wndb--max-w--prose: 65ch;
+	--wndb--max-w--prose: min(65ch, 700px);
 }
 
 .nfd-max-w-prose {
