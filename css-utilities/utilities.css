@@ -10,6 +10,7 @@
 @import 'parts/colors';
 @import 'parts/shadows';
 @import 'parts/slider';
+@import 'parts/misc';
 
 /* Not-refactored yet */
 /* @import 'parts/defaults';

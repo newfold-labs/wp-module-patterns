@@ -65,7 +65,7 @@
 }
 
 .nfd-text-xl:not([style*='letter-spacing']) {
-	letter-spacing: -0.015em;
+	letter-spacing: -0.01em;
 }
 
 .nfd-text-xl:not([style*='font-weight']) {

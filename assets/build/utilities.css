@@ -222,6 +222,14 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-p-card-md:not([style*="padding"]) {
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
 }
+.nfd-p-card-lg:not([style*="padding"]) {
+	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
+}
+@media screen and (min-width: 782px) {
+	.nfd-p-card-lg:not([style*="padding"]) {
+		padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(10% * var(--wndb--padding-factor)) !important;
+	}
+}
 /* --------------------------------- XSmall --------------------------------- */
 .nfd-py-xs:not([style*="padding"]) {
 	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
@@ -456,7 +464,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	line-height: 1.25 !important;
 }
 .nfd-text-xl:not([style*='letter-spacing']) {
-	letter-spacing: -0.015em !important;
+	letter-spacing: -0.01em !important;
 }
 .nfd-text-xl:not([style*='font-weight']) {
 	font-weight: 500 !important;
@@ -574,6 +582,27 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 }
 .nfd-scroll-slider > * {
 	scroll-snap-align: start !important;
+}
+/**
+* Miscellaneous utility classes
+*
+* Various utility classes used by the rest of the module.
+*/
+.nfd-object-top,
+.nfd-object-top > img,
+.nfd-object-top > .components-resizable-box__container > img {
+	-o-object-position: top !important;
+	   object-position: top !important;
+}
+.nfd-h-full,
+.nfd-h-full > img,
+.nfd-h-full > .components-resizable-box__container > img {
+	height: 100% !important;
+}
+.nfd-w-full,
+.nfd-w-full > img,
+.nfd-w-full > .components-resizable-box__container > img {
+	width: 100% !important;
 }
 /* Not-refactored yet */
 /* @import 'parts/defaults';
