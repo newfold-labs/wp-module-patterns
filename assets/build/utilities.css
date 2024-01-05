@@ -588,12 +588,6 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 *
 * Various utility classes used by the rest of the module.
 */
-.nfd-object-top,
-.nfd-object-top > img,
-.nfd-object-top > .components-resizable-box__container > img {
-	-o-object-position: top !important;
-	   object-position: top !important;
-}
 .nfd-h-full,
 .nfd-h-full > img,
 .nfd-h-full > .components-resizable-box__container > img {

@@ -4,12 +4,6 @@
 * Various utility classes used by the rest of the module.
 */
 
-.nfd-object-top,
-.nfd-object-top > img,
-.nfd-object-top > .components-resizable-box__container > img {
-	object-position: top;
-}
-
 .nfd-h-full,
 .nfd-h-full > img,
 .nfd-h-full > .components-resizable-box__container > img {
