@@ -360,30 +360,35 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	border-radius: 0 !important;
 }
 .nfd-rounded-sm:not([style*='-radius']),
-.nfd-rounded-sm:not([style*='-radius']) > img:not([style*="-radius"]) {
+.nfd-rounded-sm:not([style*='-radius']) > img,
+.nfd-rounded-sm:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor)) !important;
 }
 .nfd-rounded:not([style*='-radius']),
-.nfd-rounded:not([style*='-radius']) > img:not([style*="-radius"]) {
+.nfd-rounded:not([style*='-radius']) > img,
+.nfd-rounded:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor)) !important;
 }
 .nfd-rounded-lg:not([style*='-radius']),
-.nfd-rounded-lg:not([style*='-radius']) > img:not([style*="-radius"]) {
+.nfd-rounded-lg:not([style*='-radius']) > img,
+.nfd-rounded-lg:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor)) !important;
 }
 .nfd-rounded-xl:not([style*='-radius']),
-.nfd-rounded-xl:not([style*='-radius']) > img:not([style*="-radius"]) {
+.nfd-rounded-xl:not([style*='-radius']) > img,
+.nfd-rounded:xl([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor)) !important;
 }
 .nfd-rounded-full:not([style*='-radius']),
-.nfd-rounded-full:not([style*='-radius']) > img:not([style*="-radius"]) {
+.nfd-rounded-full:not([style*='-radius']) > img,
+.nfd-rounded-full:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
 	border-radius: calc(9999px * var(--wndb--rounded--scale-factor)) !important;
 }
 /**
 * Typography related utilities
 */
 :where(:root) {
-	--wndb--max-w--prose: 65ch !important;
+	--wndb--max-w--prose: min(65ch, 700px) !important;
 }
 .nfd-max-w-prose {
 	max-width: var(--wndb--max-w--prose) !important;

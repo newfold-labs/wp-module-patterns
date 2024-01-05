@@ -22,26 +22,31 @@
 }
 
 .nfd-rounded-sm:not([style*='-radius']),
-.nfd-rounded-sm:not([style*='-radius']) > img {
+.nfd-rounded-sm:not([style*='-radius']) > img,
+.nfd-rounded-sm:not([style*='-radius']) > .components-resizable-box__container > img {
 	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor));
 }
 
 .nfd-rounded:not([style*='-radius']),
-.nfd-rounded:not([style*='-radius']) > img {
+.nfd-rounded:not([style*='-radius']) > img,
+.nfd-rounded:not([style*='-radius']) > .components-resizable-box__container > img {
 	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor));
 }
 
 .nfd-rounded-lg:not([style*='-radius']),
-.nfd-rounded-lg:not([style*='-radius']) > img {
+.nfd-rounded-lg:not([style*='-radius']) > img,
+.nfd-rounded-lg:not([style*='-radius']) > .components-resizable-box__container > img {
 	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor));
 }
 
 .nfd-rounded-xl:not([style*='-radius']),
-.nfd-rounded-xl:not([style*='-radius']) > img {
+.nfd-rounded-xl:not([style*='-radius']) > img,
+.nfd-rounded:xl([style*='-radius']) > .components-resizable-box__container > img {
 	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor));
 }
 
 .nfd-rounded-full:not([style*='-radius']),
-.nfd-rounded-full:not([style*='-radius']) > img {
+.nfd-rounded-full:not([style*='-radius']) > img,
+.nfd-rounded-full:not([style*='-radius']) > .components-resizable-box__container > img {
 	border-radius: calc(9999px * var(--wndb--rounded--scale-factor));
 }
