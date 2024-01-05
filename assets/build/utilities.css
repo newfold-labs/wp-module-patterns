@@ -199,6 +199,11 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--p: 2.375rem !important;
 
 	/**
+    * xs
+    */
+	--wndb--p--xs: 0.75rem !important;
+
+	/**
     * sm
     */
 	--wndb--p--sm: 1.5rem !important;
@@ -207,6 +212,19 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
     * md
     */
 	--wndb--p--md: 2rem !important;
+
+	/**
+    * lg
+    */
+	--wndb--p--lg: clamp(2.82rem, 7vw, 6.25rem) !important;
+}
+/* ---------------------------------- Card ---------------------------------- */
+.nfd-p-card-md:not([style*="padding"]) {
+	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
+}
+/* --------------------------------- XSmall --------------------------------- */
+.nfd-py-xs:not([style*="padding"]) {
+	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
 }
 /* ---------------------------------- Small --------------------------------- */
 .nfd-p-sm:not([style*="padding"]) {
@@ -243,8 +261,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-pb-md:not([style*="padding"]) {
 	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
 }
-.nfd-p-card-md:not([style*="padding"]) {
-	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
+/* ---------------------------------- Large --------------------------------- */
+.nfd-p-lg:not([style*="padding"]) {
+	padding: calc(var(--wndb--p--lg) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
 }
 /* --------------------------------- Offset --------------------------------- */
 .nfd-pl-offset-md:not([style*="padding"]) {
@@ -340,19 +359,24 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-rounded-none:not([style*="-radius"]) {
 	border-radius: 0 !important;
 }
-.nfd-rounded-sm:not([style*="-radius"]) {
+.nfd-rounded-sm:not([style*='-radius']),
+.nfd-rounded-sm:not([style*='-radius']) > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded:not([style*="-radius"]) {
+.nfd-rounded:not([style*='-radius']),
+.nfd-rounded:not([style*='-radius']) > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-lg:not([style*="-radius"]) {
+.nfd-rounded-lg:not([style*='-radius']),
+.nfd-rounded-lg:not([style*='-radius']) > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-xl:not([style*="-radius"]) {
+.nfd-rounded-xl:not([style*='-radius']),
+.nfd-rounded-xl:not([style*='-radius']) > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor)) !important;
 }
-.nfd-rounded-full:not([style*="-radius"]) {
+.nfd-rounded-full:not([style*='-radius']),
+.nfd-rounded-full:not([style*='-radius']) > img:not([style*="-radius"]) {
 	border-radius: calc(9999px * var(--wndb--rounded--scale-factor)) !important;
 }
 /**
@@ -388,6 +412,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--text--base: 1rem !important;
 	--wndb--text--md: 1.125rem !important;
 	--wndb--text--lg: 1.5rem !important;
+	--wndb--text--xl: 2.375rem !important;
 	--wndb--text--huge: clamp(2.25rem, 1.4688rem + 2.5vw, 3.5rem) !important;
 }
 /* Small */
@@ -416,6 +441,19 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	letter-spacing: -0.02em !important;
 }
 .nfd-text-lg:not([style*='font-weight']) {
+	font-weight: 500 !important;
+}
+/* XLarge */
+.nfd-text-xl:not([class*='font-size']):not([style*='font-size']) {
+	font-size: var(--wndb--text--xl) !important;
+}
+.nfd-text-xl:not([style*='line-height']) {
+	line-height: 1.25 !important;
+}
+.nfd-text-xl:not([style*='letter-spacing']) {
+	letter-spacing: -0.015em !important;
+}
+.nfd-text-xl:not([style*='font-weight']) {
 	font-weight: 500 !important;
 }
 /* Huge */
@@ -461,8 +499,8 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-bg-gray-800:not(.has-background) {
 	background-color: var(--wndb--color--surface--dark) !important;
 }
-.nfd-bg-surface-dark:not(.has-text-color),
-.nfd-bg-gray-800:not(.has-text-color) {
+.nfd-text-surface-dark:not(.has-text-color),
+.nfd--gray-800:not(.has-text-color) {
 	color: var(--wndb--color--surface--dark-contrast) !important;
 }
 .nfd-border-surface-dark
@@ -483,6 +521,15 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary) !important;
+}
+.nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
+		[style*='border-left-color']
+	),
+.nfd-border-primary:not([class*='border-color'])
+	img:not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not([style*='border-left-color']):not(
+		[class*='border-color']
+	) {
+	border-color: var(--wndb--color--primary) !important;
 }
 /* Faded text */
 .nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),

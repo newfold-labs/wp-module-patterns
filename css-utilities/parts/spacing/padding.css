@@ -14,6 +14,11 @@
 	--wndb--p: 2.375rem;
 
 	/**
+    * xs
+    */
+	--wndb--p--xs: 0.75rem;
+
+	/**
     * sm
     */
 	--wndb--p--sm: 1.5rem;
@@ -22,6 +27,21 @@
     * md
     */
 	--wndb--p--md: 2rem;
+
+	/**
+    * lg
+    */
+	--wndb--p--lg: clamp(2.82rem, 7vw, 6.25rem);
+}
+
+/* ---------------------------------- Card ---------------------------------- */
+.nfd-p-card-md {
+	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+/* --------------------------------- XSmall --------------------------------- */
+.nfd-py-xs {
+	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
 }
 
 /* ---------------------------------- Small --------------------------------- */
@@ -70,8 +90,9 @@
 	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
-.nfd-p-card-md {
-	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+/* ---------------------------------- Large --------------------------------- */
+.nfd-p-lg {
+	padding: calc(var(--wndb--p--lg) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
 /* --------------------------------- Offset --------------------------------- */

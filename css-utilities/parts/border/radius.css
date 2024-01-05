@@ -21,22 +21,27 @@
 	border-radius: 0;
 }
 
-.nfd-rounded-sm {
+.nfd-rounded-sm:not([style*='-radius']),
+.nfd-rounded-sm:not([style*='-radius']) > img {
 	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor));
 }
 
-.nfd-rounded {
+.nfd-rounded:not([style*='-radius']),
+.nfd-rounded:not([style*='-radius']) > img {
 	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor));
 }
 
-.nfd-rounded-lg {
+.nfd-rounded-lg:not([style*='-radius']),
+.nfd-rounded-lg:not([style*='-radius']) > img {
 	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor));
 }
 
-.nfd-rounded-xl {
+.nfd-rounded-xl:not([style*='-radius']),
+.nfd-rounded-xl:not([style*='-radius']) > img {
 	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor));
 }
 
-.nfd-rounded-full {
+.nfd-rounded-full:not([style*='-radius']),
+.nfd-rounded-full:not([style*='-radius']) > img {
 	border-radius: calc(9999px * var(--wndb--rounded--scale-factor));
 }

@@ -31,8 +31,8 @@
 	background-color: var(--wndb--color--surface--dark);
 }
 
-.nfd-bg-surface-dark:not(.has-text-color),
-.nfd-bg-gray-800:not(.has-text-color) {
+.nfd-text-surface-dark:not(.has-text-color),
+.nfd--gray-800:not(.has-text-color) {
 	color: var(--wndb--color--surface--dark-contrast);
 }
 
@@ -57,6 +57,16 @@
 .nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary);
+}
+
+.nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
+		[style*='border-left-color']
+	),
+.nfd-border-primary:not([class*='border-color'])
+	img:not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not([style*='border-left-color']):not(
+		[class*='border-color']
+	) {
+	border-color: var(--wndb--color--primary);
 }
 
 /* Faded text */
