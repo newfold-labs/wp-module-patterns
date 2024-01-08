@@ -35,6 +35,10 @@
 }
 
 /* ---------------------------------- Card ---------------------------------- */
+.nfd-p-card-sm {
+	padding: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
 .nfd-p-card-md {
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }

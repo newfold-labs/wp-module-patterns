@@ -225,6 +225,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--p--lg: clamp(2.82rem, 7vw, 6.25rem) !important;
 }
 /* ---------------------------------- Card ---------------------------------- */
+.nfd-p-card-sm:not([style*="padding"]) {
+	padding: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;
+}
 .nfd-p-card-md:not([style*="padding"]) {
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
 }
