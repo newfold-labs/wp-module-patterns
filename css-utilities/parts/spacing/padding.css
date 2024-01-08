@@ -54,6 +54,10 @@
 	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
 }
 
+.nfd-pt-xs {
+	padding-block-start: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
+}
+
 /* ---------------------------------- Small --------------------------------- */
 .nfd-p-sm {
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
@@ -68,11 +72,11 @@
 }
 
 .nfd-pt-sm {
-	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+	padding-block-start: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
 .nfd-pb-sm {
-	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+	padding-block-end: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
 }
 
 .nfd-pl-sm {

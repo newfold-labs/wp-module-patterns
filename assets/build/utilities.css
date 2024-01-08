@@ -4,6 +4,12 @@
 .-nfd-bottom-1 {
 	bottom: -0.25rem !important;
 }
+.-nfd-top-0 {
+	top: -0px !important;
+}
+.-nfd-top-0\.5 {
+	top: -0.125rem !important;
+}
 .-nfd-top-1 {
 	top: -0.25rem !important;
 }
@@ -234,6 +240,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-py-xs:not([style*="padding"]) {
 	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
 }
+.nfd-pt-xs:not([style*="padding"]) {
+	padding-block-start: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
+}
 /* ---------------------------------- Small --------------------------------- */
 .nfd-p-sm:not([style*="padding"]) {
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;
@@ -245,10 +254,10 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;
 }
 .nfd-pt-sm:not([style*="padding"]) {
-	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;
+	padding-block-start: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;
 }
 .nfd-pb-sm:not([style*="padding"]) {
-	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;
+	padding-block-end: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;
 }
 .nfd-pl-sm:not([style*="padding"]) {
 	padding-left: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) !important;

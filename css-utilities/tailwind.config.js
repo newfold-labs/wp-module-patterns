@@ -16,6 +16,7 @@ module.exports = {
 	safelist: [
 		'-nfd-bottom-1',
 		'-nfd-top-1',
+		'-nfd-top-0.5',
 		'md:nfd-basis-full',
 		'md:nfd-border-none',
 		'md:nfd-flex-wrap',
