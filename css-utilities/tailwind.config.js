@@ -70,6 +70,7 @@ module.exports = {
 		'nfd-py-0',
 		'nfd-py-4',
 		'nfd-py-5',
+		'nfd-pt-0',
 		'nfd-relative',
 		'nfd-rounded',
 		'nfd-row-start-1',

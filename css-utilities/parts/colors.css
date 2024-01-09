@@ -8,8 +8,10 @@
 :where(:root) {
 	--wndb--color--surface: hsla(240, 7%, 95%, 1);
 	--wndb--color--surface--contrast: hsla(240, 7%, 18%, 1);
-	--wndb--color--surface--dark: hsla(240, 7%, 15%, 1);
 	--wndb--color--surface--dark-contrast: hsla(0, 0%, 100%, 1);
+	--wndb--color--surface--dark: hsla(240, 7%, 15%, 1);
+	--wndb--color--surface--darkest: hsla(237, 9%, 9%, 1);
+	--wndb--color--surface--foreground: hsla(237, 9%, 9%, 1);
 
 	--wndb--color--primary: hsla(240, 100%, 50%, 1);
 }
@@ -20,9 +22,20 @@
 	background-color: var(--wndb--color--surface);
 }
 
+/* Text color */
 .nfd-bg-surface:not(.has-text-color),
-.nfd-bg-gray-100:not(.has-text-color) {
+.nfd-bg-gray-100:not(.has-text-color),
+.nfd-text-foreground:not(.has-text-color) {
 	color: var(--wndb--color--surface--foreground);
+}
+
+.nfd-bg-surface-dark:not(.has-background),
+.nfd-bg-surface-darkest:not(.has-background) {
+	--wndb--color--surface--foreground: hsla(0, 0%, 100%, 1);
+}
+
+[class*='bg-surface-dark']:not(.has-text-color) {
+	color: var(--wndb--color--surface--dark-contrast);
 }
 
 /* Surface Dark */
@@ -31,16 +44,16 @@
 	background-color: var(--wndb--color--surface--dark);
 }
 
-.nfd-text-surface-dark:not(.has-text-color),
-.nfd--gray-800:not(.has-text-color) {
-	color: var(--wndb--color--surface--dark-contrast);
-}
-
 .nfd-border-surface-dark
 	[style*='-width:']:not(.has-border-color):not([style*='border-left-color']):not([style*='border-right-color']):not([style*='border-top-color']):not(
 		[style*='border-bottom-color']
 	) {
 	border-color: var(--wndb--color--surface--dark);
+}
+
+/* Surface Darkest */
+.nfd-bg-surface-darkest:not(.has-background) {
+	background-color: var(--wndb--color--surface--darkest);
 }
 
 /* Primary */

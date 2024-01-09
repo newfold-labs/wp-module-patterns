@@ -130,10 +130,242 @@
 	padding-top: 1.25rem !important;
 	padding-bottom: 1.25rem !important;
 }
+.nfd-pt-0:not([style*="padding"]) {
+	padding-top: 0px !important;
+}
 .nfd-text-left {
 	text-align: left !important;
 }
 /* Refactored */
+/**
+* Backgrounds
+*
+* A collection of CSS only utilities for adding backrounds.
+*/
+:root {
+	--wndb-mask-color: rgba(0, 0, 0, 0.15) !important;
+	--wndb-mask-position: 50% 50% at 50% 0% !important;
+}
+/* Global */
+[class*='nfd-bg-effect'] {
+	position: relative !important;
+	isolation: isolate !important;
+}
+[class*='nfd-bg-effect']::after {
+	content: '' !important;
+	position: absolute !important;
+	inset: 0 !important;
+	z-index: -1 !important;
+	pointer-events: none !important;
+	-webkit-mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
+	        mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
+}
+/* ---------------------------------- Dots ---------------------------------- */
+.nfd-bg-effect-dots::after {
+	background: radial-gradient(var(--wndb-mask-color) 1px, transparent 1px) !important;
+	background-size: 16px 16px !important;
+}
+/* Dark */
+[class*='nfd-bg-effect-'][class*='nfd-bg-surface-dark'] {
+	--wndb-mask-color: rgba(255, 255, 255, 0.1) !important;
+}
+/* Grid */
+.nfd-bg-effect-grid::after {
+	opacity: 0.25 !important;
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px) !important;
+	background-size: 50px 50px !important;
+}
+/* Grid 2 */
+.nfd-bg-effect-grid-2::after {
+	opacity: 0.25 !important;
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px) !important;
+	background-size: 14px 32px !important;
+}
+/* --------------------------------- Grid 3 --------------------------------- */
+.nfd-bg-effect-grid-3 {
+	overflow: hidden !important;
+}
+.nfd-bg-effect-grid-3::after {
+	opacity: 0.3 !important;
+	transform: scale(1.5) skew(-30deg, 30deg) !important;
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px) !important;
+	background-size: 32px 80px !important;
+	right: -25% !important;
+	top: -10% !important;
+}
+/* ---------------------------------- Lines --------------------------------- */
+.nfd-bg-effect-lines::after {
+	opacity: 0.3 !important;
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px) !important;
+	background-size: 48px !important;
+}
+/* --------------------------------- Lines 2 -------------------------------- */
+.nfd-bg-effect-lines-2 {
+	overflow: hidden !important;
+}
+.nfd-bg-effect-lines-2::after {
+	opacity: 0.25 !important;
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px) !important;
+	background-size: 32px 96px !important;
+	transform: scale(1.5) skew(-45deg, 45deg) !important;
+	right: -25% !important;
+	top: -10% !important;
+}
+/* -------------------------------- Position -------------------------------- */
+.nfd-bg-effect-position-center {
+	--wndb-mask-position: 50% 50% at 50% 50% !important;
+}
+/**
+* Border
+*
+* Border related utilities (radius)
+* postcss plugin will add necessary :not([style*="-radius"]) to selectors.
+*/
+/**
+* Border radius specific utilities
+*/
+:where(:root) {
+	/**
+    * Default border radius scale factor
+    */
+	--wndb--rounded--scale-factor: 1 !important;
+
+	/**
+    * Border radius scale
+    */
+	--wndb--border--radius--sm: 0.25rem !important;
+	--wndb--border--radius--md: 0.5rem !important;
+	--wndb--border--radius--lg: 0.75rem !important;
+	--wndb--border--radius--xl: 1rem !important;
+}
+.nfd-rounded-none:not([style*="-radius"]) {
+	border-radius: 0 !important;
+}
+.nfd-rounded-sm:not([style*='-radius']),
+.nfd-rounded-sm:not([style*='-radius']) > img,
+.nfd-rounded-sm:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
+	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor)) !important;
+}
+.nfd-rounded:not([style*='-radius']),
+.nfd-rounded:not([style*='-radius']) > img,
+.nfd-rounded:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
+	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor)) !important;
+}
+.nfd-rounded-lg:not([style*='-radius']),
+.nfd-rounded-lg:not([style*='-radius']) > img,
+.nfd-rounded-lg:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
+	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor)) !important;
+}
+.nfd-rounded-xl:not([style*='-radius']),
+.nfd-rounded-xl:not([style*='-radius']) > img,
+.nfd-rounded:xl([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
+	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor)) !important;
+}
+.nfd-rounded-full:not([style*='-radius']),
+.nfd-rounded-full:not([style*='-radius']) > img,
+.nfd-rounded-full:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
+	border-radius: calc(9999px * var(--wndb--rounded--scale-factor)) !important;
+}
+/**
+* Button
+*
+* Button related utilities.
+*/
+.nfd-btn-xl > .wp-block-button__link:not([style*='padding']) {
+	padding: 16px 48px !important;
+}
+.nfd-btn-xl:not(.has-custom-font-size) > .wp-block-button__link:not([style*='font-size']) {
+	font-size: 1.125rem !important;
+}
+.nfd-btn-xl:not([style*='font-weight']) > .wp-block-button__link {
+	font-weight: 600 !important;
+}
+.nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color) {
+	color: #fff !important;
+}
+.nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
+	color: #fff !important;
+}
+/**
+* Colors
+*
+* These utility classes are meant to provide a consistent 
+* basic color palette that can be overwritten with different themes.
+*/
+:where(:root) {
+	--wndb--color--surface: hsla(240, 7%, 95%, 1) !important;
+	--wndb--color--surface--contrast: hsla(240, 7%, 18%, 1) !important;
+	--wndb--color--surface--dark-contrast: hsla(0, 0%, 100%, 1) !important;
+	--wndb--color--surface--dark: hsla(240, 7%, 15%, 1) !important;
+	--wndb--color--surface--darkest: hsla(237, 9%, 9%, 1) !important;
+	--wndb--color--surface--foreground: hsla(237, 9%, 9%, 1) !important;
+
+	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
+}
+/* Surface */
+.nfd-bg-surface:not(.has-background),
+.nfd-bg-gray-100:not(.has-background) {
+	background-color: var(--wndb--color--surface) !important;
+}
+/* Text color */
+.nfd-bg-surface:not(.has-text-color),
+.nfd-bg-gray-100:not(.has-text-color),
+.nfd-text-foreground:not(.has-text-color) {
+	color: var(--wndb--color--surface--foreground) !important;
+}
+.nfd-bg-surface-dark:not(.has-background),
+.nfd-bg-surface-darkest:not(.has-background) {
+	--wndb--color--surface--foreground: hsla(0, 0%, 100%, 1) !important;
+}
+[class*='bg-surface-dark']:not(.has-text-color) {
+	color: var(--wndb--color--surface--dark-contrast) !important;
+}
+/* Surface Dark */
+.nfd-bg-surface-dark:not(.has-background),
+.nfd-bg-gray-800:not(.has-background) {
+	background-color: var(--wndb--color--surface--dark) !important;
+}
+.nfd-border-surface-dark
+	[style*='-width:']:not(.has-border-color):not([style*='border-left-color']):not([style*='border-right-color']):not([style*='border-top-color']):not(
+		[style*='border-bottom-color']
+	) {
+	border-color: var(--wndb--color--surface--dark) !important;
+}
+/* Surface Darkest */
+.nfd-bg-surface-darkest:not(.has-background) {
+	background-color: var(--wndb--color--surface--darkest) !important;
+}
+/* Primary */
+.nfd-bg-primary:not(.has-background),
+.nfd-bg-accent:not(.has-background) {
+	background-color: var(--wndb--color--primary) !important;
+}
+.nfd-bg-primary:not(.has-text-color),
+.nfd-bg-accent:not(.has-text-color) {
+	color: var(--wndb--color--surface--dark-contrast) !important;
+}
+.nfd-text-primary:not(.has-text-color),
+.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
+	color: var(--wndb--color--primary) !important;
+}
+.nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
+		[style*='border-left-color']
+	),
+.nfd-border-primary:not([class*='border-color'])
+	img:not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not([style*='border-left-color']):not(
+		[class*='border-color']
+	) {
+	border-color: var(--wndb--color--primary) !important;
+}
+/* Faded text */
+.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-faded time:not(.has-text-color):not(.has-background) {
+	opacity: 0.75 !important;
+}
 /**
 * NFD Container (.nfd-container)
 *
@@ -180,6 +412,58 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 /* ----------------------------- Inline padding ----------------------------- */
 .nfd-container:not(.alignfull) {
 	padding-inline: var(--wndb--p) !important;
+}
+/**
+* Miscellaneous utility classes
+*
+* Various utility classes used by the rest of the module.
+*/
+.nfd-h-full,
+.nfd-h-full > img,
+.nfd-h-full > .components-resizable-box__container > img {
+	height: 100% !important;
+}
+.nfd-w-full,
+.nfd-w-full > img,
+.nfd-w-full > .components-resizable-box__container > img {
+	width: 100% !important;
+}
+.nfd-backdrop-blur-sm {
+	-webkit-backdrop-filter: blur(8px) !important;
+	        backdrop-filter: blur(8px) !important;
+}
+/**
+* Shadows
+*
+* box-shadow related utilities.
+*/
+:where(:root) {
+	--wndb--shadow--xs: 0 1px 2px 0 rgba(18, 18, 23, 0.065) !important;
+	--wndb--shadow--sm: 0 1px 3px 0 rgba(18, 18, 23, 0.1), 0 1px 2px 0 rgba(18, 18, 23, 0.06) !important;
+}
+.nfd-shadow-xs:not([style*='box-shadow']) {
+	box-shadow: var(--wndb--shadow--xs) !important;
+}
+.nfd-shadow-sm:not([style*='box-shadow']) {
+	box-shadow: var(--wndb--shadow--sm) !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   Slider                                   */
+/* -------------------------------------------------------------------------- */
+.nfd-scroll-slider {
+	flex-wrap: nowrap !important;
+	height: 100vh !important;
+	overflow-y: auto !important;
+	scroll-snap-type: y mandatory !important;
+
+	-ms-overflow-style: none !important; /* IE and Edge */
+	scrollbar-width: none !important; /* Firefox */
+}
+.nfd-scroll-slider::-webkit-scrollbar {
+	display: none !important;
+}
+.nfd-scroll-slider > * {
+	scroll-snap-align: start !important;
 }
 /**
 * Spacing
@@ -240,11 +524,17 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	}
 }
 /* --------------------------------- XSmall --------------------------------- */
+.nfd-p-xs:not([style*="padding"]) {
+	padding: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
+}
 .nfd-py-xs:not([style*="padding"]) {
 	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
 }
 .nfd-pt-xs:not([style*="padding"]) {
 	padding-block-start: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
+}
+.nfd-px-xs:not([style*="padding"]) {
+	padding-inline: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) !important;
 }
 /* ---------------------------------- Small --------------------------------- */
 .nfd-p-sm:not([style*="padding"]) {
@@ -354,57 +644,6 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	row-gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
 }
 /**
-* Border
-*
-* Border related utilities (radius)
-* postcss plugin will add necessary :not([style*="-radius"]) to selectors.
-*/
-/**
-* Border radius specific utilities
-*/
-:where(:root) {
-	/**
-    * Default border radius scale factor
-    */
-	--wndb--rounded--scale-factor: 1 !important;
-
-	/**
-    * Border radius scale
-    */
-	--wndb--border--radius--sm: 0.25rem !important;
-	--wndb--border--radius--md: 0.5rem !important;
-	--wndb--border--radius--lg: 0.75rem !important;
-	--wndb--border--radius--xl: 1rem !important;
-}
-.nfd-rounded-none:not([style*="-radius"]) {
-	border-radius: 0 !important;
-}
-.nfd-rounded-sm:not([style*='-radius']),
-.nfd-rounded-sm:not([style*='-radius']) > img,
-.nfd-rounded-sm:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor)) !important;
-}
-.nfd-rounded:not([style*='-radius']),
-.nfd-rounded:not([style*='-radius']) > img,
-.nfd-rounded:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor)) !important;
-}
-.nfd-rounded-lg:not([style*='-radius']),
-.nfd-rounded-lg:not([style*='-radius']) > img,
-.nfd-rounded-lg:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor)) !important;
-}
-.nfd-rounded-xl:not([style*='-radius']),
-.nfd-rounded-xl:not([style*='-radius']) > img,
-.nfd-rounded:xl([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor)) !important;
-}
-.nfd-rounded-full:not([style*='-radius']),
-.nfd-rounded-full:not([style*='-radius']) > img,
-.nfd-rounded-full:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(9999px * var(--wndb--rounded--scale-factor)) !important;
-}
-/**
 * Typography related utilities
 */
 :where(:root) {
@@ -417,13 +656,21 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	text-wrap: balance !important;
 	max-width: var(--wndb--max-w--prose) !important;
 }
-.nfd-text-balance > p {
+.nfd-text-balance > p,
+.nfd-text-balance > h1,
+.nfd-text-balance > h2,
+.nfd-text-balance > h3,
+.nfd-text-balance > h4 {
 	text-wrap: balance !important;
 }
 .nfd-text-pretty {
 	text-wrap: pretty !important;
 }
-.nfd-text-pretty > p {
+.nfd-text-pretty > p,
+.nfd-text-pretty > h1,
+.nfd-text-pretty > h2,
+.nfd-text-pretty > h3,
+.nfd-text-pretty > h4 {
 	text-wrap: pretty !important;
 }
 :where(:root) {
@@ -438,7 +685,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--text--md: 1.125rem !important;
 	--wndb--text--lg: 1.5rem !important;
 	--wndb--text--xl: 2.375rem !important;
-	--wndb--text--huge: clamp(2.25rem, 1.4688rem + 2.5vw, 3.5rem) !important;
+	--wndb--text--huge: clamp(2.75rem, 1.4688rem + 2.5vw, 3.5rem) !important;
 }
 /* Small */
 .nfd-text-sm:not([class*='font-size']):not([style*='font-size']) {
@@ -496,129 +743,291 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-text-huge:not([style*='font-weight']) {
 	font-weight: 500 !important;
 }
-/**
-* Colors
-*
-* These utility classes are meant to provide a consistent 
-* basic color palette that can be overwritten with different themes.
-*/
-:where(:root) {
-	--wndb--color--surface: hsla(240, 7%, 95%, 1) !important;
-	--wndb--color--surface--contrast: hsla(240, 7%, 18%, 1) !important;
-	--wndb--color--surface--dark: hsla(240, 7%, 15%, 1) !important;
-	--wndb--color--surface--dark-contrast: hsla(0, 0%, 100%, 1) !important;
-
-	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
-}
-/* Surface */
-.nfd-bg-surface:not(.has-background),
-.nfd-bg-gray-100:not(.has-background) {
-	background-color: var(--wndb--color--surface) !important;
-}
-.nfd-bg-surface:not(.has-text-color),
-.nfd-bg-gray-100:not(.has-text-color) {
-	color: var(--wndb--color--surface--foreground) !important;
-}
-/* Surface Dark */
-.nfd-bg-surface-dark:not(.has-background),
-.nfd-bg-gray-800:not(.has-background) {
-	background-color: var(--wndb--color--surface--dark) !important;
-}
-.nfd-text-surface-dark:not(.has-text-color),
-.nfd--gray-800:not(.has-text-color) {
-	color: var(--wndb--color--surface--dark-contrast) !important;
-}
-.nfd-border-surface-dark
-	[style*='-width:']:not(.has-border-color):not([style*='border-left-color']):not([style*='border-right-color']):not([style*='border-top-color']):not(
-		[style*='border-bottom-color']
-	) {
-	border-color: var(--wndb--color--surface--dark) !important;
-}
-/* Primary */
-.nfd-bg-primary:not(.has-background),
-.nfd-bg-accent:not(.has-background) {
-	background-color: var(--wndb--color--primary) !important;
-}
-.nfd-bg-primary:not(.has-text-color),
-.nfd-bg-accent:not(.has-text-color) {
-	color: var(--wndb--color--surface--dark-contrast) !important;
-}
-.nfd-text-primary:not(.has-text-color),
-.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
-	color: var(--wndb--color--primary) !important;
-}
-.nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
-		[style*='border-left-color']
-	),
-.nfd-border-primary:not([class*='border-color'])
-	img:not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not([style*='border-left-color']):not(
-		[class*='border-color']
-	) {
-	border-color: var(--wndb--color--primary) !important;
-}
-/* Faded text */
-.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
-.nfd-text-faded time:not(.has-text-color):not(.has-background) {
-	opacity: 0.75 !important;
-}
-/**
-* Shadows
-*
-* box-shadow related utilities.
-*/
-:where(:root) {
-	--wndb--shadow--xs: 0 1px 2px 0 rgba(18, 18, 23, 0.065) !important;
-	--wndb--shadow--sm: 0 1px 3px 0 rgba(18, 18, 23, 0.1), 0 1px 2px 0 rgba(18, 18, 23, 0.06) !important;
-}
-.nfd-shadow-xs:not([style*='box-shadow']) {
-	box-shadow: var(--wndb--shadow--xs) !important;
-}
-.nfd-shadow-sm:not([style*='box-shadow']) {
-	box-shadow: var(--wndb--shadow--sm) !important;
-}
+/* Needs check */
 /* -------------------------------------------------------------------------- */
-/*                                   Slider                                   */
+/*                                 Dividers                                 */
 /* -------------------------------------------------------------------------- */
-.nfd-scroll-slider {
-	flex-wrap: nowrap !important;
-	height: 100vh !important;
-	overflow-y: auto !important;
-	scroll-snap-type: y mandatory !important;
-
-	-ms-overflow-style: none !important; /* IE and Edge */
-	scrollbar-width: none !important; /* Firefox */
+[class*='nfd-divider-'] {
+	--nfd-divider-size: 0px;
+	position: relative;
+	z-index: 13;
 }
-.nfd-scroll-slider::-webkit-scrollbar {
-	display: none !important;
+[class*='nfd-divider-'] ~ [class*='nfd-divider-'] {
+	z-index: 12 !important;
 }
-.nfd-scroll-slider > * {
-	scroll-snap-align: start !important;
+[class*='nfd-divider-'] ~ [class*='nfd-divider-'] ~ [class*='nfd-divider-'] {
+	z-index: 11 !important;
 }
-/**
-* Miscellaneous utility classes
-*
-* Various utility classes used by the rest of the module.
-*/
-.nfd-h-full,
-.nfd-h-full > img,
-.nfd-h-full > .components-resizable-box__container > img {
-	height: 100% !important;
-}
-.nfd-w-full,
-.nfd-w-full > img,
-.nfd-w-full > .components-resizable-box__container > img {
+[class*='nfd-divider-']::before {
+	position: absolute !important;
+	content: '' !important;
+	pointer-events: none !important;
+	z-index: 10 !important;
+	background: inherit !important;
+	left: 0 !important;
+	bottom: calc(-1 * var(--nfd-divider-size)) !important;
 	width: 100% !important;
+	height: var(--nfd-divider-size) !important;
+}
+/* ---------------------------- ZigZag Divider ---------------------------- */
+.nfd-divider-zigzag {
+	--nfd-divider-size: 8px;
+}
+.nfd-divider-zigzag::before {
+	-webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--nfd-divider-size) * 2) 100% !important;
+	        mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--nfd-divider-size) * 2) 100% !important;
+}
+/* ---------------------------- Slant Divider ----------------------------- */
+.nfd-divider-slant,
+.nfd-divider-slant-invert {
+	--nfd-divider-size: 80px;
+}
+.nfd-divider-slant::before {
+	-webkit-clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
+}
+.nfd-divider-slant-invert::before {
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
+}
+/* ---------------------------- Arrow Divider ----------------------------- */
+.nfd-divider-arrow {
+	--nfd-divider-size: 16px;
+}
+.nfd-divider-arrow::before {
+	left: 50% !important;
+	width: calc(var(--nfd-divider-size) * 2) !important;
+	height: calc(var(--nfd-divider-size) * 2) !important;
+	transform: translateX(-50%) rotate(45deg) !important;
+	bottom: calc(var(--nfd-divider-size) * -1) !important;
+}
+/* --------------------------- Triangle Divider --------------------------- */
+.nfd-divider-triangle {
+	--nfd-divider-size: 80px;
+}
+.nfd-divider-triangle::before {
+	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
+	bottom: calc(calc(-1 * var(--nfd-divider-size)) + 1px) !important;
+}
+/* --------------------------- Ellipse Divider ---------------------------- */
+.nfd-divider-ellipse {
+	--nfd-divider-size: 50px;
+}
+.nfd-divider-ellipse::before {
+	-webkit-clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%) !important;
+	        clip-path: ellipse(50% var(--nfd-divider-size) at 50% 0%) !important;
+}
+/* ---------------------------- Rounded Divider --------------------------- */
+.nfd-divider-rounded:not([style*="-radius"]) {
+	--nfd-divider-size: 50px;
+}
+.nfd-divider-rounded::before:not([style*="-radius"]) {
+	border-bottom-left-radius: var(--nfd-divider-size) !important;
+	border-bottom-right-radius: var(--nfd-divider-size) !important;
+}
+.nfd-divider-clouds {
+	--nfd-divider-size: 150px;
+}
+.nfd-divider-clouds::before,
+.nfd-divider-clouds::after {
+	content: '' !important;
+	position: absolute !important;
+	pointer-events: none !important;
+	z-index: 10 !important;
+	background: inherit !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: var(--nfd-divider-size) !important;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 283.5 27.8' preserveAspectRatio='xMidYMax slice'%3E%3Cpath d='M0 0v6.7c1.9-.8 4.7-1.4 8.5-1 9.5 1.1 11.1 6 11.1 6s2.1-.7 4.3-.2c2.1.5 2.8 2.6 2.8 2.6s.2-.5 1.4-.7c1.2-.2 1.7.2 1.7.2s0-2.1 1.9-2.8c1.9-.7 3.6.7 3.6.7s.7-2.9 3.1-4.1 4.7 0 4.7 0 1.2-.5 2.4 0 1.7 1.4 1.7 1.4h1.4c.7 0 1.2.7 1.2.7s.8-1.8 4-2.2c3.5-.4 5.3 2.4 6.2 4.4.4-.4 1-.7 1.8-.9 2.8-.7 4 .7 4 .7s1.7-5 11.1-6c9.5-1.1 12.3 3.9 12.3 3.9s1.2-4.8 5.7-5.7c4.5-.9 6.8 1.8 6.8 1.8s.6-.6 1.5-.9c.9-.2 1.9-.2 1.9-.2s5.2-6.4 12.6-3.3c7.3 3.1 4.7 9 4.7 9s1.9-.9 4 0 2.8 2.4 2.8 2.4 1.9-1.2 4.5-1.2 4.3 1.2 4.3 1.2.2-1 1.4-1.7 2.1-.7 2.1-.7-.5-3.1 2.1-5.5 5.7-1.4 5.7-1.4 1.5-2.3 4.2-1.1c2.7 1.2 1.7 5.2 1.7 5.2s.3-.1 1.3.5c.5.4.8.8.9 1.1.5-1.4 2.4-5.8 8.4-4 7.1 2.1 3.5 8.9 3.5 8.9s.8-.4 2 0 1.1 1.1 1.1 1.1 1.1-1.1 2.3-1.1 2.1.5 2.1.5 1.9-3.6 6.2-1.2 1.9 6.4 1.9 6.4 2.6-2.4 7.4 0c3.4 1.7 3.9 4.9 3.9 4.9s3.3-6.9 10.4-7.9 11.5 2.6 11.5 2.6.8 0 1.2.2c.4.2.9.9.9.9s4.4-3.1 8.3.2c1.9 1.7 1.5 5 1.5 5s.3-1.1 1.6-1.4c1.3-.3 2.3.2 2.3.2s-.1-1.2.5-1.9 1.9-.9 1.9-.9-4.7-9.3 4.4-13.4c5.6-2.5 9.2.9 9.2.9s5-6.2 15.9-6.2 16.1 8.1 16.1 8.1.7-.2 1.6-.4V0H0z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E") !important;
+	background-repeat: repeat-x !important;
+	background-size: cover !important;
+}
+.nfd-divider-clouds::after {
+	transform: rotate(180deg) !important;
+	bottom: 0 !important;
+	top: auto !important;
+}
+/* -------------------------------------------------------------------------- */
+/*                                 Animations                                 */
+/* -------------------------------------------------------------------------- */
+:root {
+	--nfd-wb-anim-transition-duration: 1400ms;
+	--nfd-wb-anim-transition-delay: 50ms;
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 1, 0.65, 1);
+	--nfd-wb-anim-transition: all var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
+}
+/* No animations on mobile or reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.nfd-wb-animate {
+		transition: none !important;
+	}
+}
+@media (max-width: 782px) {
+	.nfd-wb-animate {
+		transition: none !important;
+	}
+}
+/* Allow animations to be replayed. This attribute is removed from element with JS, causing the animation to be replayed */
+.nfd-wb-animate[data-replay-animation] {
+	transition: none !important;
+}
+/* --------------------------------- Fade In -------------------------------- */
+[class*='nfd-wb-fade-in'] {
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
+
+	transition: var(--nfd-wb-anim-transition);
+}
+/* Bottom (long) */
+.nfd-wb-fade-in-bottom {
+	--nfd-wb-anim-transition-duration: 1200ms;
+
+	opacity: 0;
+	transform: translate3d(0, 90px, 0);
+	transition: var(--nfd-wb-anim-transition);
+}
+/* Bottom */
+.nfd-wb-fade-in-bottom-short {
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: center bottom;
+	transform: translate3d(0, 32px, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+/* Top */
+.nfd-wb-fade-in-top-short {
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: center top;
+	transform: translate3d(0, -32px, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+/* Left */
+.nfd-wb-fade-in-left-short {
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: center left;
+	transform: translate3d(-32px, 0, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+/* Right */
+.nfd-wb-fade-in-right-short {
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: right center;
+	transform: translate3d(32px, 0, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+.nfd-wb-animated-in:not([data-replay-animation])[class*='nfd-wb-fade-in'] {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+/* --------------------------------- Zoom In -------------------------------- */
+.nfd-wb-zoom-in {
+	--nfd-wb-anim-transition-duration: 1200ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
+
+	opacity: 0;
+	transform: scale3d(0.4, 0.4, 0.4);
+	transition: var(--nfd-wb-anim-transition);
+}
+.nfd-wb-animated-in:not([data-replay-animation])[class*='nfd-wb-zoom-'] {
+	opacity: 1 !important;
+	transform: scale3d(1, 1, 1) !important;
+}
+.nfd-wb-zoom-in-short {
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
+
+	opacity: 0;
+	transform: scale3d(0.92, 0.92, 0.92);
+	transition: var(--nfd-wb-anim-transition);
+}
+/* -------------------------------- Twist In -------------------------------- */
+div:has(> .nfd-wb-twist-in) {
+	perspective: 1200px;
+}
+.nfd-wb-twist-in {
+	--nfd-wb-anim-transition-duration: 1000ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
+	opacity: 0;
+	transform: translateY(40px) scale(0.8) rotateY(30deg) rotateZ(-12deg) translateZ(0);
+	transition: var(--nfd-wb-anim-transition);
+}
+.nfd-wb-animated-in:not([data-replay-animation]).nfd-wb-twist-in {
+	opacity: 1 !important;
+	transform: translateY(0px) scale(1) rotateY(0deg) rotateZ(0deg) translateZ(0) !important;
+}
+/* ---------------------------- Reveal Animations --------------------------- */
+/* Mask reveal animations require DOM parent to be used for intersection observer */
+.nfd-wb-reveal-right {
+	--nfd-wb-anim-transition-duration: 1500ms;
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 0, 0, 1);
+	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
+
+	transition: var(--nfd-wb-anim-transition);
+	-webkit-clip-path: inset(0 100% 0 0);
+	        clip-path: inset(0 100% 0 0);
+}
+.nfd-wb-animated-in > .nfd-wb-reveal-right:not([data-replay-animation]) {
+	-webkit-clip-path: inset(0 0 0 0) !important;
+	        clip-path: inset(0 0 0 0) !important;
+}
+/* --------------------------------- Delays --------------------------------- */
+.nfd-delay-50 {
+	--nfd-wb-anim-transition-delay: 50ms !important;
+}
+.nfd-delay-150 {
+	--nfd-wb-anim-transition-delay: 150ms !important;
+}
+.nfd-delay-300 {
+	--nfd-wb-anim-transition-delay: 300ms !important;
+}
+.nfd-delay-450 {
+	--nfd-wb-anim-transition-delay: 450ms !important;
+}
+.nfd-delay-600 {
+	--nfd-wb-anim-transition-delay: 600ms !important;
+}
+.nfd-delay-750 {
+	--nfd-wb-anim-transition-delay: 750ms !important;
+}
+.nfd-delay-900 {
+	--nfd-wb-anim-transition-delay: 900ms !important;
+}
+.nfd-delay-1050 {
+	--nfd-wb-anim-transition-delay: 1050ms !important;
+}
+.nfd-delay-1200 {
+	--nfd-wb-anim-transition-delay: 1200ms !important;
+}
+.nfd-delay-1350 {
+	--nfd-wb-anim-transition-delay: 1350ms !important;
+}
+.nfd-delay-1500 {
+	--nfd-wb-anim-transition-delay: 1500ms !important;
 }
 /* Not-refactored yet */
 /* @import 'parts/defaults';
-@import 'parts/animations';
 @import 'parts/block-preview';
 @import 'parts/colors';
 @import 'parts/form';
 @import 'parts/misc';
 @import 'parts/blog';
-@import 'parts/separator';
 @import 'parts/spacing';
 @import 'parts/typography'; */
 @media (max-width: 782px) {

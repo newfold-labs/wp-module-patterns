@@ -2,24 +2,24 @@
 /*                                 Dividers                                 */
 /* -------------------------------------------------------------------------- */
 
-[class*="nfd-divider-"] {
+[class*='nfd-divider-'] {
 	/* no important */
 	--nfd-divider-size: 0px;
 	position: relative;
 	z-index: 13;
 }
 
-[class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+[class*='nfd-divider-'] ~ [class*='nfd-divider-'] {
 	z-index: 12;
 }
 
-[class*="nfd-divider-"] ~ [class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+[class*='nfd-divider-'] ~ [class*='nfd-divider-'] ~ [class*='nfd-divider-'] {
 	z-index: 11;
 }
 
-[class*="nfd-divider-"]::before {
+[class*='nfd-divider-']::before {
 	position: absolute;
-	content: "";
+	content: '';
 	pointer-events: none;
 	z-index: 10;
 	background: inherit;
@@ -36,13 +36,7 @@
 }
 
 .nfd-divider-zigzag::before {
-	mask: conic-gradient(
-			from -45deg at bottom,
-			#0000,
-			#000 1deg 89deg,
-			#0000 90deg
-		)
-		50% / calc(var(--nfd-divider-size) * 2) 100%;
+	mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--nfd-divider-size) * 2) 100%;
 }
 
 /* ---------------------------- Slant Divider ----------------------------- */
@@ -115,7 +109,7 @@
 
 .nfd-divider-clouds::before,
 .nfd-divider-clouds::after {
-	content: "";
+	content: '';
 	position: absolute;
 	pointer-events: none;
 	z-index: 10;

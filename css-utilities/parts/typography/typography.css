@@ -16,7 +16,7 @@
 	--wndb--text--md: 1.125rem;
 	--wndb--text--lg: 1.5rem;
 	--wndb--text--xl: 2.375rem;
-	--wndb--text--huge: clamp(2.25rem, 1.4688rem + 2.5vw, 3.5rem);
+	--wndb--text--huge: clamp(2.75rem, 1.4688rem + 2.5vw, 3.5rem);
 }
 
 /* Small */

@@ -15,3 +15,7 @@
 .nfd-w-full > .components-resizable-box__container > img {
 	width: 100%;
 }
+
+.nfd-backdrop-blur-sm {
+	backdrop-filter: blur(8px);
+}

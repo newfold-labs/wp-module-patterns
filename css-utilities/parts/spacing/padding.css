@@ -54,12 +54,20 @@
 }
 
 /* --------------------------------- XSmall --------------------------------- */
+.nfd-p-xs {
+	padding: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
+}
+
 .nfd-py-xs {
 	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
 }
 
 .nfd-pt-xs {
 	padding-block-start: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
+}
+
+.nfd-px-xs {
+	padding-inline: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
 }
 
 /* ---------------------------------- Small --------------------------------- */

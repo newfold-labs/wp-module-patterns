@@ -11,7 +11,11 @@
 	max-width: var(--wndb--max-w--prose);
 }
 
-.nfd-text-balance > p {
+.nfd-text-balance > p,
+.nfd-text-balance > h1,
+.nfd-text-balance > h2,
+.nfd-text-balance > h3,
+.nfd-text-balance > h4 {
 	text-wrap: balance;
 }
 
@@ -19,6 +23,10 @@
 	text-wrap: pretty;
 }
 
-.nfd-text-pretty > p {
+.nfd-text-pretty > p,
+.nfd-text-pretty > h1,
+.nfd-text-pretty > h2,
+.nfd-text-pretty > h3,
+.nfd-text-pretty > h4 {
 	text-wrap: pretty;
 }
