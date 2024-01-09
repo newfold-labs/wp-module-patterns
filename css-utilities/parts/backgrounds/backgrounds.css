@@ -6,7 +6,7 @@
 
 :root {
 	--wndb-mask-color: rgba(0, 0, 0, 0.15);
-	--wndb-mask-position: 50% 50% at 50% 0%;
+	--wndb-mask-position: 50% 50% at 50% 20%;
 }
 
 /* Global */
@@ -27,12 +27,7 @@
 /* ---------------------------------- Dots ---------------------------------- */
 .nfd-bg-effect-dots::after {
 	background: radial-gradient(var(--wndb-mask-color) 1px, transparent 1px);
-	background-size: 16px 16px;
-}
-
-/* Dark */
-[class*='nfd-bg-effect-'][class*='nfd-bg-surface-dark'] {
-	--wndb-mask-color: rgba(255, 255, 255, 0.1);
+	background-size: 20px 20px;
 }
 
 /* Grid */
@@ -57,7 +52,7 @@
 }
 
 .nfd-bg-effect-grid-3::after {
-	opacity: 0.3;
+	opacity: 0.2;
 	transform: scale(1.5) skew(-30deg, 30deg);
 	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px);

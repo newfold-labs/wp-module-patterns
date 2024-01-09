@@ -144,7 +144,7 @@
 */
 :root {
 	--wndb-mask-color: rgba(0, 0, 0, 0.15) !important;
-	--wndb-mask-position: 50% 50% at 50% 0% !important;
+	--wndb-mask-position: 50% 50% at 50% 20% !important;
 }
 /* Global */
 [class*='nfd-bg-effect'] {
@@ -163,11 +163,7 @@
 /* ---------------------------------- Dots ---------------------------------- */
 .nfd-bg-effect-dots::after {
 	background: radial-gradient(var(--wndb-mask-color) 1px, transparent 1px) !important;
-	background-size: 16px 16px !important;
-}
-/* Dark */
-[class*='nfd-bg-effect-'][class*='nfd-bg-surface-dark'] {
-	--wndb-mask-color: rgba(255, 255, 255, 0.1) !important;
+	background-size: 20px 20px !important;
 }
 /* Grid */
 .nfd-bg-effect-grid::after {
@@ -188,7 +184,7 @@
 	overflow: hidden !important;
 }
 .nfd-bg-effect-grid-3::after {
-	opacity: 0.3 !important;
+	opacity: 0.2 !important;
 	transform: scale(1.5) skew(-30deg, 30deg) !important;
 	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px) !important;
@@ -293,63 +289,135 @@
 * Colors
 *
 * These utility classes are meant to provide a consistent 
-* basic color palette that can be overwritten with different themes.
+* color palette and themable colors that can be overwritten with themes.
+*
+* The default color theme is `light`.
 */
 :where(:root) {
-	--wndb--color--surface: hsla(240, 7%, 95%, 1) !important;
-	--wndb--color--surface--contrast: hsla(240, 7%, 18%, 1) !important;
-	--wndb--color--surface--dark-contrast: hsla(0, 0%, 100%, 1) !important;
-	--wndb--color--surface--dark: hsla(240, 7%, 15%, 1) !important;
-	--wndb--color--surface--darkest: hsla(237, 9%, 9%, 1) !important;
-	--wndb--color--surface--foreground: hsla(237, 9%, 9%, 1) !important;
+	/* ------------------------------ Color palette ----------------------------- */
+	/* Gray */
+	--wndb-gray: #6c6c89 !important;
+	--wndb-gray-50: #f7f7f8 !important;
+	--wndb-gray-100: #ebebef !important;
+	--wndb-gray-200: #d1d1db !important;
+	--wndb-gray-300: #a9a9bc !important;
+	--wndb-gray-400: #8a8aa3 !important;
+	--wndb-gray-500: #6c6c89 !important;
+	--wndb-gray-600: #55556d !important;
+	--wndb-gray-700: #3f3f50 !important;
+	--wndb-gray-800: #19191e !important;
+	--wndb-gray-900: #121217 !important;
 
+	/* White */
+	--wndb-white: #fff !important;
+	--wndb-white-50: rgba(255, 255, 255, 0.05) !important;
+	--wndb-white-100: rgba(255, 255, 255, 0.1) !important;
+	--wndb-white-200: rgba(255, 255, 255, 0.2) !important;
+	--wndb-white-300: rgba(255, 255, 255, 0.3) !important;
+	--wndb-white-400: rgba(255, 255, 255, 0.4) !important;
+	--wndb-white-500: rgba(255, 255, 255, 0.5) !important;
+	--wndb-white-600: rgba(255, 255, 255, 0.6) !important;
+	--wndb-white-700: rgba(255, 255, 255, 0.7) !important;
+	--wndb-white-800: rgba(255, 255, 255, 0.8) !important;
+	--wndb-white-900: rgba(255, 255, 255, 0.9) !important;
+
+	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
+	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+	--wndb--color--borders: var(--wndb-color-gray-100) !important;
+	--wndb--color--text--faded: var(--wndb-gray-600) !important;
+	--wndbg--color--links: var(--wndb--color--primary) !important;
 }
-/* Surface */
-.nfd-bg-surface:not(.has-background),
-.nfd-bg-gray-100:not(.has-background) {
+/*
+ * Themes.
+ *
+ * These classes are meant to be added to the element that needs a different theme.
+ *  - By default, the `light` theme is applied. 
+ *  - Nested themes are supported.
+ */
+.nfd-theme-white {
+	--wndb--color--surface: var(--wndb-white) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+	--wndb--color--borders: var(--wndb-color-gray-100) !important;
+}
+.nfd-theme-light {
+	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+	--wndb--color--borders: var(--wndb-color-gray-100) !important;
+}
+.nfd-theme-dark {
+	--wndb--color--surface: var(--wndb-gray-800) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--shadow--sm: none !important;
+	--wndb--shadow--xs: none !important;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
+}
+.nfd-theme-darker {
+	--wndb--color--surface: var(--wndb-gray-900) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--shadow--sm: none !important;
+	--wndb--shadow--xs: none !important;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
+}
+.nfd-theme-primary {
+	--wndb--color--surface: var(--wndb-color-primary) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--shadow--sm: none !important;
+	--wndb--shadow--xs: none !important;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
+}
+/* --------------------------------- Surface -------------------------------- */
+/* Background */
+.nfd-bg-surface:not(.has-background) {
 	background-color: var(--wndb--color--surface) !important;
 }
 /* Text color */
-.nfd-bg-surface:not(.has-text-color),
-.nfd-bg-gray-100:not(.has-text-color),
-.nfd-text-foreground:not(.has-text-color) {
-	color: var(--wndb--color--surface--foreground) !important;
+.nfd-bg-surface:not(.has-text-color) {
+	color: var(--wndb--color--text) !important;
 }
-.nfd-bg-surface-dark:not(.has-background),
-.nfd-bg-surface-darkest:not(.has-background) {
-	--wndb--color--surface--foreground: hsla(0, 0%, 100%, 1) !important;
+/* Faded text color */
+.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-faded time:not(.has-text-color):not(.has-background) {
+	color: var(--wndb--color--text--faded) !important;
 }
-[class*='bg-surface-dark']:not(.has-text-color) {
-	color: var(--wndb--color--surface--dark-contrast) !important;
+/* Border color */
+.nfd-bg-surface:not(.has-border-color),
+.nfd-bg-surface :not(.has-border-color),
+.nfd-bg-surface :not(.has-border-color) > img:not(.has-border-color),
+.nfd-bg-surface :not(.has-border-color) > .components-resizable-box__container > img:not(.has-border-color) {
+	border-color: var(--wndb--color--borders) !important;
 }
-/* Surface Dark */
-.nfd-bg-surface-dark:not(.has-background),
-.nfd-bg-gray-800:not(.has-background) {
-	background-color: var(--wndb--color--surface--dark) !important;
-}
-.nfd-border-surface-dark
-	[style*='-width:']:not(.has-border-color):not([style*='border-left-color']):not([style*='border-right-color']):not([style*='border-top-color']):not(
-		[style*='border-bottom-color']
-	) {
-	border-color: var(--wndb--color--surface--dark) !important;
-}
-/* Surface Darkest */
-.nfd-bg-surface-darkest:not(.has-background) {
-	background-color: var(--wndb--color--surface--darkest) !important;
-}
-/* Primary */
+/* ---------------------------------- Other --------------------------------- */
 .nfd-bg-primary:not(.has-background),
 .nfd-bg-accent:not(.has-background) {
 	background-color: var(--wndb--color--primary) !important;
 }
 .nfd-bg-primary:not(.has-text-color),
 .nfd-bg-accent:not(.has-text-color) {
-	color: var(--wndb--color--surface--dark-contrast) !important;
+	color: var(--wndb--color--white) !important;
 }
 .nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary) !important;
+}
+.nfd-text-current:where(:not(.has-text-color)),
+.nfd-text-current:where(:not(.has-text-color)) a:where(:not(:hover)),
+.editor-styles-wrapper div .nfd-text-current:where(:not(.has-text-color)),
+.editor-styles-wrapper div :where(.nfd-text-current:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
+	color: currentColor;
+}
+.nfd-border-current:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
+		[style*='border-left-color']
+	) {
+	border-color: currentColor !important;
 }
 .nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
 		[style*='border-left-color']
@@ -360,11 +428,38 @@
 	) {
 	border-color: var(--wndb--color--primary) !important;
 }
-/* Faded text */
-.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
-.nfd-text-faded time:not(.has-text-color):not(.has-background) {
-	opacity: 0.75 !important;
+[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link {
+	color: var(--wndb--color--text--faded) !important;
+	fill: var(--wndb--color--text--faded) !important;
+}
+[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link:hover {
+	color: var(--wndb--color--text) !important;
+	fill: var(--wndb--color--text) !important;
+}
+/* ------------------------- Backward compatibility ------------------------- */
+.nfd-bg-gray-100:not(.has-background),
+.nfd-bg-gray-800:not(.has-background) {
+	background-color: var(--wndb--color--surface) !important;
+}
+.nfd-bg-gray-100:not(.has-text-color),
+.nfd-bg-gray-800:not(.has-text-color) {
+	color: var(--wndb--color--text) !important;
+}
+.nfd-bg-gray-800 {
+	--wndb--color--surface: var(--wndb-gray-800) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+}
+.nfd-bg-gray-100 {
+	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+	--wndb--color--borders: var(--wndb-color-gray-100) !important;
+}
+.nfd-text-opacity-80 p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-opacity-80 time:not(.has-text-color):not(.has-background) {
+	opacity: 0.8 !important;
 }
 /**
 * NFD Container (.nfd-container)
@@ -429,8 +524,12 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	width: 100% !important;
 }
 .nfd-backdrop-blur-sm {
-	-webkit-backdrop-filter: blur(8px) !important;
-	        backdrop-filter: blur(8px) !important;
+	-webkit-backdrop-filter: blur(4px) !important;
+	        backdrop-filter: blur(4px) !important;
+}
+.nfd-backdrop-blur-md {
+	-webkit-backdrop-filter: blur(4px) !important;
+	        backdrop-filter: blur(4px) !important;
 }
 /**
 * Shadows
@@ -603,6 +702,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--gap--lg: 1.5rem !important;
 	--wndb--gap--xl: 2rem !important;
 	--wndb--gap--2xl: 2.5rem !important;
+	--wndb--gap--3xl: 3.5rem !important;
 }
 /* No Gap */
 .nfd-gap-0,
@@ -629,12 +729,17 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .editor-styles-wrapper .nfd-gap-lg {
 	gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
 }
-/* Extra Large */
+.nfd-gap-x-lg,
+.editor-styles-wrapper .nfd-gap-x-lg {
+	-moz-column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+	     column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+}
+/* XLarge */
 .nfd-gap-xl,
 .editor-styles-wrapper .nfd-gap-xl {
 	gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
 }
-/* 2 Extra Large */
+/* XXLarge */
 .nfd-gap-2xl,
 .editor-styles-wrapper .nfd-gap-2xl {
 	gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
@@ -642,6 +747,11 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-gap-y-2xl,
 .editor-styles-wrapper .nfd-gap-y-2xl {
 	row-gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
+}
+/* XXXLarge */
+.nfd-gap-y-3xl,
+.editor-styles-wrapper .nfd-gap-y-3xl {
+	row-gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
 }
 /**
 * Typography related utilities

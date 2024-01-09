@@ -17,5 +17,9 @@
 }
 
 .nfd-backdrop-blur-sm {
-	backdrop-filter: blur(8px);
+	backdrop-filter: blur(4px);
+}
+
+.nfd-backdrop-blur-md {
+	backdrop-filter: blur(4px);
 }
