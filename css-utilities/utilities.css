@@ -3,23 +3,27 @@
 @import 'tailwindcss/utilities';
 
 /* Refactored */
-@import 'parts/container';
-@import 'parts/spacing/spacing';
+@import 'parts/backgrounds/backgrounds';
 @import 'parts/border/border';
-@import 'parts/typography/typography';
+@import 'parts/button/button';
 @import 'parts/colors';
+@import 'parts/container';
+@import 'parts/misc';
 @import 'parts/shadows';
 @import 'parts/slider';
-@import 'parts/misc';
+@import 'parts/spacing/spacing';
+@import 'parts/typography/typography';
+
+/* Needs check */
+@import 'parts/separator';
+@import 'parts/animations';
 
 /* Not-refactored yet */
 /* @import 'parts/defaults';
-@import 'parts/animations';
 @import 'parts/block-preview';
 @import 'parts/colors';
 @import 'parts/form';
 @import 'parts/misc';
 @import 'parts/blog';
-@import 'parts/separator';
 @import 'parts/spacing';
 @import 'parts/typography'; */
