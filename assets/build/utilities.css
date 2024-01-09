@@ -325,8 +325,9 @@
 	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
 	--wndb--color--surface: var(--wndb-gray-50) !important;
 	--wndb--color--text: var(--wndb-gray-700) !important;
-	--wndb--color--borders: var(--wndb-color-gray-100) !important;
+	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
 	--wndb--color--text--faded: var(--wndb-gray-600) !important;
+	--wndb--color--borders: var(--wndb-color-gray-100) !important;
 	--wndbg--color--links: var(--wndb--color--primary) !important;
 }
 /*
@@ -337,38 +338,41 @@
  *  - Nested themes are supported.
  */
 .nfd-theme-white {
+	--wndb--color--borders: var(--wndb-color-gray-100) !important;
 	--wndb--color--surface: var(--wndb-white) !important;
 	--wndb--color--text: var(--wndb-gray-700) !important;
-	--wndb--color--borders: var(--wndb-color-gray-100) !important;
 }
 .nfd-theme-light {
+	--wndb--color--borders: var(--wndb-color-gray-100) !important;
 	--wndb--color--surface: var(--wndb-gray-50) !important;
 	--wndb--color--text: var(--wndb-gray-700) !important;
-	--wndb--color--borders: var(--wndb-color-gray-100) !important;
 }
 .nfd-theme-dark {
-	--wndb--color--surface: var(--wndb-gray-800) !important;
-	--wndb--color--text: var(--wndb-white) !important;
 	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--surface: var(--wndb-gray-800) !important;
+	--wndb--color--text--contrast: var(--wndb-white) !important;
 	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--color--text: var(--wndb-white) !important;
 	--wndb--shadow--sm: none !important;
 	--wndb--shadow--xs: none !important;
 	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
 }
 .nfd-theme-darker {
-	--wndb--color--surface: var(--wndb-gray-900) !important;
-	--wndb--color--text: var(--wndb-white) !important;
 	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--surface: var(--wndb-gray-900) !important;
+	--wndb--color--text--contrast: var(--wndb-white) !important;
 	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--color--text: var(--wndb-white) !important;
 	--wndb--shadow--sm: none !important;
 	--wndb--shadow--xs: none !important;
 	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
 }
 .nfd-theme-primary {
-	--wndb--color--surface: var(--wndb-color-primary) !important;
-	--wndb--color--text: var(--wndb-white) !important;
 	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--surface: var(--wndb-color-primary) !important;
+	--wndb--color--text--contrast: var(--wndb-white) !important;
 	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--color--text: var(--wndb-white) !important;
 	--wndb--shadow--sm: none !important;
 	--wndb--shadow--xs: none !important;
 	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
@@ -387,6 +391,13 @@
 p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-text-faded time:not(.has-text-color):not(.has-background) {
 	color: var(--wndb--color--text--faded) !important;
+}
+/* Contrast text color */
+.nfd-text-contrast:where(:not(.has-text-color)),
+.nfd-text-contrast:where(:not(.has-text-color)) a:where(:not(:hover)),
+.editor-styles-wrapper div .nfd-text-contrast:where(:not(.has-text-color)),
+.editor-styles-wrapper div :where(.nfd-text-contrast:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
+	color: var(--wndb--color--text--contrast);
 }
 /* Border color */
 .nfd-bg-surface:not(.has-border-color),
