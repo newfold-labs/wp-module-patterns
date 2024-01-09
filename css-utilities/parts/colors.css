@@ -2,61 +2,124 @@
 * Colors
 *
 * These utility classes are meant to provide a consistent 
-* basic color palette that can be overwritten with different themes.
+* color palette and themable colors that can be overwritten with themes.
+*
+* The default color theme is `light`.
 */
 
 :where(:root) {
-	--wndb--color--surface: hsla(240, 7%, 95%, 1);
-	--wndb--color--surface--contrast: hsla(240, 7%, 18%, 1);
-	--wndb--color--surface--dark-contrast: hsla(0, 0%, 100%, 1);
-	--wndb--color--surface--dark: hsla(240, 7%, 15%, 1);
-	--wndb--color--surface--darkest: hsla(237, 9%, 9%, 1);
-	--wndb--color--surface--foreground: hsla(237, 9%, 9%, 1);
+	/* ------------------------------ Color palette ----------------------------- */
+	/* Gray */
+	--wndb-gray: #6c6c89;
+	--wndb-gray-50: #f7f7f8;
+	--wndb-gray-100: #ebebef;
+	--wndb-gray-200: #d1d1db;
+	--wndb-gray-300: #a9a9bc;
+	--wndb-gray-400: #8a8aa3;
+	--wndb-gray-500: #6c6c89;
+	--wndb-gray-600: #55556d;
+	--wndb-gray-700: #3f3f50;
+	--wndb-gray-800: #19191e;
+	--wndb-gray-900: #121217;
 
+	/* White */
+	--wndb-white: #fff;
+	--wndb-white-50: rgba(255, 255, 255, 0.05);
+	--wndb-white-100: rgba(255, 255, 255, 0.1);
+	--wndb-white-200: rgba(255, 255, 255, 0.2);
+	--wndb-white-300: rgba(255, 255, 255, 0.3);
+	--wndb-white-400: rgba(255, 255, 255, 0.4);
+	--wndb-white-500: rgba(255, 255, 255, 0.5);
+	--wndb-white-600: rgba(255, 255, 255, 0.6);
+	--wndb-white-700: rgba(255, 255, 255, 0.7);
+	--wndb-white-800: rgba(255, 255, 255, 0.8);
+	--wndb-white-900: rgba(255, 255, 255, 0.9);
+
+	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--primary: hsla(240, 100%, 50%, 1);
+	--wndb--color--surface: var(--wndb-gray-50);
+	--wndb--color--text: var(--wndb-gray-700);
+	--wndb--color--borders: var(--wndb-color-gray-100);
+	--wndb--color--text--faded: var(--wndb-gray-600);
+	--wndbg--color--links: var(--wndb--color--primary);
 }
 
-/* Surface */
-.nfd-bg-surface:not(.has-background),
-.nfd-bg-gray-100:not(.has-background) {
+/*
+ * Themes.
+ *
+ * These classes are meant to be added to the element that needs a different theme.
+ *  - By default, the `light` theme is applied. 
+ *  - Nested themes are supported.
+ */
+.nfd-theme-white {
+	--wndb--color--surface: var(--wndb-white);
+	--wndb--color--text: var(--wndb-gray-700);
+	--wndb--color--borders: var(--wndb-color-gray-100);
+}
+
+.nfd-theme-light {
+	--wndb--color--surface: var(--wndb-gray-50);
+	--wndb--color--text: var(--wndb-gray-700);
+	--wndb--color--borders: var(--wndb-color-gray-100);
+}
+
+.nfd-theme-dark {
+	--wndb--color--surface: var(--wndb-gray-800);
+	--wndb--color--text: var(--wndb-white);
+	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--text--faded: var(--wndb-white-700);
+	--wndb--shadow--sm: none;
+	--wndb--shadow--xs: none;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12);
+}
+
+.nfd-theme-darker {
+	--wndb--color--surface: var(--wndb-gray-900);
+	--wndb--color--text: var(--wndb-white);
+	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--text--faded: var(--wndb-white-700);
+	--wndb--shadow--sm: none;
+	--wndb--shadow--xs: none;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12);
+}
+
+.nfd-theme-primary {
+	--wndb--color--surface: var(--wndb-color-primary);
+	--wndb--color--text: var(--wndb-white);
+	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--text--faded: var(--wndb-white-700);
+	--wndb--shadow--sm: none;
+	--wndb--shadow--xs: none;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12);
+}
+
+/* --------------------------------- Surface -------------------------------- */
+/* Background */
+.nfd-bg-surface:not(.has-background) {
 	background-color: var(--wndb--color--surface);
 }
 
 /* Text color */
-.nfd-bg-surface:not(.has-text-color),
-.nfd-bg-gray-100:not(.has-text-color),
-.nfd-text-foreground:not(.has-text-color) {
-	color: var(--wndb--color--surface--foreground);
+.nfd-bg-surface:not(.has-text-color) {
+	color: var(--wndb--color--text);
 }
 
-.nfd-bg-surface-dark:not(.has-background),
-.nfd-bg-surface-darkest:not(.has-background) {
-	--wndb--color--surface--foreground: hsla(0, 0%, 100%, 1);
+/* Faded text color */
+.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-faded time:not(.has-text-color):not(.has-background) {
+	color: var(--wndb--color--text--faded);
 }
 
-[class*='bg-surface-dark']:not(.has-text-color) {
-	color: var(--wndb--color--surface--dark-contrast);
+/* Border color */
+.nfd-bg-surface:not(.has-border-color),
+.nfd-bg-surface :not(.has-border-color),
+.nfd-bg-surface :not(.has-border-color) > img:not(.has-border-color),
+.nfd-bg-surface :not(.has-border-color) > .components-resizable-box__container > img:not(.has-border-color) {
+	border-color: var(--wndb--color--borders);
 }
 
-/* Surface Dark */
-.nfd-bg-surface-dark:not(.has-background),
-.nfd-bg-gray-800:not(.has-background) {
-	background-color: var(--wndb--color--surface--dark);
-}
-
-.nfd-border-surface-dark
-	[style*='-width:']:not(.has-border-color):not([style*='border-left-color']):not([style*='border-right-color']):not([style*='border-top-color']):not(
-		[style*='border-bottom-color']
-	) {
-	border-color: var(--wndb--color--surface--dark);
-}
-
-/* Surface Darkest */
-.nfd-bg-surface-darkest:not(.has-background) {
-	background-color: var(--wndb--color--surface--darkest);
-}
-
-/* Primary */
+/* ---------------------------------- Other --------------------------------- */
 .nfd-bg-primary:not(.has-background),
 .nfd-bg-accent:not(.has-background) {
 	background-color: var(--wndb--color--primary);
@@ -64,12 +127,26 @@
 
 .nfd-bg-primary:not(.has-text-color),
 .nfd-bg-accent:not(.has-text-color) {
-	color: var(--wndb--color--surface--dark-contrast);
+	color: var(--wndb--color--white);
 }
 
 .nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary);
+}
+
+.nfd-text-current:where(:not(.has-text-color)),
+.nfd-text-current:where(:not(.has-text-color)) a:where(:not(:hover)),
+.editor-styles-wrapper div .nfd-text-current:where(:not(.has-text-color)),
+.editor-styles-wrapper div :where(.nfd-text-current:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
+	/* no important */
+	color: currentColor;
+}
+
+.nfd-border-current:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
+		[style*='border-left-color']
+	) {
+	border-color: currentColor;
 }
 
 .nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
@@ -82,9 +159,42 @@
 	border-color: var(--wndb--color--primary);
 }
 
-/* Faded text */
-.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
-.nfd-text-faded time:not(.has-text-color):not(.has-background) {
-	opacity: 0.75;
+[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link {
+	color: var(--wndb--color--text--faded);
+	fill: var(--wndb--color--text--faded);
+}
+
+[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link:hover {
+	color: var(--wndb--color--text);
+	fill: var(--wndb--color--text);
+}
+
+/* ------------------------- Backward compatibility ------------------------- */
+.nfd-bg-gray-100:not(.has-background),
+.nfd-bg-gray-800:not(.has-background) {
+	background-color: var(--wndb--color--surface);
+}
+
+.nfd-bg-gray-100:not(.has-text-color),
+.nfd-bg-gray-800:not(.has-text-color) {
+	color: var(--wndb--color--text);
+}
+
+.nfd-bg-gray-800 {
+	--wndb--color--surface: var(--wndb-gray-800);
+	--wndb--color--text: var(--wndb-white);
+	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--text--faded: var(--wndb-white-700);
+}
+
+.nfd-bg-gray-100 {
+	--wndb--color--surface: var(--wndb-gray-50);
+	--wndb--color--text: var(--wndb-gray-700);
+	--wndb--color--borders: var(--wndb-color-gray-100);
+}
+
+.nfd-text-opacity-80 p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-opacity-80 time:not(.has-text-color):not(.has-background) {
+	opacity: 0.8;
 }
