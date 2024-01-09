@@ -1,0 +1,25 @@
+/**
+* Button
+*
+* Button related utilities.
+*/
+
+.nfd-btn-xl > .wp-block-button__link:not([style*='padding']) {
+	padding: 16px 48px;
+}
+
+.nfd-btn-xl:not(.has-custom-font-size) > .wp-block-button__link:not([style*='font-size']) {
+	font-size: 1.125rem;
+}
+
+.nfd-btn-xl:not([style*='font-weight']) > .wp-block-button__link {
+	font-weight: 600;
+}
+
+.nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color) {
+	color: #fff;
+}
+
+.nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
+	color: #fff;
+}
