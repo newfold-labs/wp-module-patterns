@@ -141,6 +141,11 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	--wndb--color--borders: var(--wndb--color--primary);
 }
 
+/* Border inherit */
+.nfd-border-primary {
+	--wndb--color--borders: var(--wndb--color--primary);
+}
+
 /* ---------------------------------- Other --------------------------------- */
 .nfd-bg-primary:not(.has-background),
 .nfd-bg-accent:not(.has-background) {
