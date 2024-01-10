@@ -38,7 +38,7 @@
 	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--primary: hsla(240, 100%, 50%, 1);
 	--wndb--color--surface: var(--wndb-gray-50);
-	--wndb--color--text: var(--wndb-gray-700);
+	--wndb--color--text: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
 	--wndb--color--borders: var(--wndb-gray-100);
@@ -55,13 +55,11 @@
 .nfd-theme-white {
 	--wndb--color--borders: var(--wndb-gray-100);
 	--wndb--color--surface: var(--wndb-white);
-	--wndb--color--text: var(--wndb-gray-700);
 }
 
 .nfd-theme-light {
 	--wndb--color--borders: var(--wndb-gray-100);
 	--wndb--color--surface: var(--wndb-gray-50);
-	--wndb--color--text: var(--wndb-gray-700);
 }
 
 .nfd-theme-dark {

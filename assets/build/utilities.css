@@ -176,7 +176,7 @@
 	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
 	--wndb--color--surface: var(--wndb-gray-50) !important;
-	--wndb--color--text: var(--wndb-gray-700) !important;
+	--wndb--color--text: var(--wndb-gray-800) !important;
 	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
 	--wndb--color--text--faded: var(--wndb-gray-600) !important;
 	--wndb--color--borders: var(--wndb-gray-100) !important;
@@ -192,12 +192,10 @@
 .nfd-theme-white {
 	--wndb--color--borders: var(--wndb-gray-100) !important;
 	--wndb--color--surface: var(--wndb-white) !important;
-	--wndb--color--text: var(--wndb-gray-700) !important;
 }
 .nfd-theme-light {
 	--wndb--color--borders: var(--wndb-gray-100) !important;
 	--wndb--color--surface: var(--wndb-gray-50) !important;
-	--wndb--color--text: var(--wndb-gray-700) !important;
 }
 .nfd-theme-dark {
 	--wndb--color--borders: var(--wndb-white-100) !important;
@@ -690,7 +688,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	gap: 0;
 }
 .nfd-overlap-x > *:not(:first-child) {
-	margin-inline-start: -1rem !important;
+	margin-inline-start: -1.275rem !important;
 }
 :where(:root) {
 	/**
