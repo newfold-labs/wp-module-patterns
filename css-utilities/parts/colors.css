@@ -19,7 +19,7 @@
 	--wndb-gray-500: #6c6c89;
 	--wndb-gray-600: #55556d;
 	--wndb-gray-700: #3f3f50;
-	--wndb-gray-800: #19191e;
+	--wndb-gray-800: #1d1d22;
 	--wndb-gray-900: #121217;
 
 	/* White */
@@ -138,6 +138,11 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	--wndb--color--borders: var(--wndb--color--surface);
 }
 
+/* Border primary */
+.nfd-border-primary {
+	--wndb--color--borders: var(--wndb--color--primary);
+}
+
 /* ---------------------------------- Other --------------------------------- */
 .nfd-bg-primary:not(.has-background),
 .nfd-bg-accent:not(.has-background) {
@@ -160,22 +165,6 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .editor-styles-wrapper div :where(.nfd-text-current:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
 	/* no important */
 	color: currentColor;
-}
-
-.nfd-border-current:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
-		[style*='border-left-color']
-	) {
-	border-color: currentColor;
-}
-
-.nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
-		[style*='border-left-color']
-	),
-.nfd-border-primary:not([class*='border-color'])
-	img:not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not([style*='border-left-color']):not(
-		[class*='border-color']
-	) {
-	border-color: var(--wndb--color--primary);
 }
 
 [class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link {
