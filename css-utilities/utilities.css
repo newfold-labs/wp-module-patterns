@@ -3,10 +3,10 @@
 @import 'tailwindcss/utilities';
 
 /* Refactored */
+@import 'parts/colors';
 @import 'parts/backgrounds/backgrounds';
 @import 'parts/border/border';
 @import 'parts/button/button';
-@import 'parts/colors';
 @import 'parts/container';
 @import 'parts/misc';
 @import 'parts/shadows';

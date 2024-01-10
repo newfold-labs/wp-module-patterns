@@ -138,6 +138,198 @@
 }
 /* Refactored */
 /**
+* Colors
+*
+* These utility classes are meant to provide a consistent 
+* color palette and themable colors that can be overwritten with themes.
+*
+* The default color theme is `light`.
+*/
+:where(:root) {
+	/* ------------------------------ Color palette ----------------------------- */
+	/* Gray */
+	--wndb-gray: #6c6c89 !important;
+	--wndb-gray-50: #f7f7f8 !important;
+	--wndb-gray-100: #ebebef !important;
+	--wndb-gray-200: #d1d1db !important;
+	--wndb-gray-300: #a9a9bc !important;
+	--wndb-gray-400: #8a8aa3 !important;
+	--wndb-gray-500: #6c6c89 !important;
+	--wndb-gray-600: #55556d !important;
+	--wndb-gray-700: #3f3f50 !important;
+	--wndb-gray-800: #19191e !important;
+	--wndb-gray-900: #121217 !important;
+
+	/* White */
+	--wndb-white: #fff !important;
+	--wndb-white-50: rgba(255, 255, 255, 0.05) !important;
+	--wndb-white-100: rgba(255, 255, 255, 0.1) !important;
+	--wndb-white-200: rgba(255, 255, 255, 0.2) !important;
+	--wndb-white-300: rgba(255, 255, 255, 0.3) !important;
+	--wndb-white-400: rgba(255, 255, 255, 0.4) !important;
+	--wndb-white-500: rgba(255, 255, 255, 0.5) !important;
+	--wndb-white-600: rgba(255, 255, 255, 0.6) !important;
+	--wndb-white-700: rgba(255, 255, 255, 0.7) !important;
+	--wndb-white-800: rgba(255, 255, 255, 0.8) !important;
+	--wndb-white-900: rgba(255, 255, 255, 0.9) !important;
+
+	/* ----------------------------- Themable ---------------------------- */
+	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
+	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
+	--wndb--color--text--faded: var(--wndb-gray-600) !important;
+	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndbg--color--links: var(--wndb--color--primary) !important;
+}
+/*
+ * Themes.
+ *
+ * These classes are meant to be added to the element that needs a different theme.
+ *  - By default, the `light` theme is applied. 
+ *  - Nested themes are supported.
+ */
+.nfd-theme-white {
+	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--surface: var(--wndb-white) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+}
+.nfd-theme-light {
+	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+}
+.nfd-theme-dark {
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--surface: var(--wndb-gray-800) !important;
+	--wndb--color--text--contrast: var(--wndb-white) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--shadow--sm: none !important;
+	--wndb--shadow--xs: none !important;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
+}
+.nfd-theme-darker {
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--surface: var(--wndb-gray-900) !important;
+	--wndb--color--text--contrast: var(--wndb-white) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--shadow--sm: none !important;
+	--wndb--shadow--xs: none !important;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
+}
+.nfd-theme-primary {
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--surface: var(--wndb--color--primary) !important;
+	--wndb--color--text--contrast: var(--wndb-white) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--shadow--sm: none !important;
+	--wndb--shadow--xs: none !important;
+	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
+}
+/* --------------------------------- Surface -------------------------------- */
+/* Background */
+.nfd-bg-surface:not(.has-background) {
+	background-color: var(--wndb--color--surface) !important;
+}
+/* Text color */
+.nfd-bg-surface:not(.has-text-color) {
+	color: var(--wndb--color--text) !important;
+}
+/* Faded text color */
+.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-faded time:not(.has-text-color):not(.has-background) {
+	color: var(--wndb--color--text--faded) !important;
+}
+/* Contrast text color */
+.nfd-text-contrast:where(:not(.has-text-color)),
+.nfd-text-contrast:where(:not(.has-text-color)) a:where(:not(:hover)),
+.editor-styles-wrapper div .nfd-text-contrast:where(:not(.has-text-color)),
+.editor-styles-wrapper div :where(.nfd-text-contrast:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
+	color: var(--wndb--color--text--contrast);
+}
+/* Border color */
+/* prettier-ignore */
+.nfd-bg-surface:not(.has-border-color),
+.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
+.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
+.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) {
+	border-color: var(--wndb--color--borders) !important;
+}
+/* Border background */
+.nfd-border-bg {
+	--wndb--color--borders: var(--wndb--color--surface) !important;
+}
+/* ---------------------------------- Other --------------------------------- */
+.nfd-bg-primary:not(.has-background),
+.nfd-bg-accent:not(.has-background) {
+	background-color: var(--wndb--color--primary) !important;
+}
+.nfd-bg-primary:not(.has-text-color),
+.nfd-bg-accent:not(.has-text-color) {
+	color: var(--wndb--color--white) !important;
+}
+.nfd-text-primary:not(.has-text-color),
+.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
+	color: var(--wndb--color--primary) !important;
+}
+.nfd-text-current:where(:not(.has-text-color)),
+.nfd-text-current:where(:not(.has-text-color)) a:where(:not(:hover)),
+.editor-styles-wrapper div .nfd-text-current:where(:not(.has-text-color)),
+.editor-styles-wrapper div :where(.nfd-text-current:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
+	color: currentColor;
+}
+.nfd-border-current:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
+		[style*='border-left-color']
+	) {
+	border-color: currentColor !important;
+}
+.nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
+		[style*='border-left-color']
+	),
+.nfd-border-primary:not([class*='border-color'])
+	img:not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not([style*='border-left-color']):not(
+		[class*='border-color']
+	) {
+	border-color: var(--wndb--color--primary) !important;
+}
+[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link {
+	color: var(--wndb--color--text--faded) !important;
+	fill: var(--wndb--color--text--faded) !important;
+}
+[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link:hover {
+	color: var(--wndb--color--text) !important;
+	fill: var(--wndb--color--text) !important;
+}
+/* ------------------------- Backward compatibility ------------------------- */
+.nfd-bg-gray-100:not(.has-background),
+.nfd-bg-gray-800:not(.has-background) {
+	background-color: var(--wndb--color--surface) !important;
+}
+.nfd-bg-gray-100:not(.has-text-color),
+.nfd-bg-gray-800:not(.has-text-color) {
+	color: var(--wndb--color--text) !important;
+}
+.nfd-bg-gray-800 {
+	--wndb--color--surface: var(--wndb-gray-800) !important;
+	--wndb--color--text: var(--wndb-white) !important;
+	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--text--faded: var(--wndb-white-700) !important;
+}
+.nfd-bg-gray-100 {
+	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-700) !important;
+	--wndb--color--borders: var(--wndb-gray-100) !important;
+}
+.nfd-text-opacity-80 p:not(.has-text-color):not(.has-link-color):not(.has-background),
+p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-opacity-80 time:not(.has-text-color):not(.has-background) {
+	opacity: 0.8 !important;
+}
+/**
 * Backgrounds
 *
 * A collection of CSS only utilities for adding backrounds.
@@ -284,194 +476,6 @@
 }
 .nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
 	color: #fff !important;
-}
-/**
-* Colors
-*
-* These utility classes are meant to provide a consistent 
-* color palette and themable colors that can be overwritten with themes.
-*
-* The default color theme is `light`.
-*/
-:where(:root) {
-	/* ------------------------------ Color palette ----------------------------- */
-	/* Gray */
-	--wndb-gray: #6c6c89 !important;
-	--wndb-gray-50: #f7f7f8 !important;
-	--wndb-gray-100: #ebebef !important;
-	--wndb-gray-200: #d1d1db !important;
-	--wndb-gray-300: #a9a9bc !important;
-	--wndb-gray-400: #8a8aa3 !important;
-	--wndb-gray-500: #6c6c89 !important;
-	--wndb-gray-600: #55556d !important;
-	--wndb-gray-700: #3f3f50 !important;
-	--wndb-gray-800: #19191e !important;
-	--wndb-gray-900: #121217 !important;
-
-	/* White */
-	--wndb-white: #fff !important;
-	--wndb-white-50: rgba(255, 255, 255, 0.05) !important;
-	--wndb-white-100: rgba(255, 255, 255, 0.1) !important;
-	--wndb-white-200: rgba(255, 255, 255, 0.2) !important;
-	--wndb-white-300: rgba(255, 255, 255, 0.3) !important;
-	--wndb-white-400: rgba(255, 255, 255, 0.4) !important;
-	--wndb-white-500: rgba(255, 255, 255, 0.5) !important;
-	--wndb-white-600: rgba(255, 255, 255, 0.6) !important;
-	--wndb-white-700: rgba(255, 255, 255, 0.7) !important;
-	--wndb-white-800: rgba(255, 255, 255, 0.8) !important;
-	--wndb-white-900: rgba(255, 255, 255, 0.9) !important;
-
-	/* ----------------------------- Themable ---------------------------- */
-	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
-	--wndb--color--surface: var(--wndb-gray-50) !important;
-	--wndb--color--text: var(--wndb-gray-700) !important;
-	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
-	--wndb--color--text--faded: var(--wndb-gray-600) !important;
-	--wndb--color--borders: var(--wndb-color-gray-100) !important;
-	--wndbg--color--links: var(--wndb--color--primary) !important;
-}
-/*
- * Themes.
- *
- * These classes are meant to be added to the element that needs a different theme.
- *  - By default, the `light` theme is applied. 
- *  - Nested themes are supported.
- */
-.nfd-theme-white {
-	--wndb--color--borders: var(--wndb-color-gray-100) !important;
-	--wndb--color--surface: var(--wndb-white) !important;
-	--wndb--color--text: var(--wndb-gray-700) !important;
-}
-.nfd-theme-light {
-	--wndb--color--borders: var(--wndb-color-gray-100) !important;
-	--wndb--color--surface: var(--wndb-gray-50) !important;
-	--wndb--color--text: var(--wndb-gray-700) !important;
-}
-.nfd-theme-dark {
-	--wndb--color--borders: var(--wndb-white-100) !important;
-	--wndb--color--surface: var(--wndb-gray-800) !important;
-	--wndb--color--text--contrast: var(--wndb-white) !important;
-	--wndb--color--text--faded: var(--wndb-white-700) !important;
-	--wndb--color--text: var(--wndb-white) !important;
-	--wndb--shadow--sm: none !important;
-	--wndb--shadow--xs: none !important;
-	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
-}
-.nfd-theme-darker {
-	--wndb--color--borders: var(--wndb-white-100) !important;
-	--wndb--color--surface: var(--wndb-gray-900) !important;
-	--wndb--color--text--contrast: var(--wndb-white) !important;
-	--wndb--color--text--faded: var(--wndb-white-700) !important;
-	--wndb--color--text: var(--wndb-white) !important;
-	--wndb--shadow--sm: none !important;
-	--wndb--shadow--xs: none !important;
-	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
-}
-.nfd-theme-primary {
-	--wndb--color--borders: var(--wndb-white-100) !important;
-	--wndb--color--surface: var(--wndb-color-primary) !important;
-	--wndb--color--text--contrast: var(--wndb-white) !important;
-	--wndb--color--text--faded: var(--wndb-white-700) !important;
-	--wndb--color--text: var(--wndb-white) !important;
-	--wndb--shadow--sm: none !important;
-	--wndb--shadow--xs: none !important;
-	--wndb-mask-color: rgba(255, 255, 255, 0.12) !important;
-}
-/* --------------------------------- Surface -------------------------------- */
-/* Background */
-.nfd-bg-surface:not(.has-background) {
-	background-color: var(--wndb--color--surface) !important;
-}
-/* Text color */
-.nfd-bg-surface:not(.has-text-color) {
-	color: var(--wndb--color--text) !important;
-}
-/* Faded text color */
-.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
-.nfd-text-faded time:not(.has-text-color):not(.has-background) {
-	color: var(--wndb--color--text--faded) !important;
-}
-/* Contrast text color */
-.nfd-text-contrast:where(:not(.has-text-color)),
-.nfd-text-contrast:where(:not(.has-text-color)) a:where(:not(:hover)),
-.editor-styles-wrapper div .nfd-text-contrast:where(:not(.has-text-color)),
-.editor-styles-wrapper div :where(.nfd-text-contrast:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
-	color: var(--wndb--color--text--contrast);
-}
-/* Border color */
-/* prettier-ignore */
-.nfd-bg-surface:not(.has-border-color),
-.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
-.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
-.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) {
-	border-color: var(--wndb--color--borders) !important;
-}
-/* ---------------------------------- Other --------------------------------- */
-.nfd-bg-primary:not(.has-background),
-.nfd-bg-accent:not(.has-background) {
-	background-color: var(--wndb--color--primary) !important;
-}
-.nfd-bg-primary:not(.has-text-color),
-.nfd-bg-accent:not(.has-text-color) {
-	color: var(--wndb--color--white) !important;
-}
-.nfd-text-primary:not(.has-text-color),
-.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
-	color: var(--wndb--color--primary) !important;
-}
-.nfd-text-current:where(:not(.has-text-color)),
-.nfd-text-current:where(:not(.has-text-color)) a:where(:not(:hover)),
-.editor-styles-wrapper div .nfd-text-current:where(:not(.has-text-color)),
-.editor-styles-wrapper div :where(.nfd-text-current:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
-	color: currentColor;
-}
-.nfd-border-current:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
-		[style*='border-left-color']
-	) {
-	border-color: currentColor !important;
-}
-.nfd-border-primary:not([class*='border-color']):not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not(
-		[style*='border-left-color']
-	),
-.nfd-border-primary:not([class*='border-color'])
-	img:not([style*='border-top-color']):not([style*='border-right-color']):not([style*='border-bottom-color']):not([style*='border-left-color']):not(
-		[class*='border-color']
-	) {
-	border-color: var(--wndb--color--primary) !important;
-}
-[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link {
-	color: var(--wndb--color--text--faded) !important;
-	fill: var(--wndb--color--text--faded) !important;
-}
-[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link:hover {
-	color: var(--wndb--color--text) !important;
-	fill: var(--wndb--color--text) !important;
-}
-/* ------------------------- Backward compatibility ------------------------- */
-.nfd-bg-gray-100:not(.has-background),
-.nfd-bg-gray-800:not(.has-background) {
-	background-color: var(--wndb--color--surface) !important;
-}
-.nfd-bg-gray-100:not(.has-text-color),
-.nfd-bg-gray-800:not(.has-text-color) {
-	color: var(--wndb--color--text) !important;
-}
-.nfd-bg-gray-800 {
-	--wndb--color--surface: var(--wndb-gray-800) !important;
-	--wndb--color--text: var(--wndb-white) !important;
-	--wndb--color--borders: var(--wndb-white-100) !important;
-	--wndb--color--text--faded: var(--wndb-white-700) !important;
-}
-.nfd-bg-gray-100 {
-	--wndb--color--surface: var(--wndb-gray-50) !important;
-	--wndb--color--text: var(--wndb-gray-700) !important;
-	--wndb--color--borders: var(--wndb-color-gray-100) !important;
-}
-.nfd-text-opacity-80 p:not(.has-text-color):not(.has-link-color):not(.has-background),
-p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-background),
-.nfd-text-opacity-80 time:not(.has-text-color):not(.has-background) {
-	opacity: 0.8 !important;
 }
 /**
 * NFD Container (.nfd-container)

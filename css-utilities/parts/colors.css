@@ -41,7 +41,7 @@
 	--wndb--color--text: var(--wndb-gray-700);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
-	--wndb--color--borders: var(--wndb-color-gray-100);
+	--wndb--color--borders: var(--wndb-gray-100);
 	--wndbg--color--links: var(--wndb--color--primary);
 }
 
@@ -53,13 +53,13 @@
  *  - Nested themes are supported.
  */
 .nfd-theme-white {
-	--wndb--color--borders: var(--wndb-color-gray-100);
+	--wndb--color--borders: var(--wndb-gray-100);
 	--wndb--color--surface: var(--wndb-white);
 	--wndb--color--text: var(--wndb-gray-700);
 }
 
 .nfd-theme-light {
-	--wndb--color--borders: var(--wndb-color-gray-100);
+	--wndb--color--borders: var(--wndb-gray-100);
 	--wndb--color--surface: var(--wndb-gray-50);
 	--wndb--color--text: var(--wndb-gray-700);
 }
@@ -88,7 +88,7 @@
 
 .nfd-theme-primary {
 	--wndb--color--borders: var(--wndb-white-100);
-	--wndb--color--surface: var(--wndb-color-primary);
+	--wndb--color--surface: var(--wndb--color--primary);
 	--wndb--color--text--contrast: var(--wndb-white);
 	--wndb--color--text--faded: var(--wndb-white-700);
 	--wndb--color--text: var(--wndb-white);
@@ -131,6 +131,11 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) {
 	border-color: var(--wndb--color--borders);
+}
+
+/* Border background */
+.nfd-border-bg {
+	--wndb--color--borders: var(--wndb--color--surface);
 }
 
 /* ---------------------------------- Other --------------------------------- */
@@ -204,7 +209,7 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-bg-gray-100 {
 	--wndb--color--surface: var(--wndb-gray-50);
 	--wndb--color--text: var(--wndb-gray-700);
-	--wndb--color--borders: var(--wndb-color-gray-100);
+	--wndb--color--borders: var(--wndb-gray-100);
 }
 
 .nfd-text-opacity-80 p:not(.has-text-color):not(.has-link-color):not(.has-background),
