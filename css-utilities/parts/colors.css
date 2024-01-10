@@ -143,7 +143,7 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 
 /* Border inherit */
 .nfd-border-inherit {
-	--wndb--color--borders: var(--wndb--color--primary);
+	--wndb--color--borders: inherit;
 }
 
 /* ---------------------------------- Other --------------------------------- */

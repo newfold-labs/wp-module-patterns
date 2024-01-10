@@ -267,7 +267,7 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 }
 /* Border inherit */
 .nfd-border-inherit {
-	--wndb--color--borders: var(--wndb--color--primary) !important;
+	--wndb--color--borders: inherit !important;
 }
 /* ---------------------------------- Other --------------------------------- */
 .nfd-bg-primary:not(.has-background),
