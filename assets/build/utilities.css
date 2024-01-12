@@ -88,9 +88,6 @@
 .nfd-overflow-hidden {
 	overflow: hidden !important;
 }
-.nfd-rounded:not([style*="-radius"]) {
-	border-radius: 0.25rem !important;
-}
 .nfd-p-0:not([style*="padding"]) {
 	padding: 0px !important;
 }
@@ -173,13 +170,15 @@
 	--wndb-white-800: rgba(255, 255, 255, 0.8) !important;
 	--wndb-white-900: rgba(255, 255, 255, 0.9) !important;
 
-	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
+
+	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--surface: var(--wndb-gray-50) !important;
 	--wndb--color--text: var(--wndb-gray-800) !important;
 	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
 	--wndb--color--text--faded: var(--wndb-gray-600) !important;
 	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--subtle: var(--wndb-gray-200) !important;
 	--wndb--color--links: var(--wndb--color--primary) !important;
 }
 /*
@@ -190,26 +189,27 @@
  *  - Nested themes are supported.
  */
 .nfd-theme-white {
-	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
 	--wndb--color--surface: var(--wndb-gray-50) !important;
 	--wndb--color--text: var(--wndb-gray-800) !important;
 	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
 	--wndb--color--text--faded: var(--wndb-gray-600) !important;
 	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--subtle: var(--wndb-gray-200) !important;
 	--wndb--color--links: var(--wndb--color--primary) !important;
 	--wndb--color--surface: var(--wndb-white) !important;
 }
 .nfd-theme-light {
-	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
 	--wndb--color--surface: var(--wndb-gray-50) !important;
 	--wndb--color--text: var(--wndb-gray-800) !important;
 	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
 	--wndb--color--text--faded: var(--wndb-gray-600) !important;
 	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--subtle: var(--wndb-gray-200) !important;
 	--wndb--color--links: var(--wndb--color--primary) !important;
 }
 .nfd-theme-dark {
 	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--subtle: var(--wndb-white-200) !important;
 	--wndb--color--surface: var(--wndb-gray-800) !important;
 	--wndb--color--text--contrast: var(--wndb-white) !important;
 	--wndb--color--text--faded: var(--wndb-white-700) !important;
@@ -220,6 +220,7 @@
 }
 .nfd-theme-darker {
 	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--subtle: var(--wndb-white-200) !important;
 	--wndb--color--surface: var(--wndb-gray-900) !important;
 	--wndb--color--text--contrast: var(--wndb-white) !important;
 	--wndb--color--text--faded: var(--wndb-white-700) !important;
@@ -230,9 +231,10 @@
 }
 .nfd-theme-primary {
 	--wndb--color--borders: var(--wndb-white-100) !important;
+	--wndb--color--subtle: var(--wndb-white-200) !important;
 	--wndb--color--surface: var(--wndb--color--primary) !important;
 	--wndb--color--text--contrast: var(--wndb-white) !important;
-	--wndb--color--text--faded: var(--wndb-white-700) !important;
+	--wndb--color--text--faded: var(--wndb-white-800) !important;
 	--wndb--color--text: var(--wndb-white) !important;
 	--wndb--shadow--sm: none !important;
 	--wndb--shadow--xs: none !important;
@@ -289,12 +291,17 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-bg-accent:not(.has-text-color) {
 	color: var(--wndb--color--white) !important;
 }
+.nfd-bg-subtle:not(.has-background):not(.wp-block-button),
+.nfd-bg-subtle:not(.has-background) > .wp-block-button__link:not(.has-background) {
+	background-color: var(--wndb--color--borders) !important;
+	color: var(--wndb--color--text--contrast) !important;
+}
 .nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary) !important;
 }
 .nfd-text-subtle:not(.has-text-color) {
-	color: var(--wndb--color--borders) !important;
+	color: var(--wndb--color--subtle) !important;
 }
 .nfd-text-current:where(:not(.has-text-color)),
 .nfd-text-current:where(:not(.has-text-color)) a:where(:not(:hover)),
@@ -434,44 +441,52 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	--wndb--border--radius--lg: 0.75rem !important;
 	--wndb--border--radius--xl: 1rem !important;
 }
+[class*='nfd-rounded']:not([style*='-radius']),
+[class*='nfd-rounded']:not([style*='-radius']) > img,
+[class*='nfd-rounded']:not([style*='-radius']) > .wp-element-button:not([style*='-radius']),
+[class*='nfd-rounded']:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
+	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) !important;
+}
+/* ---------------------------------- Scale --------------------------------- */
 .nfd-rounded-none:not([style*="-radius"]) {
-	border-radius: 0 !important;
+	--wndb--border--radius: 0;
 }
-.nfd-rounded-sm:not([style*='-radius']),
-.nfd-rounded-sm:not([style*='-radius']) > img,
-.nfd-rounded-sm:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--sm) * var(--wndb--rounded--scale-factor)) !important;
+.nfd-rounded-sm:not([style*="-radius"]) {
+	--wndb--border--radius: var(--wndb--border--radius--sm);
 }
-.nfd-rounded:not([style*='-radius']),
-.nfd-rounded:not([style*='-radius']) > img,
-.nfd-rounded:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor)) !important;
+.nfd-rounded,
+.nfd-rounded-md:not([style*="-radius"]) {
+	--wndb--border--radius: var(--wndb--border--radius--md);
 }
-.nfd-rounded-lg:not([style*='-radius']),
-.nfd-rounded-lg:not([style*='-radius']) > img,
-.nfd-rounded-lg:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--lg) * var(--wndb--rounded--scale-factor)) !important;
+.nfd-rounded-lg:not([style*="-radius"]) {
+	--wndb--border--radius: var(--wndb--border--radius--lg);
 }
-.nfd-rounded-xl:not([style*='-radius']),
-.nfd-rounded-xl:not([style*='-radius']) > img,
-.nfd-rounded:xl([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(var(--wndb--border--radius--xl) * var(--wndb--rounded--scale-factor)) !important;
+.nfd-rounded-xl:not([style*="-radius"]) {
+	--wndb--border--radius: var(--wndb--border--radius--xl);
 }
-.nfd-rounded-full:not([style*='-radius']),
-.nfd-rounded-full:not([style*='-radius']) > img,
-.nfd-rounded-full:not([style*='-radius']) > .components-resizable-box__container > img:not([style*="-radius"]) {
-	border-radius: calc(9999px * var(--wndb--rounded--scale-factor)) !important;
+.nfd-rounded-full:not([style*="-radius"]) {
+	--wndb--border--radius: 9999px;
 }
 /**
 * Button
 *
 * Button related utilities.
 */
+:where(:root) {
+	--wndb--button--outline-width: 0px !important;
+
+	--wndb--button-xl: 1rem 3rem !important;
+	--wndb--button-xl--font-size: 1.125rem !important;
+}
+[class*='nfd-btn'].is-style-outline {
+	--wndb--button--outline-width: 2px !important;
+}
+/* --------------------------------- Xlarge --------------------------------- */
 .nfd-btn-xl > .wp-block-button__link:not([style*='padding']) {
-	padding: 16px 48px !important;
+	padding: var(--wndb--button-xl) !important;
 }
 .nfd-btn-xl:not(.has-custom-font-size) > .wp-block-button__link:not([style*='font-size']) {
-	font-size: 1.125rem !important;
+	font-size: var(--wndb--button-xl--font-size) !important;
 }
 .nfd-btn-xl:not([style*='font-weight']) > .wp-block-button__link {
 	font-weight: 600 !important;
@@ -481,6 +496,17 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 }
 .nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
 	color: #fff !important;
+}
+/* --------------------------------- Regular -------------------------------- */
+.nfd-btn > .wp-block-button__link:not([style*='padding']) {
+	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1rem - var(--wndb--button--outline-width)) !important;
+}
+.nfd-btn:not([style*='font-weight']) > .wp-block-button__link {
+	font-weight: 600 !important;
+}
+.nfd-theme-primary .wp-block-button > .wp-block-button__link {
+	background-color: var(--wndb-white) !important;
+	color: var(--wndb-gray-900) !important;
 }
 /**
 * NFD Container (.nfd-container)
@@ -759,6 +785,10 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-gap-xl,
 .editor-styles-wrapper .nfd-gap-xl {
 	gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
+}
+.nfd-gap-y-xl,
+.editor-styles-wrapper .nfd-gap-y-xl {
+	row-gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
 }
 /* XXLarge */
 .nfd-gap-2xl,

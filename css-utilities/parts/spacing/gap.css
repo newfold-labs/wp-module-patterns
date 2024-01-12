@@ -64,6 +64,12 @@
 	gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
 }
 
+.nfd-gap-y-xl,
+.editor-styles-wrapper .nfd-gap-y-xl {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
+}
+
 /* XXLarge */
 .nfd-gap-2xl,
 .editor-styles-wrapper .nfd-gap-2xl {

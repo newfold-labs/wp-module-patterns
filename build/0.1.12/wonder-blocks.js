@@ -2163,6 +2163,12 @@ function addAttributes(settings, name) {
       ...settings.attributes,
       nfdGroupDivider: {
         type: 'string'
+      },
+      nfdGroupTheme: {
+        type: 'string'
+      },
+      nfdGroupEffect: {
+        type: 'string'
       }
     };
   }
@@ -2192,14 +2198,16 @@ function addEditProps(settings) {
 }
 const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__.createHigherOrderComponent)(BlockEdit => {
   return props => {
-    var _props$attributes$nfd, _props$attributes$nfd2, _props$attributes$nfd3;
+    var _props$attributes$nfd, _props$attributes$nfd2, _props$attributes$nfd3, _props$attributes$nfd4, _props$attributes$nfd5;
     const {
       name,
       clientId
     } = props;
-    const activeStyle = (_props$attributes$nfd = props?.attributes?.nfdGroupDivider) !== null && _props$attributes$nfd !== void 0 ? _props$attributes$nfd : 'default';
-    const selectedAnimation = (_props$attributes$nfd2 = props?.attributes?.nfdAnimation) !== null && _props$attributes$nfd2 !== void 0 ? _props$attributes$nfd2 : '';
-    const selectedAnimationDelay = (_props$attributes$nfd3 = props?.attributes?.nfdAnimationDelay) !== null && _props$attributes$nfd3 !== void 0 ? _props$attributes$nfd3 : '';
+    const selectedGroupDivider = (_props$attributes$nfd = props?.attributes?.nfdGroupDivider) !== null && _props$attributes$nfd !== void 0 ? _props$attributes$nfd : 'default';
+    const selectedGroupTheme = (_props$attributes$nfd2 = props?.attributes?.nfdGroupTheme) !== null && _props$attributes$nfd2 !== void 0 ? _props$attributes$nfd2 : '';
+    const selectedGroupEffect = (_props$attributes$nfd3 = props?.attributes?.nfdGroupEffect) !== null && _props$attributes$nfd3 !== void 0 ? _props$attributes$nfd3 : '';
+    const selectedAnimation = (_props$attributes$nfd4 = props?.attributes?.nfdAnimation) !== null && _props$attributes$nfd4 !== void 0 ? _props$attributes$nfd4 : '';
+    const selectedAnimationDelay = (_props$attributes$nfd5 = props?.attributes?.nfdAnimationDelay) !== null && _props$attributes$nfd5 !== void 0 ? _props$attributes$nfd5 : '';
     const isTopLevel = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
       const {
         getBlockRootClientId
@@ -2300,6 +2308,49 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
       value: 'nfd-delay-1500',
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('1500ms', 'nfd-wonder-blocks')
     }], []);
+    const customThemeStyles = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useMemo)(() => [{
+      name: '',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Default', 'nfd-wonder-blocks'),
+      isDefault: true
+    }, {
+      name: 'white',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('White', 'nfd-wonder-blocks')
+    }, {
+      name: 'light',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Light', 'nfd-wonder-blocks')
+    }, {
+      name: 'dark',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Dark', 'nfd-wonder-blocks')
+    }, {
+      name: 'darker',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Darker', 'nfd-wonder-blocks')
+    }, {
+      name: 'primary',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Primary', 'nfd-wonder-blocks')
+    }], []);
+    const groupEffectStyles = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useMemo)(() => [{
+      name: '',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('None', 'nfd-wonder-blocks'),
+      isDefault: true
+    }, {
+      name: 'dots',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Dots', 'nfd-wonder-blocks')
+    }, {
+      name: 'grid',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Grid', 'nfd-wonder-blocks')
+    }, {
+      name: 'grid-2',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Grid 2', 'nfd-wonder-blocks')
+    }, {
+      name: 'grid-3',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Grid 3', 'nfd-wonder-blocks')
+    }, {
+      name: 'lines',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Lines', 'nfd-wonder-blocks')
+    }, {
+      name: 'lines-2',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Lines 2', 'nfd-wonder-blocks')
+    }], []);
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(BlockEdit, {
       ...props
     }), name === 'core/group' && isTopLevel && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
@@ -2313,7 +2364,7 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
       const buttonText = style.isDefault ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Default', 'nfd-wonder-blocks') : style.label || style.name;
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
         className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('block-editor-block-styles__item', {
-          'is-active': activeStyle === style.name
+          'is-active': selectedGroupDivider === style.name
         }),
         key: style.name,
         variant: "secondary",
@@ -2321,7 +2372,59 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
         onClick: () => props.setAttributes({
           nfdGroupDivider: style.name
         }),
-        "aria-current": activeStyle === style.name
+        "aria-current": selectedGroupDivider === style.name
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalTruncate, {
+        numberOfLines: 1,
+        className: "block-editor-block-styles__item-text"
+      }, buttonText));
+    }))))), name === 'core/group' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Section Theme Color', 'nfd-wonder-blocks'),
+      initialOpen: false
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "block-editor-block-styles"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "block-editor-block-styles__variants"
+    }, customThemeStyles.map(style => {
+      const buttonText = style.isDefault ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Default', 'nfd-wonder-blocks') : style.label || style.name;
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('block-editor-block-styles__item', {
+          'is-active': selectedGroupTheme === style.name
+        }),
+        key: style.name,
+        variant: "secondary",
+        label: buttonText,
+        onClick: () => {
+          props.setAttributes({
+            nfdGroupTheme: style.name
+          });
+        },
+        "aria-current": selectedGroupTheme === style.name
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalTruncate, {
+        numberOfLines: 1,
+        className: "block-editor-block-styles__item-text"
+      }, buttonText));
+    }))))), name === 'core/group' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Section Background Effect', 'nfd-wonder-blocks'),
+      initialOpen: false
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "block-editor-block-styles"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "block-editor-block-styles__variants"
+    }, groupEffectStyles.map(style => {
+      const buttonText = style.label || style.name;
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('block-editor-block-styles__item', {
+          'is-active': selectedGroupEffect === style.name
+        }),
+        key: style.name,
+        variant: "secondary",
+        label: buttonText,
+        onClick: () => {
+          props.setAttributes({
+            nfdGroupEffect: style.name
+          });
+        },
+        "aria-current": selectedGroupEffect === style.name
       }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalTruncate, {
         numberOfLines: 1,
         className: "block-editor-block-styles__item-text"
@@ -2358,7 +2461,7 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
 function addSaveProps(saveElementProps, blockType, attributes) {
   var _saveElementProps$cla, _attributes$className;
   const generatedClasses = (_saveElementProps$cla = saveElementProps?.className) !== null && _saveElementProps$cla !== void 0 ? _saveElementProps$cla : [];
-  const classes = [...(attributes?.nfdGroupDivider ? [attributes.nfdGroupDivider] : []), ...(attributes?.nfdAnimation ? ['nfd-wb-animate', attributes.nfdAnimation] : []), ...(attributes?.nfdAnimationDelay && attributes?.nfdAnimation ? [attributes.nfdAnimationDelay] : [])];
+  const classes = [...(attributes?.nfdGroupDivider ? [attributes.nfdGroupDivider] : []), ...(attributes?.nfdAnimation ? ['nfd-wb-animate', attributes.nfdAnimation] : []), ...(attributes?.nfdAnimationDelay && attributes?.nfdAnimation ? [attributes.nfdAnimationDelay] : []), ...(attributes?.nfdGroupTheme ? ['nfd-bg-surface', `nfd-theme-${attributes.nfdGroupTheme}`] : []), ...(attributes?.nfdGroupEffect ? [`nfd-bg-effect-${attributes.nfdGroupEffect}`] : [])];
   const additionalClasses = (_attributes$className = attributes?.className) !== null && _attributes$className !== void 0 ? _attributes$className : [];
   if (!classes) {
     return saveElementProps;

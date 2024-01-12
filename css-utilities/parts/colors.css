@@ -35,13 +35,15 @@
 	--wndb-white-800: rgba(255, 255, 255, 0.8);
 	--wndb-white-900: rgba(255, 255, 255, 0.9);
 
-	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--primary: hsla(240, 100%, 50%, 1);
+
+	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--surface: var(--wndb-gray-50);
 	--wndb--color--text: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
 	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--links: var(--wndb--color--primary);
 }
 
@@ -53,28 +55,29 @@
  *  - Nested themes are supported.
  */
 .nfd-theme-white {
-	--wndb--color--primary: hsla(240, 100%, 50%, 1);
 	--wndb--color--surface: var(--wndb-gray-50);
 	--wndb--color--text: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
 	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--links: var(--wndb--color--primary);
 	--wndb--color--surface: var(--wndb-white);
 }
 
 .nfd-theme-light {
-	--wndb--color--primary: hsla(240, 100%, 50%, 1);
 	--wndb--color--surface: var(--wndb-gray-50);
 	--wndb--color--text: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
 	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--links: var(--wndb--color--primary);
 }
 
 .nfd-theme-dark {
 	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--subtle: var(--wndb-white-200);
 	--wndb--color--surface: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-white);
 	--wndb--color--text--faded: var(--wndb-white-700);
@@ -86,6 +89,7 @@
 
 .nfd-theme-darker {
 	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--subtle: var(--wndb-white-200);
 	--wndb--color--surface: var(--wndb-gray-900);
 	--wndb--color--text--contrast: var(--wndb-white);
 	--wndb--color--text--faded: var(--wndb-white-700);
@@ -97,9 +101,10 @@
 
 .nfd-theme-primary {
 	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--subtle: var(--wndb-white-200);
 	--wndb--color--surface: var(--wndb--color--primary);
 	--wndb--color--text--contrast: var(--wndb-white);
-	--wndb--color--text--faded: var(--wndb-white-700);
+	--wndb--color--text--faded: var(--wndb-white-800);
 	--wndb--color--text: var(--wndb-white);
 	--wndb--shadow--sm: none;
 	--wndb--shadow--xs: none;
@@ -168,13 +173,19 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	color: var(--wndb--color--white);
 }
 
+.nfd-bg-subtle:not(.has-background):not(.wp-block-button),
+.nfd-bg-subtle:not(.has-background) > .wp-block-button__link:not(.has-background) {
+	background-color: var(--wndb--color--borders);
+	color: var(--wndb--color--text--contrast);
+}
+
 .nfd-text-primary:not(.has-text-color),
 .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary);
 }
 
 .nfd-text-subtle:not(.has-text-color) {
-	color: var(--wndb--color--borders);
+	color: var(--wndb--color--subtle);
 }
 
 .nfd-text-current:where(:not(.has-text-color)),

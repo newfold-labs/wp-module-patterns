@@ -66,8 +66,6 @@ class CSSUtilities {
                 --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
 				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
-                
-				--nfd-cp-p-stack: calc(var(--wp--custom--vertical-spacing) / 2);
 			}";
 		}
 

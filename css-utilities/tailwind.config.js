@@ -72,7 +72,6 @@ module.exports = {
 		'nfd-py-5',
 		'nfd-pt-0',
 		'nfd-relative',
-		'nfd-rounded',
 		'nfd-row-start-1',
 		'nfd-shrink-0',
 		'nfd-text-left',
