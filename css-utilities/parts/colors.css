@@ -42,7 +42,7 @@
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
 	--wndb--color--borders: var(--wndb-gray-100);
-	--wndbg--color--links: var(--wndb--color--primary);
+	--wndb--color--links: var(--wndb--color--primary);
 }
 
 /*
@@ -53,13 +53,24 @@
  *  - Nested themes are supported.
  */
 .nfd-theme-white {
+	--wndb--color--primary: hsla(240, 100%, 50%, 1);
+	--wndb--color--surface: var(--wndb-gray-50);
+	--wndb--color--text: var(--wndb-gray-800);
+	--wndb--color--text--contrast: var(--wndb-gray-900);
+	--wndb--color--text--faded: var(--wndb-gray-600);
 	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--links: var(--wndb--color--primary);
 	--wndb--color--surface: var(--wndb-white);
 }
 
 .nfd-theme-light {
-	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--primary: hsla(240, 100%, 50%, 1);
 	--wndb--color--surface: var(--wndb-gray-50);
+	--wndb--color--text: var(--wndb-gray-800);
+	--wndb--color--text--contrast: var(--wndb-gray-900);
+	--wndb--color--text--faded: var(--wndb-gray-600);
+	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--links: var(--wndb--color--primary);
 }
 
 .nfd-theme-dark {

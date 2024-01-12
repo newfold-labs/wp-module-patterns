@@ -180,7 +180,7 @@
 	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
 	--wndb--color--text--faded: var(--wndb-gray-600) !important;
 	--wndb--color--borders: var(--wndb-gray-100) !important;
-	--wndbg--color--links: var(--wndb--color--primary) !important;
+	--wndb--color--links: var(--wndb--color--primary) !important;
 }
 /*
  * Themes.
@@ -190,12 +190,23 @@
  *  - Nested themes are supported.
  */
 .nfd-theme-white {
+	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
+	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-800) !important;
+	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
+	--wndb--color--text--faded: var(--wndb-gray-600) !important;
 	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--links: var(--wndb--color--primary) !important;
 	--wndb--color--surface: var(--wndb-white) !important;
 }
 .nfd-theme-light {
-	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--primary: hsla(240, 100%, 50%, 1) !important;
 	--wndb--color--surface: var(--wndb-gray-50) !important;
+	--wndb--color--text: var(--wndb-gray-800) !important;
+	--wndb--color--text--contrast: var(--wndb-gray-900) !important;
+	--wndb--color--text--faded: var(--wndb-gray-600) !important;
+	--wndb--color--borders: var(--wndb-gray-100) !important;
+	--wndb--color--links: var(--wndb--color--primary) !important;
 }
 .nfd-theme-dark {
 	--wndb--color--borders: var(--wndb-white-100) !important;
