@@ -21,7 +21,7 @@ const Modal = () => {
 	const { isModalOpen, isEditingTemplate, editedPostType } = useSelect(
 		(select) => ({
 			isModalOpen: select(nfdPatternsStore).isModalOpen(),
-			isEditingTemplate: select('core/edit-post').isEditingTemplate(),
+			isEditingTemplate: select('core/edit-post')?.isEditingTemplate(),
 			editedPostType: select('core/edit-site')?.getEditedPostType(),
 		})
 	);

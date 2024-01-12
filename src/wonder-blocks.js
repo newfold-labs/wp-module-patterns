@@ -87,7 +87,7 @@ const registerCallback = () => {
 		// Exit early if the toolbar doesn't exist.
 		if (
 			!document.querySelector('.edit-post-header-toolbar') &&
-			!document.querySelector('.edit-site-header_start')
+			!document.querySelector('.edit-site-header-edit-mode')
 		) {
 			return;
 		}
@@ -104,7 +104,7 @@ const registerCallback = () => {
 
 		// Append the button container to the FSE.
 		document
-			.querySelector('.edit-site-header_start')
+			.querySelector('.edit-site-header-edit-mode__start')
 			?.append(buttonContainer);
 
 		// Render the button.
