@@ -34,6 +34,12 @@ function addAttributes(settings, name) {
 			nfdGroupDivider: {
 				type: 'string',
 			},
+			nfdGroupTheme: {
+				type: 'string',
+			},
+			nfdGroupEffect: {
+				type: 'string',
+			},
 		};
 	}
 
@@ -70,7 +76,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
 		const { name, clientId } = props;
 
-		const activeStyle = props?.attributes?.nfdGroupDivider ?? 'default';
+		const selectedGroupDivider =
+			props?.attributes?.nfdGroupDivider ?? 'default';
+		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? '';
+		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? '';
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? '';
 		const selectedAnimationDelay =
 			props?.attributes?.nfdAnimationDelay ?? '';
@@ -222,6 +231,72 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[]
 		);
 
+		const customThemeStyles = useMemo(
+			() => [
+				{
+					name: '',
+					label: __('Default', 'nfd-wonder-blocks'),
+					isDefault: true,
+				},
+				{
+					name: 'white',
+					label: __('White', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'light',
+					label: __('Light', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'dark',
+					label: __('Dark', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'darker',
+					label: __('Darker', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'primary',
+					label: __('Primary', 'nfd-wonder-blocks'),
+				},
+			],
+			[]
+		);
+
+		const groupEffectStyles = useMemo(
+			() => [
+				{
+					name: '',
+					label: __('None', 'nfd-wonder-blocks'),
+					isDefault: true,
+				},
+				{
+					name: 'dots',
+					label: __('Dots', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'grid',
+					label: __('Grid', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'grid-2',
+					label: __('Grid 2', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'grid-3',
+					label: __('Grid 3', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'lines',
+					label: __('Lines', 'nfd-wonder-blocks'),
+				},
+				{
+					name: 'lines-2',
+					label: __('Lines 2', 'nfd-wonder-blocks'),
+				},
+			],
+			[]
+		);
+
 		return (
 			<>
 				<BlockEdit {...props} />
@@ -244,7 +319,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 													'block-editor-block-styles__item',
 													{
 														'is-active':
-															activeStyle ===
+															selectedGroupDivider ===
 															style.name,
 													}
 												)}
@@ -258,7 +333,117 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 													})
 												}
 												aria-current={
-													activeStyle === style.name
+													selectedGroupDivider ===
+													style.name
+												}
+											>
+												<Truncate
+													numberOfLines={1}
+													className="block-editor-block-styles__item-text"
+												>
+													{buttonText}
+												</Truncate>
+											</Button>
+										);
+									})}
+								</div>
+							</div>
+						</PanelBody>
+					</InspectorControls>
+				)}
+
+				{name === 'core/group' && (
+					<InspectorControls>
+						<PanelBody
+							title={__(
+								'Section Theme Color',
+								'nfd-wonder-blocks'
+							)}
+							initialOpen={false}
+						>
+							<div className="block-editor-block-styles">
+								<div className="block-editor-block-styles__variants">
+									{customThemeStyles.map((style) => {
+										const buttonText = style.isDefault
+											? __('Default', 'nfd-wonder-blocks')
+											: style.label || style.name;
+
+										return (
+											<Button
+												className={classnames(
+													'block-editor-block-styles__item',
+													{
+														'is-active':
+															selectedGroupTheme ===
+															style.name,
+													}
+												)}
+												key={style.name}
+												variant="secondary"
+												label={buttonText}
+												onClick={() => {
+													props.setAttributes({
+														nfdGroupTheme:
+															style.name,
+													});
+												}}
+												aria-current={
+													selectedGroupTheme ===
+													style.name
+												}
+											>
+												<Truncate
+													numberOfLines={1}
+													className="block-editor-block-styles__item-text"
+												>
+													{buttonText}
+												</Truncate>
+											</Button>
+										);
+									})}
+								</div>
+							</div>
+						</PanelBody>
+					</InspectorControls>
+				)}
+
+				{name === 'core/group' && (
+					<InspectorControls>
+						<PanelBody
+							title={__(
+								'Section Background Effect',
+								'nfd-wonder-blocks'
+							)}
+							initialOpen={false}
+						>
+							<div className="block-editor-block-styles">
+								<div className="block-editor-block-styles__variants">
+									{groupEffectStyles.map((style) => {
+										const buttonText =
+											style.label || style.name;
+
+										return (
+											<Button
+												className={classnames(
+													'block-editor-block-styles__item',
+													{
+														'is-active':
+															selectedGroupEffect ===
+															style.name,
+													}
+												)}
+												key={style.name}
+												variant="secondary"
+												label={buttonText}
+												onClick={() => {
+													props.setAttributes({
+														nfdGroupEffect:
+															style.name,
+													});
+												}}
+												aria-current={
+													selectedGroupEffect ===
+													style.name
 												}
 											>
 												<Truncate
@@ -334,6 +519,12 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 			: []),
 		...(attributes?.nfdAnimationDelay && attributes?.nfdAnimation
 			? [attributes.nfdAnimationDelay]
+			: []),
+		...(attributes?.nfdGroupTheme
+			? ['nfd-bg-surface', `nfd-theme-${attributes.nfdGroupTheme}`]
+			: []),
+		...(attributes?.nfdGroupEffect
+			? [`nfd-bg-effect-${attributes.nfdGroupEffect}`]
 			: []),
 	];
 
