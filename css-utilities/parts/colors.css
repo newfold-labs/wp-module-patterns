@@ -148,6 +148,10 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	border-color: var(--wndb--color--borders);
 }
 
+.nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color) {
+	border-bottom-width: 1px;
+}
+
 /* Border background */
 .nfd-border-bg {
 	--wndb--color--borders: var(--wndb--color--surface);
