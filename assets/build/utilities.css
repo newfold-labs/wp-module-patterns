@@ -501,9 +501,6 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 .nfd-btn > .wp-block-button__link:not([style*='padding']) {
 	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1rem - var(--wndb--button--outline-width)) !important;
 }
-.nfd-btn:not([style*='font-weight']) > .wp-block-button__link {
-	font-weight: 600 !important;
-}
 .nfd-theme-primary .wp-block-button > .wp-block-button__link {
 	background-color: var(--wndb-white) !important;
 	color: var(--wndb-gray-900) !important;

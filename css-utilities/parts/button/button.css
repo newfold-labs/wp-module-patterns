@@ -41,10 +41,6 @@
 	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1rem - var(--wndb--button--outline-width));
 }
 
-.nfd-btn:not([style*='font-weight']) > .wp-block-button__link {
-	font-weight: 600;
-}
-
 .nfd-theme-primary .wp-block-button > .wp-block-button__link {
 	background-color: var(--wndb-white);
 	color: var(--wndb-gray-900);
