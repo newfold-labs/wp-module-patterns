@@ -36,6 +36,5 @@ class Patterns {
 
 		new CSSUtilities();
 		new RestApi();
-		new PostFiltersHandler();
 	}
 }
