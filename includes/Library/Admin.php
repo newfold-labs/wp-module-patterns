@@ -114,7 +114,7 @@ final class Admin {
 			}
 		}
 	}
-	
+
 	/**
 	 * Add custom admin class on block editor pages.
 	 *
@@ -127,7 +127,7 @@ final class Admin {
 		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
 			$classes .= ' nfd-wb--hide-theme-patterns';
 		}
-	
+
 		return $classes;
 	}
 }
