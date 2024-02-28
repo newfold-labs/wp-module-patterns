@@ -308,37 +308,37 @@ div:has(> .nfd-wb-twist-in) {
 }
 /* --------------------------------- Delays --------------------------------- */
 .nfd-delay-50 {
-	--nfd-wb-anim-transition-delay: 50ms !important;
+	--nfd-wb-anim-transition-delay: 50ms;
 }
 .nfd-delay-150 {
-	--nfd-wb-anim-transition-delay: 150ms !important;
+	--nfd-wb-anim-transition-delay: 150ms;
 }
 .nfd-delay-300 {
-	--nfd-wb-anim-transition-delay: 300ms !important;
+	--nfd-wb-anim-transition-delay: 300ms;
 }
 .nfd-delay-450 {
-	--nfd-wb-anim-transition-delay: 450ms !important;
+	--nfd-wb-anim-transition-delay: 450ms;
 }
 .nfd-delay-600 {
-	--nfd-wb-anim-transition-delay: 600ms !important;
+	--nfd-wb-anim-transition-delay: 600ms;
 }
 .nfd-delay-750 {
-	--nfd-wb-anim-transition-delay: 750ms !important;
+	--nfd-wb-anim-transition-delay: 750ms;
 }
 .nfd-delay-900 {
-	--nfd-wb-anim-transition-delay: 900ms !important;
+	--nfd-wb-anim-transition-delay: 900ms;
 }
 .nfd-delay-1050 {
-	--nfd-wb-anim-transition-delay: 1050ms !important;
+	--nfd-wb-anim-transition-delay: 1050ms;
 }
 .nfd-delay-1200 {
-	--nfd-wb-anim-transition-delay: 1200ms !important;
+	--nfd-wb-anim-transition-delay: 1200ms;
 }
 .nfd-delay-1350 {
-	--nfd-wb-anim-transition-delay: 1350ms !important;
+	--nfd-wb-anim-transition-delay: 1350ms;
 }
 .nfd-delay-1500 {
-	--nfd-wb-anim-transition-delay: 1500ms !important;
+	--nfd-wb-anim-transition-delay: 1500ms;
 }
 /* -------------------------------------------------------------------------- */
 /*                            Block preview styles                            */
@@ -729,8 +729,8 @@ p[style*="text-decoration"] > a {
 [class*="nfd-divider-slant"]:is([class*="nfd-p-"]),
 [class*="nfd-divider-slant"]:is([class*="nfd-py-"]),
 [class*="nfd-divider-slant"]:is([class*="nfd-pb-"]):not([style*="padding"]) {
-	--nfd-half-offset: calc(var(--nfd-divider-size, 0px) / 2) !important;
-	--nfd-divider-offset: calc(var(--nfd-half-offset, 0px)) !important;
+	--nfd-half-offset: calc(var(--nfd-divider-size, 0px) / 2);
+	--nfd-divider-offset: calc(var(--nfd-half-offset, 0px));
 }
 /* Padding - LG */
 .nfd-p-lg:not([style*="padding"]) {
