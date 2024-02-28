@@ -4,7 +4,7 @@
 
 .nfd-scroll-slider {
 	flex-wrap: nowrap;
-	height: 100vh;
+	height: 100lvh;
 	overflow-y: auto;
 	scroll-snap-type: y mandatory;
 

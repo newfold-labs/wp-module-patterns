@@ -5,13 +5,12 @@
 	min-height: 120px;
 }
 
-.block-editor-block-preview__content-iframe
-	.is-root-container:has(div[class*="nfd-"]) {
+.block-editor-block-preview__content-iframe .is-root-container:has(div[class*='nfd-']) {
 	padding: 0;
 }
 
-.block-editor-block-preview__content-iframe [style*="min-height: 100vh"],
-.block-editor-block-preview__content-iframe [style*="min-height:100vh"] {
+.block-editor-block-preview__content-iframe [style*='min-height: 100vh'],
+.block-editor-block-preview__content-iframe [style*='min-height:100vh'] {
 	min-height: 800px !important;
 }
 

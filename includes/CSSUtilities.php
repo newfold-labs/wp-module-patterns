@@ -54,7 +54,7 @@ class CSSUtilities {
                 --wndb--text--sm: var(--wp--preset--font-size--x-small);
 				--wndb--text--md: var(--wp--preset--font-size--normal);
                 
-                
+
                 
                 
                 

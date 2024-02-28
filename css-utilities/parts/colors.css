@@ -140,15 +140,16 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 
 /* Border color */
 /* prettier-ignore */
-.nfd-bg-surface:not(.has-border-color),
+.nfd-bg-surface:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.has-border-color),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
-.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
-.nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color) {
+.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]){
 	border-color: var(--wndb--color--borders);
 }
 
+/* Separator block */
 .nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color) {
+	border-bottom-color: var(--wndb--color--subtle);
 	border-bottom-width: 1px;
 }
 
