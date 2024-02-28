@@ -26,4 +26,17 @@
 @import 'parts/misc';
 @import 'parts/blog';
 @import 'parts/spacing';
-@import 'parts/typography'; */
+@import 'parts/typography';
+
+@import "parts/defaults";
+@import "parts/animations";
+@import "parts/block-preview";
+@import "parts/colors";
+@import "parts/form";
+@import "parts/misc";
+@import "parts/blog";
+@import "parts/separator";
+@import "parts/spacing";
+@import "parts/typography";
+@import "parts/woocommerce";
+*/
