@@ -47,6 +47,7 @@ module.exports = {
 		'nfd-col-start-5',
 		'nfd-col-start-6',
 		'nfd-col-start-7',
+		'nfd-gap-y-10',
 		'nfd-grid-cols-12',
 		'nfd-grid-cols-2',
 		'nfd-grid-rows-1',
