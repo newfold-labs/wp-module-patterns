@@ -1,15 +1,14 @@
 /**
-* Colors
-*
-* These utility classes are meant to provide a consistent 
-* color palette and themable colors that can be overwritten with themes.
-*
-* The default color theme is `light`.
-*/
+ * Colors
+ *
+ * These utility classes are meant to provide a consistent 
+ * color palette and themable colors that can be overwritten with themes.
+ *
+ * The default color theme is `light`.
+ */
 
 :where(:root) {
 	/* ------------------------------ Color palette ----------------------------- */
-	/* Gray */
 	--wndb-gray: #6c6c89;
 	--wndb-gray-50: #f7f7f8;
 	--wndb-gray-100: #ebebef;
@@ -22,7 +21,6 @@
 	--wndb-gray-800: #1d1d22;
 	--wndb-gray-900: #121217;
 
-	/* White */
 	--wndb-white: #fff;
 	--wndb-white-50: rgba(255, 255, 255, 0.05);
 	--wndb-white-100: rgba(255, 255, 255, 0.1);
@@ -48,12 +46,13 @@
 }
 
 /*
- * Themes.
+ * Themes
  *
  * These classes are meant to be added to the element that needs a different theme.
  *  - By default, the `light` theme is applied. 
  *  - Nested themes are supported.
  */
+
 .nfd-theme-white {
 	--wndb--color--surface: var(--wndb-gray-50);
 	--wndb--color--text: var(--wndb-gray-800);
@@ -186,7 +185,9 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 }
 
 .nfd-text-primary:not(.has-text-color),
-.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
+.nfd-text-secondary:not(.has-text-color),
+.wp-block-button.wndb-text-primary > a:not(.has-text-color),
+.wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary);
 }
 
@@ -202,12 +203,12 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	color: currentColor;
 }
 
-[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link {
+[class*="nfd-theme-"] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link {
 	color: var(--wndb--color--text--faded);
 	fill: var(--wndb--color--text--faded);
 }
 
-[class*='nfd-theme-'] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link:hover {
+[class*="nfd-theme-"] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link:hover {
 	color: var(--wndb--color--text);
 	fill: var(--wndb--color--text);
 }

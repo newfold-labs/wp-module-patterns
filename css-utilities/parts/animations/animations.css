@@ -1,0 +1,34 @@
+/**
+ * Entrance transition utilities.
+ */
+@import "./delay";
+@import "./fade-in";
+@import "./reveal";
+@import "./twist-in";
+@import "./zoom-in";
+
+:where(:root) {
+	--wndb--anim-transition-delay: 50ms;
+	--wndb--anim-transition-duration: 1400ms;
+	--wndb--anim-transition-easing-function: cubic-bezier(0.4, 1, 0.65, 1);
+	--wndb--anim-transition: all var(--wndb--anim-transition-duration) var(--wndb--anim-transition-easing-function) var(--wndb--anim-transition-delay);
+}
+
+/* No animations on mobile or reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.nfd-wb-animate {
+		transition: none;
+	}
+}
+
+@media (max-width: 782px) {
+	.nfd-wb-animate {
+		transition: none;
+	}
+}
+
+/* Allow animations to be replayed. This attribute is removed from element 
+ * with JS, causing the animation to be replayed */
+.nfd-wb-animate[data-replay-animation] {
+	transition: none;
+}

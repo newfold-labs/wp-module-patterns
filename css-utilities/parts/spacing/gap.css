@@ -7,13 +7,13 @@
 	/**
     * Scale
     */
-	--wndb--gap--xs: 0.25rem;
-	--wndb--gap--sm: 0.5rem;
-	--wndb--gap--md: 1rem;
-	--wndb--gap--lg: 1.5rem;
-	--wndb--gap--xl: 2rem;
-	--wndb--gap--2xl: 2.5rem;
-	--wndb--gap--3xl: 3.5rem;
+	--wndb--gap--xs: 0.25rem; /* 4px */
+	--wndb--gap--sm: 0.5rem; /* 8px */
+	--wndb--gap--md: 1rem; /* 16px */
+	--wndb--gap--lg: 1.5rem; /* 24px */
+	--wndb--gap--xl: 2rem; /* 32px */
+	--wndb--gap--2xl: 2.5rem; /* 40px */
+	--wndb--gap--3xl: 3.5rem; /* 56px */
 }
 
 /* No Gap */

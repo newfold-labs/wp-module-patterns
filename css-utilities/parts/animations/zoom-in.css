@@ -1,0 +1,29 @@
+/**
+ * "Zoom in" animations.
+ */
+
+.nfd-wb-zoom-in {
+	/* no important */
+	--wndb--anim-transition-duration: 1200ms;
+	--wndb--anim-transition: opacity var(--wndb--anim-transition-duration) var(--wndb--anim-transition-easing-function) var(--wndb--anim-transition-delay),
+		transform var(--wndb--anim-transition-duration) var(--wndb--anim-transition-easing-function) var(--wndb--anim-transition-delay);
+	opacity: 0;
+	transform: scale3d(0.4, 0.4, 0.4);
+	transition: var(--wndb--anim-transition);
+}
+
+.nfd-wb-zoom-in-short {
+	/* no important */
+	--wndb--anim-transition-duration: 600ms;
+	--wndb--anim-transition: opacity var(--wndb--anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--wndb--anim-transition-duration) var(--wndb--anim-transition-easing-function) var(--wndb--anim-transition-delay);
+	opacity: 0;
+	transform: scale3d(0.92, 0.92, 0.92);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+// Run the animation
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-zoom-"] {
+	opacity: 1;
+	transform: scale3d(1, 1, 1);
+}

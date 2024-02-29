@@ -1,0 +1,17 @@
+/**
+ * "Reveal" animations.
+ */
+
+/* Mask reveal animations require DOM parent to be used for intersection observer */
+.nfd-wb-reveal-right {
+	/* no important */
+	--wndb--anim-transition-duration: 1500ms;
+	--wndb--anim-transition-easing-function: cubic-bezier(0.4, 0, 0, 1);
+	--wndb--anim-transition: clip-path var(--wndb--anim-transition-duration) var(--wndb--anim-transition-easing-function) var(--wndb--anim-transition-delay);
+	transition: var(--wndb--anim-transition);
+	clip-path: inset(0 100% 0 0);
+}
+
+.nfd-wb-animated-in > .nfd-wb-reveal-right:not([data-replay-animation]) {
+	clip-path: inset(0 0 0 0);
+}

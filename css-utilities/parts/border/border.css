@@ -1,8 +1,0 @@
-/**
-* Border
-*
-* Border related utilities (radius)
-* postcss plugin will add necessary :not([style*="-radius"]) to selectors.
-*/
-
-@import './radius.css';
