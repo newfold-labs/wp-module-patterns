@@ -1,26 +1,26 @@
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls } from "@wordpress/block-editor";
 import {
 	Button,
 	PanelBody,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
 	SelectControl,
-} from '@wordpress/components';
-import { createHigherOrderComponent } from '@wordpress/compose';
-import { useSelect } from '@wordpress/data';
-import { useMemo } from '@wordpress/element';
-import { addFilter } from '@wordpress/hooks';
-import { __ } from '@wordpress/i18n';
+} from "@wordpress/components";
+import { createHigherOrderComponent } from "@wordpress/compose";
+import { useSelect } from "@wordpress/data";
+import { useMemo } from "@wordpress/element";
+import { addFilter } from "@wordpress/hooks";
+import { __ } from "@wordpress/i18n";
 
-import classnames from 'classnames';
+import classnames from "classnames";
 
 // These block types do not support custom attributes.
 const skipBlockTypes = [
-	'core/archives',
-	'core/calendar',
-	'core/latest-comments',
-	'core/rss',
-	'core/tag-cloud',
+	"core/archives",
+	"core/calendar",
+	"core/latest-comments",
+	"core/rss",
+	"core/tag-cloud",
 ];
 
 function addAttributes(settings, name) {
@@ -28,17 +28,17 @@ function addAttributes(settings, name) {
 		return settings;
 	}
 
-	if (name === 'core/group') {
+	if (name === "core/group") {
 		settings.attributes = {
 			...settings.attributes,
 			nfdGroupDivider: {
-				type: 'string',
+				type: "string",
 			},
 			nfdGroupTheme: {
-				type: 'string',
+				type: "string",
 			},
 			nfdGroupEffect: {
-				type: 'string',
+				type: "string",
 			},
 		};
 	}
@@ -48,10 +48,10 @@ function addAttributes(settings, name) {
 		attributes: {
 			...settings.attributes,
 			nfdAnimation: {
-				type: 'string',
+				type: "string",
 			},
 			nfdAnimationDelay: {
-				type: 'string',
+				type: "string",
 			},
 		},
 	};
@@ -76,17 +76,15 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
 		const { name, clientId } = props;
 
-		const selectedGroupDivider =
-			props?.attributes?.nfdGroupDivider ?? 'default';
-		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? '';
-		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? '';
-		const selectedAnimation = props?.attributes?.nfdAnimation ?? '';
-		const selectedAnimationDelay =
-			props?.attributes?.nfdAnimationDelay ?? '';
+		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
+		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
+		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
+		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
+		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
 
 		const isTopLevel = useSelect(
 			(select) => {
-				const { getBlockRootClientId } = select('core/block-editor');
+				const { getBlockRootClientId } = select("core/block-editor");
 				return !getBlockRootClientId(clientId);
 			},
 			[clientId]
@@ -95,37 +93,37 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const customDividerStyles = useMemo(
 			() => [
 				{
-					name: '',
-					label: __('Default', 'nfd-wonder-blocks'),
+					name: "",
+					label: __("Default", "nfd-wonder-blocks"),
 					isDefault: true,
 				},
 				{
-					name: 'nfd-divider-arrow',
-					label: __('Arrow', 'nfd-wonder-blocks'),
+					name: "nfd-divider-arrow",
+					label: __("Arrow", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'nfd-divider-ellipse',
-					label: __('Ellipse', 'nfd-wonder-blocks'),
+					name: "nfd-divider-ellipse",
+					label: __("Ellipse", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'nfd-divider-rounded',
-					label: __('Rounded', 'nfd-wonder-blocks'),
+					name: "nfd-divider-rounded",
+					label: __("Rounded", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'nfd-divider-slant',
-					label: __('Slant', 'nfd-wonder-blocks'),
+					name: "nfd-divider-slant",
+					label: __("Slant", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'nfd-divider-slant-invert',
-					label: __('Slant Invert', 'nfd-wonder-blocks'),
+					name: "nfd-divider-slant-invert",
+					label: __("Slant Invert", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'nfd-divider-triangle',
-					label: __('Triangle', 'nfd-wonder-blocks'),
+					name: "nfd-divider-triangle",
+					label: __("Triangle", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'nfd-divider-zigzag',
-					label: __('Zigzag', 'nfd-wonder-blocks'),
+					name: "nfd-divider-zigzag",
+					label: __("Zigzag", "nfd-wonder-blocks"),
 				},
 			],
 			[]
@@ -134,44 +132,44 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const customAnimationStyles = useMemo(
 			() => [
 				{
-					value: '',
-					label: __('None', 'nfd-wonder-blocks'),
+					value: "",
+					label: __("None", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-fade-in-bottom',
-					label: __('Fade In Bottom', 'nfd-wonder-blocks'),
+					value: "nfd-wb-fade-in-bottom",
+					label: __("Fade In Bottom", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-fade-in-top-short',
-					label: __('Fade In Top Short', 'nfd-wonder-blocks'),
+					value: "nfd-wb-fade-in-top-short",
+					label: __("Fade In Top Short", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-fade-in-right-short',
-					label: __('Fade In Right Short', 'nfd-wonder-blocks'),
+					value: "nfd-wb-fade-in-right-short",
+					label: __("Fade In Right Short", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-fade-in-bottom-short',
-					label: __('Fade In Bottom Short', 'nfd-wonder-blocks'),
+					value: "nfd-wb-fade-in-bottom-short",
+					label: __("Fade In Bottom Short", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-fade-in-left-short',
-					label: __('Fade In Left Short', 'nfd-wonder-blocks'),
+					value: "nfd-wb-fade-in-left-short",
+					label: __("Fade In Left Short", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-twist-in',
-					label: __('Twist In', 'nfd-wonder-blocks'),
+					value: "nfd-wb-twist-in",
+					label: __("Twist In", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-zoom-in',
-					label: __('Zoom In', 'nfd-wonder-blocks'),
+					value: "nfd-wb-zoom-in",
+					label: __("Zoom In", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-zoom-in-short',
-					label: __('Zoom In Short', 'nfd-wonder-blocks'),
+					value: "nfd-wb-zoom-in-short",
+					label: __("Zoom In Short", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-wb-reveal-right',
-					label: __('Reveal Right', 'nfd-wonder-blocks'),
+					value: "nfd-wb-reveal-right",
+					label: __("Reveal Right", "nfd-wonder-blocks"),
 				},
 			],
 			[]
@@ -180,52 +178,52 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const customAnimationDelay = useMemo(
 			() => [
 				{
-					value: '',
-					label: __('None', 'nfd-wonder-blocks'),
+					value: "",
+					label: __("None", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-50',
-					label: __('50ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-50",
+					label: __("50ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-150',
-					label: __('150ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-150",
+					label: __("150ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-300',
-					label: __('300ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-300",
+					label: __("300ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-450',
-					label: __('450ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-450",
+					label: __("450ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-600',
-					label: __('600ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-600",
+					label: __("600ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-750',
-					label: __('750ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-750",
+					label: __("750ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-900',
-					label: __('900ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-900",
+					label: __("900ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-1050',
-					label: __('1050ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-1050",
+					label: __("1050ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-1200',
-					label: __('1200ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-1200",
+					label: __("1200ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-1350',
-					label: __('1350ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-1350",
+					label: __("1350ms", "nfd-wonder-blocks"),
 				},
 				{
-					value: 'nfd-delay-1500',
-					label: __('1500ms', 'nfd-wonder-blocks'),
+					value: "nfd-delay-1500",
+					label: __("1500ms", "nfd-wonder-blocks"),
 				},
 			],
 			[]
@@ -234,29 +232,29 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const customThemeStyles = useMemo(
 			() => [
 				{
-					name: '',
-					label: __('Default', 'nfd-wonder-blocks'),
+					name: "",
+					label: __("Default", "nfd-wonder-blocks"),
 					isDefault: true,
 				},
 				{
-					name: 'white',
-					label: __('White', 'nfd-wonder-blocks'),
+					name: "white",
+					label: __("White", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'light',
-					label: __('Light', 'nfd-wonder-blocks'),
+					name: "light",
+					label: __("Light", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'dark',
-					label: __('Dark', 'nfd-wonder-blocks'),
+					name: "dark",
+					label: __("Dark", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'darker',
-					label: __('Darker', 'nfd-wonder-blocks'),
+					name: "darker",
+					label: __("Darker", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'primary',
-					label: __('Primary', 'nfd-wonder-blocks'),
+					name: "primary",
+					label: __("Primary", "nfd-wonder-blocks"),
 				},
 			],
 			[]
@@ -265,33 +263,33 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const groupEffectStyles = useMemo(
 			() => [
 				{
-					name: '',
-					label: __('None', 'nfd-wonder-blocks'),
+					name: "",
+					label: __("None", "nfd-wonder-blocks"),
 					isDefault: true,
 				},
 				{
-					name: 'dots',
-					label: __('Dots', 'nfd-wonder-blocks'),
+					name: "dots",
+					label: __("Dots", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'grid',
-					label: __('Grid', 'nfd-wonder-blocks'),
+					name: "grid",
+					label: __("Grid", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'grid-2',
-					label: __('Grid 2', 'nfd-wonder-blocks'),
+					name: "grid-2",
+					label: __("Grid 2", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'grid-3',
-					label: __('Grid 3', 'nfd-wonder-blocks'),
+					name: "grid-3",
+					label: __("Grid 3", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'lines',
-					label: __('Lines', 'nfd-wonder-blocks'),
+					name: "lines",
+					label: __("Lines", "nfd-wonder-blocks"),
 				},
 				{
-					name: 'lines-2',
-					label: __('Lines 2', 'nfd-wonder-blocks'),
+					name: "lines-2",
+					label: __("Lines 2", "nfd-wonder-blocks"),
 				},
 			],
 			[]
@@ -300,42 +298,30 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		return (
 			<>
 				<BlockEdit {...props} />
-				{name === 'core/group' && isTopLevel && (
+				{name === "core/group" && isTopLevel && (
 					<InspectorControls>
-						<PanelBody
-							title={__('Section Divider', 'nfd-wonder-blocks')}
-							initialOpen={false}
-						>
+						<PanelBody title={__("Section Divider", "nfd-wonder-blocks")} initialOpen={false}>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
 									{customDividerStyles.map((style) => {
 										const buttonText = style.isDefault
-											? __('Default', 'nfd-wonder-blocks')
+											? __("Default", "nfd-wonder-blocks")
 											: style.label || style.name;
 
 										return (
 											<Button
-												className={classnames(
-													'block-editor-block-styles__item',
-													{
-														'is-active':
-															selectedGroupDivider ===
-															style.name,
-													}
-												)}
+												className={classnames("block-editor-block-styles__item", {
+													"is-active": selectedGroupDivider === style.name,
+												})}
 												key={style.name}
 												variant="secondary"
 												label={buttonText}
 												onClick={() =>
 													props.setAttributes({
-														nfdGroupDivider:
-															style.name,
+														nfdGroupDivider: style.name,
 													})
 												}
-												aria-current={
-													selectedGroupDivider ===
-													style.name
-												}
+												aria-current={selectedGroupDivider === style.name}
 											>
 												<Truncate
 													numberOfLines={1}
@@ -352,45 +338,30 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					</InspectorControls>
 				)}
 
-				{name === 'core/group' && (
+				{name === "core/group" && (
 					<InspectorControls>
-						<PanelBody
-							title={__(
-								'Section Theme Color',
-								'nfd-wonder-blocks'
-							)}
-							initialOpen={false}
-						>
+						<PanelBody title={__("Section Theme Color", "nfd-wonder-blocks")} initialOpen={false}>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
 									{customThemeStyles.map((style) => {
 										const buttonText = style.isDefault
-											? __('Default', 'nfd-wonder-blocks')
+											? __("Default", "nfd-wonder-blocks")
 											: style.label || style.name;
 
 										return (
 											<Button
-												className={classnames(
-													'block-editor-block-styles__item',
-													{
-														'is-active':
-															selectedGroupTheme ===
-															style.name,
-													}
-												)}
+												className={classnames("block-editor-block-styles__item", {
+													"is-active": selectedGroupTheme === style.name,
+												})}
 												key={style.name}
 												variant="secondary"
 												label={buttonText}
 												onClick={() => {
 													props.setAttributes({
-														nfdGroupTheme:
-															style.name,
+														nfdGroupTheme: style.name,
 													});
 												}}
-												aria-current={
-													selectedGroupTheme ===
-													style.name
-												}
+												aria-current={selectedGroupTheme === style.name}
 											>
 												<Truncate
 													numberOfLines={1}
@@ -407,44 +378,31 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					</InspectorControls>
 				)}
 
-				{name === 'core/group' && (
+				{name === "core/group" && (
 					<InspectorControls>
 						<PanelBody
-							title={__(
-								'Section Background Effect',
-								'nfd-wonder-blocks'
-							)}
+							title={__("Section Background Effect", "nfd-wonder-blocks")}
 							initialOpen={false}
 						>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
 									{groupEffectStyles.map((style) => {
-										const buttonText =
-											style.label || style.name;
+										const buttonText = style.label || style.name;
 
 										return (
 											<Button
-												className={classnames(
-													'block-editor-block-styles__item',
-													{
-														'is-active':
-															selectedGroupEffect ===
-															style.name,
-													}
-												)}
+												className={classnames("block-editor-block-styles__item", {
+													"is-active": selectedGroupEffect === style.name,
+												})}
 												key={style.name}
 												variant="secondary"
 												label={buttonText}
 												onClick={() => {
 													props.setAttributes({
-														nfdGroupEffect:
-															style.name,
+														nfdGroupEffect: style.name,
 													});
 												}}
-												aria-current={
-													selectedGroupEffect ===
-													style.name
-												}
+												aria-current={selectedGroupEffect === style.name}
 											>
 												<Truncate
 													numberOfLines={1}
@@ -463,15 +421,9 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 
 				{!skipBlockTypes.includes(name) && (
 					<InspectorControls>
-						<PanelBody
-							title={__(
-								'Entrance Animations',
-								'nfd-wonder-blocks'
-							)}
-							initialOpen={false}
-						>
+						<PanelBody title={__("Entrance Animations", "nfd-wonder-blocks")} initialOpen={false}>
 							<SelectControl
-								label={__('Animation', 'nfd-wonder-blocks')}
+								label={__("Animation", "nfd-wonder-blocks")}
 								options={customAnimationStyles}
 								value={selectedAnimation}
 								onChange={(selectedItem) => {
@@ -480,20 +432,17 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 									});
 
 									document.dispatchEvent(
-										new CustomEvent(
-											'wonder-blocks/animation-changed',
-											{
-												detail: {
-													clientId: props?.clientId,
-												},
-											}
-										)
+										new CustomEvent("wonder-blocks/animation-changed", {
+											detail: {
+												clientId: props?.clientId,
+											},
+										})
 									);
 								}}
 							/>
 
 							<SelectControl
-								label={__('Delay', 'nfd-wonder-blocks')}
+								label={__("Delay", "nfd-wonder-blocks")}
 								options={customAnimationDelay}
 								value={selectedAnimationDelay}
 								onChange={(selectedItem) => {
@@ -508,24 +457,20 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			</>
 		);
 	};
-}, 'withInspectorControl');
+}, "withInspectorControl");
 
 function addSaveProps(saveElementProps, blockType, attributes) {
 	const generatedClasses = saveElementProps?.className ?? [];
 	const classes = [
 		...(attributes?.nfdGroupDivider ? [attributes.nfdGroupDivider] : []),
-		...(attributes?.nfdAnimation
-			? ['nfd-wb-animate', attributes.nfdAnimation]
-			: []),
+		...(attributes?.nfdAnimation ? ["nfd-wb-animate", attributes.nfdAnimation] : []),
 		...(attributes?.nfdAnimationDelay && attributes?.nfdAnimation
 			? [attributes.nfdAnimationDelay]
 			: []),
 		...(attributes?.nfdGroupTheme
-			? ['nfd-bg-surface', `nfd-theme-${attributes.nfdGroupTheme}`]
+			? ["nfd-bg-surface", `nfd-theme-${attributes.nfdGroupTheme}`]
 			: []),
-		...(attributes?.nfdGroupEffect
-			? [`nfd-bg-effect-${attributes.nfdGroupEffect}`]
-			: []),
+		...(attributes?.nfdGroupEffect ? [`nfd-bg-effect-${attributes.nfdGroupEffect}`] : []),
 	];
 
 	const additionalClasses = attributes?.className ?? [];
@@ -536,9 +481,9 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 
 	const normalizeAsArray = (item) => {
 		switch (Object.prototype.toString.call(item)) {
-			case '[object String]':
-				return item.split(' ');
-			case '[object Array]':
+			case "[object String]":
+				return item.split(" ");
+			case "[object Array]":
 				return item;
 			default:
 				return [];
@@ -551,30 +496,22 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 	]);
 
 	return Object.assign({}, saveElementProps, {
-		className: [...classesCombined].join(' '),
+		className: [...classesCombined].join(" "),
 	});
 }
 
-addFilter(
-	'blocks.registerBlockType',
-	'nfd-wonder-blocks/utilities/attributes',
-	addAttributes
-);
+addFilter("blocks.registerBlockType", "nfd-wonder-blocks/utilities/attributes", addAttributes);
+
+addFilter("blocks.registerBlockType", "nfd-wonder-blocks/utilities/addEditProps", addEditProps);
 
 addFilter(
-	'blocks.registerBlockType',
-	'nfd-wonder-blocks/utilities/addEditProps',
-	addEditProps
-);
-
-addFilter(
-	'editor.BlockEdit',
-	'nfd-wonder-blocks/utilities/inspectorControl',
+	"editor.BlockEdit",
+	"nfd-wonder-blocks/utilities/inspectorControl",
 	withInspectorControls
 );
 
 addFilter(
-	'blocks.getSaveContent.extraProps',
-	'nfd-wonder-blocks/utilities/extraProps',
+	"blocks.getSaveContent.extraProps",
+	"nfd-wonder-blocks/utilities/extraProps",
 	addSaveProps
 );
