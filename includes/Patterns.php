@@ -29,6 +29,10 @@ class Patterns {
 
 		$this->container = $container;
 
+		if (! $this->is_eligible() ) {
+			return; 
+		}
+
 		if ( Permissions::is_editor() ) {
 			new PatternsLibrary();
 			new CTA();
@@ -36,5 +40,21 @@ class Patterns {
 
 		new CSSUtilities();
 		new RestApi();
+	}
+
+	/**
+	 * Checks capabilities API or PHP constant for eligibility
+	 *
+	 * @return boolean
+	 */
+	protected function is_eligible() {
+		$enabled_by_constant = defined('\\NFD_WONDER_BLOCKS_ELIGIBLE') && true === \NFD_WONDER_BLOCKS_ELIGIBLE;
+		$enabled_by_capability = $this->container->get('capabilities')->get('canAccessWonderBlocks');
+
+		if( $enabled_by_constant || $enabled_by_capability ) {
+			return true;
+		}
+
+		return false;
 	}
 }
