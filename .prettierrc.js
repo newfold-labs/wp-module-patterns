@@ -1,10 +1,14 @@
-const wpPrettierConfig = require('@wordpress/prettier-config');
+const wordpressPrettierConfig = require("@wordpress/prettier-config");
 
 module.exports = {
-	...wpPrettierConfig,
+	...wordpressPrettierConfig,
+	printWidth: 100, // Default print width for all files. Override if needed.
+	singleQuote: false,
+	tabWidth: 2,
+	trailingComma: "es5",
 	overrides: [
 		{
-			files: 'css-utilities/parts/**/*.{css,sass,scss}',
+			files: "*.css",
 			options: {
 				printWidth: 160,
 			},

@@ -1,16 +1,14 @@
 /**
  * WordPress dependencies
  */
-import { useMemo } from '@wordpress/element';
+import { useMemo } from "@wordpress/element";
 
 const Skeleton = ({ count, minWidth = 40, maxWidth = 110 }) => {
 	const items = useMemo(() => {
 		const result = [];
 
 		for (let i = 0; i < count; i++) {
-			const width = Math.floor(
-				Math.random() * (maxWidth - minWidth + 1) + minWidth
-			);
+			const width = Math.floor(Math.random() * (maxWidth - minWidth + 1) + minWidth);
 			result.push(<SkeletonItem key={i} width={width} />);
 		}
 

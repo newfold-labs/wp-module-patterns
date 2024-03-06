@@ -1,41 +1,30 @@
 /**
  * External dependencies
  */
-import classNames from 'classnames';
+import classNames from "classnames";
 
 /**
  * WordPress dependencies
  */
-import apiFetch from '@wordpress/api-fetch';
-import { BlockPreview } from '@wordpress/block-editor';
-import { rawHandler } from '@wordpress/blocks';
-import { Button } from '@wordpress/components';
-import { useDispatch, useSelect } from '@wordpress/data';
-import { store as editorStore } from '@wordpress/editor';
-import {
-	memo,
-	useCallback,
-	useEffect,
-	useMemo,
-	useRef,
-	useState,
-} from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
-import { Icon } from '@wordpress/icons';
-import { store as noticesStore } from '@wordpress/notices';
+import apiFetch from "@wordpress/api-fetch";
+import { BlockPreview } from "@wordpress/block-editor";
+import { rawHandler } from "@wordpress/blocks";
+import { Button } from "@wordpress/components";
+import { useDispatch, useSelect } from "@wordpress/data";
+import { store as editorStore } from "@wordpress/editor";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "@wordpress/element";
+import { __, sprintf } from "@wordpress/i18n";
+import { Icon } from "@wordpress/icons";
+import { store as noticesStore } from "@wordpress/notices";
 
 /**
  * Internal dependencies
  */
-import { NFD_REST_URL } from '../../../../constants';
-import {
-	blockInserter,
-	optimizePreview,
-	trackHiiveEvent,
-} from '../../../../helpers';
-import { usePatterns, useReplacePlaceholders } from '../../../../hooks';
-import { store as nfdPatternsStore } from '../../../../store';
-import { heart, heartEmpty, plus, trash } from '../../../Icons';
+import { NFD_REST_URL } from "../../../../constants";
+import { blockInserter, optimizePreview, trackHiiveEvent } from "../../../../helpers";
+import { usePatterns, useReplacePlaceholders } from "../../../../hooks";
+import { store as nfdPatternsStore } from "../../../../store";
+import { heart, heartEmpty, plus, trash } from "../../../Icons";
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -45,13 +34,13 @@ const DesignItem = ({ item }) => {
 	const [loading, setLoading] = useState(false);
 
 	const { adminEmail } = useSelect((select) => ({
-		adminEmail: select('core').getEntityRecord('root', 'site')?.email,
+		adminEmail: select("core").getEntityRecord("root", "site")?.email,
 	}));
 
 	const replace = useReplacePlaceholders();
 	const replacePlaceholders = useMemo(() => {
 		return {
-			'email@example.com': adminEmail,
+			"email@example.com": adminEmail,
 		};
 	}, [adminEmail]);
 
@@ -60,7 +49,7 @@ const DesignItem = ({ item }) => {
 		perPage: -1,
 	});
 
-	const rawContent = item?.content ?? '';
+	const rawContent = item?.content ?? "";
 
 	const content = useMemo(() => {
 		return replace(rawContent, replacePlaceholders);
@@ -73,8 +62,7 @@ const DesignItem = ({ item }) => {
 		[rawContent]
 	);
 
-	const { createErrorNotice, createSuccessNotice } =
-		useDispatch(noticesStore);
+	const { createErrorNotice, createSuccessNotice } = useDispatch(noticesStore);
 	const { editPost } = useDispatch(editorStore);
 	const { setIsModalOpen } = useDispatch(nfdPatternsStore);
 
@@ -87,14 +75,11 @@ const DesignItem = ({ item }) => {
 		currentTheme,
 	} = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
-		activeTemplatesCategory:
-			select(nfdPatternsStore).getActiveTemplatesCategory(),
-		activePatternsCategory:
-			select(nfdPatternsStore).getActivePatternsCategory(),
-		selectedTemplateSlug:
-			select(editorStore).getEditedPostAttribute('template'),
+		activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
+		activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
+		selectedTemplateSlug: select(editorStore).getEditedPostAttribute("template"),
 		keywords: select(nfdPatternsStore).getKeywordsFilter(),
-		currentTheme: select('core').getCurrentTheme(),
+		currentTheme: select("core").getCurrentTheme(),
 	}));
 
 	/**
@@ -104,22 +89,16 @@ const DesignItem = ({ item }) => {
 	 */
 	const shouldShowTrash = useCallback(() => {
 		return (
-			(activeTab === 'patterns' &&
-				activePatternsCategory === 'favorites' &&
+			(activeTab === "patterns" &&
+				activePatternsCategory === "favorites" &&
 				isFavorite &&
 				!keywords) ||
-			(activeTab === 'templates' &&
-				activeTemplatesCategory === 'favorites' &&
+			(activeTab === "templates" &&
+				activeTemplatesCategory === "favorites" &&
 				isFavorite &&
 				!keywords)
 		);
-	}, [
-		activePatternsCategory,
-		activeTab,
-		activeTemplatesCategory,
-		isFavorite,
-		keywords,
-	]);
+	}, [activePatternsCategory, activeTab, activeTemplatesCategory, isFavorite, keywords]);
 
 	/**
 	 * Check if a template should be set
@@ -127,19 +106,13 @@ const DesignItem = ({ item }) => {
 	 * @return {boolean}
 	 */
 	const resolveTemplateUpdate = useCallback(() => {
-		if (
-			item?.type === 'templates' &&
-			currentTheme?.template === 'yith-wonder'
-		) {
-			if (
-				item?.slug.includes('coming-soon') ||
-				item?.slug.includes('link-in-bio')
-			) {
-				if (selectedTemplateSlug !== 'no-header-footer') {
-					return 'no-header-footer';
+		if (item?.type === "templates" && currentTheme?.template === "yith-wonder") {
+			if (item?.slug.includes("coming-soon") || item?.slug.includes("link-in-bio")) {
+				if (selectedTemplateSlug !== "no-header-footer") {
+					return "no-header-footer";
 				}
-			} else if (selectedTemplateSlug !== 'no-title') {
-				return 'no-title';
+			} else if (selectedTemplateSlug !== "no-title") {
+				return "no-title";
 			}
 		}
 
@@ -166,15 +139,15 @@ const DesignItem = ({ item }) => {
 	 * @return {void}
 	 */
 	const trackInsertEvents = useCallback(() => {
-		if (activeTab === 'patterns') {
-			trackHiiveEvent('pattern_inserted', {
-				label_key: 'pattern_slug',
+		if (activeTab === "patterns") {
+			trackHiiveEvent("pattern_inserted", {
+				label_key: "pattern_slug",
 				pattern_id: item.id,
 				pattern_slug: item.slug,
 			});
-		} else if (activeTab === 'templates') {
-			trackHiiveEvent('template_inserted', {
-				label_key: 'template_slug',
+		} else if (activeTab === "templates") {
+			trackHiiveEvent("template_inserted", {
+				label_key: "template_slug",
 				template_id: item.id,
 				template_slug: item.slug,
 			});
@@ -215,21 +188,18 @@ const DesignItem = ({ item }) => {
 			createSuccessNotice(
 				sprintf(
 					// translators: %s is the pattern title
-					__('Block pattern "%s" inserted.', 'nfd-wonder-blocks'),
+					__('Block pattern "%s" inserted.', "nfd-wonder-blocks"),
 					item.title
 				),
 				{
-					type: 'snackbar',
+					type: "snackbar",
 				}
 			);
 		} catch (error) {
 			createErrorNotice(
-				__(
-					'Failed to insert block pattern. Please try again.',
-					'nfd-wonder-blocks'
-				),
+				__("Failed to insert block pattern. Please try again.", "nfd-wonder-blocks"),
 				{
-					type: 'snackbar',
+					type: "snackbar",
 				}
 			);
 
@@ -257,15 +227,15 @@ const DesignItem = ({ item }) => {
 
 		// Track favorite events.
 		if (!isFavorite) {
-			if (activeTab === 'patterns') {
-				trackHiiveEvent('pattern_favorited', {
-					label_key: 'pattern_slug',
+			if (activeTab === "patterns") {
+				trackHiiveEvent("pattern_favorited", {
+					label_key: "pattern_slug",
 					pattern_id: item.id,
 					pattern_slug: item.slug,
 				});
-			} else if (activeTab === 'templates') {
-				trackHiiveEvent('template_favorited', {
-					label_key: 'template_slug',
+			} else if (activeTab === "templates") {
+				trackHiiveEvent("template_favorited", {
+					label_key: "template_slug",
 					template_id: item.id,
 					template_slug: item.slug,
 				});
@@ -273,7 +243,7 @@ const DesignItem = ({ item }) => {
 		}
 
 		setIsFavorite((prev) => !prev);
-		const method = isFavorite ? 'DELETE' : 'POST';
+		const method = isFavorite ? "DELETE" : "POST";
 
 		const updater = async () =>
 			await apiFetch({
@@ -284,17 +254,17 @@ const DesignItem = ({ item }) => {
 					type: activeTab,
 				},
 				headers: {
-					'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
+					"x-nfd-wonder-blocks": "nfd_wonder_blocks",
 				},
 			});
 
 		const newData =
-			method === 'DELETE'
+			method === "DELETE"
 				? data.filter((fav) => fav.id !== item.id)
 				: [...data, { ...item, type: activeTab }];
 
 		const updatedFavs =
-			method === 'DELETE'
+			method === "DELETE"
 				? allFavs.filter((fav) => fav.id !== item.id)
 				: [...allFavs, { ...item, type: activeTab }];
 
@@ -335,12 +305,11 @@ const DesignItem = ({ item }) => {
 
 		const adjustIframeHeight = () => {
 			const container = blockRef.current;
-			const frame = container?.querySelector('iframe[title]');
+			const frame = container?.querySelector("iframe[title]");
 			const contentDocument = frame?.contentDocument;
 
 			if (contentDocument) {
-				const rootContainer =
-					contentDocument.querySelector('.is-root-container');
+				const rootContainer = contentDocument.querySelector(".is-root-container");
 
 				const height = rootContainer?.scrollHeight || 0;
 
@@ -355,19 +324,19 @@ const DesignItem = ({ item }) => {
 				const scaledOffset = scollerHeight / scale;
 
 				if (height < scaledOffset) {
-					frame.style.setProperty('--offset', `100%`);
+					frame.style.setProperty("--offset", `100%`);
 				} else {
-					frame.style.setProperty('--offset', `${scaledOffset}px`);
+					frame.style.setProperty("--offset", `${scaledOffset}px`);
 				}
 
 				frame.style.maxHeight = `${height}px`;
-				frame.style.setProperty('--nfd-wba-design-item--scale', scale);
+				frame.style.setProperty("--nfd-wba-design-item--scale", scale);
 
 				// constant scroll speed
 				const speedConstant = 200 / (scale * 2) + 300; // pixels per second
 
 				frame?.style.setProperty(
-					'--nfd-wba-design-item--scroll-duration',
+					"--nfd-wba-design-item--scroll-duration",
 					`${height / speedConstant}s`
 				);
 			} else {
@@ -383,7 +352,7 @@ const DesignItem = ({ item }) => {
 		};
 
 		// Add resize listener
-		window.addEventListener('resize', onResize);
+		window.addEventListener("resize", onResize);
 
 		// Initial call
 		adjustIframeHeight();
@@ -391,7 +360,7 @@ const DesignItem = ({ item }) => {
 
 		return () => {
 			clearTimeout(timerId); // Clear the timer
-			window.removeEventListener('resize', onResize); // Remove resize listener
+			window.removeEventListener("resize", onResize); // Remove resize listener
 		};
 	}, [item?.type, loading]);
 
@@ -401,27 +370,22 @@ const DesignItem = ({ item }) => {
 				<div className="nfd-wba-rounded-lg nfd-wba-border-2 nfd-wba-border-dashed nfd-wba-border-grey-darker nfd-wba-p-4">
 					<div
 						className={classNames(
-							'nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-overflow-hidden nfd-wba-rounded-sm nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-bg-white nfd-wba-shadow-design-item nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand',
-							item?.type === 'templates' &&
-								'nfd-wba-design-item--template',
-							insertingDesign && 'nfd-wba-inserting-design'
+							"nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-overflow-hidden nfd-wba-rounded-sm nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-bg-white nfd-wba-shadow-design-item nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand",
+							item?.type === "templates" && "nfd-wba-design-item--template",
+							insertingDesign && "nfd-wba-inserting-design"
 						)}
 						ref={blockRef}
 						role="button"
 						tabIndex="0"
 						onClick={() => insertDesignHandler()}
 						onKeyUp={(e) => {
-							if (e.key === 'Enter') {
+							if (e.key === "Enter") {
 								insertDesignHandler();
 							}
 						}}
 					>
 						{previewBlocks && (
-							<BlockPreview
-								blocks={previewBlocks}
-								viewportWidth={1200}
-								live={false}
-							/>
+							<BlockPreview blocks={previewBlocks} viewportWidth={1200} live={false} />
 						)}
 					</div>
 				</div>
@@ -440,22 +404,16 @@ const DesignItem = ({ item }) => {
 						{!shouldShowTrash() && (
 							<Button
 								className={classNames(
-									'nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100',
+									"nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100",
 									isFavorite
-										? 'nfd-wba-cursor-default !nfd-wba-text-red-600'
-										: 'nfd-wba-cursor-not-pointer nfd-wba-text-zinc-500 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600'
+										? "nfd-wba-cursor-default !nfd-wba-text-red-600"
+										: "nfd-wba-cursor-not-pointer nfd-wba-text-zinc-500 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600"
 								)}
 								showTooltip={true}
 								label={
 									isFavorite
-										? __(
-												'In Favorites',
-												'nfd-wonder-blocks'
-										  )
-										: __(
-												'Add to Favorites',
-												'nfd-wonder-blocks'
-										  )
+										? __("In Favorites", "nfd-wonder-blocks")
+										: __("Add to Favorites", "nfd-wonder-blocks")
 								}
 								onClick={() => favoritesClickHandler(false)}
 								icon={
@@ -472,13 +430,10 @@ const DesignItem = ({ item }) => {
 						{shouldShowTrash() && (
 							<Button
 								className={classNames(
-									'nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600'
+									"nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600"
 								)}
 								showTooltip={true}
-								label={__(
-									'Remove from Favorites',
-									'nfd-wonder-blocks'
-								)}
+								label={__("Remove from Favorites", "nfd-wonder-blocks")}
 								onClick={() => favoritesClickHandler()}
 								icon={
 									<Icon
@@ -495,20 +450,10 @@ const DesignItem = ({ item }) => {
 							className="nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50"
 							isBusy={insertingDesign}
 							isPressed={insertingDesign}
-							label={__(
-								'Add pattern to page',
-								'nfd-wonder-blocks'
-							)}
+							label={__("Add pattern to page", "nfd-wonder-blocks")}
 							showTooltip={true}
 							onClick={() => insertDesignHandler()}
-							icon={
-								<Icon
-									fill="currentColor"
-									className="nfd-wba-shrink-0"
-									size={24}
-									icon={plus}
-								/>
-							}
+							icon={<Icon fill="currentColor" className="nfd-wba-shrink-0" size={24} icon={plus} />}
 						/>
 					</div>
 				</div>

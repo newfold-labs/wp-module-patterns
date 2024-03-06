@@ -1,19 +1,19 @@
 /**
-* NFD Container (.nfd-container)
-*
-* This is meant to be used on top-level group block and it
-* controlls the width of the content inside it and sets some default
-* styling for our patterns (removes margins, sets font size...).
-* 
-* Requires "Inner blocks use content width" to be enabled on the group.
-*
-* The default width values can be overriden with:
-*   1. The "content" and "wide" options in the block settings.
-*   2. By inheriting "width" and "wide width" from the active theme.
-*
-* We are keeping the specificity of the selectors low so that it can be
-* easily overriden by the theme or Gutenberg options.
-*/
+ * NFD Container (.nfd-container)
+ *
+ * This is meant to be used on top-level group block and it
+ * controlls the width of the content inside it and sets some default
+ * styling for our patterns (removes margins, sets font size...).
+ * 
+ * Requires "Inner blocks use content width" to be enabled on the group.
+ *
+ * The default width values can be overriden with:
+ *   1. The "content" and "wide" options in the block settings.
+ *   2. By inheriting "width" and "wide width" from the active theme.
+ *
+ * We are keeping the specificity of the selectors low so that it can be
+ * easily overriden by the theme or Gutenberg options.
+ */
 
 :where(:root) {
 	/* no important */

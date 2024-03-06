@@ -1,26 +1,51 @@
-/* -------------------------------------------------------------------------- */
-/*                            Block preview styles                            */
-/* -------------------------------------------------------------------------- */
+/**
+ * This file contains various fixes for the block editor when used with Wonder Blocks.
+ */
+
 .block-editor-block-preview__content-iframe .is-root-container {
-	min-height: 120px;
+	min-height: 8rem; /* 128px */
 }
 
-.block-editor-block-preview__content-iframe
-	.is-root-container:has(div[class*="nfd-"]) {
+/* .block-editor-block-preview__content-iframe .is-root-container:has(div[class*="nfd-"]) {
 	padding: 0;
-}
+} */
 
 .block-editor-block-preview__content-iframe [style*="min-height: 100vh"],
 .block-editor-block-preview__content-iframe [style*="min-height:100vh"] {
-	min-height: 800px !important;
+	min-height: 800px;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 70vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:70vh"] {
+	min-height: 560px;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 50vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:50vh"] {
+	min-height: 400px;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 35vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:35vh"] {
+	min-height: 280px;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 30vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:30vh"] {
+	min-height: 240px;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 10vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:10vh"] {
+	min-height: 80px;
 }
 
 .block-editor-block-preview__content-iframe .nfd-stretch-cover-child {
-	min-height: 800px !important;
+	min-height: 800px;
 }
 
 .nfd-wba-modal * {
-	box-sizing: border-box !important;
+	box-sizing: border-box;
 }
 
 /* Disable animations in the BlockPreview component */

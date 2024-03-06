@@ -1,11 +1,18 @@
-/* -------------------------------------------------------------------------- */
-/*                                   Slider                                   */
-/* -------------------------------------------------------------------------- */
+/**
+ * CSS based slider styles
+ */
+
+:where(:root) {
+	--wndb--slider-height: 100lvh;
+}
 
 /* Slider Base Styles */
 .nfd-scroll-slider-vertical,
 .nfd-scroll-slider-horizontal {
 	flex-wrap: nowrap;
+	height: var(--wndb--slider-height);
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
 }

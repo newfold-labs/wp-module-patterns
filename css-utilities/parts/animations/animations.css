@@ -29,7 +29,7 @@
 }
 
 /* --------------------------------- Fade In -------------------------------- */
-[class*='nfd-wb-fade-in'] {
+[class*="nfd-wb-fade-in"] {
 	/* no important */
 	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
 		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
@@ -90,7 +90,7 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-.nfd-wb-animated-in:not([data-replay-animation])[class*='nfd-wb-fade-in'] {
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-fade-in"] {
 	/* no important */
 	opacity: 1;
 	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -109,7 +109,7 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-.nfd-wb-animated-in:not([data-replay-animation])[class*='nfd-wb-zoom-'] {
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-zoom-"] {
 	opacity: 1;
 	transform: scale3d(1, 1, 1);
 }

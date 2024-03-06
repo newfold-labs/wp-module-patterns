@@ -17,12 +17,16 @@
 
 	&:focus {
 		&:before {
-			box-shadow: 0 0 0 1px #fff, 0 0 0 3px var(--nfd-wba-color-brand);
+			box-shadow:
+				0 0 0 1px #fff,
+				0 0 0 3px var(--nfd-wba-color-brand);
 			outline: none;
 		}
 	}
 
 	&.is-pressed:focus:before {
-		box-shadow: 0 0 0 1px #fff, 0 0 0 3px var(--wp-admin-theme-color);
+		box-shadow:
+			0 0 0 1px #fff,
+			0 0 0 3px var(--wp-admin-theme-color);
 	}
 }
