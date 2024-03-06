@@ -16,9 +16,9 @@
 @import "parts/colors/colors";
 @import "parts/slider/slider";
 @import "parts/block-preview";
+@import "parts/blog/blog";
 @import "parts/misc";
 
 /* Not-refactored yet
 @import 'parts/form';
-@import 'parts/blog';
 */

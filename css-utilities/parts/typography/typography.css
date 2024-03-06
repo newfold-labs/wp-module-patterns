@@ -11,6 +11,7 @@
 	--wndb--text-scale-factor: 1;
 
 	/* Scale */
+	--wndb--text--xs: 0.8125rem;
 	--wndb--text--sm: 0.875rem;
 	--wndb--text--base: 1rem;
 	--wndb--text--md: 1.125rem;
@@ -18,6 +19,15 @@
 	--wndb--text--xl: 2.375rem;
 	--wndb--text--huge: clamp(2.75rem, 1.4688rem + 2.5vw, 3.5rem);
 	--wndb--text-giga: clamp(3.25rem, 2.546875rem + 2.25vw, 4.375rem);
+}
+
+/* XS */
+.nfd-text-xs:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: calc(var(--wndb--text--xs) * var(--wndb--text-scale-factor));
+}
+
+.nfd-text-xs:not([style*="letter-spacing"]) {
+	letter-spacing: 0.05em;
 }
 
 /* Small */

@@ -67,3 +67,21 @@ p[style*="text-decoration"] > a {
 :where(.wp-block-search__input) {
 	border-radius: var(--wndb--border--radius--sm);
 }
+
+/* Stretch cover child group */
+.nfd-stretch-cover-child,
+.nfd-stretch-cover-child .wp-block-cover__inner-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.nfd-stretch-cover-child .wp-block-cover__inner-container,
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	align-items: inherit;
+	justify-content: inherit;
+	flex-grow: 1;
+}
+
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	width: 100%;
+}

@@ -28,6 +28,11 @@
     * lg
     */
 	--wndb--p--lg: clamp(2.82rem, 7vw, 6.25rem);
+
+	/**
+    * Used for square cards
+    */
+	--wndb--p--square: 2.5rem;
 }
 
 /* ---------------------------------- Card ---------------------------------- */
@@ -47,6 +52,10 @@
 	.nfd-p-card-lg {
 		padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(10% * var(--wndb--padding-factor));
 	}
+}
+
+.nfd-p-card-square {
+	padding: calc(var(--wndb--p--square) * var(--wndb--padding-factor));
 }
 
 /* --------------------------------- XSmall --------------------------------- */

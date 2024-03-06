@@ -56,6 +56,7 @@ module.exports = {
 		"nfd-grow",
 		"nfd-h-full",
 		"nfd-items-center",
+		"nfd-my-0",
 		"nfd-mb-8",
 		"nfd-mt-[-100px]",
 		"nfd-mt-8",

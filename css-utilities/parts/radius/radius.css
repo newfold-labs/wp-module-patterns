@@ -20,6 +20,7 @@
 [class*="nfd-rounded"]:not([style*="-radius"]),
 [class*="nfd-rounded"]:not([style*="-radius"]) > img,
 [class*="nfd-rounded"]:not([style*="-radius"]) > .wp-element-button:not([style*="-radius"]),
+[class*="nfd-rounded"]:not([style*="-radius"]) > a > img,
 [class*="nfd-rounded"]:not([style*="-radius"]) > .components-resizable-box__container > img {
 	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor));
 }

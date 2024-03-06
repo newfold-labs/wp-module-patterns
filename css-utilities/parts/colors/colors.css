@@ -54,24 +54,23 @@
  */
 
 .nfd-theme-white {
-	--wndb--color--surface: var(--wndb-gray-50);
-	--wndb--color--text: var(--wndb-gray-800);
+	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--links: var(--wndb--color--primary);
+	--wndb--color--subtle: var(--wndb-gray-200);
+	--wndb--color--surface: var(--wndb-white);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
-	--wndb--color--borders: var(--wndb-gray-100);
-	--wndb--color--subtle: var(--wndb-gray-200);
-	--wndb--color--links: var(--wndb--color--primary);
-	--wndb--color--surface: var(--wndb-white);
+	--wndb--color--text: var(--wndb-gray-800);
 }
 
 .nfd-theme-light {
+	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--links: var(--wndb--color--primary);
+	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--surface: var(--wndb-gray-50);
-	--wndb--color--text: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
-	--wndb--color--borders: var(--wndb-gray-100);
-	--wndb--color--subtle: var(--wndb-gray-200);
-	--wndb--color--links: var(--wndb--color--primary);
+	--wndb--color--text: var(--wndb-gray-800);
 }
 
 .nfd-theme-dark {
@@ -123,6 +122,7 @@
 
 /* Faded text color */
 .nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-faded > a:not(.has-text-color):not(.has-link-color):not(.has-background),
 p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-text-faded time:not(.has-text-color):not(.has-background) {
 	color: var(--wndb--color--text--faded);
