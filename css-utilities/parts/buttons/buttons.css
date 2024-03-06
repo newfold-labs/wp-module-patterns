@@ -48,7 +48,12 @@
 	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1.125rem - var(--wndb--button--outline-width));
 }
 
-.nfd-theme-primary .wp-block-button > .wp-block-button__link {
+.nfd-theme-primary .wp-block-button > .wp-block-button__link:not(.has-background):not(.has-text-color) {
 	background-color: var(--wndb-white);
 	color: var(--wndb-gray-900);
+}
+
+.nfd-theme-primary .wp-block-button.nfd-bg-secondary > .wp-block-button__link:not(.has-background) {
+	background-color: var(--wndb-gray-900);
+	color: var(--wndb-white);
 }

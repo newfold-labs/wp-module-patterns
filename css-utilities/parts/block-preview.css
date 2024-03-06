@@ -10,6 +10,10 @@
 	padding: 0;
 } */
 
+.block-editor-block-preview__content-iframe figure:has([style*="aspect-ratio: 16 / 9"]) {
+	width: 100%;
+}
+
 .block-editor-block-preview__content-iframe [style*="min-height: 100vh"],
 .block-editor-block-preview__content-iframe [style*="min-height:100vh"] {
 	min-height: 800px;
