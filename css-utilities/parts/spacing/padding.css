@@ -50,7 +50,7 @@
 
 @media screen and (min-width: 782px) {
 	.nfd-p-card-lg {
-		padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(10% * var(--wndb--padding-factor));
+		padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * 1.5 * var(--wndb--padding-factor));
 	}
 }
 
