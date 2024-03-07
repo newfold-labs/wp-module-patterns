@@ -43,7 +43,8 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 
 /* ------------------------------- Wide width ------------------------------- */
 .nfd-container:is(.is-layout-constrained) > .alignwide,
-.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > .alignwide {
+.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > .alignwide,
+.nfd-container:is(.is-layout-constrained).alignwide > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 	/* no important */
 	width: 100%;
 	max-width: var(--wndb--container--wide);

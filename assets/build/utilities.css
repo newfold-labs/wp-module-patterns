@@ -362,7 +362,7 @@
 	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor)) !important;
 }
 .nfd-text-md:not([style*="line-height"]) {
-	line-height: 1.5 !important;
+	line-height: 1.6 !important;
 }
 /* Large */
 .nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
@@ -629,7 +629,8 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 /* ------------------------------- Wide width ------------------------------- */
 .nfd-container:is(.is-layout-constrained) > .alignwide,
-.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > .alignwide {
+.editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > .alignwide,
+.nfd-container:is(.is-layout-constrained).alignwide > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 	width: 100%;
 	max-width: var(--wndb--container--wide);
 }
@@ -1110,6 +1111,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb-white-900: rgba(255, 255, 255, 0.9);
 
 	--wndb--color--primary: hsla(240, 100%, 50%, 1);
+	--wndb--color--secondary: hsla(240, 100%, 50%, 1);
 
 	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--surface: var(--wndb-gray-50);
@@ -1228,7 +1230,9 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 }
 /* ---------------------------------- Other --------------------------------- */
 .nfd-bg-primary:not(.has-background),
-.nfd-bg-accent:not(.has-background) {
+.nfd-bg-accent:not(.has-background),
+.wp-block-cover.nfd-bg-primary > .wp-block-cover__background:not([class*="background-color"]),
+.wp-block-cover.nfd-bg-accent > .wp-block-cover__background:not([class*="background-color"]) {
 	background-color: var(--wndb--color--primary) !important;
 }
 .nfd-bg-primary:not(.has-text-color),
@@ -1241,14 +1245,22 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	color: var(--wndb--color--text--contrast) !important;
 }
 .nfd-text-primary:not(.has-text-color),
-.nfd-text-secondary:not(.has-text-color),
-.wp-block-button.wndb-text-primary > a:not(.has-text-color),
-.wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
+.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary) !important;
 }
+.nfd-text-secondary:not(.has-text-color),
+.wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
+	color: var(--wndb--color--secondary) !important;
+}
 .nfd-theme-primary .nfd-text-primary:not(.has-text-color),
-.nfd-theme-primary .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
+.nfd-theme-primary .wp-block-button.wndb-text-primary > a:not(.has-text-color),
+.nfd-theme-primary .nfd-text-secondary:not(.has-text-color),
+.nfd-theme-secondary .wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
 	color: var(--wndb--color--contrast) !important;
+}
+.nfd-theme-dark .nfd-text-primary:not(.has-text-color),
+.nfd-theme-darker .nfd-text-primary:not(.has-text-color) {
+	color: var(--wndb--color--secondary) !important;
 }
 .nfd-text-subtle:not(.has-text-color) {
 	color: var(--wndb--color--subtle) !important;

@@ -34,6 +34,7 @@
 	--wndb-white-900: rgba(255, 255, 255, 0.9);
 
 	--wndb--color--primary: hsla(240, 100%, 50%, 1);
+	--wndb--color--secondary: hsla(240, 100%, 50%, 1);
 
 	/* ----------------------------- Themable ---------------------------- */
 	--wndb--color--surface: var(--wndb-gray-50);
@@ -169,7 +170,9 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 
 /* ---------------------------------- Other --------------------------------- */
 .nfd-bg-primary:not(.has-background),
-.nfd-bg-accent:not(.has-background) {
+.nfd-bg-accent:not(.has-background),
+.wp-block-cover.nfd-bg-primary > .wp-block-cover__background:not([class*="background-color"]),
+.wp-block-cover.nfd-bg-accent > .wp-block-cover__background:not([class*="background-color"]) {
 	background-color: var(--wndb--color--primary);
 }
 
@@ -185,15 +188,25 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 }
 
 .nfd-text-primary:not(.has-text-color),
-.nfd-text-secondary:not(.has-text-color),
-.wp-block-button.wndb-text-primary > a:not(.has-text-color),
-.wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
+.wp-block-button.wndb-text-primary > a:not(.has-text-color) {
 	color: var(--wndb--color--primary);
 }
 
+.nfd-text-secondary:not(.has-text-color),
+.wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
+	color: var(--wndb--color--secondary);
+}
+
 .nfd-theme-primary .nfd-text-primary:not(.has-text-color),
-.nfd-theme-primary .wp-block-button.wndb-text-primary > a:not(.has-text-color) {
+.nfd-theme-primary .wp-block-button.wndb-text-primary > a:not(.has-text-color),
+.nfd-theme-primary .nfd-text-secondary:not(.has-text-color),
+.nfd-theme-secondary .wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
 	color: var(--wndb--color--contrast);
+}
+
+.nfd-theme-dark .nfd-text-primary:not(.has-text-color),
+.nfd-theme-darker .nfd-text-primary:not(.has-text-color) {
+	color: var(--wndb--color--secondary);
 }
 
 .nfd-text-subtle:not(.has-text-color) {

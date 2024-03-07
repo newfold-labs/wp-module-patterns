@@ -48,15 +48,13 @@ class CSSUtilities {
 			$css = "body, .editor-styles-wrapper {
                 /* Colors */
                 --wndb--color--primary: var(--wp--preset--color--primary);
+                --wndb--color--secondary: var(--wp--preset--color--secondary);
                 
 				--wndb--p: var(--wp--preset--spacing--40);
                 
                 --wndb--text--sm: var(--wp--preset--font-size--x-small);
 				--wndb--text--md: var(--wp--preset--font-size--normal);
-                
 
-                
-                
                 
 				--nfd-cp-text-sm: var(--wp--preset--font-size--x-small, 0.875rem);
                 --nfd-cp-text-lg: var(--wp--preset--font-size--medium, 1.625rem);
