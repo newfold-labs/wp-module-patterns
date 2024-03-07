@@ -1005,6 +1005,11 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-btn > .wp-block-button__link:not([style*="padding"]) {
 	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1.125rem - var(--wndb--button--outline-width)) !important;
 }
+/* Wide */
+.nfd-btn-wide > .wp-block-button__link:not([style*="padding"]) {
+	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1.5rem - var(--wndb--button--outline-width)) !important;
+}
+/* Theme overrides */
 .nfd-theme-primary .wp-block-button > .wp-block-button__link:not(.has-background):not(.has-text-color) {
 	background-color: var(--wndb-white) !important;
 	color: var(--wndb-gray-900) !important;
@@ -1293,7 +1298,9 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 :where(:root) {
 	--wndb--slider-height: 100lvh;
 }
-.nfd-scroll-slider {
+/* Slider Base Styles */
+.nfd-scroll-slider-vertical,
+.nfd-scroll-slider-horizontal {
 	flex-wrap: nowrap !important;
 	height: var(--wndb--slider-height) !important;
 	overflow-y: auto !important;
@@ -1301,11 +1308,50 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	-ms-overflow-style: none !important; /* IE and Edge */
 	scrollbar-width: none !important; /* Firefox */
 }
-.nfd-scroll-slider::-webkit-scrollbar {
+.nfd-scroll-slider-vertical::-webkit-scrollbar,
+.nfd-scroll-slider-horizontal::-webkit-scrollbar {
 	display: none !important;
 }
-.nfd-scroll-slider > * {
+/* Vertical Slider */
+.nfd-scroll-slider-vertical {
+	height: 100vh !important;
+	overflow-y: auto !important;
+	scroll-snap-type: y mandatory !important;
+}
+.nfd-scroll-slider-vertical > * {
+	width: 100% !important;
 	scroll-snap-align: start !important;
+}
+/* Horizontal Slider */
+.nfd-scroll-slider-horizontal {
+	overflow-x: auto !important;
+	scroll-snap-type: x mandatory !important;
+	flex-direction: row !important;
+}
+.nfd-scroll-slider-horizontal > * {
+	flex-shrink: 0 !important;
+	scroll-snap-align: start !important;
+}
+.nfd-scroll-slider-horizontal > .wp-block-cover {
+	width: 100vw !important;
+}
+.nfd-container.alignfull .nfd-scroll-slider-horizontal {
+	--half-container: calc(50vw - var(--wndb--container) / 2);
+	scroll-padding: var(--half-container) !important;
+	padding-left: var(--half-container) !important;
+	padding-right: var(--half-container) !important;
+}
+/* Animation */
+.nfd-scroll-slider-horizontal.nfd-scroll-slider-animate > .wp-block-cover:nth-child(1) {
+	animation: scroll-slider-slide 1s ease 1s forwards; /* 1-second delay */
+}
+@keyframes scroll-slider-slide {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: -100vw;
+	}
 }
 /**
  * This file contains various fixes for the block editor when used with Wonder Blocks.
@@ -1475,6 +1521,39 @@ p[style*="text-decoration"] > a {
 }
 .nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
 	width: 100% !important;
+}
+.nfd-container summary {
+	position: relative !important;
+}
+.nfd-container summary::marker {
+	content: none !important;
+}
+.nfd-container summary::before {
+	content: "" !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	position: absolute !important;
+	right: 0 !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	width: 1em !important;
+	height: 1em !important;
+	border-radius: 999px !important;
+	opacity: 0.6 !important;
+
+	background-color: var(--wndb--color--borders) !important;
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBsdXMiPjxwYXRoIGQ9Ik01IDEyaDE0Ii8+PHBhdGggZD0iTTEyIDV2MTQiLz48L3N2Zz4=") !important;
+	background-size: 13px !important;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
+}
+.nfd-container [open] summary::before {
+	transform: translateY(-50%) rotate(45deg) !important;
+	opacity: 1 !important;
+}
+.nfd-container summary:hover::before {
+	opacity: 1 !important;
 }
 /* Not-refactored yet
 @import 'parts/form';
