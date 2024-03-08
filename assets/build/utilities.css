@@ -361,7 +361,8 @@
 .nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
 	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor)) !important;
 }
-.nfd-text-md:not([style*="line-height"]) {
+.nfd-text-md:not([style*="line-height"]),
+.nfd-text-base:not([style*="line-height"]) {
 	line-height: 1.6 !important;
 }
 /* Large */
@@ -397,7 +398,7 @@
 	max-width: var(--wndb--max-w--prose) !important;
 }
 .nfd-text-huge:not([style*="line-height"]) {
-	line-height: 1.16667 !important;
+	line-height: 1.1 !important;
 }
 .nfd-text-huge:not([style*="letter-spacing"]) {
 	letter-spacing: -0.04em !important;
@@ -808,7 +809,8 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	/**
     * Used for square cards
     */
-	--wndb--p--square: 2.5rem;
+	--wndb--p--square: 2.5rem; /* 40px */
+	--wndb--p--square-lg: 4rem; /* 64px */
 }
 /* ---------------------------------- Card ---------------------------------- */
 .nfd-p-card-sm:not([style*="padding"]) {
@@ -818,7 +820,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
 }
 .nfd-p-card-lg:not([style*="padding"]) {
-	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
+	padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
 }
 @media screen and (min-width: 782px) {
 	.nfd-p-card-lg:not([style*="padding"]) {
@@ -827,6 +829,14 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-p-card-square:not([style*="padding"]) {
 	padding: calc(var(--wndb--p--square) * var(--wndb--padding-factor)) !important;
+}
+.nfd-p-card-square-lg:not([style*="padding"]) {
+	padding: calc(var(--wndb--p--square) * var(--wndb--padding-factor)) !important;
+}
+@media screen and (min-width: 782px) {
+	.nfd-p-card-square-lg:not([style*="padding"]) {
+		padding: calc(var(--wndb--p--square-lg) * var(--wndb--padding-factor)) !important;
+	}
 }
 /* --------------------------------- XSmall --------------------------------- */
 .nfd-p-xs:not([style*="padding"]) {

@@ -45,7 +45,8 @@
 	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor));
 }
 
-.nfd-text-md:not([style*="line-height"]) {
+.nfd-text-md:not([style*="line-height"]),
+.nfd-text-base:not([style*="line-height"]) {
 	line-height: 1.6;
 }
 
@@ -91,7 +92,7 @@
 }
 
 .nfd-text-huge:not([style*="line-height"]) {
-	line-height: 1.16667;
+	line-height: 1.1;
 }
 
 .nfd-text-huge:not([style*="letter-spacing"]) {

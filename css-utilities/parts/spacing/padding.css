@@ -32,7 +32,8 @@
 	/**
     * Used for square cards
     */
-	--wndb--p--square: 2.5rem;
+	--wndb--p--square: 2.5rem; /* 40px */
+	--wndb--p--square-lg: 4rem; /* 64px */
 }
 
 /* ---------------------------------- Card ---------------------------------- */
@@ -45,7 +46,7 @@
 }
 
 .nfd-p-card-lg {
-	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+	padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
 @media screen and (min-width: 782px) {
@@ -56,6 +57,16 @@
 
 .nfd-p-card-square {
 	padding: calc(var(--wndb--p--square) * var(--wndb--padding-factor));
+}
+
+.nfd-p-card-square-lg {
+	padding: calc(var(--wndb--p--square) * var(--wndb--padding-factor));
+}
+
+@media screen and (min-width: 782px) {
+	.nfd-p-card-square-lg {
+		padding: calc(var(--wndb--p--square-lg) * var(--wndb--padding-factor));
+	}
 }
 
 /* --------------------------------- XSmall --------------------------------- */
