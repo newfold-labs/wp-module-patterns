@@ -13,6 +13,18 @@
 	--wndb--button--outline-width: 2px;
 }
 
+[class*="nfd-btn"].is-style-outline > .wp-block-button__link:not(.has-border-color) {
+	border-color: var(--wndb--color--borders);
+}
+
+[class*="nfd-btn"].is-style-outline > .wp-block-button__link:not(.has-background):not(.has-text-color) {
+	color: var(--wndb--color--text--contrast);
+}
+
+[class*="nfd-btn"].is-style-outline > .wp-block-button__link:hover {
+	filter: brightness(0.9);
+}
+
 /* XL */
 .nfd-btn-xl > .wp-block-button__link:not([style*="padding"]) {
 	padding: var(--wndb--button-xl);

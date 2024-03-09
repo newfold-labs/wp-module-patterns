@@ -58,8 +58,8 @@
 	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px);
 	background-size: 32px 80px;
-	right: -25%;
-	top: -10%;
+	right: -40%;
+	top: -20%;
 }
 
 /* Lines */
@@ -77,6 +77,6 @@
 	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px);
 	background-size: 32px 96px;
 	transform: scale(1.5) skew(-45deg, 45deg);
-	right: -25%;
-	top: -10%;
+	right: -40%;
+	top: -20%;
 }
