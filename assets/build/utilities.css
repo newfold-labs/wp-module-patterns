@@ -140,7 +140,6 @@
 .nfd-text-left {
 	text-align: left !important;
 }
-/* New */
 /**
  * WooCommerce styles.
  */
@@ -1480,6 +1479,44 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	display: none !important;
 }
 /**
+ * Form styles
+ */
+.nfd-form-items-grow > div:not(.wp-block-jetpack-button) {
+	flex-grow: 1 !important;
+}
+.nfd-jp-form.nfd-text-center .consent {
+	text-align: center !important;
+}
+.nfd-jp-form .contact-form-submission .go-back-message .link {
+	color: currentColor !important;
+	text-decoration: underline !important;
+}
+.nfd-jp-form .contact-form-submission .go-back-message {
+	margin-top: 0 !important;
+}
+.nfd-jp-form .contact-form-submission {
+	border-color: currentColor !important;
+	padding: calc(0.5 * var(--wndb--p--md)) 0 !important;
+}
+.nfd-jp-form textarea {
+	resize: vertical !important;
+}
+.nfd-jp-form .wp-block-button__link {
+	padding-block-start: 10px !important;
+	padding-block-end: 10px !important;
+}
+.nfd-jp-form .jetpack-field-checkbox .jetpack-field-label .jetpack-field-label__input,
+.nfd-jp-form .jetpack-field-consent .jetpack-field-label .jetpack-field-label__input,
+.nfd-jp-form .consent {
+	text-transform: none !important;
+	line-height: 1.5em !important;
+	font-size: 0.875rem !important;
+	text-wrap: balance !important;
+}
+.nfd-jp-form input[type="checkbox"] {
+	padding: 0 !important;
+}
+/**
  * Miscellaneous utilities.
  */
 /* Fix text-decoration for links */
@@ -1586,9 +1623,6 @@ p[style*="text-decoration"] > a {
 .nfd-container summary:hover::before {
 	opacity: 1 !important;
 }
-/* Not-refactored yet
-@import 'parts/form';
-*/
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;

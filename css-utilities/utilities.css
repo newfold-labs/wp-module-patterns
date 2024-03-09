@@ -2,7 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* New */
 @import "parts/woocommerce/woocommerce";
 @import "parts/backgrounds/backgrounds";
 @import "parts/typography/typography";
@@ -17,8 +16,5 @@
 @import "parts/slider/slider";
 @import "parts/block-preview";
 @import "parts/blog/blog";
+@import "parts/form/form";
 @import "parts/misc";
-
-/* Not-refactored yet
-@import 'parts/form';
-*/
