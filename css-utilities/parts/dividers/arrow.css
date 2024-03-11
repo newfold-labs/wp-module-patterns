@@ -1,0 +1,16 @@
+/*
+ * "Arrow" divider.
+ */
+
+.nfd-divider-arrow {
+	/* no important */
+	--wndb--divider-size: 16px;
+}
+
+.nfd-divider-arrow::before {
+	bottom: calc(var(--wndb--divider-size) * -1);
+	height: calc(var(--wndb--divider-size) * 2);
+	left: 50%;
+	width: calc(var(--wndb--divider-size) * 2);
+	transform: translateX(-50%) rotate(45deg);
+}

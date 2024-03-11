@@ -1,0 +1,32 @@
+:where(:root) {
+	--wndb--max-w--prose: min(65ch, 700px);
+}
+
+.nfd-max-w-prose {
+	max-width: var(--wndb--max-w--prose);
+}
+
+:where(.nfd-text-balance) {
+	text-wrap: balance;
+	max-width: var(--wndb--max-w--prose);
+}
+
+.nfd-text-balance > p,
+.nfd-text-balance > h1,
+.nfd-text-balance > h2,
+.nfd-text-balance > h3,
+.nfd-text-balance > h4 {
+	text-wrap: balance;
+}
+
+.nfd-text-pretty {
+	text-wrap: pretty;
+}
+
+.nfd-text-pretty > p,
+.nfd-text-pretty > h1,
+.nfd-text-pretty > h2,
+.nfd-text-pretty > h3,
+.nfd-text-pretty > h4 {
+	text-wrap: pretty;
+}

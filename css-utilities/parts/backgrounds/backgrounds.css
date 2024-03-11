@@ -1,0 +1,82 @@
+/**
+ * Section Background Effect
+ *
+ * A collection of utilities for adding CSS only background effects.
+ */
+
+:root {
+	--wndb-mask-color: rgba(0, 0, 0, 0.15);
+	--wndb-mask-position: 50% 50% at 50% 20%;
+	--wndb-mask-opacity: 0.35;
+}
+
+[class*="nfd-bg-effect"] {
+	position: relative;
+	isolation: isolate;
+}
+
+.nfd-bg-effect-position-center {
+	--wndb-mask-position: 50% 50% at 50% 50%;
+}
+
+[class*="nfd-bg-effect"]::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%);
+	opacity: var(--wndb-mask-opacity);
+}
+
+/* Dots */
+.nfd-bg-effect-dots::after {
+	--wndb-mask-opacity: 1;
+	background: radial-gradient(var(--wndb-mask-color) 1px, transparent 1px);
+	background-size: 20px 20px;
+}
+
+/* Grid */
+.nfd-bg-effect-grid::after {
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px);
+	background-size: 50px 50px;
+}
+
+.nfd-bg-effect-grid-2::after {
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px);
+	background-size: 14px 32px;
+}
+
+.nfd-bg-effect-grid-3 {
+	overflow: hidden;
+}
+
+.nfd-bg-effect-grid-3::after {
+	transform: scale(1.5) skew(-30deg, 30deg);
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px);
+	background-size: 32px 80px;
+	right: -40%;
+	top: -20%;
+}
+
+/* Lines */
+.nfd-bg-effect-lines::after {
+	--wndb-mask-opacity: 0.4;
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px);
+	background-size: 48px;
+}
+
+.nfd-bg-effect-lines-2 {
+	overflow: hidden;
+}
+
+.nfd-bg-effect-lines-2::after {
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px);
+	background-size: 32px 96px;
+	transform: scale(1.5) skew(-45deg, 45deg);
+	right: -40%;
+	top: -20%;
+}

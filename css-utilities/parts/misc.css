@@ -1,0 +1,125 @@
+/**
+ * Miscellaneous utilities.
+ */
+
+/* Fix text-decoration for links */
+p[style*="text-decoration"] > a {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+/* Fix dots separator align */
+.is-style-dots.nfd-text-left::before {
+	padding-left: 0;
+}
+
+/* Fix full width and height */
+.nfd-h-full,
+.nfd-h-full > img,
+.nfd-h-full > .components-resizable-box__container > img {
+	height: 100%;
+}
+
+.nfd-w-full,
+.nfd-w-full > img,
+.nfd-w-full > .components-resizable-box__container > img {
+	width: 100%;
+}
+
+/* Backdrop blur */
+.nfd-backdrop-blur-sm {
+	backdrop-filter: blur(4px);
+}
+
+.nfd-backdrop-blur-md {
+	backdrop-filter: blur(8px);
+}
+
+/* Absolute header */
+.nfd-absolute-header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+.nfd-absolute-header:not([style*="margin"]) {
+	margin: 0 !important;
+}
+
+/* Fix admin bar offset */
+:is([style*="min-height:100vh"]) {
+	min-height: calc(100vh - var(--wp-admin--admin-bar--height));
+}
+
+@supports (height: 100dvh) {
+	:is([style*="height:100vh"]) {
+		min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
+	}
+}
+
+/* Fix search block */
+.nfd-wk-search .wp-block-search__input {
+	padding: 8px 16px;
+	min-height: 50px;
+}
+
+:where(.wp-block-search__input) {
+	border-radius: var(--wndb--border--radius--sm);
+}
+
+/* Stretch cover child group */
+.nfd-stretch-cover-child,
+.nfd-stretch-cover-child .wp-block-cover__inner-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.nfd-stretch-cover-child .wp-block-cover__inner-container,
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	align-items: inherit;
+	justify-content: inherit;
+	flex-grow: 1;
+}
+
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+	width: 100%;
+}
+
+.nfd-container summary {
+	position: relative;
+}
+
+.nfd-container summary::marker {
+	content: none;
+}
+
+.nfd-container summary::before {
+	content: "";
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1em;
+	height: 1em;
+	border-radius: 999px;
+	opacity: 0.6;
+
+	background-color: var(--wndb--color--borders);
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBsdXMiPjxwYXRoIGQ9Ik01IDEyaDE0Ii8+PHBhdGggZD0iTTEyIDV2MTQiLz48L3N2Zz4=");
+	background-size: 13px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.nfd-container [open] summary::before {
+	transform: translateY(-50%) rotate(45deg);
+	opacity: 1;
+}
+
+.nfd-container summary:hover::before {
+	opacity: 1;
+}

@@ -163,7 +163,7 @@
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 	background: rgba(255, 255, 255, 0.5) !important;
 	-webkit-backdrop-filter: blur(4px) !important;
-	        backdrop-filter: blur(4px) !important;
+	backdrop-filter: blur(4px) !important;
 	border-radius: 999px !important;
 	font-size: 0.8125rem !important;
 	font-weight: 700 !important;
@@ -248,7 +248,7 @@
 	z-index: -1 !important;
 	pointer-events: none !important;
 	-webkit-mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
-	        mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
+	mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
 	opacity: var(--wndb-mask-opacity) !important;
 }
 /* Dots */
@@ -304,7 +304,7 @@
 .nfd-max-w-prose {
 	max-width: var(--wndb--max-w--prose) !important;
 }
-:where(.nfd-text-balance) {
+:where(.nfd-text-balance:not(.nfd-max-w-full)) {
 	text-wrap: balance !important;
 	max-width: var(--wndb--max-w--prose) !important;
 }
@@ -550,11 +550,11 @@ div:has(> .nfd-wb-twist-in) {
 
 	transition: var(--nfd-wb-anim-transition);
 	-webkit-clip-path: inset(0 100% 0 0);
-	        clip-path: inset(0 100% 0 0);
+	clip-path: inset(0 100% 0 0);
 }
 .nfd-wb-animated-in > .nfd-wb-reveal-right:not([data-replay-animation]) {
 	-webkit-clip-path: inset(0 0 0 0) !important;
-	        clip-path: inset(0 0 0 0) !important;
+	clip-path: inset(0 0 0 0) !important;
 }
 /* --------------------------------- Delays --------------------------------- */
 .nfd-delay-50 {
@@ -607,7 +607,6 @@ div:has(> .nfd-wb-twist-in) {
  * easily overriden by the theme or Gutenberg options.
  */
 :where(:root) {
-
 	/*
     * Default and wide container width. 
     * This is used if the width is not inherited from the theme.
@@ -712,7 +711,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-ellipse::before {
 	-webkit-clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
-	        clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
+	clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
 }
 /**
  * "Rounded" section divider.
@@ -733,12 +732,12 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-slant::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 0 100%) !important;
-	        clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	clip-path: polygon(0 0, 100% 0, 0 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 .nfd-divider-slant-invert::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
-	        clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 /**
@@ -749,7 +748,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-triangle::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
-	        clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
+	clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 /**
@@ -760,7 +759,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-zigzag::before {
 	-webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
-	        mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
+	mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
 }
 :where(:root) {
 	--wndb--divider-size: 0px;
@@ -947,7 +946,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-gap-x-lg,
 .editor-styles-wrapper .nfd-gap-x-lg {
 	-moz-column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
-	     column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+	column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
 }
 .nfd-gap-y-lg,
 .editor-styles-wrapper .nfd-gap-y-lg {
@@ -1478,9 +1477,9 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 .nfd-query-loop-3 :where(.wp-block-post-author__name) {
 	display: none !important;
 }
-/**
- * Form styles
- */
+/* -------------------------------------------------------------------------- */
+/*                                 Form styles                                */
+/* -------------------------------------------------------------------------- */
 .nfd-form-items-grow > div:not(.wp-block-jetpack-button) {
 	flex-grow: 1 !important;
 }
@@ -1542,11 +1541,11 @@ p[style*="text-decoration"] > a {
 /* Backdrop blur */
 .nfd-backdrop-blur-sm {
 	-webkit-backdrop-filter: blur(4px) !important;
-	        backdrop-filter: blur(4px) !important;
+	backdrop-filter: blur(4px) !important;
 }
 .nfd-backdrop-blur-md {
 	-webkit-backdrop-filter: blur(8px) !important;
-	        backdrop-filter: blur(8px) !important;
+	backdrop-filter: blur(8px) !important;
 }
 /* Absolute header */
 .nfd-absolute-header {

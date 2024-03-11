@@ -1,0 +1,62 @@
+/**
+ * Blog related utilities and styles.
+ */
+
+[class*="nfd-query-loop-"] :where(.wp-block-post-author__avatar img) {
+	/* no important */
+	display: block;
+	border-radius: 999px;
+}
+
+[class*="nfd-query-loop-"] :where(.avatar-48) {
+	width: 36px;
+	height: 36px;
+}
+
+[class*="nfd-query-loop-"] :where(.wp-block-post-author__content) {
+	/* no important */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 4px;
+}
+
+[class*="nfd-query-loop-"] .wp-block-post-author__avatar {
+	margin-right: 12px;
+}
+
+.nfd-query-loop-1 :where(.wp-block-cover) {
+	/* no important */
+	aspect-ratio: 2 / 1.1;
+}
+
+.nfd-query-loop-1 :where(.wp-block-post-author__content) {
+	flex-direction: row;
+	align-items: center;
+}
+
+.nfd-query-loop-1 :where(.wp-block-post-author__byline) {
+	font-size: 1em;
+	opacity: 0.8;
+}
+
+[class*="nfd-query-loop-"] :where(.wp-block-categories) {
+	/* no important */
+	display: flex;
+	gap: 8px;
+	list-style: none;
+	padding: 0;
+}
+
+[class*="nfd-query-loop-"] :where(.wp-block-categories a) {
+	color: inherit;
+}
+
+.nfd-query-loop-2 .wp-block-cover__background {
+	-webkit-mask-image: linear-gradient(to bottom, transparent 25%, black 75%);
+	mask-image: linear-gradient(to bottom, transparent 25%, black 75%);
+}
+
+.nfd-query-loop-3 :where(.wp-block-post-author__name) {
+	display: none;
+}
