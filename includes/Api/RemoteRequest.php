@@ -52,12 +52,6 @@ class RemoteRequest {
 			$this->base_url = 'https://patterns.hiive.cloud';
 		}
 
-		$this->data = array(
-			'wp_language'       => \get_locale(),
-			'wp_theme'          => \get_option( 'template' ),
-			'wp_active_plugins' => $request->get_method() === 'POST' ? \get_option( 'active_plugins' ) : array(),
-		);
-
 		$this->headers = array(
 			'Accept'     => 'application/json',
 			'referer'    => $request->get_header( 'referer' ),
