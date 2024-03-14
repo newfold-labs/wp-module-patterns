@@ -163,7 +163,7 @@
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 	background: rgba(255, 255, 255, 0.5) !important;
 	-webkit-backdrop-filter: blur(4px) !important;
-	backdrop-filter: blur(4px) !important;
+	        backdrop-filter: blur(4px) !important;
 	border-radius: 999px !important;
 	font-size: 0.8125rem !important;
 	font-weight: 700 !important;
@@ -248,7 +248,7 @@
 	z-index: -1 !important;
 	pointer-events: none !important;
 	-webkit-mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
-	mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
+	        mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
 	opacity: var(--wndb-mask-opacity) !important;
 }
 /* Dots */
@@ -301,12 +301,12 @@
 :where(:root) {
 	--wndb--max-w--prose: min(65ch, 700px);
 }
-.nfd-max-w-prose {
+.nfd-max-w-prose:not(.nfd-max-w-full),
+:where(.nfd-text-balance:not(.nfd-max-w-full)) {
 	max-width: var(--wndb--max-w--prose) !important;
 }
-:where(.nfd-text-balance:not(.nfd-max-w-full)) {
+:where(.nfd-text-balance) {
 	text-wrap: balance !important;
-	max-width: var(--wndb--max-w--prose) !important;
 }
 .nfd-text-balance > p,
 .nfd-text-balance > h1,
@@ -324,6 +324,17 @@
 .nfd-text-pretty > h3,
 .nfd-text-pretty > h4 {
 	text-wrap: pretty !important;
+}
+.wp-block-image figcaption {
+	text-wrap: balance !important;
+	font-weight: 400 !important;
+	max-width: 64ch !important;
+	margin-inline: auto !important;
+	padding-block-start: 0.5em !important;
+}
+.wp-block-quote > .nfd-text-pretty {
+	margin-block: 0.25em;
+	font-weight: 550;
 }
 :where(:root) {
 	/**
@@ -550,11 +561,11 @@ div:has(> .nfd-wb-twist-in) {
 
 	transition: var(--nfd-wb-anim-transition);
 	-webkit-clip-path: inset(0 100% 0 0);
-	clip-path: inset(0 100% 0 0);
+	        clip-path: inset(0 100% 0 0);
 }
 .nfd-wb-animated-in > .nfd-wb-reveal-right:not([data-replay-animation]) {
 	-webkit-clip-path: inset(0 0 0 0) !important;
-	clip-path: inset(0 0 0 0) !important;
+	        clip-path: inset(0 0 0 0) !important;
 }
 /* --------------------------------- Delays --------------------------------- */
 .nfd-delay-50 {
@@ -607,6 +618,7 @@ div:has(> .nfd-wb-twist-in) {
  * easily overriden by the theme or Gutenberg options.
  */
 :where(:root) {
+
 	/*
     * Default and wide container width. 
     * This is used if the width is not inherited from the theme.
@@ -711,7 +723,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-ellipse::before {
 	-webkit-clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
-	clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
+	        clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
 }
 /**
  * "Rounded" section divider.
@@ -732,12 +744,12 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-slant::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 0 100%) !important;
-	clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 0 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 .nfd-divider-slant-invert::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
-	clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 /**
@@ -748,7 +760,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-triangle::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
-	clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
+	        clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 /**
@@ -759,7 +771,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-zigzag::before {
 	-webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
-	mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
+	        mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
 }
 :where(:root) {
 	--wndb--divider-size: 0px;
@@ -946,7 +958,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-gap-x-lg,
 .editor-styles-wrapper .nfd-gap-x-lg {
 	-moz-column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
-	column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+	     column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
 }
 .nfd-gap-y-lg,
 .editor-styles-wrapper .nfd-gap-y-lg {
@@ -971,6 +983,10 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	row-gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
 }
 /* XXXLarge */
+.nfd-gap-3xl,
+.editor-styles-wrapper .nfd-gap-3xl {
+	gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
+}
 .nfd-gap-y-3xl,
 .editor-styles-wrapper .nfd-gap-y-3xl {
 	row-gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
@@ -980,8 +996,13 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
  */
 :where(:root) {
 	--wndb--button--outline-width: 0px;
+
+	--wndb--button-lg: 0.75rem 2rem;
+	--wndb--button-lg--font-size: 1.125rem;
+
 	--wndb--button-xl: 1rem 3rem;
 	--wndb--button-xl--font-size: 1.125rem;
+
 	--wndb--button-sm--font-size: 1rem;
 }
 [class*="nfd-btn"].is-style-outline {
@@ -996,6 +1017,16 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 [class*="nfd-btn"].is-style-outline > .wp-block-button__link:hover {
 	filter: brightness(0.9) !important;
 }
+/* LG */
+.nfd-btn-lg > .wp-block-button__link:not([style*="padding"]) {
+	padding: var(--wndb--button-lg) !important;
+}
+.nfd-btn-lg:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {
+	font-size: var(--wndb--button-lg--font-size) !important;
+}
+.nfd-btn-xl:not([style*="font-weight"]) > .wp-block-button__link {
+	font-weight: 600 !important;
+}
 /* XL */
 .nfd-btn-xl > .wp-block-button__link:not([style*="padding"]) {
 	padding: var(--wndb--button-xl) !important;
@@ -1005,12 +1036,6 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-btn-xl:not([style*="font-weight"]) > .wp-block-button__link {
 	font-weight: 600 !important;
-}
-.nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color) {
-	color: #fff !important;
-}
-.nfd-btn-xl.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
-	color: #fff !important;
 }
 /* SM */
 .nfd-btn-sm > .wp-block-button__link:not([style*="padding"]) {
@@ -1025,7 +1050,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 /* Wide */
 .nfd-btn-wide > .wp-block-button__link:not([style*="padding"]) {
-	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1.5rem - var(--wndb--button--outline-width)) !important;
+	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1.75rem - var(--wndb--button--outline-width)) !important;
 }
 /* Theme overrides */
 .nfd-theme-primary .wp-block-button > .wp-block-button__link:not(.has-background):not(.has-text-color) {
@@ -1035,6 +1060,13 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-theme-primary .wp-block-button.nfd-bg-secondary > .wp-block-button__link:not(.has-background) {
 	background-color: var(--wndb-gray-900) !important;
 	color: var(--wndb-white) !important;
+}
+/* Color fixes */
+[class*="nfd-btn"].is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color) {
+	color: #fff !important;
+}
+[class*="nfd-btn"].is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
+	color: #fff !important;
 }
 /**
  * Shadow utilities.
@@ -1207,7 +1239,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	color: var(--wndb--color--text) !important;
 }
 /* Faded text color */
-.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background),
+.nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background):not(.nfd-text-primary),
 .nfd-text-faded > a:not(.has-text-color):not(.has-link-color):not(.has-background),
 p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-text-faded time:not(.has-text-color):not(.has-background) {
@@ -1430,6 +1462,18 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	transform: none !important;
 	opacity: 1 !important;
 }
+ul.nfd-gap-md li:not(:last-child) {
+	margin-bottom: 1em !important;
+}
+ul.nfd-list-check {
+	list-style-type: none !important;
+	padding-inline-start: 1em !important;
+}
+ul.nfd-list-check li::before {
+	content: "✓";
+	display: inline-block;
+	margin-inline-end: 8px;
+}
 /**
  * Blog related utilities and styles.
  */
@@ -1477,9 +1521,7 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 .nfd-query-loop-3 :where(.wp-block-post-author__name) {
 	display: none !important;
 }
-/* -------------------------------------------------------------------------- */
-/*                                 Form styles                                */
-/* -------------------------------------------------------------------------- */
+/* Form styles */
 .nfd-form-items-grow > div:not(.wp-block-jetpack-button) {
 	flex-grow: 1 !important;
 }
@@ -1541,11 +1583,11 @@ p[style*="text-decoration"] > a {
 /* Backdrop blur */
 .nfd-backdrop-blur-sm {
 	-webkit-backdrop-filter: blur(4px) !important;
-	backdrop-filter: blur(4px) !important;
+	        backdrop-filter: blur(4px) !important;
 }
 .nfd-backdrop-blur-md {
 	-webkit-backdrop-filter: blur(8px) !important;
-	backdrop-filter: blur(8px) !important;
+	        backdrop-filter: blur(8px) !important;
 }
 /* Absolute header */
 .nfd-absolute-header {
@@ -1621,6 +1663,9 @@ p[style*="text-decoration"] > a {
 }
 .nfd-container summary:hover::before {
 	opacity: 1 !important;
+}
+.is-style-wide.wp-block-separator {
+	width: 100% !important;
 }
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {

@@ -90,6 +90,11 @@
 }
 
 /* XXXLarge */
+.nfd-gap-3xl,
+.editor-styles-wrapper .nfd-gap-3xl {
+	/* no important */
+	gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
+}
 .nfd-gap-y-3xl,
 .editor-styles-wrapper .nfd-gap-y-3xl {
 	/* no important */

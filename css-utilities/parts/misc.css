@@ -123,3 +123,7 @@ p[style*="text-decoration"] > a {
 .nfd-container summary:hover::before {
 	opacity: 1;
 }
+
+.is-style-wide.wp-block-separator {
+	width: 100%;
+}

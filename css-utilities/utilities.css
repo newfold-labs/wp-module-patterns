@@ -15,6 +15,7 @@
 @import "parts/colors/colors";
 @import "parts/slider/slider";
 @import "parts/block-preview";
+@import "parts/lists/lists";
 @import "parts/blog/blog";
 @import "parts/form/form";
 @import "parts/misc";
