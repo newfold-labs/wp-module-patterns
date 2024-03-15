@@ -63,6 +63,13 @@ class Categories {
 			}
 			$data = $_data;
 		}
+		
+		// Sort the categories by menu_order.
+		usort($data, function ($a, $b) {
+			$orderA = isset( $a['menu_order'] ) ? $a['menu_order'] : PHP_INT_MAX;
+			$orderB = isset( $b['menu_order'] ) ? $b['menu_order'] : PHP_INT_MAX;
+			return $orderA <=> $orderB;
+		});
 
 		// Return the categories.
 		return $data;
