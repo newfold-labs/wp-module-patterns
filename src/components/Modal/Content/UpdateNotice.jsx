@@ -21,7 +21,35 @@ import {
 } from '../../../constants';
 
 const UpdateNotice = () => {
-	if (compare(WP_VERSION, MIN_REQUIRED_WP_VERSION, '>=')) {
+
+	function formatVersion(version) {
+		const hasMinorAndPatch = /^\d+\.\d+\.\d+/.test(version);
+
+		if (hasMinorAndPatch) {
+			return version;
+		}
+
+		const [numericVersion, preRelease] = version.split(/-(.+)/);
+		const parts = numericVersion.split('.');
+
+		while (parts.length < 3) {
+			parts.push('0');
+		}
+
+		const normalizedVersion = preRelease
+			? `${parts.join('.')}-${preRelease}`
+			: parts.join('.');
+
+		return normalizedVersion;
+	}
+
+	if (
+		compare(
+			formatVersion(WP_VERSION),
+			formatVersion(MIN_REQUIRED_WP_VERSION),
+			'>='
+		)
+	) {
 		return null;
 	}
 
