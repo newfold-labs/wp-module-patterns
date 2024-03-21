@@ -21,35 +21,41 @@ import {
 } from '../../../constants';
 
 const UpdateNotice = () => {
-
+	/* To format the version to have semver MAJOR.MINOR.PATCH. Adding '0', if the MINOR or PATCH are missing  */
 	function formatVersion(version) {
 		const hasMinorAndPatch = /^\d+\.\d+\.\d+/.test(version);
 
 		if (hasMinorAndPatch) {
 			return version;
 		}
+		/* For a version that looks like 1.2.3-RC1, numericVersion = "1.2.3" rcSuffix = "RC1" */
+		const [numericVersion, rcSuffix] = version.split(/-(.+)/);
+		const versionParts = numericVersion.split('.');
 
-		const [numericVersion, preRelease] = version.split(/-(.+)/);
-		const parts = numericVersion.split('.');
-
-		while (parts.length < 3) {
-			parts.push('0');
+		while (versionParts.length < 3) {
+			versionParts.push('0');
 		}
 
-		const normalizedVersion = preRelease
-			? `${parts.join('.')}-${preRelease}`
-			: parts.join('.');
+		const formattedVersion = rcSuffix
+			? `${versionParts.join('.')}-${rcSuffix}`
+			: versionParts.join('.');
 
-		return normalizedVersion;
+		return formattedVersion;
 	}
 
-	if (
-		compare(
-			formatVersion(WP_VERSION),
-			formatVersion(MIN_REQUIRED_WP_VERSION),
-			'>='
-		)
-	) {
+	try {
+		if (
+			compare(
+				formatVersion(WP_VERSION),
+				formatVersion(MIN_REQUIRED_WP_VERSION),
+				'>='
+			)
+		) {
+			return null;
+		}
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error('Error comparing versions:', error);
 		return null;
 	}
 
