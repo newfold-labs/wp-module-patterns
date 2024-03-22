@@ -900,6 +900,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-p-lg:not([style*="padding"]) {
 	padding: calc(var(--wndb--p--lg) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor)) !important;
 }
+.nfd-pt-lg:not([style*="padding"]) {
+	padding-block-start: calc(var(--wndb--p--lg) * var(--wndb--padding-factor)) !important;
+}
 /* --------------------------------- Offset --------------------------------- */
 .nfd-pl-offset-md:not([style*="padding"]) {
 	padding-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) - 3px) !important;
@@ -912,6 +915,11 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-overlap-x > *:not(:first-child) {
 	margin-inline-start: -1.275rem !important;
+}
+@media (min-width: 768px) {
+	.-nfd-translate-y-1\/2 {
+		transform: translateY(-50%) !important;
+	}
 }
 :where(:root) {
 	/**
@@ -929,6 +937,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	--wndb--gap--xl: 2rem; /* 32px */
 	--wndb--gap--2xl: 2.5rem; /* 40px */
 	--wndb--gap--3xl: 3.5rem; /* 56px */
+	--wndb--gap--4xl: 6rem; /* 96px */
 }
 /* No Gap */
 .nfd-gap-0,
@@ -990,6 +999,15 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-gap-y-3xl,
 .editor-styles-wrapper .nfd-gap-y-3xl {
 	row-gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
+}
+.nfd-gap-4xl,
+.editor-styles-wrapper .nfd-gap-4xl {
+	gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
+}
+.nfd-gap-x-4xl,
+.editor-styles-wrapper .nfd-gap-x-4xl {
+	-moz-column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
+	     column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
 }
 /**
  * Button styles.
@@ -1105,6 +1123,15 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 [class*="nfd-rounded"]:not([style*="-radius"]) > .components-resizable-box__container > img:not([style*="-radius"]) {
 	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) !important;
 }
+/* Rounded top */
+[class*="nfd-rounded-t-"]:not([style*="-radius"]),
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > img,
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > .wp-element-button:not([style*="-radius"]),
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > a > img,
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > .components-resizable-box__container > img:not([style*="-radius"]) {
+	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) 0
+		0 !important;
+}
 /* ---------------------------------- Scale --------------------------------- */
 .nfd-rounded-none:not([style*="-radius"]) {
 	--wndb--border--radius: 0;
@@ -1119,7 +1146,8 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-rounded-lg:not([style*="-radius"]) {
 	--wndb--border--radius: var(--wndb--border--radius--lg);
 }
-.nfd-rounded-xl:not([style*="-radius"]) {
+.nfd-rounded-xl,
+.nfd-rounded-t-xl:not([style*="-radius"]) {
 	--wndb--border--radius: var(--wndb--border--radius--xl);
 }
 .nfd-rounded-full:not([style*="-radius"]) {
@@ -1612,6 +1640,7 @@ p[style*="text-decoration"] > a {
 .nfd-wk-search .wp-block-search__input {
 	padding: 8px 16px !important;
 	min-height: 50px !important;
+	font-size: inherit !important;
 }
 :where(.wp-block-search__input) {
 	border-radius: var(--wndb--border--radius--sm) !important;

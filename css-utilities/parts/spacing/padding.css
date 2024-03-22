@@ -137,6 +137,10 @@
 	padding: calc(var(--wndb--p--lg) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
 }
 
+.nfd-pt-lg {
+	padding-block-start: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
+}
+
 /* --------------------------------- Offset --------------------------------- */
 .nfd-pl-offset-md {
 	padding-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) - 3px);

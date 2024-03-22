@@ -62,6 +62,7 @@ p[style*="text-decoration"] > a {
 .nfd-wk-search .wp-block-search__input {
 	padding: 8px 16px;
 	min-height: 50px;
+	font-size: inherit;
 }
 
 :where(.wp-block-search__input) {

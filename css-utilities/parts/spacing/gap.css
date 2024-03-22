@@ -14,6 +14,7 @@
 	--wndb--gap--xl: 2rem; /* 32px */
 	--wndb--gap--2xl: 2.5rem; /* 40px */
 	--wndb--gap--3xl: 3.5rem; /* 56px */
+	--wndb--gap--4xl: 6rem; /* 96px */
 }
 
 /* No Gap */
@@ -99,4 +100,16 @@
 .editor-styles-wrapper .nfd-gap-y-3xl {
 	/* no important */
 	row-gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-4xl,
+.editor-styles-wrapper .nfd-gap-4xl {
+	/* no important */
+	gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-x-4xl,
+.editor-styles-wrapper .nfd-gap-x-4xl {
+	/* no important */
+	column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
 }
