@@ -10,6 +10,7 @@ import { Notice } from "@wordpress/components";
 import { addQueryArgs } from "@wordpress/url";
 import { createInterpolateElement } from "@wordpress/element";
 import { __, sprintf } from "@wordpress/i18n";
+import { formatVersion } from "../../../helpers";
 
 /**
  * Internal dependencies
@@ -17,7 +18,13 @@ import { __, sprintf } from "@wordpress/i18n";
 import { BRAND_NAME, MIN_REQUIRED_WP_VERSION, WP_VERSION } from "../../../constants";
 
 const UpdateNotice = () => {
-	if (compare(WP_VERSION, MIN_REQUIRED_WP_VERSION, ">=")) {
+	try {
+		if (compare(formatVersion(WP_VERSION), formatVersion(MIN_REQUIRED_WP_VERSION), ">=")) {
+			return null;
+		}
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error("Error comparing versions:", error);
 		return null;
 	}
 

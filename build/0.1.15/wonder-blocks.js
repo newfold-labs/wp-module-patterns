@@ -4189,7 +4189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var compare_versions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! compare-versions */ "./node_modules/compare-versions/lib/esm/compare.js");
+/* harmony import */ var compare_versions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! compare-versions */ "./node_modules/compare-versions/lib/esm/compare.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
@@ -4198,7 +4198,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../constants */ "./src/constants.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../helpers */ "./src/helpers/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../constants */ "./src/constants.js");
 
 /**
  * External dependencies
@@ -4213,18 +4214,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Internal dependencies
  */
 
 const UpdateNotice = () => {
-  if ((0,compare_versions__WEBPACK_IMPORTED_MODULE_6__.compare)(_constants__WEBPACK_IMPORTED_MODULE_5__.WP_VERSION, _constants__WEBPACK_IMPORTED_MODULE_5__.MIN_REQUIRED_WP_VERSION, ">=")) {
+  try {
+    if ((0,compare_versions__WEBPACK_IMPORTED_MODULE_7__.compare)((0,_helpers__WEBPACK_IMPORTED_MODULE_5__.formatVersion)(_constants__WEBPACK_IMPORTED_MODULE_6__.WP_VERSION), (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.formatVersion)(_constants__WEBPACK_IMPORTED_MODULE_6__.MIN_REQUIRED_WP_VERSION), ">=")) {
+      return null;
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Error comparing versions:", error);
     return null;
   }
   const updateURL = (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_2__.addQueryArgs)("update-core.php");
   const message = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createInterpolateElement)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.sprintf)(
   // translators: %s: brand name - 'Wonder Blocks'.
-  (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("%s needs the latest version of WordPress, please <a>update your site</a>.", "nfd-wonder-blocks"), _constants__WEBPACK_IMPORTED_MODULE_5__.BRAND_NAME), {
+  (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("%s needs the latest version of WordPress, please <a>update your site</a>.", "nfd-wonder-blocks"), _constants__WEBPACK_IMPORTED_MODULE_6__.BRAND_NAME), {
     // eslint-disable-next-line jsx-a11y/anchor-has-content
     a: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: updateURL
@@ -5047,6 +5055,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   blockInserter: () => (/* reexport safe */ _blockInserter__WEBPACK_IMPORTED_MODULE_1__.blockInserter),
 /* harmony export */   fetcher: () => (/* reexport safe */ _fetcher__WEBPACK_IMPORTED_MODULE_2__.fetcher),
+/* harmony export */   formatVersion: () => (/* reexport safe */ _utils__WEBPACK_IMPORTED_MODULE_4__.formatVersion),
 /* harmony export */   optimizePreview: () => (/* reexport safe */ _optimizePreview__WEBPACK_IMPORTED_MODULE_3__.optimizePreview),
 /* harmony export */   trackHiiveEvent: () => (/* reexport safe */ _analytics__WEBPACK_IMPORTED_MODULE_0__.trackHiiveEvent)
 /* harmony export */ });
@@ -5054,6 +5063,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blockInserter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blockInserter */ "./src/helpers/blockInserter.js");
 /* harmony import */ var _fetcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fetcher */ "./src/helpers/fetcher.js");
 /* harmony import */ var _optimizePreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./optimizePreview */ "./src/helpers/optimizePreview.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils */ "./src/helpers/utils.js");
+
 
 
 
@@ -5104,6 +5115,35 @@ const optimizePreview = html => {
     return reducedUrl;
   });
 };
+
+/***/ }),
+
+/***/ "./src/helpers/utils.js":
+/*!******************************!*\
+  !*** ./src/helpers/utils.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   formatVersion: () => (/* binding */ formatVersion)
+/* harmony export */ });
+/* To format the version to have semver MAJOR.MINOR.PATCH. Adding '0', if the MINOR or PATCH are missing  */
+function formatVersion(version) {
+  const hasMinorAndPatch = /^\d+\.\d+\.\d+/.test(version);
+  if (hasMinorAndPatch) {
+    return version;
+  }
+  /* For a version that looks like 1.2.3-RC1, numericVersion = "1.2.3" rcSuffix = "RC1" */
+  const [numericVersion, rcSuffix] = version.split(/-(.+)/);
+  const versionParts = numericVersion.split('.');
+  while (versionParts.length < 3) {
+    versionParts.push('0');
+  }
+  const formattedVersion = rcSuffix ? `${versionParts.join('.')}-${rcSuffix}` : versionParts.join('.');
+  return formattedVersion;
+}
 
 /***/ }),
 
