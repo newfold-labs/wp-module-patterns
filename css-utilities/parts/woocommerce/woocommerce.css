@@ -1,0 +1,94 @@
+/**
+ * WooCommerce styles.
+ */
+
+.nfd-wc-products {
+	self-align: flex-start;
+	flex-grow: 0;
+}
+
+.nfd-wc-products > ul {
+	row-gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-wc-products .wc-block-grid__product-image {
+	overflow: hidden;
+}
+
+.nfd-wc-products .wc-block-grid__product-image img {
+	transition: transform 0.6s ease-in-out;
+}
+
+.nfd-wc-products .wc-block-grid__product-image img:hover {
+	transform: scale(1.1);
+}
+
+.nfd-wc-products .wc-block-components-product-sale-badge {
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(4px);
+	border-radius: 999px;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	margin: 6px;
+	padding: 4px 12px;
+}
+
+.nfd-wc-products .wc-block-components-product-sale-badge > span {
+	background: transparent;
+}
+
+/* Color fixes */
+.nfd-wc-products .wc-block-components-product-price {
+	color: inherit;
+}
+
+/* Search */
+.nfd-wc-search .wp-block-search__inside-wrapper {
+	width: 25rem;
+	max-width: 100%;
+	padding: 0;
+	border: 2px solid var(--wndb--color--subtle);
+	background-color: var(--wndb--color--borders);
+	border-radius: 999px;
+}
+
+.nfd-wc-search .wp-block-search__inside-wrapper input[type="search"] {
+	border: none;
+	background: none;
+	padding-inline: 24px;
+	min-height: 3.75rem;
+	font-size: 1.25rem;
+	font-weight: 500;
+	border-top-left-radius: 999px;
+	border-bottom-left-radius: 999px;
+	color: var(--wndb--color--text--contrast);
+}
+
+.nfd-wc-search .wp-block-search__inside-wrapper:has(input[type="search"]:focus),
+.nfd-wc-search .wp-block-search__inside-wrapper:has(button:focus) {
+	outline: 2px solid var(--wndb--color--text--contrast);
+	outline-offset: 2px;
+}
+
+.nfd-wc-search .wp-block-search__button {
+	background: var(--wndb-gray-800);
+	border-radius: 999px;
+	aspect-ratio: 1/1;
+	height: 100%;
+	margin-top: 2px;
+	margin-right: 2px;
+	margin-left: 0;
+}
+
+.nfd-wc-search .wp-block-search__button:hover,
+.nfd-wc-search .wp-block-search__button:focus {
+	background: var(--wndb-gray-900);
+	outline: 2px solid var(--wndb-gray-900);
+	outline-offset: 2px;
+	filter: none;
+}
+
+.nfd-wc-search .wp-block-search__inside-wrapper input[type="search"]::placeholder {
+	color: var(--wndb--color--text--faded);
+}

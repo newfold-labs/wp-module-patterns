@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 const Spinner = ({ size = 60 }) => {
 	return (
@@ -10,9 +10,7 @@ const Spinner = ({ size = 60 }) => {
 			style={{ width: `${size}px`, height: `${size}px` }}
 			role="status"
 		>
-			<span className="nfd-wba-sr-only">
-				{__('Loading…', 'nfd-wonder-blocks')}
-			</span>
+			<span className="nfd-wba-sr-only">{__("Loading…", "nfd-wonder-blocks")}</span>
 		</div>
 	);
 };

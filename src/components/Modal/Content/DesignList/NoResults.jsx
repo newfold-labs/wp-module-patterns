@@ -1,24 +1,24 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import { ReactComponent as NoResultsSVG } from '../../../../svg/NoResults.svg';
-import { ReactComponent as NoFavoritesSVG } from '../../../../svg/NoFavorites.svg';
+import { ReactComponent as NoResultsSVG } from "../../../../svg/NoResults.svg";
+import { ReactComponent as NoFavoritesSVG } from "../../../../svg/NoFavorites.svg";
 
 const NoResults = ({ isFavorites }) => {
 	const title = isFavorites
 		? __(
 				"You haven't added any patterns or page templates to your favorites yet.",
-				'nfd-wonder-blocks'
-		  )
+				"nfd-wonder-blocks"
+			)
 		: __(
 				"Sorry, we couldn't find any results for that. Please try a different search term.",
-				'nfd-wonder-blocks'
-		  );
+				"nfd-wonder-blocks"
+			);
 
 	const svg = isFavorites ? <NoFavoritesSVG /> : <NoResultsSVG />;
 

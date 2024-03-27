@@ -1,4 +1,4 @@
-import apiFetch from '@wordpress/api-fetch';
+import apiFetch from "@wordpress/api-fetch";
 
 /**
  * Fetcher function for SWR.
@@ -9,9 +9,9 @@ import apiFetch from '@wordpress/api-fetch';
 
 export const fetcher = ({ ...args }) => {
 	const defaultOptions = {
-		method: 'GET',
+		method: "GET",
 		headers: {
-			'x-nfd-wonder-blocks': 'nfd_wonder_blocks',
+			"x-nfd-wonder-blocks": "nfd_wonder_blocks",
 		},
 	};
 

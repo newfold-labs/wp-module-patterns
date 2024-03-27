@@ -1,29 +1,29 @@
 /**
  * External dependencies
  */
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 
 /**
  * WordPress dependencies
  */
-import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect, useState } from '@wordpress/element';
+import { useDispatch, useSelect } from "@wordpress/data";
+import { useEffect, useState } from "@wordpress/element";
 
 /**
  * Internal dependencies
  */
-import { trackHiiveEvent } from '../../../helpers';
-import { usePatterns } from '../../../hooks';
-import { store as nfdPatternsStore } from '../../../store';
+import { trackHiiveEvent } from "../../../helpers";
+import { usePatterns } from "../../../hooks";
+import { store as nfdPatternsStore } from "../../../store";
 
-import ContentTitle from './ContentTitle';
-import DesignList from './DesignList/DesignList';
-import Error from './DesignList/Error';
-import NoResults from './DesignList/NoResults';
-import LoadingSpinner from './LoadingSpinner';
-import Skeleton from './Skeleton';
-import Spinner from './Spinner';
-import UpdateNotice from './UpdateNotice';
+import ContentTitle from "./ContentTitle";
+import DesignList from "./DesignList/DesignList";
+import Error from "./DesignList/Error";
+import NoResults from "./DesignList/NoResults";
+import LoadingSpinner from "./LoadingSpinner";
+import Skeleton from "./Skeleton";
+import Spinner from "./Spinner";
+import UpdateNotice from "./UpdateNotice";
 
 const Content = () => {
 	const [ready, setReady] = useState(false);
@@ -37,19 +37,16 @@ const Content = () => {
 		isSidebarLoading,
 		keywordsFilter,
 	} = useSelect((select) => ({
-		activePatternsCategory:
-			select(nfdPatternsStore).getActivePatternsCategory(),
+		activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
 		activeTab: select(nfdPatternsStore).getActiveTab(),
-		activeTemplatesCategory:
-			select(nfdPatternsStore).getActiveTemplatesCategory(),
+		activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
 		isSidebarLoading: select(nfdPatternsStore).isSidebarLoading(),
 		isContentLoading: select(nfdPatternsStore).isContentLoading(),
 		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
 	}));
 
 	// Fetch data.
-	const { data, isValidating, isFavorites, isError, size, setSize, hasMore } =
-		usePatterns();
+	const { data, isValidating, isFavorites, isError, size, setSize, hasMore } = usePatterns();
 
 	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
 
@@ -91,15 +88,15 @@ const Content = () => {
 		}
 
 		const eventData = {
-			label_key: 'search_term',
+			label_key: "search_term",
 			search_term: keywordsFilter,
 			count: data?.length,
 		};
 
-		if (activeTab === 'patterns') {
-			trackHiiveEvent('pattern_searched', eventData);
-		} else if (activeTab === 'templates') {
-			trackHiiveEvent('template_searched', eventData);
+		if (activeTab === "patterns") {
+			trackHiiveEvent("pattern_searched", eventData);
+		} else if (activeTab === "templates") {
+			trackHiiveEvent("template_searched", eventData);
 		}
 	}, [activeTab, data?.length, hasMore, keywordsFilter]);
 
@@ -114,14 +111,11 @@ const Content = () => {
 						activeTab={activeTab}
 						title={keywordsFilter}
 						currentCategory={
-							activeTab === 'patterns'
-								? activePatternsCategory
-								: activeTemplatesCategory
+							activeTab === "patterns" ? activePatternsCategory : activeTemplatesCategory
 						}
 					/>
 
-					{(!isSidebarLoading && isContentLoading && !isError) ||
-						(!ready && <Skeleton />)}
+					{(!isSidebarLoading && isContentLoading && !isError) || (!ready && <Skeleton />)}
 
 					{isError && <Error />}
 

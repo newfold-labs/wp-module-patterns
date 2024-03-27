@@ -31,12 +31,8 @@
         this._handleIntersection.bind(this),
         this.options
       );
-      const mutationObserver = new MutationObserver(
-        wrappedMutationCallback.bind(this)
-      );
-      const classMutationObserver = new MutationObserver(
-        this._handleClassMutation.bind(this)
-      );
+      const mutationObserver = new MutationObserver(wrappedMutationCallback.bind(this));
+      const classMutationObserver = new MutationObserver(this._handleClassMutation.bind(this));
       elements.forEach((element) => {
         let elementToWatch = element;
         if (element.classList.contains("nfd-wb-reveal-right")) {
@@ -130,14 +126,8 @@
       // at least 20% of the element is in the viewport
     });
     setTimeout(() => {
-      const elementsToAnimate = Array.from(
-        document.getElementsByClassName("nfd-wb-animate")
-      );
-      viewportAnimationObserver.observeElements(
-        elementsToAnimate,
-        clientId,
-        isGutenberg
-      );
+      const elementsToAnimate = Array.from(document.getElementsByClassName("nfd-wb-animate"));
+      viewportAnimationObserver.observeElements(elementsToAnimate, clientId, isGutenberg);
     }, 10);
   }
 })();

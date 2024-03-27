@@ -1,0 +1,13 @@
+/**
+ * "Rounded" section divider.
+ */
+
+.nfd-divider-rounded {
+	/* no important */
+	--wndb--divider-size: 50px;
+}
+
+.nfd-divider-rounded::before {
+	border-bottom-left-radius: var(--wndb--divider-size);
+	border-bottom-right-radius: var(--wndb--divider-size);
+}

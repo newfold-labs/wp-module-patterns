@@ -1,0 +1,19 @@
+/**
+ * "Slant" section divider.
+ */
+
+.nfd-divider-slant,
+.nfd-divider-slant-invert {
+	/* no important */
+	--wndb--divider-size: 80px;
+}
+
+.nfd-divider-slant::before {
+	clip-path: polygon(0 0, 100% 0, 0 100%);
+	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px);
+}
+
+.nfd-divider-slant-invert::before {
+	clip-path: polygon(0 0, 100% 0, 100% 100%);
+	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px);
+}

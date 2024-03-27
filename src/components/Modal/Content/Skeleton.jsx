@@ -1,21 +1,19 @@
 /**
  * External dependencies
  */
-import Masonry from 'react-masonry-css';
+import Masonry from "react-masonry-css";
 
 /**
  * WordPress dependencies
  */
-import { useMemo, memo } from '@wordpress/element';
+import { useMemo, memo } from "@wordpress/element";
 
 const Skeleton = ({ count = 6, minHeight = 120, maxHeight = 320 }) => {
 	const items = useMemo(() => {
 		const result = [];
 
 		for (let i = 0; i < count; i++) {
-			const height = Math.floor(
-				Math.random() * (minHeight - maxHeight + 1) + maxHeight
-			);
+			const height = Math.floor(Math.random() * (minHeight - maxHeight + 1) + maxHeight);
 			result.push(<SkeletonItem key={i} height={height} />);
 		}
 

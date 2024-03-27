@@ -1,25 +1,25 @@
 /**
  * WordPress dependencies
  */
-import { SelectControl } from '@wordpress/components';
-import { useDispatch, useSelect } from '@wordpress/data';
-import { memo, useCallback, useEffect, useMemo } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
-import { Icon } from '@wordpress/icons';
+import { SelectControl } from "@wordpress/components";
+import { useDispatch, useSelect } from "@wordpress/data";
+import { memo, useCallback, useEffect, useMemo } from "@wordpress/element";
+import { __ } from "@wordpress/i18n";
+import { Icon } from "@wordpress/icons";
 
 /**
  * Internal dependencies
  */
-import { SITE_EDITOR_CATEGORIES } from '../../../constants';
-import { useCategories, usePatterns } from '../../../hooks';
-import { store as nfdPatternsStore } from '../../../store';
+import { SITE_EDITOR_CATEGORIES } from "../../../constants";
+import { useCategories, usePatterns } from "../../../hooks";
+import { store as nfdPatternsStore } from "../../../store";
 
-import { heart } from '../../Icons';
-import ErrorLoading from './ErrorLoading';
-import ListElement from './ListElement';
-import Skeleton from './Skeleton';
+import { heart } from "../../Icons";
+import ErrorLoading from "./ErrorLoading";
+import ListElement from "./ListElement";
+import Skeleton from "./Skeleton";
 
-const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
+const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 	// Fetch data
 	const { data, error, isValidating } = useCategories(type);
 	const { data: allFavs } = usePatterns({ onlyFavorites: true, perPage: -1 });
@@ -27,9 +27,7 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 	// Remove SITE_EDITOR_CATEGORIES if we are not in the Site Editor
 	const filteredCategories = useMemo(() => {
 		if (!isSiteEditor) {
-			return data?.filter(
-				(category) => !SITE_EDITOR_CATEGORIES.includes(category.title)
-			);
+			return data?.filter((category) => !SITE_EDITOR_CATEGORIES.includes(category.title));
 		}
 
 		return data;
@@ -80,14 +78,13 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 		setShouldResetKeywords,
 	} = useDispatch(nfdPatternsStore);
 
-	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter } =
-		useSelect((select) => ({
-			activePatternsCategory:
-				select(nfdPatternsStore).getActivePatternsCategory(),
-			activeTemplatesCategory:
-				select(nfdPatternsStore).getActiveTemplatesCategory(),
+	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter } = useSelect(
+		(select) => ({
+			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
+			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
 			keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
-		}));
+		})
+	);
 
 	// Set sidebar loading state.
 	useEffect(() => {
@@ -102,7 +99,7 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 	 */
 	const setActiveCategory = useCallback(
 		(category) => {
-			if (type === 'patterns') {
+			if (type === "patterns") {
 				setActivePatternsCategory(category);
 			} else {
 				setActiveTemplatesCategory(category);
@@ -120,7 +117,7 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 	const handleCategoryChange = useCallback(
 		(categoryTitle) => {
 			const categoryExists =
-				'favorites' === categoryTitle ||
+				"favorites" === categoryTitle ||
 				data.some(function (item) {
 					return item.title === categoryTitle;
 				});
@@ -142,16 +139,16 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 	 * @return {string} Active category.
 	 */
 	const getActiveCategory = useCallback(() => {
-		let activeCategory = '';
+		let activeCategory = "";
 
-		if (type === 'patterns') {
+		if (type === "patterns") {
 			activeCategory = activePatternsCategory;
 		} else {
 			activeCategory = activeTemplatesCategory;
 		}
 
 		const categoryExists =
-			'favorites' === activeCategory ||
+			"favorites" === activeCategory ||
 			data.some(function (item) {
 				return item.title === activeCategory;
 			});
@@ -162,13 +159,7 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 		}
 
 		return activeCategory;
-	}, [
-		type,
-		data,
-		activePatternsCategory,
-		activeTemplatesCategory,
-		setActiveCategory,
-	]);
+	}, [type, data, activePatternsCategory, activeTemplatesCategory, setActiveCategory]);
 
 	return (
 		<>
@@ -178,15 +169,10 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 				<>
 					<SelectControl
 						className="nfd-wba-modal__categories-select nfd-wba-mt-8 nfd-wba-h-12 nfd-wba-font-medium sm:!nfd-wba-hidden"
-						aria-label={__(
-							'Select a category',
-							'nfd-wonder-blocks'
-						)}
+						aria-label={__("Select a category", "nfd-wonder-blocks")}
 						value={getActiveCategory()}
 						options={formattedCategoriesForMobile}
-						onChange={(categoryTitle) =>
-							handleCategoryChange(categoryTitle)
-						}
+						onChange={(categoryTitle) => handleCategoryChange(categoryTitle)}
 						__nextHasNoMarginBottom
 					/>
 
@@ -196,10 +182,7 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 								<ListElement
 									key={category.id}
 									category={category}
-									isActive={
-										!keywordsFilter &&
-										category?.title === getActiveCategory()
-									}
+									isActive={!keywordsFilter && category?.title === getActiveCategory()}
 									onClick={() => {
 										handleCategoryChange(category?.title);
 									}}
@@ -211,15 +194,12 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 						<ListElement
 							className="nfd-wba-list-element--favorites nfd-wba-mt-2 nfd-wba-border-0"
 							category={{
-								id: 'favorites',
-								label: __('Favorites', 'nfd-wonder-blocks'),
-								title: 'favorites',
+								id: "favorites",
+								label: __("Favorites", "nfd-wonder-blocks"),
+								title: "favorites",
 								count: allFavs?.length,
 							}}
-							isActive={
-								!keywordsFilter &&
-								getActiveCategory() === 'favorites'
-							}
+							isActive={!keywordsFilter && getActiveCategory() === "favorites"}
 							icon={
 								<Icon
 									fill="currentColor"
@@ -229,7 +209,7 @@ const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
 								/>
 							}
 							onClick={() => {
-								handleCategoryChange('favorites');
+								handleCategoryChange("favorites");
 							}}
 						/>
 					</ul>

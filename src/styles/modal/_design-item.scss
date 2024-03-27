@@ -18,8 +18,7 @@
 	}
 
 	.block-editor-block-preview__container:before {
-		transition: backdrop-filter var(--nfd-wba-transition-duration)
-			var(--nfd-wba-transition-timing);
+		transition: backdrop-filter var(--nfd-wba-transition-duration) var(--nfd-wba-transition-timing);
 	}
 
 	&.nfd-wba-inserting-design .block-editor-block-preview__container:before {
@@ -31,20 +30,12 @@
 	}
 
 	iframe {
-		--offset: calc(
-			var(--nfd-wba-design-item--template-height) /
-				var(--nfd-wba-design-item--scale)
-		);
+		--offset: calc(var(--nfd-wba-design-item--template-height) / var(--nfd-wba-design-item--scale));
 
-		--transition-duration: calc(
-			var(--nfd-wba-design-item--scroll-duration, 0s) / 2
-		);
+		--transition-duration: calc(var(--nfd-wba-design-item--scroll-duration, 0s) / 2);
 		--nfd-wba-translate-offset: calc(-100% + var(--offset));
 
-		--hover-transition-duration: var(
-			--nfd-wba-design-item--scroll-duration,
-			0s
-		);
+		--hover-transition-duration: var(--nfd-wba-design-item--scroll-duration, 0s);
 
 		transition: transform var(--transition-duration, 0s) !important;
 	}

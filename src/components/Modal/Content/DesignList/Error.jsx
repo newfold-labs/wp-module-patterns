@@ -1,24 +1,24 @@
 /**
  * WordPress dependencies
  */
-import { createInterpolateElement } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { createInterpolateElement } from "@wordpress/element";
+import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import { SUPPORT_URL } from '../../../../constants';
-import { ReactComponent as ErrorSVG } from '../../../../svg/Error.svg';
+import { SUPPORT_URL } from "../../../../constants";
+import { ReactComponent as ErrorSVG } from "../../../../svg/Error.svg";
 
 const Error = () => {
 	const message = createInterpolateElement(
 		__(
-			'Sorry! There was an error loading this page. If this issue persists, contact our <a>support team</a>.'
+			"Sorry! There was an error loading this page. If this issue persists, contact our <a>support team</a>."
 		),
 		{
 			a: (
 				<a href={SUPPORT_URL} target="_blank" rel="noreferrer">
-					{__('support team', 'nfd-wonder-blocks')}
+					{__("support team", "nfd-wonder-blocks")}
 				</a>
 			),
 		}

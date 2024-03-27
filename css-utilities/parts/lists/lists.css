@@ -1,0 +1,15 @@
+ul.nfd-gap-md li:not(:last-child) {
+	margin-bottom: 1em;
+}
+
+ul.nfd-list-check {
+	list-style-type: none;
+	padding-inline-start: 1em;
+}
+
+ul.nfd-list-check li::before {
+	/* no important */
+	content: "✓";
+	display: inline-block;
+	margin-inline-end: 8px;
+}

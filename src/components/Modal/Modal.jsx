@@ -1,30 +1,28 @@
 /**
  * WordPress dependencies
  */
-import { Modal as WPModal } from '@wordpress/components';
-import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect, useMemo } from '@wordpress/element';
+import { Modal as WPModal } from "@wordpress/components";
+import { useDispatch, useSelect } from "@wordpress/data";
+import { useEffect, useMemo } from "@wordpress/element";
 
 /**
  * Internal dependencies
  */
-import { trackHiiveEvent } from '../../helpers';
-import useMonitorBlockOrder from '../../hooks/useMonitorBlockOrder';
-import { store as nfdPatternsStore } from '../../store';
-import Content from './Content/Content';
-import Header from './Content/Header/Header';
-import Sidebar from './Sidebar/Sidebar';
+import { trackHiiveEvent } from "../../helpers";
+import useMonitorBlockOrder from "../../hooks/useMonitorBlockOrder";
+import { store as nfdPatternsStore } from "../../store";
+import Content from "./Content/Content";
+import Header from "./Content/Header/Header";
+import Sidebar from "./Sidebar/Sidebar";
 
 const Modal = () => {
 	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
 
-	const { isModalOpen, isEditingTemplate, editedPostType } = useSelect(
-		(select) => ({
-			isModalOpen: select(nfdPatternsStore).isModalOpen(),
-			isEditingTemplate: select('core/edit-post').isEditingTemplate(),
-			editedPostType: select('core/edit-site')?.getEditedPostType(),
-		})
-	);
+	const { isModalOpen, isEditingTemplate, editedPostType } = useSelect((select) => ({
+		isModalOpen: select(nfdPatternsStore).isModalOpen(),
+		isEditingTemplate: select("core/edit-post").isEditingTemplate(),
+		editedPostType: select("core/edit-site")?.getEditedPostType(),
+	}));
 
 	// Check if we are editing a template, via site editor or page.
 	const isSiteEditor = useMemo(() => {
@@ -39,15 +37,15 @@ const Modal = () => {
 		const searchParams = new URLSearchParams(window?.location?.search);
 		let timer;
 
-		if (searchParams.has('wonder-blocks-library')) {
+		if (searchParams.has("wonder-blocks-library")) {
 			timer = setTimeout(() => {
-				if (searchParams.get('wonder-blocks-library') === 'templates') {
-					setActiveTab('templates');
+				if (searchParams.get("wonder-blocks-library") === "templates") {
+					setActiveTab("templates");
 				}
 
-				trackHiiveEvent('modal_open', {
-					label_key: 'trigger',
-					trigger: 'url',
+				trackHiiveEvent("modal_open", {
+					label_key: "trigger",
+					trigger: "url",
 				});
 
 				setIsModalOpen(true);

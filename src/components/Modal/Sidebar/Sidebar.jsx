@@ -1,21 +1,20 @@
 /**
  * WordPress dependencies
  */
-import { TabPanel } from '@wordpress/components';
-import { useDispatch, useSelect } from '@wordpress/data';
-import { memo } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { TabPanel } from "@wordpress/components";
+import { useDispatch, useSelect } from "@wordpress/data";
+import { memo } from "@wordpress/element";
+import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import { store as nfdPatternsStore } from '../../../store';
-import Logo from '../../Logo';
-import Categories from './Categories';
+import { store as nfdPatternsStore } from "../../../store";
+import Logo from "../../Logo";
+import Categories from "./Categories";
 
 const Sidebar = ({ isSiteEditor = false }) => {
-	const { setActiveTab, setShouldResetKeywords } =
-		useDispatch(nfdPatternsStore);
+	const { setActiveTab, setShouldResetKeywords } = useDispatch(nfdPatternsStore);
 
 	const { activeTab } = useSelect((select) => {
 		return {
@@ -39,18 +38,16 @@ const Sidebar = ({ isSiteEditor = false }) => {
 				}}
 				tabs={[
 					{
-						name: 'patterns',
-						title: __('Patterns', 'nfd-wonder-blocks'),
+						name: "patterns",
+						title: __("Patterns", "nfd-wonder-blocks"),
 					},
 					{
-						name: 'templates',
-						title: __('Templates', 'nfd-wonder-blocks'),
+						name: "templates",
+						title: __("Templates", "nfd-wonder-blocks"),
 					},
 				]}
 			>
-				{(tab) => (
-					<Categories isSiteEditor={isSiteEditor} type={tab.name} />
-				)}
+				{(tab) => <Categories isSiteEditor={isSiteEditor} type={tab.name} />}
 			</TabPanel>
 		</div>
 	);

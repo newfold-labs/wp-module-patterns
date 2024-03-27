@@ -1,24 +1,20 @@
 /**
  * External dependencies
  */
-import useSWRInfinite from 'swr/infinite';
+import useSWRInfinite from "swr/infinite";
 
 /**
  * WordPress dependencies
  */
-import { useSelect } from '@wordpress/data';
-import { useMemo } from '@wordpress/element';
+import { useSelect } from "@wordpress/data";
+import { useMemo } from "@wordpress/element";
 
 /**
  * Internal dependencies
  */
-import {
-	DEFAULT_PATTERNS_CATEGORY,
-	DEFAULT_TEMPLATES_CATEGORY,
-	NFD_REST_URL,
-} from '../constants';
-import { fetcher } from '../helpers/fetcher';
-import { store as nfdPatternsStore } from '../store';
+import { DEFAULT_PATTERNS_CATEGORY, DEFAULT_TEMPLATES_CATEGORY, NFD_REST_URL } from "../constants";
+import { fetcher } from "../helpers/fetcher";
+import { store as nfdPatternsStore } from "../store";
 
 /**
  * Custom hook to fetch patterns.
@@ -29,52 +25,47 @@ import { store as nfdPatternsStore } from '../store';
  * @return {Object} Object containing the patterns, error and loading state.
  */
 const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
-	const {
-		activePatternsCategory,
-		activeTemplatesCategory,
-		activeTab,
-		keywords,
-	} = useSelect((select) => ({
-		activePatternsCategory:
-			select(nfdPatternsStore).getActivePatternsCategory(),
-		activeTemplatesCategory:
-			select(nfdPatternsStore).getActiveTemplatesCategory(),
-		activeTab: select(nfdPatternsStore).getActiveTab(),
-		keywords: select(nfdPatternsStore).getKeywordsFilter(),
-	}));
+	const { activePatternsCategory, activeTemplatesCategory, activeTab, keywords } = useSelect(
+		(select) => ({
+			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
+			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
+			activeTab: select(nfdPatternsStore).getActiveTab(),
+			keywords: select(nfdPatternsStore).getKeywordsFilter(),
+		})
+	);
 
 	// Active category.
 	let activeCategory = null;
 
-	if (activeTab === 'patterns') {
+	if (activeTab === "patterns") {
 		activeCategory = activePatternsCategory || DEFAULT_PATTERNS_CATEGORY;
 	} else {
 		activeCategory = activeTemplatesCategory || DEFAULT_TEMPLATES_CATEGORY;
 	}
 
 	// Can be either "patterns" or "templates".
-	const endpoint = activeTab === 'patterns' ? 'patterns' : 'templates';
+	const endpoint = activeTab === "patterns" ? "patterns" : "templates";
 
 	let url = null;
-	let restUrl = '';
+	let restUrl = "";
 
 	// Check if NFD_REST_URL starts with http or https.
-	if (typeof NFD_REST_URL === 'string' && NFD_REST_URL.startsWith('http')) {
+	if (typeof NFD_REST_URL === "string" && NFD_REST_URL.startsWith("http")) {
 		restUrl = NFD_REST_URL;
 	} else {
 		// if not, assume it's a relative path.
 		restUrl = window.location.origin + NFD_REST_URL;
 	}
 
-	if (onlyFavorites || (activeCategory === 'favorites' && !keywords)) {
+	if (onlyFavorites || (activeCategory === "favorites" && !keywords)) {
 		url = new URL(`${restUrl}/favorites`);
 	} else {
 		url = new URL(`${restUrl}/${endpoint}`);
 
 		if (keywords) {
-			url.searchParams.append('keywords', keywords);
+			url.searchParams.append("keywords", keywords);
 		} else {
-			url.searchParams.append('category', activeCategory);
+			url.searchParams.append("category", activeCategory);
 		}
 	}
 
@@ -84,24 +75,20 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 		}
 
 		if (perPage > 0) {
-			url.searchParams.set('page', pageIndex + 1);
-			url.searchParams.set('per_page', perPage);
+			url.searchParams.set("page", pageIndex + 1);
+			url.searchParams.set("per_page", perPage);
 		}
 
 		return { url: url.href };
 	};
 
-	const { data, error, isValidating, mutate, size, setSize } = useSWRInfinite(
-		getKey,
-		fetcher,
-		{
-			revalidateIfStale: false,
-			revalidateOnFocus: false,
-			revalidateOnReconnect: true,
-			errorRetryCount: 3,
-			dedupingInterval: 5000,
-		}
-	);
+	const { data, error, isValidating, mutate, size, setSize } = useSWRInfinite(getKey, fetcher, {
+		revalidateIfStale: false,
+		revalidateOnFocus: false,
+		revalidateOnReconnect: true,
+		errorRetryCount: 3,
+		dedupingInterval: 5000,
+	});
 
 	return useMemo(() => {
 		let dataWithType = null;
@@ -115,12 +102,11 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 		}
 
 		return {
-			data: activeCategory !== 'favorites' ? dataWithType : items,
+			data: activeCategory !== "favorites" ? dataWithType : items,
 			hasMore: data && data[data.length - 1]?.length === perPage,
 			isError: error,
 			isValidating,
-			isFavorites:
-				activeCategory !== 'favorites' || keywords ? false : true,
+			isFavorites: activeCategory !== "favorites" || keywords ? false : true,
 			mutate,
 			size,
 			setSize,

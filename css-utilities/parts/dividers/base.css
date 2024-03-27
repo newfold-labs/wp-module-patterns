@@ -1,0 +1,29 @@
+/**
+ * Base divider styles.
+ */
+
+[class*="nfd-divider-"] {
+	/* no important */
+	position: relative;
+	z-index: 13;
+}
+
+[class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+	z-index: 12;
+}
+
+[class*="nfd-divider-"] ~ [class*="nfd-divider-"] ~ [class*="nfd-divider-"] {
+	z-index: 11;
+}
+
+[class*="nfd-divider-"]::before {
+	background: inherit;
+	bottom: calc(-1 * var(--wndb--divider-size));
+	content: "";
+	height: var(--wndb--divider-size);
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+}

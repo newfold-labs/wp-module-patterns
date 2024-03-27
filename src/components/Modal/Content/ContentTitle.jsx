@@ -1,13 +1,13 @@
 /**
  * WordPress dependencies
  */
-import { useMemo } from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
+import { useMemo } from "@wordpress/element";
+import { __, sprintf } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import { useCategories } from '../../../hooks';
+import { useCategories } from "../../../hooks";
 
 const ContentTitle = ({ activeTab, currentCategory, title }) => {
 	// Fetch data.
@@ -22,20 +22,18 @@ const ContentTitle = ({ activeTab, currentCategory, title }) => {
 		return null;
 	}
 
-	if (!activeCategory?.label && !title && currentCategory !== 'favorites') {
+	if (!activeCategory?.label && !title && currentCategory !== "favorites") {
 		return null;
 	}
 
 	return (
 		<h1 className="nfd-wba-my-0 nfd-wba-mb-8 nfd-wba-text-[26px] nfd-wba-font-light nfd-wba-text-dark">
-			{!title &&
-				currentCategory === 'favorites' &&
-				__('Favorites', 'nfd-wonder-blocks')}
+			{!title && currentCategory === "favorites" && __("Favorites", "nfd-wonder-blocks")}
 
 			{title &&
 				sprintf(
 					// translators: %s: search keywords.
-					__('Results for %s', 'nfd-wonder-blocks'),
+					__("Results for %s", "nfd-wonder-blocks"),
 					title
 				)}
 			{!title && activeCategory?.label}

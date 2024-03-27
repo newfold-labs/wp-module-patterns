@@ -1,0 +1,12 @@
+/**
+ * "Ellipse" section divider.
+ */
+
+.nfd-divider-ellipse {
+	/* no important */
+	--wndb--divider-size: 50px;
+}
+
+.nfd-divider-ellipse::before {
+	clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%);
+}

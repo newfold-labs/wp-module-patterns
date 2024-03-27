@@ -1,10 +1,10 @@
-import { createReduxStore, register } from '@wordpress/data';
+import { createReduxStore, register } from "@wordpress/data";
 
-import { STORE_NAME } from './constants';
+import { STORE_NAME } from "./constants";
 
-import * as actions from './actions';
-import * as selectors from './selectors';
-import reducer from './reducer';
+import * as actions from "./actions";
+import * as selectors from "./selectors";
+import reducer from "./reducer";
 
 export const nfdWonderBlocksStoreOptions = {
 	reducer,

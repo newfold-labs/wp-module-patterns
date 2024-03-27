@@ -1,0 +1,13 @@
+/**
+ * Spacing
+ *
+ * These classes are used to add paddings, margins and gaps to blocks.
+ * They can be scaled up to 4 levels: base, md, lg, xl.
+ * Additionaly, scaling-factor can be defined.
+ *
+ * postcss plugin will add necessary :not([style*="padding"]) to selectors.
+ */
+
+@import "./padding";
+@import "./misc";
+@import "./gap";

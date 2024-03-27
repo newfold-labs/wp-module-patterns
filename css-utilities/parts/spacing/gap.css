@@ -1,0 +1,115 @@
+:where(:root) {
+	/**
+    * Default gap scale factor
+    */
+	--wndb--gap--scale-factor: 1;
+
+	/**
+    * Scale
+    */
+	--wndb--gap--xs: 0.25rem; /* 4px */
+	--wndb--gap--sm: 0.5rem; /* 8px */
+	--wndb--gap--md: 1rem; /* 16px */
+	--wndb--gap--lg: 1.5rem; /* 24px */
+	--wndb--gap--xl: 2rem; /* 32px */
+	--wndb--gap--2xl: 2.5rem; /* 40px */
+	--wndb--gap--3xl: 3.5rem; /* 56px */
+	--wndb--gap--4xl: 6rem; /* 96px */
+}
+
+/* No Gap */
+.nfd-gap-0,
+.editor-styles-wrapper .nfd-gap-0 {
+	/* no important */
+	gap: 0;
+}
+
+/* Extra Small */
+.nfd-gap-xs,
+.editor-styles-wrapper .nfd-gap-xs {
+	/* no important */
+	gap: calc(var(--wndb--gap--xs) * var(--wndb--gap--scale-factor));
+}
+
+/* Small */
+.nfd-gap-sm,
+.editor-styles-wrapper .nfd-gap-sm {
+	/* no important */
+	gap: calc(var(--wndb--gap--sm) * var(--wndb--gap--scale-factor));
+}
+
+/* Medium */
+.nfd-gap-md,
+.editor-styles-wrapper .nfd-gap-md {
+	/* no important */
+	gap: calc(var(--wndb--gap--md) * var(--wndb--gap--scale-factor));
+}
+
+/* Large */
+.nfd-gap-lg,
+.editor-styles-wrapper .nfd-gap-lg {
+	/* no important */
+	gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-x-lg,
+.editor-styles-wrapper .nfd-gap-x-lg {
+	/* no important */
+	column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-y-lg,
+.editor-styles-wrapper .nfd-gap-y-lg {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+}
+
+/* XLarge */
+.nfd-gap-xl,
+.editor-styles-wrapper .nfd-gap-xl {
+	/* no important */
+	gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-y-xl,
+.editor-styles-wrapper .nfd-gap-y-xl {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
+}
+
+/* XXLarge */
+.nfd-gap-2xl,
+.editor-styles-wrapper .nfd-gap-2xl {
+	/* no important */
+	gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-y-2xl,
+.editor-styles-wrapper .nfd-gap-y-2xl {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
+}
+
+/* XXXLarge */
+.nfd-gap-3xl,
+.editor-styles-wrapper .nfd-gap-3xl {
+	/* no important */
+	gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
+}
+.nfd-gap-y-3xl,
+.editor-styles-wrapper .nfd-gap-y-3xl {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-4xl,
+.editor-styles-wrapper .nfd-gap-4xl {
+	/* no important */
+	gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-x-4xl,
+.editor-styles-wrapper .nfd-gap-x-4xl {
+	/* no important */
+	column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
+}

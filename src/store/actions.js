@@ -6,7 +6,7 @@
  */
 export function setIsModalOpen(isOpen) {
 	return {
-		type: 'SET_MODAL_OPEN',
+		type: "SET_MODAL_OPEN",
 		isOpen,
 	};
 }
@@ -19,7 +19,7 @@ export function setIsModalOpen(isOpen) {
  */
 export function setIsContentLoading(isContentLoading) {
 	return {
-		type: 'SET_CONTENT_LOADING',
+		type: "SET_CONTENT_LOADING",
 		isContentLoading,
 	};
 }
@@ -32,7 +32,7 @@ export function setIsContentLoading(isContentLoading) {
  */
 export function setIsSidebarLoading(isSidebarLoading) {
 	return {
-		type: 'SET_SIDEBAR_LOADING',
+		type: "SET_SIDEBAR_LOADING",
 		isSidebarLoading,
 	};
 }
@@ -45,7 +45,7 @@ export function setIsSidebarLoading(isSidebarLoading) {
  */
 export function setActivePatternsCategory(activeCategory) {
 	return {
-		type: 'SET_ACTIVE_PATTERNS_CATEGORY',
+		type: "SET_ACTIVE_PATTERNS_CATEGORY",
 		activeCategory,
 	};
 }
@@ -58,7 +58,7 @@ export function setActivePatternsCategory(activeCategory) {
  */
 export function setActiveTemplatesCategory(activeCategory) {
 	return {
-		type: 'SET_ACTIVE_TEMPLATES_CATEGORY',
+		type: "SET_ACTIVE_TEMPLATES_CATEGORY",
 		activeCategory,
 	};
 }
@@ -71,7 +71,7 @@ export function setActiveTemplatesCategory(activeCategory) {
  */
 export function setKeywordsFilter(keywordsFilter) {
 	return {
-		type: 'SET_KEYWORDS_FILTER',
+		type: "SET_KEYWORDS_FILTER",
 		keywordsFilter,
 	};
 }
@@ -84,7 +84,7 @@ export function setKeywordsFilter(keywordsFilter) {
  */
 export function setShouldResetKeywords(shouldResetKeywords) {
 	return {
-		type: 'SET_SHOULD_RESET_KEYWORDS',
+		type: "SET_SHOULD_RESET_KEYWORDS",
 		shouldResetKeywords,
 	};
 }
@@ -97,7 +97,7 @@ export function setShouldResetKeywords(shouldResetKeywords) {
  */
 export function setActiveTab(activeTab) {
 	return {
-		type: 'SET_ACTIVE_TAB',
+		type: "SET_ACTIVE_TAB",
 		activeTab,
 	};
 }

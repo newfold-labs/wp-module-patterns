@@ -1,0 +1,16 @@
+/* Horizontally overlap children. */
+.nfd-overlap-x,
+.editor-styles-wrapper .nfd-overlap-x {
+	/* no important */
+	gap: 0;
+}
+
+.nfd-overlap-x > *:not(:first-child) {
+	margin-inline-start: -1.275rem;
+}
+
+@media (min-width: 768px) {
+	.-nfd-translate-y-1\/2 {
+		transform: translateY(-50%);
+	}
+}

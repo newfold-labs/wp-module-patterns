@@ -1,17 +1,17 @@
 /**
  * External dependencies
  */
-import Masonry from 'react-masonry-css';
+import Masonry from "react-masonry-css";
 
 /**
  * WordPress dependencies
  */
-import { memo } from '@wordpress/element';
+import { memo } from "@wordpress/element";
 
 /**
  * Internal dependencies
  */
-import DesignItem from './DesignItem';
+import DesignItem from "./DesignItem";
 
 const DesignList = ({ data }) => {
 	if (!data || !Array.isArray(data)) {
@@ -30,10 +30,7 @@ const DesignList = ({ data }) => {
 				columnClassName="nfd-wba-design-list__column sm:nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
 			>
 				{data?.map((pattern, index) => (
-					<DesignItem
-						key={`${pattern.key}-${index}`}
-						item={pattern}
-					/>
+					<DesignItem key={`${pattern.key}-${index}`} item={pattern} />
 				))}
 			</Masonry>
 		</>
