@@ -77,44 +77,74 @@ const initializeHiiveAnalytics = () => {
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
 const registerCallback = () => {
-	window.requestAnimationFrame(() => {
-		// Do not add the button again if it has been already added.
-		if (document.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
+	const checkAndAppendButton = () => {
+		window.requestAnimationFrame(() => {
+			// Do not add the button again if it has been already added.
+			if (document.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
+				unsubscribe();
+				console.log('rendered already added');
+				return;
+			}
+
+			// Exit early if the toolbar doesn't exist.
+			if (
+				!document.querySelector('.edit-post-header-toolbar') &&
+				!document.querySelector('.edit-site-header_start')
+			) {
+				return;
+			}
+
+			console.log('rendered');
+			// Create the button container.
+			const buttonContainer = document.createElement('div');
+			buttonContainer.id = NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID;
+			buttonContainer.classList.add('nfd-wba-shrink-0');
+
+			// Append the button container to the block editor.
+			document
+				.querySelector('.edit-post-header-toolbar')
+				?.append(buttonContainer);
+
+			// Append the button container to the FSE.
+			document
+				.querySelector('.edit-site-header_start')
+				?.append(buttonContainer);
+
+			// Render the button.
+			render(<ToolbarButton />, buttonContainer);
+
+			// Dispatch 'wonder-blocks/toolbar-button-added' event.
+			document.dispatchEvent(
+				new Event('wonder-blocks/toolbar-button-added')
+			);
+
 			unsubscribe();
-			return;
-		}
+		});
+	};
 
-		// Exit early if the toolbar doesn't exist.
-		if (
-			!document.querySelector('.edit-post-header-toolbar') &&
-			!document.querySelector('.edit-site-header_start')
-		) {
-			return;
-		}
+	// Start the initial check and append action
+	checkAndAppendButton();
 
-		// Create the button container.
-		const buttonContainer = document.createElement('div');
-		buttonContainer.id = NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID;
-		buttonContainer.classList.add('nfd-wba-shrink-0');
-
-		// Append the button container to the block editor.
-		document
-			.querySelector('.edit-post-header-toolbar')
-			?.append(buttonContainer);
-
-		// Append the button container to the FSE.
-		document
-			.querySelector('.edit-site-header_start')
-			?.append(buttonContainer);
-
-		// Render the button.
-		render(<ToolbarButton />, buttonContainer);
-
-		// Dispatch 'wonder-blocks/toolbar-button-added' event.
-		document.dispatchEvent(new Event('wonder-blocks/toolbar-button-added'));
-
-		unsubscribe();
+	// eslint-disable-next-line no-undef, no-unused-vars, no-shadow
+	const observer = new MutationObserver((mutationsList, observer) => {
+		// Call checkAndAppendButton on each DOM change observed to ensure button exists
+		checkAndAppendButton();
 	});
+
+	const parentNode = document.querySelector('.edit-post-header-toolbar');
+
+	// checking the gutenberg toolbar for changes
+	if (parentNode) {
+		observer.observe(parentNode, {
+			childList: true,
+			subtree: true,
+		});
+	}
+
+	// clean up
+	return () => {
+		observer.disconnect();
+	};
 };
 
 const unsubscribe = subscribe(registerCallback);
