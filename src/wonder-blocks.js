@@ -15,6 +15,7 @@ import domReady from '@wordpress/dom-ready';
 import { render } from '@wordpress/element';
 
 import { subscribe } from '@wordpress/data';
+import { debounce } from '@wordpress/compose';
 
 /**
  * Internal dependencies
@@ -77,12 +78,12 @@ const initializeHiiveAnalytics = () => {
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
 const registerCallback = () => {
-	const checkAndAppendButton = () => {
+	const appendWonderBlockButton = () => {
 		window.requestAnimationFrame(() => {
 			// Do not add the button again if it has been already added.
 			if (document.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
+				console.log("Re-rendering when button has aleready appended");
 				unsubscribe();
-				console.log('rendered already added');
 				return;
 			}
 
@@ -94,7 +95,6 @@ const registerCallback = () => {
 				return;
 			}
 
-			console.log('rendered');
 			// Create the button container.
 			const buttonContainer = document.createElement('div');
 			buttonContainer.id = NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID;
@@ -122,13 +122,15 @@ const registerCallback = () => {
 		});
 	};
 
-	// Start the initial check and append action
-	checkAndAppendButton();
+	appendWonderBlockButton();
+	const debouncedAppendWonderBlockButton = debounce(
+		appendWonderBlockButton,
+		400
+	);
 
-	// eslint-disable-next-line no-undef, no-unused-vars, no-shadow
-	const observer = new MutationObserver((mutationsList, observer) => {
-		// Call checkAndAppendButton on each DOM change observed to ensure button exists
-		checkAndAppendButton();
+	// eslint-disable-next-line no-undef
+	const observer = new MutationObserver(() => {
+		debouncedAppendWonderBlockButton();
 	});
 
 	const parentNode = document.querySelector('.edit-post-header-toolbar');
@@ -141,7 +143,7 @@ const registerCallback = () => {
 		});
 	}
 
-	// clean up
+	// clean up or stopping the mutationObserver to watch the changes
 	return () => {
 		observer.disconnect();
 	};
