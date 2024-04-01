@@ -94,3 +94,8 @@
 [class*="nfd-btn"].is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
 	color: #fff;
 }
+
+.nfd-btn-tertiary > .wp-block-button__link:not(.has-background):not(.has-text-color) {
+	color: var(--wndb--color--text--contrast);
+	background-color: var(--wndb--color--borders);
+}

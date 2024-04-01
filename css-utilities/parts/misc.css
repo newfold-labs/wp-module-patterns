@@ -43,6 +43,10 @@ p[style*="text-decoration"] > a {
 	z-index: 10;
 }
 
+.editor-styles-wrapper .nfd-absolute-header {
+	position: static;
+}
+
 .nfd-absolute-header:not([style*="margin"]) {
 	margin: 0 !important;
 }

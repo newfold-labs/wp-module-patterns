@@ -51,6 +51,6 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 
 /* ----------------------------- Inline padding ----------------------------- */
-.nfd-container:not(.alignfull) {
+.nfd-container {
 	padding-inline: var(--wndb--p);
 }
