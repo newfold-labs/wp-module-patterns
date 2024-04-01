@@ -1,5 +1,7 @@
 /* -------------------------------------------------------------------------- */
+
 /*                                Form styles.                                */
+
 /* -------------------------------------------------------------------------- */
 @use "mixins" as m;
 
@@ -34,14 +36,17 @@
 }
 
 .components-search-control {
+
 	&.nfd-wba-keyword-filter {
+
 		.components-base-control__field {
 			align-items: center;
 			display: flex;
 			gap: 12px;
 			margin: 0;
 
-			.components-base-control__label {
+			.components-base-control__label,
+			.components-input-control__label {
 				margin: 0;
 				text-transform: none;
 				font-size: 14px;
@@ -50,7 +55,8 @@
 			}
 		}
 
-		input[type="search"].components-search-control__input {
+		input[type="search"].components-search-control__input,
+		input[type="search"].components-input-control__input {
 			border-radius: 8px;
 			font-size: 1rem;
 			height: 36px;
@@ -60,6 +66,17 @@
 				cursor: wait;
 				opacity: 1;
 			}
+		}
+
+		.components-input-base {
+			flex-direction: row;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.components-input-control__container {
+			border-radius: 8px;
+			height: 36px;
 		}
 	}
 }
