@@ -9825,12 +9825,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
-/* harmony import */ var _blocks_inspector_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/inspector-control */ "./src/blocks/inspector-control.js");
-/* harmony import */ var _blocks_register_category__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/register-category */ "./src/blocks/register-category.js");
-/* harmony import */ var _blocks_block__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/block */ "./src/blocks/block.js");
-/* harmony import */ var _components_Modal_Modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Modal/Modal */ "./src/components/Modal/Modal.jsx");
-/* harmony import */ var _components_ToolbarButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/ToolbarButton */ "./src/components/ToolbarButton.jsx");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
+/* harmony import */ var _blocks_inspector_control__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/inspector-control */ "./src/blocks/inspector-control.js");
+/* harmony import */ var _blocks_register_category__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/register-category */ "./src/blocks/register-category.js");
+/* harmony import */ var _blocks_block__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/block */ "./src/blocks/block.js");
+/* harmony import */ var _components_Modal_Modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Modal/Modal */ "./src/components/Modal/Modal.jsx");
+/* harmony import */ var _components_ToolbarButton__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/ToolbarButton */ "./src/components/ToolbarButton.jsx");
 
 /**
  * Styles.
@@ -9849,6 +9851,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Internal dependencies
  */
@@ -9860,7 +9863,7 @@ __webpack_require__.r(__webpack_exports__);
 
 _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_3___default()(() => {
   initializeHiiveAnalytics();
-  renderModal(_constants__WEBPACK_IMPORTED_MODULE_6__.NFD_WONDER_BLOCKS_MODAL_ID);
+  renderModal(_constants__WEBPACK_IMPORTED_MODULE_7__.NFD_WONDER_BLOCKS_MODAL_ID);
 });
 
 /**
@@ -9876,7 +9879,7 @@ const renderModal = elementId => {
   if (!document.getElementById(elementId)) {
     document.body.append(modalRoot);
   }
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.render)((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Modal_Modal__WEBPACK_IMPORTED_MODULE_10__["default"], null), modalRoot);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.render)((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Modal_Modal__WEBPACK_IMPORTED_MODULE_11__["default"], null), modalRoot);
 };
 
 /**
@@ -9884,10 +9887,10 @@ const renderModal = elementId => {
  */
 const initializeHiiveAnalytics = () => {
   _newfold_labs_js_utility_ui_analytics__WEBPACK_IMPORTED_MODULE_2__.HiiveAnalytics.initialize({
-    namespace: _constants__WEBPACK_IMPORTED_MODULE_6__.HIIVE_ANALYTICS_CATEGORY,
+    namespace: _constants__WEBPACK_IMPORTED_MODULE_7__.HIIVE_ANALYTICS_CATEGORY,
     urls: {
-      single: `${_constants__WEBPACK_IMPORTED_MODULE_6__.NFD_REST_URL}/events`,
-      batch: `${_constants__WEBPACK_IMPORTED_MODULE_6__.NFD_REST_URL}/events/batch`
+      single: `${_constants__WEBPACK_IMPORTED_MODULE_7__.NFD_REST_URL}/events`,
+      batch: `${_constants__WEBPACK_IMPORTED_MODULE_7__.NFD_REST_URL}/events/batch`
     },
     settings: {
       debounce: {
@@ -9902,36 +9905,60 @@ const initializeHiiveAnalytics = () => {
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
 const registerCallback = () => {
-  window.requestAnimationFrame(() => {
-    // Do not add the button again if it has been already added.
-    if (document.getElementById(_constants__WEBPACK_IMPORTED_MODULE_6__.NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
+  const appendWonderBlockButton = () => {
+    window.requestAnimationFrame(() => {
+      // Do not add the button again if it has been already added.
+      if (document.getElementById(_constants__WEBPACK_IMPORTED_MODULE_7__.NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
+        // Re-rendering when button was already appended
+        unsubscribe();
+        return;
+      }
+
+      // Exit early if the toolbar doesn't exist.
+      if (!document.querySelector('.edit-post-header-toolbar') && !document.querySelector('.edit-site-header_start')) {
+        return;
+      }
+
+      // Create the button container.
+      const buttonContainer = document.createElement('div');
+      buttonContainer.id = _constants__WEBPACK_IMPORTED_MODULE_7__.NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID;
+      buttonContainer.classList.add('nfd-wba-shrink-0');
+
+      // Append the button container to the block editor.
+      document.querySelector('.edit-post-header-toolbar')?.append(buttonContainer);
+
+      // Append the button container to the FSE.
+      document.querySelector('.edit-site-header_start')?.append(buttonContainer);
+
+      // Render the button.
+      (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.render)((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_ToolbarButton__WEBPACK_IMPORTED_MODULE_12__["default"], null), buttonContainer);
+
+      // Dispatch 'wonder-blocks/toolbar-button-added' event.
+      document.dispatchEvent(new Event('wonder-blocks/toolbar-button-added'));
       unsubscribe();
-      return;
-    }
+    });
+  };
+  appendWonderBlockButton();
+  const debouncedAppendWonderBlockButton = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__.debounce)(appendWonderBlockButton, 400);
 
-    // Exit early if the toolbar doesn't exist.
-    if (!document.querySelector('.edit-post-header-toolbar') && !document.querySelector('.edit-site-header_start')) {
-      return;
-    }
-
-    // Create the button container.
-    const buttonContainer = document.createElement('div');
-    buttonContainer.id = _constants__WEBPACK_IMPORTED_MODULE_6__.NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID;
-    buttonContainer.classList.add('nfd-wba-shrink-0');
-
-    // Append the button container to the block editor.
-    document.querySelector('.edit-post-header-toolbar')?.append(buttonContainer);
-
-    // Append the button container to the FSE.
-    document.querySelector('.edit-site-header_start')?.append(buttonContainer);
-
-    // Render the button.
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.render)((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_ToolbarButton__WEBPACK_IMPORTED_MODULE_11__["default"], null), buttonContainer);
-
-    // Dispatch 'wonder-blocks/toolbar-button-added' event.
-    document.dispatchEvent(new Event('wonder-blocks/toolbar-button-added'));
-    unsubscribe();
+  // eslint-disable-next-line no-undef
+  const observer = new MutationObserver(() => {
+    debouncedAppendWonderBlockButton();
   });
+  const parentNode = document.querySelector('.edit-post-header-toolbar');
+
+  // checking the gutenberg toolbar for changes
+  if (parentNode) {
+    observer.observe(parentNode, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  // clean up or stopping the mutationObserver to watch the changes
+  return () => {
+    observer.disconnect();
+  };
 };
 const unsubscribe = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.subscribe)(registerCallback);
 })();
