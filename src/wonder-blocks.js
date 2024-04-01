@@ -82,7 +82,7 @@ const registerCallback = () => {
 		window.requestAnimationFrame(() => {
 			// Do not add the button again if it has been already added.
 			if (document.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) {
-				console.log("Re-rendering when button has aleready appended");
+				// Re-rendering when button was already appended
 				unsubscribe();
 				return;
 			}
@@ -123,6 +123,7 @@ const registerCallback = () => {
 	};
 
 	appendWonderBlockButton();
+
 	const debouncedAppendWonderBlockButton = debounce(
 		appendWonderBlockButton,
 		400
