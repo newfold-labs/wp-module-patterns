@@ -27,7 +27,7 @@
 	/**
     * lg
     */
-	--wndb--p--lg: clamp(2.82rem, 7vw, 6.25rem);
+	--wndb--p--lg: clamp(3.5rem, 7vw, 6.25rem);
 
 	/**
     * Used for square cards
@@ -142,6 +142,10 @@
 
 .nfd-pt-lg {
 	padding-block-start: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
+}
+
+.nfd-pb-lg {
+	padding-block-end: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
 }
 
 /* --------------------------------- Offset --------------------------------- */

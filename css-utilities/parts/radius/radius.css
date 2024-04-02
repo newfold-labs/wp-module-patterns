@@ -52,7 +52,8 @@
 	--wndb--border--radius: var(--wndb--border--radius--md);
 }
 
-.nfd-rounded-lg {
+.nfd-rounded-lg,
+.nfd-rounded-t-lg {
 	/* no important */
 	--wndb--border--radius: var(--wndb--border--radius--lg);
 }

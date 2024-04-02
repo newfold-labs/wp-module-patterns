@@ -77,7 +77,19 @@
 
 /* Theme overrides */
 .nfd-theme-primary .wp-block-button > .wp-block-button__link:not(.has-background):not(.has-text-color) {
+	color: var(--wndb-gray-900);
+}
+
+.nfd-theme-primary .wp-block-button.is-style-fill > .wp-block-button__link:not(.has-background):not(.has-text-color) {
 	background-color: var(--wndb-white);
+}
+
+.nfd-theme-primary .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background):not(.has-text-color) {
+	border-color: var(--wndb-white);
+	color: var(--wndb-white);
+}
+
+.nfd-theme-primary .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
 	color: var(--wndb-gray-900);
 }
 
