@@ -33,6 +33,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 
 .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
+.nfd-container:is(.nfd-my-0) > div,
 .editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
 .nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
 .editor-styles-wrapper .nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)) {
@@ -43,6 +44,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 
 /* ------------------------------- Wide width ------------------------------- */
 .nfd-container:is(.is-layout-constrained) > .alignwide,
+.nfd-container:is(.nfd-my-0) > .alignwide,
 .editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > .alignwide,
 .nfd-container:is(.is-layout-constrained).alignwide > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 	/* no important */
@@ -53,4 +55,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 /* ----------------------------- Inline padding ----------------------------- */
 .nfd-container {
 	padding-inline: var(--wndb--p);
+}
+
+/* ------------------------- Backwards compatibility ------------------------ */
+.nfd-container:is(.nfd-my-0) > div {
+	margin-inline: auto;
 }

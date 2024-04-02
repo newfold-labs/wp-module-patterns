@@ -91,6 +91,18 @@
 	max-width: var(--wndb--max-w--prose);
 }
 
+/* Center */
+:where(.nfd-text-huge:not([class*="font-size"]):not([style*="font-size"])).has-text-align-center,
+:where(.nfd-text-giga:not([class*="font-size"]):not([style*="font-size"])).has-text-align-center {
+	margin-inline: auto;
+}
+
+/* Right */
+:where(.nfd-text-huge:not([class*="font-size"]):not([style*="font-size"])).has-text-align-right,
+:where(.nfd-text-giga:not([class*="font-size"]):not([style*="font-size"])).has-text-align-right {
+	margin-inline-start: auto;
+}
+
 .nfd-text-huge:not([style*="line-height"]) {
 	line-height: 1.1;
 }
