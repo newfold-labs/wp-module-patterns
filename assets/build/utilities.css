@@ -1123,6 +1123,13 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	> .wp-block-button__link:not(.has-background):hover {
 	background-color: var(--wndb-gray-900) !important;
 }
+.nfd-theme-primary
+	[class*="nfd-btn"]:is(.is-style-outline):not(.nfd-btn-secondary):not(.nfd-btn-tertiary)
+	> .wp-block-button__link:not(.has-background):not(.has-text-color):hover {
+	background-color: var(--wndb-white) !important;
+	border-color: var(--wndb-white) !important;
+	color: var(--wndb-gray-900) !important;
+}
 /* -------------------------------- Secondary ------------------------------- */
 .nfd-btn-secondary:is(.is-style-outline) > .wp-block-button__link:not(.has-text-color):hover {
 	--wndb--color--text--contrast: var(--wndb-gray-900);
