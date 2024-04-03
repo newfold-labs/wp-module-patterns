@@ -384,22 +384,34 @@
   gap: 12px;
   margin: 0;
 }
-.components-search-control.nfd-wba-keyword-filter .components-base-control__field .components-base-control__label {
+.components-search-control.nfd-wba-keyword-filter .components-base-control__field .components-base-control__label,
+.components-search-control.nfd-wba-keyword-filter .components-base-control__field .components-input-control__label {
   margin: 0;
   text-transform: none;
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
 }
-.components-search-control.nfd-wba-keyword-filter input[type=search].components-search-control__input {
+.components-search-control.nfd-wba-keyword-filter input[type=search].components-search-control__input,
+.components-search-control.nfd-wba-keyword-filter input[type=search].components-input-control__input {
   border-radius: 8px;
   font-size: 1rem;
   height: 36px;
   line-height: 20px;
 }
-.components-search-control.nfd-wba-keyword-filter input[type=search].components-search-control__input:disabled {
+.components-search-control.nfd-wba-keyword-filter input[type=search].components-search-control__input:disabled,
+.components-search-control.nfd-wba-keyword-filter input[type=search].components-input-control__input:disabled {
   cursor: wait;
   opacity: 1;
+}
+.components-search-control.nfd-wba-keyword-filter .components-input-base {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.components-search-control.nfd-wba-keyword-filter .components-input-control__container {
+  border-radius: 8px;
+  height: 36px;
 }
 .nfd-wba-sr-only {
   position: absolute;

@@ -130,8 +130,8 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 }
 
 /* Contrast text color */
-.nfd-text-contrast:where(:not(.has-text-color)),
-.nfd-text-contrast:where(:not(.has-text-color)) a:where(:not(:hover)),
+.wp-site-blocks .nfd-text-contrast:where(:not(.has-text-color)),
+.wp-site-blocks .nfd-text-contrast:where(:not(.has-text-color)) a:where(:not(:hover)),
 .editor-styles-wrapper div .nfd-text-contrast:where(:not(.has-text-color)),
 .editor-styles-wrapper div :where(.nfd-text-contrast:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
 	/* no important */
@@ -213,8 +213,8 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	color: var(--wndb--color--subtle);
 }
 
-.nfd-text-current:where(:not(.has-text-color)),
-.nfd-text-current:where(:not(.has-text-color)) a:where(:not(:hover)),
+.wp-site-blocks .nfd-text-current:where(:not(.has-text-color)),
+.wp-site-blocks .nfd-text-current:where(:not(.has-text-color)) a:where(:not(:hover)),
 .editor-styles-wrapper div .nfd-text-current:where(:not(.has-text-color)),
 .editor-styles-wrapper div :where(.nfd-text-current:not(.has-text-color):not(.wp-element-button)) a:where(:not(:hover)) {
 	/* no important */
