@@ -144,6 +144,10 @@
 	padding-block-start: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
 }
 
+.nfd-pb-lg {
+	padding-block-end: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
+}
+
 /* --------------------------------- Offset --------------------------------- */
 .nfd-pl-offset-md {
 	padding-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) - 3px);
