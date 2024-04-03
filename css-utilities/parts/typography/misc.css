@@ -7,6 +7,16 @@
 	max-width: var(--wndb--max-w--prose);
 }
 
+.nfd-max-w-prose:not(.nfd-max-w-full).has-text-align-center,
+:where(.nfd-text-balance:not(.nfd-max-w-full)).has-text-align-center {
+	margin-inline: auto;
+}
+
+.nfd-max-w-prose:not(.nfd-max-w-full).has-text-align-right,
+:where(.nfd-text-balance:not(.nfd-max-w-full)).has-text-align-right {
+	margin-inline-start: auto;
+}
+
 :where(.nfd-text-balance) {
 	text-wrap: balance;
 }
