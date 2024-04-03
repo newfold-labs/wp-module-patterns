@@ -473,6 +473,13 @@
 .nfd-wb-animate[data-replay-animation] {
 	transition: none !important;
 }
+/* Don't show animations in the preview editor */
+.block-editor-block-preview__content-iframe [class*="nfd-wb-"] {
+	opacity: 1 !important;
+	transform: none !important;
+	-webkit-clip-path: none !important;
+	        clip-path: none !important;
+}
 /* --------------------------------- Fade In -------------------------------- */
 [class*="nfd-wb-fade-in"] {
 	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
@@ -1047,10 +1054,12 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 
 	--wndb--button-sm--font-size: 1rem;
 
-	--wndb--button-lg: 0.75rem 2rem;
+	--wndb--button-lg-x: 2rem;
+	--wndb--button-lg-y: 0.75rem;
 	--wndb--button-lg--font-size: 1.125rem;
 
-	--wndb--button-xl: 1rem 3rem;
+	--wndb--button-xl-x: 3rem;
+	--wndb--button-xl-y: 1rem;
 	--wndb--button-xl--font-size: 1.125rem;
 }
 [class*="nfd-btn"].is-style-outline {
@@ -1069,7 +1078,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 /* ---------------------------------- Large --------------------------------- */
 .nfd-btn-lg > .wp-block-button__link:not([style*="padding"]) {
-	padding: var(--wndb--button-lg) !important;
+	padding: calc(var(--wndb--button-lg-y) - var(--wndb--button--outline-width)) var(--wndb--button-lg-x) !important;
 }
 .nfd-btn-lg:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {
 	font-size: var(--wndb--button-lg--font-size) !important;
@@ -1079,7 +1088,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 /* --------------------------------- XLarge --------------------------------- */
 .nfd-btn-xl > .wp-block-button__link:not([style*="padding"]) {
-	padding: var(--wndb--button-xl) !important;
+	padding: calc(var(--wndb--button-xl-y) - var(--wndb--button--outline-width)) var(--wndb--button-xl-x) !important;
 }
 .nfd-btn-xl:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {
 	font-size: var(--wndb--button-xl--font-size) !important;

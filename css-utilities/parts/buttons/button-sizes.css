@@ -7,10 +7,12 @@
 
 	--wndb--button-sm--font-size: 1rem;
 
-	--wndb--button-lg: 0.75rem 2rem;
+	--wndb--button-lg-x: 2rem;
+	--wndb--button-lg-y: 0.75rem;
 	--wndb--button-lg--font-size: 1.125rem;
 
-	--wndb--button-xl: 1rem 3rem;
+	--wndb--button-xl-x: 3rem;
+	--wndb--button-xl-y: 1rem;
 	--wndb--button-xl--font-size: 1.125rem;
 }
 
@@ -34,7 +36,7 @@
 
 /* ---------------------------------- Large --------------------------------- */
 .nfd-btn-lg > .wp-block-button__link:not([style*="padding"]) {
-	padding: var(--wndb--button-lg);
+	padding: calc(var(--wndb--button-lg-y) - var(--wndb--button--outline-width)) var(--wndb--button-lg-x);
 }
 
 .nfd-btn-lg:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {
@@ -47,7 +49,7 @@
 
 /* --------------------------------- XLarge --------------------------------- */
 .nfd-btn-xl > .wp-block-button__link:not([style*="padding"]) {
-	padding: var(--wndb--button-xl);
+	padding: calc(var(--wndb--button-xl-y) - var(--wndb--button--outline-width)) var(--wndb--button-xl-x);
 }
 
 .nfd-btn-xl:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {

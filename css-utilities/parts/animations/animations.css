@@ -28,6 +28,13 @@
 	transition: none;
 }
 
+/* Don't show animations in the preview editor */
+.block-editor-block-preview__content-iframe [class*="nfd-wb-"] {
+	opacity: 1;
+	transform: none;
+	clip-path: none;
+}
+
 /* --------------------------------- Fade In -------------------------------- */
 [class*="nfd-wb-fade-in"] {
 	/* no important */
