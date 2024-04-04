@@ -13,7 +13,7 @@ import { store as nfdPatternsStore } from '../../../store';
 import Logo from '../../Logo';
 import Categories from './Categories';
 
-const Sidebar = () => {
+const Sidebar = ({ isSiteEditor = false }) => {
 	const { setActiveTab, setShouldResetKeywords } =
 		useDispatch(nfdPatternsStore);
 
@@ -48,7 +48,9 @@ const Sidebar = () => {
 					},
 				]}
 			>
-				{(tab) => <Categories type={tab.name} />}
+				{(tab) => (
+					<Categories isSiteEditor={isSiteEditor} type={tab.name} />
+				)}
 			</TabPanel>
 		</div>
 	);

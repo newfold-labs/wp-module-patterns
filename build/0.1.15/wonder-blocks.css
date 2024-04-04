@@ -2,15 +2,15 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/app.scss ***!
   \********************************************************************************************************************************************************************************************************************************************/
 /* -------------------------------------------------------------------------- */
+/*                                CSS Variables                               */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 /*                                   Mixins                                   */
 /* -------------------------------------------------------------------------- */
 /**
  * Responsive mixin 
  * @param {string} $breakpoint - breakpoint name. Possible values are: small
 */
-/* -------------------------------------------------------------------------- */
-/*                                CSS Variables                               */
-/* -------------------------------------------------------------------------- */
 :root {
   /* --------------------------------- Colors --------------------------------- */
   /* Dark. */
@@ -31,7 +31,7 @@
   /* --nfd-wba-color-borders: rgba(0, 0, 0, 0.1); */
   --nfd-wba-color-borders: #cccccc;
   /* ---------------------------------- Sizes --------------------------------- */
-  --nfd-wba-sidebar-width: 290px;
+  --nfd-wba-sidebar-width: 310px;
   --nfd-wba-header-height: 70px;
   --nfd-wba-border-radius--lg: 8px;
   --nfd-wba-masonry-gap: 24px;
@@ -48,9 +48,6 @@
 /* -------------------------------------------------------------------------- */
 /*                  WordPress admin toolbar specific styles.                  */
 /* -------------------------------------------------------------------------- */
-#nfd-wba-toolbar-button button {
-  padding: 0 15px 0 12px;
-}
 #nfd-wba-toolbar-button button.nfd-wba-bg-dark {
   --nfd-wba-color-brand: var(--nfd-wba-color-dark);
 }
@@ -67,6 +64,9 @@
   box-shadow: 0 0 0 1px #fff, 0 0 0 3px var(--wp-admin-theme-color);
 }
 
+/* -------------------------------------------------------------------------- */
+/*         Patterns modal styles that we cannot target with Tailwind.         */
+/* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                              List item styles.                             */
 /* -------------------------------------------------------------------------- */
@@ -248,7 +248,7 @@
 /*                             Design Item styles                             */
 /* -------------------------------------------------------------------------- */
 :root {
-  --nfd-wba-design-item--template-height: 500px;
+  --nfd-wba-design-item--template-height: 30vw;
 }
 
 .nfd-wba-design-item:focus-visible {
@@ -273,20 +273,25 @@
   z-index: 1;
 }
 .nfd-wba-design-item--template iframe {
-  transition: transform 6s linear;
-  max-height: unset !important;
+  --offset: calc(
+  	var(--nfd-wba-design-item--template-height) /
+  		var(--nfd-wba-design-item--scale)
+  );
+  --transition-duration: calc(
+  	var(--nfd-wba-design-item--scroll-duration, 0s) / 2
+  );
+  --nfd-wba-translate-offset: calc(-100% + var(--offset));
+  --hover-transition-duration: var(
+  	--nfd-wba-design-item--scroll-duration,
+  	0s
+  );
+  transition: transform var(--transition-duration, 0s) !important;
 }
 .nfd-wba-design-item--template:hover iframe {
-  --nfd-wba-scroll-value: calc(
-  	97% - var(--nfd-wba-design-item--template-height)
-  );
-  transition-duration: 12s;
-  transform: translateY(calc(var(--nfd-wba-scroll-value) * -1));
+  transition: transform var(--hover-transition-duration, 0s) !important;
+  transform: translateY(var(--nfd-wba-translate-offset));
 }
 
-/* -------------------------------------------------------------------------- */
-/*         Patterns modal styles that we cannot target with Tailwind.         */
-/* -------------------------------------------------------------------------- */
 .nfd-wba-modal {
   --wp-admin-theme-color: var(--nfd-wba-color-brand);
 }
@@ -306,6 +311,10 @@
   .nfd-wba-modal .components-modal__content {
     display: block;
   }
+}
+.nfd-wba-modal .components-modal__content > div:not(.nfd-wba-library-modal-grid) {
+  display: flex;
+  flex-grow: 1;
 }
 .nfd-wba-modal__header {
   align-items: center;
@@ -329,9 +338,6 @@
     border-bottom: none;
     padding: 0 16px;
   }
-}
-.nfd-wba-modal__header .components-search-control__icon {
-  transform: rotate(-90deg);
 }
 
 .nfd-wba-state-message > svg {
@@ -458,11 +464,17 @@
 .nfd-wba-mb-\[var\(--nfd-wba-masonry-gap\)\] {
   margin-bottom: var(--nfd-wba-masonry-gap);
 }
-.nfd-wba-ml-2 {
-  margin-left: 0.5rem;
+.nfd-wba-ml-0 {
+  margin-left: 0px;
+}
+.nfd-wba-ml-0\.5 {
+  margin-left: 0.125rem;
 }
 .nfd-wba-ml-auto {
   margin-left: auto;
+}
+.nfd-wba-mr-2 {
+  margin-right: 0.5rem;
 }
 .nfd-wba-mt-1 {
   margin-top: 0.25rem;
@@ -521,6 +533,9 @@
 .\!nfd-wba-min-w-0 {
   min-width: 0px !important;
 }
+.\!nfd-wba-min-w-\[36px\] {
+  min-width: 36px !important;
+}
 .nfd-wba-max-w-\[270px\] {
   max-width: 270px;
 }
@@ -578,9 +593,6 @@
 }
 .nfd-wba-justify-between {
   justify-content: space-between;
-}
-.nfd-wba-gap-1 {
-  gap: 0.25rem;
 }
 .nfd-wba-gap-14 {
   gap: 3.5rem;
@@ -716,6 +728,9 @@
 }
 .nfd-wba-fill-red-600 {
   fill: #dc2626;
+}
+.\!nfd-wba-p-0 {
+  padding: 0px !important;
 }
 .nfd-wba-p-0 {
   padding: 0px;
@@ -892,6 +907,9 @@
 .nfd-wba-duration-100 {
   transition-duration: 100ms;
 }
+.nfd-wb--hide-theme-patterns [aria-label^="Wonder - "]:not([aria-label="Wonder - Pages"]) {
+  display: none;
+}
 .hover\:nfd-wba-bg-brand-darker:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--nfd-wba-color-brand-darker-rgb) / var(--tw-bg-opacity));
@@ -1010,6 +1028,17 @@
   }
   .md\:nfd-wba-max-w-\[90\%\] {
     max-width: 90%;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:nfd-wba-inline {
+    display: inline;
+  }
+  .lg\:\!nfd-wba-pl-3 {
+    padding-left: 0.75rem !important;
+  }
+  .lg\:\!nfd-wba-pr-\[15px\] {
+    padding-right: 15px !important;
   }
 }
 

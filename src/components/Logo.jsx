@@ -7,6 +7,7 @@ import { Icon, buttons } from '@wordpress/icons';
  * External dependencies
  */
 import classNames from 'classnames';
+import { BRAND_NAME } from '../constants';
 
 const Logo = ({ size = 'regular', color = 'dark' }) => {
 	return (
@@ -26,7 +27,7 @@ const Logo = ({ size = 'regular', color = 'dark' }) => {
 					color === 'brand' && 'nfd-wba-text-brand'
 				)}
 			>
-				Library
+				{BRAND_NAME}
 			</span>
 		</div>
 	);

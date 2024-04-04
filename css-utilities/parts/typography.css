@@ -2,14 +2,14 @@
 /*                                 Font sizes¸                                */
 /* -------------------------------------------------------------------------- */
 
-/* Small */
+/* ----------------------------------- SM ----------------------------------- */
 .nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-sm, var(--nfd-cp-text-sm--default));
+	font-size: var(--nfd-cp-text-sm);
 }
 
-/* Base */
+/* ---------------------------------- Base ---------------------------------- */
 .nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-base, var(--nfd-cp-text-base--default));
+	font-size: var(--nfd-cp-text-base);
 }
 
 /* prettier-ignore */
@@ -20,22 +20,22 @@
 	font-size: inherit;
 }
 
-/* Medium */
+/* ----------------------------------- MD ----------------------------------- */
 .nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-md, var(--nfd-cp-text-md--default));
+	font-size: var(--nfd-cp-text-md);
 }
 
 .nfd-text-md:not([style*="line-height"]) {
 	line-height: 1.6;
 }
 
-/* Large */
+/* ----------------------------------- LG ----------------------------------- */
 .nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-lg, var(--nfd-cp-text-lg--default));
+	font-size: var(--nfd-cp-text-lg);
 }
 
 .nfd-text-lg:not([style*="line-height"]) {
-	line-height: 1.2;
+	line-height: 1.4;
 }
 
 .nfd-text-lg:not([style*="letter-spacing"]) {
@@ -46,26 +46,26 @@
 	font-weight: 500;
 }
 
-/* Extra Large */
+/* ----------------------------------- XL ----------------------------------- */
 .nfd-text-xl:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-xl, var(--nfd-cp-text-xl--default));
+	font-size: var(--nfd-cp-text-xl);
 }
 
 .nfd-text-xl:not([style*="line-height"]) {
-	line-height: 1.2;
+	line-height: 1.25;
 }
 
 .nfd-text-xl:not([style*="letter-spacing"]) {
-	letter-spacing: -0.01em;
+	letter-spacing: -0.015em;
 }
 
 .nfd-text-xl:not([style*="font-weight"]) {
 	font-weight: 500;
 }
 
-/* Huge */
+/* ---------------------------------- Huge ---------------------------------- */
 .nfd-text-huge:not([class*="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-huge, var(--nfd-cp-text-huge--default));
+	font-size: var(--nfd-cp-text-huge);
 }
 
 .nfd-text-huge:not([style*="line-height"]) {
@@ -73,16 +73,16 @@
 }
 
 .nfd-text-huge:not([style*="letter-spacing"]) {
-	letter-spacing: -0.02em;
+	letter-spacing: -0.025em;
 }
 
 .nfd-text-huge:not([style*="font-weight"]) {
 	font-weight: 500;
 }
 
-/* Giga */
+/* ---------------------------------- Giga ---------------------------------- */
 .nfd-text-giga:not([class="font-size"]):not([style*="font-size"]) {
-	font-size: var(--nfd-cp-text-giga, var(--nfd-cp-text-giga--default));
+	font-size: var(--nfd-cp-text-giga);
 }
 
 .nfd-text-giga:not([style*="line-height"]) {
@@ -90,7 +90,7 @@
 }
 
 .nfd-text-giga:not([style*="letter-spacing"]) {
-	letter-spacing: -0.02em;
+	letter-spacing: -0.03em;
 }
 
 .nfd-text-giga:not([style*="font-weight"]) {
@@ -116,4 +116,8 @@
 .nfd-text-base .wp-block-button__link,
 .nfd-text-md .wp-block-button__link {
 	font-size: inherit;
+}
+
+.nfd-text-balance {
+	text-wrap: balance;
 }

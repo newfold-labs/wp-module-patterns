@@ -10,10 +10,47 @@
 	padding: 0;
 }
 
+.block-editor-block-preview__content-iframe [style*="min-height: 100vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:100vh"] {
+	min-height: 800px !important;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 70vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:70vh"] {
+	min-height: 560px !important;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 50vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:50vh"] {
+	min-height: 400px !important;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 35vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:35vh"] {
+	min-height: 280px !important;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 30vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:30vh"] {
+	min-height: 240px !important;
+}
+
+.block-editor-block-preview__content-iframe [style*="min-height: 10vh"],
+.block-editor-block-preview__content-iframe [style*="min-height:10vh"] {
+	min-height: 80px !important;
+}
+
 .block-editor-block-preview__content-iframe .nfd-stretch-cover-child {
 	min-height: 800px !important;
 }
 
 .nfd-wba-modal * {
 	box-sizing: border-box !important;
+}
+
+/* Disable animations in the BlockPreview component */
+.block-editor-block-preview__content-iframe .nfd-wb-animate {
+	transition: none;
+	transform: none;
+	opacity: 1;
 }

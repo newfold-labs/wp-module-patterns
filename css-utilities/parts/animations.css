@@ -1,0 +1,234 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Animations                                 */
+/* -------------------------------------------------------------------------- */
+
+:root {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 1400ms;
+	--nfd-wb-anim-transition-delay: 50ms;
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 1, 0.65, 1);
+
+	--nfd-wb-anim-transition: all var(--nfd-wb-anim-transition-duration)
+		var(--nfd-wb-anim-transition-easing-function)
+		var(--nfd-wb-anim-transition-delay);
+}
+
+/* No animations on mobile or reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.nfd-wb-animate {
+		transition: none;
+	}
+}
+
+@media (max-width: 782px) {
+	.nfd-wb-animate {
+		transition: none;
+	}
+}
+
+/* Allow animations to be replayed. This attribute is removed from element with JS, causing the animation to be replayed */
+.nfd-wb-animate[data-replay-animation] {
+	transition: none;
+}
+
+/* --------------------------------- Fade In -------------------------------- */
+[class*="nfd-wb-fade-in"] {
+	/* no important */
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay);
+
+	transition: var(--nfd-wb-anim-transition);
+}
+/* Bottom (long) */
+.nfd-wb-fade-in-bottom {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 1200ms;
+
+	opacity: 0;
+	transform: translate3d(0, 90px, 0);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+/* Bottom */
+.nfd-wb-fade-in-bottom-short {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: center bottom;
+	transform: translate3d(0, 32px, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+/* Top */
+.nfd-wb-fade-in-top-short {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: center top;
+	transform: translate3d(0, -32px, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+/* Left */
+.nfd-wb-fade-in-left-short {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: center left;
+	transform: translate3d(-32px, 0, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+/* Right */
+.nfd-wb-fade-in-right-short {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	opacity: 0;
+	transform-origin: right center;
+	transform: translate3d(32px, 0, 0) scale3d(0.96, 0.96, 0.96);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-fade-in"] {
+	/* no important */
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+
+/* --------------------------------- Zoom In -------------------------------- */
+.nfd-wb-zoom-in {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 1200ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay);
+
+	opacity: 0;
+	transform: scale3d(0.4, 0.4, 0.4);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-zoom-"] {
+	opacity: 1;
+	transform: scale3d(1, 1, 1);
+}
+
+.nfd-wb-zoom-in-short {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 600ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay);
+
+	opacity: 0;
+	transform: scale3d(0.92, 0.92, 0.92);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+/* -------------------------------- Twist In -------------------------------- */
+div:has(> .nfd-wb-twist-in) {
+	/* no important */
+	perspective: 1200px;
+}
+
+.nfd-wb-twist-in {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 1000ms;
+
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration)
+			var(--nfd-wb-anim-transition-easing-function)
+			var(--nfd-wb-anim-transition-delay);
+	opacity: 0;
+	transform: translateY(40px) scale(0.8) rotateY(30deg) rotateZ(-12deg)
+		translateZ(0);
+	transition: var(--nfd-wb-anim-transition);
+}
+
+.nfd-wb-animated-in:not([data-replay-animation]).nfd-wb-twist-in {
+	opacity: 1;
+	transform: translateY(0px) scale(1) rotateY(0deg) rotateZ(0deg)
+		translateZ(0);
+}
+
+/* ---------------------------- Reveal Animations --------------------------- */
+
+/* Mask reveal animations require DOM parent to be used for intersection observer */
+.nfd-wb-reveal-right {
+	/* no important */
+	--nfd-wb-anim-transition-duration: 1500ms;
+	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 0, 0, 1);
+	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
+		var(--nfd-wb-anim-transition-easing-function)
+		var(--nfd-wb-anim-transition-delay);
+
+	transition: var(--nfd-wb-anim-transition);
+	clip-path: inset(0 100% 0 0);
+}
+
+.nfd-wb-animated-in > .nfd-wb-reveal-right:not([data-replay-animation]) {
+	clip-path: inset(0 0 0 0);
+}
+
+/* --------------------------------- Delays --------------------------------- */
+.nfd-delay-50 {
+	--nfd-wb-anim-transition-delay: 50ms;
+}
+
+.nfd-delay-150 {
+	--nfd-wb-anim-transition-delay: 150ms;
+}
+
+.nfd-delay-300 {
+	--nfd-wb-anim-transition-delay: 300ms;
+}
+
+.nfd-delay-450 {
+	--nfd-wb-anim-transition-delay: 450ms;
+}
+
+.nfd-delay-600 {
+	--nfd-wb-anim-transition-delay: 600ms;
+}
+
+.nfd-delay-750 {
+	--nfd-wb-anim-transition-delay: 750ms;
+}
+
+.nfd-delay-900 {
+	--nfd-wb-anim-transition-delay: 900ms;
+}
+
+.nfd-delay-1050 {
+	--nfd-wb-anim-transition-delay: 1050ms;
+}
+
+.nfd-delay-1200 {
+	--nfd-wb-anim-transition-delay: 1200ms;
+}
+
+.nfd-delay-1350 {
+	--nfd-wb-anim-transition-delay: 1350ms;
+}
+
+.nfd-delay-1500 {
+	--nfd-wb-anim-transition-delay: 1500ms;
+}

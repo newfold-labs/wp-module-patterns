@@ -2,8 +2,6 @@
 /*                  WordPress admin toolbar specific styles.                  */
 /* -------------------------------------------------------------------------- */
 #nfd-wba-toolbar-button button {
-	padding: 0 15px 0 12px;
-
 	&.nfd-wba-bg-dark {
 		--nfd-wba-color-brand: var(--nfd-wba-color-dark);
 	}

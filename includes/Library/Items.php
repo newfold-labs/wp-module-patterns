@@ -29,7 +29,7 @@ class Items {
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
 		}
-		
+
 		if ( isset( $args['keywords'] ) ) {
 			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}
@@ -37,6 +37,15 @@ class Items {
 		if ( isset( $args['per_page'] ) ) {
 			$page = isset( $args['page'] ) ? $args['page'] : 1;
 			$data = array_slice( $data, ( $page - 1 ) * $args['per_page'], $args['per_page'] );
+		}
+
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			$data = array_filter(
+				$data,
+				function ( $item ) {
+					return ! in_array( 'products', $item['categories'] );
+				}
+			);
 		}
 
 		return $data;
@@ -63,9 +72,9 @@ class Items {
 		// Ensure we only get templates or patterns.
 		$id   = md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
 		$type = 'templates' === $type ? 'templates' : 'patterns';
-		$data = \get_transient( "wba_{$type}_{$id}" );
+		$data = self::get_data_from_transients( $type, $args );
 
-		if ( false === $data ) {
+		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
 
 			$data = RemoteRequest::get( "/{$type}", $args );
 
@@ -84,6 +93,32 @@ class Items {
 
 		return $data;
 	}
+
+	/**
+	 * Get data from transients.
+	 *
+	 * @param string $type Type of items to get.
+	 * @param array  $args Array of arguments.
+	 *
+	 * @return array $data
+	 */
+	public static function get_data_from_transients( $type = 'patterns', $args = array() ) {
+		$args = wp_parse_args(
+			$args,
+			array(
+				'primary_type'   => SiteClassification::get_primary_type(),
+				'secondary_type' => SiteClassification::get_secondary_type(),
+			)
+		);
+
+		// Ensure we only get templates or patterns.
+		$id   = md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
+		$type = 'templates' === $type ? 'templates' : 'patterns';
+		$data = \get_transient( "wba_{$type}_{$id}" );
+
+		return $data;
+	}
+
 
 	/**
 	 * Filter data by key and value.
@@ -204,8 +239,8 @@ class Items {
 	/**
 	 * Check if item is featured.
 	 *
-	 * @param string $slug
-	 * @return boolean
+	 * @param string $slug Slug of item.
+	 * @return boolean $is_featured True if item is featured.
 	 */
 	private static function is_featured( $slug ) {
 
@@ -217,12 +252,12 @@ class Items {
 	/**
 	 * Add featured category to item if it belongs to a featured category.
 	 *
-	 * @param [type] $data
-	 * @return void
+	 * @param object $data List of items
+	 * @return object $data List of items updated with featured category
 	 */
 	private static function add_featured_categories( $data ) {
 		$data = array_map(
-			function( $item ) {
+			function ( $item ) {
 				if ( self::is_featured( $item['slug'] ) ) {
 
 					if ( ! isset( $item['categories'] ) ) {

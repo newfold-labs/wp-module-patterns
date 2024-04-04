@@ -12,8 +12,10 @@ import { useEffect, useState } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import usePatterns from '../../../hooks/usePatterns';
+import { trackHiiveEvent } from '../../../helpers';
+import { usePatterns } from '../../../hooks';
 import { store as nfdPatternsStore } from '../../../store';
+
 import ContentTitle from './ContentTitle';
 import DesignList from './DesignList/DesignList';
 import Error from './DesignList/Error';
@@ -21,6 +23,7 @@ import NoResults from './DesignList/NoResults';
 import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
 import Spinner from './Spinner';
+import UpdateNotice from './UpdateNotice';
 
 const Content = () => {
 	const [ready, setReady] = useState(false);
@@ -74,12 +77,39 @@ const Content = () => {
 		};
 	}, []);
 
+	useEffect(() => {
+		if (!keywordsFilter) {
+			return;
+		}
+
+		if (hasMore === undefined) {
+			return;
+		}
+
+		if (hasMore && data?.length === 0) {
+			return;
+		}
+
+		const eventData = {
+			label_key: 'search_term',
+			search_term: keywordsFilter,
+			count: data?.length,
+		};
+
+		if (activeTab === 'patterns') {
+			trackHiiveEvent('pattern_searched', eventData);
+		} else if (activeTab === 'templates') {
+			trackHiiveEvent('template_searched', eventData);
+		}
+	}, [activeTab, data?.length, hasMore, keywordsFilter]);
+
 	return (
 		<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]">
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[50vh] nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
 				{isSidebarLoading && !isError && <LoadingSpinner />}
 
 				<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6">
+					<UpdateNotice />
 					<ContentTitle
 						activeTab={activeTab}
 						title={keywordsFilter}

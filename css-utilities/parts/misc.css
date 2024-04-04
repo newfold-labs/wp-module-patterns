@@ -50,6 +50,27 @@ p[style*="text-decoration"] > a {
 	z-index: 10;
 }
 
+/* Fix dots separator align */
+.is-style-dots.nfd-text-left::before {
+	padding-left: 0;
+}
+
 .nfd-absolute-header:not([style*="margin"]) {
 	margin: 0 !important;
+}
+
+/* ----------------------- Offset admin bar from 100vh ---------------------- */
+:is([style*="min-height:100vh"]) {
+	min-height: calc(100vh - var(--wp-admin--admin-bar--height));
+}
+
+@supports (height: 100dvh) {
+	:is([style*="height:100vh"]) {
+		min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
+	}
+}
+
+/* ---------------------------- Backdrop Filters ---------------------------- */
+.nfd-backdrop-blur-sm {
+	backdrop-filter: blur(8px);
 }

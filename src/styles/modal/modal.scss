@@ -27,6 +27,11 @@
 		@include m.responsive(small) {
 			display: block;
 		}
+
+		& > div:not(.nfd-wba-library-modal-grid) {
+			display: flex;
+			flex-grow: 1;
+		}
 	}
 
 	&__header {
@@ -50,10 +55,6 @@
 				border-bottom: none;
 				padding: 0 16px;
 			}
-		}
-
-		.components-search-control__icon {
-			transform: rotate(-90deg);
 		}
 	}
 }

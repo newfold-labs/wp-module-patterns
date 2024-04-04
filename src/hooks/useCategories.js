@@ -1,21 +1,19 @@
 /**
+ * External dependencies
+ */
+import useSWR from 'swr';
+
+/**
  * Internal dependencies
  */
 import { NFD_REST_URL } from '../constants';
 import { fetcher } from '../helpers/fetcher';
 
-/**
- * External dependencies
- */
-import useSWR from 'swr';
-
 const useCategories = (type = 'patterns') => {
 	const endpoint = type === 'patterns' ? 'categories' : 'templateCategories';
 
 	const { data, error, isValidating } = useSWR(
-		{
-			url: `${NFD_REST_URL}/${endpoint}`,
-		},
+		{ url: `${NFD_REST_URL}/${endpoint}` },
 		fetcher
 	);
 

@@ -20,9 +20,24 @@
 }
 
 /* --------------------------------- Padding -------------------------------- */
+[class*="nfd-divider-"]:is([class*="nfd-p-"]),
+[class*="nfd-divider-"]:is([class*="nfd-py-"]),
+[class*="nfd-divider-"]:is([class*="nfd-pb-"]) {
+	/* no important */
+	--nfd-divider-offset: calc(var(--nfd-divider-size, 0px));
+}
+
+[class*="nfd-divider-slant"]:is([class*="nfd-p-"]),
+[class*="nfd-divider-slant"]:is([class*="nfd-py-"]),
+[class*="nfd-divider-slant"]:is([class*="nfd-pb-"]) {
+	--nfd-half-offset: calc(var(--nfd-divider-size, 0px) / 2);
+	--nfd-divider-offset: calc(var(--nfd-half-offset, 0px));
+}
+
 /* Padding - LG */
 .nfd-p-lg {
-	padding: var(--nfd-cp-spacing-y-lg) var(--nfd-cp-spacing-x-lg);
+	padding: var(--nfd-cp-spacing-y-lg) var(--nfd-cp-spacing-x-lg)
+		calc(var(--nfd-cp-spacing-y-lg) - var(--nfd-divider-offset, 0px));
 }
 
 .nfd-px-lg {
@@ -32,7 +47,9 @@
 
 .nfd-py-lg {
 	padding-top: var(--nfd-cp-spacing-y-lg);
-	padding-bottom: var(--nfd-cp-spacing-y-lg);
+	padding-bottom: calc(
+		var(--nfd-cp-spacing-y-lg) - var(--nfd-divider-offset, 0px)
+	);
 }
 
 .nfd-pt-lg {
@@ -41,7 +58,8 @@
 
 /* Padding - MD */
 .nfd-p-md {
-	padding: var(--nfd-cp-spacing-y-md) var(--nfd-cp-spacing-x-md);
+	padding: var(--nfd-cp-spacing-y-md) var(--nfd-cp-spacing-x-md)
+		calc(var(--nfd-cp-spacing-y-md) - var(--nfd-divider-offset, 0px));
 }
 
 .nfd-px-md {
@@ -51,7 +69,9 @@
 
 .nfd-py-md {
 	padding-top: var(--nfd-cp-spacing-y-md);
-	padding-bottom: var(--nfd-cp-spacing-y-md);
+	padding-bottom: calc(
+		var(--nfd-cp-spacing-y-md) - var(--nfd-divider-offset, 0px)
+	);
 }
 
 /* Padding for elements that are meant to be stacked */
@@ -66,12 +86,20 @@
 	padding-right: var(--nfd-cp-p-base, 2.375rem);
 }
 
+.nfd-pt-lg {
+	padding-top: var(--nfd-cp-spacing-y-lg);
+}
+
 .nfd-pb-lg {
-	padding-bottom: var(--nfd-cp-spacing-y-lg);
+	padding-bottom: calc(
+		var(--nfd-cp-spacing-y-lg) - var(--nfd-divider-offset, 0px)
+	);
 }
 
 .nfd-pb-md {
-	padding-bottom: var(--nfd-cp-spacing-y-md);
+	padding-bottom: calc(
+		var(--nfd-cp-spacing-y-md) - var(--nfd-divider-offset, 0px)
+	);
 }
 
 /* ---------------------------- Override defaults --------------------------- */

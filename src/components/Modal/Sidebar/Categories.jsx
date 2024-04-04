@@ -10,58 +10,67 @@ import { Icon } from '@wordpress/icons';
 /**
  * Internal dependencies
  */
-import useCategories from '../../../hooks/useCategories';
-import usePatterns from '../../../hooks/usePatterns';
+import { SITE_EDITOR_CATEGORIES } from '../../../constants';
+import { useCategories, usePatterns } from '../../../hooks';
 import { store as nfdPatternsStore } from '../../../store';
+
 import { heart } from '../../Icons';
 import ErrorLoading from './ErrorLoading';
 import ListElement from './ListElement';
 import Skeleton from './Skeleton';
 
-const Categories = ({ type = 'patterns' }) => {
-	// Fetch data.
+const Categories = ({ type = 'patterns', isSiteEditor = false }) => {
+	// Fetch data
 	const { data, error, isValidating } = useCategories(type);
 	const { data: allFavs } = usePatterns({ onlyFavorites: true, perPage: -1 });
 
+	// Remove SITE_EDITOR_CATEGORIES if we are not in the Site Editor
+	const filteredCategories = useMemo(() => {
+		if (!isSiteEditor) {
+			return data?.filter(
+				(category) => !SITE_EDITOR_CATEGORIES.includes(category.title)
+			);
+		}
+
+		return data;
+	}, [isSiteEditor, data]);
+
 	// Format categories for mobile dropdown
-	const formattedCategoriesForMobile = useMemo(
-		() =>
-			data
-				?.reduce(
-					(result, category) => {
-						return [
-							...result,
-							{
-								label:
-									category.label +
-									' (' +
-									category.count +
-									')',
-								value: category.title,
-							},
-						];
-					},
-					[
-						{
-							value: 'favorites',
-							label:
-								__('Favorites', 'nfd-wonder-blocks') +
-								' (' +
-								(allFavs?.length ?? 0) +
-								')',
-						},
-					]
-				)
-				.sort((a, b) => {
-					if (a.value === 'favorites') {
-						return 1; // Move 'favorites' to the end
-					} else if (b.value === 'favorites') {
-						return -1; // Keep 'favorites' at the end
-					}
-					return 0; // Maintain the original order
-				}),
-		[data, allFavs]
-	);
+	// prettier-ignore
+	const formattedCategoriesForMobile = useMemo(() => {
+		return filteredCategories?.reduce((result, category) => {            
+            // Handle undefined values
+            const label = category.label || '';
+            const count = category.count ?? '';
+            const title = category.title || '';
+            
+            let formattedLabel = label;
+            
+            if (count) {
+                formattedLabel += ` (${count})`; // Include parentheses only when count is defined
+            }
+
+            return [
+                ...result,
+                { label: formattedLabel, value: title },
+            ];
+        },
+        [{
+            value: 'favorites',
+            label: `${__('Favorites', 'nfd-wonder-blocks')} (${
+                allFavs?.length ?? 0
+            })`,
+        }]
+        ).sort((a, b) => {
+            if (a.value === 'favorites') {
+                return 1; // Move 'favorites' to the end
+            } else if (b.value === 'favorites') {
+                return -1; // Keep 'favorites' at the end
+            }
+            
+            return 0; // Maintain the original order
+        });
+	}, [filteredCategories, allFavs?.length]);
 
 	// Store actions and states.
 	const {
@@ -163,9 +172,8 @@ const Categories = ({ type = 'patterns' }) => {
 
 	return (
 		<>
-			{!data && isValidating && <Skeleton count={14} />}
+			{!data && isValidating && <Skeleton count={12} />}
 			{!data && error && <ErrorLoading />}
-
 			{data && (
 				<>
 					<SelectControl
@@ -183,7 +191,7 @@ const Categories = ({ type = 'patterns' }) => {
 					/>
 
 					<ul className="nfd-wba-list-elements nfd-wba-m-0 nfd-wba-list-none nfd-wba-flex-col nfd-wba-px-0 nfd-wba-py-4 nfd-wba-text-md nfd-wba-leading-5 sm:nfd-wba-flex">
-						{data?.map((category) => {
+						{filteredCategories?.map((category) => {
 							return (
 								<ListElement
 									key={category.id}

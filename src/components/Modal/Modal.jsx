@@ -3,23 +3,36 @@
  */
 import { Modal as WPModal } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect } from '@wordpress/element';
+import { useEffect, useMemo } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
+import { trackHiiveEvent } from '../../helpers';
+import useMonitorBlockOrder from '../../hooks/useMonitorBlockOrder';
 import { store as nfdPatternsStore } from '../../store';
 import Content from './Content/Content';
-import Sidebar from './Sidebar/Sidebar';
 import Header from './Content/Header/Header';
+import Sidebar from './Sidebar/Sidebar';
 
 const Modal = () => {
 	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
 
+	const { isModalOpen, isEditingTemplate, editedPostType } = useSelect(
+		(select) => ({
+			isModalOpen: select(nfdPatternsStore).isModalOpen(),
+			isEditingTemplate: select('core/edit-post').isEditingTemplate(),
+			editedPostType: select('core/edit-site')?.getEditedPostType(),
+		})
+	);
+
 	// Check if we are editing a template, via site editor or page.
-	const { isModalOpen } = useSelect((select) => ({
-		isModalOpen: select(nfdPatternsStore).isModalOpen(),
-	}));
+	const isSiteEditor = useMemo(() => {
+		return isEditingTemplate || !!editedPostType;
+	}, [isEditingTemplate, editedPostType]);
+
+	// Monitor block order.
+	useMonitorBlockOrder();
 
 	// Check if we should automatically open the modal and pre-select.
 	useEffect(() => {
@@ -31,6 +44,11 @@ const Modal = () => {
 				if (searchParams.get('wonder-blocks-library') === 'templates') {
 					setActiveTab('templates');
 				}
+
+				trackHiiveEvent('modal_open', {
+					label_key: 'trigger',
+					trigger: 'url',
+				});
 
 				setIsModalOpen(true);
 			}, 300);
@@ -54,7 +72,7 @@ const Modal = () => {
 			onRequestClose={() => setIsModalOpen(false)}
 		>
 			<div className="nfd-wba-library-modal-grid nfd-wba-grow nfd-wba-bg-white nfd-wba-text-dark-lighter">
-				<Sidebar />
+				<Sidebar isSiteEditor={isSiteEditor} />
 				<Header />
 				<Content />
 			</div>
