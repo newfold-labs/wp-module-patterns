@@ -6,13 +6,30 @@ namespace NewfoldLabs\WP\Module\Patterns\Library;
  * Admin library class
  */
 final class Admin {
+	/**
+	 * Admin pages that require WonderBlock assets.
+	 *
+	 * @var array
+	 */
+	private static $admin_pages = array( 'page', 'post', 'page-new', 'post-new', 'site-editor' );
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
+		foreach ( self::$admin_pages as $admin_page ) {
+			\add_action( "load-{$admin_page}.php", array( __CLASS__, 'load_wonder_blocks' ) );
+		}
+	}
+
+	/**
+	 * Load wonder block assets into the respective admin editor page and suppress the core patterns modal.
+	 *
+	 * @return void
+	 */
+	public static function load_wonder_blocks() {
 		\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
-		\add_action( 'init', array( $this, 'register_block_patterns' ) );
+		self::register_block_patterns();
 		\add_filter( 'admin_body_class', array( $this, 'add_admin_body_class' ) );
 	}
 
@@ -59,7 +76,7 @@ final class Admin {
 	/**
 	 * Register Block Patterns
 	 */
-	public function register_block_patterns() {
+	public static function register_block_patterns() {
 
 		// Disable opening default WP Patterns modal on empty pages.
 		$patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
