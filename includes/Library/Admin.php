@@ -30,7 +30,7 @@ final class Admin {
 	public static function load_wonder_blocks() {
 		\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
 		self::register_block_patterns();
-		\add_filter( 'admin_body_class', array( $this, 'add_admin_body_class' ) );
+		\add_filter( 'admin_body_class', array( __CLASS__, 'add_admin_body_class' ) );
 	}
 
 	/**
@@ -138,7 +138,7 @@ final class Admin {
 	 * @param string $classes Body classes.
 	 * @return string
 	 */
-	function add_admin_body_class( $classes ) {
+	public static function add_admin_body_class( $classes ) {
 		$current_screen = get_current_screen();
 
 		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
