@@ -673,7 +673,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	max-width: var(--wndb--container--wide);
 }
 /* ----------------------------- Inline padding ----------------------------- */
-.nfd-container {
+.nfd-container:not(.alignfull) {
 	padding-inline: var(--wndb--p) !important;
 }
 /* ------------------------- Backwards compatibility ------------------------ */
@@ -759,10 +759,10 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 /**
  * "Rounded" section divider.
  */
-.nfd-divider-rounded:not([style*="-radius"]) {
+.nfd-divider-rounded {
 	--wndb--divider-size: 50px;
 }
-.nfd-divider-rounded::before:not([style*="-radius"]) {
+.nfd-divider-rounded::before {
 	border-bottom-left-radius: var(--wndb--divider-size) !important;
 	border-bottom-right-radius: var(--wndb--divider-size) !important;
 }
@@ -1211,7 +1211,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 [class*="nfd-rounded"]:not([style*="-radius"]) > img,
 [class*="nfd-rounded"]:not([style*="-radius"]) > .wp-element-button:not([style*="-radius"]),
 [class*="nfd-rounded"]:not([style*="-radius"]) > a > img,
-[class*="nfd-rounded"]:not([style*="-radius"]) > .components-resizable-box__container > img:not([style*="-radius"]) {
+[class*="nfd-rounded"]:not([style*="-radius"]) > .components-resizable-box__container > img {
 	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) !important;
 }
 /* Rounded top */
@@ -1219,30 +1219,30 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 [class*="nfd-rounded-t-"]:not([style*="-radius"]) > img,
 [class*="nfd-rounded-t-"]:not([style*="-radius"]) > .wp-element-button:not([style*="-radius"]),
 [class*="nfd-rounded-t-"]:not([style*="-radius"]) > a > img,
-[class*="nfd-rounded-t-"]:not([style*="-radius"]) > .components-resizable-box__container > img:not([style*="-radius"]) {
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > .components-resizable-box__container > img {
 	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) 0
 		0 !important;
 }
 /* ---------------------------------- Scale --------------------------------- */
-.nfd-rounded-none:not([style*="-radius"]) {
+.nfd-rounded-none {
 	--wndb--border--radius: 0;
 }
-.nfd-rounded-sm:not([style*="-radius"]) {
+.nfd-rounded-sm {
 	--wndb--border--radius: var(--wndb--border--radius--sm);
 }
 .nfd-rounded,
-.nfd-rounded-md:not([style*="-radius"]) {
+.nfd-rounded-md {
 	--wndb--border--radius: var(--wndb--border--radius--md);
 }
 .nfd-rounded-lg,
-.nfd-rounded-t-lg:not([style*="-radius"]) {
+.nfd-rounded-t-lg {
 	--wndb--border--radius: var(--wndb--border--radius--lg);
 }
 .nfd-rounded-xl,
-.nfd-rounded-t-xl:not([style*="-radius"]) {
+.nfd-rounded-t-xl {
 	--wndb--border--radius: var(--wndb--border--radius--xl);
 }
-.nfd-rounded-full:not([style*="-radius"]) {
+.nfd-rounded-full {
 	--wndb--border--radius: 9999px;
 }
 /**
@@ -1834,7 +1834,7 @@ p[style*="text-decoration"] > a {
 	.md\:nfd-self-start {
 		align-self: flex-start !important;
 	}
-	.md\:nfd-rounded-lg:not([style*="-radius"]) {
+	.md\:nfd-rounded-lg {
 		border-radius: 0.5rem !important;
 	}
 	.md\:nfd-border-none {
