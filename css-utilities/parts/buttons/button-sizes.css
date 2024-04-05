@@ -1,0 +1,67 @@
+/**
+ * Button sizes.
+ */
+
+:where(:root) {
+	--wndb--button--outline-width: 0px;
+
+	--wndb--button-sm--font-size: 1rem;
+
+	--wndb--button-lg-x: 2rem;
+	--wndb--button-lg-y: 0.75rem;
+	--wndb--button-lg--font-size: 1.125rem;
+
+	--wndb--button-xl-x: 3rem;
+	--wndb--button-xl-y: 1rem;
+	--wndb--button-xl--font-size: 1.125rem;
+}
+
+[class*="nfd-btn"].is-style-outline {
+	--wndb--button--outline-width: 2px;
+}
+
+/* --------------------------------- Default -------------------------------- */
+[class*="nfd-btn"] > .wp-block-button__link:not([style*="padding"]) {
+	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(1.125rem - var(--wndb--button--outline-width));
+}
+
+/* ---------------------------------- Small --------------------------------- */
+.nfd-btn-sm > .wp-block-button__link:not([style*="padding"]) {
+	padding: calc(0.375rem - var(--wndb--button--outline-width)) calc(1rem - var(--wndb--button--outline-width));
+}
+
+.nfd-btn-sm:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {
+	font-size: var(--wndb--button-sm--font-size);
+}
+
+/* ---------------------------------- Large --------------------------------- */
+.nfd-btn-lg > .wp-block-button__link:not([style*="padding"]) {
+	padding: calc(var(--wndb--button-lg-y) - var(--wndb--button--outline-width)) var(--wndb--button-lg-x);
+}
+
+.nfd-btn-lg:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {
+	font-size: var(--wndb--button-lg--font-size);
+}
+
+.nfd-btn-lg:not([style*="font-weight"]) > .wp-block-button__link {
+	font-weight: 600;
+}
+
+/* --------------------------------- XLarge --------------------------------- */
+.nfd-btn-xl > .wp-block-button__link:not([style*="padding"]) {
+	padding: calc(var(--wndb--button-xl-y) - var(--wndb--button--outline-width)) var(--wndb--button-xl-x);
+}
+
+.nfd-btn-xl:not(.has-custom-font-size) > .wp-block-button__link:not([style*="font-size"]) {
+	font-size: var(--wndb--button-xl--font-size);
+}
+
+.nfd-btn-xl:not([style*="font-weight"]) > .wp-block-button__link {
+	font-weight: 600;
+}
+
+/* ---------------------------------- Wide ---------------------------------- */
+/* Wide */
+.nfd-btn-wide > .wp-block-button__link:not([style*="padding"]) {
+	padding: calc(0.625rem - var(--wndb--button--outline-width)) calc(2rem - var(--wndb--button--outline-width));
+}

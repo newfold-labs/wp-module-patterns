@@ -1,0 +1,12 @@
+/**
+ * "Zigzag" section divider.
+ */
+
+.nfd-divider-zigzag {
+	/* no important */
+	--wndb--divider-size: 8px;
+}
+
+.nfd-divider-zigzag::before {
+	mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100%;
+}

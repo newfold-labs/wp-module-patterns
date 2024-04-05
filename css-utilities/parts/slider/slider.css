@@ -1,0 +1,72 @@
+/**
+ * CSS based slider styles
+ */
+
+:where(:root) {
+	--wndb--slider-height: 100lvh;
+}
+
+/* Slider Base Styles */
+.nfd-scroll-slider-vertical,
+.nfd-scroll-slider-horizontal {
+	flex-wrap: nowrap;
+	height: var(--wndb--slider-height);
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.nfd-scroll-slider-vertical::-webkit-scrollbar,
+.nfd-scroll-slider-horizontal::-webkit-scrollbar {
+	display: none;
+}
+
+/* Vertical Slider */
+.nfd-scroll-slider-vertical {
+	height: 100vh;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+}
+
+.nfd-scroll-slider-vertical > * {
+	width: 100%;
+	scroll-snap-align: start;
+}
+
+/* Horizontal Slider */
+.nfd-scroll-slider-horizontal {
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	flex-direction: row;
+}
+
+.nfd-scroll-slider-horizontal > * {
+	flex-shrink: 0;
+	scroll-snap-align: start;
+}
+
+.nfd-scroll-slider-horizontal > .wp-block-cover {
+	width: 100vw;
+}
+
+.nfd-container.alignfull .nfd-scroll-slider-horizontal {
+	--half-container: calc(50vw - var(--wndb--container) / 2);
+	scroll-padding: var(--half-container);
+	padding-left: var(--half-container);
+	padding-right: var(--half-container);
+}
+
+/* Animation */
+.nfd-scroll-slider-horizontal.nfd-scroll-slider-animate > .wp-block-cover:nth-child(1) {
+	animation: scroll-slider-slide 1s ease 1s forwards; /* 1-second delay */
+}
+
+@keyframes scroll-slider-slide {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: -100vw;
+	}
+}

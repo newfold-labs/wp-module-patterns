@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { useCallback } from '@wordpress/element';
+import { useCallback } from "@wordpress/element";
 
 /**
  * `useReplacePlaceholders` is a custom hook that returns a memoized function
@@ -16,11 +16,11 @@ import { useCallback } from '@wordpress/element';
  * @return {Function} - The memoized replace function.
  */
 const useReplacePlaceholders = () => {
-	const replace = useCallback((str = '', placeholders = {}) => {
+	const replace = useCallback((str = "", placeholders = {}) => {
 		let result = str;
 
 		Object.keys(placeholders).forEach((key) => {
-			if (typeof placeholders[key] === 'string') {
+			if (typeof placeholders[key] === "string") {
 				result = result.replaceAll(key, placeholders[key]);
 			}
 		});

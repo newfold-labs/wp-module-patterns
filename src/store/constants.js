@@ -3,4 +3,4 @@
  *
  * @type {string}
  */
-export const STORE_NAME = 'newfold/wonder-blocks';
+export const STORE_NAME = "newfold/wonder-blocks";
