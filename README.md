@@ -4,7 +4,7 @@ height="42" />
 </a>
 
 # WordPress Wonder Blocks Module
-[![Version Number](https://img.shields.io/github/v/release/newfold-labs/wp-module-coming-soon?color=21a0ed&labelColor=333333)](https://github.com/newfold-labs/wp-module-patterns/releases)
+[![Version Number](https://img.shields.io/github/v/release/newfold-labs/wp-module-patterns?color=21a0ed&labelColor=333333)](https://github.com/newfold-labs/wp-module-patterns/releases)
 [![License](https://img.shields.io/github/license/newfold-labs/wp-module-patterns?labelColor=333333&color=666666)](https://raw.githubusercontent.com/newfold-labs/wp-module-patterns/master/LICENSE)
 
 Dynamic WordPress patterns library for WordPress sites at Newfold Digital.
