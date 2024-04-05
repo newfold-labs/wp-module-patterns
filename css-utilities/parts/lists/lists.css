@@ -1,4 +1,4 @@
-ul.nfd-gap-md li:not(:last-child) {
+ul.nfd-gap-md:not(.is-layout-flex) li:not(:last-child) {
 	margin-bottom: 1em;
 }
 

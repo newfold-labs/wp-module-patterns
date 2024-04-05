@@ -93,6 +93,8 @@ p[style*="text-decoration"] > a {
 
 .nfd-container summary {
 	position: relative;
+	padding-right: 32px;
+	line-height: 1.5;
 }
 
 .nfd-container summary::marker {
