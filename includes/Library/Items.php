@@ -43,7 +43,7 @@ class Items {
 			$data = array_filter(
 				$data,
 				function ( $item ) {
-					return ! in_array( 'products', $item['categories'] );
+					return ! in_array( 'products', $item['categories'], true );
 				}
 			);
 		}
