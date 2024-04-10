@@ -11,7 +11,11 @@ describe("Wonder Blocks", function () {
 
 	it("Wonder Blocks button opens modal", () => {
 		cy.wait(1000);
-		cy.get("body").click({ force: true }); // clear welcome guide
+
+		cy.window().then((win) => {
+			win.wp.data.select( 'core/edit-post' ).isFeatureActive( 'welcomeGuide' ) && win.wp.data.dispatch( 'core/edit-post').toggleFeature( 'welcomeGuide' );
+		});
+
 		cy.wait(100);
 		cy.get("#nfd-wba-toolbar-button button").click();
 		cy.wait(100);
