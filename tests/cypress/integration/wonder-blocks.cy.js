@@ -12,6 +12,7 @@ describe("Wonder Blocks", function () {
 	it("Wonder Blocks button opens modal", () => {
 		cy.wait(1000);
 		cy.get("body").click({ force: true }); // clear welcome guide
+		cy.get('.edit-post-welcome-guide .components-modal__header button.components-button').click();
 		cy.wait(100);
 		cy.get("#nfd-wba-toolbar-button button").click();
 		cy.wait(100);
