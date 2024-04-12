@@ -13,10 +13,12 @@ class Categories {
 	 * Get the categories from transient or the remote API.
 	 *
 	 * @param string $type Type of categories to get.
+	 * @param string $orderby Attribute of the category to sort by. Default is 'menu_order'.
+	 * @param string $order  Specifies the order of sorting. Acceptable values are 'ASC' for ascending order or 'DESC' for descending order. Default is 'ASC'.
 	 *
 	 * @return array
 	 */
-	public static function get( $type = 'patterns' ) {
+	public static function get( $type = 'patterns', $orderby = 'menu_order', $order = 'ASC' ) {
 
 		// Ensure we only get templates or patterns.
 		$type = 'templates' === $type ? 'templates' : 'patterns';
@@ -64,7 +66,43 @@ class Categories {
 			$data = $_data;
 		}
 
+		// Sort categories.
+		$data = self::sort_categories( $data, $orderby, $order );
+
 		// Return the categories.
+		return $data;
+	}
+
+	/**
+	 * Sorts an array of categories based on a specified order and ordering attribute.
+	 * By default, it sorts by 'menu_order' in ascending ('ASC') order. The function
+	 * currently only applies sorting if the 'menu_order' attribute is specified for ordering.
+	 * If 'menu_order' is used, categories without a specified 'menu_order' are placed at the end.
+	 *
+	 * @param array  $data    The array of categories to sort. Each category should be an associative array that potentially includes the 'menu_order' key.
+	 * @param string $orderby Attribute of the category to sort by. Default is 'menu_order'.
+	 * @param string $order  Specifies the order of sorting. Acceptable values are 'ASC' for ascending order or 'DESC' for descending order. Default is 'ASC'.
+	 *
+	 * @return array Returns the sorted array of categories. If 'menu_order' is not the sorting attribute, returns the input array without changes.
+	 */
+	private static function sort_categories( $data, $orderby = 'menu_order', $order = 'ASC' ) {
+
+		if ( 'menu_order' === $orderby ) {
+			usort(
+				$data,
+				function ( $a, $b ) use ( $orderby, $order ) {
+					$value_a = isset( $a[ $orderby ] ) ? $a[ $orderby ] : PHP_INT_MAX;
+					$value_b = isset( $b[ $orderby ] ) ? $b[ $orderby ] : PHP_INT_MAX;
+
+					if ( 'ASC' === $order ) {
+						return $value_a <=> $value_b;
+					} else {
+						return $value_b <=> $value_a;
+					}
+				}
+			);
+		}
+
 		return $data;
 	}
 
