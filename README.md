@@ -3,9 +3,25 @@
 height="42" />
 </a>
 
-# wp-module-patterns WordPress Module
+# WordPress Wonder Blocks Module
+[![Version Number](https://img.shields.io/github/v/release/newfold-labs/wp-module-patterns?color=21a0ed&labelColor=333333)](https://github.com/newfold-labs/wp-module-patterns/releases)
+[![License](https://img.shields.io/github/license/newfold-labs/wp-module-patterns?labelColor=333333&color=666666)](https://raw.githubusercontent.com/newfold-labs/wp-module-patterns/master/LICENSE)
 
 Dynamic WordPress patterns library for WordPress sites at Newfold Digital.
+
+## Module Responsibilities
+
+- Show "Wonder Blocks" button in page and site editors (using Gutenberg).
+- Add CSS utility classes that can be used on frontend and when editing pages with Gutenberg.
+- When the "Wonder Blocks" button is clicked, a modal is opened displaying Wonder Blocks patterns and templates that can be inserted into the page editor when clicked on.
+- When WooCommerce plugin is active, additional "Product" patterns and templates are available in the modal.
+- When in Site Editor, "Headers" and "Footers" categories are available in the modal.
+- Register Wonder Blocks patterns to WordPress.
+- Show a CTA next to the "Add New Page" on the `edit.php?post_type=page` page.
+- When the CTA is clicked, a new page is created and the Wonder Blocks modal is automatically opened with the "Templates" tab pre-selected.
+- When the module is active it hides Wonder Theme patterns from the default WordPress Patterns library.
+
+## Critical Paths
 
 ## Installation
 
@@ -21,7 +37,7 @@ composer config repositories.newfold composer https://newfold-labs.github.io/sat
 composer require newfold-labs/wp-module-patterns
 ```
 
-## Dev mode
+## Development
 
 ### GitHub Auth Token
 
@@ -34,10 +50,10 @@ Add GitHub Auth Token to `.npmrc` for private repo access.
 
 3. Add your GitHub token in `.npmrc`:
 
-    ```
-	@newfold-labs:registry=https://npm.pkg.github.com/
-	//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN_HERE
-    ```
+   ```
+   @newfold-labs:registry=https://npm.pkg.github.com/
+   //npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN_HERE
+   ```
 
 4. Save the file.
 
@@ -78,13 +94,13 @@ It is essential to verify that the version has been appropriately incremented in
 1. PHP constant `NFD_WONDER_BLOCKS_VERSION` has been updated to the intended release version on line 18 of the file `/bootstrap.php`. This PHP constant dictates the expected location of build files for the module. For example:
 
 ```
-define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.11' );
+define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.16' );
 ```
 
 2. JavaScript release version aligns with the desired release by checking line 3 in the `package.json` file. For example:
 
 ```
-"version": "0.1.11",
+"version": "0.1.16",
 ```
 
 ### Build
@@ -121,11 +137,11 @@ Ensure that these files are committed to the repository, as they are essential c
 
 ## More on NewFold WordPress Modules
 
--   <a href="https://github.com/bluehost/endurance-wp-module-loader#endurance-wordpress-modules">What are modules?</a>
--   <a href="https://github.com/bluehost/endurance-wp-module-loader#creating--registering-a-module">Creating/registering
-    modules</a>
--   <a href="https://github.com/bluehost/endurance-wp-module-loader#installing-from-our-satis">Installing from our
-    Satis</a>
--   <a href="https://github.com/bluehost/endurance-wp-module-loader#local-development">Local development notes</a>
--   <a href="https://github.com/bluehost/endurance-wp-module-loader#understanding-the-module-lifecycle">Understanding the
-    module lifecycle</a>
+- <a href="https://github.com/bluehost/endurance-wp-module-loader#endurance-wordpress-modules">What are modules?</a>
+- <a href="https://github.com/bluehost/endurance-wp-module-loader#creating--registering-a-module">Creating/registering
+  modules</a>
+- <a href="https://github.com/bluehost/endurance-wp-module-loader#installing-from-our-satis">Installing from our
+  Satis</a>
+- <a href="https://github.com/bluehost/endurance-wp-module-loader#local-development">Local development notes</a>
+- <a href="https://github.com/bluehost/endurance-wp-module-loader#understanding-the-module-lifecycle">Understanding the
+  module lifecycle</a>

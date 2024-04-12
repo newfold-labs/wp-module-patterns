@@ -1,0 +1,15 @@
+/*
+ * Section dividers.
+ */
+@import "./base";
+@import "./arrow";
+@import "./clouds";
+@import "./ellipse";
+@import "./rounded";
+@import "./slant";
+@import "./triangle";
+@import "./zigzag";
+
+:where(:root) {
+	--wndb--divider-size: 0px;
+}

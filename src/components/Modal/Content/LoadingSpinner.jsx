@@ -1,13 +1,13 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import Logo from '../../Logo';
-import Spinner from './Spinner';
+import Logo from "../../Logo";
+import Spinner from "./Spinner";
 
 function LoadingSpinner({ isComplete }) {
 	if (isComplete) {
@@ -19,10 +19,7 @@ function LoadingSpinner({ isComplete }) {
 			<Logo size="large" color="brand" />
 
 			<h2 className="nfd-wba-m-0 nfd-wba-max-w-[300px] nfd-wba-text-center nfd-wba-text-xl nfd-wba-font-light nfd-wba-text-dark-lighter sm:nfd-wba-max-w-full">
-				{__(
-					'One moment while we load content tailored for your site.',
-					'nfd-wonder-blocks'
-				)}
+				{__("One moment while we load content tailored for your site.", "nfd-wonder-blocks")}
 			</h2>
 
 			<Spinner />

@@ -1,6 +1,4 @@
-/* -------------------------------------------------------------------------- */
-/*                                 Form styles                                */
-/* -------------------------------------------------------------------------- */
+/* Form styles */
 
 .nfd-form-items-grow > div:not(.wp-block-jetpack-button) {
 	flex-grow: 1;
@@ -21,7 +19,7 @@
 
 .nfd-jp-form .contact-form-submission {
 	border-color: currentColor;
-	padding: calc(0.5 * var(--nfd-cp-spacing-y-md)) 0;
+	padding: calc(0.5 * var(--wndb--p--md)) 0;
 }
 
 .nfd-jp-form textarea {
@@ -33,14 +31,8 @@
 	padding-block-end: 10px;
 }
 
-.nfd-jp-form
-	.jetpack-field-checkbox
-	.jetpack-field-label
-	.jetpack-field-label__input,
-.nfd-jp-form
-	.jetpack-field-consent
-	.jetpack-field-label
-	.jetpack-field-label__input,
+.nfd-jp-form .jetpack-field-checkbox .jetpack-field-label .jetpack-field-label__input,
+.nfd-jp-form .jetpack-field-consent .jetpack-field-label .jetpack-field-label__input,
 .nfd-jp-form .consent {
 	text-transform: none;
 	line-height: 1.5em !important;

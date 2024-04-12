@@ -24,15 +24,12 @@ export const optimizePreview = (html) => {
 			if (height) {
 				const reducedHeight = Math.floor(Number(height[1]) / 2);
 
-				reducedUrl = reducedUrl.replace(
-					`h=${height[1]}`,
-					`h=${reducedHeight}`
-				);
+				reducedUrl = reducedUrl.replace(`h=${height[1]}`, `h=${reducedHeight}`);
 			}
 
 			// Set quality to 50.
 			if (quality) {
-				reducedUrl = reducedUrl.replace(`${quality[0]}`, 'q=50');
+				reducedUrl = reducedUrl.replace(`${quality[0]}`, "q=50");
 			}
 
 			return reducedUrl;

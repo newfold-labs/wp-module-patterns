@@ -7,10 +7,7 @@
 	--nfd-wb-anim-transition-duration: 1400ms;
 	--nfd-wb-anim-transition-delay: 50ms;
 	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 1, 0.65, 1);
-
-	--nfd-wb-anim-transition: all var(--nfd-wb-anim-transition-duration)
-		var(--nfd-wb-anim-transition-easing-function)
-		var(--nfd-wb-anim-transition-delay);
+	--nfd-wb-anim-transition: all var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
 }
 
 /* No animations on mobile or reduced motion */
@@ -31,15 +28,18 @@
 	transition: none;
 }
 
+/* Don't show animations in the preview editor */
+.block-editor-block-preview__content-iframe [class*="nfd-wb-"] {
+	opacity: 1;
+	transform: none;
+	clip-path: none;
+}
+
 /* --------------------------------- Fade In -------------------------------- */
 [class*="nfd-wb-fade-in"] {
 	/* no important */
-	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay),
-		transform var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay);
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
 
 	transition: var(--nfd-wb-anim-transition);
 }
@@ -108,12 +108,8 @@
 	/* no important */
 	--nfd-wb-anim-transition-duration: 1200ms;
 
-	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay),
-		transform var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay);
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
 
 	opacity: 0;
 	transform: scale3d(0.4, 0.4, 0.4);
@@ -129,12 +125,8 @@
 	/* no important */
 	--nfd-wb-anim-transition-duration: 600ms;
 
-	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay),
-		transform var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay);
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
 
 	opacity: 0;
 	transform: scale3d(0.92, 0.92, 0.92);
@@ -151,22 +143,16 @@ div:has(> .nfd-wb-twist-in) {
 	/* no important */
 	--nfd-wb-anim-transition-duration: 1000ms;
 
-	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay),
-		transform var(--nfd-wb-anim-transition-duration)
-			var(--nfd-wb-anim-transition-easing-function)
-			var(--nfd-wb-anim-transition-delay);
+	--nfd-wb-anim-transition: opacity var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay),
+		transform var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
 	opacity: 0;
-	transform: translateY(40px) scale(0.8) rotateY(30deg) rotateZ(-12deg)
-		translateZ(0);
+	transform: translateY(40px) scale(0.8) rotateY(30deg) rotateZ(-12deg) translateZ(0);
 	transition: var(--nfd-wb-anim-transition);
 }
 
 .nfd-wb-animated-in:not([data-replay-animation]).nfd-wb-twist-in {
 	opacity: 1;
-	transform: translateY(0px) scale(1) rotateY(0deg) rotateZ(0deg)
-		translateZ(0);
+	transform: translateY(0px) scale(1) rotateY(0deg) rotateZ(0deg) translateZ(0);
 }
 
 /* ---------------------------- Reveal Animations --------------------------- */
@@ -176,9 +162,7 @@ div:has(> .nfd-wb-twist-in) {
 	/* no important */
 	--nfd-wb-anim-transition-duration: 1500ms;
 	--nfd-wb-anim-transition-easing-function: cubic-bezier(0.4, 0, 0, 1);
-	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration)
-		var(--nfd-wb-anim-transition-easing-function)
-		var(--nfd-wb-anim-transition-delay);
+	--nfd-wb-anim-transition: clip-path var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
 
 	transition: var(--nfd-wb-anim-transition);
 	clip-path: inset(0 100% 0 0);

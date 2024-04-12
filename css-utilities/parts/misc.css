@@ -1,19 +1,79 @@
-/* -------------------------------------------------------------------------- */
-/*                                    Misc                                    */
-/* -------------------------------------------------------------------------- */
+/**
+ * Miscellaneous utilities.
+ */
 
-@media (max-width: 782px) {
-	.md\:nfd-no-br > br {
-		display: none;
-	}
-}
-
+/* Fix text-decoration for links */
 p[style*="text-decoration"] > a {
 	text-decoration: inherit;
 	color: inherit;
 }
 
-/* ------------------------ Stretch cover child group ----------------------- */
+/* Fix dots separator align */
+.is-style-dots.nfd-text-left::before {
+	padding-left: 0;
+}
+
+/* Fix full width and height */
+.nfd-h-full,
+.nfd-h-full > img,
+.nfd-h-full > .components-resizable-box__container > img {
+	height: 100%;
+}
+
+.nfd-w-full,
+.nfd-w-full > img,
+.nfd-w-full > .components-resizable-box__container > img {
+	width: 100%;
+}
+
+/* Backdrop blur */
+.nfd-backdrop-blur-sm {
+	backdrop-filter: blur(4px);
+}
+
+.nfd-backdrop-blur-md {
+	backdrop-filter: blur(8px);
+}
+
+/* Absolute header */
+.nfd-absolute-header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+.editor-styles-wrapper .nfd-absolute-header {
+	position: static;
+}
+
+.nfd-absolute-header:not([style*="margin"]) {
+	margin: 0 !important;
+}
+
+/* Fix admin bar offset */
+:is([style*="min-height:100vh"]) {
+	min-height: calc(100vh - var(--wp-admin--admin-bar--height));
+}
+
+@supports (height: 100dvh) {
+	:is([style*="height:100vh"]) {
+		min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
+	}
+}
+
+/* Fix search block */
+.nfd-wk-search .wp-block-search__input {
+	padding: 8px 16px;
+	min-height: 50px;
+	font-size: inherit;
+}
+
+:where(.wp-block-search__input) {
+	border-radius: var(--wndb--border--radius--sm);
+}
+
+/* Stretch cover child group */
 .nfd-stretch-cover-child,
 .nfd-stretch-cover-child .wp-block-cover__inner-container {
 	display: flex;
@@ -31,46 +91,45 @@ p[style*="text-decoration"] > a {
 	width: 100%;
 }
 
-/* ------------------------------ Search Block ------------------------------ */
-.nfd-wk-search .wp-block-search__input {
-	padding: 8px 16px;
-	min-height: 50px;
+.nfd-container summary {
+	position: relative;
+	padding-right: 32px;
+	line-height: 1.5;
 }
 
-/* --------------------------------- Filters -------------------------------- */
-.nfd-filter-white-invert img {
-	filter: brightness(0) invert(1);
+.nfd-container summary::marker {
+	content: none;
 }
 
-/* ----------------------------- Absolute Header ---------------------------- */
-.nfd-absolute-header {
+.nfd-container summary::before {
+	content: "";
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: absolute;
-	left: 0;
 	right: 0;
-	z-index: 10;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1em;
+	height: 1em;
+	border-radius: 999px;
+	opacity: 0.6;
+	background-color: var(--wndb--color--borders);
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBsdXMiPjxwYXRoIGQ9Ik01IDEyaDE0Ii8+PHBhdGggZD0iTTEyIDV2MTQiLz48L3N2Zz4=");
+	background-size: 13px;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
-/* Fix dots separator align */
-.is-style-dots.nfd-text-left::before {
-	padding-left: 0;
+.nfd-container [open] summary::before {
+	transform: translateY(-50%) rotate(45deg);
+	opacity: 1;
 }
 
-.nfd-absolute-header:not([style*="margin"]) {
-	margin: 0 !important;
+.nfd-container summary:hover::before {
+	opacity: 1;
 }
 
-/* ----------------------- Offset admin bar from 100vh ---------------------- */
-:is([style*="min-height:100vh"]) {
-	min-height: calc(100vh - var(--wp-admin--admin-bar--height));
-}
-
-@supports (height: 100dvh) {
-	:is([style*="height:100vh"]) {
-		min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
-	}
-}
-
-/* ---------------------------- Backdrop Filters ---------------------------- */
-.nfd-backdrop-blur-sm {
-	backdrop-filter: blur(8px);
+.is-style-wide.wp-block-separator {
+	width: 100%;
 }

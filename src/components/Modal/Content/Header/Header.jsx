@@ -1,17 +1,17 @@
 /**
  * WordPress dependencies
  */
-import { Button } from '@wordpress/components';
-import { useDispatch } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
-import { close } from '@wordpress/icons';
+import { Button } from "@wordpress/components";
+import { useDispatch } from "@wordpress/data";
+import { __ } from "@wordpress/i18n";
+import { close } from "@wordpress/icons";
 
 /**
  * Internal dependencies
  */
-import { store as nfdPatternsStore } from '../../../../store';
-import KeywordFilter from './KeywordFilter';
-import TrialNotice from './TrialNotice';
+import { store as nfdPatternsStore } from "../../../../store";
+import KeywordFilter from "./KeywordFilter";
+import TrialNotice from "./TrialNotice";
 
 const Header = () => {
 	const showTrial = true;
@@ -32,7 +32,7 @@ const Header = () => {
 					}}
 					icon={close}
 					iconSize={24}
-					label={__('Close dialog', 'nfd-wonder-blocks')}
+					label={__("Close dialog", "nfd-wonder-blocks")}
 				/>
 			</div>
 		</header>

@@ -1,0 +1,13 @@
+/**
+ * "Triangle" section divider.
+ */
+
+.nfd-divider-triangle {
+	/* no important */
+	--wndb--divider-size: 80px;
+}
+
+.nfd-divider-triangle::before {
+	clip-path: polygon(0 0, 100% 0, 50% 100%);
+	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px);
+}

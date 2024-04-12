@@ -43,15 +43,20 @@ class CSSUtilities {
 		
 		$theme = \wp_get_theme()->get_template();
 		$css   = '';
-
+        
 		if ( 'yith-wonder' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
-				--nfd-cp-container: var(--wp--style--global--content-size, 1140px);
-                --nfd-cp-container: 1200px;
-				--nfd-cp-p-base: 2.375rem;
+                /* Colors */
+                --wndb--color--primary: var(--wp--preset--color--primary);
+                --wndb--color--secondary: var(--wp--preset--color--secondary);
+                
+				--wndb--p: var(--wp--preset--spacing--40);
+                
+                --wndb--text--sm: var(--wp--preset--font-size--x-small);
+				--wndb--text--md: var(--wp--preset--font-size--normal);
+
                 
 				--nfd-cp-text-sm: var(--wp--preset--font-size--x-small, 0.875rem);
-				--nfd-cp-text-md: var(--wp--preset--font-size--small, 1.0625rem);
                 --nfd-cp-text-lg: var(--wp--preset--font-size--medium, 1.625rem);
                 --nfd-cp-text-huge: var(--wp--preset--font-size--huge, 2.25rem);
                 
@@ -59,26 +64,26 @@ class CSSUtilities {
                 --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
 				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
-                
-				--nfd-cp-p-stack: calc(var(--wp--custom--vertical-spacing) / 2);
 			}";
 		}
 
 		if ( 'twentytwentytwo' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
-				--nfd-cp-container: var(--wp--style--global--wide-size, 1140px);
 				--nfd-cp-p-base: var(--wp--custom--spacing--outer, 0px);
                 --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
                 --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
 				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
-                
 			}";
+            
+            $css = "body .is-layout-constrained:has(.wndb-container.is-layout-constrained) > .wndb-container.is-layout-constrained {
+                width: 100%;
+                max-width: unset;
+            }";
 		}
         
         if ( 'twentytwentythree' === $theme ) {
             $css = "body, .editor-styles-wrapper {
-				--nfd-cp-container: var(--wp--style--global--wide-size, 1140px);
 				--nfd-cp-p-base: var(--wp--style--root--padding-left);
                 --nfd-cp-bg-accent: var(--wp--preset--color--secondary, #000);
                 --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);

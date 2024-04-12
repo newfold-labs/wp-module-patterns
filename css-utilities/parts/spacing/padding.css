@@ -1,0 +1,155 @@
+:where(:root) {
+	/**
+    * Default spacing scale factor
+    */
+	--wndb--padding-factor: 1;
+
+	/*
+    * Default padding base
+    */
+	--wndb--p: 2.375rem; /* 38px */
+
+	/**
+    * xs
+    */
+	--wndb--p--xs: 0.75rem; /* 12px */
+
+	/**
+    * sm
+    */
+	--wndb--p--sm: 1.5rem; /* 24px */
+
+	/**
+    * md
+    */
+	--wndb--p--md: 2rem; /* 32px */
+
+	/**
+    * lg
+    */
+	--wndb--p--lg: clamp(3.5rem, 7vw, 6.25rem);
+
+	/**
+    * Used for square cards
+    */
+	--wndb--p--square: 2.5rem; /* 40px */
+	--wndb--p--square-lg: 4rem; /* 64px */
+}
+
+/* ---------------------------------- Card ---------------------------------- */
+.nfd-p-card-sm {
+	padding: calc(var(--wndb--p--xs) * var(--wndb--padding-factor)) calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.nfd-p-card-md {
+	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.nfd-p-card-lg {
+	padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+@media screen and (min-width: 782px) {
+	.nfd-p-card-lg {
+		padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * 1.5 * var(--wndb--padding-factor));
+	}
+}
+
+.nfd-p-card-square {
+	padding: calc(var(--wndb--p--square) * var(--wndb--padding-factor));
+}
+
+.nfd-p-card-square-lg {
+	padding: calc(var(--wndb--p--square) * var(--wndb--padding-factor));
+}
+
+@media screen and (min-width: 782px) {
+	.nfd-p-card-square-lg {
+		padding: calc(var(--wndb--p--square-lg) * var(--wndb--padding-factor));
+	}
+}
+
+/* --------------------------------- XSmall --------------------------------- */
+.nfd-p-xs {
+	padding: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
+}
+
+.nfd-py-xs {
+	padding-block: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
+}
+
+.nfd-pt-xs {
+	padding-block-start: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
+}
+
+.nfd-px-xs {
+	padding-inline: calc(var(--wndb--p--xs) * var(--wndb--padding-factor));
+}
+
+/* ---------------------------------- Small --------------------------------- */
+.nfd-p-sm {
+	padding: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.nfd-px-sm {
+	padding-inline: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.nfd-py-sm {
+	padding-block: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.nfd-pt-sm {
+	padding-block-start: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.nfd-pb-sm {
+	padding-block-end: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+.nfd-pl-sm {
+	padding-left: calc(var(--wndb--p--sm) * var(--wndb--padding-factor));
+}
+
+/* --------------------------------- Medium --------------------------------- */
+.nfd-p-md {
+	padding: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.nfd-px-md {
+	padding-inline: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.nfd-py-md {
+	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.nfd-pt-md {
+	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+.nfd-pb-md {
+	padding-block: calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+
+/* ---------------------------------- Large --------------------------------- */
+.nfd-p-lg {
+	padding: calc(var(--wndb--p--lg) * var(--wndb--padding-factor)) calc(var(--wndb--p--md) * var(--wndb--padding-factor));
+}
+.nfd-py-lg {
+	padding-block: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
+}
+
+.nfd-pt-lg {
+	padding-block-start: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
+}
+
+.nfd-pb-lg {
+	padding-block-end: calc(var(--wndb--p--lg) * var(--wndb--padding-factor));
+}
+
+/* --------------------------------- Offset --------------------------------- */
+.nfd-pl-offset-md {
+	padding-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) - 3px);
+	margin-left: calc(var(--wndb--p--md) * var(--wndb--padding-factor) * -1);
+}

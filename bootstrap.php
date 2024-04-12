@@ -15,7 +15,7 @@ function nfd_wp_module_patterns_register() {
 
 				// Set Global Constants.
 				if ( ! defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
-					define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.14' );
+					define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.16' );
 				}
 				if ( ! defined( 'NFD_WONDER_BLOCKS_DIR' ) ) {
 					define( 'NFD_WONDER_BLOCKS_DIR', __DIR__ );

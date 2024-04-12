@@ -1,0 +1,135 @@
+/**
+* Typography related utilities
+*/
+
+@import "./misc.css";
+
+:where(:root) {
+	/**
+    * Default text scale factor
+    */
+	--wndb--text-scale-factor: 1;
+
+	/* Scale */
+	--wndb--text--xs: 0.75rem;
+	--wndb--text--sm: 0.875rem;
+	--wndb--text--base: 1rem;
+	--wndb--text--md: 1.125rem;
+	--wndb--text--lg: 1.5rem;
+	--wndb--text--xl: 2.375rem;
+	--wndb--text--huge: clamp(2.75rem, 1.4688rem + 2.5vw, 3.5rem);
+	--wndb--text-giga: clamp(3.25rem, 2.546875rem + 2.25vw, 4.375rem);
+}
+
+/* XS */
+.nfd-text-xs:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: calc(var(--wndb--text--xs) * var(--wndb--text-scale-factor));
+}
+
+.nfd-text-xs:not([style*="letter-spacing"]) {
+	letter-spacing: 0.05em;
+}
+
+/* Small */
+.nfd-text-sm:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: calc(var(--wndb--text--sm) * var(--wndb--text-scale-factor));
+}
+
+/* Base */
+.nfd-text-base:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: calc(var(--wndb--text--base) * var(--wndb--text-scale-factor));
+}
+
+/* Medium */
+.nfd-text-md:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: calc(var(--wndb--text--md) * var(--wndb--text-scale-factor));
+}
+
+.nfd-text-md:not([style*="line-height"]),
+.nfd-text-base:not([style*="line-height"]) {
+	line-height: 1.6;
+}
+
+/* Large */
+.nfd-text-lg:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: calc(var(--wndb--text--lg) * var(--wndb--text-scale-factor));
+}
+
+.nfd-text-lg:not([style*="line-height"]) {
+	line-height: 1.4;
+}
+
+.nfd-text-lg:not([style*="letter-spacing"]) {
+	letter-spacing: -0.02em;
+}
+
+.nfd-text-lg:not([style*="font-weight"]) {
+	font-weight: 500;
+}
+
+/* XLarge */
+.nfd-text-xl:not([class*="font-size"]):not([style*="font-size"]) {
+	font-size: var(--wndb--text--xl);
+}
+
+.nfd-text-xl:not([style*="line-height"]) {
+	line-height: 1.25;
+}
+
+.nfd-text-xl:not([style*="letter-spacing"]) {
+	letter-spacing: -0.01em;
+}
+
+.nfd-text-xl:not([style*="font-weight"]) {
+	font-weight: 500;
+}
+
+/* Huge */
+:where(.nfd-text-huge:not([class*="font-size"]):not([style*="font-size"])) {
+	font-size: calc(var(--wndb--text--huge) * var(--wndb--text-scale-factor));
+	text-wrap: balance;
+	max-width: var(--wndb--max-w--prose);
+}
+
+/* Center */
+:where(.nfd-text-huge:not([class*="font-size"]):not([style*="font-size"])).has-text-align-center,
+:where(.nfd-text-giga:not([class*="font-size"]):not([style*="font-size"])).has-text-align-center {
+	margin-inline: auto;
+}
+
+/* Right */
+:where(.nfd-text-huge:not([class*="font-size"]):not([style*="font-size"])).has-text-align-right,
+:where(.nfd-text-giga:not([class*="font-size"]):not([style*="font-size"])).has-text-align-right {
+	margin-inline-start: auto;
+}
+
+.nfd-text-huge:not([style*="line-height"]) {
+	line-height: 1.1;
+}
+
+.nfd-text-huge:not([style*="letter-spacing"]) {
+	letter-spacing: -0.04em;
+}
+
+.nfd-text-huge:not([style*="font-weight"]) {
+	font-weight: 500;
+}
+
+/* Giga */
+:where(.nfd-text-giga:not([class*="font-size"]):not([style*="font-size"])) {
+	font-size: calc(var(--wndb--text-giga) * var(--wndb--text-scale-factor));
+	text-wrap: balance;
+	max-width: var(--wndb--max-w--prose);
+}
+
+.nfd-text-giga:not([style*="line-height"]) {
+	line-height: 1.1;
+}
+
+.nfd-text-giga:not([style*="letter-spacing"]) {
+	letter-spacing: -0.04em;
+}
+
+.nfd-text-giga:not([style*="font-weight"]) {
+	font-weight: 500;
+}

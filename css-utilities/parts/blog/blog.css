@@ -1,6 +1,6 @@
-/* -------------------------------------------------------------------------- */
-/*                                    Blog                                    */
-/* -------------------------------------------------------------------------- */
+/**
+ * Blog related utilities and styles.
+ */
 
 [class*="nfd-query-loop-"] :where(.wp-block-post-author__avatar img) {
 	/* no important */
@@ -19,6 +19,10 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 4px;
+}
+
+[class*="nfd-query-loop-"] .wp-block-post-author__avatar {
+	margin-right: 12px;
 }
 
 .nfd-query-loop-1 :where(.wp-block-cover) {
@@ -55,8 +59,4 @@
 
 .nfd-query-loop-3 :where(.wp-block-post-author__name) {
 	display: none;
-}
-
-.nfd-query-loop-3 :where(.wp-block-post-author__avatar img) {
-	border: solid 2px #fff;
 }

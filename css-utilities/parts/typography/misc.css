@@ -1,0 +1,56 @@
+:where(:root) {
+	--wndb--max-w--prose: min(65ch, 700px);
+}
+
+.nfd-max-w-prose:not(.nfd-max-w-full),
+:where(.nfd-text-balance:not(.nfd-max-w-full)) {
+	max-width: var(--wndb--max-w--prose);
+}
+
+.nfd-max-w-prose:not(.nfd-max-w-full).has-text-align-center,
+:where(.nfd-text-balance:not(.nfd-max-w-full)).has-text-align-center {
+	margin-inline: auto;
+}
+
+.nfd-max-w-prose:not(.nfd-max-w-full).has-text-align-right,
+:where(.nfd-text-balance:not(.nfd-max-w-full)).has-text-align-right {
+	margin-inline-start: auto;
+}
+
+:where(.nfd-text-balance) {
+	text-wrap: balance;
+}
+
+.nfd-text-balance > p,
+.nfd-text-balance > h1,
+.nfd-text-balance > h2,
+.nfd-text-balance > h3,
+.nfd-text-balance > h4 {
+	text-wrap: balance;
+}
+
+.nfd-text-pretty {
+	text-wrap: pretty;
+}
+
+.nfd-text-pretty > p,
+.nfd-text-pretty > h1,
+.nfd-text-pretty > h2,
+.nfd-text-pretty > h3,
+.nfd-text-pretty > h4 {
+	text-wrap: pretty;
+}
+
+.wp-block-image figcaption {
+	text-wrap: balance;
+	font-weight: 400;
+	max-width: 64ch;
+	margin-inline: auto;
+	padding-block-start: 0.5em;
+}
+
+.wp-block-quote > .nfd-text-pretty {
+	/* no important */
+	margin-block: 0.25em;
+	font-weight: 550;
+}

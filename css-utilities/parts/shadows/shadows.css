@@ -1,0 +1,16 @@
+/**
+ * Shadow utilities.
+ */
+
+:where(:root) {
+	--wndb--shadow--xs: 0 1px 2px 0 rgba(18, 18, 23, 0.065);
+	--wndb--shadow--sm: 0 1px 3px 0 rgba(18, 18, 23, 0.1), 0 1px 2px 0 rgba(18, 18, 23, 0.06);
+}
+
+.nfd-shadow-xs:not([style*="box-shadow"]) {
+	box-shadow: var(--wndb--shadow--xs);
+}
+
+.nfd-shadow-sm:not([style*="box-shadow"]) {
+	box-shadow: var(--wndb--shadow--sm);
+}

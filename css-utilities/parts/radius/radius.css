@@ -1,0 +1,70 @@
+/**
+ * Border radius scale.
+ */
+
+:where(:root) {
+	/**
+    * Default border radius scale factor
+    */
+	--wndb--rounded--scale-factor: 1;
+
+	/**
+    * Border radius scale
+    */
+	--wndb--border--radius--sm: 0.25rem;
+	--wndb--border--radius--md: 0.5rem;
+	--wndb--border--radius--lg: 0.75rem;
+	--wndb--border--radius--xl: 1rem;
+}
+
+[class*="nfd-rounded"]:not([style*="-radius"]),
+[class*="nfd-rounded"]:not([style*="-radius"]) > img,
+[class*="nfd-rounded"]:not([style*="-radius"]) > .wp-element-button:not([style*="-radius"]),
+[class*="nfd-rounded"]:not([style*="-radius"]) > a > img,
+[class*="nfd-rounded"]:not([style*="-radius"]) > .components-resizable-box__container > img {
+	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor));
+}
+
+/* Rounded top */
+[class*="nfd-rounded-t-"]:not([style*="-radius"]),
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > img,
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > .wp-element-button:not([style*="-radius"]),
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > a > img,
+[class*="nfd-rounded-t-"]:not([style*="-radius"]) > .components-resizable-box__container > img {
+	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor)) 0
+		0;
+}
+
+/* ---------------------------------- Scale --------------------------------- */
+.nfd-rounded-none {
+	/* no important */
+	--wndb--border--radius: 0;
+}
+
+.nfd-rounded-sm {
+	/* no important */
+	--wndb--border--radius: var(--wndb--border--radius--sm);
+}
+
+.nfd-rounded,
+.nfd-rounded-md {
+	/* no important */
+	--wndb--border--radius: var(--wndb--border--radius--md);
+}
+
+.nfd-rounded-lg,
+.nfd-rounded-t-lg {
+	/* no important */
+	--wndb--border--radius: var(--wndb--border--radius--lg);
+}
+
+.nfd-rounded-xl,
+.nfd-rounded-t-xl {
+	/* no important */
+	--wndb--border--radius: var(--wndb--border--radius--xl);
+}
+
+.nfd-rounded-full {
+	/* no important */
+	--wndb--border--radius: 9999px;
+}
