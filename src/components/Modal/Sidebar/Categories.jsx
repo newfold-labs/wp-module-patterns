@@ -26,6 +26,15 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 
 	// Remove SITE_EDITOR_CATEGORIES if we are not in the Site Editor
 	const filteredCategories = useMemo(() => {
+		data?.forEach((category) => {
+			if (
+				category.label.toLowerCase() === "faq" ||
+				category.label.toLowerCase() === "frequently asked questions"
+			) {
+				category.label = "FAQ";
+			}
+		});
+
 		if (!isSiteEditor) {
 			return data?.filter((category) => !SITE_EDITOR_CATEGORIES.includes(category.title));
 		}
