@@ -8,6 +8,7 @@
  * postcss plugin will add necessary :not([style*="padding"]) to selectors.
  */
 
+@import "./grid";
 @import "./padding";
 @import "./misc";
 @import "./gap";
