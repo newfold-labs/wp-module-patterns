@@ -1,0 +1,4 @@
+/* Deprecated class - required for backward compatiblity */
+.nfd-grid-cols-1-2-1 {
+	grid-template-columns: 1fr 2fr 1fr;
+}
