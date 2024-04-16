@@ -816,6 +816,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
  *
  * postcss plugin will add necessary :not([style*="padding"]) to selectors.
  */
+/* Deprecated class - required for backward compatiblity */
 .nfd-grid-cols-1-2-1 {
 	grid-template-columns: 1fr 2fr 1fr !important;
 }
