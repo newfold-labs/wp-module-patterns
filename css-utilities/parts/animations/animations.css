@@ -15,6 +15,14 @@
 	.nfd-wb-animate {
 		transition: none;
 	}
+
+	/* Reset animations */
+	[class*="nfd-wb-"],
+	.nfd-wb-twist-in {
+		opacity: 1;
+		transform: none;
+		clip-path: none;
+	}
 }
 
 /* No animations on mobile devices */
