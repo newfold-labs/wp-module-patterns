@@ -25,9 +25,12 @@ export class ViewportAnimationObserver {
 			return;
 		}
 
+		if (!elements?.length) {
+			return;
+		}
+
 		// Don't run in the block preview iframe
-		// prettier-ignore
-		if ( document.documentElement.classList.contains('block-editor-block-preview__content-iframe') ) {
+		if (document.documentElement.classList.contains("block-editor-block-preview__content-iframe")) {
 			return;
 		}
 
@@ -56,12 +59,12 @@ export class ViewportAnimationObserver {
 
 			intersectionObserver.observe(elementToWatch);
 
+			// If in Gutenberg, observe attributes as well
 			if (isGutenberg) {
 				classMutationObserver.observe(elementToWatch, {
 					attributes: true,
 					attributeFilter: ["class"],
 				});
-
 				mutationObserver.observe(elementToWatch, {
 					attributes: true,
 					attributeFilter: ["class"],
@@ -122,9 +125,10 @@ export class ViewportAnimationObserver {
 						target.setAttribute("data-replay-animation", true);
 
 						// This actually resets the animation - CSS will take care of it.
-						setTimeout(() => {
+						// eslint-disable-next-line no-undef
+						requestAnimationFrame(() => {
 							target.removeAttribute("data-replay-animation");
-						}, 50);
+						});
 					}
 
 					observer.disconnect();

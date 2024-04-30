@@ -10,16 +10,33 @@
 	--nfd-wb-anim-transition: all var(--nfd-wb-anim-transition-duration) var(--nfd-wb-anim-transition-easing-function) var(--nfd-wb-anim-transition-delay);
 }
 
-/* No animations on mobile or reduced motion */
+/* No animations when reduced motion is preferred */
 @media (prefers-reduced-motion: reduce) {
 	.nfd-wb-animate {
 		transition: none;
 	}
+
+	/* Reset animations */
+	[class*="nfd-wb-"],
+	.nfd-wb-twist-in {
+		opacity: 1;
+		transform: none;
+		clip-path: none;
+	}
 }
 
+/* No animations on mobile devices */
 @media (max-width: 782px) {
 	.nfd-wb-animate {
 		transition: none;
+	}
+
+	/* Reset animations */
+	[class*="nfd-wb-"],
+	.nfd-wb-twist-in {
+		opacity: 1;
+		transform: none;
+		clip-path: none;
 	}
 }
 
@@ -116,11 +133,6 @@
 	transition: var(--nfd-wb-anim-transition);
 }
 
-.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-zoom-"] {
-	opacity: 1;
-	transform: scale3d(1, 1, 1);
-}
-
 .nfd-wb-zoom-in-short {
 	/* no important */
 	--nfd-wb-anim-transition-duration: 600ms;
@@ -131,6 +143,11 @@
 	opacity: 0;
 	transform: scale3d(0.92, 0.92, 0.92);
 	transition: var(--nfd-wb-anim-transition);
+}
+
+.nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-zoom-"] {
+	opacity: 1;
+	transform: scale3d(1, 1, 1);
 }
 
 /* -------------------------------- Twist In -------------------------------- */
