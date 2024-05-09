@@ -6,6 +6,10 @@
 		--nfd-wba-color-brand: var(--nfd-wba-color-dark);
 	}
 
+	svg {
+		fill: none;
+	}
+
 	&:focus,
 	&.is-pressed {
 		&:before {
