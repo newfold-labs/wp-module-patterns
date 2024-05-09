@@ -89,19 +89,19 @@ final class Admin {
 			}
 		}
 
-		// Add Wonder Blocks patterns.
+		// Add WonderBlocks patterns.
 		$wb_patterns = Items::get( 'patterns' );
 
 		if ( is_array( $wb_patterns ) && ! empty( $wb_patterns ) ) {
 
 			$wb_pattern_categories = Categories::get( 'patterns' );
 
-			// Register Wonder Blocks pattern categories.
+			// Register WonderBlocks pattern categories.
 			if ( is_array( $wb_pattern_categories ) && ! empty( $wb_pattern_categories ) ) {
 				foreach ( $wb_pattern_categories as $category ) {
 					register_block_pattern_category(
 						'wonder-blocks-' . $category['title'],
-						array( 'label' => 'Wonder Blocks - ' . $category['label'] )
+						array( 'label' => 'WonderBlocks - ' . $category['label'] )
 					);
 				}
 			}

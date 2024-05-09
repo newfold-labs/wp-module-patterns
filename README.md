@@ -3,7 +3,8 @@
 height="42" />
 </a>
 
-# WordPress Wonder Blocks Module
+# WordPress WonderBlocks Module
+
 [![Version Number](https://img.shields.io/github/v/release/newfold-labs/wp-module-patterns?color=21a0ed&labelColor=333333)](https://github.com/newfold-labs/wp-module-patterns/releases)
 [![License](https://img.shields.io/github/license/newfold-labs/wp-module-patterns?labelColor=333333&color=666666)](https://raw.githubusercontent.com/newfold-labs/wp-module-patterns/master/LICENSE)
 
@@ -11,14 +12,14 @@ Dynamic WordPress patterns library for WordPress sites at Newfold Digital.
 
 ## Module Responsibilities
 
-- Show "Wonder Blocks" button in page and site editors (using Gutenberg).
+- Show "WonderBlocks" button in page and site editors (using Gutenberg).
 - Add CSS utility classes that can be used on frontend and when editing pages with Gutenberg.
-- When the "Wonder Blocks" button is clicked, a modal is opened displaying Wonder Blocks patterns and templates that can be inserted into the page editor when clicked on.
+- When the "WonderBlocks" button is clicked, a modal is opened displaying WonderBlocks patterns and templates that can be inserted into the page editor when clicked on.
 - When WooCommerce plugin is active, additional "Product" patterns and templates are available in the modal.
 - When in Site Editor, "Headers" and "Footers" categories are available in the modal.
-- Register Wonder Blocks patterns to WordPress.
+- Register WonderBlocks patterns to WordPress.
 - Show a CTA next to the "Add New Page" on the `edit.php?post_type=page` page.
-- When the CTA is clicked, a new page is created and the Wonder Blocks modal is automatically opened with the "Templates" tab pre-selected.
+- When the CTA is clicked, a new page is created and the WonderBlocks modal is automatically opened with the "Templates" tab pre-selected.
 - When the module is active it hides Wonder Theme patterns from the default WordPress Patterns library.
 
 ## Critical Paths

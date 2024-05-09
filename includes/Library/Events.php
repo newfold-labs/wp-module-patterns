@@ -2,7 +2,7 @@
 namespace NewfoldLabs\WP\Module\Patterns\Library;
 
 /**
- * Contains data related to Wonder Blocks Hiive Events.
+ * Contains data related to WonderBlocks Hiive Events.
  */
 final class Events {
 	/**

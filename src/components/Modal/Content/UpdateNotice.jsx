@@ -32,7 +32,7 @@ const UpdateNotice = () => {
 
 	const message = createInterpolateElement(
 		sprintf(
-			// translators: %s: brand name - 'Wonder Blocks'.
+			// translators: %s: brand name - 'WonderBlocks'.
 			__(
 				"%s needs the latest version of WordPress, please <a>update your site</a>.",
 				"nfd-wonder-blocks"

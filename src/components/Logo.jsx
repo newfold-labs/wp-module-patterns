@@ -1,7 +1,8 @@
 /**
  * WordPress dependencies
  */
-import { Icon, buttons } from "@wordpress/icons";
+import { Icon } from "@wordpress/icons";
+import { rectangleGroup } from "./Icons";
 
 /**
  * External dependencies
@@ -13,9 +14,9 @@ const Logo = ({ size = "regular", color = "dark" }) => {
 	return (
 		<div className="nfd-wba-m-0 -nfd-wba-ml-1 nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-lg nfd-wba-font-normal nfd-wba-text-dark">
 			<Icon
-				className={classNames(color === "brand" && "nfd-wba-fill-brand")}
+				className={classNames(color === "brand" && "nfd-wba-stroke-brand")}
 				size={size === "large" ? 40 : 24}
-				icon={buttons}
+				icon={rectangleGroup}
 			/>
 
 			<span
