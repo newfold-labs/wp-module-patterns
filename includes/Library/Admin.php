@@ -90,11 +90,11 @@ final class Admin {
 		}
 
 		// Add Wonder Blocks patterns.
-		$wb_patterns = Items::get_data_from_transients( 'patterns' );
+		$wb_patterns = Items::get( 'patterns' );
 
 		if ( is_array( $wb_patterns ) && ! empty( $wb_patterns ) ) {
 
-			$wb_pattern_categories = \get_transient( 'wba_patterns_categories' );
+			$wb_pattern_categories = Categories::get( 'patterns' );
 
 			// Register Wonder Blocks pattern categories.
 			if ( is_array( $wb_pattern_categories ) && ! empty( $wb_pattern_categories ) ) {
