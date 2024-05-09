@@ -1,5 +1,5 @@
 /**
- * Identifier for Newfold Wonder Blocks data store.
+ * Identifier for Newfold WonderBlocks data store.
  *
  * @type {string}
  */

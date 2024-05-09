@@ -2161,7 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
         maxWidth: "100%"
       },
       src: attributes.preview,
-      alt: "Wonder Blocks"
+      alt: "WonderBlocks"
     });
   }
 });
@@ -2566,11 +2566,11 @@ __webpack_require__.r(__webpack_exports__);
 const currentCategories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)("core/blocks").getCategories();
 
 /**
- * Register the 'Wonder Blocks' block category.
+ * Register the 'WonderBlocks' block category.
  */
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.setCategories)([{
   slug: "nfd-wonder-blocks",
-  title: "Wonder Blocks",
+  title: "WonderBlocks",
   icon: null
 }, ...currentCategories]);
 
@@ -2578,7 +2578,7 @@ const currentCategories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select
  * Function to register a block collection for our blocks.
  */
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockCollection)("nfd-wonder-blocks", {
-  title: "Wonder Blocks",
+  title: "WonderBlocks",
   icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"]
   })
@@ -4270,7 +4270,7 @@ const UpdateNotice = () => {
   }
   const updateURL = (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_2__.addQueryArgs)("update-core.php");
   const message = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createInterpolateElement)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.sprintf)(
-  // translators: %s: brand name - 'Wonder Blocks'.
+  // translators: %s: brand name - 'WonderBlocks'.
   (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("%s needs the latest version of WordPress, please <a>update your site</a>.", "nfd-wonder-blocks"), _constants__WEBPACK_IMPORTED_MODULE_6__.BRAND_NAME), {
     // eslint-disable-next-line jsx-a11y/anchor-has-content
     a: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
@@ -4950,7 +4950,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   WP_REST_NAMESPACE: () => (/* binding */ WP_REST_NAMESPACE),
 /* harmony export */   WP_VERSION: () => (/* binding */ WP_VERSION)
 /* harmony export */ });
-const BRAND_NAME = "Wonder Blocks";
+const BRAND_NAME = "WonderBlocks";
 const WP_VERSION = window.nfdWonderBlocks?.wpVer || "";
 const MIN_REQUIRED_WP_VERSION = "6.3.1";
 const NFD_WONDER_BLOCKS_MODAL_ID = "nfd-wba-modal";
@@ -5623,7 +5623,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   STORE_NAME: () => (/* binding */ STORE_NAME)
 /* harmony export */ });
 /**
- * Identifier for Newfold Wonder Blocks data store.
+ * Identifier for Newfold WonderBlocks data store.
  *
  * @type {string}
  */
@@ -9871,7 +9871,7 @@ const useSWRInfinite = (0,swr_internal__WEBPACK_IMPORTED_MODULE_3__.withMiddlewa
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wonder-blocks/library","title":"Wonder Blocks","description":"Add patterns and page templates tailored for your site.","keywords":["template","patterns","blocks"],"textdomain":"nfd-wonder-blocks","attributes":{"preview":{"type":"string"},"category":{"type":"string"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wonder-blocks/library","title":"WonderBlocks","description":"Add patterns and page templates tailored for your site.","keywords":["template","patterns","blocks"],"textdomain":"nfd-wonder-blocks","attributes":{"preview":{"type":"string"},"category":{"type":"string"}}}');
 
 /***/ })
 
@@ -10049,7 +10049,7 @@ const initializeHiiveAnalytics = () => {
 };
 
 /**
- * Add the Wonder Blocks trigger button.
+ * Add the WonderBlocks trigger button.
  * A hacky solution until proper FillSlot is implemented for adding header toolbar buttons in Gutenberg.
  */
 const registerCallback = () => {

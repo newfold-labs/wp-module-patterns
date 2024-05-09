@@ -26,7 +26,7 @@ class CTA {
 	public function add_cta_to_add_new_button() {
 		$cta_text = sprintf(
 			// Translators: %1$s is the opening anchor tag, %2$s is the closing anchor tag.
-			__( 'Create pages fast with the %1$sPattern Library%2$s.', 'nfd-wonder-blocks' ),
+			__( 'Create pages fast with the %1$sWonderBlocks Library%2$s.', 'nfd-wonder-blocks' ),
 			'<a href=\"' . \esc_url( \admin_url( 'post-new.php?post_type=page&wonder-blocks-library=templates' ) ) . '\">',
 			'</a>'
 		);

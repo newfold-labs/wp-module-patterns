@@ -1,19 +1,20 @@
 // <reference types="Cypress" />
 
-describe("Wonder Blocks", function () {
+describe("WonderBlocks", function () {
 	before(() => {
 		cy.visit("/wp-admin/post-new.php");
 	});
 
-	it("Wonder Blocks button exists", () => {
+	it("WonderBlocks button exists", () => {
 		cy.get("#nfd-wba-toolbar-button").should("exist");
 	});
 
-	it("Wonder Blocks button opens modal", () => {
+	it("WonderBlocks button opens modal", () => {
 		cy.wait(1000);
 
 		cy.window().then((win) => {
-			win.wp.data.select( 'core/edit-post' ).isFeatureActive( 'welcomeGuide' ) && win.wp.data.dispatch( 'core/edit-post').toggleFeature( 'welcomeGuide' );
+			win.wp.data.select("core/edit-post").isFeatureActive("welcomeGuide") &&
+				win.wp.data.dispatch("core/edit-post").toggleFeature("welcomeGuide");
 		});
 
 		cy.wait(100);
