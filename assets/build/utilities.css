@@ -1605,6 +1605,7 @@ p.nfd-text-opacity-80:not(.has-text-color):not(.has-link-color):not(.has-backgro
 	transform: none !important;
 	opacity: 1 !important;
 }
+ol.nfd-gap-md:not(.is-layout-flex) li:not(:last-child),
 ul.nfd-gap-md:not(.is-layout-flex) li:not(:last-child) {
 	margin-bottom: 1em !important;
 }

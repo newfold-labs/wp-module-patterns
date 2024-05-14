@@ -4463,6 +4463,9 @@ const Categories = ({
       if (category.label.toLowerCase() === "faq" || category.label.toLowerCase() === "frequently asked questions") {
         category.label = "FAQ";
       }
+      if (category.label.toLowerCase() === "hero") {
+        category.label = "Intro";
+      }
     });
     if (!isSiteEditor) {
       return data?.filter(category => !_constants__WEBPACK_IMPORTED_MODULE_5__.SITE_EDITOR_CATEGORIES.includes(category.title));

@@ -33,6 +33,10 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 			) {
 				category.label = "FAQ";
 			}
+
+			if (category.label.toLowerCase() === "hero") {
+				category.label = "Intro";
+			}
 		});
 
 		if (!isSiteEditor) {
