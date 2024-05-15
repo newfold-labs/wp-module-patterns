@@ -391,7 +391,7 @@
 	line-height: 1.4 !important;
 }
 .nfd-text-lg:not([style*="letter-spacing"]) {
-	letter-spacing: -0.02em !important;
+	letter-spacing: 0em !important;
 }
 .nfd-text-lg:not([style*="font-weight"]) {
 	font-weight: 500 !important;
