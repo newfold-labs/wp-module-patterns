@@ -202,16 +202,15 @@ class Items {
 	private static function add_featured_categories( $data ) {
 		$data = array_map(
 			function ( $item ) {
+				if ( ! isset( $item['categories'] ) ) {
+					$item['categories'] = array();
+				}
+
+				if ( ! is_array( $item['categories'] ) ) {
+					$item['categories'] = array( $item['categories'] );
+				}
+
 				if ( self::is_featured( $item['slug'] ) ) {
-
-					if ( ! isset( $item['categories'] ) ) {
-						$item['categories'] = array();
-					}
-
-					if ( ! is_array( $item['categories'] ) ) {
-						$item['categories'] = array( $item['categories'] );
-					}
-
 					$item['categories'][] = 'featured';
 				}
 
