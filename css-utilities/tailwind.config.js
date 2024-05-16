@@ -53,6 +53,7 @@ module.exports = {
 		"nfd-grid-cols-2",
 		"nfd-grid-rows-1",
 		"nfd-grid",
+		"nfd-border-b",
 		"nfd-grow",
 		"nfd-h-full",
 		"nfd-items-center",

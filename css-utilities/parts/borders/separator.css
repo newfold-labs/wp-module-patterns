@@ -1,0 +1,11 @@
+/**
+ * Borders
+ */
+
+.nfd-border-2 {
+	border-bottom-width: 2px;
+}
+
+.nfd-border-strong {
+	border-color: var(--wndb-color--borders-strong);
+}

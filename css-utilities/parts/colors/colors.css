@@ -12,6 +12,7 @@
 	--wndb-gray: #6c6c89;
 	--wndb-gray-50: #f7f7f8;
 	--wndb-gray-100: #ebebef;
+	--wndb-gray-150: #e5e5e9;
 	--wndb-gray-200: #d1d1db;
 	--wndb-gray-300: #a9a9bc;
 	--wndb-gray-400: #8a8aa3;
@@ -24,6 +25,7 @@
 	--wndb-white: #fff;
 	--wndb-white-50: rgba(255, 255, 255, 0.05);
 	--wndb-white-100: rgba(255, 255, 255, 0.1);
+	--wndb-white-150: rgba(255, 255, 255, 0.15);
 	--wndb-white-200: rgba(255, 255, 255, 0.2);
 	--wndb-white-300: rgba(255, 255, 255, 0.3);
 	--wndb-white-400: rgba(255, 255, 255, 0.4);
@@ -41,7 +43,9 @@
 	--wndb--color--text: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
 	--wndb--color--text--faded: var(--wndb-gray-600);
-	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--borders: var(--wndb-gray-150);
+	--wndb--color--borders-light: var(--wndb-gray-100);
+	--wndb--color--borders-strong: var(--wndb--color--text--faded);
 	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--links: var(--wndb--color--primary);
 }
@@ -55,31 +59,34 @@
  */
 
 .nfd-theme-white {
-	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--borders: var(--wndb-gray-150);
+	--wndb--color--borders-light: var(--wndb-gray-100);
 	--wndb--color--links: var(--wndb--color--primary);
 	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--surface: var(--wndb-white);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
-	--wndb--color--text--faded: var(--wndb-gray-600);
+	--wndb--color--text--faded: var(--wndb-gray-700);
 	--wndb--color--text: var(--wndb-gray-800);
 }
 
 .nfd-theme-light {
-	--wndb--color--borders: var(--wndb-gray-100);
+	--wndb--color--borders: var(--wndb-gray-150);
+	--wndb--color--borders-light: var(--wndb-gray-150);
 	--wndb--color--links: var(--wndb--color--primary);
 	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--surface: var(--wndb-gray-50);
 	--wndb--color--text--contrast: var(--wndb-gray-900);
-	--wndb--color--text--faded: var(--wndb-gray-600);
+	--wndb--color--text--faded: var(--wndb-gray-700);
 	--wndb--color--text: var(--wndb-gray-800);
 }
 
 .nfd-theme-dark {
 	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--borders-light: var(--wndb--color--borders);
 	--wndb--color--subtle: var(--wndb-white-200);
 	--wndb--color--surface: var(--wndb-gray-800);
 	--wndb--color--text--contrast: var(--wndb-white);
-	--wndb--color--text--faded: var(--wndb-white-700);
+	--wndb--color--text--faded: var(--wndb-white-800);
 	--wndb--color--text: var(--wndb-white);
 	--wndb--shadow--sm: none;
 	--wndb--shadow--xs: none;
@@ -88,10 +95,11 @@
 
 .nfd-theme-darker {
 	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--borders-light: var(--wndb--color--borders);
 	--wndb--color--subtle: var(--wndb-white-200);
 	--wndb--color--surface: var(--wndb-gray-900);
 	--wndb--color--text--contrast: var(--wndb-white);
-	--wndb--color--text--faded: var(--wndb-white-700);
+	--wndb--color--text--faded: var(--wndb-white-800);
 	--wndb--color--text: var(--wndb-white);
 	--wndb--shadow--sm: none;
 	--wndb--shadow--xs: none;
@@ -100,10 +108,11 @@
 
 .nfd-theme-primary {
 	--wndb--color--borders: var(--wndb-white-100);
+	--wndb--color--borders-light: var(--wndb--color--borders);
 	--wndb--color--subtle: var(--wndb-white-200);
 	--wndb--color--surface: var(--wndb--color--primary);
 	--wndb--color--text--contrast: var(--wndb-white);
-	--wndb--color--text--faded: var(--wndb-white-800);
+	--wndb--color--text--faded: var(--wndb-white-900);
 	--wndb--color--text: var(--wndb-white);
 	--wndb--shadow--sm: none;
 	--wndb--shadow--xs: none;
@@ -140,16 +149,19 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 
 /* Border color */
 /* prettier-ignore */
-.nfd-bg-surface:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.has-border-color),
-.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
+.nfd-bg-surface:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.has-border-color):not(.nfd-border-strong),
+.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.nfd-border-strong),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]){
 	border-color: var(--wndb--color--borders);
 }
 
 /* Separator block */
-.nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color) {
-	border-bottom-color: var(--wndb--color--subtle);
+.nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-strong) {
+	border-bottom-color: var(--wndb--color--borders);
+}
+
+.nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-2) {
 	border-bottom-width: 1px;
 }
 
@@ -183,7 +195,7 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 
 .nfd-bg-subtle:not(.has-background):not(.wp-block-button),
 .nfd-bg-subtle:not(.has-background) > .wp-block-button__link:not(.has-background) {
-	background-color: var(--wndb--color--borders);
+	background-color: var(--wndb--color--borders-light);
 	color: var(--wndb--color--text--contrast);
 }
 

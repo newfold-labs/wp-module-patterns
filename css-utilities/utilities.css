@@ -9,6 +9,7 @@
 @import "parts/container/container";
 @import "parts/dividers/dividers";
 @import "parts/spacing/spacing";
+@import "parts/borders/separator";
 @import "parts/buttons/buttons";
 @import "parts/shadows/shadows";
 @import "parts/radius/radius";

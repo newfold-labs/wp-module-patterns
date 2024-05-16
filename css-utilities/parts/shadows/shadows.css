@@ -14,3 +14,8 @@
 .nfd-shadow-sm:not([style*="box-shadow"]) {
 	box-shadow: var(--wndb--shadow--sm);
 }
+
+.nfd-theme-light .nfd-shadow-xs:not([style*="box-shadow"]),
+.nfd-bg-subtle.nfd-shadow-xs:not([style*="box-shadow"]) {
+	--wndb--shadow--xs: none;
+}
