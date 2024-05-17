@@ -2,8 +2,9 @@
 
 namespace NewfoldLabs\WP\Module\Patterns\Library;
 
-use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
 use NewfoldLabs\WP\Module\Patterns\SiteClassification;
+use NewfoldLabs\WP\Module\Data\WonderBlocks\Requests\Fetch as WonderBlocksFetchRequest;
+use NewfoldLabs\WP\Module\Data\WonderBlocks\WonderBlocks;
 
 /**
  * Library for items.
@@ -20,11 +21,23 @@ class Items {
 	 */
 	public static function get( $type = 'patterns', $args = array() ) {
 
-		$data = self::get_cached_data( $type );
+		$request = new WonderBlocksFetchRequest(
+			array(
+				'endpoint'       => $type,
+				'primary_type'   => SiteClassification::get_primary_type(),
+				'secondary_type' => SiteClassification::get_secondary_type(),
+			)
+		);
 
-		if ( \is_wp_error( $data ) ) {
-			return $data;
+		$data = WonderBlocks::fetch( $request );
+		if ( ! $data ) {
+			return new \WP_Error(
+				'nfd_wonder_blocks_error',
+				__( 'Error fetching data from the platform.', 'nfd-wonder-blocks' )
+			);
 		}
+
+		$data = self::add_featured_categories( $data );
 
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
@@ -50,75 +63,6 @@ class Items {
 
 		return $data;
 	}
-
-	/**
-	 * Get all items from transients or remote API.
-	 *
-	 * @param string $type Type of items to get.
-	 * @param array  $args Array of arguments.
-	 *
-	 * @return array $data
-	 */
-	private static function get_cached_data( $type = 'patterns', $args = array() ) {
-
-		$args = wp_parse_args(
-			$args,
-			array(
-				'primary_type'   => SiteClassification::get_primary_type(),
-				'secondary_type' => SiteClassification::get_secondary_type(),
-			)
-		);
-
-		// Ensure we only get templates or patterns.
-		$id   = md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
-		$type = 'templates' === $type ? 'templates' : 'patterns';
-		$data = self::get_data_from_transients( $type, $args );
-
-		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
-
-			$data = RemoteRequest::get( "/{$type}", $args );
-
-			if ( \is_wp_error( $data ) ) {
-				return $data;
-			}
-
-			if ( isset( $data['data'] ) ) {
-				$data = $data['data'];
-			}
-
-			$data = self::add_featured_categories( $data );
-
-			\set_transient( "wba_{$type}_{$id}", $data, DAY_IN_SECONDS );
-		}
-
-		return $data;
-	}
-
-	/**
-	 * Get data from transients.
-	 *
-	 * @param string $type Type of items to get.
-	 * @param array  $args Array of arguments.
-	 *
-	 * @return array $data
-	 */
-	public static function get_data_from_transients( $type = 'patterns', $args = array() ) {
-		$args = wp_parse_args(
-			$args,
-			array(
-				'primary_type'   => SiteClassification::get_primary_type(),
-				'secondary_type' => SiteClassification::get_secondary_type(),
-			)
-		);
-
-		// Ensure we only get templates or patterns.
-		$id   = md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
-		$type = 'templates' === $type ? 'templates' : 'patterns';
-		$data = \get_transient( "wba_{$type}_{$id}" );
-
-		return $data;
-	}
-
 
 	/**
 	 * Filter data by key and value.
@@ -252,22 +196,21 @@ class Items {
 	/**
 	 * Add featured category to item if it belongs to a featured category.
 	 *
-	 * @param object $data List of items
+	 * @param array $data List of items
 	 * @return object $data List of items updated with featured category
 	 */
 	private static function add_featured_categories( $data ) {
 		$data = array_map(
 			function ( $item ) {
+				if ( ! isset( $item['categories'] ) ) {
+					$item['categories'] = array();
+				}
+
+				if ( ! is_array( $item['categories'] ) ) {
+					$item['categories'] = array( $item['categories'] );
+				}
+
 				if ( self::is_featured( $item['slug'] ) ) {
-
-					if ( ! isset( $item['categories'] ) ) {
-						$item['categories'] = array();
-					}
-
-					if ( ! is_array( $item['categories'] ) ) {
-						$item['categories'] = array( $item['categories'] );
-					}
-
 					$item['categories'][] = 'featured';
 				}
 

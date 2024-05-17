@@ -60,15 +60,15 @@ Add GitHub Auth Token to `.npmrc` for private repo access.
 
 ### Local cloud-patterns platform
 
-If using local cloud-patterns platform, define `NFD_WB_DEV_MODE` as true in wp-config.php. This will switch the API fetch source from patterns.hiive.cloud to localhost:8888 and disable caching of the results.
+If using local cloud-patterns platform, define `NFD_DATA_WB_DEV_MODE` as true in wp-config.php. This will switch the API fetch source from patterns.hiive.cloud to localhost:8888 and disable caching of the results.
 
 Add this line to your `wp-config.php`:
 
 ```
-define('NFD_WB_DEV_MODE', true);
+define('NFD_DATA_WB_DEV_MODE', true);
 ```
 
-With `NFD_WB_DEV_MODE` enabled, all API requests will be directed to localhost:8888 instead of the production server, and the responses will not be cached, facilitating easier development and testing.
+With `NFD_DATA_WB_DEV_MODE` enabled, all API requests will be directed to localhost:8888 instead of the production server, and the responses will not be cached, facilitating easier development and testing.
 
 ### Run the module in dev mode
 

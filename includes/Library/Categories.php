@@ -2,7 +2,9 @@
 
 namespace NewfoldLabs\WP\Module\Patterns\Library;
 
-use NewfoldLabs\WP\Module\Patterns\Api\RemoteRequest;
+use NewfoldLabs\WP\Module\Patterns\SiteClassification;
+use NewfoldLabs\WP\Module\Data\WonderBlocks\Requests\Fetch as WonderBlocksFetchRequest;
+use NewfoldLabs\WP\Module\Data\WonderBlocks\WonderBlocks;
 
 /**
  * Library for categories.
@@ -23,38 +25,28 @@ class Categories {
 		// Ensure we only get templates or patterns.
 		$type = 'templates' === $type ? 'templates' : 'patterns';
 
-		// Get the categories from the transient.
-		$data = \get_transient( "wba_{$type}_categories" );
+		$request = new WonderBlocksFetchRequest(
+			array(
+				'endpoint'       => 'categories',
+				'slug'           => $type,
+				'primary_type'   => SiteClassification::get_primary_type(),
+				'secondary_type' => SiteClassification::get_secondary_type(),
+			)
+		);
 
-		// If the transient is empty or if we are in dev mode get the categories from the remote API.
-		if ( false === $data || ( \defined( 'NFD_WB_DEV_MODE' ) && NFD_WB_DEV_MODE ) ) {
+		$data = WonderBlocks::fetch( $request );
 
-			$data = RemoteRequest::get( "/categories/{$type}" );
-
-			// Check if we can get the categories with the type param
-			if ( \is_wp_error( $data ) ) {
-				if ( 'remote_request_error' === $data->get_error_code() ) {
-					// Try endpoint with 'type' param
-					$data = RemoteRequest::get(
-						'/categories',
-						array(
-							'type' => $type,
-						)
-					);
-				} else {
-					return $data;
-				}
-			}
-
-			if ( isset( $data['data'] ) ) {
-				$data = $data['data'];
-			}
-
-			// Temporarily add the featured category until API returns this.
-			$data = self::add_featured_category( $data, $type );
-
-			\set_transient( "wba_{$type}_categories", $data, DAY_IN_SECONDS );
+		if ( ! $data ) {
+			return new \WP_Error(
+				'nfd_wonder_blocks_error',
+				__( 'Error fetching data from the platform.', 'nfd-wonder-blocks' )
+			);
 		}
+
+		$data = self::add_featured_category( $data, $type );
+
+		// Sort categories.
+		$data = self::sort_categories( $data, $orderby, $order );
 
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			$_data = array();
@@ -65,9 +57,6 @@ class Categories {
 			}
 			$data = $_data;
 		}
-
-		// Sort categories.
-		$data = self::sort_categories( $data, $orderby, $order );
 
 		// Return the categories.
 		return $data;
