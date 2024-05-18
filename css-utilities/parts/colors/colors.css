@@ -132,6 +132,8 @@
 
 /* Faded text color */
 .nfd-text-faded p:not(.has-text-color):not(.has-link-color):not(.has-background):not(.nfd-text-primary),
+ul.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background):not(.nfd-text-primary),
+ol.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background):not(.nfd-text-primary),
 .nfd-text-faded > a:not(.has-text-color):not(.has-link-color):not(.has-background),
 p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-text-faded time:not(.has-text-color):not(.has-background) {

@@ -1,3 +1,8 @@
+ol.nfd-gap-sm:not(.is-layout-flex) li:not(:last-child),
+ul.nfd-gap-sm:not(.is-layout-flex) li:not(:last-child) {
+	margin-bottom: 0.5em;
+}
+
 ol.nfd-gap-md:not(.is-layout-flex) li:not(:last-child),
 ul.nfd-gap-md:not(.is-layout-flex) li:not(:last-child) {
 	margin-bottom: 1em;

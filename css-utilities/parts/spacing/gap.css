@@ -52,29 +52,11 @@
 	gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
 }
 
-.nfd-gap-x-lg,
-.editor-styles-wrapper .nfd-gap-x-lg {
-	/* no important */
-	column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
-}
-
-.nfd-gap-y-lg,
-.editor-styles-wrapper .nfd-gap-y-lg {
-	/* no important */
-	row-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
-}
-
 /* XLarge */
 .nfd-gap-xl,
 .editor-styles-wrapper .nfd-gap-xl {
 	/* no important */
 	gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
-}
-
-.nfd-gap-y-xl,
-.editor-styles-wrapper .nfd-gap-y-xl {
-	/* no important */
-	row-gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
 }
 
 /* XXLarge */
@@ -84,22 +66,11 @@
 	gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
 }
 
-.nfd-gap-y-2xl,
-.editor-styles-wrapper .nfd-gap-y-2xl {
-	/* no important */
-	row-gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
-}
-
 /* XXXLarge */
 .nfd-gap-3xl,
 .editor-styles-wrapper .nfd-gap-3xl {
 	/* no important */
 	gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
-}
-.nfd-gap-y-3xl,
-.editor-styles-wrapper .nfd-gap-y-3xl {
-	/* no important */
-	row-gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
 }
 
 .nfd-gap-4xl,
@@ -112,4 +83,35 @@
 .editor-styles-wrapper .nfd-gap-x-4xl {
 	/* no important */
 	column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
+}
+
+/* --------------------------------- Y axis --------------------------------- */
+.nfd-gap-x-lg,
+.editor-styles-wrapper .nfd-gap-x-lg {
+	/* no important */
+	column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-y-lg,
+.editor-styles-wrapper .nfd-gap-y-lg {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-y-xl,
+.editor-styles-wrapper .nfd-gap-y-xl {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-y-2xl,
+.editor-styles-wrapper .nfd-gap-y-2xl {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--2xl) * var(--wndb--gap--scale-factor));
+}
+
+.nfd-gap-y-3xl,
+.editor-styles-wrapper .nfd-gap-y-3xl {
+	/* no important */
+	row-gap: calc(var(--wndb--gap--3xl) * var(--wndb--gap--scale-factor));
 }

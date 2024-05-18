@@ -121,6 +121,10 @@ p[style*="text-decoration"] > a {
 	background-position: center center;
 }
 
+.nfd-container [open] summary {
+	font-weight: 700;
+}
+
 .nfd-container [open] summary::before {
 	transform: translateY(-50%) rotate(45deg);
 	opacity: 1;
