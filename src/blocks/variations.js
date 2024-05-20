@@ -120,8 +120,8 @@ export const variations = [
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "hero" },
-		title: __("Hero Patterns", "nfd-wonder-blocks"),
-		description: __("Add Hero patterns.", "nfd-wonder-blocks"),
+		title: __("Intro Patterns", "nfd-wonder-blocks"),
+		description: __("Add Intro patterns.", "nfd-wonder-blocks"),
 		keywords: [
 			__("banner", "nfd-wonder-blocks"),
 			__("image slider", "nfd-wonder-blocks"),
