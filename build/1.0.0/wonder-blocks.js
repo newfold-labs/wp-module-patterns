@@ -2710,8 +2710,8 @@ const variations = [{
   attributes: {
     category: "hero"
   },
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Intro Patterns", "nfd-wonder-blocks"),
-  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Intro patterns.", "nfd-wonder-blocks"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Hero Patterns", "nfd-wonder-blocks"),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Hero patterns.", "nfd-wonder-blocks"),
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("banner", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("image slider", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("homepage", "nfd-wonder-blocks")]
 }, {
   name: "pricing",
@@ -4462,9 +4462,6 @@ const Categories = ({
     data?.forEach(category => {
       if (category.label.toLowerCase() === "faq" || category.label.toLowerCase() === "frequently asked questions") {
         category.label = "FAQ";
-      }
-      if (category.label.toLowerCase() === "hero") {
-        category.label = "Intro";
       }
     });
     if (!isSiteEditor) {
