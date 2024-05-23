@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "1dd80fe6f2dba7179a45d1b5262ef354",
+	"content-hash": "b04bec7561384ced6af5d5671616e126",
 	"packages": [
 		{
 			"name": "doctrine/inflector",
@@ -198,6 +198,63 @@
 			"time": "2024-04-18T19:17:37+00:00"
 		},
 		{
+			"name": "newfold-labs/wp-module-features",
+			"version": "1.4.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/newfold-labs/wp-module-features.git",
+				"reference": "bd5ca58a9feea6f4cddfa27e665340005b849923"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/newfold-labs/wp-module-features/zipball/bd5ca58a9feea6f4cddfa27e665340005b849923",
+				"reference": "bd5ca58a9feea6f4cddfa27e665340005b849923",
+				"shasum": ""
+			},
+			"require": {
+				"wp-forge/wp-options": "^1.1.1"
+			},
+			"require-dev": {
+				"newfold-labs/wp-php-standards": "^1.2.3"
+			},
+			"type": "library",
+			"autoload": {
+				"psr-4": {
+					"NewfoldLabs\\WP\\Module\\Features\\": "includes"
+				},
+				"files": [
+					"includes/functions.php"
+				]
+			},
+			"scripts": {
+				"fix": [
+					"vendor/bin/phpcbf . --standard=phpcs.xml"
+				],
+				"lint": [
+					"vendor/bin/phpcs . --standard=phpcs.xml -s"
+				]
+			},
+			"license": [
+				"GPL-2.0-or-later"
+			],
+			"authors": [
+				{
+					"name": "Micah Wood",
+					"homepage": "https://wpscholar.com"
+				},
+				{
+					"name": "Evan Mullins",
+					"homepage": "https://evanmullins.com"
+				}
+			],
+			"description": "A module for providing an interface for features.",
+			"support": {
+				"source": "https://github.com/newfold-labs/wp-module-features/tree/1.4.0",
+				"issues": "https://github.com/newfold-labs/wp-module-features/issues"
+			},
+			"time": "2024-05-23T20:35:43+00:00"
+		},
+		{
 			"name": "newfold-labs/wp-module-loader",
 			"version": "1.0.10",
 			"source": {
@@ -363,16 +420,16 @@
 		},
 		{
 			"name": "wp-forge/wp-options",
-			"version": "1.1",
+			"version": "1.1.1",
 			"source": {
 				"type": "git",
 				"url": "https://github.com/wp-forge/wp-options.git",
-				"reference": "df8899255dee19365599caa8801c75803e94e413"
+				"reference": "511b1c5e626582dd4c3c1b5602e7a20352dabc1b"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/wp-forge/wp-options/zipball/df8899255dee19365599caa8801c75803e94e413",
-				"reference": "df8899255dee19365599caa8801c75803e94e413",
+				"url": "https://api.github.com/repos/wp-forge/wp-options/zipball/511b1c5e626582dd4c3c1b5602e7a20352dabc1b",
+				"reference": "511b1c5e626582dd4c3c1b5602e7a20352dabc1b",
 				"shasum": ""
 			},
 			"type": "library",
@@ -394,9 +451,9 @@
 			"description": "A WordPress helper class for managing plugin options.",
 			"support": {
 				"issues": "https://github.com/wp-forge/wp-options/issues",
-				"source": "https://github.com/wp-forge/wp-options/tree/1.1"
+				"source": "https://github.com/wp-forge/wp-options/tree/1.1.1"
 			},
-			"time": "2022-03-04T16:23:42+00:00"
+			"time": "2024-05-10T14:57:37+00:00"
 		},
 		{
 			"name": "wp-forge/wp-query-builder",
