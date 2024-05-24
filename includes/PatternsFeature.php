@@ -38,28 +38,27 @@ class PatternsFeature extends \NewfoldLabs\WP\Module\Features\Feature {
 				'plugins_loaded',
 				function () {
 					$container = getContainer();
-					// Set Global Constants.
-                    if ( ! defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
-                        define( 'NFD_WONDER_BLOCKS_VERSION', '1.0.0' );
-                    }
-                    if ( ! defined( 'NFD_WONDER_BLOCKS_DIR' ) ) {
-                        define( 'NFD_WONDER_BLOCKS_DIR', __DIR__ );
-                    }
-                    if ( ! defined( 'NFD_WONDER_BLOCKS_BUILD_DIR' ) && defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
-                        define( 'NFD_WONDER_BLOCKS_BUILD_DIR', __DIR__ . '/build/' . NFD_WONDER_BLOCKS_VERSION );
-                    }
-                    if ( ! defined( 'NFD_WONDER_BLOCKS_BUILD_URL' ) && defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
-                        define( 'NFD_WONDER_BLOCKS_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_WONDER_BLOCKS_VERSION );
-                    }
-                    if ( ! defined( 'NFD_WONDER_BLOCKS_URL' ) ) {
-                        define( 'NFD_WONDER_BLOCKS_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns' );
-                    }
-                    if ( ! defined( 'NFD_MODULE_DATA_EVENTS_API' ) ) {
-                        define( 'NFD_MODULE_DATA_EVENTS_API', '/newfold-data/v1/events' );
-                    }
-
+					$this->defineConstants( $container );
                     new Patterns( $container );
 				}
+			);
+		}
+	}
+
+	/**
+	 * Define constnats that require container values
+	 */
+	public function defineConstants( $container ) {
+		if ( ! defined( 'NFD_WONDER_BLOCKS_BUILD_URL' ) && defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
+			define(
+				'NFD_WONDER_BLOCKS_BUILD_URL',
+				$container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns/build/' . NFD_WONDER_BLOCKS_VERSION
+			);
+		}
+		if ( ! defined( 'NFD_WONDER_BLOCKS_URL' ) ) {
+			define(
+				'NFD_WONDER_BLOCKS_URL',
+				$container->plugin()->url . 'vendor/newfold-labs/wp-module-patterns'
 			);
 		}
 	}
