@@ -1923,6 +1923,70 @@ const help = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_pri
 
 /***/ }),
 
+/***/ "./node_modules/@wordpress/icons/build-module/library/inbox.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/inbox.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__);
+
+/**
+ * WordPress dependencies
+ */
+
+const inbox = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.Path, {
+  fillRule: "evenodd",
+  d: "M6 5.5h12a.5.5 0 01.5.5v7H14a2 2 0 11-4 0H5.5V6a.5.5 0 01.5-.5zm-.5 9V18a.5.5 0 00.5.5h12a.5.5 0 00.5-.5v-3.5h-3.337a3.5 3.5 0 01-6.326 0H5.5zM4 13V6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2v-5z",
+  clipRule: "evenodd"
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (inbox);
+//# sourceMappingURL=inbox.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@wordpress/icons/build-module/library/list.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/list.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__);
+
+/**
+ * WordPress dependencies
+ */
+
+const list = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.SVG, {
+  viewBox: "0 0 24 24",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.Path, {
+  d: "M4 4v1.5h16V4H4zm8 8.5h8V11h-8v1.5zM4 20h16v-1.5H4V20zm4-8c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2z"
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (list);
+//# sourceMappingURL=list.js.map
+
+/***/ }),
+
 /***/ "./node_modules/@wordpress/icons/build-module/library/people.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@wordpress/icons/build-module/library/people.js ***!
@@ -2076,6 +2140,37 @@ const search = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_p
 }));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (search);
 //# sourceMappingURL=search.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@wordpress/icons/build-module/library/typography.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/typography.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__);
+
+/**
+ * WordPress dependencies
+ */
+
+const typography = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.Path, {
+  d: "M6.9 7L3 17.8h1.7l1-2.8h4.1l1 2.8h1.7L8.6 7H6.9zm-.7 6.6l1.5-4.3 1.5 4.3h-3zM21.6 17c-.1.1-.2.2-.3.2-.1.1-.2.1-.4.1s-.3-.1-.4-.2c-.1-.1-.1-.3-.1-.6V12c0-.5 0-1-.1-1.4-.1-.4-.3-.7-.5-1-.2-.2-.5-.4-.9-.5-.4 0-.8-.1-1.3-.1s-1 .1-1.4.2c-.4.1-.7.3-1 .4-.2.2-.4.3-.6.5-.1.2-.2.4-.2.7 0 .3.1.5.2.8.2.2.4.3.8.3.3 0 .6-.1.8-.3.2-.2.3-.4.3-.7 0-.3-.1-.5-.2-.7-.2-.2-.4-.3-.6-.4.2-.2.4-.3.7-.4.3-.1.6-.1.8-.1.3 0 .6 0 .8.1.2.1.4.3.5.5.1.2.2.5.2.9v1.1c0 .3-.1.5-.3.6-.2.2-.5.3-.9.4-.3.1-.7.3-1.1.4-.4.1-.8.3-1.1.5-.3.2-.6.4-.8.7-.2.3-.3.7-.3 1.2 0 .6.2 1.1.5 1.4.3.4.9.5 1.6.5.5 0 1-.1 1.4-.3.4-.2.8-.6 1.1-1.1 0 .4.1.7.3 1 .2.3.6.4 1.2.4.4 0 .7-.1.9-.2.2-.1.5-.3.7-.4h-.3zm-3-.9c-.2.4-.5.7-.8.8-.3.2-.6.2-.8.2-.4 0-.6-.1-.9-.3-.2-.2-.3-.6-.3-1.1 0-.5.1-.9.3-1.2s.5-.5.8-.7c.3-.2.7-.3 1-.5.3-.1.6-.3.7-.6v3.4z"
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (typography);
+//# sourceMappingURL=typography.js.map
 
 /***/ }),
 
@@ -2604,13 +2699,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/button.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/help.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/category.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/heading.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/post-featured-image.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/columns.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/people.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/quote.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/header.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/footer.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/inbox.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/heading.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/post-featured-image.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/columns.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/list.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/people.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/quote.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/typography.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/header.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/footer.js");
 /* harmony import */ var _components_Icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Icons */ "./src/components/Icons/index.js");
 /**
  * WordPress dependencies
@@ -2688,10 +2786,23 @@ const variations = [{
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Features patterns.", "nfd-wonder-blocks"),
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("columns", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("about", "nfd-wonder-blocks")]
 }, {
-  name: "headings",
+  name: "forms",
   icon: {
     foreground: "var(--nfd-wba-color-brand)",
     src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"]
+  },
+  category: "nfd-wonder-blocks",
+  attributes: {
+    category: "forms"
+  },
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Form Patterns", "nfd-wonder-blocks"),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Form patterns.", "nfd-wonder-blocks"),
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("form", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("email", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("CRM", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("contact", "nfd-wonder-blocks")]
+}, {
+  name: "headings",
+  icon: {
+    foreground: "var(--nfd-wba-color-brand)",
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   category: "nfd-wonder-blocks",
   attributes: {
@@ -2704,7 +2815,7 @@ const variations = [{
   name: "hero",
   icon: {
     foreground: "var(--nfd-wba-color-brand)",
-    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"]
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   category: "nfd-wonder-blocks",
   attributes: {
@@ -2717,7 +2828,7 @@ const variations = [{
   name: "pricing",
   icon: {
     foreground: "var(--nfd-wba-color-brand)",
-    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"]
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_10__["default"]
   },
   category: "nfd-wonder-blocks",
   attributes: {
@@ -2727,10 +2838,23 @@ const variations = [{
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Pricing Table patterns.", "nfd-wonder-blocks"),
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("plans", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("comparison", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("packages", "nfd-wonder-blocks")]
 }, {
+  name: "menu",
+  icon: {
+    foreground: "var(--nfd-wba-color-brand)",
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"]
+  },
+  category: "nfd-wonder-blocks",
+  attributes: {
+    category: "menu"
+  },
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Menu Patterns", "nfd-wonder-blocks"),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Menu patterns.", "nfd-wonder-blocks"),
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("restaurant", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("cafe", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("coffee", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("catering", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("food", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("recipe", "nfd-wonder-blocks")]
+}, {
   name: "team",
   icon: {
     foreground: "var(--nfd-wba-color-brand)",
-    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_10__["default"]
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__["default"]
   },
   category: "nfd-wonder-blocks",
   attributes: {
@@ -2743,7 +2867,7 @@ const variations = [{
   name: "testimonials",
   icon: {
     foreground: "var(--nfd-wba-color-brand)",
-    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"]
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_13__["default"]
   },
   category: "nfd-wonder-blocks",
   attributes: {
@@ -2753,10 +2877,23 @@ const variations = [{
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Testimonial patterns.", "nfd-wonder-blocks"),
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("reviews", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("feedback", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("ratings", "nfd-wonder-blocks")]
 }, {
+  name: "text",
+  icon: {
+    foreground: "var(--nfd-wba-color-brand)",
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_14__["default"]
+  },
+  category: "nfd-wonder-blocks",
+  attributes: {
+    category: "text"
+  },
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Text Patterns", "nfd-wonder-blocks"),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Text patterns.", "nfd-wonder-blocks"),
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("highlight", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("write", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("format", "nfd-wonder-blocks")]
+}, {
   name: "header",
   icon: {
     foreground: "var(--nfd-wba-color-brand)",
-    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__["default"]
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_15__["default"]
   },
   category: "nfd-wonder-blocks",
   attributes: {
@@ -2768,7 +2905,7 @@ const variations = [{
   name: "footer",
   icon: {
     foreground: "var(--nfd-wba-color-brand)",
-    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_13__["default"]
+    src: _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"]
   },
   category: "nfd-wonder-blocks",
   attributes: {

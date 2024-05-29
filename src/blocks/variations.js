@@ -15,6 +15,9 @@ import {
 	quote,
 	header,
 	footer,
+	typography,
+	inbox,
+	list,
 } from "@wordpress/icons";
 
 /**
@@ -96,6 +99,23 @@ export const variations = [
 		keywords: [__("columns", "nfd-wonder-blocks"), __("about", "nfd-wonder-blocks")],
 	},
 	{
+		name: "forms",
+		icon: {
+			foreground: "var(--nfd-wba-color-brand)",
+			src: inbox,
+		},
+		category: "nfd-wonder-blocks",
+		attributes: { category: "forms" },
+		title: __("Form Patterns", "nfd-wonder-blocks"),
+		description: __("Add Form patterns.", "nfd-wonder-blocks"),
+		keywords: [
+			__("form", "nfd-wonder-blocks"),
+			__("email", "nfd-wonder-blocks"),
+			__("CRM", "nfd-wonder-blocks"),
+			__("contact", "nfd-wonder-blocks"),
+		],
+	},
+	{
 		name: "headings",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
@@ -145,6 +165,25 @@ export const variations = [
 		],
 	},
 	{
+		name: "menu",
+		icon: {
+			foreground: "var(--nfd-wba-color-brand)",
+			src: list,
+		},
+		category: "nfd-wonder-blocks",
+		attributes: { category: "menu" },
+		title: __("Menu Patterns", "nfd-wonder-blocks"),
+		description: __("Add Menu patterns.", "nfd-wonder-blocks"),
+		keywords: [
+			__("restaurant", "nfd-wonder-blocks"),
+			__("cafe", "nfd-wonder-blocks"),
+			__("coffee", "nfd-wonder-blocks"),
+			__("catering", "nfd-wonder-blocks"),
+			__("food", "nfd-wonder-blocks"),
+			__("recipe", "nfd-wonder-blocks"),
+		],
+	},
+	{
 		name: "team",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
@@ -174,6 +213,22 @@ export const variations = [
 			__("reviews", "nfd-wonder-blocks"),
 			__("feedback", "nfd-wonder-blocks"),
 			__("ratings", "nfd-wonder-blocks"),
+		],
+	},
+	{
+		name: "text",
+		icon: {
+			foreground: "var(--nfd-wba-color-brand)",
+			src: typography,
+		},
+		category: "nfd-wonder-blocks",
+		attributes: { category: "text" },
+		title: __("Text Patterns", "nfd-wonder-blocks"),
+		description: __("Add Text patterns.", "nfd-wonder-blocks"),
+		keywords: [
+			__("highlight", "nfd-wonder-blocks"),
+			__("write", "nfd-wonder-blocks"),
+			__("format", "nfd-wonder-blocks"),
 		],
 	},
 	{
