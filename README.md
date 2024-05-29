@@ -84,7 +84,7 @@ To ensure a smooth and error-free release, follow these detailed instructions cl
 
 1. Checkout a new branch for the release using the format `release/<new_version>`.
 
-2. Run `npm install --legacy-peer-deps` to install necessary npm packages.
+2. Run `npm install` to install necessary npm packages.
 
 3. Execute `composer install` to install PHP dependencies.
 
