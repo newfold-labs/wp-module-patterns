@@ -65,7 +65,7 @@ class Items {
 
 		return $data;
 	}
-	
+
 	/**
 	 * Sorts a multidimensional array.
 	 *
@@ -75,7 +75,7 @@ class Items {
 	 */
 	private static function sort( $data ) {
 		// Reverse the array.
-		$data = array_reverse($data);
+		$data = array_reverse( $data );
 		return $data;
 	}
 

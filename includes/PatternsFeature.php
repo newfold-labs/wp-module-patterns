@@ -18,7 +18,7 @@ class PatternsFeature extends \NewfoldLabs\WP\Module\Features\Feature {
 	 *
 	 * @var string
 	 */
-	protected $name  = 'patterns';
+	protected $name = 'patterns';
 
 	/**
 	 * The feature value. Defaults to on.
