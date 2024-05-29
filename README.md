@@ -138,11 +138,11 @@ Ensure that these files are committed to the repository, as they are essential c
 
 ## More on NewFold WordPress Modules
 
-- <a href="https://github.com/bluehost/wp-module-loader#endurance-wordpress-modules">What are modules?</a>
-- <a href="https://github.com/bluehost/wp-module-loader#creating--registering-a-module">Creating/registering
+- <a href="https://github.com/newfold-labs/wp-module-loader#endurance-wordpress-modules">What are modules?</a>
+- <a href="https://github.com/newfold-labs/wp-module-loader#creating--registering-a-module">Creating/registering
   modules</a>
-- <a href="https://github.com/bluehost/wp-module-loader#installing-from-our-satis">Installing from our
+- <a href="https://github.com/newfold-labs/wp-module-loader#installing-from-our-satis">Installing from our
   Satis</a>
-- <a href="https://github.com/bluehost/wp-module-loader#local-development">Local development notes</a>
-- <a href="https://github.com/bluehost/wp-module-loader#understanding-the-module-lifecycle">Understanding the
+- <a href="https://github.com/newfold-labs/wp-module-loader#local-development">Local development notes</a>
+- <a href="https://github.com/newfold-labs/wp-module-loader#understanding-the-module-lifecycle">Understanding the
   module lifecycle</a>
