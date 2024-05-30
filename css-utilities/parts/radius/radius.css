@@ -35,6 +35,9 @@
 		0;
 }
 
+.nfd-overflow-hidden.nfd-rounded-xl iframe {
+	border-radius: calc(var(--wndb--border--radius--md) * var(--wndb--rounded--scale-factor));
+}
 /* ---------------------------------- Scale --------------------------------- */
 .nfd-rounded-none {
 	/* no important */
@@ -47,7 +50,8 @@
 }
 
 .nfd-rounded,
-.nfd-rounded-md {
+.nfd-rounded-md,
+.nfd-rounded-t-md {
 	/* no important */
 	--wndb--border--radius: var(--wndb--border--radius--md);
 }

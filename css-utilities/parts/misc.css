@@ -81,13 +81,15 @@ p[style*="text-decoration"] > a {
 }
 
 .nfd-stretch-cover-child .wp-block-cover__inner-container,
-.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group,
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .nfd-pseudo-play-icon {
 	align-items: inherit;
 	justify-content: inherit;
 	flex-grow: 1;
 }
 
-.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group {
+.nfd-stretch-cover-child .wp-block-cover__inner-container > .wp-block-group,
+.nfd-stretch-cover-child .wp-block-cover__inner-container > p {
 	width: 100%;
 }
 
@@ -136,4 +138,8 @@ p[style*="text-decoration"] > a {
 
 .is-style-wide.wp-block-separator {
 	width: 100%;
+}
+
+.nfd-aspect-video {
+	aspect-ratio: 16 / 9;
 }
