@@ -1,0 +1,7 @@
+.nfd-mask-fade-to-b > .wp-block-cover__background {
+	mask-image: linear-gradient(to bottom, transparent 50%, black 120%);
+}
+
+.nfd-mask-radial-center > .wp-block-cover__background {
+	mask-image: radial-gradient(circle, transparent -40%, rgba(0, 0, 0, 0.9) 58%) !important;
+}
