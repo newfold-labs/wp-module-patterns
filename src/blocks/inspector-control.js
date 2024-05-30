@@ -284,6 +284,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					label: __("Grid 3", "nfd-wonder-blocks"),
 				},
 				{
+					name: "grid-perspective",
+					label: __("Grid Perspective", "nfd-wonder-blocks"),
+				},
+				{
 					name: "lines",
 					label: __("Lines", "nfd-wonder-blocks"),
 				},
