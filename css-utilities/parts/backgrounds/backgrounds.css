@@ -43,6 +43,21 @@
 	background-size: 50px 50px;
 }
 
+.nfd-bg-effect-grid-perspective {
+	perspective: 1000px;
+}
+
+.nfd-bg-effect-grid-perspective::after {
+	--wndb-mask-opacity: 0.6;
+	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px);
+	background-size: 100px 100px;
+
+	transform-origin: top;
+	transform-style: preserve-3d;
+	transform: rotateX(-60deg) translateZ(0px);
+}
+
 .nfd-bg-effect-grid-2::after {
 	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--wndb-mask-color) 1px, transparent 1px);
@@ -70,13 +85,22 @@
 }
 
 .nfd-bg-effect-lines-2 {
+	--wndb-mask-opacity: 0.45;
 	overflow: hidden;
+	perspective: 1000px;
 }
 
 .nfd-bg-effect-lines-2::after {
 	background-image: linear-gradient(to right, var(--wndb-mask-color) 1px, transparent 1px);
-	background-size: 32px 96px;
-	transform: scale(1.5) skew(-45deg, 45deg);
+	background-size: 30px;
 	right: -40%;
 	top: -20%;
+
+	transform-origin: right;
+	transform-style: preserve-3d;
+	transform: rotateX(-45deg) skew(-16deg) translateZ(0px);
+}
+
+.nfd-mask-opacity-0::after {
+	--wndb-mask-opacity: 0.8;
 }
