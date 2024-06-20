@@ -23,7 +23,7 @@ registerBlockType(metadata, {
 	category: "nfd-wonder-blocks",
 	example: {
 		attributes: {
-			preview: window.nfdWonderBlocks?.assets + "/images/preview.png",
+			preview: window.nfdWonderBlocks?.assets + "/images/preview.webp",
 		},
 	},
 	variations: [...variations],
