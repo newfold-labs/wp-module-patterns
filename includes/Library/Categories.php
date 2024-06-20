@@ -42,13 +42,11 @@ class Categories {
 				__( 'Error fetching data from the platform.', 'nfd-wonder-blocks' )
 			);
 		}
-
-		$data = self::add_featured_category( $data, $type );
 		
-		error_log(print_r($data, true));
-
 		// Sort categories.
 		$data = self::sort_categories( $data, $orderby, $order );
+
+		$data = self::add_featured_category( $data, $type );
 
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			$_data = array();
