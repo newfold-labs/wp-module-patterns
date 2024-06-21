@@ -44,7 +44,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-gallery.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/gallery.webp",
 			},
 		},
 	},
@@ -65,7 +65,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-blog.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/blog.webp",
 			},
 		},
 	},
@@ -86,7 +86,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-cta.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/cta.webp",
 			},
 		},
 	},
@@ -103,7 +103,7 @@ export const variations = [
 		keywords: [__("frequently asked questions", "nfd-wonder-blocks")],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-faq.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/faq.webp",
 			},
 		},
 	},
@@ -120,7 +120,7 @@ export const variations = [
 		keywords: [__("columns", "nfd-wonder-blocks"), __("about", "nfd-wonder-blocks")],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-features.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/features.webp",
 			},
 		},
 	},
@@ -142,7 +142,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-forms.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/forms.webp",
 			},
 		},
 	},
@@ -164,7 +164,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-headings.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/headings.webp",
 			},
 		},
 	},
@@ -185,7 +185,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-hero.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/hero.webp",
 			},
 		},
 	},
@@ -206,7 +206,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-pricing-table.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/pricing-table.webp",
 			},
 		},
 	},
@@ -230,7 +230,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-menu.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/menu.webp",
 			},
 		},
 	},
@@ -251,7 +251,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-team.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/team.webp",
 			},
 		},
 	},
@@ -272,7 +272,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-testimonials.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/testimonials.webp",
 			},
 		},
 	},
@@ -293,7 +293,7 @@ export const variations = [
 		],
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-text.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/text.webp",
 			},
 		},
 	},
@@ -309,7 +309,7 @@ export const variations = [
 		description: __("Add Header patterns.", "nfd-wonder-blocks"),
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-header.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/header.webp",
 			},
 		},
 	},
@@ -325,7 +325,7 @@ export const variations = [
 		description: __("Add Footer patterns.", "nfd-wonder-blocks"),
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-footer.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/footer.webp",
 			},
 		},
 	},
@@ -341,7 +341,7 @@ export const variations = [
 		description: __("Add Product patterns.", "nfd-wonder-blocks"),
 		example: {
 			attributes: {
-				preview: window.nfdWonderBlocks?.assets + "/images/preview-products.webp",
+				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/products.webp",
 			},
 		},
 	},

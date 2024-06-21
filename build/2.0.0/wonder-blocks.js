@@ -2252,7 +2252,7 @@ __webpack_require__.r(__webpack_exports__);
   category: "nfd-wonder-blocks",
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/default.webp"
     }
   },
   variations: [..._variations__WEBPACK_IMPORTED_MODULE_8__.variations],
@@ -2770,7 +2770,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("images", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("photos", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("photography", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-gallery.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/gallery.webp"
     }
   }
 }, {
@@ -2788,7 +2788,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("articles", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("posts", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("news", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-blog.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/blog.webp"
     }
   }
 }, {
@@ -2806,7 +2806,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("cta", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("conversion", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("button", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-cta.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/cta.webp"
     }
   }
 }, {
@@ -2824,7 +2824,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("frequently asked questions", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-faq.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/faq.webp"
     }
   }
 }, {
@@ -2842,7 +2842,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("columns", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("about", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-features.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/features.webp"
     }
   }
 }, {
@@ -2860,7 +2860,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("form", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("email", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("CRM", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("contact", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-forms.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/forms.webp"
     }
   }
 }, {
@@ -2878,7 +2878,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("title", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("headline", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("tagline", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("text", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-headings.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/headings.webp"
     }
   }
 }, {
@@ -2896,7 +2896,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("banner", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("image slider", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("homepage", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-hero.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/hero.webp"
     }
   }
 }, {
@@ -2914,7 +2914,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("plans", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("comparison", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("packages", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-pricing-table.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/pricing-table.webp"
     }
   }
 }, {
@@ -2932,7 +2932,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("restaurant", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("cafe", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("coffee", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("catering", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("food", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("recipe", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-menu.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/menu.webp"
     }
   }
 }, {
@@ -2950,7 +2950,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("employees", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("members", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("profiles", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-team.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/team.webp"
     }
   }
 }, {
@@ -2968,7 +2968,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("reviews", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("feedback", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("ratings", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-testimonials.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/testimonials.webp"
     }
   }
 }, {
@@ -2986,7 +2986,7 @@ const variations = [{
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("highlight", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("write", "nfd-wonder-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("format", "nfd-wonder-blocks")],
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-text.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/text.webp"
     }
   }
 }, {
@@ -3003,7 +3003,7 @@ const variations = [{
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Header patterns.", "nfd-wonder-blocks"),
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-header.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/header.webp"
     }
   }
 }, {
@@ -3020,7 +3020,7 @@ const variations = [{
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Footer patterns.", "nfd-wonder-blocks"),
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-footer.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/footer.webp"
     }
   }
 }, {
@@ -3037,7 +3037,7 @@ const variations = [{
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Product patterns.", "nfd-wonder-blocks"),
   example: {
     attributes: {
-      preview: window.nfdWonderBlocks?.assets + "/images/preview-products.webp"
+      preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/products.webp"
     }
   }
 }, {
