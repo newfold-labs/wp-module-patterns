@@ -15,12 +15,12 @@ class Categories {
 	 * Get the categories from transient or the remote API.
 	 *
 	 * @param string $type Type of categories to get.
-	 * @param string $orderby Attribute of the category to sort by. Default is 'menu_order'.
+	 * @param string $orderby Attribute of the category to sort by. Default is 'order'.
 	 * @param string $order  Specifies the order of sorting. Acceptable values are 'ASC' for ascending order or 'DESC' for descending order. Default is 'ASC'.
 	 *
 	 * @return array
 	 */
-	public static function get( $type = 'patterns', $orderby = 'menu_order', $order = 'ASC' ) {
+	public static function get( $type = 'patterns', $orderby = 'order', $order = 'ASC' ) {
 
 		// Ensure we only get templates or patterns.
 		$type = 'templates' === $type ? 'templates' : 'patterns';
@@ -42,11 +42,11 @@ class Categories {
 				__( 'Error fetching data from the platform.', 'nfd-wonder-blocks' )
 			);
 		}
-
-		$data = self::add_featured_category( $data, $type );
-
+		
 		// Sort categories.
 		$data = self::sort_categories( $data, $orderby, $order );
+
+		$data = self::add_featured_category( $data, $type );
 
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			$_data = array();
@@ -64,19 +64,19 @@ class Categories {
 
 	/**
 	 * Sorts an array of categories based on a specified order and ordering attribute.
-	 * By default, it sorts by 'menu_order' in ascending ('ASC') order. The function
-	 * currently only applies sorting if the 'menu_order' attribute is specified for ordering.
-	 * If 'menu_order' is used, categories without a specified 'menu_order' are placed at the end.
+	 * By default, it sorts by 'order' in ascending ('ASC') order. The function
+	 * currently only applies sorting if the 'order' attribute is specified for ordering.
+	 * If 'order' is used, categories without a specified 'order' are placed at the end.
 	 *
-	 * @param array  $data    The array of categories to sort. Each category should be an associative array that potentially includes the 'menu_order' key.
-	 * @param string $orderby Attribute of the category to sort by. Default is 'menu_order'.
-	 * @param string $order  Specifies the order of sorting. Acceptable values are 'ASC' for ascending order or 'DESC' for descending order. Default is 'ASC'.
+	 * @param array  $data    The array of categories to sort. Each category should be an associative array that potentially includes the 'order' key.
+	 * @param string $orderby Attribute of the category to sort by. Default is 'order'.
+	 * @param string $order   Specifies the order of sorting. Acceptable values are 'ASC' for ascending order or 'DESC' for descending order. Default is 'ASC'.
 	 *
-	 * @return array Returns the sorted array of categories. If 'menu_order' is not the sorting attribute, returns the input array without changes.
+	 * @return array Returns the sorted array of categories. If 'order' is not the sorting attribute, returns the input array without changes.
 	 */
-	private static function sort_categories( $data, $orderby = 'menu_order', $order = 'ASC' ) {
+	private static function sort_categories( $data, $orderby = 'order', $order = 'ASC' ) {
 
-		if ( 'menu_order' === $orderby ) {
+		if ( 'order' === $orderby ) {
 			usort(
 				$data,
 				function ( $a, $b ) use ( $orderby, $order ) {
