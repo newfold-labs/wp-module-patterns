@@ -42,7 +42,7 @@ class Categories {
 				__( 'Error fetching data from the platform.', 'nfd-wonder-blocks' )
 			);
 		}
-		
+
 		// Sort categories.
 		$data = self::sort_categories( $data, $orderby, $order );
 
