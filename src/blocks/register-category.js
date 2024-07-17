@@ -3,7 +3,8 @@
  */
 import { registerBlockCollection, setCategories } from "@wordpress/blocks";
 import { select } from "@wordpress/data";
-import { Icon, buttons } from "@wordpress/icons";
+import { Icon } from "@wordpress/icons";
+import { rectangleGroup } from "../components/Icons";
 
 const currentCategories = select("core/blocks").getCategories();
 
@@ -24,5 +25,5 @@ setCategories([
  */
 registerBlockCollection("nfd-wonder-blocks", {
 	title: "WonderBlocks",
-	icon: <Icon icon={buttons} />,
+	icon: <Icon icon={rectangleGroup} />,
 });

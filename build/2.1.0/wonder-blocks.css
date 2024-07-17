@@ -508,14 +508,14 @@
 .nfd-wba-h-6 {
   height: 1.5rem;
 }
+.nfd-wba-min-h-10 {
+  min-height: 2.5rem;
+}
 .nfd-wba-min-h-\[116px\] {
   min-height: 116px;
 }
 .nfd-wba-min-h-\[43px\] {
   min-height: 43px;
-}
-.nfd-wba-min-h-\[48px\] {
-  min-height: 48px;
 }
 .nfd-wba-min-h-\[50vh\] {
   min-height: 50vh;
@@ -721,8 +721,29 @@
 .nfd-wba-fill-red-600 {
   fill: #dc2626;
 }
+.nfd-wba-fill-none {
+  fill: none;
+}
+.\!nfd-wba-fill-none {
+  fill: none !important;
+}
 .nfd-wba-stroke-brand {
   stroke: rgb(var(--nfd-wba-color-brand-rgb) / 1);
+}
+.nfd-wba-stroke-current {
+  stroke: currentColor;
+}
+.nfd-wba-stroke-\[var\(--nfd-wba-color-brand\)\] {
+  stroke: var(--nfd-wba-color-brand);
+}
+.\!nfd-wba-stroke-current {
+  stroke: currentColor !important;
+}
+.\!nfd-wba-stroke-brand {
+  stroke: rgb(var(--nfd-wba-color-brand-rgb) / 1) !important;
+}
+.nfd-wba-stroke-black {
+  stroke: #000;
 }
 .\!nfd-wba-p-0 {
   padding: 0px !important;
@@ -737,6 +758,14 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+.nfd-wba-px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.nfd-wba-px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
 .nfd-wba-px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -749,17 +778,9 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-.nfd-wba-px-\[14px\] {
-  padding-left: 14px;
-  padding-right: 14px;
-}
 .nfd-wba-py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.nfd-wba-py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 .nfd-wba-py-4 {
   padding-top: 1rem;
@@ -814,12 +835,11 @@
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.nfd-wba-text-\[15px\] {
+  font-size: 15px;
+}
 .nfd-wba-text-\[26px\] {
   font-size: 26px;
-}
-.nfd-wba-text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 .nfd-wba-text-lg {
   font-size: 1.125rem;
