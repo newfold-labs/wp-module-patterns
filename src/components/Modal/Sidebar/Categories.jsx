@@ -18,6 +18,7 @@ import { heart } from "../../Icons";
 import ErrorLoading from "./ErrorLoading";
 import ListElement from "./ListElement";
 import Skeleton from "./Skeleton";
+import iconMapping from "../../../helpers/iconMapping";
 
 const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 	// Fetch data
@@ -46,10 +47,17 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 		return data;
 	}, [isSiteEditor, data]);
 
+	const categoriesWithIcons = useMemo(() => {
+		return filteredCategories?.map((category) => ({
+			...category,
+			icon: iconMapping[`${type}-${category.title}`] || null,
+		}));
+	}, [filteredCategories]);
+
 	// Format categories for mobile dropdown
 	// prettier-ignore
 	const formattedCategoriesForMobile = useMemo(() => {
-		return filteredCategories?.reduce((result, category) => {            
+		return categoriesWithIcons?.reduce((result, category) => {            
             // Handle undefined values
             const label = category.label || '';
             const count = category.count ?? '';
@@ -81,7 +89,7 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
             
             return 0; // Maintain the original order
         });
-	}, [filteredCategories, allFavs?.length]);
+	}, [categoriesWithIcons, allFavs?.length]);
 
 	// Store actions and states.
 	const {
@@ -190,7 +198,7 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 					/>
 
 					<ul className="nfd-wba-list-elements nfd-wba-m-0 nfd-wba-list-none nfd-wba-flex-col nfd-wba-px-0 nfd-wba-py-4 nfd-wba-text-md nfd-wba-leading-5 sm:nfd-wba-flex">
-						{filteredCategories?.map((category) => {
+						{categoriesWithIcons?.map((category) => {
 							return (
 								<ListElement
 									key={category.id}
@@ -199,6 +207,9 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 									onClick={() => {
 										handleCategoryChange(category?.title);
 									}}
+									icon={
+										category.icon && <Icon fill="currentColor" icon={category.icon} size={20} />
+									}
 								/>
 							);
 						})}
@@ -214,12 +225,7 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 							}}
 							isActive={!keywordsFilter && getActiveCategory() === "favorites"}
 							icon={
-								<Icon
-									fill="currentColor"
-									className="-nfd-wba-ml-1 nfd-wba-fill-red-600"
-									icon={heart}
-									size={16}
-								/>
+								<Icon fill="currentColor" className="nfd-wba-fill-red-600" icon={heart} size={16} />
 							}
 							onClick={() => {
 								handleCategoryChange("favorites");

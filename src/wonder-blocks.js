@@ -14,7 +14,6 @@ import { HiiveAnalytics } from "@newfold-labs/js-utility-ui-analytics";
 import domReady from "@wordpress/dom-ready";
 import { createRoot } from "@wordpress/element";
 import { registerPlugin } from "@wordpress/plugins";
-import { select } from "@wordpress/data";
 import { debounce } from "@wordpress/compose";
 
 /**
@@ -68,12 +67,11 @@ const addWonderBlocksButton = () => {
 	const addButtonToToolbar = () => {
 		if (document.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) return;
 
-		const toolbarSelector =
-			select("core/edit-site") !== undefined
-				? ".edit-site-header-edit-mode__start"
-				: ".edit-post-header-toolbar";
+		const toolbar =
+			document.querySelector(".edit-post-header-toolbar") ||
+			document.querySelector(".edit-site-header-edit-mode__start");
 
-		if (!document.querySelector(toolbarSelector)) {
+		if (!toolbar) {
 			return;
 		}
 
@@ -82,7 +80,7 @@ const addWonderBlocksButton = () => {
 			className: "nfd-wba-shrink-0",
 		});
 
-		document.querySelector(toolbarSelector)?.append(wonderBlocksButton);
+		toolbar?.append(wonderBlocksButton);
 		createRoot(wonderBlocksButton).render(<ToolbarButton />);
 		document.dispatchEvent(new Event("wonder-blocks/toolbar-button-added"));
 	};
