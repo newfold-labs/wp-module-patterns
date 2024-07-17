@@ -37,7 +37,7 @@ class Items {
 			);
 		}
 
-		$data = self::add_featured_categories( $data );
+		$data = self::add_featured_categories( $data, $type );
 
 		if ( isset( $args['category'] ) ) {
 			$data = self::filter( $data, 'category', \sanitize_text_field( $args['category'] ) );
@@ -170,40 +170,53 @@ class Items {
 	/**
 	 * Get featured items.
 	 *
+	 * @param string $type Type of items to get.
+	 * 
 	 * @return array
 	 */
-	private static function get_featured_slugs() {
+	private static function get_featured_slugs( $type = '' ) {
 
-		$featured = array(
-			'pricing-table-2',
-			'features-9',
-			'hero-4',
-			'cta-22',
-			'gallery-2',
-			'cta-7',
-			'faq-2',
-			'features-4',
-			'pricing-table-6',
-			'features-5',
-			'gallery-6',
-			'home-1',
-			'home-2',
-			'home-4',
-			'home-5',
-		);
+		$featured = [
+			'patterns' => [
+				'pricing-table-2',
+				'features-9',
+				'hero-4',
+				'cta-22',
+				'gallery-2',
+				'cta-7',
+				'faq-2',
+				'features-4',
+				'pricing-table-6',
+				'features-5',
+				'gallery-6',
+			],
+			'templates' => [
+				'home-1',
+				'home-2',
+				'home-4',
+				'home-5',
+			],
+		];
 
-		return apply_filters( 'bptds_featured_items', $featured );
+		$featured = apply_filters( 'wonder_blocks_featured_items', $featured );
+
+		if ( $type && isset( $featured[ $type ] ) ) {
+			return $featured[ $type ];
+		}
+
+		return $featured;
 	}
 
 	/**
 	 * Check if item is featured.
 	 *
 	 * @param string $slug Slug of item.
+	 * @param string $type Type of item.
 	 * @return boolean $is_featured True if item is featured.
 	 */
-	private static function is_featured( $slug ) {
+	private static function is_featured( $slug, $type ) {
 
-		$featured = self::get_featured_slugs();
+		$featured = self::get_featured_slugs( $type );
 
 		return in_array( $slug, $featured, true );
 	}
@@ -211,12 +224,15 @@ class Items {
 	/**
 	 * Add featured category to item if it belongs to a featured category.
 	 *
-	 * @param array $data List of items
+	 * @param array  $data List of items
+	 * @param string $type Type of items
+	 * 
 	 * @return object $data List of items updated with featured category
 	 */
-	private static function add_featured_categories( $data ) {
+	private static function add_featured_categories( $data, $type = 'patterns' ) {
 		$data = array_map(
-			function ( $item ) {
+			function ( $item ) use ( $type ) {
+				
 				if ( ! isset( $item['categories'] ) ) {
 					$item['categories'] = array();
 				}
@@ -225,7 +241,7 @@ class Items {
 					$item['categories'] = array( $item['categories'] );
 				}
 
-				if ( self::is_featured( $item['slug'] ) ) {
+				if ( self::is_featured( $item['slug'], $type ) ) {
 					$item['categories'][] = 'featured';
 				}
 
