@@ -4,22 +4,20 @@
 import { registerBlockType } from "@wordpress/blocks";
 import { useDispatch } from "@wordpress/data";
 import { useEffect } from "@wordpress/element";
-import { buttons } from "@wordpress/icons";
 
 /**
  * Internal dependencies
  */
 import { DEFAULT_PATTERNS_CATEGORY } from "../constants";
-import { trackHiiveEvent } from "../helpers/analytics";
+import { rectangleGroup } from "../components/Icons";
 import { store as nfdPatternsStore } from "../store";
-import metadata from "./block.json";
+import { trackHiiveEvent } from "../helpers/analytics";
 import { variations } from "./variations";
+import metadata from "./block.json";
+import { Icon } from "@wordpress/icons";
 
 registerBlockType(metadata, {
-	icon: {
-		foreground: "var(--nfd-wba-color-brand)",
-		src: buttons,
-	},
+	icon: <Icon icon={rectangleGroup} className="!nfd-wba-fill-none !nfd-wba-stroke-brand" />,
 	category: "nfd-wonder-blocks",
 	example: {
 		attributes: {
