@@ -334,6 +334,9 @@
     padding: 0 16px;
   }
 }
+.nfd-wba-modal .nfd-wba-keyword-filter svg {
+  transform: scaleX(-1);
+}
 
 .nfd-wba-state-message > svg {
   max-width: 620px;
@@ -387,18 +390,11 @@
   gap: 12px;
   margin: 0;
 }
-.components-search-control.nfd-wba-keyword-filter .components-base-control__field .components-base-control__label,
-.components-search-control.nfd-wba-keyword-filter .components-base-control__field .components-input-control__label {
-  margin: 0;
-  text-transform: none;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 500;
-}
+
 .components-search-control.nfd-wba-keyword-filter input[type=search].components-search-control__input,
 .components-search-control.nfd-wba-keyword-filter input[type=search].components-input-control__input {
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 14px;
   height: 36px;
   line-height: 20px;
 }
@@ -513,14 +509,15 @@
 .nfd-wba-h-6 {
   height: 1.5rem;
 }
-.nfd-wba-min-h-10 {
-  min-height: 2.5rem;
-}
+
 .nfd-wba-min-h-\[116px\] {
   min-height: 116px;
 }
 .nfd-wba-min-h-\[43px\] {
   min-height: 43px;
+}
+.nfd-wba-min-h-\[48px\] {
+  min-height: 48px;
 }
 .nfd-wba-min-h-\[50vh\] {
   min-height: 50vh;
@@ -742,14 +739,6 @@
   padding-right: 0px;
   padding-left: 0px;
 }
-.nfd-wba-px-2 {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-.nfd-wba-px-2\.5 {
-  padding-right: 0.625rem;
-  padding-left: 0.625rem;
-}
 .nfd-wba-px-4 {
   padding-right: 1rem;
   padding-left: 1rem;
@@ -762,9 +751,17 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+.nfd-wba-px-\[14px\] {
+  padding-right: 14px;
+  padding-left: 14px;
+}
 .nfd-wba-py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+.nfd-wba-py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .nfd-wba-py-4 {
   padding-top: 1rem;
@@ -819,11 +816,12 @@
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.nfd-wba-text-\[15px\] {
-  font-size: 15px;
-}
 .nfd-wba-text-\[26px\] {
   font-size: 26px;
+}
+.nfd-wba-text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .nfd-wba-text-lg {
   font-size: 1.125rem;
