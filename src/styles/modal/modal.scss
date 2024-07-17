@@ -57,6 +57,10 @@
 			}
 		}
 	}
+
+	.nfd-wba-keyword-filter svg {
+		transform: scaleX(-1);
+	}
 }
 
 .nfd-wba-state-message > svg {
