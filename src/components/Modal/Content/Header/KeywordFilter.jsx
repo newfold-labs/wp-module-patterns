@@ -94,8 +94,8 @@ const KeywordFilter = () => {
 				)}
 				disabled={isSidebarLoading}
 				label={__("Search", "nfd-wonder-blocks")}
-				hideLabelFromVision={false}
-				placeholder=""
+				hideLabelFromVision={true}
+				placeholder={__("Search", "nfd-wonder-blocks")}
 				value={searchValue}
 				onFocus={() => {
 					setHasFocus(true);
