@@ -11,7 +11,6 @@ document.addEventListener("wonder-blocks/toolbar-button-added", () => {
 
 // listen for wonder-blocks/animation-changed event
 document.addEventListener("wonder-blocks/animation-changed", (event) => {
-	console.log("animation changed");
 	const clientId = event?.detail?.clientId;
 	viewportAnimation(clientId);
 });
@@ -48,7 +47,6 @@ function viewportAnimation(clientId = null) {
 	// eslint-disable-next-line no-undef
 	requestAnimationFrame(() => {
 		const elementsToAnimate = Array.from(document.getElementsByClassName("nfd-wb-animate"));
-		console.log({ elementsToAnimate });
 		viewportAnimationObserver.observeElements(elementsToAnimate, clientId, isGutenberg);
 	});
 }

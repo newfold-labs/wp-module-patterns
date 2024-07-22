@@ -115,7 +115,6 @@
     viewportAnimation();
   });
   document.addEventListener("wonder-blocks/animation-changed", (event) => {
-    console.log("animation changed");
     const clientId = event?.detail?.clientId;
     viewportAnimation(clientId);
   });
@@ -134,7 +133,6 @@
     });
     requestAnimationFrame(() => {
       const elementsToAnimate = Array.from(document.getElementsByClassName("nfd-wb-animate"));
-      console.log({ elementsToAnimate });
       viewportAnimationObserver.observeElements(elementsToAnimate, clientId, isGutenberg);
     });
   }
