@@ -3337,6 +3337,55 @@ const Logo = ({
 
 /***/ }),
 
+/***/ "./src/components/Modal/Content/CategoryButton.jsx":
+/*!*********************************************************!*\
+  !*** ./src/components/Modal/Content/CategoryButton.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * External dependencies
+ */
+
+const CategoryButton = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(({
+  category,
+  className,
+  icon,
+  isActive,
+  ...otherProps
+}, ref) => {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("nfd-wba-text-base nfd-wba-pl-5 nfd-wba-pr-6 nfd-wba-py-3 nfd-wba-rounded-[4px] nfd-wba-cursor-pointer nfd-wba-border nfd-wba-bg-transparent nfd-wba-border-solid focus-visible:nfd-wba-outline-brand nfd-wba-border-grey-b nfd-wba-text-current hover:nfd-wba-text-brand hover:nfd-wba-border-brand", className),
+    type: "button",
+    ref: ref,
+    ...otherProps
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-left"
+  }, icon && icon, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, category)));
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoryButton);
+CategoryButton.displayName = "CategoryButton";
+
+/***/ }),
+
 /***/ "./src/components/Modal/Content/Content.jsx":
 /*!**************************************************!*\
   !*** ./src/components/Modal/Content/Content.jsx ***!
@@ -4103,14 +4152,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _svg_NoResults_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../svg/NoResults.svg */ "./src/svg/NoResults.svg");
-/* harmony import */ var _svg_NoFavorites_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../svg/NoFavorites.svg */ "./src/svg/NoFavorites.svg");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
+/* harmony import */ var _helpers_iconMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../helpers/iconMapping */ "./src/helpers/iconMapping.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
+/* harmony import */ var _svg_NoFavorites_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../svg/NoFavorites.svg */ "./src/svg/NoFavorites.svg");
+/* harmony import */ var _svg_NoResults_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../svg/NoResults.svg */ "./src/svg/NoResults.svg");
+/* harmony import */ var _CategoryButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../CategoryButton */ "./src/components/Modal/Content/CategoryButton.jsx");
 
 /**
  * WordPress dependencies
  */
+
+
 
 
 /**
@@ -4118,18 +4176,59 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
+
+
 const NoResults = ({
   isFavorites
 }) => {
-  const title = isFavorites ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("You haven't added any patterns or page templates to your favorites yet.", "nfd-wonder-blocks") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Sorry, we couldn't find any results for that. Please try a different search term.", "nfd-wonder-blocks");
-  const svg = isFavorites ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_svg_NoFavorites_svg__WEBPACK_IMPORTED_MODULE_3__.ReactComponent, null) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_svg_NoResults_svg__WEBPACK_IMPORTED_MODULE_2__.ReactComponent, null);
+  let title;
+
+  // Store actions and states.
+  const {
+    setActivePatternsCategory,
+    setShouldResetKeywords
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store);
+  if (isFavorites) {
+    const favoritesTitle = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Click the %s on your favorite and frequently-used Patterns & Templates for quick access.", "nfd-wonder-blocks").split("%s");
+    title = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, favoritesTitle[0], (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      className: "nfd-wba-fill-red-600 nfd-wba-stroke-red-600 -nfd-wba-mt-2 nfd-wba-align-middle"
+    }), favoritesTitle[1]);
+  } else {
+    title = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Sorry, we couldn't find any results for that. Please try a different search term.", "nfd-wonder-blocks");
+  }
+  const svg = isFavorites ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_svg_NoFavorites_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent, null) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_svg_NoResults_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent, null);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-grow nfd-wba-items-center nfd-wba-justify-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-state-message nfd-wba-flex nfd-wba-w-full nfd-wba-max-w-[640px] nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-8 nfd-wba-pb-[10%]"
   }, svg, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "nfd-wba-m-0 nfd-wba-max-w-[420px] nfd-wba-text-center nfd-wba-text-2xl nfd-wba-font-light nfd-wba-text-dark"
-  }, title)));
+  }, title), isFavorites && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-gap-6 nfd-wba-mt-8"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CategoryButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    category: "Features",
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      icon: _helpers_iconMapping__WEBPACK_IMPORTED_MODULE_3__["default"]["patterns-features"],
+      size: 24,
+      className: "nfd-wba-fill-current"
+    }),
+    onClick: () => {
+      setActivePatternsCategory("features");
+      setShouldResetKeywords(true);
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CategoryButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    category: "Text",
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      icon: _helpers_iconMapping__WEBPACK_IMPORTED_MODULE_3__["default"]["patterns-text"],
+      size: 24,
+      className: "nfd-wba-fill-current"
+    }),
+    onClick: () => {
+      setActivePatternsCategory("text");
+      setShouldResetKeywords(true);
+    }
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoResults);
 
@@ -7062,6 +7161,217 @@ function toNumber(value) {
 }
 
 module.exports = toNumber;
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/Icon.js":
+/*!****************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/Icon.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Icon)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _defaultAttributes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./defaultAttributes.js */ "./node_modules/lucide-react/dist/esm/defaultAttributes.js");
+/* harmony import */ var _shared_src_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/src/utils.js */ "./node_modules/lucide-react/dist/esm/shared/src/utils.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+const Icon = (0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(
+  ({
+    color = "currentColor",
+    size = 24,
+    strokeWidth = 2,
+    absoluteStrokeWidth,
+    className = "",
+    children,
+    iconNode,
+    ...rest
+  }, ref) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+      "svg",
+      {
+        ref,
+        ..._defaultAttributes_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+        width: size,
+        height: size,
+        stroke: color,
+        strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+        className: (0,_shared_src_utils_js__WEBPACK_IMPORTED_MODULE_2__.mergeClasses)("lucide", className),
+        ...rest
+      },
+      [
+        ...iconNode.map(([tag, attrs]) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(tag, attrs)),
+        ...Array.isArray(children) ? children : [children]
+      ]
+    );
+  }
+);
+
+
+//# sourceMappingURL=Icon.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/createLucideIcon.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/createLucideIcon.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createLucideIcon)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _shared_src_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/src/utils.js */ "./node_modules/lucide-react/dist/esm/shared/src/utils.js");
+/* harmony import */ var _Icon_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icon.js */ "./node_modules/lucide-react/dist/esm/Icon.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+const createLucideIcon = (iconName, iconNode) => {
+  const Component = (0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(
+    ({ className, ...props }, ref) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Icon_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      ref,
+      iconNode,
+      className: (0,_shared_src_utils_js__WEBPACK_IMPORTED_MODULE_2__.mergeClasses)(`lucide-${(0,_shared_src_utils_js__WEBPACK_IMPORTED_MODULE_2__.toKebabCase)(iconName)}`, className),
+      ...props
+    })
+  );
+  Component.displayName = `${iconName}`;
+  return Component;
+};
+
+
+//# sourceMappingURL=createLucideIcon.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/defaultAttributes.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/defaultAttributes.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ defaultAttributes)
+/* harmony export */ });
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+var defaultAttributes = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+};
+
+
+//# sourceMappingURL=defaultAttributes.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/heart.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/heart.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Heart)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.js */ "./node_modules/lucide-react/dist/esm/createLucideIcon.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const Heart = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("Heart", [
+  [
+    "path",
+    {
+      d: "M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",
+      key: "c3ymky"
+    }
+  ]
+]);
+
+
+//# sourceMappingURL=heart.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/shared/src/utils.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/shared/src/utils.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   mergeClasses: () => (/* binding */ mergeClasses),
+/* harmony export */   toKebabCase: () => (/* binding */ toKebabCase)
+/* harmony export */ });
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+const toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+const mergeClasses = (...classes) => classes.filter((className, index, array) => {
+  return Boolean(className) && array.indexOf(className) === index;
+}).join(" ");
+
+
+//# sourceMappingURL=utils.js.map
 
 
 /***/ }),
