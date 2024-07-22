@@ -115,20 +115,26 @@
     viewportAnimation();
   });
   document.addEventListener("wonder-blocks/animation-changed", (event) => {
+    console.log("animation changed");
     const clientId = event?.detail?.clientId;
     viewportAnimation(clientId);
   });
   document.addEventListener("wonder-blocks/block-order-changed", () => {
     viewportAnimation();
   });
+  window.onload = function() {
+    viewportAnimation();
+  };
   function viewportAnimation(clientId = null) {
     const isGutenberg = document.body.classList.contains("block-editor-page") || Boolean(clientId) || document.body.classList.contains("block-editor-iframe__body");
+    const rootElement = isGutenberg ? document.querySelector(".interface-interface-skeleton__content") : null;
     const viewportAnimationObserver = new ViewportAnimationObserver({
-      root: isGutenberg ? document.querySelector(".interface-interface-skeleton__content") : null,
+      root: rootElement,
       threshold: 0
     });
     requestAnimationFrame(() => {
       const elementsToAnimate = Array.from(document.getElementsByClassName("nfd-wb-animate"));
+      console.log({ elementsToAnimate });
       viewportAnimationObserver.observeElements(elementsToAnimate, clientId, isGutenberg);
     });
   }

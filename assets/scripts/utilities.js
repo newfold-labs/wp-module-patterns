@@ -11,6 +11,7 @@ document.addEventListener("wonder-blocks/toolbar-button-added", () => {
 
 // listen for wonder-blocks/animation-changed event
 document.addEventListener("wonder-blocks/animation-changed", (event) => {
+	console.log("animation changed");
 	const clientId = event?.detail?.clientId;
 	viewportAnimation(clientId);
 });
@@ -19,6 +20,10 @@ document.addEventListener("wonder-blocks/animation-changed", (event) => {
 document.addEventListener("wonder-blocks/block-order-changed", () => {
 	viewportAnimation();
 });
+
+window.onload = function () {
+	viewportAnimation();
+};
 
 /**
  * Handles viewport animations (entrance/exit).
@@ -30,10 +35,12 @@ function viewportAnimation(clientId = null) {
 		Boolean(clientId) ||
 		document.body.classList.contains("block-editor-iframe__body");
 
+	const rootElement = isGutenberg
+		? document.querySelector(".interface-interface-skeleton__content") // Gutenberg scroll container
+		: null;
+
 	const viewportAnimationObserver = new ViewportAnimationObserver({
-		root: isGutenberg
-			? document.querySelector(".interface-interface-skeleton__content") // Gutenberg scroll container
-			: null,
+		root: rootElement,
 		threshold: 0,
 	});
 
@@ -41,6 +48,7 @@ function viewportAnimation(clientId = null) {
 	// eslint-disable-next-line no-undef
 	requestAnimationFrame(() => {
 		const elementsToAnimate = Array.from(document.getElementsByClassName("nfd-wb-animate"));
+		console.log({ elementsToAnimate });
 		viewportAnimationObserver.observeElements(elementsToAnimate, clientId, isGutenberg);
 	});
 }
