@@ -2,6 +2,7 @@
  * External dependencies
  */
 import classNames from "classnames";
+import { HeartIcon, HeartOffIcon, PlusIcon, Trash2Icon } from "lucide-react";
 
 /**
  * WordPress dependencies
@@ -366,10 +367,10 @@ const DesignItem = ({ item }) => {
 
 	return (
 		<>
-			<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-6 nfd-wba-overflow-hidden nfd-wba-rounded-2xl nfd-wba-bg-grey nfd-wba-p-6">
+			<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-border-grey-b nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-border-gray-300 nfd-wba-border nfd-wba-overflow-clip nfd-wba-rounded nfd-wba-border-solid">
 				<div
 					className={classNames(
-						"nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-overflow-hidden nfd-wba-rounded-lg nfd-wba-border-[16px] nfd-wba-border-solid nfd-wba-border-white nfd-wba-bg-white nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand",
+						"nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-bg-white nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand nfd-wba-rounded",
 						item?.type === "templates" && "nfd-wba-design-item--template",
 						insertingDesign && "nfd-wba-inserting-design"
 					)}
@@ -388,11 +389,11 @@ const DesignItem = ({ item }) => {
 					)}
 				</div>
 
-				<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-bg-grey">
+				<div className="nfd-wba-flex nfd-wba-py-2 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
 					{/* <div>{item.title}</div> */}
 					<div></div>
 
-					<div className="nfd-wba-flex nfd-wba-shrink-0 nfd-wba-items-center nfd-wba-gap-3">
+					<div className="nfd-wba-flex nfd-wba-gap-0.5 nfd-wba-shrink-0 nfd-wba-items-center">
 						{item?.isPremium && (
 							<span className="nfd-wba-rounded nfd-wba-bg-dark nfd-wba-px-[10px] nfd-wba-py-[5px] nfd-wba-text-white">
 								Premium
@@ -402,56 +403,43 @@ const DesignItem = ({ item }) => {
 						{!shouldShowTrash() && (
 							<Button
 								className={classNames(
-									"nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-100",
+									"nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75",
 									isFavorite
-										? "nfd-wba-cursor-default !nfd-wba-text-red-600"
-										: "nfd-wba-cursor-not-pointer nfd-wba-text-zinc-500 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600"
+										? "nfd-wba-cursor-default nfd-wba-bg-gray-100 !nfd-wba-text-red-600"
+										: "nfd-wba-cursor-not-pointer hover:nfd-wba-text-red-600"
 								)}
 								showTooltip={true}
 								label={
 									isFavorite
-										? __("In Favorites", "nfd-wonder-blocks")
-										: __("Add to Favorites", "nfd-wonder-blocks")
+										? __("Added to favorites", "nfd-wonder-blocks")
+										: __("Add to favorites", "nfd-wonder-blocks")
 								}
 								onClick={() => favoritesClickHandler(false)}
-								icon={
-									<Icon
-										className="nfd-wba-shrink-0"
-										fill="currentColor"
-										size={24}
-										icon={isFavorite ? heart : heartEmpty}
-									/>
-								}
+								icon={<HeartIcon className="!nfd-wba-fill-none nfd-wba-shrink-0 nfd-wba-size-5" />}
 							/>
 						)}
 
 						{shouldShowTrash() && (
 							<Button
 								className={classNames(
-									"nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50 hover:nfd-wba-text-red-600"
+									"nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-text-red-600"
 								)}
 								showTooltip={true}
 								label={__("Remove from Favorites", "nfd-wonder-blocks")}
 								onClick={() => favoritesClickHandler()}
 								icon={
-									<Icon
-										className="nfd-wba-shrink-0"
-										fill="currentColor"
-										width={32}
-										height={32}
-										icon={trash}
-									/>
+									<HeartOffIcon className="nfd-wba-shrink-0 nfd-wba-size-5 !nfd-wba-fill-none" />
 								}
 							/>
 						)}
 						<Button
-							className="nfd-wba-h-12 nfd-wba-w-12 !nfd-wba-min-w-0 nfd-wba-rounded-lg nfd-wba-bg-white nfd-wba-text-zinc-500 nfd-wba-transition-all nfd-wba-duration-100 hover:nfd-wba-bg-white/50"
+							className="nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75"
 							isBusy={insertingDesign}
 							isPressed={insertingDesign}
 							label={__("Add pattern to page", "nfd-wonder-blocks")}
 							showTooltip={true}
 							onClick={() => insertDesignHandler()}
-							icon={<Icon fill="currentColor" className="nfd-wba-shrink-0" size={24} icon={plus} />}
+							icon={<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5" />}
 						/>
 					</div>
 				</div>

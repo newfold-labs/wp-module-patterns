@@ -16,8 +16,8 @@ const ListElement = forwardRef(({ category, className, icon, isActive, ...otherP
 		<li className="nfd-wba-m-0 nfd-wba-p-0">
 			<button
 				className={classNames(
-					"nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-min-h-10 nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-1 nfd-wba-pl-6 nfd-wba-text-[15px] nfd-wba-transition-all nfd-wba-duration-100 focus-visible:nfd-wba-outline-brand",
-					categoryCount !== null && "nfd-wba-pr-4",
+					"nfd-wba-list-element nfd-wba-relative nfd-wba-flex nfd-wba-min-h-10 nfd-wba-w-full nfd-wba-select-none nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-x-2 nfd-wba-rounded-none nfd-wba-border-0 nfd-wba-bg-transparent nfd-wba-py-1 nfd-wba-pl-6 nfd-wba-text-[15px] focus-visible:nfd-wba-outline-brand",
+					categoryCount !== null && "nfd-wba-pr-5",
 					categoryCount === null && "nfd-wba-pr-6",
 					!isActive && "nfd-wba-cursor-pointer nfd-wba-text-current hover:nfd-wba-text-brand", // inactive
 					isActive &&
@@ -36,8 +36,8 @@ const ListElement = forwardRef(({ category, className, icon, isActive, ...otherP
 				{categoryCount !== null && (
 					<span
 						className={classNames(
-							"nfd-wba-px-2.5 nfd-wba-py-1 nfd-wba-text-sm nfd-wba-text-dark-lighter",
-							category?.title !== "favorites" && "nfd-wba-rounded-full nfd-wba-bg-grey"
+							"nfd-wba-list-element__count nfd-wba-px-2.5 nfd-wba-py-1 nfd-wba-text-sm nfd-wba-text-dark-lighter",
+							category?.title !== "favorites" && "nfd-wba-rounded-full nfd-wba-bg-gray-100"
 						)}
 					>
 						{categoryCount}

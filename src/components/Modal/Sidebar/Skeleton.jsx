@@ -16,7 +16,7 @@ const Skeleton = ({ count, minWidth = 40, maxWidth = 110 }) => {
 	}, [count, minWidth, maxWidth]);
 
 	return (
-		<ul className="nfd-wba-m-0 nfd-wba-hidden nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-pl-6 nfd-wba-pr-4 sm:nfd-wba-flex">
+		<ul className="nfd-wba-m-0 nfd-wba-hidden nfd-wba-list-none nfd-wba-flex-col nfd-wba-py-4 nfd-wba-pl-6 nfd-wba-pr-5 sm:nfd-wba-flex">
 			{items}
 		</ul>
 	);
