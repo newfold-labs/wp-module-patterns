@@ -33,8 +33,17 @@
 		top: 7px;
 		transform-origin: left;
 		transform: scaleX(0);
-		transition: transform var(--nfd-wba-transition-duration) var(--nfd-wba-transition-timing);
 		width: 3px;
+	}
+
+	&:hover {
+		&:before {
+			transform: scaleX(1);
+		}
+
+		.nfd-wba-list-element__count {
+			@apply nfd-wba-bg-gray-200;
+		}
 	}
 
 	&.nfd-wba--is-active {
