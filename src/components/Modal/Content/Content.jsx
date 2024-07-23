@@ -16,7 +16,6 @@ import { trackHiiveEvent } from "../../../helpers";
 import { usePatterns } from "../../../hooks";
 import { store as nfdPatternsStore } from "../../../store";
 
-import ContentTitle from "./ContentTitle";
 import DesignList from "./DesignList/DesignList";
 import Error from "./DesignList/Error";
 import NoResults from "./DesignList/NoResults";
@@ -107,13 +106,6 @@ const Content = () => {
 
 				<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6">
 					<UpdateNotice />
-					<ContentTitle
-						activeTab={activeTab}
-						title={keywordsFilter}
-						currentCategory={
-							activeTab === "patterns" ? activePatternsCategory : activeTemplatesCategory
-						}
-					/>
 
 					{(!isSidebarLoading && isContentLoading && !isError) || (!ready && <Skeleton />)}
 
