@@ -2,17 +2,21 @@ import { InspectorControls } from "@wordpress/block-editor";
 import {
 	Button,
 	PanelBody,
+	SelectControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
-	SelectControl,
 } from "@wordpress/components";
 import { createHigherOrderComponent } from "@wordpress/compose";
 import { useSelect } from "@wordpress/data";
 import { useMemo } from "@wordpress/element";
 import { addFilter } from "@wordpress/hooks";
 import { __ } from "@wordpress/i18n";
+import { Icon } from "@wordpress/icons";
 
 import classnames from "classnames";
+
+import { rectangleGroup } from "../components/Icons";
+import TitleWithLogo from "../components/TitleWithLogo";
 
 // These block types do not support custom attributes.
 const skipBlockTypes = [
@@ -304,7 +308,11 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 				<BlockEdit {...props} />
 				{name === "core/group" && isTopLevel && (
 					<InspectorControls>
-						<PanelBody title={__("Section Divider", "nfd-wonder-blocks")} initialOpen={false}>
+						<PanelBody
+							title={<TitleWithLogo title={__("Section Divider", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+							className="nfd-wb-panel__body"
+						>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
 									{customDividerStyles.map((style) => {
@@ -344,7 +352,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 
 				{name === "core/group" && (
 					<InspectorControls>
-						<PanelBody title={__("Section Theme Color", "nfd-wonder-blocks")} initialOpen={false}>
+						<PanelBody
+							title={<TitleWithLogo title={__("Section Theme Color", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
 									{customThemeStyles.map((style) => {
@@ -385,7 +396,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 				{name === "core/group" && (
 					<InspectorControls>
 						<PanelBody
-							title={__("Section Background Effect", "nfd-wonder-blocks")}
+							title={<TitleWithLogo title={__("Section Background Effect", "nfd-wonder-blocks")} />}
 							initialOpen={false}
 						>
 							<div className="block-editor-block-styles">
@@ -425,7 +436,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 
 				{!skipBlockTypes.includes(name) && (
 					<InspectorControls>
-						<PanelBody title={__("Entrance Animations", "nfd-wonder-blocks")} initialOpen={false}>
+						<PanelBody
+							title={<TitleWithLogo title={__("Entrance Animations", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
 							<SelectControl
 								label={__("Animation", "nfd-wonder-blocks")}
 								options={customAnimationStyles}
