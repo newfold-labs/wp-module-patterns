@@ -171,13 +171,13 @@ class Items {
 	 * Get featured items.
 	 *
 	 * @param string $type Type of items to get.
-	 * 
+	 *
 	 * @return array
 	 */
 	private static function get_featured_slugs( $type = '' ) {
 
-		$featured = [
-			'patterns' => [
+		$featured = array(
+			'patterns'  => array(
 				'pricing-table-2',
 				'features-9',
 				'hero-4',
@@ -189,14 +189,14 @@ class Items {
 				'pricing-table-6',
 				'features-5',
 				'gallery-6',
-			],
-			'templates' => [
+			),
+			'templates' => array(
 				'home-1',
 				'home-2',
 				'home-4',
 				'home-5',
-			],
-		];
+			),
+		);
 
 		$featured = apply_filters( 'wonder_blocks_featured_items', $featured );
 
@@ -226,13 +226,13 @@ class Items {
 	 *
 	 * @param array  $data List of items
 	 * @param string $type Type of items
-	 * 
+	 *
 	 * @return object $data List of items updated with featured category
 	 */
 	private static function add_featured_categories( $data, $type = 'patterns' ) {
 		$data = array_map(
 			function ( $item ) use ( $type ) {
-				
+
 				if ( ! isset( $item['categories'] ) ) {
 					$item['categories'] = array();
 				}
