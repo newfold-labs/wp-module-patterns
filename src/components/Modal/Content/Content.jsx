@@ -23,6 +23,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import Skeleton from "./Skeleton";
 import Spinner from "./Spinner";
 import UpdateNotice from "./UpdateNotice";
+import FilterBar from "./FilterBar";
 
 const Content = () => {
 	const [ready, setReady] = useState(false);
@@ -106,6 +107,8 @@ const Content = () => {
 
 				<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6">
 					<UpdateNotice />
+
+					<FilterBar />
 
 					{(!isSidebarLoading && isContentLoading && !isError) || (!ready && <Skeleton />)}
 

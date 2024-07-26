@@ -12,12 +12,18 @@ import {
 	DEFAULT_TEMPLATES_CATEGORY,
 } from "../constants";
 
+function getInitialGridColumns() {
+	const savedColumns = localStorage.getItem("nfdWBGridColumns");
+	return savedColumns ? Number(savedColumns) : 2;
+}
+
 export function modal(
 	state = {
 		isOpen: false,
 		isContentLoading: false,
 		keywordsFilter: "",
 		activeTab: DEFAULT_ACTIVE_TAB,
+		gridColumns: getInitialGridColumns(),
 	},
 	action
 ) {
@@ -56,6 +62,12 @@ export function modal(
 			return {
 				...state,
 				activeTab: action.activeTab,
+			};
+		case "SET_GRID_COLUMNS":
+			localStorage.setItem("nfdWBGridColumns", action.gridColumns);
+			return {
+				...state,
+				gridColumns: action.gridColumns,
 			};
 	}
 

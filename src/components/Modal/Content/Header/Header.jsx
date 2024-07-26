@@ -19,8 +19,6 @@ const Header = () => {
 
 	return (
 		<header className="nfd-wba-modal__header">
-			<KeywordFilter />
-
 			<div className="nfd-items-center nfd-wba-ml-auto nfd-wba-flex nfd-wba-gap-x-4">
 				{showTrial && <TrialNotice />}
 

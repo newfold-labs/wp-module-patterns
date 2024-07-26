@@ -101,3 +101,16 @@ export function setActiveTab(activeTab) {
 		activeTab,
 	};
 }
+
+/**
+ * Set grid columns in the modal.
+ *
+ * @param {*} columns
+ * @returns
+ */
+export function setModalGridColumns(columns) {
+	return {
+		type: "SET_GRID_COLUMNS",
+		gridColumns: columns,
+	};
+}

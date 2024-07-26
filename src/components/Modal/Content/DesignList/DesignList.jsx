@@ -6,14 +6,20 @@ import Masonry from "react-masonry-css";
 /**
  * WordPress dependencies
  */
+import { useSelect } from "@wordpress/data";
 import { memo } from "@wordpress/element";
 
 /**
  * Internal dependencies
  */
+import { store as nfdPatternsStore } from "../../../../store";
 import DesignItem from "./DesignItem";
 
 const DesignList = ({ data }) => {
+	const { gridColumns } = useSelect((select) => ({
+		gridColumns: select(nfdPatternsStore).getModalGridColumns(),
+	}));
+
 	if (!data || !Array.isArray(data)) {
 		return null;
 	}
@@ -21,8 +27,9 @@ const DesignList = ({ data }) => {
 	return (
 		<>
 			<Masonry
+				key={`nfd-wba-masonry-${gridColumns}`}
 				breakpointCols={{
-					default: 2,
+					default: gridColumns,
 					1600: 2,
 					1100: 1,
 				}}

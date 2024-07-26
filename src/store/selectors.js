@@ -77,3 +77,13 @@ export function getActivePatternsCategory(state) {
 export function getActiveTemplatesCategory(state) {
 	return state.templates.activeCategory;
 }
+
+/**
+ * Gets the grid columns.
+ *
+ * @param {*} state
+ * @return {number} The grid columns.
+ */
+export function getModalGridColumns(state) {
+	return state.modal.gridColumns;
+}

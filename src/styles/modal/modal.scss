@@ -58,8 +58,44 @@
 		}
 	}
 
+	&__content-filter {
+		display: flex;
+		flex-grow: 1;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.5rem;
+	}
+
 	.nfd-wba-keyword-filter svg {
 		transform: scaleX(-1);
+	}
+}
+
+.nfd-wba-filter-dropdown {
+	.components-dropdown-menu__menu-item {
+		min-width: 120px;
+		display: flex;
+		justify-content: space-between;
+
+		svg {
+			order: 1;
+		}
+
+		&.is-active {
+			color: var(--nfd-wba-color-brand);
+			font-weight: 600;
+
+			& svg {
+				background: none;
+				border: none;
+				box-shadow: none;
+				color: var(--nfd-wba-color-brand);
+			}
+		}
+	}
+
+	.components-button.has-icon.has-text {
+		justify-content: space-between;
 	}
 }
 
