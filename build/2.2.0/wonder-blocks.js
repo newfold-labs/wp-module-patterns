@@ -3424,11 +3424,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DesignList_DesignList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DesignList/DesignList */ "./src/components/Modal/Content/DesignList/DesignList.jsx");
 /* harmony import */ var _DesignList_Error__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DesignList/Error */ "./src/components/Modal/Content/DesignList/Error.jsx");
 /* harmony import */ var _DesignList_NoResults__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DesignList/NoResults */ "./src/components/Modal/Content/DesignList/NoResults.jsx");
-/* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./LoadingSpinner */ "./src/components/Modal/Content/LoadingSpinner.jsx");
-/* harmony import */ var _Skeleton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Skeleton */ "./src/components/Modal/Content/Skeleton.jsx");
-/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Spinner */ "./src/components/Modal/Content/Spinner.jsx");
-/* harmony import */ var _UpdateNotice__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./UpdateNotice */ "./src/components/Modal/Content/UpdateNotice.jsx");
-/* harmony import */ var _FilterBar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./FilterBar */ "./src/components/Modal/Content/FilterBar.jsx");
+/* harmony import */ var _FilterBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./FilterBar */ "./src/components/Modal/Content/FilterBar.jsx");
+/* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./LoadingSpinner */ "./src/components/Modal/Content/LoadingSpinner.jsx");
+/* harmony import */ var _Skeleton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Skeleton */ "./src/components/Modal/Content/Skeleton.jsx");
+/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Spinner */ "./src/components/Modal/Content/Spinner.jsx");
+/* harmony import */ var _UpdateNotice__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./UpdateNotice */ "./src/components/Modal/Content/UpdateNotice.jsx");
 
 /**
  * External dependencies
@@ -3461,16 +3461,12 @@ const Content = () => {
     threshold: 0
   });
   const {
-    activePatternsCategory,
     activeTab,
-    activeTemplatesCategory,
     isContentLoading,
     isSidebarLoading,
     keywordsFilter
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => ({
-    activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getActivePatternsCategory(),
     activeTab: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getActiveTab(),
-    activeTemplatesCategory: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getActiveTemplatesCategory(),
     isSidebarLoading: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).isSidebarLoading(),
     isContentLoading: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).isContentLoading(),
     keywordsFilter: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getKeywordsFilter()
@@ -3537,16 +3533,16 @@ const Content = () => {
     className: "nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[50vh] nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10"
-  }, isSidebarLoading && !isError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_9__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, isSidebarLoading && !isError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_10__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_UpdateNotice__WEBPACK_IMPORTED_MODULE_12__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_FilterBar__WEBPACK_IMPORTED_MODULE_13__["default"], null), !isSidebarLoading && isContentLoading && !isError || !ready && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Skeleton__WEBPACK_IMPORTED_MODULE_10__["default"], null), isError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_Error__WEBPACK_IMPORTED_MODULE_7__["default"], null), data?.length === 0 && !isError && !isValidating && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_NoResults__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_UpdateNotice__WEBPACK_IMPORTED_MODULE_13__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_FilterBar__WEBPACK_IMPORTED_MODULE_9__["default"], null), !isSidebarLoading && isContentLoading && !isError || !ready && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Skeleton__WEBPACK_IMPORTED_MODULE_11__["default"], null), isError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_Error__WEBPACK_IMPORTED_MODULE_7__["default"], null), data?.length === 0 && !isError && !isValidating && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_NoResults__WEBPACK_IMPORTED_MODULE_8__["default"], {
     isFavorites: isFavorites
   }), ready && data && data?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_DesignList__WEBPACK_IMPORTED_MODULE_6__["default"], {
     data: data
   }), hasMore && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-z-[2] nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-y-6 nfd-wba-bg-white nfd-wba-px-6 nfd-wba-pt-6",
     ref: loadMoreRef
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Spinner__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Spinner__WEBPACK_IMPORTED_MODULE_12__["default"], {
     size: 40
   }))))));
 };
@@ -3569,9 +3565,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart-off.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/plus.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart-off.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/plus.js");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
@@ -3594,7 +3590,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../helpers */ "./src/helpers/index.js");
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../hooks */ "./src/hooks/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
-/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../Icons */ "./src/components/Icons/index.js");
 
 /**
  * External dependencies
@@ -3615,11 +3610,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -3953,7 +3946,7 @@ const DesignItem = ({
     showTooltip: true,
     label: isFavorite ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)("Added to favorites", "nfd-wonder-blocks") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)("Add to favorites", "nfd-wonder-blocks"),
     onClick: () => favoritesClickHandler(false),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_15__["default"], {
       className: "!nfd-wba-fill-none nfd-wba-shrink-0 nfd-wba-size-5"
     })
   }), shouldShowTrash() && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
@@ -3961,7 +3954,7 @@ const DesignItem = ({
     showTooltip: true,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)("Remove from Favorites", "nfd-wonder-blocks"),
     onClick: () => favoritesClickHandler(),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_17__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_16__["default"], {
       className: "nfd-wba-shrink-0 nfd-wba-size-5 !nfd-wba-fill-none"
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
@@ -3971,7 +3964,7 @@ const DesignItem = ({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__.__)("Add pattern to page", "nfd-wonder-blocks"),
     showTooltip: true,
     onClick: () => insertDesignHandler(),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_18__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_17__["default"], {
       className: "nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5"
     })
   })))));
@@ -4206,10 +4199,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-up-down.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/grid-2x2.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/columns-2.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/columns-3.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/columns-4.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/calendar-arrow-down.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/calendar-arrow-up.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/grid-2x2.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/columns-2.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/columns-3.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/columns-4.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
@@ -4238,12 +4233,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const FilterBar = () => {
   const {
-    setModalGridColumns
+    setModalGridColumns,
+    setSortOrder
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store);
   const {
-    gridColumns
+    gridColumns,
+    sortOrder
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => ({
-    gridColumns: select(_store__WEBPACK_IMPORTED_MODULE_4__.store).getModalGridColumns()
+    gridColumns: select(_store__WEBPACK_IMPORTED_MODULE_4__.store).getModalGridColumns(),
+    sortOrder: select(_store__WEBPACK_IMPORTED_MODULE_4__.store).getSortOrder()
   }));
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-modal__content-filter"
@@ -4257,21 +4255,29 @@ const FilterBar = () => {
       className: "!nfd-wba-px-3",
       children: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
         className: "nfd-wba-ml-2"
-      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Sort", "nfd-wonder-blocks"))
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Sort By: ", "nfd-wonder-blocks"), sortOrder.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "))
     },
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Sort", "nfd-wonder-blocks"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Sort By", "nfd-wonder-blocks"),
     popoverProps: {
       className: "nfd-wba-filter-dropdown"
     },
     controls: [{
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Newest", "nfd-wonder-blocks"),
-      onClick: () => console.log("newest")
+      onClick: () => setSortOrder("newest"),
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
+      }),
+      isActive: "newest" === sortOrder
     }, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Oldest", "nfd-wonder-blocks"),
-      onClick: () => console.log("oldest")
+      onClick: () => setSortOrder("oldest"),
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
+      }),
+      isActive: "oldest" === sortOrder
     }]
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.DropdownMenu, {
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
       className: "!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4"
     }),
     toggleProps: {
@@ -4286,21 +4292,21 @@ const FilterBar = () => {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Grid View", "nfd-wonder-blocks"),
     controls: [{
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("2 columns", "nfd-wonder-blocks"),
-      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
         className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
       }),
       onClick: () => setModalGridColumns(2),
       isActive: 2 === gridColumns
     }, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("3 columns", "nfd-wonder-blocks"),
-      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_11__["default"], {
         className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
       }),
       onClick: () => setModalGridColumns(3),
       isActive: 3 === gridColumns
     }, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("4 columns", "nfd-wonder-blocks"),
-      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_12__["default"], {
         className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
       }),
       onClick: () => setModalGridColumns(4),
@@ -4325,16 +4331,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/info.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/store.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
-/* harmony import */ var _KeywordFilter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./KeywordFilter */ "./src/components/Modal/Content/Header/KeywordFilter.jsx");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
 /* harmony import */ var _TrialNotice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TrialNotice */ "./src/components/Modal/Content/Header/TrialNotice.jsx");
+
+/**
+ * External dependencies
+ */
+
 
 /**
  * WordPress dependencies
@@ -4353,19 +4369,65 @@ __webpack_require__.r(__webpack_exports__);
 const Header = () => {
   const showTrial = true;
   const {
-    setIsModalOpen
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_4__.store);
+    setIsModalOpen,
+    setActivePatternsCategory,
+    setShouldResetKeywords
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_5__.store);
+  const {
+    activePatternsCategory,
+    keywords
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => ({
+    activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getActivePatternsCategory(),
+    keywords: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getKeywordsFilter()
+  }));
+  console.log({
+    activePatternsCategory
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
     className: "nfd-wba-modal__header"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-items-center nfd-wba-ml-auto nfd-wba-flex nfd-wba-gap-x-4"
-  }, showTrial && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TrialNotice__WEBPACK_IMPORTED_MODULE_6__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    className: "nfd-items-center nfd-wba-ml-auto nfd-wba-flex nfd-wba-gap-x-1"
+  }, showTrial && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TrialNotice__WEBPACK_IMPORTED_MODULE_6__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()("nfd-wba-cursor-pointer nfd-wba-border-none nfd-wba-bg-transparent focus-visible:nfd-wba-outline-brand hover:nfd-wba-text-brand hover:nfd-wba-border-brand nfd-wba-p-2", "favorites" === activePatternsCategory && !keywords ? "nfd-wba-text-brand nfd-wba-font-semibold" : ""),
+    onClick: () => {
+      setActivePatternsCategory("favorites");
+      setShouldResetKeywords(true);
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-left nfd-wba-text-[14px]"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    className: "!nfd-wba-fill-none nfd-wba-shrink-0 nfd-wba-size-5"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Favorites", "nfd-wonder-blocks")))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.DropdownMenu, {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      className: "!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4"
+    }),
+    toggleProps: {
+      className: "!nfd-wba-px-3"
+    },
+    popoverProps: {
+      className: "nfd-wba-filter-dropdown"
+    },
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("WonderBlocks Menu", "nfd-wonder-blocks"),
+    controls: [{
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Info", "nfd-wonder-blocks"),
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
+      }),
+      onClick: () => console.log("Info")
+    }, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("About", "nfd-wonder-blocks"),
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
+      }),
+      onClick: () => console.log("About")
+    }]
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     className: "nfd-wba-ml-auto nfd-wba-text-current hover:nfd-wba-text-dark",
     showTooltip: true,
     onClick: () => {
       setIsModalOpen(false);
     },
-    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
+    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"],
     iconSize: 24,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Close dialog", "nfd-wonder-blocks")
   })));
@@ -5468,8 +5530,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BRAND_NAME: () => (/* binding */ BRAND_NAME),
 /* harmony export */   DEFAULT_ACTIVE_TAB: () => (/* binding */ DEFAULT_ACTIVE_TAB),
+/* harmony export */   DEFAULT_GRID_COLUMNS: () => (/* binding */ DEFAULT_GRID_COLUMNS),
 /* harmony export */   DEFAULT_PATTERNS_CATEGORY: () => (/* binding */ DEFAULT_PATTERNS_CATEGORY),
+/* harmony export */   DEFAULT_SORT_ORDER: () => (/* binding */ DEFAULT_SORT_ORDER),
 /* harmony export */   DEFAULT_TEMPLATES_CATEGORY: () => (/* binding */ DEFAULT_TEMPLATES_CATEGORY),
+/* harmony export */   DEFAULT_VIEW: () => (/* binding */ DEFAULT_VIEW),
 /* harmony export */   HIIVE_ANALYTICS_CATEGORY: () => (/* binding */ HIIVE_ANALYTICS_CATEGORY),
 /* harmony export */   INPUT_DEBOUNCE_TIME: () => (/* binding */ INPUT_DEBOUNCE_TIME),
 /* harmony export */   MIN_REQUIRED_WP_VERSION: () => (/* binding */ MIN_REQUIRED_WP_VERSION),
@@ -5497,6 +5562,9 @@ const DEFAULT_PATTERNS_CATEGORY = "featured";
 const DEFAULT_TEMPLATES_CATEGORY = "featured";
 const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = "wonder-blocks-blank-template";
 const HIIVE_ANALYTICS_CATEGORY = "wonder_blocks";
+const DEFAULT_VIEW = "library";
+const DEFAULT_SORT_ORDER = "oldest";
+const DEFAULT_GRID_COLUMNS = 2;
 
 /***/ }),
 
@@ -5947,12 +6015,14 @@ const usePatterns = ({
     activePatternsCategory,
     activeTemplatesCategory,
     activeTab,
-    keywords
+    keywords,
+    sortOrder
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => ({
     activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getActivePatternsCategory(),
     activeTemplatesCategory: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getActiveTemplatesCategory(),
     activeTab: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getActiveTab(),
-    keywords: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getKeywordsFilter()
+    keywords: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getKeywordsFilter(),
+    sortOrder: select(_store__WEBPACK_IMPORTED_MODULE_5__.store).getSortOrder()
   }));
 
   // Active category.
@@ -5984,6 +6054,7 @@ const usePatterns = ({
     } else {
       url.searchParams.append("category", activeCategory);
     }
+    url.searchParams.append("sort_by", sortOrder);
   }
   const getKey = (pageIndex, previousPageData) => {
     if (previousPageData && !previousPageData.length) {
@@ -6101,7 +6172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   setIsSidebarLoading: () => (/* binding */ setIsSidebarLoading),
 /* harmony export */   setKeywordsFilter: () => (/* binding */ setKeywordsFilter),
 /* harmony export */   setModalGridColumns: () => (/* binding */ setModalGridColumns),
-/* harmony export */   setShouldResetKeywords: () => (/* binding */ setShouldResetKeywords)
+/* harmony export */   setShouldResetKeywords: () => (/* binding */ setShouldResetKeywords),
+/* harmony export */   setSortOrder: () => (/* binding */ setSortOrder)
 /* harmony export */ });
 /**
  * Toggles the patterns modal.
@@ -6220,6 +6292,19 @@ function setModalGridColumns(columns) {
   };
 }
 
+/**
+ * Set sort order in the modal.
+ *
+ * @param {string} sortOrder
+ * @returns
+ */
+function setSortOrder(sortOrder) {
+  return {
+    type: "SET_SORT_ORDER",
+    sortOrder
+  };
+}
+
 /***/ }),
 
 /***/ "./src/store/constants.js":
@@ -6303,14 +6388,19 @@ __webpack_require__.r(__webpack_exports__);
 
 function getInitialGridColumns() {
   const savedColumns = localStorage.getItem("nfdWBGridColumns");
-  return savedColumns ? Number(savedColumns) : 2;
+  return savedColumns ? Number(savedColumns) : DEFAULT_GRID_COLUMNS;
+}
+function getInitialSortOrder() {
+  const savedSortOrder = localStorage.getItem("nfdWBSortOrder");
+  return savedSortOrder ? savedSortOrder : _constants__WEBPACK_IMPORTED_MODULE_1__.DEFAULT_SORT_ORDER;
 }
 function modal(state = {
   isOpen: false,
   isContentLoading: false,
   keywordsFilter: "",
   activeTab: _constants__WEBPACK_IMPORTED_MODULE_1__.DEFAULT_ACTIVE_TAB,
-  gridColumns: getInitialGridColumns()
+  gridColumns: getInitialGridColumns(),
+  sortOrder: getInitialSortOrder()
 }, action) {
   switch (action.type) {
     case "SET_MODAL_OPEN":
@@ -6348,6 +6438,12 @@ function modal(state = {
       return {
         ...state,
         gridColumns: action.gridColumns
+      };
+    case "SET_SORT_ORDER":
+      localStorage.setItem("nfdWBSortOrder", action.sortOrder);
+      return {
+        ...state,
+        sortOrder: action.sortOrder
       };
   }
   return state;
@@ -6398,6 +6494,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getActiveTemplatesCategory: () => (/* binding */ getActiveTemplatesCategory),
 /* harmony export */   getKeywordsFilter: () => (/* binding */ getKeywordsFilter),
 /* harmony export */   getModalGridColumns: () => (/* binding */ getModalGridColumns),
+/* harmony export */   getSortOrder: () => (/* binding */ getSortOrder),
 /* harmony export */   isContentLoading: () => (/* binding */ isContentLoading),
 /* harmony export */   isModalOpen: () => (/* binding */ isModalOpen),
 /* harmony export */   isSidebarLoading: () => (/* binding */ isSidebarLoading),
@@ -6491,6 +6588,16 @@ function getActiveTemplatesCategory(state) {
  */
 function getModalGridColumns(state) {
   return state.modal.gridColumns;
+}
+
+/**
+ * Gets the sort order.
+ *
+ * @param {*} state
+ * @return {string} The sort order.
+ */
+function getSortOrder(state) {
+  return state.modal.sortOrder;
 }
 
 /***/ }),
@@ -7499,6 +7606,81 @@ const ArrowUpDown = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["defaul
 
 /***/ }),
 
+/***/ "./node_modules/lucide-react/dist/esm/icons/calendar-arrow-down.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/calendar-arrow-down.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CalendarArrowDown)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.js */ "./node_modules/lucide-react/dist/esm/createLucideIcon.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const CalendarArrowDown = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("CalendarArrowDown", [
+  ["path", { d: "m14 18 4 4 4-4", key: "1waygx" }],
+  ["path", { d: "M16 2v4", key: "4m81vk" }],
+  ["path", { d: "M18 14v8", key: "irew45" }],
+  [
+    "path",
+    { d: "M21 11.354V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.343", key: "bse4f3" }
+  ],
+  ["path", { d: "M3 10h18", key: "8toen8" }],
+  ["path", { d: "M8 2v4", key: "1cmpym" }]
+]);
+
+
+//# sourceMappingURL=calendar-arrow-down.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/calendar-arrow-up.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/calendar-arrow-up.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CalendarArrowUp)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.js */ "./node_modules/lucide-react/dist/esm/createLucideIcon.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const CalendarArrowUp = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("CalendarArrowUp", [
+  ["path", { d: "m14 18 4-4 4 4", key: "ftkppy" }],
+  ["path", { d: "M16 2v4", key: "4m81vk" }],
+  ["path", { d: "M18 22v-8", key: "su0gjh" }],
+  ["path", { d: "M21 11.343V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9", key: "1exg90" }],
+  ["path", { d: "M3 10h18", key: "8toen8" }],
+  ["path", { d: "M8 2v4", key: "1cmpym" }]
+]);
+
+
+//# sourceMappingURL=calendar-arrow-up.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/lucide-react/dist/esm/icons/columns-2.js":
 /*!***************************************************************!*\
   !*** ./node_modules/lucide-react/dist/esm/icons/columns-2.js ***!
@@ -7594,6 +7776,39 @@ const Columns4 = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 
 
 //# sourceMappingURL=columns-4.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ EllipsisVertical)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.js */ "./node_modules/lucide-react/dist/esm/createLucideIcon.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const EllipsisVertical = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("EllipsisVertical", [
+  ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
+  ["circle", { cx: "12", cy: "5", r: "1", key: "gxeob9" }],
+  ["circle", { cx: "12", cy: "19", r: "1", key: "lyex9k" }]
+]);
+
+
+//# sourceMappingURL=ellipsis-vertical.js.map
 
 
 /***/ }),
@@ -7710,6 +7925,39 @@ const Heart = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("
 
 /***/ }),
 
+/***/ "./node_modules/lucide-react/dist/esm/icons/info.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/info.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Info)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.js */ "./node_modules/lucide-react/dist/esm/createLucideIcon.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const Info = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("Info", [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 16v-4", key: "1dtifu" }],
+  ["path", { d: "M12 8h.01", key: "e9boi3" }]
+]);
+
+
+//# sourceMappingURL=info.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/lucide-react/dist/esm/icons/plus.js":
 /*!**********************************************************!*\
   !*** ./node_modules/lucide-react/dist/esm/icons/plus.js ***!
@@ -7738,6 +7986,47 @@ const Plus = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("P
 
 
 //# sourceMappingURL=plus.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/store.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/store.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Store)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.js */ "./node_modules/lucide-react/dist/esm/createLucideIcon.js");
+/**
+ * @license lucide-react v0.414.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const Store = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("Store", [
+  ["path", { d: "m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7", key: "ztvudi" }],
+  ["path", { d: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8", key: "1b2hhj" }],
+  ["path", { d: "M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4", key: "2ebpfo" }],
+  ["path", { d: "M2 7h20", key: "1fcdvo" }],
+  [
+    "path",
+    {
+      d: "M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7",
+      key: "6c3vgh"
+    }
+  ]
+]);
+
+
+//# sourceMappingURL=store.js.map
 
 
 /***/ }),

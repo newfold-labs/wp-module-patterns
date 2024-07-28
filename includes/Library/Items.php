@@ -47,7 +47,9 @@ class Items {
 			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
 		}
 
-		$data = self::sort( $data );
+		if ( isset( $args['sort_by'] ) ) {
+			$data = self::sort( $data, \sanitize_text_field( $args['sort_by'] ) );	
+		}
 
 		if ( isset( $args['per_page'] ) ) {
 			$page = isset( $args['page'] ) ? $args['page'] : 1;
@@ -70,12 +72,16 @@ class Items {
 	 * Sorts a multidimensional array.
 	 *
 	 * @param array $data The array to sort.
+	 * @param string $sort_by The key to sort by.
 	 *
 	 * @return array The sorted array.
 	 */
-	private static function sort( $data ) {
-		// Reverse the array.
-		$data = array_reverse( $data );
+	private static function sort( $data, $sort_by ) {
+		
+		if ( $sort_by === "oldest" ) {
+			$data = array_reverse( $data );
+		}
+
 		return $data;
 	}
 

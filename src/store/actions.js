@@ -114,3 +114,16 @@ export function setModalGridColumns(columns) {
 		gridColumns: columns,
 	};
 }
+
+/**
+ * Set sort order in the modal.
+ *
+ * @param {string} sortOrder
+ * @returns
+ */
+export function setSortOrder(sortOrder) {
+	return {
+		type: "SET_SORT_ORDER",
+		sortOrder,
+	};
+}

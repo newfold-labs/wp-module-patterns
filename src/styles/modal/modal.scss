@@ -60,10 +60,14 @@
 
 	&__content-filter {
 		display: flex;
-		flex-grow: 1;
+		flex-grow: 0;
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 1.5rem;
+
+		button {
+			font-size: 14px;
+		}
 	}
 
 	.nfd-wba-keyword-filter svg {
@@ -76,6 +80,7 @@
 		min-width: 120px;
 		display: flex;
 		justify-content: space-between;
+		font-size: 14px;
 
 		svg {
 			order: 1;
@@ -83,7 +88,6 @@
 
 		&.is-active {
 			color: var(--nfd-wba-color-brand);
-			font-weight: 600;
 
 			& svg {
 				background: none;

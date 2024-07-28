@@ -15,31 +15,21 @@ import { useEffect, useState } from "@wordpress/element";
 import { trackHiiveEvent } from "../../../helpers";
 import { usePatterns } from "../../../hooks";
 import { store as nfdPatternsStore } from "../../../store";
-
 import DesignList from "./DesignList/DesignList";
 import Error from "./DesignList/Error";
 import NoResults from "./DesignList/NoResults";
+import FilterBar from "./FilterBar";
 import LoadingSpinner from "./LoadingSpinner";
 import Skeleton from "./Skeleton";
 import Spinner from "./Spinner";
 import UpdateNotice from "./UpdateNotice";
-import FilterBar from "./FilterBar";
 
 const Content = () => {
 	const [ready, setReady] = useState(false);
 	const [loadMoreRef, inView] = useInView({ threshold: 0 });
 
-	const {
-		activePatternsCategory,
-		activeTab,
-		activeTemplatesCategory,
-		isContentLoading,
-		isSidebarLoading,
-		keywordsFilter,
-	} = useSelect((select) => ({
-		activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
+	const { activeTab, isContentLoading, isSidebarLoading, keywordsFilter } = useSelect((select) => ({
 		activeTab: select(nfdPatternsStore).getActiveTab(),
-		activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
 		isSidebarLoading: select(nfdPatternsStore).isSidebarLoading(),
 		isContentLoading: select(nfdPatternsStore).isContentLoading(),
 		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
@@ -104,7 +94,6 @@ const Content = () => {
 		<div className="nfd-wba-flex nfd-wba-grow nfd-wba-flex-col sm:nfd-wba-overflow-y-auto md:nfd-wba-min-w-[400px]">
 			<div className="nfd-wba-relative nfd-wba-flex nfd-wba-min-h-[50vh] nfd-wba-grow nfd-wba-flex-col nfd-wba-gap-y-10">
 				{isSidebarLoading && !isError && <LoadingSpinner />}
-
 				<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6">
 					<UpdateNotice />
 

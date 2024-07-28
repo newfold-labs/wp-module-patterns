@@ -87,3 +87,13 @@ export function getActiveTemplatesCategory(state) {
 export function getModalGridColumns(state) {
 	return state.modal.gridColumns;
 }
+
+/**
+ * Gets the sort order.
+ *
+ * @param {*} state
+ * @return {string} The sort order.
+ */
+export function getSortOrder(state) {
+	return state.modal.sortOrder;
+}

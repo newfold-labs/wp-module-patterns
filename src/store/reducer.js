@@ -9,12 +9,18 @@ import { combineReducers } from "@wordpress/data";
 import {
 	DEFAULT_ACTIVE_TAB,
 	DEFAULT_PATTERNS_CATEGORY,
+	DEFAULT_SORT_ORDER,
 	DEFAULT_TEMPLATES_CATEGORY,
 } from "../constants";
 
 function getInitialGridColumns() {
 	const savedColumns = localStorage.getItem("nfdWBGridColumns");
-	return savedColumns ? Number(savedColumns) : 2;
+	return savedColumns ? Number(savedColumns) : DEFAULT_GRID_COLUMNS;
+}
+
+function getInitialSortOrder() {
+	const savedSortOrder = localStorage.getItem("nfdWBSortOrder");
+	return savedSortOrder ? savedSortOrder : DEFAULT_SORT_ORDER;
 }
 
 export function modal(
@@ -24,6 +30,7 @@ export function modal(
 		keywordsFilter: "",
 		activeTab: DEFAULT_ACTIVE_TAB,
 		gridColumns: getInitialGridColumns(),
+		sortOrder: getInitialSortOrder(),
 	},
 	action
 ) {
@@ -68,6 +75,13 @@ export function modal(
 			return {
 				...state,
 				gridColumns: action.gridColumns,
+			};
+
+		case "SET_SORT_ORDER":
+			localStorage.setItem("nfdWBSortOrder", action.sortOrder);
+			return {
+				...state,
+				sortOrder: action.sortOrder,
 			};
 	}
 

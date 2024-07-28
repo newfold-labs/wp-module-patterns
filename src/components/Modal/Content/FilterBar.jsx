@@ -3,6 +3,8 @@
  */
 import {
 	ArrowUpDownIcon,
+	CalendarArrowDownIcon,
+	CalendarArrowUpIcon,
 	Columns2Icon,
 	Columns3Icon,
 	Columns4Icon,
@@ -23,10 +25,11 @@ import { store as nfdPatternsStore } from "../../../store";
 import KeywordFilter from "./Header/KeywordFilter";
 
 const FilterBar = () => {
-	const { setModalGridColumns } = useDispatch(nfdPatternsStore);
+	const { setModalGridColumns, setSortOrder } = useDispatch(nfdPatternsStore);
 
-	const { gridColumns } = useSelect((select) => ({
+	const { gridColumns, sortOrder } = useSelect((select) => ({
 		gridColumns: select(nfdPatternsStore).getModalGridColumns(),
+		sortOrder: select(nfdPatternsStore).getSortOrder(),
 	}));
 
 	return (
@@ -38,20 +41,34 @@ const FilterBar = () => {
 					icon={<ArrowUpDownIcon className="!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4" />}
 					toggleProps={{
 						className: "!nfd-wba-px-3",
-						children: <span className="nfd-wba-ml-2">{__("Sort", "nfd-wonder-blocks")}</span>,
+						children: (
+							<span className="nfd-wba-ml-2">
+								{__("Sort By: ", "nfd-wonder-blocks")}
+								{sortOrder
+									.split("-")
+									.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+									.join(" ")}
+							</span>
+						),
 					}}
-					label={__("Sort", "nfd-wonder-blocks")}
+					label={__("Sort By", "nfd-wonder-blocks")}
 					popoverProps={{
 						className: "nfd-wba-filter-dropdown",
 					}}
 					controls={[
 						{
 							title: __("Newest", "nfd-wonder-blocks"),
-							onClick: () => console.log("newest"),
+							onClick: () => setSortOrder("newest"),
+							icon: (
+								<CalendarArrowDownIcon className="nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none" />
+							),
+							isActive: "newest" === sortOrder,
 						},
 						{
 							title: __("Oldest", "nfd-wonder-blocks"),
-							onClick: () => console.log("oldest"),
+							onClick: () => setSortOrder("oldest"),
+							icon: <CalendarArrowUpIcon className="nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none" />,
+							isActive: "oldest" === sortOrder,
 						},
 					]}
 				/>

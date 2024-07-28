@@ -25,14 +25,14 @@ import { store as nfdPatternsStore } from "../store";
  * @return {Object} Object containing the patterns, error and loading state.
  */
 const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
-	const { activePatternsCategory, activeTemplatesCategory, activeTab, keywords } = useSelect(
-		(select) => ({
+	const { activePatternsCategory, activeTemplatesCategory, activeTab, keywords, sortOrder } =
+		useSelect((select) => ({
 			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
 			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
 			activeTab: select(nfdPatternsStore).getActiveTab(),
 			keywords: select(nfdPatternsStore).getKeywordsFilter(),
-		})
-	);
+			sortOrder: select(nfdPatternsStore).getSortOrder(),
+		}));
 
 	// Active category.
 	let activeCategory = null;
@@ -67,6 +67,8 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 		} else {
 			url.searchParams.append("category", activeCategory);
 		}
+
+		url.searchParams.append("sort_by", sortOrder);
 	}
 
 	const getKey = (pageIndex, previousPageData) => {
