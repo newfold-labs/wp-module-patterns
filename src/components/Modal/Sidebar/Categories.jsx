@@ -14,11 +14,12 @@ import { SITE_EDITOR_CATEGORIES } from "../../../constants";
 import { useCategories, usePatterns } from "../../../hooks";
 import { store as nfdPatternsStore } from "../../../store";
 
+import iconMapping from "../../../helpers/iconMapping";
+import useSetCurrentView from "../../../hooks/useSetCurrentView";
 import { heart } from "../../Icons";
 import ErrorLoading from "./ErrorLoading";
 import ListElement from "./ListElement";
 import Skeleton from "./Skeleton";
-import iconMapping from "../../../helpers/iconMapping";
 
 const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 	// Fetch data
@@ -99,6 +100,8 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 		setShouldResetKeywords,
 	} = useDispatch(nfdPatternsStore);
 
+	const setCurrentView = useSetCurrentView();
+
 	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter } = useSelect(
 		(select) => ({
 			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
@@ -145,11 +148,10 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 
 			if (categoryExists) {
 				setActiveCategory(categoryTitle);
-			} else if (data.length > 0 && data[0].title) {
-				setActiveCategory(data[0].title);
 			}
 
 			setShouldResetKeywords(true);
+			setCurrentView("library");
 		},
 		[setActiveCategory, setShouldResetKeywords, data]
 	);
@@ -166,17 +168,6 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 			activeCategory = activePatternsCategory;
 		} else {
 			activeCategory = activeTemplatesCategory;
-		}
-
-		const categoryExists =
-			"favorites" === activeCategory ||
-			data.some(function (item) {
-				return item.title === activeCategory;
-			});
-
-		if (!categoryExists && data.length > 0 && data[0].title) {
-			activeCategory = data[0].title;
-			setActiveCategory(activeCategory);
 		}
 
 		return activeCategory;

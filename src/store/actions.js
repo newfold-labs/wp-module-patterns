@@ -127,3 +127,16 @@ export function setSortOrder(sortOrder) {
 		sortOrder,
 	};
 }
+
+/**
+ * Set current view in the modal.
+ *
+ * @param {string} currentView
+ * @returns
+ */
+export function setCurrentView(currentView) {
+	return {
+		type: "SET_CURRENT_VIEW",
+		currentView,
+	};
+}

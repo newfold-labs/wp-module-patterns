@@ -97,3 +97,13 @@ export function getModalGridColumns(state) {
 export function getSortOrder(state) {
 	return state.modal.sortOrder;
 }
+
+/**
+ * Gets the current view.
+ *
+ * @param {*} state
+ * @return {string} The current view.
+ */
+export function getCurrentView(state) {
+	return state.modal.currentView;
+}

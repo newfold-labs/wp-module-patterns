@@ -11,6 +11,7 @@ import {
 	DEFAULT_PATTERNS_CATEGORY,
 	DEFAULT_SORT_ORDER,
 	DEFAULT_TEMPLATES_CATEGORY,
+	DEFAULT_VIEW,
 } from "../constants";
 
 function getInitialGridColumns() {
@@ -31,6 +32,7 @@ export function modal(
 		activeTab: DEFAULT_ACTIVE_TAB,
 		gridColumns: getInitialGridColumns(),
 		sortOrder: getInitialSortOrder(),
+		currentView: DEFAULT_VIEW,
 	},
 	action
 ) {
@@ -76,12 +78,16 @@ export function modal(
 				...state,
 				gridColumns: action.gridColumns,
 			};
-
 		case "SET_SORT_ORDER":
 			localStorage.setItem("nfdWBSortOrder", action.sortOrder);
 			return {
 				...state,
 				sortOrder: action.sortOrder,
+			};
+		case "SET_CURRENT_VIEW":
+			return {
+				...state,
+				currentView: action.currentView,
 			};
 	}
 

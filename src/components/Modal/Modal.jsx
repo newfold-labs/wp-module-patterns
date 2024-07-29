@@ -18,10 +18,11 @@ import Sidebar from "./Sidebar/Sidebar";
 const Modal = () => {
 	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
 
-	const { isModalOpen, isEditingTemplate, editedPostType } = useSelect((select) => ({
-		isModalOpen: select(nfdPatternsStore).isModalOpen(),
-		isEditingTemplate: select("core/edit-post").isEditingTemplate(),
+	const { isModalOpen, isEditingTemplate, editedPostType, currentView } = useSelect((select) => ({
+		currentView: select(nfdPatternsStore).getCurrentView(),
 		editedPostType: select("core/edit-site")?.getEditedPostType(),
+		isEditingTemplate: select("core/edit-post").isEditingTemplate(),
+		isModalOpen: select(nfdPatternsStore).isModalOpen(),
 	}));
 
 	// Check if we are editing a template, via site editor or page.
@@ -72,7 +73,7 @@ const Modal = () => {
 			<div className="nfd-wba-library-modal-grid nfd-wba-grow nfd-wba-bg-white nfd-wba-text-dark-lighter">
 				<Sidebar isSiteEditor={isSiteEditor} />
 				<Header />
-				<Content />
+				<Content view={currentView} />
 			</div>
 		</WPModal>
 	);

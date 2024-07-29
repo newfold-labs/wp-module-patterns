@@ -15,6 +15,7 @@ import { close } from "@wordpress/icons";
  * Internal dependencies
  */
 import classNames from "classnames";
+import useSetCurrentView from "../../../../hooks/useSetCurrentView";
 import { store as nfdPatternsStore } from "../../../../store";
 import TrialNotice from "./TrialNotice";
 
@@ -28,7 +29,7 @@ const Header = () => {
 		keywords: select(nfdPatternsStore).getKeywordsFilter(),
 	}));
 
-	console.log({ activePatternsCategory });
+	const setCurrentView = useSetCurrentView();
 
 	return (
 		<header className="nfd-wba-modal__header">
@@ -66,12 +67,12 @@ const Header = () => {
 						{
 							title: __("Info", "nfd-wonder-blocks"),
 							icon: <InfoIcon className="nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none" />,
-							onClick: () => console.log("Info"),
+							onClick: () => setCurrentView("info"),
 						},
 						{
 							title: __("About", "nfd-wonder-blocks"),
 							icon: <StoreIcon className="nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none" />,
-							onClick: () => console.log("About"),
+							onClick: () => setCurrentView("about"),
 						},
 					]}
 				/>
