@@ -61,10 +61,11 @@ final class Admin {
 				'nfd-wonder-blocks',
 				'nfdWonderBlocks',
 				array(
-					'nonce'      => \wp_create_nonce( 'wp_rest' ),
-					'nfdRestURL' => \esc_url_raw( \rest_url( 'nfd-wonder-blocks/v1' ) ),
-					'assets'     => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
-					'wpVer'      => \esc_html( get_bloginfo( 'version' ) ),
+					'nonce'        => \wp_create_nonce( 'wp_rest' ),
+					'nfdRestURL'   => \esc_url_raw( \rest_url( 'nfd-wonder-blocks/v1' ) ),
+					'assets'       => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
+					'wpVer'        => \esc_html( get_bloginfo( 'version' ) ),
+					'nfdWBVersion' => \esc_html( NFD_WONDER_BLOCKS_VERSION ),
 				)
 			);
 

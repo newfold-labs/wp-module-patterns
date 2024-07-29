@@ -4722,8 +4722,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../constants */ "./src/constants.js");
+
+/**
+ * Internal dependencies
+ */
+
 const About = () => {
-  return "About";
+  const moduleVersion = _constants__WEBPACK_IMPORTED_MODULE_1__.NFD_WONDER_BLOCKS_VERSION;
+  const hostLabel = "Bluehost";
+  const host = "HostPlugin";
+  const settingsPageUrl = "/wp-admin/admin.php?page=wonderblocks-settings";
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6 nfd-wba-items-start nfd-wba-justify-center"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-max-w-prose"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-row nfd-wba-gap-4 nfd-wba-items-center"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "WonderBlocks"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "nfd-wba-bg-grey nfd-wba-rounded-full nfd-wba-py-1 nfd-wba-px-2 nfd-wba-text-[15px] nfd-wba-text-dark-lighter"
+  }, "v", moduleVersion)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "nfd-wba-text-[15px]"
+  }, "WonderBlocks lets you customize premade page templates and section design patterns using the built-in Blocks in WordPress \u2013 but made wonderful. Take the stress out of going from blank canvas to beautiful creation with professionally-designed Patterns for common website needs."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "nfd-wba-text-[15px]"
+  }, "WonderBlocks is a feature of your ", hostLabel, " hosting plan and is powered by the ", host, " ", "Plugin. You can update your WonderBlocks settings", " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: settingsPageUrl,
+    className: "nfd-wba-text-blue-500 hover:nfd-wba-underline"
+  }, "here"), ".")));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (About);
 
@@ -4740,8 +4767,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
 const Info = () => {
-  return "Info";
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "nfd-wba-relative !nfd-wba-w-full nfd-wba-pb-[56.25%] nfd-wba-h-0 nfd-wba-overflow-hidden"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
+    src: "https://www.youtube.com/embed/EVzZ-RFZv7c?si=k0Ap5bYJ2nQLQfnk",
+    title: "WonderBlocks Overview",
+    frameborder: "0",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+    referrerpolicy: "strict-origin-when-cross-origin",
+    allowfullscreen: true,
+    class: "nfd-wba-absolute nfd-wba-top-0 nfd-wba-left-0 nfd-wba-w-full nfd-wba-h-full nfd-wba-border-0"
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Info);
 
@@ -5135,10 +5177,12 @@ const Categories = ({
   const {
     activePatternsCategory,
     activeTemplatesCategory,
-    keywordsFilter
+    keywordsFilter,
+    currentView
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => ({
     activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).getActivePatternsCategory(),
     activeTemplatesCategory: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).getActiveTemplatesCategory(),
+    currentView: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).getCurrentView(),
     keywordsFilter: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).getKeywordsFilter()
   }));
 
@@ -5173,6 +5217,8 @@ const Categories = ({
     });
     if (categoryExists) {
       setActiveCategory(categoryTitle);
+    } else if (data.length > 0 && data[0].title && "library" === currentView) {
+      setActiveCategory(data[0].title);
     }
     setShouldResetKeywords(true);
     setCurrentView("library");
@@ -5189,6 +5235,13 @@ const Categories = ({
       activeCategory = activePatternsCategory;
     } else {
       activeCategory = activeTemplatesCategory;
+    }
+    const categoryExists = "favorites" === activeCategory || data.some(function (item) {
+      return item.title === activeCategory;
+    });
+    if (!categoryExists && data.length > 0 && data[0].title && "library" === currentView) {
+      activeCategory = data[0].title;
+      setActiveCategory(activeCategory);
     }
     return activeCategory;
   }, [type, data, activePatternsCategory, activeTemplatesCategory, setActiveCategory]);
@@ -5608,6 +5661,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   NFD_REST_URL: () => (/* binding */ NFD_REST_URL),
 /* harmony export */   NFD_WONDER_BLOCKS_MODAL_ID: () => (/* binding */ NFD_WONDER_BLOCKS_MODAL_ID),
 /* harmony export */   NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID: () => (/* binding */ NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID),
+/* harmony export */   NFD_WONDER_BLOCKS_VERSION: () => (/* binding */ NFD_WONDER_BLOCKS_VERSION),
 /* harmony export */   SITE_EDITOR_CATEGORIES: () => (/* binding */ SITE_EDITOR_CATEGORIES),
 /* harmony export */   SUPPORT_URL: () => (/* binding */ SUPPORT_URL),
 /* harmony export */   WONDER_BLOCKS_BLANK_TEMPLATE_SLUG: () => (/* binding */ WONDER_BLOCKS_BLANK_TEMPLATE_SLUG),
@@ -5632,6 +5686,7 @@ const HIIVE_ANALYTICS_CATEGORY = "wonder_blocks";
 const DEFAULT_VIEW = "library";
 const DEFAULT_SORT_ORDER = "oldest";
 const DEFAULT_GRID_COLUMNS = 2;
+const NFD_WONDER_BLOCKS_VERSION = window.nfdWonderBlocks?.nfdWBVersion || "";
 
 /***/ }),
 

@@ -102,13 +102,13 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 
 	const setCurrentView = useSetCurrentView();
 
-	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter } = useSelect(
-		(select) => ({
+	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter, currentView } =
+		useSelect((select) => ({
 			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
 			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
+			currentView: select(nfdPatternsStore).getCurrentView(),
 			keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
-		})
-	);
+		}));
 
 	// Set sidebar loading state.
 	useEffect(() => {
@@ -148,6 +148,8 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 
 			if (categoryExists) {
 				setActiveCategory(categoryTitle);
+			} else if (data.length > 0 && data[0].title && "library" === currentView) {
+				setActiveCategory(data[0].title);
 			}
 
 			setShouldResetKeywords(true);
@@ -168,6 +170,17 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 			activeCategory = activePatternsCategory;
 		} else {
 			activeCategory = activeTemplatesCategory;
+		}
+
+		const categoryExists =
+			"favorites" === activeCategory ||
+			data.some(function (item) {
+				return item.title === activeCategory;
+			});
+
+		if (!categoryExists && data.length > 0 && data[0].title && "library" === currentView) {
+			activeCategory = data[0].title;
+			setActiveCategory(activeCategory);
 		}
 
 		return activeCategory;
