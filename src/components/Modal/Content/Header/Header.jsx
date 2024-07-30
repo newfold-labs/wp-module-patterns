@@ -15,9 +15,9 @@ import { close } from "@wordpress/icons";
  * Internal dependencies
  */
 import classNames from "classnames";
-import useSetCurrentView from "../../../../hooks/useSetCurrentView";
 import { store as nfdPatternsStore } from "../../../../store";
 import TrialNotice from "./TrialNotice";
+import useSetCurrentView from "../../../../hooks/useSetCurrentView";
 
 const Header = () => {
 	const showTrial = true;

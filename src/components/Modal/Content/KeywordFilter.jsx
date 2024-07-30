@@ -5,7 +5,7 @@ import { Button, SearchControl } from "@wordpress/components";
 import { useDispatch, useSelect } from "@wordpress/data";
 import { useEffect, useRef, useState, useTransition } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
-import { Icon, search } from "@wordpress/icons";
+import { closeSmall, Icon, search } from "@wordpress/icons";
 
 /**
  * External dependencies
@@ -16,16 +16,21 @@ import debounce from "lodash/debounce";
 /**
  * Internal dependencies
  */
-import { INPUT_DEBOUNCE_TIME } from "../../../../constants";
-import { store as nfdPatternsStore } from "../../../../store";
+import { INPUT_DEBOUNCE_TIME } from "../../../constants";
+import useSearchSuggestions from "../../../hooks/useSearchSuggestions";
 import useSetCurrentView from "../../../hooks/useSetCurrentView";
+import { store as nfdPatternsStore } from "../../../store";
 
 const KeywordFilter = () => {
 	const [searchValue, setSearchValue] = useState("");
 	const [hasFocus, setHasFocus] = useState(false);
 	const [isPending, startTransition] = useTransition();
+	const [showSuggestions, setShowSuggestions] = useState(false);
+	const [isInteracting, setIsInteracting] = useState(false);
 	const searchRef = useRef(null);
+	const dropdownRef = useRef(null); // Ref for the dropdown
 	const setCurrentView = useSetCurrentView();
+	const { suggestions, loadSuggestions, addSuggestion, removeSuggestion } = useSearchSuggestions();
 
 	const { setKeywordsFilter, setShouldResetKeywords } = useDispatch(nfdPatternsStore);
 
@@ -41,6 +46,10 @@ const KeywordFilter = () => {
 				startTransition(() => {
 					setKeywordsFilter(searchValue.trim());
 					setCurrentView("library");
+
+					if (searchValue.trim().length >= 5) {
+						addSuggestion(searchValue.trim());
+					}
 				});
 			},
 			searchValue.trim() === "" ? 0 : INPUT_DEBOUNCE_TIME // Don't debounce empty searches.
@@ -64,8 +73,46 @@ const KeywordFilter = () => {
 		}
 	}, [setShouldResetKeywords, shouldResetKeywords]);
 
+	// Handle clicks outside the component
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (
+				searchRef.current &&
+				!searchRef.current.contains(event.target) &&
+				dropdownRef.current &&
+				!dropdownRef.current.contains(event.target)
+			) {
+				setHasFocus(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
+
+	// Handle the display of suggestions
+	useEffect(() => {
+		const delayedSuggestions = debounce(() => {
+			startTransition(() => {
+				setShowSuggestions(true);
+			});
+		});
+
+		if (hasFocus && suggestions.length > 0) {
+			delayedSuggestions();
+		} else {
+			startTransition(() => {
+				setShowSuggestions(false);
+			});
+		}
+
+		return delayedSuggestions.cancel;
+	}, [hasFocus, suggestions]);
+
 	return (
-		<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-3">
+		<div className="nfd-wba-relative nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-x-3">
 			{!hasFocus && (
 				<Button
 					label={__("Search", "nfd-wonder-blocks")}
@@ -102,15 +149,62 @@ const KeywordFilter = () => {
 				value={searchValue}
 				onFocus={() => {
 					setHasFocus(true);
+					setIsInteracting(false);
+					loadSuggestions();
 				}}
 				onBlur={() => {
-					setHasFocus(false);
+					if (!isInteracting) {
+						setTimeout(() => {
+							setHasFocus(false);
+						}, 100);
+					}
 				}}
 				onChange={(value) => {
 					setSearchValue(value);
 				}}
 			/>
+			{showSuggestions && (
+				<ul
+					ref={dropdownRef}
+					className="nfd-wba-absolute nfd-wba-bg-white nfd-wba-shadow-lg nfd-wba-w-full nfd-wba-max-h-40 nfd-wba-overflow-y-auto nfd-wba-z-10 nfd-wba-mt-9 nfd-wba-top-0 nfd-wba-mb-0"
+				>
+					{suggestions.map((term, index) => {
+						if (
+							searchValue &&
+							(!term.toLowerCase().includes(searchValue.toLowerCase()) ||
+								term.toLowerCase() === searchValue.toLowerCase())
+						) {
+							return null;
+						}
+
+						return (
+							<li
+								key={index}
+								className="nfd-wba-flex nfd-wba-justify-between nfd-wba-items-center nfd-wba-pl-3 nfd-wba-py-1.5 nfd-wba-pr-1
+								nfd-wba-mb-0 nfd-wba-cursor-pointer hover:nfd-wba-bg-gray-100 nfd-wba-text-gray-500 last:nfd-wba-mb-1.5 first:nfd-wba-mt-1.5"
+							>
+								<span onMouseDown={() => setSearchValue(term)} className="nfd-wba-flex-grow">
+									{term}
+								</span>
+								<button
+									type="button"
+									className="nfd-wba-bg-transparent nfd-wba-border-none nfd-wba-cursor-pointer nfd-wba-flex nfd-wba-items-center"
+									onMouseDown={(e) => {
+										e.stopPropagation(); // Prevent triggering the parent onMouseDown
+										setIsInteracting(true); // Prevent closing on blur
+										removeSuggestion(term);
+									}}
+									onMouseUp={() => setIsInteracting(false)} // Reset interaction flag
+								>
+									<Icon icon={closeSmall} size={16} className="nfd-wba-fill-gray-500" />
+								</button>
+							</li>
+						);
+					})}
+				</ul>
+			)}
 		</div>
 	);
 };
+
 export default KeywordFilter;
