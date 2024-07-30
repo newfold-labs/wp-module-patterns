@@ -5,6 +5,8 @@ export const trackHiiveEvent = (action, data) => {
 	// Check if the label key for the event is present and not empty
 	const labelKey = data.label_key;
 	if (labelKey && !data[labelKey]) {
+		// eslint-disable-next-line no-console
+		console.error(`Tracking event validation failed: '${labelKey}' is empty or not defined in the data.`, data);
 		return;
 	}
 	
