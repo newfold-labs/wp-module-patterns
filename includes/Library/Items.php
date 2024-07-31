@@ -147,17 +147,19 @@ class Items {
 	private static function filter_by_keywords( $data, $value ) {
 
 		$filtered = array();
+		
+		$value = strtolower( $value );
 
 		foreach ( $data as $item ) {
 
 			if ( false !== strpos( strtolower( $item['title'] ), $value ) ) {
 				$filtered[] = $item;
-			} elseif ( isset( $item['keywords'] ) ) {
+			} elseif ( isset( $item['tags'] ) ) {
 
-				$item['keywords'] = (array) $item['keywords'];
+				$item['tags'] = (array) $item['tags'];
 
-				foreach ( $item['keywords'] as $v ) {
-					if ( strpos( $v, $value ) !== false ) {
+				foreach ( $item['tags'] as $v ) {
+					if ( false !== strpos( strtolower( $v ), $value ) ) {
 						$filtered[] = $item;
 					}
 				}
