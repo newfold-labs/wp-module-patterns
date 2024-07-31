@@ -14,11 +14,12 @@ import { SITE_EDITOR_CATEGORIES } from "../../../constants";
 import { useCategories, usePatterns } from "../../../hooks";
 import { store as nfdPatternsStore } from "../../../store";
 
+import iconMapping from "../../../helpers/iconMapping";
+import useSetCurrentView from "../../../hooks/useSetCurrentView";
 import { heart } from "../../Icons";
 import ErrorLoading from "./ErrorLoading";
 import ListElement from "./ListElement";
 import Skeleton from "./Skeleton";
-import iconMapping from "../../../helpers/iconMapping";
 
 const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 	// Fetch data
@@ -99,13 +100,15 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 		setShouldResetKeywords,
 	} = useDispatch(nfdPatternsStore);
 
-	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter } = useSelect(
-		(select) => ({
+	const setCurrentView = useSetCurrentView();
+
+	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter, currentView } =
+		useSelect((select) => ({
 			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
 			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
+			currentView: select(nfdPatternsStore).getCurrentView(),
 			keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
-		})
-	);
+		}));
 
 	// Set sidebar loading state.
 	useEffect(() => {
@@ -145,11 +148,12 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 
 			if (categoryExists) {
 				setActiveCategory(categoryTitle);
-			} else if (data.length > 0 && data[0].title) {
+			} else if (data.length > 0 && data[0].title && "library" === currentView) {
 				setActiveCategory(data[0].title);
 			}
 
 			setShouldResetKeywords(true);
+			setCurrentView("library");
 		},
 		[setActiveCategory, setShouldResetKeywords, data]
 	);
@@ -174,7 +178,7 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 				return item.title === activeCategory;
 			});
 
-		if (!categoryExists && data.length > 0 && data[0].title) {
+		if (!categoryExists && data.length > 0 && data[0].title && "library" === currentView) {
 			activeCategory = data[0].title;
 			setActiveCategory(activeCategory);
 		}
@@ -213,24 +217,6 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 								/>
 							);
 						})}
-
-						{/* Add Favorites list element. */}
-						<ListElement
-							className="nfd-wba-list-element--favorites nfd-wba-mt-2 nfd-wba-border-0"
-							category={{
-								id: "favorites",
-								label: __("Favorites", "nfd-wonder-blocks"),
-								title: "favorites",
-								count: allFavs?.length,
-							}}
-							isActive={!keywordsFilter && getActiveCategory() === "favorites"}
-							icon={
-								<Icon fill="currentColor" className="nfd-wba-fill-red-600" icon={heart} size={16} />
-							}
-							onClick={() => {
-								handleCategoryChange("favorites");
-							}}
-						/>
 					</ul>
 				</>
 			)}

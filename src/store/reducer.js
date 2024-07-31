@@ -9,8 +9,20 @@ import { combineReducers } from "@wordpress/data";
 import {
 	DEFAULT_ACTIVE_TAB,
 	DEFAULT_PATTERNS_CATEGORY,
+	DEFAULT_SORT_ORDER,
 	DEFAULT_TEMPLATES_CATEGORY,
+	DEFAULT_VIEW,
 } from "../constants";
+
+function getInitialGridColumns() {
+	const savedColumns = localStorage.getItem("nfdWBGridColumns");
+	return savedColumns ? Number(savedColumns) : DEFAULT_GRID_COLUMNS;
+}
+
+function getInitialSortOrder() {
+	const savedSortOrder = localStorage.getItem("nfdWBSortOrder");
+	return savedSortOrder ? savedSortOrder : DEFAULT_SORT_ORDER;
+}
 
 export function modal(
 	state = {
@@ -18,6 +30,9 @@ export function modal(
 		isContentLoading: false,
 		keywordsFilter: "",
 		activeTab: DEFAULT_ACTIVE_TAB,
+		gridColumns: getInitialGridColumns(),
+		sortOrder: getInitialSortOrder(),
+		currentView: DEFAULT_VIEW,
 	},
 	action
 ) {
@@ -56,6 +71,23 @@ export function modal(
 			return {
 				...state,
 				activeTab: action.activeTab,
+			};
+		case "SET_GRID_COLUMNS":
+			localStorage.setItem("nfdWBGridColumns", action.gridColumns);
+			return {
+				...state,
+				gridColumns: action.gridColumns,
+			};
+		case "SET_SORT_ORDER":
+			localStorage.setItem("nfdWBSortOrder", action.sortOrder);
+			return {
+				...state,
+				sortOrder: action.sortOrder,
+			};
+		case "SET_CURRENT_VIEW":
+			return {
+				...state,
+				currentView: action.currentView,
 			};
 	}
 

@@ -77,3 +77,33 @@ export function getActivePatternsCategory(state) {
 export function getActiveTemplatesCategory(state) {
 	return state.templates.activeCategory;
 }
+
+/**
+ * Gets the grid columns.
+ *
+ * @param {*} state
+ * @return {number} The grid columns.
+ */
+export function getModalGridColumns(state) {
+	return state.modal.gridColumns;
+}
+
+/**
+ * Gets the sort order.
+ *
+ * @param {*} state
+ * @return {string} The sort order.
+ */
+export function getSortOrder(state) {
+	return state.modal.sortOrder;
+}
+
+/**
+ * Gets the current view.
+ *
+ * @param {*} state
+ * @return {string} The current view.
+ */
+export function getCurrentView(state) {
+	return state.modal.currentView;
+}

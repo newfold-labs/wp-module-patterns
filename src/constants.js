@@ -13,3 +13,7 @@ export const DEFAULT_PATTERNS_CATEGORY = "featured";
 export const DEFAULT_TEMPLATES_CATEGORY = "featured";
 export const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = "wonder-blocks-blank-template";
 export const HIIVE_ANALYTICS_CATEGORY = "wonder_blocks";
+export const DEFAULT_VIEW = "library";
+export const DEFAULT_SORT_ORDER = "oldest";
+export const DEFAULT_GRID_COLUMNS = 2;
+export const NFD_WONDER_BLOCKS_VERSION = window.nfdWonderBlocks?.nfdWBVersion || "";

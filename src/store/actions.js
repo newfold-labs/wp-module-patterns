@@ -101,3 +101,42 @@ export function setActiveTab(activeTab) {
 		activeTab,
 	};
 }
+
+/**
+ * Set grid columns in the modal.
+ *
+ * @param {*} columns
+ * @returns
+ */
+export function setModalGridColumns(columns) {
+	return {
+		type: "SET_GRID_COLUMNS",
+		gridColumns: columns,
+	};
+}
+
+/**
+ * Set sort order in the modal.
+ *
+ * @param {string} sortOrder
+ * @returns
+ */
+export function setSortOrder(sortOrder) {
+	return {
+		type: "SET_SORT_ORDER",
+		sortOrder,
+	};
+}
+
+/**
+ * Set current view in the modal.
+ *
+ * @param {string} currentView
+ * @returns
+ */
+export function setCurrentView(currentView) {
+	return {
+		type: "SET_CURRENT_VIEW",
+		currentView,
+	};
+}

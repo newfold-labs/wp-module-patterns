@@ -36,7 +36,7 @@
 
 	&__header {
 		align-items: center;
-		border-bottom: solid 1px var(--nfd-wba-color-borders);
+		/* border-bottom: solid 1px var(--nfd-wba-color-borders); */
 		display: flex;
 		flex-shrink: 0;
 		gap: 16px;
@@ -58,8 +58,49 @@
 		}
 	}
 
+	&__content-filter {
+		display: flex;
+		flex-grow: 0;
+		justify-content: space-between;
+		align-items: center;
+		justify-content: flex-end;
+		margin-bottom: 1.5rem;
+
+		button {
+			font-size: 14px;
+		}
+	}
+
 	.nfd-wba-keyword-filter svg {
 		transform: scaleX(-1);
+	}
+}
+
+.nfd-wba-filter-dropdown {
+	.components-dropdown-menu__menu-item {
+		min-width: 120px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+
+		svg {
+			order: 1;
+		}
+
+		&.is-active {
+			color: var(--nfd-wba-color-brand);
+
+			& svg {
+				background: none;
+				border: none;
+				box-shadow: none;
+				color: var(--nfd-wba-color-brand);
+			}
+		}
+	}
+
+	.components-button.has-icon.has-text {
+		justify-content: space-between;
 	}
 }
 

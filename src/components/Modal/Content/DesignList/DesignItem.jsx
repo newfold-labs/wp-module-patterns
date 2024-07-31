@@ -2,7 +2,7 @@
  * External dependencies
  */
 import classNames from "classnames";
-import { HeartIcon, HeartOffIcon, PlusIcon, Trash2Icon } from "lucide-react";
+import { HeartIcon, HeartOffIcon, PlusIcon } from "lucide-react";
 
 /**
  * WordPress dependencies
@@ -15,7 +15,6 @@ import { useDispatch, useSelect } from "@wordpress/data";
 import { store as editorStore } from "@wordpress/editor";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "@wordpress/element";
 import { __, sprintf } from "@wordpress/i18n";
-import { Icon } from "@wordpress/icons";
 import { store as noticesStore } from "@wordpress/notices";
 
 /**
@@ -25,7 +24,6 @@ import { NFD_REST_URL } from "../../../../constants";
 import { blockInserter, optimizePreview, trackHiiveEvent } from "../../../../helpers";
 import { usePatterns, useReplacePlaceholders } from "../../../../hooks";
 import { store as nfdPatternsStore } from "../../../../store";
-import { heart, heartEmpty, plus, trash } from "../../../Icons";
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
