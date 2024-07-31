@@ -36,7 +36,7 @@
 
 	&__header {
 		align-items: center;
-		border-bottom: solid 1px var(--nfd-wba-color-borders);
+		/* border-bottom: solid 1px var(--nfd-wba-color-borders); */
 		display: flex;
 		flex-shrink: 0;
 		gap: 16px;
@@ -63,6 +63,7 @@
 		flex-grow: 0;
 		justify-content: space-between;
 		align-items: center;
+		justify-content: flex-end;
 		margin-bottom: 1.5rem;
 
 		button {

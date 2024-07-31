@@ -112,7 +112,7 @@ const KeywordFilter = () => {
 	}, [hasFocus, suggestions]);
 
 	return (
-		<div className="nfd-wba-relative nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-x-3">
+		<div className="nfd-wba-relative nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-3">
 			{!hasFocus && (
 				<Button
 					label={__("Search", "nfd-wonder-blocks")}

@@ -18,6 +18,7 @@ import classNames from "classnames";
 import { store as nfdPatternsStore } from "../../../../store";
 import TrialNotice from "./TrialNotice";
 import useSetCurrentView from "../../../../hooks/useSetCurrentView";
+import KeywordFilter from "../KeywordFilter";
 
 const Header = () => {
 	const showTrial = true;
@@ -33,6 +34,8 @@ const Header = () => {
 
 	return (
 		<header className="nfd-wba-modal__header">
+			<KeywordFilter />
+
 			<div className="nfd-items-center nfd-wba-ml-auto nfd-wba-flex nfd-wba-gap-x-1">
 				{showTrial && <TrialNotice />}
 

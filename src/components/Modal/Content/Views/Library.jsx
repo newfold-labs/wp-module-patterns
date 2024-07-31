@@ -93,7 +93,7 @@ const Library = () => {
 	return (
 		<>
 			{isSidebarLoading && !isError && <LoadingSpinner />}
-			<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6">
+			<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-2 sm:nfd-wba-py-0 sm:nfd-wba-px-6">
 				<UpdateNotice />
 
 				<FilterBar />

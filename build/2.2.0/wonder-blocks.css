@@ -165,7 +165,7 @@
   height: unset;
   margin-bottom: -1px;
   padding-bottom: 16px;
-  padding-top: 0;
+  padding-top: 12px;
 }
 .nfd-wba-tab-panel .components-tab-panel__tabs-item:before {
   top: -8px;
@@ -319,7 +319,7 @@
 }
 .nfd-wba-modal__header {
   align-items: center;
-  border-bottom: solid 1px var(--nfd-wba-color-borders);
+  /* border-bottom: solid 1px var(--nfd-wba-color-borders); */
   display: flex;
   flex-shrink: 0;
   gap: 16px;
@@ -345,6 +345,7 @@
   flex-grow: 0;
   justify-content: space-between;
   align-items: center;
+  justify-content: flex-end;
   margin-bottom: 1.5rem;
 }
 .nfd-wba-modal__content-filter button {
@@ -543,6 +544,9 @@
 .nfd-wba-mt-9 {
   margin-top: 2.25rem;
 }
+.nfd-wba-mt-0\.5 {
+  margin-top: 0.125rem;
+}
 .nfd-wba-flex {
   display: flex;
 }
@@ -693,9 +697,6 @@
 }
 .nfd-wba-justify-start {
   justify-content: flex-start;
-}
-.nfd-wba-justify-end {
-  justify-content: flex-end;
 }
 .nfd-wba-justify-center {
   justify-content: center;
@@ -1225,9 +1226,9 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-  .sm\:nfd-wba-py-1 {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+  .sm\:nfd-wba-py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .sm\:nfd-wba-pb-40 {
     padding-bottom: 10rem;

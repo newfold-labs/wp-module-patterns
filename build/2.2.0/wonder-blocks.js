@@ -4162,14 +4162,14 @@ const FilterBar = () => {
   }));
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-modal__content-filter"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_KeywordFilter__WEBPACK_IMPORTED_MODULE_5__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-2"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.DropdownMenu, {
     icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
       className: "!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4"
     }),
     toggleProps: {
-      className: "!nfd-wba-px-3",
+      className: "!nfd-wba-px-3 nfd-wba-mt-0.5",
       children: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
         className: "nfd-wba-ml-2"
       }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Sort By: ", "nfd-wonder-blocks"), sortOrder.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "))
@@ -4198,7 +4198,7 @@ const FilterBar = () => {
       className: "!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4"
     }),
     toggleProps: {
-      className: "!nfd-wba-px-3",
+      className: "!nfd-wba-px-3 nfd-wba-mt-0.5",
       children: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
         className: "nfd-wba-ml-2"
       }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Grid View", "nfd-wonder-blocks"))
@@ -4248,22 +4248,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/info.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/store.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/info.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/store.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../store */ "./src/store/index.js");
 /* harmony import */ var _TrialNotice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TrialNotice */ "./src/components/Modal/Content/Header/TrialNotice.jsx");
 /* harmony import */ var _hooks_useSetCurrentView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../hooks/useSetCurrentView */ "./src/hooks/useSetCurrentView.js");
+/* harmony import */ var _KeywordFilter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../KeywordFilter */ "./src/components/Modal/Content/KeywordFilter.jsx");
 
 /**
  * External dependencies
@@ -4285,6 +4286,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const Header = () => {
   const showTrial = true;
   const {
@@ -4302,7 +4304,7 @@ const Header = () => {
   const setCurrentView = (0,_hooks_useSetCurrentView__WEBPACK_IMPORTED_MODULE_7__["default"])();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
     className: "nfd-wba-modal__header"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_KeywordFilter__WEBPACK_IMPORTED_MODULE_8__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-items-center nfd-wba-ml-auto nfd-wba-flex nfd-wba-gap-x-1"
   }, showTrial && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TrialNotice__WEBPACK_IMPORTED_MODULE_6__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: classnames__WEBPACK_IMPORTED_MODULE_4___default()("nfd-wba-cursor-pointer nfd-wba-border-none nfd-wba-bg-transparent focus-visible:nfd-wba-outline-brand hover:nfd-wba-text-brand hover:nfd-wba-border-brand nfd-wba-p-2", "favorites" === activePatternsCategory && !keywords ? "nfd-wba-text-brand nfd-wba-font-semibold" : ""),
@@ -4312,10 +4314,10 @@ const Header = () => {
     }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "nfd-wba-flex nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-left nfd-wba-text-[14px]"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
     className: "!nfd-wba-fill-none nfd-wba-shrink-0 nfd-wba-size-5"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Favorites", "nfd-wonder-blocks")))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.DropdownMenu, {
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
       className: "!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4"
     }),
     toggleProps: {
@@ -4327,13 +4329,13 @@ const Header = () => {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("WonderBlocks Menu", "nfd-wonder-blocks"),
     controls: [{
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Info", "nfd-wonder-blocks"),
-      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_11__["default"], {
         className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
       }),
       onClick: () => setCurrentView("info")
     }, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("About", "nfd-wonder-blocks"),
-      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_12__["default"], {
         className: "nfd-wba-w-4 nfd-wba-h-4 !nfd-wba-fill-none"
       }),
       onClick: () => setCurrentView("about")
@@ -4344,7 +4346,7 @@ const Header = () => {
     onClick: () => {
       setIsModalOpen(false);
     },
-    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__["default"],
+    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_13__["default"],
     iconSize: 24,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Close dialog", "nfd-wonder-blocks")
   })));
@@ -4511,7 +4513,7 @@ const KeywordFilter = () => {
     return delayedSuggestions.cancel;
   }, [hasFocus, suggestions]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-relative nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-x-3"
+    className: "nfd-wba-relative nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-3"
   }, !hasFocus && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Search", "nfd-wonder-blocks"),
     "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Search", "nfd-wonder-blocks"),
@@ -5032,7 +5034,7 @@ const Library = () => {
     }
   }, [activeTab, data?.length, hasMore, keywordsFilter]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, isSidebarLoading && !isError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_10__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6"
+    className: "nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-flex-col nfd-wba-px-4 nfd-wba-py-2 sm:nfd-wba-py-0 sm:nfd-wba-px-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_UpdateNotice__WEBPACK_IMPORTED_MODULE_13__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_FilterBar__WEBPACK_IMPORTED_MODULE_9__["default"], null), !isSidebarLoading && isContentLoading && !isError || !ready && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Skeleton__WEBPACK_IMPORTED_MODULE_11__["default"], null), isError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_Error__WEBPACK_IMPORTED_MODULE_7__["default"], null), data?.length === 0 && !isError && !isValidating && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_NoResults__WEBPACK_IMPORTED_MODULE_8__["default"], {
     isFavorites: isFavorites
   }), ready && data && data?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignList_DesignList__WEBPACK_IMPORTED_MODULE_6__["default"], {

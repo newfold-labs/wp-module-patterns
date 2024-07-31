@@ -34,13 +34,11 @@ const FilterBar = () => {
 
 	return (
 		<div className="nfd-wba-modal__content-filter">
-			<KeywordFilter />
-
 			<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-gap-x-2">
 				<DropdownMenu
 					icon={<ArrowUpDownIcon className="!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4" />}
 					toggleProps={{
-						className: "!nfd-wba-px-3",
+						className: "!nfd-wba-px-3 nfd-wba-mt-0.5",
 						children: (
 							<span className="nfd-wba-ml-2">
 								{__("Sort By: ", "nfd-wonder-blocks")}
@@ -76,7 +74,7 @@ const FilterBar = () => {
 				<DropdownMenu
 					icon={<Grid2X2Icon className="!nfd-wba-fill-none nfd-wba-w-4 nfd-wba-h-4" />}
 					toggleProps={{
-						className: "!nfd-wba-px-3",
+						className: "!nfd-wba-px-3 nfd-wba-mt-0.5",
 						children: <span className="nfd-wba-ml-2">{__("Grid View", "nfd-wonder-blocks")}</span>,
 					}}
 					popoverProps={{
