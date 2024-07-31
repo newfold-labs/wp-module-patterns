@@ -197,6 +197,14 @@ class Items {
 				'home-2',
 				'home-4',
 				'home-5',
+				'contact-1',
+				'contact-2',
+				'link-in-bio-1',
+				'link-in-bio-2',
+				'coming-soon-3',
+				'coming-soon-4',
+				'contact-3',
+				'contact-4',
 			),
 		);
 
