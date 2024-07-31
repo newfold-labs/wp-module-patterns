@@ -78,7 +78,7 @@ class Items {
 	 */
 	private static function sort( $data, $sort_by ) {
 		
-		if ( $sort_by === "oldest" ) {
+		if ( $sort_by === "newest" ) {
 			$data = array_reverse( $data );
 		}
 
