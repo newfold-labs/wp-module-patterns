@@ -537,9 +537,6 @@
 .nfd-wba-mt-1 {
   margin-top: 0.25rem;
 }
-.nfd-wba-mt-2 {
-  margin-top: 0.5rem;
-}
 .nfd-wba-mt-8 {
   margin-top: 2rem;
 }
@@ -696,6 +693,9 @@
 }
 .nfd-wba-justify-start {
   justify-content: flex-start;
+}
+.nfd-wba-justify-end {
+  justify-content: flex-end;
 }
 .nfd-wba-justify-center {
   justify-content: center;
@@ -1224,6 +1224,10 @@
   .sm\:nfd-wba-px-6 {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+  }
+  .sm\:nfd-wba-py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
   }
   .sm\:nfd-wba-pb-40 {
     padding-bottom: 10rem;

@@ -217,24 +217,6 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 								/>
 							);
 						})}
-
-						{/* Add Favorites list element. */}
-						<ListElement
-							className="nfd-wba-list-element--favorites nfd-wba-mt-2 nfd-wba-border-0"
-							category={{
-								id: "favorites",
-								label: __("Favorites", "nfd-wonder-blocks"),
-								title: "favorites",
-								count: allFavs?.length,
-							}}
-							isActive={!keywordsFilter && getActiveCategory() === "favorites"}
-							icon={
-								<Icon fill="currentColor" className="nfd-wba-fill-red-600" icon={heart} size={16} />
-							}
-							onClick={() => {
-								handleCategoryChange("favorites");
-							}}
-						/>
 					</ul>
 				</>
 			)}

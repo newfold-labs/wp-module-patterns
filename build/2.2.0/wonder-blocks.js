@@ -5383,24 +5383,6 @@ const Categories = ({
         size: 20
       })
     });
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ListElement__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    className: "nfd-wba-list-element--favorites nfd-wba-mt-2 nfd-wba-border-0",
-    category: {
-      id: "favorites",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Favorites", "nfd-wonder-blocks"),
-      title: "favorites",
-      count: allFavs?.length
-    },
-    isActive: !keywordsFilter && getActiveCategory() === "favorites",
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_14__["default"], {
-      fill: "currentColor",
-      className: "nfd-wba-fill-red-600",
-      icon: _Icons__WEBPACK_IMPORTED_MODULE_10__.heart,
-      size: 16
-    }),
-    onClick: () => {
-      handleCategoryChange("favorites");
-    }
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.memo)(Categories));
