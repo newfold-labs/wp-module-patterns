@@ -16,8 +16,9 @@ import { store as nfdPatternsStore } from "../../../../store";
 import DesignItem from "./DesignItem";
 
 const DesignList = ({ data }) => {
-	const { gridColumns } = useSelect((select) => ({
+	const { gridColumns, sortOrder } = useSelect((select) => ({
 		gridColumns: select(nfdPatternsStore).getModalGridColumns(),
+		sortOrder: select(nfdPatternsStore).getSortOrder(),
 	}));
 
 	if (!data || !Array.isArray(data)) {
@@ -37,7 +38,7 @@ const DesignList = ({ data }) => {
 				columnClassName="nfd-wba-design-list__column sm:nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
 			>
 				{data?.map((pattern, index) => (
-					<DesignItem key={`${pattern.key}-${index}`} item={pattern} />
+					<DesignItem key={`${pattern.key}-${index}-${sortOrder}`} item={pattern} />
 				))}
 			</Masonry>
 		</>

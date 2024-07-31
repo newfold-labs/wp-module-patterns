@@ -3931,9 +3931,11 @@ const DesignList = ({
   data
 }) => {
   const {
-    gridColumns
+    gridColumns,
+    sortOrder
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => ({
-    gridColumns: select(_store__WEBPACK_IMPORTED_MODULE_4__.store).getModalGridColumns()
+    gridColumns: select(_store__WEBPACK_IMPORTED_MODULE_4__.store).getModalGridColumns(),
+    sortOrder: select(_store__WEBPACK_IMPORTED_MODULE_4__.store).getSortOrder()
   }));
   if (!data || !Array.isArray(data)) {
     return null;
@@ -3948,7 +3950,7 @@ const DesignList = ({
     className: "nfd-wba-design-list nfd-wba-flex nfd-wba-w-auto sm:-nfd-wba-ml-[var(--nfd-wba-masonry-gap)]",
     columnClassName: "nfd-wba-design-list__column sm:nfd-wba-pl-[var(--nfd-wba-masonry-gap)]"
   }, data?.map((pattern, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    key: `${pattern.key}-${index}`,
+    key: `${pattern.key}-${index}-${sortOrder}`,
     item: pattern
   }))));
 };
