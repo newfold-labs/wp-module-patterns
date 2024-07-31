@@ -5,9 +5,9 @@ import { NFD_WONDER_BLOCKS_VERSION } from "../../../../constants";
 
 const About = () => {
 	const moduleVersion = NFD_WONDER_BLOCKS_VERSION;
-	const hostLabel = "Bluehost";
-	const host = "HostPlugin";
-	const settingsPageUrl = "/wp-admin/admin.php?page=wonderblocks-settings";
+	const hostLabel = window.nfdWonderBlocks.brand.name;
+	const hostPlugin = window.nfdWonderBlocks.brand.plugin;
+	const settingsPageUrl = window.nfdWonderBlocks.brand.pluginDashboardPage;
 
 	return (
 		<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6 nfd-wba-items-start nfd-wba-justify-center">
@@ -26,8 +26,8 @@ const About = () => {
 					website needs.
 				</p>
 				<p className="nfd-wba-text-[15px]">
-					WonderBlocks is a feature of your {hostLabel} hosting plan and is powered by the {host}{" "}
-					Plugin. You can update your WonderBlocks settings{" "}
+					WonderBlocks is a feature of your {hostLabel} hosting plan and is powered by the{" "}
+					{hostPlugin}. You can update your WonderBlocks settings{" "}
 					<a href={settingsPageUrl} className="nfd-wba-text-blue-500 hover:nfd-wba-underline">
 						here
 					</a>

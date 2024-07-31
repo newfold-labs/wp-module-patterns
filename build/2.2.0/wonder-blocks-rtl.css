@@ -535,6 +535,9 @@
 .nfd-wba-mr-2 {
   margin-left: 0.5rem;
 }
+.nfd-wba-mt-0\.5 {
+  margin-top: 0.125rem;
+}
 .nfd-wba-mt-1 {
   margin-top: 0.25rem;
 }
@@ -543,9 +546,6 @@
 }
 .nfd-wba-mt-9 {
   margin-top: 2.25rem;
-}
-.nfd-wba-mt-0\.5 {
-  margin-top: 0.125rem;
 }
 .nfd-wba-flex {
   display: flex;
