@@ -18,7 +18,7 @@ final class Brands {
 			'bluehost'      => array(
 				'brand'               => 'bluehost',
 				'name'                => 'Bluehost',
-				'pluginDashboardPage' => \admin_url( 'admin.php?page=bluehost' ),
+				'pluginDashboardPage' => \admin_url( 'admin.php?page=bluehost#/settings' ),
 			),
 			'crazy-domains' => array(
 				'brand'               => 'crazy-domains',
