@@ -4841,14 +4841,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../constants */ "./src/constants.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../constants */ "./src/constants.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+
 
 /**
  * Internal dependencies
  */
 
 const About = () => {
-  const moduleVersion = _constants__WEBPACK_IMPORTED_MODULE_1__.NFD_WONDER_BLOCKS_VERSION;
+  const moduleVersion = _constants__WEBPACK_IMPORTED_MODULE_4__.NFD_WONDER_BLOCKS_VERSION;
   const hostLabel = window.nfdWonderBlocks.brand.name;
   const hostPlugin = window.nfdWonderBlocks.brand.plugin;
   const settingsPageUrl = window.nfdWonderBlocks.brand.pluginDashboardPage;
@@ -4859,7 +4872,7 @@ const About = () => {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-row nfd-wba-gap-4 nfd-wba-items-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "WonderBlocks"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "nfd-wba-bg-grey nfd-wba-rounded-full nfd-wba-py-1 nfd-wba-px-2 nfd-wba-text-[15px] nfd-wba-text-dark-lighter"
+    className: "nfd-wba-bg-gray-100 nfd-wba-border-gray-200 nfd-wba-border-solid nfd-wba-border-[1px] nfd-wba-rounded-full nfd-wba-py-1 nfd-wba-px-2 nfd-wba-text-[15px] nfd-wba-text-dark-lighter"
   }, "v", moduleVersion)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "nfd-wba-text-[15px]"
   }, "WonderBlocks lets you customize premade page templates and section design patterns using the built-in Blocks in WordPress \u2013 but made wonderful. Take the stress out of going from blank canvas to beautiful creation with professionally-designed Patterns for common website needs."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
@@ -4867,7 +4880,15 @@ const About = () => {
   }, "WonderBlocks is a feature of your ", hostLabel, " hosting plan and is powered by the", " ", hostPlugin, ". You can update your WonderBlocks settings", " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: settingsPageUrl,
     className: "nfd-wba-text-blue-500 hover:nfd-wba-underline"
-  }, "here"), ".")));
+  }, "here"), "."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.Warning, {
+    className: "nfd-wba-mt-10 nfd-wba-rounded-[4px] nfd-wba-border-gray-200 nfd-wba-bg-gray-100",
+    actions: [(0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      variant: "primary",
+      onClick: () => console.log("sync")
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Sync Now", "nfd-wonder-blocks"))]
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "nfd-wba-text-dark-lighter nfd-wba-mt-0.5 nfd-wba-text-[15px]"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.", "nfd-wonder-blocks")))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (About);
 
