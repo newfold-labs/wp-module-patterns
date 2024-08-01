@@ -1,4 +1,11 @@
 /**
+ * WordPress dependencies
+ */
+import { Warning } from "@wordpress/block-editor";
+import { Button } from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
+
+/**
  * Internal dependencies
  */
 import { NFD_WONDER_BLOCKS_VERSION } from "../../../../constants";
@@ -14,7 +21,7 @@ const About = () => {
 			<div className="nfd-wba-max-w-prose">
 				<div className="nfd-wba-flex nfd-wba-row nfd-wba-gap-4 nfd-wba-items-center">
 					<h1>WonderBlocks</h1>
-					<p className="nfd-wba-bg-grey nfd-wba-rounded-full nfd-wba-py-1 nfd-wba-px-2 nfd-wba-text-[15px] nfd-wba-text-dark-lighter">
+					<p className="nfd-wba-bg-gray-100 nfd-wba-border-gray-200 nfd-wba-border-solid nfd-wba-border-[1px] nfd-wba-rounded-full nfd-wba-py-1 nfd-wba-px-2 nfd-wba-text-[15px] nfd-wba-text-dark-lighter">
 						v{moduleVersion}
 					</p>
 				</div>
@@ -33,6 +40,22 @@ const About = () => {
 					</a>
 					.
 				</p>
+
+				<Warning
+					className="nfd-wba-mt-10 nfd-wba-rounded-[4px] nfd-wba-border-gray-200 nfd-wba-bg-gray-100"
+					actions={[
+						<Button variant="primary" onClick={() => console.log("sync")}>
+							{__("Sync Now", "nfd-wonder-blocks")}
+						</Button>,
+					]}
+				>
+					<p className="nfd-wba-text-dark-lighter nfd-wba-mt-0.5 nfd-wba-text-[15px]">
+						{__(
+							"Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.",
+							"nfd-wonder-blocks"
+						)}
+					</p>
+				</Warning>
 			</div>
 		</div>
 	);
