@@ -12,6 +12,7 @@ import {
 	DEFAULT_SORT_ORDER,
 	DEFAULT_TEMPLATES_CATEGORY,
 	DEFAULT_VIEW,
+	DEFAULT_GRID_COLUMNS,
 } from "../constants";
 
 function getInitialGridColumns() {
