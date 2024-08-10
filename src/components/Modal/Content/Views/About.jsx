@@ -1,20 +1,50 @@
 /**
  * WordPress dependencies
  */
+import apiFetch from "@wordpress/api-fetch";
 import { Warning } from "@wordpress/block-editor";
 import { Button } from "@wordpress/components";
+import { useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import { NFD_WONDER_BLOCKS_VERSION } from "../../../../constants";
+import { NFD_REST_URL, NFD_WONDER_BLOCKS_VERSION } from "../../../../constants";
+import { useCategories, usePatterns } from "../../../../hooks";
 
 const About = () => {
 	const moduleVersion = NFD_WONDER_BLOCKS_VERSION;
 	const hostLabel = window.nfdWonderBlocks.brand.name;
 	const hostPlugin = window.nfdWonderBlocks.brand.plugin;
 	const settingsPageUrl = window.nfdWonderBlocks.brand.pluginDashboardPage;
+
+	const [syncing, setSyncing] = useState(false);
+	const { mutate: mutatePatternCategories } = useCategories();
+	const { mutate: mutateTemplateCategories } = useCategories("templates");
+	const { mutate: mutatePatterns } = usePatterns({ perPage: 0 });
+
+	const handleSync = async () => {
+		try {
+			setSyncing(true);
+
+			const response = await apiFetch({
+				url: `${NFD_REST_URL}/clear-cache`,
+				method: "POST",
+				headers: {
+					"x-nfd-wonder-blocks": "nfd_wonder_blocks",
+				},
+			});
+
+			mutatePatternCategories();
+			mutateTemplateCategories();
+			mutatePatterns();
+
+			setSyncing(false);
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	return (
 		<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6 nfd-wba-items-start nfd-wba-justify-center">
@@ -44,8 +74,15 @@ const About = () => {
 				<Warning
 					className="nfd-wba-mt-10 nfd-wba-rounded-[4px] nfd-wba-border-gray-200 nfd-wba-bg-gray-100"
 					actions={[
-						<Button variant="primary" onClick={() => console.log("sync")}>
-							{__("Sync Now", "nfd-wonder-blocks")}
+						<Button
+							variant="primary"
+							className="hover:!nfd-wba-bg-brand-darker hover:nfd-wba-text-white focus-visible:nfd-wba-text-white active:nfd-wba-bg-brand-darker-10 active:!nfd-wba-text-white"
+							disabled={syncing}
+							onClick={handleSync}
+						>
+							{syncing
+								? __("Syncing...", "nfd-wonder-blocks")
+								: __("Sync Now", "nfd-wonder-blocks")}
 						</Button>,
 					]}
 				>
