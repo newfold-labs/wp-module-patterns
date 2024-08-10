@@ -1124,6 +1124,10 @@
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
+.hover\:\!nfd-wba-bg-brand-darker:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(var(--nfd-wba-color-brand-darker-rgb) / var(--tw-bg-opacity)) !important;
+}
 .hover\:nfd-wba-bg-brand-darker:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--nfd-wba-color-brand-darker-rgb) / var(--tw-bg-opacity));
@@ -1131,10 +1135,6 @@
 .hover\:nfd-wba-bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-.hover\:\!nfd-wba-bg-brand-darker:hover {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(var(--nfd-wba-color-brand-darker-rgb) / var(--tw-bg-opacity)) !important;
 }
 .hover\:nfd-wba-text-brand:hover {
   --tw-text-opacity: 1;

@@ -4880,11 +4880,6 @@ const About = () => {
   const {
     mutate: mutateTemplateCategories
   } = (0,_hooks__WEBPACK_IMPORTED_MODULE_7__.useCategories)("templates");
-  const {
-    mutate: mutatePatterns
-  } = (0,_hooks__WEBPACK_IMPORTED_MODULE_7__.usePatterns)({
-    perPage: 0
-  });
   const handleSync = async () => {
     try {
       setSyncing(true);
@@ -4897,7 +4892,6 @@ const About = () => {
       });
       mutatePatternCategories();
       mutateTemplateCategories();
-      mutatePatterns();
       setSyncing(false);
     } catch (error) {
       console.error(error);
