@@ -54,3 +54,7 @@
 	transform: none;
 	opacity: 1;
 }
+
+.block-editor-block-preview__content-iframe .block-editor-warning {
+	display: none;
+}
