@@ -22,7 +22,6 @@ const About = () => {
 	const [syncing, setSyncing] = useState(false);
 	const { mutate: mutatePatternCategories } = useCategories();
 	const { mutate: mutateTemplateCategories } = useCategories("templates");
-	const { mutate: mutatePatterns } = usePatterns({ perPage: 0 });
 
 	const handleSync = async () => {
 		try {
@@ -38,7 +37,6 @@ const About = () => {
 
 			mutatePatternCategories();
 			mutateTemplateCategories();
-			mutatePatterns();
 
 			setSyncing(false);
 		} catch (error) {

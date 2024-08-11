@@ -8,6 +8,7 @@ import { EllipsisVerticalIcon, HeartIcon, InfoIcon, StoreIcon } from "lucide-rea
  */
 import { Button, DropdownMenu } from "@wordpress/components";
 import { useDispatch, useSelect } from "@wordpress/data";
+import { useEffect, useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { close } from "@wordpress/icons";
 
@@ -15,22 +16,44 @@ import { close } from "@wordpress/icons";
  * Internal dependencies
  */
 import classNames from "classnames";
-import { store as nfdPatternsStore } from "../../../../store";
-import TrialNotice from "./TrialNotice";
 import useSetCurrentView from "../../../../hooks/useSetCurrentView";
+import { store as nfdPatternsStore } from "../../../../store";
 import KeywordFilter from "../KeywordFilter";
+import TrialNotice from "./TrialNotice";
 
 const Header = () => {
 	const showTrial = true;
-	const { setIsModalOpen, setActivePatternsCategory, setShouldResetKeywords } =
-		useDispatch(nfdPatternsStore);
 
-	const { activePatternsCategory, keywords } = useSelect((select) => ({
-		activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
-		keywords: select(nfdPatternsStore).getKeywordsFilter(),
-	}));
+	const [isFavoritesView, setIsFavoritesView] = useState(false);
+	const {
+		setIsModalOpen,
+		setActivePatternsCategory,
+		setActiveTemplatesCategory,
+		setShouldResetKeywords,
+	} = useDispatch(nfdPatternsStore);
+
+	const { activeTab, activePatternsCategory, activeTemplatesCategory, keywords } = useSelect(
+		(select) => ({
+			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
+			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
+			keywords: select(nfdPatternsStore).getKeywordsFilter(),
+			activeTab: select(nfdPatternsStore).getActiveTab(),
+		})
+	);
 
 	const setCurrentView = useSetCurrentView();
+
+	useEffect(() => {
+		if (keywords) {
+			setIsFavoritesView(false);
+		} else if ("patterns" === activeTab && "favorites" === activePatternsCategory) {
+			setIsFavoritesView(true);
+		} else if ("templates" === activeTab && "favorites" === activeTemplatesCategory) {
+			setIsFavoritesView(true);
+		} else {
+			setIsFavoritesView(false);
+		}
+	}, [activeTab, keywords, activePatternsCategory, activeTemplatesCategory, setIsFavoritesView]);
 
 	return (
 		<header className="nfd-wba-modal__header">
@@ -42,12 +65,16 @@ const Header = () => {
 				<button
 					className={classNames(
 						"nfd-wba-cursor-pointer nfd-wba-border-none nfd-wba-bg-transparent focus-visible:nfd-wba-outline-brand hover:nfd-wba-text-brand hover:nfd-wba-border-brand nfd-wba-p-2",
-						"favorites" === activePatternsCategory && !keywords
-							? "nfd-wba-text-brand nfd-wba-font-semibold"
-							: ""
+						isFavoritesView ? "nfd-wba-text-brand nfd-wba-font-semibold" : ""
 					)}
 					onClick={() => {
-						setActivePatternsCategory("favorites");
+						if ("templates" === activeTab) {
+							setActiveTemplatesCategory("favorites");
+							setActivePatternsCategory(null);
+						} else if ("patterns" === activeTab) {
+							setActivePatternsCategory("favorites");
+							setActiveTemplatesCategory(null);
+						}
 						setShouldResetKeywords(true);
 					}}
 				>
