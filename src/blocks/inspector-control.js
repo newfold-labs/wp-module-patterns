@@ -11,11 +11,9 @@ import { useSelect } from "@wordpress/data";
 import { useMemo } from "@wordpress/element";
 import { addFilter } from "@wordpress/hooks";
 import { __ } from "@wordpress/i18n";
-import { Icon } from "@wordpress/icons";
 
 import classnames from "classnames";
 
-import { rectangleGroup } from "../components/Icons";
 import TitleWithLogo from "../components/TitleWithLogo";
 
 // These block types do not support custom attributes.
@@ -36,9 +34,6 @@ function addAttributes(settings, name) {
 		settings.attributes = {
 			...settings.attributes,
 			nfdGroupDivider: {
-				type: "string",
-			},
-			nfdGroupTheme: {
 				type: "string",
 			},
 			nfdGroupEffect: {
@@ -81,7 +76,6 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const { name, clientId } = props;
 
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
-		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
 		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
@@ -233,37 +227,6 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[]
 		);
 
-		const customThemeStyles = useMemo(
-			() => [
-				{
-					name: "",
-					label: __("Default", "nfd-wonder-blocks"),
-					isDefault: true,
-				},
-				{
-					name: "white",
-					label: __("White", "nfd-wonder-blocks"),
-				},
-				{
-					name: "light",
-					label: __("Light", "nfd-wonder-blocks"),
-				},
-				{
-					name: "dark",
-					label: __("Dark", "nfd-wonder-blocks"),
-				},
-				{
-					name: "darker",
-					label: __("Darker", "nfd-wonder-blocks"),
-				},
-				{
-					name: "primary",
-					label: __("Primary", "nfd-wonder-blocks"),
-				},
-			],
-			[]
-		);
-
 		const groupEffectStyles = useMemo(
 			() => [
 				{
@@ -334,49 +297,6 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 													})
 												}
 												aria-current={selectedGroupDivider === style.name}
-											>
-												<Truncate
-													numberOfLines={1}
-													className="block-editor-block-styles__item-text"
-												>
-													{buttonText}
-												</Truncate>
-											</Button>
-										);
-									})}
-								</div>
-							</div>
-						</PanelBody>
-					</InspectorControls>
-				)}
-
-				{name === "core/group" && (
-					<InspectorControls>
-						<PanelBody
-							title={<TitleWithLogo title={__("Section Theme Color", "nfd-wonder-blocks")} />}
-							initialOpen={false}
-						>
-							<div className="block-editor-block-styles">
-								<div className="block-editor-block-styles__variants">
-									{customThemeStyles.map((style) => {
-										const buttonText = style.isDefault
-											? __("Default", "nfd-wonder-blocks")
-											: style.label || style.name;
-
-										return (
-											<Button
-												className={classnames("block-editor-block-styles__item", {
-													"is-active": selectedGroupTheme === style.name,
-												})}
-												key={style.name}
-												variant="secondary"
-												label={buttonText}
-												onClick={() => {
-													props.setAttributes({
-														nfdGroupTheme: style.name,
-													});
-												}}
-												aria-current={selectedGroupTheme === style.name}
 											>
 												<Truncate
 													numberOfLines={1}
@@ -485,9 +405,6 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 		...(attributes?.nfdAnimationDelay && attributes?.nfdAnimation
 			? [attributes.nfdAnimationDelay]
 			: []),
-		...(attributes?.nfdGroupTheme
-			? ["nfd-bg-surface", `nfd-theme-${attributes.nfdGroupTheme}`]
-			: []),
 		...(attributes?.nfdGroupEffect ? [`nfd-bg-effect-${attributes.nfdGroupEffect}`] : []),
 	];
 
@@ -507,6 +424,7 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 				return [];
 		}
 	};
+
 	const classesCombined = new Set([
 		...normalizeAsArray(additionalClasses),
 		...normalizeAsArray(generatedClasses),

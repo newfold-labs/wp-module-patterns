@@ -57,8 +57,8 @@
  *  - By default, the `light` theme is applied. 
  *  - Nested themes are supported.
  */
-
-.nfd-theme-white {
+.is-style-nfd-theme-white,
+.nfd-theme-white:not([class*="is-style-nfd-theme"]) {
 	--wndb--color--borders: var(--wndb-gray-150);
 	--wndb--color--borders-light: var(--wndb-gray-100);
 	--wndb--color--links: var(--wndb--color--primary);
@@ -69,7 +69,8 @@
 	--wndb--color--text: var(--wndb-gray-800);
 }
 
-.nfd-theme-light {
+.is-style-nfd-theme-light,
+.nfd-theme-light:not([class*="is-style-nfd-theme"]) {
 	--wndb--color--borders: var(--wndb-gray-150);
 	--wndb--color--borders-light: var(--wndb-gray-150);
 	--wndb--color--links: var(--wndb--color--primary);
@@ -80,7 +81,8 @@
 	--wndb--color--text: var(--wndb-gray-800);
 }
 
-.nfd-theme-dark {
+.is-style-nfd-theme-dark,
+.nfd-theme-dark:not([class*="is-style-nfd-theme"]) {
 	--wndb--color--borders: var(--wndb-white-100);
 	--wndb--color--borders-light: var(--wndb--color--borders);
 	--wndb--color--subtle: var(--wndb-white-200);
@@ -93,7 +95,8 @@
 	--wndb-mask-color: rgba(255, 255, 255, 0.12);
 }
 
-.nfd-theme-darker {
+.is-style-nfd-theme-darker,
+.nfd-theme-darker:not([class*="is-style-nfd-theme"]) {
 	--wndb--color--borders: var(--wndb-white-100);
 	--wndb--color--borders-light: var(--wndb--color--borders);
 	--wndb--color--subtle: var(--wndb-white-200);
@@ -106,7 +109,8 @@
 	--wndb-mask-color: rgba(255, 255, 255, 0.12);
 }
 
-.nfd-theme-primary {
+.is-style-nfd-theme-primary,
+.nfd-theme-primary:not([class*="is-style-nfd-theme"]) {
 	--wndb--color--borders: var(--wndb-white-100);
 	--wndb--color--borders-light: var(--wndb--color--borders);
 	--wndb--color--subtle: var(--wndb-white-200);
@@ -121,11 +125,13 @@
 
 /* --------------------------------- Surface -------------------------------- */
 /* Background */
+[class*="is-style-nfd-theme"]:not(.has-background),
 .nfd-bg-surface:not(.has-background) {
 	background-color: var(--wndb--color--surface);
 }
 
 /* Text color */
+[class*="is-style-nfd-theme"]:not(.has-text-color),
 .nfd-bg-surface:not(.has-text-color) {
 	color: var(--wndb--color--text);
 }
@@ -154,15 +160,23 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 .nfd-bg-surface:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.has-border-color):not(.nfd-border-strong),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.nfd-border-strong),
 .nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
-.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]){
+.nfd-bg-surface [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
+[class*="is-style-nfd-theme"]:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.has-border-color):not(.nfd-border-strong),
+[class*="is-style-nfd-theme"] [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]):not(.nfd-border-strong),
+[class*="is-style-nfd-theme"] [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]),
+[class*="is-style-nfd-theme"] [style*='border']:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > img:not(.has-border-color):not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]) > .components-resizable-box__container > img:not([class*="border-color"]):not([style*="border-top-color"]):not([style*="border-right-color"]):not([style*="border-bottom-color"]):not([style*="border-left-color"]){
 	border-color: var(--wndb--color--borders);
 }
 
 /* Separator block */
-.nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-strong) {
+[class*="is-style-nfd-theme"]
+	.wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-strong)
+	.nfd-bg-surface
+	.wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-strong) {
 	border-bottom-color: var(--wndb--color--borders);
 }
 
+[class*="is-style-nfd-theme"] .wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-2),
 .nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-2) {
 	border-bottom-width: 1px;
 }

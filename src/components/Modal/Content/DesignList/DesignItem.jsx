@@ -22,6 +22,7 @@ import { store as noticesStore } from "@wordpress/notices";
  */
 import { NFD_REST_URL } from "../../../../constants";
 import { blockInserter, optimizePreview, trackHiiveEvent } from "../../../../helpers";
+import { replaceThemeClasses } from "../../../../helpers/utils";
 import { usePatterns, useReplacePlaceholders } from "../../../../hooks";
 import { store as nfdPatternsStore } from "../../../../store";
 
@@ -51,15 +52,16 @@ const DesignItem = ({ item }) => {
 	const rawContent = item?.content ?? "";
 
 	const content = useMemo(() => {
-		return replace(rawContent, replacePlaceholders);
-	}, [replace, rawContent, replacePlaceholders]);
+		const replacedContent = replace(rawContent, replacePlaceholders);
+		return replaceThemeClasses(replacedContent);
+	}, [replace, rawContent, replacePlaceholders, replaceThemeClasses]);
 
 	const blocks = useMemo(() => rawHandler({ HTML: content }), [content]);
 
-	const previewBlocks = useMemo(
-		() => rawHandler({ HTML: optimizePreview(rawContent) }),
-		[rawContent]
-	);
+	const previewBlocks = useMemo(() => {
+		const optimizedContent = optimizePreview(rawContent);
+		return rawHandler({ HTML: replaceThemeClasses(optimizedContent) });
+	}, [rawContent, replaceThemeClasses]);
 
 	const { createErrorNotice, createSuccessNotice } = useDispatch(noticesStore);
 	const { editPost } = useDispatch(editorStore);
