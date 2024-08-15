@@ -185,7 +185,7 @@
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 	background: rgba(255, 255, 255, 0.5) !important;
 	-webkit-backdrop-filter: blur(4px) !important;
-	        backdrop-filter: blur(4px) !important;
+	backdrop-filter: blur(4px) !important;
 	border-radius: 999px !important;
 	font-size: 0.8125rem !important;
 	font-weight: 700 !important;
@@ -270,7 +270,7 @@
 	z-index: -1 !important;
 	pointer-events: none !important;
 	-webkit-mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
-	        mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
+	mask-image: radial-gradient(ellipse var(--wndb-mask-position), #000 70%, rgba(0, 0, 0, 0.3) 100%) !important;
 	opacity: var(--wndb-mask-opacity) !important;
 }
 /* Dots */
@@ -513,7 +513,7 @@
 		opacity: 1 !important;
 		transform: none !important;
 		-webkit-clip-path: none !important;
-		        clip-path: none !important;
+		clip-path: none !important;
 	}
 }
 /* No animations on mobile devices */
@@ -528,7 +528,7 @@
 		opacity: 1 !important;
 		transform: none !important;
 		-webkit-clip-path: none !important;
-		        clip-path: none !important;
+		clip-path: none !important;
 	}
 }
 /* Allow animations to be replayed. This attribute is removed from element with JS, causing the animation to be replayed */
@@ -540,7 +540,7 @@
 	opacity: 1 !important;
 	transform: none !important;
 	-webkit-clip-path: none !important;
-	        clip-path: none !important;
+	clip-path: none !important;
 }
 /* --------------------------------- Fade In -------------------------------- */
 [class*="nfd-wb-fade-in"] {
@@ -648,11 +648,11 @@ div:has(> .nfd-wb-twist-in) {
 
 	transition: var(--nfd-wb-anim-transition);
 	-webkit-clip-path: inset(0 100% 0 0);
-	        clip-path: inset(0 100% 0 0);
+	clip-path: inset(0 100% 0 0);
 }
 .nfd-wb-animated-in > .nfd-wb-reveal-right:not([data-replay-animation]) {
 	-webkit-clip-path: inset(0 0 0 0) !important;
-	        clip-path: inset(0 0 0 0) !important;
+	clip-path: inset(0 0 0 0) !important;
 }
 /* --------------------------------- Delays --------------------------------- */
 .nfd-delay-50 {
@@ -705,7 +705,6 @@ div:has(> .nfd-wb-twist-in) {
  * easily overriden by the theme or Gutenberg options.
  */
 :where(:root) {
-
 	/*
     * Default and wide container width. 
     * This is used if the width is not inherited from the theme.
@@ -722,7 +721,9 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-container:is(.nfd-my-0) > div,
 .editor-styles-wrapper .nfd-container:is(.is-layout-constrained) > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
 .nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)),
-.editor-styles-wrapper .nfd-container > :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)):not([style*="margin"]) {
+.editor-styles-wrapper
+	.nfd-container
+	> :where(.wp-block-cover-is-layout-constrained:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)):not([style*="margin"]) {
 	width: 100%;
 	max-width: var(--wndb--container);
 }
@@ -816,7 +817,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-ellipse::before {
 	-webkit-clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
-	        clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
+	clip-path: ellipse(50% var(--wndb--divider-size) at 50% 0%) !important;
 }
 /**
  * "Rounded" section divider.
@@ -837,12 +838,12 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-slant::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 0 100%) !important;
-	        clip-path: polygon(0 0, 100% 0, 0 100%) !important;
+	clip-path: polygon(0 0, 100% 0, 0 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 .nfd-divider-slant-invert::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
-	        clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
+	clip-path: polygon(0 0, 100% 0, 100% 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 /**
@@ -853,7 +854,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-triangle::before {
 	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
-	        clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
+	clip-path: polygon(0 0, 100% 0, 50% 100%) !important;
 	bottom: calc(calc(-1 * var(--wndb--divider-size)) + 1px) !important;
 }
 /**
@@ -864,7 +865,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 }
 .nfd-divider-zigzag::before {
 	-webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
-	        mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
+	mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--wndb--divider-size) * 2) 100% !important;
 }
 :where(:root) {
 	--wndb--divider-size: 0px;
@@ -1054,7 +1055,7 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 	background: rgba(255, 255, 255, 0.1) !important;
 	opacity: 1 !important;
 	-webkit-backdrop-filter: blur(3px) !important;
-	        backdrop-filter: blur(3px) !important;
+	backdrop-filter: blur(3px) !important;
 }
 .nfd-pseudo-play-icon:has(a:hover)::before {
 	width: 4rem !important;
@@ -1145,13 +1146,13 @@ body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-con
 .nfd-gap-x-4xl,
 .editor-styles-wrapper .nfd-gap-x-4xl {
 	-moz-column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
-	     column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
+	column-gap: calc(var(--wndb--gap--4xl) * var(--wndb--gap--scale-factor));
 }
 /* --------------------------------- Y axis --------------------------------- */
 .nfd-gap-x-lg,
 .editor-styles-wrapper .nfd-gap-x-lg {
 	-moz-column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
-	     column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
+	column-gap: calc(var(--wndb--gap--lg) * var(--wndb--gap--scale-factor));
 }
 .nfd-gap-y-lg,
 .editor-styles-wrapper .nfd-gap-y-lg {
@@ -1834,11 +1835,11 @@ ul.nfd-list-check li::before {
 }
 .nfd-mask-fade-to-b > .wp-block-cover__background {
 	-webkit-mask-image: linear-gradient(to bottom, transparent 50%, black 120%) !important;
-	        mask-image: linear-gradient(to bottom, transparent 50%, black 120%) !important;
+	mask-image: linear-gradient(to bottom, transparent 50%, black 120%) !important;
 }
 .nfd-mask-radial-center > .wp-block-cover__background {
 	-webkit-mask-image: radial-gradient(circle, transparent -40%, rgba(0, 0, 0, 0.9) 58%) !important;
-	        mask-image: radial-gradient(circle, transparent -40%, rgba(0, 0, 0, 0.9) 58%) !important;
+	mask-image: radial-gradient(circle, transparent -40%, rgba(0, 0, 0, 0.9) 58%) !important;
 }
 /**
  * Miscellaneous utilities.
@@ -1866,11 +1867,11 @@ p[style*="text-decoration"] > a {
 /* Backdrop blur */
 .nfd-backdrop-blur-sm {
 	-webkit-backdrop-filter: blur(4px) !important;
-	        backdrop-filter: blur(4px) !important;
+	backdrop-filter: blur(4px) !important;
 }
 .nfd-backdrop-blur-md {
 	-webkit-backdrop-filter: blur(8px) !important;
-	        backdrop-filter: blur(8px) !important;
+	backdrop-filter: blur(8px) !important;
 }
 /* Absolute header */
 .nfd-absolute-header {

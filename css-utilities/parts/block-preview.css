@@ -56,5 +56,11 @@
 }
 
 .block-editor-block-preview__content-iframe .block-editor-warning {
-	display: none;
+	/* display: none; */
+}
+
+.block-editor-block-preview__content-iframe
+	.is-root-container
+	> .nfd-container:not([class*="nfd-p-"]):not([class*="nfd-py-"]):not([class*="nfd-pt-"]):not([class*="nfd-pb-"]) {
+	padding-block: var(--wndb--p) !important;
 }
