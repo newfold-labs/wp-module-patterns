@@ -48,6 +48,7 @@
 	--wndb--color--borders-strong: var(--wndb--color--text--faded);
 	--wndb--color--subtle: var(--wndb-gray-200);
 	--wndb--color--links: var(--wndb--color--primary);
+	--wndb--color--body: var(--wndb--color--surface);
 }
 
 /*
@@ -243,6 +244,10 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 [class*="nfd-theme-"] .wp-block-social-links.is-style-logos-only:not(.has-icon-color) .wp-block-social-link:hover {
 	color: var(--wndb--color--text);
 	fill: var(--wndb--color--text);
+}
+
+.nfd-container.is-position-sticky:not([class*="nfd-bg-surface"]):not([class*="is-style-nfd-"]):not(.has-background) {
+	background-color: var(--wndb--color--body);
 }
 
 /* ------------------------- Backward compatibility ------------------------- */
