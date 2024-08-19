@@ -18,7 +18,7 @@
 		"lint:js": "wp-scripts lint-js ./src",
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
 		"utils:dev": "concurrently \"postcss ./css-utilities/utilities.css -o ./assets/build/utilities.css -w --env development\" \"esbuild --bundle ./assets/scripts/utilities.js --sourcemap --outfile=./assets/build/utilities.js --target=es2020 --watch\"",
-		"utils:prod": "concurrently \"NODE_ENVIRONMENT=production postcss ./css-utilities/utilities.css -o ./assets/build/utilities.css --env production\" \"esbuild --bundle ./assets/scripts/utilities.js --minify --outfile=./assets/build/utilities.js --target=es2020 && rm ./assets/build/utilities.js.map\"",
+		"utils:prod": "concurrently \"postcss ./css-utilities/utilities.css -o ./assets/build/utilities.css --env production\" \"esbuild --bundle ./assets/scripts/utilities.js --minify --outfile=./assets/build/utilities.js --target=es2020 && rm ./assets/build/utilities.js.map\"",
 		"json-server": "json-server --watch api.dev.json --port 3003"
 	},
 	"devDependencies": {
