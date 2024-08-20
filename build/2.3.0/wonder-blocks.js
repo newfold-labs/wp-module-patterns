@@ -2413,6 +2413,9 @@ function addAttributes(settings, name) {
       nfdGroupDivider: {
         type: "string"
       },
+      nfdGroupTheme: {
+        type: "string"
+      },
       nfdGroupEffect: {
         type: "string"
       }
@@ -2444,15 +2447,16 @@ function addEditProps(settings) {
 }
 const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__.createHigherOrderComponent)(BlockEdit => {
   return props => {
-    var _props$attributes$nfd, _props$attributes$nfd2, _props$attributes$nfd3, _props$attributes$nfd4;
+    var _props$attributes$nfd, _props$attributes$nfd2, _props$attributes$nfd3, _props$attributes$nfd4, _props$attributes$nfd5;
     const {
       name,
       clientId
     } = props;
     const selectedGroupDivider = (_props$attributes$nfd = props?.attributes?.nfdGroupDivider) !== null && _props$attributes$nfd !== void 0 ? _props$attributes$nfd : "default";
-    const selectedGroupEffect = (_props$attributes$nfd2 = props?.attributes?.nfdGroupEffect) !== null && _props$attributes$nfd2 !== void 0 ? _props$attributes$nfd2 : "";
-    const selectedAnimation = (_props$attributes$nfd3 = props?.attributes?.nfdAnimation) !== null && _props$attributes$nfd3 !== void 0 ? _props$attributes$nfd3 : "";
-    const selectedAnimationDelay = (_props$attributes$nfd4 = props?.attributes?.nfdAnimationDelay) !== null && _props$attributes$nfd4 !== void 0 ? _props$attributes$nfd4 : "";
+    const selectedGroupTheme = (_props$attributes$nfd2 = props?.attributes?.nfdGroupTheme) !== null && _props$attributes$nfd2 !== void 0 ? _props$attributes$nfd2 : "";
+    const selectedGroupEffect = (_props$attributes$nfd3 = props?.attributes?.nfdGroupEffect) !== null && _props$attributes$nfd3 !== void 0 ? _props$attributes$nfd3 : "";
+    const selectedAnimation = (_props$attributes$nfd4 = props?.attributes?.nfdAnimation) !== null && _props$attributes$nfd4 !== void 0 ? _props$attributes$nfd4 : "";
+    const selectedAnimationDelay = (_props$attributes$nfd5 = props?.attributes?.nfdAnimationDelay) !== null && _props$attributes$nfd5 !== void 0 ? _props$attributes$nfd5 : "";
     const isTopLevel = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
       const {
         getBlockRootClientId
@@ -2553,6 +2557,26 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
       value: "nfd-delay-1500",
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("1500ms", "nfd-wonder-blocks")
     }], []);
+    const customThemeStyles = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useMemo)(() => [{
+      name: "",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Default", "nfd-wonder-blocks"),
+      isDefault: true
+    }, {
+      name: "white",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("White", "nfd-wonder-blocks")
+    }, {
+      name: "light",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Light", "nfd-wonder-blocks")
+    }, {
+      name: "dark",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Dark", "nfd-wonder-blocks")
+    }, {
+      name: "darker",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Darker", "nfd-wonder-blocks")
+    }, {
+      name: "primary",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Primary", "nfd-wonder-blocks")
+    }], []);
     const groupEffectStyles = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useMemo)(() => [{
       name: "",
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("None", "nfd-wonder-blocks"),
@@ -2604,6 +2628,37 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
           nfdGroupDivider: style.name
         }),
         "aria-current": selectedGroupDivider === style.name
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalTruncate, {
+        numberOfLines: 1,
+        className: "block-editor-block-styles__item-text"
+      }, buttonText));
+    }))))), name === "core/group" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TitleWithLogo__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Section Theme Color", "nfd-wonder-blocks")
+      }),
+      initialOpen: false
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "block-editor-block-styles"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "block-editor-block-styles__variants"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Notice, {
+      className: "nfd-wba-mt-2 nfd-wba-mb-1",
+      status: "warning",
+      isDismissible: false
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Note: This feature has moved to the Styles Section.", "nfd-wonder-blocks")), customThemeStyles.map(style => {
+      const buttonText = style.isDefault ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Default", "nfd-wonder-blocks") : style.label || style.name;
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        className: classnames__WEBPACK_IMPORTED_MODULE_8___default()("nfd-wba-w-[calc(50%-4px)] nfd-wba-inline-block"),
+        key: style.name,
+        variant: "secondary",
+        label: buttonText,
+        onClick: () => {
+          props.setAttributes({
+            nfdGroupTheme: style.name
+          });
+        },
+        disabled: true,
+        "aria-current": selectedGroupTheme === style.name
       }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalTruncate, {
         numberOfLines: 1,
         className: "block-editor-block-styles__item-text"
@@ -5024,10 +5079,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../helpers */ "./src/helpers/index.js");
 /* harmony import */ var _hooks_useMonitorBlockOrder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/useMonitorBlockOrder */ "./src/hooks/useMonitorBlockOrder.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../store */ "./src/store/index.js");
-/* harmony import */ var _Content_Content__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Content/Content */ "./src/components/Modal/Content/Content.jsx");
-/* harmony import */ var _Content_Header_Header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Content/Header/Header */ "./src/components/Modal/Content/Header/Header.jsx");
-/* harmony import */ var _Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Sidebar/Sidebar */ "./src/components/Modal/Sidebar/Sidebar.jsx");
+/* harmony import */ var _hooks_useUpdateThemeClasses__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/useUpdateThemeClasses */ "./src/hooks/useUpdateThemeClasses.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../store */ "./src/store/index.js");
+/* harmony import */ var _Content_Content__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Content/Content */ "./src/components/Modal/Content/Content.jsx");
+/* harmony import */ var _Content_Header_Header__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Content/Header/Header */ "./src/components/Modal/Content/Header/Header.jsx");
+/* harmony import */ var _Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Sidebar/Sidebar */ "./src/components/Modal/Sidebar/Sidebar.jsx");
 
 /**
  * WordPress dependencies
@@ -5045,21 +5101,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const Modal = () => {
   const {
     setIsModalOpen,
     setActiveTab
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_6__.store);
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_7__.store);
   const {
     isModalOpen,
     isEditingTemplate,
     editedPostType,
     currentView
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => ({
-    currentView: select(_store__WEBPACK_IMPORTED_MODULE_6__.store).getCurrentView(),
+    currentView: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).getCurrentView(),
     editedPostType: select("core/edit-site")?.getEditedPostType(),
     isEditingTemplate: select("core/edit-post").isEditingTemplate(),
-    isModalOpen: select(_store__WEBPACK_IMPORTED_MODULE_6__.store).isModalOpen()
+    isModalOpen: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).isModalOpen()
   }));
 
   // Check if we are editing a template, via site editor or page.
@@ -5069,6 +5126,9 @@ const Modal = () => {
 
   // Monitor block order.
   (0,_hooks_useMonitorBlockOrder__WEBPACK_IMPORTED_MODULE_5__["default"])();
+
+  // Update theme classes in blocks.
+  (0,_hooks_useUpdateThemeClasses__WEBPACK_IMPORTED_MODULE_6__["default"])();
 
   // Check if we should automatically open the modal and pre-select.
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
@@ -5101,9 +5161,9 @@ const Modal = () => {
     onRequestClose: () => setIsModalOpen(false)
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-library-modal-grid nfd-wba-grow nfd-wba-bg-white nfd-wba-text-dark-lighter"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_10__["default"], {
     isSiteEditor: isSiteEditor
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Content_Header_Header__WEBPACK_IMPORTED_MODULE_8__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Content_Content__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Content_Header_Header__WEBPACK_IMPORTED_MODULE_9__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Content_Content__WEBPACK_IMPORTED_MODULE_8__["default"], {
     view: currentView
   })));
 };
@@ -6135,6 +6195,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * WordPress dependencies
+ */
 
 
 
@@ -6452,6 +6515,68 @@ const useSetCurrentView = () => {
   return currentView;
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useSetCurrentView);
+
+/***/ }),
+
+/***/ "./src/hooks/useUpdateThemeClasses.js":
+/*!********************************************!*\
+  !*** ./src/hooks/useUpdateThemeClasses.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * WordPress dependencies
+ */
+
+
+
+// Helper function to recursively traverse blocks, including nested blocks
+const traverseBlocks = (blocks, updateBlockAttributes) => {
+  blocks.forEach(block => {
+    // If the block has attributes and a className attribute
+    if (block?.attributes?.nfdGroupTheme) {
+      // Remove all existing 'is-style-*' classes
+      const classNameWithoutIsStyle = block.attributes.className.replace(/\bis-style-[^\s]+/g, "").trim();
+
+      // Add the new 'is-style-nfd-theme-*' class
+      const updatedClassName = `${classNameWithoutIsStyle} is-style-nfd-theme-${block.attributes.nfdGroupTheme}`;
+
+      // If className has changed, update the block
+      if (updatedClassName !== block.attributes.className) {
+        updateBlockAttributes(block.clientId, {
+          className: updatedClassName,
+          nfdGroupTheme: "" // Clear the theme attribute after applying it to className
+        });
+      }
+    }
+
+    // Recursively process inner blocks
+    if (block.innerBlocks?.length) {
+      traverseBlocks(block.innerBlocks, updateBlockAttributes);
+    }
+  });
+};
+
+// Custom Hook for updating theme classes in blocks, including nested blocks
+const useUpdateThemeClasses = () => {
+  const allBlocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.useSelect)(select => select("core/block-editor").getBlocks(), []);
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.useDispatch)("core/block-editor");
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    traverseBlocks(allBlocks, updateBlockAttributes);
+  }, [allBlocks, updateBlockAttributes]);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useUpdateThemeClasses);
 
 /***/ }),
 

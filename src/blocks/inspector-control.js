@@ -1,6 +1,7 @@
 import { InspectorControls } from "@wordpress/block-editor";
 import {
 	Button,
+	Notice,
 	PanelBody,
 	SelectControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
@@ -34,6 +35,9 @@ function addAttributes(settings, name) {
 		settings.attributes = {
 			...settings.attributes,
 			nfdGroupDivider: {
+				type: "string",
+			},
+			nfdGroupTheme: {
 				type: "string",
 			},
 			nfdGroupEffect: {
@@ -76,6 +80,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const { name, clientId } = props;
 
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
+		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
 		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
@@ -227,6 +232,37 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[]
 		);
 
+		const customThemeStyles = useMemo(
+			() => [
+				{
+					name: "",
+					label: __("Default", "nfd-wonder-blocks"),
+					isDefault: true,
+				},
+				{
+					name: "white",
+					label: __("White", "nfd-wonder-blocks"),
+				},
+				{
+					name: "light",
+					label: __("Light", "nfd-wonder-blocks"),
+				},
+				{
+					name: "dark",
+					label: __("Dark", "nfd-wonder-blocks"),
+				},
+				{
+					name: "darker",
+					label: __("Darker", "nfd-wonder-blocks"),
+				},
+				{
+					name: "primary",
+					label: __("Primary", "nfd-wonder-blocks"),
+				},
+			],
+			[]
+		);
+
 		const groupEffectStyles = useMemo(
 			() => [
 				{
@@ -297,6 +333,55 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 													})
 												}
 												aria-current={selectedGroupDivider === style.name}
+											>
+												<Truncate
+													numberOfLines={1}
+													className="block-editor-block-styles__item-text"
+												>
+													{buttonText}
+												</Truncate>
+											</Button>
+										);
+									})}
+								</div>
+							</div>
+						</PanelBody>
+					</InspectorControls>
+				)}
+
+				{name === "core/group" && (
+					<InspectorControls>
+						<PanelBody
+							title={<TitleWithLogo title={__("Section Theme Color", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
+							<div className="block-editor-block-styles">
+								<div className="block-editor-block-styles__variants">
+									<Notice
+										className="nfd-wba-mt-2 nfd-wba-mb-1"
+										status="warning"
+										isDismissible={false}
+									>
+										{__("Note: This feature has moved to the Styles Section.", "nfd-wonder-blocks")}
+									</Notice>
+									{customThemeStyles.map((style) => {
+										const buttonText = style.isDefault
+											? __("Default", "nfd-wonder-blocks")
+											: style.label || style.name;
+
+										return (
+											<Button
+												className={classnames("nfd-wba-w-[calc(50%-4px)] nfd-wba-inline-block")}
+												key={style.name}
+												variant="secondary"
+												label={buttonText}
+												onClick={() => {
+													props.setAttributes({
+														nfdGroupTheme: style.name,
+													});
+												}}
+												disabled
+												aria-current={selectedGroupTheme === style.name}
 											>
 												<Truncate
 													numberOfLines={1}
