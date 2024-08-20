@@ -4935,7 +4935,7 @@ const About = () => {
     className: "nfd-wba-text-[15px]"
   }, "WonderBlocks lets you customize premade page templates and section design patterns using the built-in Blocks in WordPress \u2013 but made wonderful. Take the stress out of going from blank canvas to beautiful creation with professionally-designed Patterns for common website needs."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "nfd-wba-text-[15px]"
-  }, "WonderBlocks is a feature of your ", hostLabel, " hosting plan and is powered by the", " ", hostPlugin, ". You can update your WonderBlocks settings", " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, "WonderBlocks is a feature of your ", hostLabel, " hosting plan and is powered by", " " + hostPlugin, ". You can update your WonderBlocks settings", " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: settingsPageUrl,
     className: "nfd-wba-text-blue-500 hover:nfd-wba-underline"
   }, "here"), "."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.Warning, {

@@ -49,6 +49,7 @@ class CSSUtilities {
                 /* Colors */
                 --wndb--color--primary: var(--wp--preset--color--primary);
                 --wndb--color--secondary: var(--wp--preset--color--secondary);
+				--wndb--color--body: var(--wp--preset--color--base);
                 
 				--wndb--p: var(--wp--preset--spacing--40);
                 
