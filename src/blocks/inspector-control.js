@@ -362,7 +362,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 										status="warning"
 										isDismissible={false}
 									>
-										{__("Note: This feature has moved to the Styles Section.", "nfd-wonder-blocks")}
+										{__(
+											"Note: This feature is now located in the Block Styles section.",
+											"nfd-wonder-blocks"
+										)}
 									</Notice>
 									{customThemeStyles.map((style) => {
 										const buttonText = style.isDefault
