@@ -363,7 +363,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 										isDismissible={false}
 									>
 										{__(
-											"Note: This feature is now located in the Block Styles section.",
+											"This feature is now located in the Block Styles section.",
 											"nfd-wonder-blocks"
 										)}
 									</Notice>

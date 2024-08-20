@@ -2645,7 +2645,7 @@ const withInspectorControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__
       className: "nfd-wba-mt-2 nfd-wba-mb-1",
       status: "warning",
       isDismissible: false
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Note: This feature is now located in the Block Styles section.", "nfd-wonder-blocks")), customThemeStyles.map(style => {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("This feature is now located in the Block Styles section.", "nfd-wonder-blocks")), customThemeStyles.map(style => {
       const buttonText = style.isDefault ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Default", "nfd-wonder-blocks") : style.label || style.name;
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
         className: classnames__WEBPACK_IMPORTED_MODULE_8___default()("nfd-wba-w-[calc(50%-4px)] nfd-wba-inline-block"),
