@@ -17,7 +17,8 @@ import Header from "./Content/Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 
 const Modal = () => {
-	const { setIsModalOpen, setActiveTab } = useDispatch(nfdPatternsStore);
+	const { setIsModalOpen, setActiveTab, setActivePatternsCategory, setActiveTemplatesCategory } =
+		useDispatch(nfdPatternsStore);
 
 	const { isModalOpen, isEditingTemplate, editedPostType, currentView } = useSelect((select) => ({
 		currentView: select(nfdPatternsStore).getCurrentView(),
@@ -42,10 +43,16 @@ const Modal = () => {
 		const searchParams = new URLSearchParams(window?.location?.search);
 		let timer;
 
-		if (searchParams.has("wonder-blocks-library")) {
+		if (searchParams.has("wb-library")) {
 			timer = setTimeout(() => {
-				if (searchParams.get("wonder-blocks-library") === "templates") {
+				if (searchParams.get("wb-library") === "templates") {
 					setActiveTab("templates");
+					if (searchParams.has("wb-category")) {
+						setActiveTemplatesCategory(searchParams.get("wb-category"));
+					}
+				} else if (searchParams.has("wb-category")) {
+					setActiveTab("patterns");
+					setActivePatternsCategory(searchParams.get("wb-category"));
 				}
 
 				trackHiiveEvent("modal_open", {
