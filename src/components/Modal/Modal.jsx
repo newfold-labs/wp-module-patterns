@@ -10,6 +10,7 @@ import { useEffect, useMemo } from "@wordpress/element";
  */
 import { trackHiiveEvent } from "../../helpers";
 import useMonitorBlockOrder from "../../hooks/useMonitorBlockOrder";
+import useUpdateThemeClasses from "../../hooks/useUpdateThemeClasses";
 import { store as nfdPatternsStore } from "../../store";
 import Content from "./Content/Content";
 import Header from "./Content/Header/Header";
@@ -33,6 +34,9 @@ const Modal = () => {
 
 	// Monitor block order.
 	useMonitorBlockOrder();
+
+	// Update theme classes in blocks.
+	useUpdateThemeClasses();
 
 	// Check if we should automatically open the modal and pre-select.
 	useEffect(() => {

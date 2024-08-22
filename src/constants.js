@@ -1,6 +1,6 @@
 export const BRAND_NAME = "WonderBlocks";
 export const WP_VERSION = window.nfdWonderBlocks?.wpVer || "";
-export const MIN_REQUIRED_WP_VERSION = "6.3.1";
+export const MIN_REQUIRED_WP_VERSION = "6.6";
 export const NFD_WONDER_BLOCKS_MODAL_ID = "nfd-wba-modal";
 export const NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID = "nfd-wba-toolbar-button";
 export const NFD_REST_URL = window.nfdWonderBlocks?.nfdRestURL || "";
