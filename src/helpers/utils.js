@@ -19,3 +19,12 @@ export function formatVersion(version) {
 
 	return formattedVersion;
 }
+
+/* To replace the theme classes from the content with the new block style classes */
+export function replaceThemeClasses(content) {
+	// Regular expression to match "nfd-bg-surface nfd-theme-*"
+	const themeClassRegex = /nfd-bg-surface nfd-theme-([^\s]+)/g;
+
+	// Replace with "is-style-nfd-theme-*"
+	return content.replace(themeClassRegex, "is-style-nfd-theme-$1");
+}

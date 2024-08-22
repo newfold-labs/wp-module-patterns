@@ -136,7 +136,7 @@ Ensure that these files are committed to the repository, as they are essential c
 
 5. Confirm that `<new_version>` exists on both [GitHub Tags](https://github.com/newfold-labs/wp-module-patterns/tags) and [Satis](https://newfold-labs.github.io/satis/#patterns).
 
-## More on NewFold WordPress Modules
+## More on Newfold WordPress Modules
 
 - <a href="https://github.com/newfold-labs/wp-module-loader#endurance-wordpress-modules">What are modules?</a>
 - <a href="https://github.com/newfold-labs/wp-module-loader#creating--registering-a-module">Creating/registering
