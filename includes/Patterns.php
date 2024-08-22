@@ -7,6 +7,7 @@ use NewfoldLabs\WP\Module\Patterns\Permissions;
 use NewfoldLabs\WP\Module\Patterns\Library\Admin as PatternsLibrary;
 use NewfoldLabs\WP\Module\Patterns\Api\RestApi;
 use NewfoldLabs\WP\Module\Patterns\Admin\CTA;
+use NewfoldLabs\WP\Module\Patterns\BlockStyles;
 
 /**
  * Patterns module.
@@ -36,5 +37,6 @@ class Patterns {
 
 		new CSSUtilities();
 		new RestApi();
+		new BlockStyles();
 	}
 }

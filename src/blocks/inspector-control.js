@@ -1,6 +1,7 @@
 import { InspectorControls } from "@wordpress/block-editor";
 import {
 	Button,
+	Notice,
 	PanelBody,
 	SelectControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
@@ -11,11 +12,9 @@ import { useSelect } from "@wordpress/data";
 import { useMemo } from "@wordpress/element";
 import { addFilter } from "@wordpress/hooks";
 import { __ } from "@wordpress/i18n";
-import { Icon } from "@wordpress/icons";
 
 import classnames from "classnames";
 
-import { rectangleGroup } from "../components/Icons";
 import TitleWithLogo from "../components/TitleWithLogo";
 
 // These block types do not support custom attributes.
@@ -358,6 +357,16 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 						>
 							<div className="block-editor-block-styles">
 								<div className="block-editor-block-styles__variants">
+									<Notice
+										className="nfd-wba-mt-2 nfd-wba-mb-1"
+										status="warning"
+										isDismissible={false}
+									>
+										{__(
+											"This feature is now located in the Block Styles section.",
+											"nfd-wonder-blocks"
+										)}
+									</Notice>
 									{customThemeStyles.map((style) => {
 										const buttonText = style.isDefault
 											? __("Default", "nfd-wonder-blocks")
@@ -365,9 +374,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 
 										return (
 											<Button
-												className={classnames("block-editor-block-styles__item", {
-													"is-active": selectedGroupTheme === style.name,
-												})}
+												className={classnames("nfd-wba-w-[calc(50%-4px)] nfd-wba-inline-block")}
 												key={style.name}
 												variant="secondary"
 												label={buttonText}
@@ -376,6 +383,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 														nfdGroupTheme: style.name,
 													});
 												}}
+												disabled
 												aria-current={selectedGroupTheme === style.name}
 											>
 												<Truncate
@@ -485,9 +493,6 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 		...(attributes?.nfdAnimationDelay && attributes?.nfdAnimation
 			? [attributes.nfdAnimationDelay]
 			: []),
-		...(attributes?.nfdGroupTheme
-			? ["nfd-bg-surface", `nfd-theme-${attributes.nfdGroupTheme}`]
-			: []),
 		...(attributes?.nfdGroupEffect ? [`nfd-bg-effect-${attributes.nfdGroupEffect}`] : []),
 	];
 
@@ -507,6 +512,7 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 				return [];
 		}
 	};
+
 	const classesCombined = new Set([
 		...normalizeAsArray(additionalClasses),
 		...normalizeAsArray(generatedClasses),
