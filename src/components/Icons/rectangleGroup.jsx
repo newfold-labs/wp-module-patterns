@@ -3,7 +3,7 @@
  */
 import { Path, SVG } from "@wordpress/primitives";
 
-const heartEmpty = (
+const rectangleGroup = (
 	<SVG
 		xmlns="http://www.w3.org/2000/svg"
 		fill="none"
@@ -19,4 +19,4 @@ const heartEmpty = (
 	</SVG>
 );
 
-export default heartEmpty;
+export default rectangleGroup;

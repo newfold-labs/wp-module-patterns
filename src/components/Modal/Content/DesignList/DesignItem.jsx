@@ -415,7 +415,14 @@ const DesignItem = ({ item }) => {
 										: __("Add to favorites", "nfd-wonder-blocks")
 								}
 								onClick={() => favoritesClickHandler(false)}
-								icon={<HeartIcon className="!nfd-wba-fill-none nfd-wba-shrink-0 nfd-wba-size-5" />}
+								icon={
+									<HeartIcon
+										className={classNames(
+											" nfd-wba-shrink-0 nfd-wba-size-5",
+											!isFavorite && "!nfd-wba-fill-none"
+										)}
+									/>
+								}
 							/>
 						)}
 

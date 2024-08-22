@@ -12,7 +12,10 @@ import { fetcher } from "../helpers/fetcher";
 const useCategories = (type = "patterns") => {
 	const endpoint = type === "patterns" ? "categories" : "templateCategories";
 
-	const { data, error, isValidating } = useSWR({ url: `${NFD_REST_URL}/${endpoint}` }, fetcher);
+	const { data, error, isValidating, mutate } = useSWR(
+		{ url: `${NFD_REST_URL}/${endpoint}` },
+		fetcher
+	);
 
 	if (!Array.isArray(data)) {
 		return {
@@ -26,6 +29,7 @@ const useCategories = (type = "patterns") => {
 		data,
 		isError: error,
 		isValidating,
+		mutate,
 	};
 };
 
