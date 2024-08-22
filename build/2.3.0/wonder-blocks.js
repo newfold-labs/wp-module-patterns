@@ -5178,7 +5178,9 @@ __webpack_require__.r(__webpack_exports__);
 const Modal = () => {
   const {
     setIsModalOpen,
-    setActiveTab
+    setActiveTab,
+    setActivePatternsCategory,
+    setActiveTemplatesCategory
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_store__WEBPACK_IMPORTED_MODULE_6__.store);
   const {
     isModalOpen,
@@ -5204,10 +5206,16 @@ const Modal = () => {
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     const searchParams = new URLSearchParams(window?.location?.search);
     let timer;
-    if (searchParams.has("wonder-blocks-library")) {
+    if (searchParams.has("wb-library")) {
       timer = setTimeout(() => {
-        if (searchParams.get("wonder-blocks-library") === "templates") {
+        if (searchParams.get("wb-library") === "templates") {
           setActiveTab("templates");
+          if (searchParams.has("wb-category")) {
+            setActiveTemplatesCategory(searchParams.get("wb-category"));
+          }
+        } else if (searchParams.has("wb-category")) {
+          setActiveTab("patterns");
+          setActivePatternsCategory(searchParams.get("wb-category"));
         }
         (0,_helpers__WEBPACK_IMPORTED_MODULE_4__.trackHiiveEvent)("modal_open", {
           label_key: "trigger",

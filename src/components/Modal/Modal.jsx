@@ -16,7 +16,8 @@ import Header from "./Content/Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 
 const Modal = () => {
-	const { setIsModalOpen, setActiveTab, setActivePatternsCategory, setActiveTemplatesCategory } = useDispatch(nfdPatternsStore);
+	const { setIsModalOpen, setActiveTab, setActivePatternsCategory, setActiveTemplatesCategory } =
+		useDispatch(nfdPatternsStore);
 
 	const { isModalOpen, isEditingTemplate, editedPostType, currentView } = useSelect((select) => ({
 		currentView: select(nfdPatternsStore).getCurrentView(),
@@ -42,12 +43,12 @@ const Modal = () => {
 			timer = setTimeout(() => {
 				if (searchParams.get("wb-library") === "templates") {
 					setActiveTab("templates");
-					if(searchParams.has("wb-category")) {
+					if (searchParams.has("wb-category")) {
 						setActiveTemplatesCategory(searchParams.get("wb-category"));
 					}
 				} else if (searchParams.has("wb-category")) {
 					setActiveTab("patterns");
-					setActivePatternsCategory(searchParams.get("wb-category"));	
+					setActivePatternsCategory(searchParams.get("wb-category"));
 				}
 
 				trackHiiveEvent("modal_open", {
