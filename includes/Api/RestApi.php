@@ -39,7 +39,7 @@ final class RestApi {
 
 		RestApiController::post( '/events', array( EventsController::class, 'send' ), EventsController::get_send_event_args() );
 		RestApiController::post( '/events/batch', array( EventsController::class, 'send_batch' ) );
-		
+
 		RestApiController::post( '/clear-cache', array( CacheController::class, 'clear_cache' ) );
 	}
 }
