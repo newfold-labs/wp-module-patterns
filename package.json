@@ -1,6 +1,6 @@
 {
 	"name": "@newfold-labs/wp-module-patterns",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "WonderBlocks",
 	"license": "GPL-2.0-or-later",
 	"private": true,
@@ -20,14 +20,14 @@
 		"utils:prod": "concurrently \"postcss ./source/css-utilities/utilities.css -o ./assets/build/utilities.css --env production\" \"esbuild --bundle ./source/scripts/utilities.js --minify --outfile=./assets/build/utilities.js --target=es2020 && rimraf ./assets/build/utilities.js.map\""
 	},
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^20.2.0",
-		"@wordpress/prettier-config": "^4.5.0",
-		"@wordpress/scripts": "^28.5.0",
+		"@wordpress/eslint-plugin": "^20.3.0",
+		"@wordpress/prettier-config": "^4.6.0",
+		"@wordpress/scripts": "^28.6.0",
 		"autoprefixer": "^10.4.20",
 		"concurrently": "^8.2.2",
 		"cssnano": "^7.0.5",
 		"esbuild": "^0.23.1",
-		"eslint": "^9.9.0",
+		"eslint": "^9.9.1",
 		"eslint-plugin-prettier": "^5.2.1",
 		"postcss": "^8.4.41",
 		"postcss-cli": "^11.0.0",
@@ -40,11 +40,11 @@
 	},
 	"dependencies": {
 		"@newfold-labs/js-utility-ui-analytics": "1.2.0",
-		"@wordpress/icons": "^10.5.0",
+		"@wordpress/icons": "^10.6.0",
 		"classnames": "^2.5.1",
 		"compare-versions": "^6.1.1",
 		"lodash": "^4.17.21",
-		"lucide-react": "^0.428.0",
+		"lucide-react": "^0.436.0",
 		"react-intersection-observer": "^9.13.0",
 		"react-masonry-css": "^1.0.16",
 		"swr": "^2.2.5"
