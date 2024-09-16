@@ -14,7 +14,7 @@ class PluginService {
 	 *
 	 * @return void
 	 */
-	public static function activate_plugins( $plugins ) {
+	public static function activate( $plugins ) {
 
 		if ( ! \is_array( $plugins ) || empty( $plugins ) ) {
 			return;

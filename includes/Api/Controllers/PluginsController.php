@@ -12,9 +12,9 @@ class PluginsController {
 
 		$plugins = $request->get_param( 'plugins' );
 
-		PluginService::activate_plugins( $plugins );
+		PluginService::activate( $plugins );
 
-		PluginService::setup_plugins( $plugins );
+		PluginService::setup( $plugins );
 
 		return new \WP_REST_Response( array() );
 	}

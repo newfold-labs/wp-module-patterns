@@ -4094,7 +4094,7 @@ const InstallPluginsButton = ({
       });
 
       // eslint-disable-next-line no-console
-      console.watn(error);
+      console.warn(error);
     }
     setIsLoading(false);
   };
