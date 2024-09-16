@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "c1f10bc152c9e3505093641eded231dd",
+	"content-hash": "9904ea56c6158f3a236b8ad653416acf",
 	"packages": [
 		{
 			"name": "doctrine/inflector",
@@ -258,6 +258,48 @@
 				"issues": "https://github.com/newfold-labs/wp-module-features/issues"
 			},
 			"time": "2024-05-23T20:35:43+00:00"
+		},
+		{
+			"name": "newfold-labs/wp-module-installer",
+			"version": "1.1.5",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/newfold-labs/wp-module-installer.git",
+				"reference": "b418c3aa8c192e805930abd9871b301d16671ba8"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/newfold-labs/wp-module-installer/zipball/b418c3aa8c192e805930abd9871b301d16671ba8",
+				"reference": "b418c3aa8c192e805930abd9871b301d16671ba8",
+				"shasum": ""
+			},
+			"require-dev": {
+				"newfold-labs/wp-php-standards": "^1.2"
+			},
+			"type": "library",
+			"autoload": {
+				"psr-4": {
+					"NewfoldLabs\\WP\\Module\\Installer\\": "includes"
+				},
+				"files": [
+					"bootstrap.php"
+				]
+			},
+			"license": [
+				"GPL-2.0-or-later"
+			],
+			"authors": [
+				{
+					"name": "Micah Wood",
+					"email": "micah.wood@newfold.com"
+				}
+			],
+			"description": "An installer for WordPress plugins and themes.",
+			"support": {
+				"source": "https://github.com/newfold-labs/wp-module-installer/tree/1.1.5",
+				"issues": "https://github.com/newfold-labs/wp-module-installer/issues"
+			},
+			"time": "2024-08-28T06:37:38+00:00"
 		},
 		{
 			"name": "newfold-labs/wp-module-loader",

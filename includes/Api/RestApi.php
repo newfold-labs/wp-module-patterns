@@ -10,6 +10,7 @@ use NewfoldLabs\WP\Module\Patterns\Api\Controllers\TemplateCategoriesController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\FavoritesController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\EventsController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\CacheController;
+use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PluginsController;
 
 /**
  * Instantiate controllers and register routes.
@@ -41,5 +42,7 @@ final class RestApi {
 		RestApiController::post( '/events/batch', array( EventsController::class, 'send_batch' ) );
 
 		RestApiController::post( '/clear-cache', array( CacheController::class, 'clear_cache' ) );
+
+		RestApiController::post( '/plugins/activate', array( PluginsController::class, 'activate' ) );
 	}
 }

@@ -4,7 +4,6 @@ namespace NewfoldLabs\WP\Module\Patterns\Library;
 
 use NewfoldLabs\WP\Module\Patterns\Data\Brands;
 
-
 /**
  * Admin library class
  */
