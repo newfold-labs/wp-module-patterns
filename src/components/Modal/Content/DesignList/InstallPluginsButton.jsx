@@ -1,12 +1,17 @@
 /**
+ * External dependencies
+ */
+import classnames from "classnames";
+
+/**
  * WordPress dependencies
  */
 import { Button } from "@wordpress/components";
 import { useDispatch, useSelect } from "@wordpress/data";
 import { store as editorStore } from "@wordpress/editor";
+import { useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { store as noticesStore } from "@wordpress/notices";
-import classnames from "classnames";
 
 /**
  * Internal dependencies
@@ -14,11 +19,13 @@ import classnames from "classnames";
 import { activatePlugins } from "../../../../helpers/pluginManager";
 import { store as nfdPatternsStore } from "../../../../store";
 
-const InstallPluginsButton = ({ plugins, setIsLoading, isBusy = false, ...otherProps }) => {
+const InstallPluginsButton = ({ plugins, isBusy, ...otherProps }) => {
 	const { createErrorNotice } = useDispatch(noticesStore);
+	const [buttonClicked, setButtonClicked] = useState(false);
 
 	const onActivateAndInstall = async () => {
-		setIsLoading(true);
+		setIsPluginInstalling(true);
+		setButtonClicked(true);
 
 		try {
 			// Activate plugins
@@ -50,7 +57,8 @@ const InstallPluginsButton = ({ plugins, setIsLoading, isBusy = false, ...otherP
 			console.warn(error);
 		}
 
-		setIsLoading(false);
+		setIsPluginInstalling(false);
+		setButtonClicked(false);
 	};
 
 	const { hasUnsavedChanges, activePatternsCategory } = useSelect((select) => ({
@@ -59,6 +67,7 @@ const InstallPluginsButton = ({ plugins, setIsLoading, isBusy = false, ...otherP
 	}));
 
 	const { savePost: dispatchSavePost } = useDispatch(editorStore);
+	const { setIsPluginInstalling } = useDispatch(nfdPatternsStore);
 
 	return (
 		<Button
@@ -72,7 +81,7 @@ const InstallPluginsButton = ({ plugins, setIsLoading, isBusy = false, ...otherP
 			onClick={onActivateAndInstall}
 			{...otherProps}
 		>
-			{!isBusy ? (
+			{!buttonClicked ? (
 				<span>{__("Install now", "nfd-wonder-blocks")}</span>
 			) : (
 				<span>{__("Installing...", "nfd-wonder-blocks")}</span>

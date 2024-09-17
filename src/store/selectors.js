@@ -107,3 +107,7 @@ export function getSortOrder(state) {
 export function getCurrentView(state) {
 	return state.modal.currentView;
 }
+
+export function isPluginInstalling(state) {
+	return state.modal.isPluginInstalling;
+}

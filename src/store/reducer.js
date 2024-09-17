@@ -34,6 +34,7 @@ export function modal(
 		gridColumns: getInitialGridColumns(),
 		sortOrder: getInitialSortOrder(),
 		currentView: DEFAULT_VIEW,
+		isPluginInstalling: false,
 	},
 	action
 ) {
@@ -89,6 +90,11 @@ export function modal(
 			return {
 				...state,
 				currentView: action.currentView,
+			};
+		case "SET_IS_PLUGIN_INSTALLING":
+			return {
+				...state,
+				isPluginInstalling: action.isPluginInstalling,
 			};
 	}
 
