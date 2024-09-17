@@ -368,7 +368,7 @@ const DesignItem = ({ item }) => {
 
 	return (
 		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-border-grey-b nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-border-gray-300 nfd-wba-border nfd-wba-overflow-clip nfd-wba-rounded nfd-wba-border-solid">
-			{item?.plugin_requirements.length > 0 && <RequiredPluginManager item={item} />}
+			{item?.plugin_requirements?.length > 0 && <RequiredPluginManager item={item} />}
 
 			<div
 				className={classNames(

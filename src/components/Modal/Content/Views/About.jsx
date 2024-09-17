@@ -61,7 +61,7 @@ const About = () => {
 					website needs.
 				</p>
 				<p className="nfd-wba-text-[15px]">
-					WonderBlocks is a feature of your {hostLabel} hosting plan and is powered by 
+					WonderBlocks is a feature of your {hostLabel} hosting plan and is powered by
 					{" " + hostPlugin}. You can update your WonderBlocks settings{" "}
 					<a href={settingsPageUrl} className="nfd-wba-text-blue-500 hover:nfd-wba-underline">
 						here
@@ -70,7 +70,7 @@ const About = () => {
 				</p>
 
 				<Warning
-					className="nfd-wba-mt-10 nfd-wba-rounded-[4px] nfd-wba-border-gray-200 nfd-wba-bg-gray-100"
+					className="nfd-wba-mt-10 !nfd-wba-px-6 nfd-wba-rounded-[4px] nfd-wba-border-gray-200 nfd-wba-bg-gray-100"
 					actions={[
 						<Button
 							variant="primary"

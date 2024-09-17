@@ -4,9 +4,9 @@
 import { Button } from "@wordpress/components";
 import { useDispatch, useSelect } from "@wordpress/data";
 import { store as editorStore } from "@wordpress/editor";
-import { useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { store as noticesStore } from "@wordpress/notices";
+import classnames from "classnames";
 
 /**
  * Internal dependencies
@@ -14,9 +14,7 @@ import { store as noticesStore } from "@wordpress/notices";
 import { activatePlugins } from "../../../../helpers/pluginManager";
 import { store as nfdPatternsStore } from "../../../../store";
 
-const InstallPluginsButton = ({ plugins }) => {
-	const [isLoading, setIsLoading] = useState(false);
-
+const InstallPluginsButton = ({ plugins, setIsLoading, isBusy = false, ...otherProps }) => {
 	const { createErrorNotice } = useDispatch(noticesStore);
 
 	const onActivateAndInstall = async () => {
@@ -55,17 +53,30 @@ const InstallPluginsButton = ({ plugins }) => {
 		setIsLoading(false);
 	};
 
-	const { isSaving, hasUnsavedChanges, activePatternsCategory } = useSelect((select) => ({
+	const { hasUnsavedChanges, activePatternsCategory } = useSelect((select) => ({
 		hasUnsavedChanges: select(editorStore).hasChangedContent(),
-		isSaving: select(editorStore).isSavingPost(),
 		activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
 	}));
 
 	const { savePost: dispatchSavePost } = useDispatch(editorStore);
 
 	return (
-		<Button variant="primary" isBusy={isLoading || isSaving} onClick={onActivateAndInstall}>
-			{__("Install & Activate Plugins", "nfd-wonder-blocks")}
+		<Button
+			variant="primary"
+			size="small"
+			className={classnames(
+				"!nfd-wba-text-[13px] !nfd-wba-px-3 !nfd-wba-py-3.5 !nfd-wba-text-dark-lighter !nfd-wba-rounded-sm !nfd-wba-bg-gray-100",
+				!isBusy && "hover:!nfd-wba-bg-gray-200",
+				isBusy && "!nfd-wba-cursor-wait !nfd-wba-text-gray-500"
+			)}
+			onClick={onActivateAndInstall}
+			{...otherProps}
+		>
+			{!isBusy ? (
+				<span>{__("Install now", "nfd-wonder-blocks")}</span>
+			) : (
+				<span>{__("Installing...", "nfd-wonder-blocks")}</span>
+			)}
 		</Button>
 	);
 };

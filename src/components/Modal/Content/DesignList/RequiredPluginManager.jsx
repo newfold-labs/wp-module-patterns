@@ -1,7 +1,14 @@
 /**
+ * External dependencies
+ */
+import { InfoIcon } from "lucide-react";
+
+/**
  * WordPress dependencies
  */
 import { Button } from "@wordpress/components";
+import { useSelect } from "@wordpress/data";
+import { store as editorStore } from "@wordpress/editor";
 import { useEffect, useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 
@@ -12,6 +19,11 @@ import InstallPluginsButton from "./InstallPluginsButton";
 
 const RequiredPluginManager = ({ item }) => {
 	const [isPluginResolved, setIsPluginResolved] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+
+	const { isSaving } = useSelect((select) => ({
+		isSaving: select(editorStore).isSavingPost(),
+	}));
 
 	const requirements = item?.plugin_requirements || [];
 
@@ -24,27 +36,39 @@ const RequiredPluginManager = ({ item }) => {
 		setIsPluginResolved(true);
 	};
 
+	const isBusy = isLoading || isSaving;
+
 	if (isPluginResolved) {
 		return null;
 	}
 
 	return (
-		<div className="nfd-wba-overlay nfd-wba-bg-black nfd-wba-bg-opacity-50 nfd-wba-absolute nfd-wba-w-full nfd-wba-h-full nfd-wba-z-10 nfd-wba-flex nfd-wba-items-center nfd-wba-justify-center">
-			<div className="nfd-wba-plugin-overlay nfd-wba-bg-white nfd-wba-p-6 nfd-wba-rounded-md nfd-wba-shadow-lg nfd-wba-max-w-sm nfd-wba-mx-auto nfd-wba-text-center">
-				<p className="nfd-wba-text-gray-600 nfd-wba-mb-6">
-					{__("The following plugins are required to use this pattern:", "nfd-wonder-blocks")}
-				</p>
-				<ul className="nfd-wba-list-disc nfd-wba-list-inside nfd-wba-mb-6">
-					{requirements.map((plugin, index) => (
-						<li key={index} className="nfd-wba-text-gray-800">
-							{plugin.name}
-						</li>
-					))}
-				</ul>
-				<div className="nfd-wba-flex nfd-wba-gap-4 nfd-wba-justify-center">
-					<InstallPluginsButton plugins={requirements} />
+		<div className="nfd-wba-plugins-required__overlay nfd-wba-absolute nfd-wba-inset-0 nfd-wba-bg-gray-300/50 nfd-wba-z-20">
+			<div className="nfd-wba-plugins-required__alert">
+				<InfoIcon className="nfd-wba-mt-1" size={16} />
 
-					<Button onClick={onContinueWithout}>Continue Without</Button>
+				<div>
+					<strong>Plugins required</strong>
+
+					<p className="nfd-wba-text-neutral-500">JetPack plugin is required.</p>
+
+					<div className="nfd-wba-flex nfd-wba-mt-2.5 nfd-wba-gap-3 nfd-wba-items-center">
+						<InstallPluginsButton
+							plugins={requirements}
+							setIsLoading={setIsLoading}
+							isBusy={isBusy}
+							disabled={isBusy}
+						/>
+
+						<Button
+							variant="link"
+							className="!nfd-wba-text-gray-600"
+							onClick={onContinueWithout}
+							disabled={isBusy}
+						>
+							{__("Maybe later", "nfd-wonder-blocks")}
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>
