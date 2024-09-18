@@ -59,6 +59,10 @@ class PluginService {
 	 * @return void
 	 */
 	public static function setup( $plugins ) {
+		if ( ! is_array( $plugins ) || empty( $plugins ) ) {
+			return;
+		}
+
 		foreach ( $plugins as $plugin ) {
 			if ( isset( $plugin['slug'] ) && 'jetpack' === $plugin['slug'] ) {
 				self::enable_jetpack_forms_module();

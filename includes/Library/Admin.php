@@ -23,7 +23,7 @@ final class Admin {
 		foreach ( self::$admin_pages as $admin_page ) {
 			\add_action( "load-{$admin_page}.php", array( __CLASS__, 'load_wonder_blocks' ) );
 		}
-		
+
 		\add_action( 'init', array( PluginService::class, 'setup' ) );
 	}
 

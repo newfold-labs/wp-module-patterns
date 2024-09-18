@@ -4,35 +4,35 @@ namespace NewfoldLabs\WP\Module\Patterns\Data;
 final class PluginRequirements {
 
 	protected static $patterns = array(
-		'form-1' => array(
+		'form-1'     => array(
 			array(
 				'slug' => 'jetpack',
 				'name' => 'Jetpack',
 				'path' => 'jetpack/jetpack.php',
 			),
 		),
-		'form-2' => array(
+		'form-2'     => array(
 			array(
 				'slug' => 'jetpack',
 				'name' => 'Jetpack',
 				'path' => 'jetpack/jetpack.php',
 			),
 		),
-		'form-3' => array(
+		'form-3'     => array(
 			array(
 				'slug' => 'jetpack',
 				'name' => 'Jetpack',
 				'path' => 'jetpack/jetpack.php',
 			),
 		),
-		'form-4' => array(
+		'form-4'     => array(
 			array(
 				'slug' => 'jetpack',
 				'name' => 'Jetpack',
 				'path' => 'jetpack/jetpack.php',
 			),
 		),
-		'form-5' => array(
+		'form-5'     => array(
 			array(
 				'slug' => 'jetpack',
 				'name' => 'Jetpack',
