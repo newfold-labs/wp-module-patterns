@@ -3,6 +3,7 @@
 namespace NewfoldLabs\WP\Module\Patterns\Library;
 
 use NewfoldLabs\WP\Module\Patterns\Data\Brands;
+use NewfoldLabs\WP\Module\Patterns\Services\PluginService;
 
 /**
  * Admin library class
@@ -22,6 +23,8 @@ final class Admin {
 		foreach ( self::$admin_pages as $admin_page ) {
 			\add_action( "load-{$admin_page}.php", array( __CLASS__, 'load_wonder_blocks' ) );
 		}
+		
+		\add_action( 'init', array( PluginService::class, 'setup' ) );
 	}
 
 	/**

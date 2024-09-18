@@ -39,6 +39,27 @@ final class PluginRequirements {
 				'path' => 'jetpack/jetpack.php',
 			),
 		),
+		'products-1' => array(
+			array(
+				'slug' => 'woocommerce',
+				'name' => 'WooCommerce',
+				'path' => 'woocommerce/woocommerce.php',
+			),
+		),
+		'products-2' => array(
+			array(
+				'slug' => 'woocommerce',
+				'name' => 'WooCommerce',
+				'path' => 'woocommerce/woocommerce.php',
+			),
+		),
+		'products-3' => array(
+			array(
+				'slug' => 'woocommerce',
+				'name' => 'WooCommerce',
+				'path' => 'woocommerce/woocommerce.php',
+			),
+		),
 	);
 
 	/**

@@ -48,16 +48,6 @@ class Categories {
 
 		$data = self::add_featured_category( $data, $type );
 
-		if ( ! class_exists( 'WooCommerce' ) ) {
-			$_data = array();
-			foreach ( $data as $key => $value ) {
-				if ( ! in_array( $value['title'], array( 'products', 'shop' ), true ) ) {
-					$_data[] = $value;
-				}
-			}
-			$data = $_data;
-		}
-
 		// Return the categories.
 		return $data;
 	}
