@@ -293,6 +293,37 @@
   transform: translateY(var(--nfd-wba-translate-offset));
 }
 
+.nfd-wba-plugins-required__overlay {
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+}
+.nfd-wba-plugins-required__overlay button {
+  --wp-components-color-accent-darker-20: #d1d5db;
+  --wp-components-color-accent: #e5e7eb;
+}
+
+.nfd-wba-plugins-required__alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  z-index: 20;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-left: solid 3px var(--nfd-wba-color-warning, #ffcc00);
+  padding-block: 12px;
+  padding-inline: 12px;
+  border-radius: 0 4px 4px 0;
+  background-color: #fff;
+  font-size: 12px;
+  line-height: 24px;
+}
+.nfd-wba-plugins-required__alert p {
+  margin: 0;
+}
+
 .nfd-wba-modal {
   --wp-admin-theme-color: var(--nfd-wba-color-brand);
 }
@@ -488,6 +519,9 @@
 .nfd-wba-z-10 {
   z-index: 10;
 }
+.nfd-wba-z-20 {
+  z-index: 20;
+}
 .nfd-wba-z-\[2\] {
   z-index: 2;
 }
@@ -535,9 +569,6 @@
 .nfd-wba-ml-auto {
   margin-left: auto;
 }
-.nfd-wba-mr-1 {
-  margin-right: 0.25rem;
-}
 .nfd-wba-mr-2 {
   margin-right: 0.5rem;
 }
@@ -552,6 +583,9 @@
 }
 .nfd-wba-mt-2 {
   margin-top: 0.5rem;
+}
+.nfd-wba-mt-2\.5 {
+  margin-top: 0.625rem;
 }
 .nfd-wba-mt-8 {
   margin-top: 2rem;
@@ -690,6 +724,9 @@
 .nfd-wba-animate-spin {
   animation: nfd-wba-spin 1s linear infinite;
 }
+.\!nfd-wba-cursor-wait {
+  cursor: wait !important;
+}
 .nfd-wba-cursor-default {
   cursor: default;
 }
@@ -776,6 +813,9 @@
 .nfd-wba-text-balance {
   text-wrap: balance;
 }
+.\!nfd-wba-rounded-sm {
+  border-radius: 0.125rem !important;
+}
 .nfd-wba-rounded {
   border-radius: 0.25rem;
 }
@@ -846,6 +886,10 @@
   --tw-bg-opacity: 1 !important;
   background-color: rgb(var(--nfd-wba-color-dark-rgb) / var(--tw-bg-opacity)) !important;
 }
+.\!nfd-wba-bg-gray-100 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity)) !important;
+}
 .nfd-wba-bg-brand {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--nfd-wba-color-brand-rgb) / var(--tw-bg-opacity));
@@ -857,6 +901,9 @@
 .nfd-wba-bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.nfd-wba-bg-gray-300\/50 {
+  background-color: rgb(209 213 219 / 0.5);
 }
 .nfd-wba-bg-grey {
   --tw-bg-opacity: 1;
@@ -911,6 +958,14 @@
 .\!nfd-wba-px-3 {
   padding-left: 0.75rem !important;
   padding-right: 0.75rem !important;
+}
+.\!nfd-wba-px-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+.\!nfd-wba-py-3\.5 {
+  padding-top: 0.875rem !important;
+  padding-bottom: 0.875rem !important;
 }
 .nfd-wba-px-0 {
   padding-left: 0px;
@@ -1019,6 +1074,9 @@
 .nfd-wba-align-\[-0\.125em\] {
   vertical-align: -0.125em;
 }
+.\!nfd-wba-text-\[13px\] {
+  font-size: 13px !important;
+}
 .nfd-wba-text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1068,6 +1126,18 @@
 .nfd-wba-leading-5 {
   line-height: 1.25rem;
 }
+.\!nfd-wba-text-dark-lighter {
+  --tw-text-opacity: 1 !important;
+  color: rgb(var(--nfd-wba-color-dark-lighter-rgb) / var(--tw-text-opacity)) !important;
+}
+.\!nfd-wba-text-gray-500 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(107 114 128 / var(--tw-text-opacity)) !important;
+}
+.\!nfd-wba-text-gray-600 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(75 85 99 / var(--tw-text-opacity)) !important;
+}
 .\!nfd-wba-text-red-600 {
   --tw-text-opacity: 1 !important;
   color: rgb(220 38 38 / var(--tw-text-opacity)) !important;
@@ -1094,6 +1164,10 @@
 .nfd-wba-text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+.nfd-wba-text-neutral-500 {
+  --tw-text-opacity: 1;
+  color: rgb(115 115 115 / var(--tw-text-opacity));
 }
 .nfd-wba-text-white {
   --tw-text-opacity: 1;
@@ -1142,6 +1216,10 @@
 .hover\:\!nfd-wba-bg-brand-darker:hover {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(var(--nfd-wba-color-brand-darker-rgb) / var(--tw-bg-opacity)) !important;
+}
+.hover\:\!nfd-wba-bg-gray-200:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
 }
 .hover\:nfd-wba-bg-brand-darker:hover {
   --tw-bg-opacity: 1;

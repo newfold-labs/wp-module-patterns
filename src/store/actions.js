@@ -140,3 +140,10 @@ export function setCurrentView(currentView) {
 		currentView,
 	};
 }
+
+export function setIsPluginInstalling(isPluginInstalling) {
+	return {
+		type: "SET_IS_PLUGIN_INSTALLING",
+		isPluginInstalling,
+	};
+}

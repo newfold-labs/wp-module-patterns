@@ -47,3 +47,35 @@
 		}
 	}
 }
+
+.nfd-wba-plugins-required__overlay {
+	backdrop-filter: blur(1px);
+
+	button {
+		--wp-components-color-accent-darker-20: #d1d5db;
+		--wp-components-color-accent: #e5e7eb;
+	}
+}
+
+.nfd-wba-plugins-required__alert {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	right: 4px;
+	z-index: 20;
+	border: solid 1px rgba(0, 0, 0, 0.1);
+	border-left: solid 3px var(--nfd-wba-color-warning, #ffcc00);
+	padding-block: 12px;
+	padding-inline: 12px;
+	border-radius: 0 4px 4px 0;
+	background-color: #fff;
+	font-size: 12px;
+	line-height: 24px;
+
+	p {
+		margin: 0;
+	}
+}

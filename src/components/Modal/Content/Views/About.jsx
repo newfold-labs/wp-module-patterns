@@ -91,7 +91,7 @@ const About = () => {
 				</p>
 
 				<Warning
-					className="nfd-wba-mt-10 nfd-wba-rounded-[4px] nfd-wba-border-gray-200 nfd-wba-bg-gray-100"
+					className="nfd-wba-mt-10 !nfd-wba-px-6 nfd-wba-rounded-[4px] nfd-wba-border-gray-200 nfd-wba-bg-gray-100"
 					actions={[
 						<Button
 							variant="primary"
