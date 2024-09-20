@@ -4,14 +4,22 @@
 import apiFetch from "@wordpress/api-fetch";
 import { Warning } from "@wordpress/block-editor";
 import { Button } from "@wordpress/components";
+import { useDispatch } from "@wordpress/data";
 import { useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import { NFD_REST_URL, NFD_WONDER_BLOCKS_VERSION } from "../../../../constants";
-import { useCategories, usePatterns } from "../../../../hooks";
+import { MoveLeftIcon } from "lucide-react";
+import {
+	DEFAULT_PATTERNS_CATEGORY,
+	NFD_REST_URL,
+	NFD_WONDER_BLOCKS_VERSION,
+} from "../../../../constants";
+import { useCategories } from "../../../../hooks";
+import useSetCurrentView from "../../../../hooks/useSetCurrentView";
+import { store as nfdPatternsStore } from "../../../../store";
 
 const About = () => {
 	const moduleVersion = NFD_WONDER_BLOCKS_VERSION;
@@ -22,6 +30,9 @@ const About = () => {
 	const [syncing, setSyncing] = useState(false);
 	const { mutate: mutatePatternCategories } = useCategories();
 	const { mutate: mutateTemplateCategories } = useCategories("templates");
+	const setCurrentView = useSetCurrentView();
+
+	const { setActivePatternsCategory } = useDispatch(nfdPatternsStore);
 
 	const handleSync = async () => {
 		try {
@@ -47,6 +58,16 @@ const About = () => {
 	return (
 		<div className="nfd-wba-inset-0 nfd-wba-flex nfd-wba-grow nfd-wba-px-4 nfd-wba-py-8 sm:nfd-wba-px-6 nfd-wba-items-start nfd-wba-justify-center">
 			<div className="nfd-wba-max-w-prose">
+				<Button
+					variant="link"
+					onClick={() => {
+						setActivePatternsCategory(DEFAULT_PATTERNS_CATEGORY);
+						setCurrentView("library");
+					}}
+				>
+					<MoveLeftIcon size={16} className="nfd-wba-mr-1" />
+					{__("Back to Patterns", "nfd-wonder-blocks")}
+				</Button>
 				<div className="nfd-wba-flex nfd-wba-row nfd-wba-gap-4 nfd-wba-items-center">
 					<h1>WonderBlocks</h1>
 					<p className="nfd-wba-bg-gray-100 nfd-wba-border-gray-200 nfd-wba-border-solid nfd-wba-border-[1px] nfd-wba-rounded-full nfd-wba-py-1 nfd-wba-px-2 nfd-wba-text-[15px] nfd-wba-text-dark-lighter">
@@ -61,7 +82,7 @@ const About = () => {
 					website needs.
 				</p>
 				<p className="nfd-wba-text-[15px]">
-					WonderBlocks is a feature of your {hostLabel} hosting plan and is powered by 
+					WonderBlocks is a feature of your {hostLabel} hosting plan and is powered by
 					{" " + hostPlugin}. You can update your WonderBlocks settings{" "}
 					<a href={settingsPageUrl} className="nfd-wba-text-blue-500 hover:nfd-wba-underline">
 						here

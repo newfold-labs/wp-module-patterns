@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { EllipsisVerticalIcon, HeartIcon, InfoIcon, StoreIcon } from "lucide-react";
+import classNames from "classnames";
 
 /**
  * WordPress dependencies
@@ -15,7 +16,6 @@ import { close } from "@wordpress/icons";
 /**
  * Internal dependencies
  */
-import classNames from "classnames";
 import useSetCurrentView from "../../../../hooks/useSetCurrentView";
 import { store as nfdPatternsStore } from "../../../../store";
 import KeywordFilter from "../KeywordFilter";
