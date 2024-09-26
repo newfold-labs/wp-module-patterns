@@ -147,7 +147,7 @@ class CSSUtilities {
 	 * Get the version number for the asset, either from remote or fallback.
 	 *
 	 * @param string $remote_url The remote URL for the asset.
-	 * @return int The version number of the asset.
+	 * @return int|string The version number.
 	 */
 	private function get_asset_version( string $remote_url ) {
 		return $this->is_valid_remote_file( $remote_url ) ? $this->get_remote_assets_version() : NFD_WONDER_BLOCKS_VERSION;
@@ -173,7 +173,7 @@ class CSSUtilities {
 	/**
 	 * Get the version number for remote assets.
 	 *
-	 * @return int
+	 * @return int The version number.
 	 */
 	private function get_remote_assets_version() : int {
 		$version = get_transient('nfd_utilities_version');
@@ -188,6 +188,8 @@ class CSSUtilities {
 	
 	/**
 	 * Get the base URL
+	 * 
+	 * @return string The base URL.
 	 */
 	public function get_base_url(): string {
 		if ( defined( 'NFD_DATA_WB_DEV_MODE' ) && constant( 'NFD_DATA_WB_DEV_MODE' ) ) {
