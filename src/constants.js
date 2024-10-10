@@ -11,6 +11,7 @@ export const SITE_EDITOR_CATEGORIES = ["header", "footer"];
 export const DEFAULT_ACTIVE_TAB = "patterns";
 export const DEFAULT_PATTERNS_CATEGORY = "featured";
 export const DEFAULT_TEMPLATES_CATEGORY = "featured";
+export const DEFAULT_SIDEBAR_DISPLAY_MODE = "categories";
 export const WONDER_BLOCKS_BLANK_TEMPLATE_SLUG = "wonder-blocks-blank-template";
 export const HIIVE_ANALYTICS_CATEGORY = "wonder_blocks";
 export const DEFAULT_VIEW = "library";

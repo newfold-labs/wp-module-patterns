@@ -13,6 +13,7 @@ import {
 	DEFAULT_TEMPLATES_CATEGORY,
 	DEFAULT_VIEW,
 	DEFAULT_GRID_COLUMNS,
+	DEFAULT_SIDEBAR_DISPLAY_MODE,
 } from "../constants";
 
 function getInitialGridColumns() {
@@ -35,6 +36,7 @@ export function modal(
 		sortOrder: getInitialSortOrder(),
 		currentView: DEFAULT_VIEW,
 		isPluginInstalling: false,
+		sidebarDisplayMode: DEFAULT_SIDEBAR_DISPLAY_MODE,
 	},
 	action
 ) {
@@ -95,6 +97,11 @@ export function modal(
 			return {
 				...state,
 				isPluginInstalling: action.isPluginInstalling,
+			};
+		case "SET_SIDEBAR_DISPLAY_MODE":
+			return {
+				...state,
+				sidebarDisplayMode: action.displayMode,
 			};
 	}
 

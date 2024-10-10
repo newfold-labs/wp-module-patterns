@@ -108,6 +108,22 @@ export function getCurrentView(state) {
 	return state.modal.currentView;
 }
 
+/**
+ * Checks if a plugin is currently being installed.
+ *
+ * @param {*} state
+ * @return {boolean} True if a plugin is installing, false otherwise.
+ */
 export function isPluginInstalling(state) {
 	return state.modal.isPluginInstalling;
+}
+
+/**
+ * Gets the current display mode of the sidebar.
+ *
+ * @param {*} state
+ * @return {string} The current sidebar display mode.
+ */
+export function getSidebarDisplayMode(state) {
+	return state.modal.sidebarDisplayMode;
 }

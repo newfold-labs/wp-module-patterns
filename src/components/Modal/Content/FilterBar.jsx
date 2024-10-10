@@ -22,7 +22,6 @@ import { __ } from "@wordpress/i18n";
  * Internal dependencies
  */
 import { store as nfdPatternsStore } from "../../../store";
-import KeywordFilter from "./KeywordFilter";
 
 const FilterBar = () => {
 	const { setModalGridColumns, setSortOrder } = useDispatch(nfdPatternsStore);

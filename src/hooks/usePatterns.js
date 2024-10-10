@@ -25,14 +25,21 @@ import { store as nfdPatternsStore } from "../store";
  * @return {Object} Object containing the patterns, error and loading state.
  */
 const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
-	const { activePatternsCategory, activeTemplatesCategory, activeTab, keywords, sortOrder } =
-		useSelect((select) => ({
-			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
-			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
-			activeTab: select(nfdPatternsStore).getActiveTab(),
-			keywords: select(nfdPatternsStore).getKeywordsFilter(),
-			sortOrder: select(nfdPatternsStore).getSortOrder(),
-		}));
+	const {
+		activePatternsCategory,
+		activeTemplatesCategory,
+		activeTab,
+		keywords,
+		sortOrder,
+		sidebarDisplayMode,
+	} = useSelect((select) => ({
+		activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
+		activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
+		activeTab: select(nfdPatternsStore).getActiveTab(),
+		keywords: select(nfdPatternsStore).getKeywordsFilter(),
+		sortOrder: select(nfdPatternsStore).getSortOrder(),
+		sidebarDisplayMode: select(nfdPatternsStore).getSidebarDisplayMode(),
+	}));
 
 	// Active category.
 	let activeCategory = null;
@@ -64,6 +71,8 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 
 		if (keywords) {
 			url.searchParams.append("keywords", keywords);
+		} else if ("usage_tags" === sidebarDisplayMode) {
+			url.searchParams.append("keywords", activeCategory);
 		} else {
 			url.searchParams.append("category", activeCategory);
 		}
