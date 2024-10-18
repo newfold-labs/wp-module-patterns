@@ -74,6 +74,26 @@
 	.nfd-wba-keyword-filter svg {
 		transform: scaleX(-1);
 	}
+
+	.nfd-wba-sidebar-display-mode {
+		padding: 20px 20px 0 20px;
+
+		button[aria-checked="true"] {
+			color: #3c434a;
+		}
+
+		button + * > div:first-child {
+			background-color: #f0f0f0;
+		}
+
+		.components-toggle-group-control-option-base > div {
+			font-size: 14px !important;
+		}
+
+		.components-toggle-group-control {
+			border-color: var(--nfd-wba-color-borders);
+		}
+	}
 }
 
 .nfd-wba-filter-dropdown {

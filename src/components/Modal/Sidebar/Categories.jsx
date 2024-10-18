@@ -1,9 +1,13 @@
 /**
  * WordPress dependencies
  */
-import { SelectControl } from "@wordpress/components";
+import {
+	SelectControl,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
+} from "@wordpress/components";
 import { useDispatch, useSelect } from "@wordpress/data";
-import { memo, useCallback, useEffect, useMemo } from "@wordpress/element";
+import { memo, useCallback, useEffect, useMemo, useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { Icon } from "@wordpress/icons";
 
@@ -16,14 +20,39 @@ import { store as nfdPatternsStore } from "../../../store";
 
 import iconMapping from "../../../helpers/iconMapping";
 import useSetCurrentView from "../../../hooks/useSetCurrentView";
-import { heart } from "../../Icons";
 import ErrorLoading from "./ErrorLoading";
 import ListElement from "./ListElement";
 import Skeleton from "./Skeleton";
+import { setKeywordsFilter } from "../../../store/actions";
 
 const Categories = ({ type = "patterns", isSiteEditor = false }) => {
+	// Store actions and states.
+	const {
+		setIsSidebarLoading,
+		setActivePatternsCategory,
+		setActiveTemplatesCategory,
+		setShouldResetKeywords,
+		setSidebarDisplayMode,
+	} = useDispatch(nfdPatternsStore);
+
+	const setCurrentView = useSetCurrentView();
+
+	const {
+		activePatternsCategory,
+		activeTemplatesCategory,
+		keywordsFilter,
+		currentView,
+		sidebarDisplayMode,
+	} = useSelect((select) => ({
+		activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
+		activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
+		currentView: select(nfdPatternsStore).getCurrentView(),
+		keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
+		sidebarDisplayMode: select(nfdPatternsStore).getSidebarDisplayMode(),
+	}));
+
 	// Fetch data
-	const { data, error, isValidating } = useCategories(type);
+	const { data, error, isValidating } = useCategories(type, sidebarDisplayMode);
 	const { data: allFavs } = usePatterns({ onlyFavorites: true, perPage: -1 });
 
 	// Remove SITE_EDITOR_CATEGORIES if we are not in the Site Editor
@@ -49,9 +78,10 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 	}, [isSiteEditor, data]);
 
 	const categoriesWithIcons = useMemo(() => {
+		const prefix = type === "patterns" ? `patterns-${sidebarDisplayMode}` : "templates";
 		return filteredCategories?.map((category) => ({
 			...category,
-			icon: iconMapping[`${type}-${category.title}`] || null,
+			icon: iconMapping[`${prefix}-${category.title}`] || null,
 		}));
 	}, [filteredCategories]);
 
@@ -91,24 +121,6 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
             return 0; // Maintain the original order
         });
 	}, [categoriesWithIcons, allFavs?.length]);
-
-	// Store actions and states.
-	const {
-		setIsSidebarLoading,
-		setActivePatternsCategory,
-		setActiveTemplatesCategory,
-		setShouldResetKeywords,
-	} = useDispatch(nfdPatternsStore);
-
-	const setCurrentView = useSetCurrentView();
-
-	const { activePatternsCategory, activeTemplatesCategory, keywordsFilter, currentView } =
-		useSelect((select) => ({
-			activePatternsCategory: select(nfdPatternsStore).getActivePatternsCategory(),
-			activeTemplatesCategory: select(nfdPatternsStore).getActiveTemplatesCategory(),
-			currentView: select(nfdPatternsStore).getCurrentView(),
-			keywordsFilter: select(nfdPatternsStore).getKeywordsFilter(),
-		}));
 
 	// Set sidebar loading state.
 	useEffect(() => {
@@ -153,6 +165,7 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 			}
 
 			setShouldResetKeywords(true);
+
 			setCurrentView("library");
 		},
 		[setActiveCategory, setShouldResetKeywords, data]
@@ -188,6 +201,26 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 
 	return (
 		<>
+			{"patterns" === type && (
+				<div className="nfd-wba-sidebar-display-mode">
+					<ToggleGroupControl
+						value={sidebarDisplayMode}
+						label={__("Layout", "nfd-wonder-blocks")}
+						hideLabelFromVision
+						isBlock
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+						onChange={(value) => setSidebarDisplayMode(value)}
+					>
+						<ToggleGroupControlOption
+							value="categories"
+							label={__("Categories", "nfd-wonder-blocks")}
+						/>
+						<ToggleGroupControlOption value="usage_tags" label={__("Usage", "nfd-wonder-blocks")} />
+					</ToggleGroupControl>
+				</div>
+			)}
+
 			{!data && isValidating && <Skeleton count={12} />}
 			{!data && error && <ErrorLoading />}
 			{data && (

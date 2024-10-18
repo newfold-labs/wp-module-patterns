@@ -15,10 +15,16 @@ import { store as nfdPatternsStore } from "../../store";
 import Content from "./Content/Content";
 import Header from "./Content/Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
+import { setSidebarDisplayMode } from "../../store/actions";
 
 const Modal = () => {
-	const { setIsModalOpen, setActiveTab, setActivePatternsCategory, setActiveTemplatesCategory } =
-		useDispatch(nfdPatternsStore);
+	const {
+		setIsModalOpen,
+		setActiveTab,
+		setActivePatternsCategory,
+		setActiveTemplatesCategory,
+		setSidebarDisplayMode,
+	} = useDispatch(nfdPatternsStore);
 
 	const { isModalOpen, isEditingTemplate, editedPostType, currentView } = useSelect((select) => ({
 		currentView: select(nfdPatternsStore).getCurrentView(),
@@ -53,6 +59,13 @@ const Modal = () => {
 				} else if (searchParams.has("wb-category")) {
 					setActiveTab("patterns");
 					setActivePatternsCategory(searchParams.get("wb-category"));
+
+					if (
+						searchParams.has("wb-display-mode") &&
+						"usage_tags" === searchParams.get("wb-display-mode")
+					) {
+						setSidebarDisplayMode("usage_tags");
+					}
 				}
 
 				trackHiiveEvent("modal_open", {

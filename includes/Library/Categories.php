@@ -18,7 +18,7 @@ class Categories {
 	 * @param string $orderby Attribute of the category to sort by. Default is 'order'.
 	 * @param string $order  Specifies the order of sorting. Acceptable values are 'ASC' for ascending order or 'DESC' for descending order. Default is 'ASC'.
 	 *
-	 * @return array
+	 * @return array|WP_Error Array of categories or WP_Error if there was an error fetching the data.
 	 */
 	public static function get( $type = 'patterns', $orderby = 'order', $order = 'ASC' ) {
 

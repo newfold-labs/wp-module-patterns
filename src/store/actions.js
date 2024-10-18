@@ -141,9 +141,28 @@ export function setCurrentView(currentView) {
 	};
 }
 
+/**
+ * Sets the plugin installing state.
+ *
+ * @param {boolean} isPluginInstalling True if a plugin is being installed, false otherwise.
+ * @return {Object} Action object with type 'SET_IS_PLUGIN_INSTALLING' and the isPluginInstalling value.
+ */
 export function setIsPluginInstalling(isPluginInstalling) {
 	return {
 		type: "SET_IS_PLUGIN_INSTALLING",
 		isPluginInstalling,
+	};
+}
+
+/**
+ * Sets the display mode of the sidebar.
+ *
+ * @param {string} displayMode The new display mode for the sidebar.
+ * @return {Object} Action object with type 'SET_SIDEBAR_DISPLAY_MODE' and the displayMode value.
+ */
+export function setSidebarDisplayMode(displayMode) {
+	return {
+		type: "SET_SIDEBAR_DISPLAY_MODE",
+		displayMode,
 	};
 }

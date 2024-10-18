@@ -10,6 +10,7 @@ use NewfoldLabs\WP\Module\Patterns\Api\Controllers\TemplateCategoriesController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\FavoritesController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\EventsController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\CacheController;
+use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PatternUsageTagsController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PluginsController;
 
 /**
@@ -30,6 +31,7 @@ final class RestApi {
 	public function register_routes() {
 		RestApiController::get( '/patterns', array( PatternsController::class, 'index' ) );
 		RestApiController::get( '/categories', array( PatternCategoriesController::class, 'index' ) );
+		RestApiController::get( '/usage_tags', array( PatternUsageTagsController::class, 'index' ) );
 
 		RestApiController::get( '/templates', array( TemplatesController::class, 'index' ) );
 		RestApiController::get( '/templateCategories', array( TemplateCategoriesController::class, 'index' ) );
