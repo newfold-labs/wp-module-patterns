@@ -392,7 +392,7 @@
   color: #3c434a;
 }
 .nfd-wba-modal .nfd-wba-sidebar-display-mode button + * > div:first-child {
-  background-color: #f2f4f6;
+  background-color: #f0f0f0;
 }
 .nfd-wba-modal .nfd-wba-sidebar-display-mode .components-toggle-group-control-option-base > div {
   font-size: 14px !important;

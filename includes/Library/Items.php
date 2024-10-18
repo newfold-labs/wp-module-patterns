@@ -47,7 +47,8 @@ class Items {
 		}
 
 		if ( isset( $args['keywords'] ) ) {
-			$data = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ) );
+			$matchType = isset( $args['matchType'] ) ? \sanitize_text_field( $args['matchType'] ) : 'contains';
+			$data      = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ), $matchType );
 		}
 
 		if ( isset( $args['sort_by'] ) ) {
@@ -88,7 +89,7 @@ class Items {
 	 *
 	 * @return array $filtered
 	 */
-	private static function filter( $data, $key, $value ) {
+	private static function filter( $data, $key, $value, $matchType = 'contains' ) {
 
 		if ( ! is_array( $data ) ) {
 			return array();
@@ -103,7 +104,7 @@ class Items {
 		}
 
 		if ( 'keywords' === $key ) {
-			return self::filter_by_keywords( $data, $value );
+			return self::filter_by_keywords( $data, $value, $matchType );
 		}
 	}
 
@@ -139,28 +140,45 @@ class Items {
 	/**
 	 * Filter an array by keywords.
 	 *
-	 * @param array  $data  Array of data.
-	 * @param string $value Value to filter by.
+	 * @param array  $data      Array of data.
+	 * @param string $value     Value to filter by.
+	 * @param string $matchType Type of matching: 'exact' or 'contains'.
 	 *
 	 * @return array $filtered
 	 */
-	private static function filter_by_keywords( $data, $value ) {
-
+	private static function filter_by_keywords( $data, $value, $matchType = 'contains' ) {
 		$filtered = array();
-
-		$value = strtolower( $value );
+		$value    = strtolower( $value );
 
 		foreach ( $data as $item ) {
+			$title      = strtolower( $item['title'] );
+			$matchFound = false;
 
-			if ( false !== strpos( strtolower( $item['title'] ), $value ) ) {
+			// Check title based on match type.
+			if ( 'exact' === $matchType && $title === $value ) {
+				$matchFound = true;
+			} elseif ( 'contains' === $matchType && false !== strpos( $title, $value ) ) {
+				$matchFound = true;
+			}
+
+			if ( $matchFound ) {
 				$filtered[] = $item;
-			} elseif ( isset( $item['tags'] ) ) {
+				continue;
+			}
 
+			// Check tags if available.
+			if ( isset( $item['tags'] ) ) {
 				$item['tags'] = (array) $item['tags'];
 
-				foreach ( $item['tags'] as $v ) {
-					if ( false !== strpos( strtolower( $v ), $value ) ) {
+				foreach ( $item['tags'] as $tag ) {
+					$tag = strtolower( $tag );
+
+					if ( 'exact' === $matchType && $tag === $value ) {
 						$filtered[] = $item;
+						break;
+					} elseif ( 'contains' === $matchType && false !== strpos( $tag, $value ) ) {
+						$filtered[] = $item;
+						break;
 					}
 				}
 			}
@@ -168,6 +186,7 @@ class Items {
 
 		return $filtered;
 	}
+
 
 	/**
 	 * Get featured items.

@@ -6937,6 +6937,7 @@ const usePatterns = ({
       url.searchParams.append("keywords", keywords);
     } else if ("usage_tags" === sidebarDisplayMode) {
       url.searchParams.append("keywords", activeCategory);
+      url.searchParams.append("matchType", "exact");
     } else {
       url.searchParams.append("category", activeCategory);
     }
