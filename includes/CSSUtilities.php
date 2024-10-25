@@ -156,20 +156,31 @@ class CSSUtilities {
 	/**
 	 * Check if a remote file is valid.
 	 *
-	 * @param string $url URL of the remote file.
+	 * Stores the resulting HTTP status (or "error") in a transient for 24 hours.
+	 * {@see wp_remote_retrieve_response_code()} returns 200 even for redirects.
 	 *
-	 * @return bool
+	 * @param string $url URL of the remote file.
 	 */
 	private function is_valid_remote_file( string $url ): bool {
-		$response = \wp_remote_get( $url, array( 'timeout' => 5 ) );
-		if ( is_wp_error( $response ) ) {
-			return false;
+		// Reverse the url because transient key length is limited and truncated and the unique part of the URL is its end.
+		$transient_key = 'nfd_css_utilities_valid_' . strrev($url );
+
+		$status_code = get_transient( $transient_key );
+
+		if( false === $status_code || ! is_numeric( $status_code ) ) {
+
+			$response = \wp_remote_head( $url, array( 'timeout' => 5 ) );
+
+			$status_code = is_wp_error( $response )
+				? 'error'
+				: \wp_remote_retrieve_response_code( $response );
+
+			set_transient( $transient_key, $status_code, constant( 'DAY_IN_SECONDS' ) );
 		}
 
-		$status_code = \wp_remote_retrieve_response_code( $response );
-		return $status_code === 200;
+		return 200 === intval( $status_code );
 	}
-	
+
 	/**
 	 * Get the version number for remote assets.
 	 *
