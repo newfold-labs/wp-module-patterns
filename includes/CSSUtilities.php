@@ -38,14 +38,22 @@ class CSSUtilities {
 		
 		$remote_css = $base_url . '/assets/css/utilities.css';
 		$remote_js  = $base_url . '/assets/js/utilities.js';
-		
-		$css_url = $this->get_asset_url($remote_css, NFD_WONDER_BLOCKS_URL . '/assets/build/utilities.css');
-		$css_version = $this->get_asset_version($remote_css);
 
-		$js_url = $this->get_asset_url($remote_js, NFD_WONDER_BLOCKS_URL . '/assets/build/utilities.js');
-		$js_version = $this->get_asset_version($remote_js);
+		$css_url = $this->is_valid_remote_file( $remote_css )
+			? $remote_css
+			: constant( 'NFD_WONDER_BLOCKS_URL' ) . '/assets/build/utilities.css';
+		$css_version = $css_url === $remote_css
+			? strtotime( 'midnight' )
+			: constant( 'NFD_WONDER_BLOCKS_VERSION' );
 
-		\wp_register_style( 
+		$js_url = $this->is_valid_remote_file( $remote_js )
+			? $remote_js
+			: constant( 'NFD_WONDER_BLOCKS_URL' ) . '/assets/build/utilities.js';
+		$js_version = $js_url === $remote_js
+			? strtotime( 'midnight' )
+			: constant( 'NFD_WONDER_BLOCKS_VERSION' );
+
+		\wp_register_style(
 			'nfd-wonder-blocks-utilities',
 			$css_url,
 			array(),
@@ -131,28 +139,7 @@ class CSSUtilities {
 		
 		return $css;
 	}
-	
-	/**
-	 * Get the URL for the asset, checking if the remote URL is valid.
-	 *
-	 * @param string $remote_url The remote URL for the asset.
-	 * @param string $fallback_url The fallback URL if the remote asset is invalid.
-	 * @return string The valid URL for the asset.
-	 */
-	private function get_asset_url( string $remote_url, string $fallback_url ) : string {
-		return $this->is_valid_remote_file( $remote_url ) ? $remote_url : $fallback_url;
-	}
 
-	/**
-	 * Get the version number for the asset, either from remote or fallback.
-	 *
-	 * @param string $remote_url The remote URL for the asset.
-	 * @return int|string The version number.
-	 */
-	private function get_asset_version( string $remote_url ) {
-		return $this->is_valid_remote_file( $remote_url ) ? $this->get_remote_assets_version() : NFD_WONDER_BLOCKS_VERSION;
-	}
-	
 	/**
 	 * Check if a remote file is valid.
 	 *
@@ -181,22 +168,6 @@ class CSSUtilities {
 		return 200 === intval( $status_code );
 	}
 
-	/**
-	 * Get the version number for remote assets.
-	 *
-	 * @return int The version number.
-	 */
-	private function get_remote_assets_version() : int {
-		$version = get_transient('nfd_utilities_version');
-		
-		if ( ! $version ) {
-			$version = time();
-			set_transient('nfd_utilities_version', $version, DAY_IN_SECONDS);
-		}
-		
-		return $version;
-	}
-	
 	/**
 	 * Get the base URL
 	 * 
