@@ -6,6 +6,13 @@ use NewfoldLabs\WP\Module\Data\WonderBlocks\Requests\Fetch;
 class CSSUtilities {
 	
 	/**
+	 * The single instance of the class.
+	 *
+	 * @var CSSUtilities|null
+	 */
+	private static $instance = null;
+
+	/**
 	 * The production base URL.
 	 *
 	 * @var string
@@ -20,9 +27,21 @@ class CSSUtilities {
 	protected static $local_base_url = 'http://localhost:8888';
 
 	/**
+	 * Get the single instance of the class.
+	 *
+	 * @return CSSUtilities The instance of the class.
+	 */
+	public static function get_instance(): CSSUtilities {
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
+
+	/**
 	 * Constructor.
 	 */
-	public function __construct() {
+	private function __construct() {
 		\add_action( 'enqueue_block_assets', array( $this, 'enqueue' ) );
 		\add_action( 'enqueue_nfd_wonder_blocks_utilities', array( $this, 'enqueue' ) );
 	}
@@ -33,44 +52,50 @@ class CSSUtilities {
 	 * @return void
 	 */
 	public function enqueue() {
-
-		$base_url = $this->get_base_url();
+		// Refresh assets if 24 hours have passed since the last refresh.
+		$this->conditional_refresh_assets();
 		
-		$remote_css = $base_url . '/assets/css/utilities.css';
-		$remote_js  = $base_url . '/assets/js/utilities.js';
-
-		$css_url = $this->is_valid_remote_file( $remote_css )
-			? $remote_css
-			: constant( 'NFD_WONDER_BLOCKS_URL' ) . '/assets/build/utilities.css';
-		$css_version = $css_url === $remote_css
-			? strtotime( 'midnight' )
-			: constant( 'NFD_WONDER_BLOCKS_VERSION' );
-
-		$js_url = $this->is_valid_remote_file( $remote_js )
-			? $remote_js
-			: constant( 'NFD_WONDER_BLOCKS_URL' ) . '/assets/build/utilities.js';
-		$js_version = $js_url === $remote_js
-			? strtotime( 'midnight' )
-			: constant( 'NFD_WONDER_BLOCKS_VERSION' );
-
-		\wp_register_style(
-			'nfd-wonder-blocks-utilities',
-			$css_url,
-			array(),
-			$css_version
-		);
-
-        \wp_register_script(
-            'nfd-wonder-blocks-utilities',
-            $js_url,
-            array(),
-            $js_version
-        );
-
-		\wp_enqueue_style( 'nfd-wonder-blocks-utilities' );
-		\wp_enqueue_script( 'nfd-wonder-blocks-utilities' );
+		$css_content = $this->get_asset_content( 'utilities_css' );
+		$js_content  = $this->get_asset_content( 'utilities_js' );
+		
+		if ( $css_content ) {
+			\wp_register_style( 'nfd-wonder-blocks-utilities', false );
+			\wp_enqueue_style( 'nfd-wonder-blocks-utilities');
+			\wp_add_inline_style( 'nfd-wonder-blocks-utilities', $css_content );
+		} else {
+			\wp_enqueue_style(
+				'nfd-wonder-blocks-utilities',
+				constant( 'NFD_WONDER_BLOCKS_URL' ) . '/assets/build/utilities.css',
+				array(),
+				constant( 'NFD_WONDER_BLOCKS_VERSION' )
+			);
+		}
+		
+		if ( $js_content ) {
+			\wp_register_script( 'nfd-wonder-blocks-utilities', false );
+			\wp_enqueue_script( 'nfd-wonder-blocks-utilities' );
+			\wp_add_inline_script( 'nfd-wonder-blocks-utilities', $js_content );
+		} else {
+			\wp_enqueue_script(
+				'nfd-wonder-blocks-utilities',
+				constant( 'NFD_WONDER_BLOCKS_URL' ) . '/assets/build/utilities.js',
+				array(),
+				constant( 'NFD_WONDER_BLOCKS_VERSION' )
+			);
+		}
 
 		\wp_add_inline_style( 'nfd-wonder-blocks-utilities', $this->get_inline_css() );
+	}
+	
+	/**
+	 * Get the content of an asset.
+	 *
+	 * @param string $asset The asset to get the content of.
+	 * @return string The content of the asset.
+	 */
+	private function get_asset_content( string $option_key ) {
+		$sanitized_key = sanitize_key( 'nfd_' . $option_key );
+		return get_option( $sanitized_key, false );
 	}
 	
 	/**
@@ -83,7 +108,6 @@ class CSSUtilities {
 	 * @return string The generated CSS.
 	 */
 	private function get_inline_css() {
-
 		$theme = \wp_get_theme()->get_template();
 		$css   = '';
 
@@ -120,7 +144,7 @@ class CSSUtilities {
                 --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
 			}";
             
-            $css = "body .is-layout-constrained:has(.wndb-container.is-layout-constrained) > .wndb-container.is-layout-constrained {
+            $css .= "body .is-layout-constrained:has(.wndb-container.is-layout-constrained) > .wndb-container.is-layout-constrained {
                 width: 100%;
                 max-width: unset;
             }";
@@ -141,34 +165,6 @@ class CSSUtilities {
 	}
 
 	/**
-	 * Check if a remote file is valid.
-	 *
-	 * Stores the resulting HTTP status (or "error") in a transient for 24 hours.
-	 * {@see wp_remote_retrieve_response_code()} returns 200 even for redirects.
-	 *
-	 * @param string $url URL of the remote file.
-	 */
-	private function is_valid_remote_file( string $url ): bool {
-		// Reverse the url because transient key length is limited and truncated and the unique part of the URL is its end.
-		$transient_key = 'nfd_css_utilities_valid_' . strrev($url );
-
-		$status_code = get_transient( $transient_key );
-
-		if( false === $status_code || ! is_numeric( $status_code ) ) {
-
-			$response = \wp_remote_head( $url, array( 'timeout' => 5 ) );
-
-			$status_code = is_wp_error( $response )
-				? 'error'
-				: \wp_remote_retrieve_response_code( $response );
-
-			set_transient( $transient_key, $status_code, constant( 'DAY_IN_SECONDS' ) );
-		}
-
-		return 200 === intval( $status_code );
-	}
-
-	/**
 	 * Get the base URL
 	 * 
 	 * @return string The base URL.
@@ -179,5 +175,80 @@ class CSSUtilities {
 		}
 
 		return self::$production_base_url;
+	}
+
+	/**
+	 * Conditionally refresh CSS and JS assets from remote sources if 24 hours have passed.
+	 *
+	 * @return void
+	 */
+	public function conditional_refresh_assets() {
+		$last_refresh = get_option( 'nfd_utilities_last_refresh_time', 0 );
+		$current_time = time();
+		
+		if ( ( $current_time - $last_refresh ) > DAY_IN_SECONDS ) {
+			$this->refresh_assets();
+			update_option( 'nfd_utilities_last_refresh_time', $current_time );
+		}
+	}
+
+	/**
+	 * Refresh CSS and JS assets from remote sources.
+	 * This method can be manually triggered by other actions or hooks as needed.
+	 *
+	 * @return void
+	 */
+	public function refresh_assets() {
+		$this->fetch_and_store_asset( '/assets/css/utilities.css', 'utilities_css' );
+		$this->fetch_and_store_asset( '/assets/js/utilities.js', 'utilities_js' );
+	}
+
+	/**
+	 * Fetch and store the asset content in the database with minification.
+	 *
+	 * @param string $path The path of the remote asset.
+	 * @param string $option_key The option key to store the content.
+	 *
+	 * @return void
+	 */
+	private function fetch_and_store_asset( string $path, string $option_key ) {
+		$base_url = $this->get_base_url();
+		$url = esc_url_raw( $base_url . $path );
+
+		$response = \wp_remote_get( $url );
+		
+		if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
+			$content = wp_remote_retrieve_body( $response );
+			
+			// Minify the content for storage
+			$minified_content = $this->minify_content( $content, $path );
+			$sanitized_key = sanitize_key( 'nfd_' . $option_key );
+			update_option( $sanitized_key, wp_slash( $minified_content ) );
+		}
+	}
+
+	/**
+	 * Minify the CSS or JS content.
+	 *
+	 * @param string $content The content to minify.
+	 * @param string $path The path to determine if it's CSS or JS.
+	 *
+	 * @return string The minified content.
+	 */
+	private function minify_content( string $content, string $path ): string {
+		if ( strpos( $path, '.css' ) !== false ) {
+			// Minify CSS by removing comments, whitespace, etc.
+			$content = preg_replace( '/\s+/', ' ', $content );
+			$content = preg_replace( '/\s*([{};:>+~,])\s*/', '$1', $content );
+			$content = preg_replace( '/;}/', '}', $content );
+			$content = preg_replace( '/\/\*.*?\*\//', '', $content );
+		} elseif ( strpos( $path, '.js' ) !== false ) {
+			// Minify JS by removing comments and whitespace.
+			$content = preg_replace( '/\/\*.*?\*\//s', '', $content );
+			$content = preg_replace( '/\s+/', ' ', $content );
+			$content = preg_replace( '/\s*([{};,:>+\-~])\s*/', '$1', $content );
+			$content = preg_replace( '/;}/', '}', $content );
+		}
+		return trim( $content );
 	}
 }

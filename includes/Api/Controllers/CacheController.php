@@ -4,6 +4,7 @@ namespace NewfoldLabs\WP\Module\Patterns\Api\Controllers;
 use NewfoldLabs\WP\Module\Patterns\SiteClassification;
 use NewfoldLabs\WP\Module\Data\WonderBlocks\Requests\Fetch as WonderBlocksFetchRequest;
 use NewfoldLabs\WP\Module\Data\WonderBlocks\WonderBlocks;
+use NewfoldLabs\WP\Module\Patterns\CSSUtilities;
 
 /**
  * Controller for cache.
@@ -71,6 +72,9 @@ class CacheController {
 
 			$response['categories'] = 'Cache cleared';
 		}
+		
+		// Refresh the CSS utilities assets.
+		CSSUtilities::get_instance()->refresh_assets();
 
 		return new \WP_REST_Response( $response, 200 );
 	}
