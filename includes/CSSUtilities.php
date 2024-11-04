@@ -186,7 +186,7 @@ class CSSUtilities {
 		$last_refresh = get_option( 'nfd_utilities_last_refresh_time', 0 );
 		$current_time = time();
 		
-		if ( ( $current_time - $last_refresh ) > DAY_IN_SECONDS ) {
+		if ( ( $current_time - $last_refresh ) > DAY_IN_SECONDS || ( defined( 'NFD_DATA_WB_DEV_MODE' ) && constant( 'NFD_DATA_WB_DEV_MODE' ) ) ) {
 			$this->refresh_assets();
 			update_option( 'nfd_utilities_last_refresh_time', $current_time );
 		}
