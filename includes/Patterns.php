@@ -35,7 +35,8 @@ class Patterns {
 			new CTA();
 		}
 
-		new CSSUtilities();
+		CSSUtilities::get_instance();
+
 		new RestApi();
 		new BlockStyles();
 	}
