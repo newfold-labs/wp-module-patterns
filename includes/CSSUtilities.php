@@ -43,7 +43,7 @@ class CSSUtilities {
 	 */
 	private function __construct() {
 
-		if ( is_admin() ) {
+		if ( \is_admin() ) {
 			\add_action( 'enqueue_block_assets', array( $this, 'enqueue' ) );
 		} else {
 			\add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
