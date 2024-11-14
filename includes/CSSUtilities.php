@@ -42,7 +42,13 @@ class CSSUtilities {
 	 * Constructor.
 	 */
 	private function __construct() {
-		\add_action( 'enqueue_block_assets', array( $this, 'enqueue' ) );
+
+		if ( is_admin() ) {
+			\add_action( 'enqueue_block_assets', array( $this, 'enqueue' ) );
+		} else {
+			\add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+		}
+
 		\add_action( 'enqueue_nfd_wonder_blocks_utilities', array( $this, 'enqueue' ) );
 	}
 
