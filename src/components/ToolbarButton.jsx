@@ -29,7 +29,7 @@ const ToolbarButton = () => {
 		<WPToolbarButton
 			icon={<Icon icon={rectangleGroup} />}
 			className={classNames(
-				"nfd-wba-gap-1 nfd-wba-mr-2 nfd-wba-flex !nfd-wba-h-9 !nfd-wba-min-w-[36px] nfd-wba-shrink-0 nfd-wba-bg-brand !nfd-wba-p-0 nfd-wba-text-white hover:nfd-wba-bg-brand-darker hover:nfd-wba-text-white focus-visible:nfd-wba-text-white active:nfd-wba-bg-brand-darker-10 active:!nfd-wba-text-white lg:!nfd-wba-pl-3 lg:!nfd-wba-pr-[15px]",
+				"nfd-wba-gap-1 nfd-wba-mr-2 nfd-wba-flex !nfd-wba-h-9 !nfd-wba-min-w-[36px] nfd-wba-shrink-0 nfd-wba-bg-brand !nfd-wba-p-0 nfd-wba-text-white hover:nfd-wba-bg-brand-darker hover:!nfd-wba-text-white focus-visible:nfd-wba-text-white active:nfd-wba-bg-brand-darker-10 active:!nfd-wba-text-white lg:!nfd-wba-pl-3 lg:!nfd-wba-pr-[15px]",
 				isModalOpen && "!nfd-wba-bg-dark nfd-wba-text-white"
 			)}
 			isPressed={isModalOpen}
