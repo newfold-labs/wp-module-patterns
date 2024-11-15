@@ -21,7 +21,7 @@ class CacheController {
 		// Initialize response
 		$response = array();
 
-		if ( ! $type || $type === 'patterns' ) {
+		if ( ! $type || 'patterns' === $type ) {
 			// Clear cache for patterns
 			$pattern_request = new WonderBlocksFetchRequest(
 				array(
@@ -34,7 +34,7 @@ class CacheController {
 			$response['patterns'] = 'Cache cleared';
 		}
 
-		if ( ! $type || $type === 'templates' ) {
+		if ( ! $type || 'templates' === $type ) {
 			// Clear cache for templates
 			$template_request = new WonderBlocksFetchRequest(
 				array(
@@ -47,7 +47,7 @@ class CacheController {
 			$response['templates'] = 'Cache cleared';
 		}
 
-		if ( ! $type || $type === 'categories' ) {
+		if ( ! $type || 'categories' === $type ) {
 
 			// Clear cache for categories
 			$category_request = new WonderBlocksFetchRequest(
@@ -72,7 +72,7 @@ class CacheController {
 
 			$response['categories'] = 'Cache cleared';
 		}
-		
+
 		// Refresh the CSS utilities assets.
 		CSSUtilities::get_instance()->refresh_assets();
 
