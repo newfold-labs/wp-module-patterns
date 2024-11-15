@@ -38,7 +38,6 @@ class PluginService {
 				continue;
 			}
 
-			// PluginInstallTaskManager::add_to_queue(
 			$plugin_installation_task = new PluginInstallTask(
 				$plugin['slug'],
 				true,
