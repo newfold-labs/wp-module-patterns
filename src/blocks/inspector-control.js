@@ -79,6 +79,16 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
 		const { name, clientId } = props;
 
+		const openStylesTab = () => {
+			const stylesTabButton = document.querySelector(
+				".block-editor-block-inspector__tab-item[aria-label='Styles']"
+			);
+
+			if (stylesTabButton) {
+				stylesTabButton.click();
+			}
+		};
+
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
 		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
@@ -362,10 +372,11 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 										status="warning"
 										isDismissible={false}
 									>
-										{__(
-											"This feature is now located in the Block Styles section.",
-											"nfd-wonder-blocks"
-										)}
+										{__("This feature is now located in the", "nfd-wonder-blocks")}{" "}
+										<Button onClick={openStylesTab} variant="link">
+											{__("Block Styles", "nfd-wonder-blocks")}
+										</Button>
+										{" " + __("section.", "nfd-wonder-blocks")}
 									</Notice>
 									{customThemeStyles.map((style) => {
 										const buttonText = style.isDefault
