@@ -42,7 +42,13 @@ class CSSUtilities {
 	 * Constructor.
 	 */
 	private function __construct() {
-		\add_action( 'enqueue_block_assets', array( $this, 'enqueue' ) );
+
+		if ( \is_admin() ) {
+			\add_action( 'enqueue_block_assets', array( $this, 'enqueue' ) );
+		} else {
+			\add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+		}
+
 		\add_action( 'enqueue_nfd_wonder_blocks_utilities', array( $this, 'enqueue' ) );
 	}
 
@@ -95,7 +101,7 @@ class CSSUtilities {
 	 */
 	private function get_asset_content( string $option_key ) {
 		$sanitized_key = sanitize_key( 'nfd_' . $option_key );
-		return get_option( $sanitized_key, false );
+		return wp_unslash( get_option( $sanitized_key, false ) );
 	}
 	
 	/**
@@ -219,36 +225,8 @@ class CSSUtilities {
 		
 		if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
 			$content = wp_remote_retrieve_body( $response );
-			
-			// Minify the content for storage
-			$minified_content = $this->minify_content( $content, $path );
 			$sanitized_key = sanitize_key( 'nfd_' . $option_key );
-			update_option( $sanitized_key, wp_slash( $minified_content ) );
+			update_option( $sanitized_key, wp_slash( $content ) );
 		}
-	}
-
-	/**
-	 * Minify the CSS or JS content.
-	 *
-	 * @param string $content The content to minify.
-	 * @param string $path The path to determine if it's CSS or JS.
-	 *
-	 * @return string The minified content.
-	 */
-	private function minify_content( string $content, string $path ): string {
-		if ( strpos( $path, '.css' ) !== false ) {
-			// Minify CSS by removing comments, whitespace, etc.
-			$content = preg_replace( '/\s+/', ' ', $content );
-			$content = preg_replace( '/\s*([{};:>+~,])\s*/', '$1', $content );
-			$content = preg_replace( '/;}/', '}', $content );
-			$content = preg_replace( '/\/\*.*?\*\//', '', $content );
-		} elseif ( strpos( $path, '.js' ) !== false ) {
-			// Minify JS by removing comments and whitespace.
-			$content = preg_replace( '/\/\*.*?\*\//s', '', $content );
-			$content = preg_replace( '/\s+/', ' ', $content );
-			$content = preg_replace( '/\s*([{};,:>+\-~])\s*/', '$1', $content );
-			$content = preg_replace( '/;}/', '}', $content );
-		}
-		return trim( $content );
 	}
 }
