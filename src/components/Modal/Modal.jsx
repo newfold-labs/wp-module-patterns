@@ -15,7 +15,6 @@ import { store as nfdPatternsStore } from "../../store";
 import Content from "./Content/Content";
 import Header from "./Content/Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
-import { setSidebarDisplayMode } from "../../store/actions";
 
 const Modal = () => {
 	const {
@@ -26,12 +25,14 @@ const Modal = () => {
 		setSidebarDisplayMode,
 	} = useDispatch(nfdPatternsStore);
 
-	const { isModalOpen, isEditingTemplate, editedPostType, currentView } = useSelect((select) => ({
-		currentView: select(nfdPatternsStore).getCurrentView(),
-		editedPostType: select("core/edit-site")?.getEditedPostType(),
-		isEditingTemplate: select("core/edit-post")?.isEditingTemplate(),
-		isModalOpen: select(nfdPatternsStore).isModalOpen(),
-	}));
+	const { isModalOpen, isEditingTemplate, editedPostType, currentView, renderingMode } = useSelect(
+		(select) => ({
+			currentView: select(nfdPatternsStore).getCurrentView(),
+			editedPostType: select("core/edit-site")?.getEditedPostType(),
+			isEditingTemplate: select("core/editor")?.getCurrentPostType() === "wp_template",
+			isModalOpen: select(nfdPatternsStore).isModalOpen(),
+		})
+	);
 
 	// Check if we are editing a template, via site editor or page.
 	const isSiteEditor = useMemo(() => {
