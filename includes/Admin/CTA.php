@@ -175,7 +175,7 @@ class CTA {
         if ($screen->id === 'edit-post') {
             $url = admin_url('post-new.php?wb-library=patterns&wb-category=text');
         } elseif ($screen->id === 'edit-page') {
-            $url = admin_url('post-new.php?post_type=page&wb-library=templates');
+            $url = admin_url('post-new.php?post_type=page&wb-library=patterns&wb-category=features');
         } else {
             // Default fallback URL
             $url = admin_url('post-new.php?wb-library=patterns');
