@@ -181,7 +181,7 @@ class CTA {
             $url = admin_url('post-new.php?wb-library=patterns');
         }
 
-        $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="2.25 6 19.5 13.5" width="18px" height="20px"><path stroke-linecap="round" stroke-linejoin="round" d="M3.34 7.754c0-.552.447-.999.999-.999h5.328a1 1 0 0 1 .999.999v3.329a1 1 0 0 1-.999.999H4.339a.999.999 0 0 1-.999-.999V7.754Zm10.655 1.331a1 1 0 0 1 .999-.998h4.662c.552 0 .999.447.999.998v7.326a.999.999 0 0 1-.999.999h-4.662a1 1 0 0 1-.999-.999V9.085Zm-9.323 6.66a1 1 0 0 1 .998-.999h4.662a1 1 0 0 1 .999.999v1.998a1 1 0 0 1-.999.999H5.67a1 1 0 0 1-.998-.999v-1.998Z" style="fill:none;stroke-width:1.5px;paint-order:stroke;stroke:currentColor"/></svg>';
+        $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="2.25 6 19.5 13.5" width="19px" height="19px"><path stroke-linecap="round" stroke-linejoin="round" d="M3.34 7.754c0-.552.447-.999.999-.999h5.328a1 1 0 0 1 .999.999v3.329a1 1 0 0 1-.999.999H4.339a.999.999 0 0 1-.999-.999V7.754Zm10.655 1.331a1 1 0 0 1 .999-.998h4.662c.552 0 .999.447.999.998v7.326a.999.999 0 0 1-.999.999h-4.662a1 1 0 0 1-.999-.999V9.085Zm-9.323 6.66a1 1 0 0 1 .998-.999h4.662a1 1 0 0 1 .999.999v1.998a1 1 0 0 1-.999.999H5.67a1 1 0 0 1-.998-.999v-1.998Z" style="fill:none;stroke-width:1.5px;paint-order:stroke;stroke:currentColor"/></svg>';
 
         $cta_text = sprintf(
             __('%1$sAdd With WonderBlocks%2$s', 'nfd-wonder-blocks'),
@@ -232,6 +232,11 @@ class CTA {
                 position: relative;
                 top: 4px;
             }
+			@media only screen and (max-width: 433px) {
+				.nfd-wba-cta-edit-screen {
+					margin-top: 6px;
+				}
+			}
         </style>
         <?php
     }
