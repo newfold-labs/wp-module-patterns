@@ -23,6 +23,7 @@ import LoadingSpinner from "../LoadingSpinner";
 import Skeleton from "../Skeleton";
 import Spinner from "../Spinner";
 import UpdateNotice from "../UpdateNotice";
+import { setSidebarDisplayMode } from "../../../../store/actions";
 
 const Library = () => {
 	const [ready, setReady] = useState(false);
@@ -38,7 +39,7 @@ const Library = () => {
 	// Fetch data.
 	const { data, isValidating, isFavorites, isError, size, setSize, hasMore } = usePatterns();
 
-	const { setIsContentLoading } = useDispatch(nfdPatternsStore);
+	const { setIsContentLoading, setSidebarDisplayMode } = useDispatch(nfdPatternsStore);
 
 	// Set the global content loading state when the data is loading.
 	useEffect(() => {
@@ -89,6 +90,12 @@ const Library = () => {
 			trackHiiveEvent("template_searched", eventData);
 		}
 	}, [activeTab, data?.length, hasMore, keywordsFilter]);
+
+	useEffect(() => {
+		if (activeTab === "templates") {
+			setSidebarDisplayMode("categories");
+		}
+	}, [activeTab, setSidebarDisplayMode]);
 
 	return (
 		<>
