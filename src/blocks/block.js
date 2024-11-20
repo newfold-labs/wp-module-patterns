@@ -27,7 +27,7 @@ registerBlockType(metadata, {
 	variations: [...variations],
 	edit: function Edit({ clientId, attributes }) {
 		const { removeBlock } = useDispatch("core/block-editor");
-		const { setIsModalOpen, setActivePatternsCategory, setActiveTab } =
+		const { setIsModalOpen, setActivePatternsCategory, setActiveTab, setSidebarDisplayMode } =
 			useDispatch(nfdPatternsStore);
 
 		useEffect(() => {
@@ -38,6 +38,7 @@ registerBlockType(metadata, {
 			removeBlock(clientId);
 
 			setActiveTab("patterns");
+			setSidebarDisplayMode("categories");
 			setActivePatternsCategory(
 				attributes.category ? attributes.category : DEFAULT_PATTERNS_CATEGORY
 			);
