@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { InfoIcon } from "lucide-react";
+import { PlugIcon } from "lucide-react";
 
 /**
  * WordPress dependencies
@@ -41,14 +41,14 @@ const RequiredPluginManager = ({ item }) => {
 
 	const generateRequiredPluginsMessage = (requiredPlugins) => {
 		if (requiredPlugins.length === 0) {
-			return __("No plugins are required.", "nfd-wonder-blocks");
+			return __("No plugins required.", "nfd-wonder-blocks");
 		} else if (requiredPlugins.length === 1) {
-			return sprintf(__("%s plugin is required.", "nfd-wonder-blocks"), requiredPlugins[0].name);
+			return sprintf(__("Requires %s.", "nfd-wonder-blocks"), requiredPlugins[0].name);
 		} else {
 			const pluginNames = requiredPlugins.map((plugin) => plugin.name);
 			const lastPlugin = pluginNames.pop(); // Remove the last plugin name
 			return sprintf(
-				__("%s and %s plugins are required.", "nfd-wonder-blocks"),
+				__("Requires %s and %s.", "nfd-wonder-blocks"),
 				pluginNames.join(", "),
 				lastPlugin
 			);
@@ -62,10 +62,10 @@ const RequiredPluginManager = ({ item }) => {
 	return (
 		<div className="nfd-wba-plugins-required__overlay nfd-wba-absolute nfd-wba-inset-0 nfd-wba-bg-gray-300/50 nfd-wba-z-20">
 			<div className="nfd-wba-plugins-required__alert">
-				<InfoIcon className="nfd-wba-mt-1" size={16} />
+				<PlugIcon className="nfd-wba-mt-1" size={16} />
 
 				<div>
-					<strong>{__("Plugins required", "nfd-wonder-blocks")}</strong>
+					<strong>{__("WordPress Plugins Required", "nfd-wonder-blocks")}</strong>
 
 					<p className="nfd-wba-text-neutral-500">{generateRequiredPluginsMessage(requirements)}</p>
 
