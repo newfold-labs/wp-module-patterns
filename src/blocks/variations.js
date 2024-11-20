@@ -2,36 +2,33 @@
  * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
-import {
-	button,
-	category,
-	columns,
-	gallery,
-	heading,
-	help,
-	people,
-	postFeaturedImage,
-	postList,
-	quote,
-	header,
-	footer,
-	typography,
-	inbox,
-	list,
-	postTerms,
-} from "@wordpress/icons";
 
-/**
- * Internal dependencies
- */
-import { heartSmall } from "../components/Icons";
+import {
+	ImagesIcon,
+	NewspaperIcon,
+	MegaphoneIcon,
+	CircleHelpIcon,
+	LayoutListIcon,
+	MailsIcon,
+	BookTypeIcon,
+	BookImageIcon,
+	ReceiptIcon,
+	BookOpenTextIcon,
+	UsersIcon,
+	MessageSquareMoreIcon,
+	BookTextIcon,
+	PanelTopDashedIcon,
+	PanelBottomDashedIcon,
+	GiftIcon,
+	HeartIcon,
+} from "lucide-react";
 
 export const variations = [
 	{
 		name: "gallery",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: gallery,
+			src: <ImagesIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "gallery" },
@@ -52,7 +49,7 @@ export const variations = [
 		name: "blog",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: postList,
+			src: <NewspaperIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "blog" },
@@ -73,7 +70,7 @@ export const variations = [
 		name: "call-to-action",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: button,
+			src: <MegaphoneIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "call-to-action" },
@@ -83,6 +80,7 @@ export const variations = [
 			__("cta", "nfd-wonder-blocks"),
 			__("conversion", "nfd-wonder-blocks"),
 			__("button", "nfd-wonder-blocks"),
+			__("announcement", "nfd-wonder-blocks"),
 		],
 		example: {
 			attributes: {
@@ -94,7 +92,7 @@ export const variations = [
 		name: "faq",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: help,
+			src: <CircleHelpIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "faq" },
@@ -111,7 +109,7 @@ export const variations = [
 		name: "features",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: category,
+			src: <LayoutListIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "features" },
@@ -128,7 +126,7 @@ export const variations = [
 		name: "forms",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: inbox,
+			src: <MailsIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "forms" },
@@ -150,7 +148,7 @@ export const variations = [
 		name: "headings",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: heading,
+			src: <BookTypeIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "headings" },
@@ -172,7 +170,7 @@ export const variations = [
 		name: "hero",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: postFeaturedImage,
+			src: <BookImageIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "hero" },
@@ -193,7 +191,7 @@ export const variations = [
 		name: "pricing",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: columns,
+			src: <ReceiptIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "pricing-table" },
@@ -214,7 +212,7 @@ export const variations = [
 		name: "menu",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: list,
+			src: <BookOpenTextIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "menu" },
@@ -238,7 +236,7 @@ export const variations = [
 		name: "team",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: people,
+			src: <UsersIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "team" },
@@ -259,7 +257,7 @@ export const variations = [
 		name: "testimonials",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: quote,
+			src: <MessageSquareMoreIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "testimonials" },
@@ -280,7 +278,7 @@ export const variations = [
 		name: "text",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: typography,
+			src: <BookTextIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "text" },
@@ -290,6 +288,8 @@ export const variations = [
 			__("highlight", "nfd-wonder-blocks"),
 			__("write", "nfd-wonder-blocks"),
 			__("format", "nfd-wonder-blocks"),
+			__("recipe", "nfd-wonder-blocks"),
+			__("rating", "nfd-wonder-blocks"),
 		],
 		example: {
 			attributes: {
@@ -301,12 +301,13 @@ export const variations = [
 		name: "header",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: header,
+			src: <PanelTopDashedIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "header" },
 		title: __("Header Patterns", "nfd-wonder-blocks"),
 		description: __("Add Header patterns.", "nfd-wonder-blocks"),
+		keywords: [__("navigation", "nfd-wonder-blocks")],
 		example: {
 			attributes: {
 				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/header.webp",
@@ -317,7 +318,7 @@ export const variations = [
 		name: "footer",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: footer,
+			src: <PanelBottomDashedIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "footer" },
@@ -333,12 +334,13 @@ export const variations = [
 		name: "products",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: postTerms,
+			src: <GiftIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "products" },
 		title: __("Product Patterns", "nfd-wonder-blocks"),
 		description: __("Add Product patterns.", "nfd-wonder-blocks"),
+		keywords: [__("woocommerce", "nfd-wonder-blocks")],
 		example: {
 			attributes: {
 				preview: "https://hiive.cloud/workers/wonderblocks-assets/previews/products.webp",
@@ -349,7 +351,7 @@ export const variations = [
 		name: "favorites",
 		icon: {
 			foreground: "var(--nfd-wba-color-brand)",
-			src: heartSmall,
+			src: <HeartIcon style={{ maxWidth: "20px", fill: "transparent" }} />,
 		},
 		category: "nfd-wonder-blocks",
 		attributes: { category: "favorites" },

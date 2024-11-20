@@ -244,9 +244,7 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 									onClick={() => {
 										handleCategoryChange(category?.title);
 									}}
-									icon={
-										category.icon && <Icon fill="currentColor" icon={category.icon} size={20} />
-									}
+									icon={category.icon && <Icon fill="none" icon={category.icon} size={20} />}
 								/>
 							);
 						})}
