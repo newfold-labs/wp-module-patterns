@@ -23,7 +23,6 @@ import LoadingSpinner from "../LoadingSpinner";
 import Skeleton from "../Skeleton";
 import Spinner from "../Spinner";
 import UpdateNotice from "../UpdateNotice";
-import { setSidebarDisplayMode } from "../../../../store/actions";
 
 const Library = () => {
 	const [ready, setReady] = useState(false);
@@ -50,9 +49,10 @@ const Library = () => {
 	useEffect(() => {
 		if (hasMore && inView) {
 			setSize(size + 1);
+			console.log(size);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [inView, hasMore]);
+	}, [inView, hasMore, data?.length]);
 
 	// Delay showing the content to avoid flickering
 	useEffect(() => {
