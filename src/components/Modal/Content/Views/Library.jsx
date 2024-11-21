@@ -49,7 +49,6 @@ const Library = () => {
 	useEffect(() => {
 		if (hasMore && inView) {
 			setSize(size + 1);
-			console.log(size);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [inView, hasMore, data?.length]);
