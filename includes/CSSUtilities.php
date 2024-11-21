@@ -2,7 +2,6 @@
 
 namespace NewfoldLabs\WP\Module\Patterns;
 
-use NewfoldLabs\WP\Module\Data\WonderBlocks\Requests\Fetch;
 class CSSUtilities {
 	
 	/**
@@ -17,7 +16,7 @@ class CSSUtilities {
 	 *
 	 * @var string
 	 */
-	protected static $production_base_url = 'https://patterns.hiive.cloud';
+	protected static $production_base_url = 'https://patterns.hiive.cloud/cdn';
 
 	/**
 	 * The local base URL.
@@ -100,8 +99,8 @@ class CSSUtilities {
 	 * @return string The content of the asset.
 	 */
 	private function get_asset_content( string $option_key ) {
-		$sanitized_key = sanitize_key( 'nfd_' . $option_key );
-		return wp_unslash( get_option( $sanitized_key, false ) );
+		$sanitized_key = \sanitize_key( 'nfd_' . $option_key );
+		return \wp_unslash( \get_option( $sanitized_key, false ) );
 	}
 	
 	/**
@@ -189,12 +188,12 @@ class CSSUtilities {
 	 * @return void
 	 */
 	public function conditional_refresh_assets() {
-		$last_refresh = get_option( 'nfd_utilities_last_refresh_time', 0 );
+		$last_refresh = \get_option( 'nfd_utilities_last_refresh_time', 0 );
 		$current_time = time();
 		
 		if ( ( $current_time - $last_refresh ) > DAY_IN_SECONDS || ( defined( 'NFD_DATA_WB_DEV_MODE' ) && constant( 'NFD_DATA_WB_DEV_MODE' ) ) ) {
 			$this->refresh_assets();
-			update_option( 'nfd_utilities_last_refresh_time', $current_time );
+			\update_option( 'nfd_utilities_last_refresh_time', $current_time );
 		}
 	}
 
@@ -219,14 +218,14 @@ class CSSUtilities {
 	 */
 	private function fetch_and_store_asset( string $path, string $option_key ) {
 		$base_url = $this->get_base_url();
-		$url = esc_url_raw( $base_url . $path );
+		$url = \esc_url_raw( $base_url . $path );
 
 		$response = \wp_remote_get( $url );
 		
-		if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
-			$content = wp_remote_retrieve_body( $response );
-			$sanitized_key = sanitize_key( 'nfd_' . $option_key );
-			update_option( $sanitized_key, wp_slash( $content ) );
+		if ( ! \is_wp_error( $response ) && 200 === \wp_remote_retrieve_response_code( $response ) ) {
+			$content = \wp_remote_retrieve_body( $response );
+			$sanitized_key = \sanitize_key( 'nfd_' . $option_key );
+			\update_option( $sanitized_key, \wp_slash( $content ) );
 		}
 	}
 }
