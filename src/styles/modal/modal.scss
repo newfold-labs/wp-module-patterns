@@ -92,6 +92,9 @@
 
 		.components-toggle-group-control {
 			border-color: var(--nfd-wba-color-borders);
+			&:before {
+				background-color: var(--nfd-wba-color-borders);
+			}
 		}
 	}
 }
