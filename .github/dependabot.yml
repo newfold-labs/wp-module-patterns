@@ -1,0 +1,51 @@
+version: 2
+updates:
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "main"
+    allow:
+      - dependency-type: direct
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "GitHub Actions"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "workflows"
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    target-branch: "main"
+    allow:
+      - dependency-type: direct
+    schedule:
+      interval: "daily"
+    versioning-strategy: increase
+    commit-message:
+      prefix: "NPM"
+      prefix-development: "NPM Dev"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "javascript"
+
+  # Maintain dependencies for Composer
+  - package-ecosystem: "composer"
+    directory: "/"
+    target-branch: "main"
+    allow:
+      - dependency-type: direct
+    schedule:
+      interval: "daily"
+    versioning-strategy: increase
+    commit-message:
+      prefix: "Composer"
+      prefix-development: "Composer Dev"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "php"
