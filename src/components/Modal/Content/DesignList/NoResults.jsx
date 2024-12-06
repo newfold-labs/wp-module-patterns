@@ -55,9 +55,8 @@ const NoResults = ({ isFavorites }) => {
 							category="Features"
 							icon={
 								<Icon
-									icon={iconMapping["patterns-features"]}
+									icon={iconMapping["patterns-categories-features"]}
 									size={24}
-									className="nfd-wba-fill-current"
 								/>
 							}
 							onClick={() => {
@@ -69,9 +68,8 @@ const NoResults = ({ isFavorites }) => {
 							category="Text"
 							icon={
 								<Icon
-									icon={iconMapping["patterns-text"]}
+									icon={iconMapping["patterns-categories-text"]}
 									size={24}
-									className="nfd-wba-fill-current"
 								/>
 							}
 							onClick={() => {
