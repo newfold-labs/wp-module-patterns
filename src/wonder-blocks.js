@@ -6,7 +6,7 @@ import "./styles/app.scss";
 /**
  * External dependencies
  */
-import { HiiveAnalytics } from "@newfold-labs/js-utility-ui-analytics";
+import { HiiveAnalytics } from "@newfold/js-utility-ui-analytics";
 
 /**
  * WordPress dependencies
@@ -15,6 +15,8 @@ import domReady from "@wordpress/dom-ready";
 import { createRoot } from "@wordpress/element";
 import { registerPlugin } from "@wordpress/plugins";
 import { debounce } from "@wordpress/compose";
+import { default as wpData } from "@wordpress/data";
+import { default as wpApiFetch } from "@wordpress/api-fetch";
 
 /**
  * Internal dependencies
@@ -115,6 +117,10 @@ const initializeHiiveAnalytics = () => {
 			debounce: {
 				time: 3000,
 			},
+		},
+		dependencies: {
+			wpData,
+			wpApiFetch,
 		},
 	});
 };
