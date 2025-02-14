@@ -35,7 +35,7 @@ class Items {
 		if ( ! $data ) {
 			return new \WP_Error(
 				'nfd_wonder_blocks_error',
-				__( 'Error fetching data from the platform.', 'nfd-wonder-blocks' )
+				__( 'Error fetching data from the platform.', 'wp-module-patterns' )
 			);
 		}
 

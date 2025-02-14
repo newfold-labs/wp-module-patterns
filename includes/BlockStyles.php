@@ -19,23 +19,23 @@ class BlockStyles {
 		$styles = array(
 			array(
 				'name'  => 'nfd-theme-white',
-				'label' => __( 'White', 'nfd-wonder-blocks' ),
+				'label' => __( 'White', 'wp-module-patterns' ),
 			),
 			array(
 				'name'  => 'nfd-theme-light',
-				'label' => __( 'Light', 'nfd-wonder-blocks' ),
+				'label' => __( 'Light', 'wp-module-patterns' ),
 			),
 			array(
 				'name'  => 'nfd-theme-dark',
-				'label' => __( 'Dark', 'nfd-wonder-blocks' ),
+				'label' => __( 'Dark', 'wp-module-patterns' ),
 			),
 			array(
 				'name'  => 'nfd-theme-darker',
-				'label' => __( 'Darker', 'nfd-wonder-blocks' ),
+				'label' => __( 'Darker', 'wp-module-patterns' ),
 			),
 			array(
 				'name'  => 'nfd-theme-primary',
-				'label' => __( 'Primary', 'nfd-wonder-blocks' ),
+				'label' => __( 'Primary', 'wp-module-patterns' ),
 			),
 		);
 

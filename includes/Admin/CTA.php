@@ -105,10 +105,10 @@ class CTA {
 		$enabled     = \get_option( $option_name, true );
 
 		$html  = '<fieldset class="metabox-prefs wonderblocks">';
-		$html .= '<legend>' . esc_html__( 'WonderBlocks', 'nfd-wonder-blocks' ) . '</legend>';
+		$html .= '<legend>' . esc_html__( 'WonderBlocks', 'wp-module-patterns' ) . '</legend>';
 		$html .= '<label>';
 		$html .= '<input type="checkbox" id="wonderblocks-toggle"' . checked( $enabled, true, false ) . ' /> ';
-		$html .= esc_html__( 'Show WonderBlocks Button', 'nfd-wonder-blocks' );
+		$html .= esc_html__( 'Show WonderBlocks Button', 'wp-module-patterns' );
 		$html .= '</label>';
 		$html .= '</fieldset>';
 		$html .= \wp_nonce_field( self::NONCE_ACTION, 'wonderblocks_nonce', true, false );
@@ -206,7 +206,7 @@ class CTA {
 			_x(
 				'%1$sAdd With WonderBlocks%2$s',
 				'Button label',
-				'nfd-wonder-blocks'
+				'wp-module-patterns'
 			),
 			'<a class="page-title-action" href="' . \esc_url( $url ) . '">' . $svg . '<span class="text">',
 			'</span></a>'

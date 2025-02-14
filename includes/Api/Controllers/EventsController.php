@@ -39,7 +39,7 @@ class EventsController {
 
 			$error = new \WP_Error(
 				'nfd_wonder_blocks_error',
-				__( 'Request does not contain an array of events.', 'nfd-wonder-blocks' )
+				__( 'Request does not contain an array of events.', 'wp-module-patterns' )
 			);
 
 			return new \WP_REST_Response( RemoteRequest::format_error_data( $error ), 503 );
@@ -62,7 +62,7 @@ class EventsController {
 		if ( ! empty( $response_errors ) ) {
 			$error = new \WP_Error(
 				'nfd_wonder_blocks_error',
-				__( 'Some events failed.', 'nfd-wonder-blocks' ),
+				__( 'Some events failed.', 'wp-module-patterns' ),
 				array(
 					'data' => $response_errors,
 				)
@@ -86,20 +86,20 @@ class EventsController {
 		return array(
 			'action'   => array(
 				'required'          => true,
-				'description'       => __( 'Event action', 'nfd-wonder-blocks' ),
+				'description'       => __( 'Event action', 'wp-module-patterns' ),
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_title',
 				'validate_callback' => array( Events::class, 'validate_action' ),
 			),
 			'category' => array(
 				'default'           => Events::get_category(),
-				'description'       => __( 'Event category', 'nfd-wonder-blocks' ),
+				'description'       => __( 'Event category', 'wp-module-patterns' ),
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_title',
 				'validate_callback' => array( Events::class, 'validate_category' ),
 			),
 			'data'     => array(
-				'description' => __( 'Event data', 'nfd-wonder-blocks' ),
+				'description' => __( 'Event data', 'wp-module-patterns' ),
 				'type'        => 'object',
 			),
 		);

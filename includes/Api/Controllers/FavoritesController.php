@@ -35,7 +35,7 @@ class FavoritesController {
 		$type = \sanitize_text_field( $body['type'] );
 
 		if ( ! in_array( $type, array( 'patterns', 'templates' ), true ) ) {
-			return new \WP_REST_Response( __( 'Invalid request', 'nfd-wonder-blocks' ), 400 );
+			return new \WP_REST_Response( __( 'Invalid request', 'wp-module-patterns' ), 400 );
 		}
 
 		$item = array(
@@ -61,7 +61,7 @@ class FavoritesController {
 		$type = \sanitize_text_field( $body['type'] );
 
 		if ( ! in_array( $type, array( 'patterns', 'templates' ), true ) ) {
-			return new \WP_REST_Response( __( 'Invalid request', 'nfd-wonder-blocks' ), 400 );
+			return new \WP_REST_Response( __( 'Invalid request', 'wp-module-patterns' ), 400 );
 		}
 
 		$item = array(
