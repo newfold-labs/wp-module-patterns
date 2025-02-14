@@ -17,27 +17,27 @@ class UsageTags {
 		$data = array(
 			array(
 				'title' => 'layout',
-				'label' => __( 'Layout', 'wp-module-patterns' ),
+				'label' => __( 'Layout', 'nfd-wonder-blocks' ),
 			),
 			array(
 				'title' => 'content',
-				'label' => __( 'Content', 'wp-module-patterns' ),
+				'label' => __( 'Content', 'nfd-wonder-blocks' ),
 			),
 			array(
 				'title' => 'info',
-				'label' => __( 'Info', 'wp-module-patterns' ),
+				'label' => __( 'Info', 'nfd-wonder-blocks' ),
 			),
 			array(
 				'title' => 'commerce',
-				'label' => __( 'Commerce', 'wp-module-patterns' ),
+				'label' => __( 'Commerce', 'nfd-wonder-blocks' ),
 			),
 			array(
 				'title' => 'marketing',
-				'label' => __( 'Marketing', 'wp-module-patterns' ),
+				'label' => __( 'Marketing', 'nfd-wonder-blocks' ),
 			),
 			array(
 				'title' => 'interactive',
-				'label' => __( 'Interactive', 'wp-module-patterns' ),
+				'label' => __( 'Interactive', 'nfd-wonder-blocks' ),
 			),
 		);
 

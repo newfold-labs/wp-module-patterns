@@ -58,7 +58,7 @@ final class Events {
 		if ( ! $event ) {
 			return new \WP_Error(
 				'nfd_wonder_blocks_error',
-				__( 'Bad event structure/value.', 'wp-module-patterns' )
+				__( 'Bad event structure/value.', 'nfd-wonder-blocks' )
 			);
 		}
 
