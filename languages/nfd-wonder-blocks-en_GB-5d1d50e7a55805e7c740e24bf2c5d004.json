@@ -1,0 +1,264 @@
+{
+    "translation-revision-date": "2025-02-13 19:30+0530",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "src\/blocks\/variations.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "en_GB",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Gallery Patterns": [
+                "Gallery Patterns"
+            ],
+            "Add Gallery patterns.": [
+                "Add Gallery patterns."
+            ],
+            "images": [
+                "images"
+            ],
+            "photos": [
+                "photos"
+            ],
+            "photography": [
+                "photography"
+            ],
+            "Blog Patterns": [
+                "Blog Patterns"
+            ],
+            "Add Blog patterns.": [
+                "Add Blog patterns."
+            ],
+            "articles": [
+                "articles"
+            ],
+            "posts": [
+                "posts"
+            ],
+            "news": [
+                "news"
+            ],
+            "Call to Action Patterns": [
+                "Call to Action Patterns"
+            ],
+            "Add Call to Action patterns.": [
+                "Add Call to Action patterns."
+            ],
+            "cta": [
+                "cta"
+            ],
+            "conversion": [
+                "conversion"
+            ],
+            "button": [
+                "button"
+            ],
+            "announcement": [
+                "announcement"
+            ],
+            "FAQ Patterns": [
+                "FAQ Patterns"
+            ],
+            "Add FAQ patterns.": [
+                "Add FAQ patterns."
+            ],
+            "frequently asked questions": [
+                "frequently asked questions"
+            ],
+            "Features Patterns": [
+                "Features Patterns"
+            ],
+            "Add Features patterns.": [
+                "Add Features patterns."
+            ],
+            "columns": [
+                "columns"
+            ],
+            "about": [
+                "about"
+            ],
+            "Form Patterns": [
+                "Form Patterns"
+            ],
+            "Add Form patterns.": [
+                "Add Form patterns."
+            ],
+            "form": [
+                "form"
+            ],
+            "email": [
+                "email"
+            ],
+            "CRM": [
+                "CRM"
+            ],
+            "contact": [
+                "contact"
+            ],
+            "Heading Patterns": [
+                "Heading Patterns"
+            ],
+            "Add Heading patterns.": [
+                "Add Heading patterns."
+            ],
+            "title": [
+                "title"
+            ],
+            "headline": [
+                "headline"
+            ],
+            "tagline": [
+                "tagline"
+            ],
+            "text": [
+                "text"
+            ],
+            "Hero Patterns": [
+                "Hero Patterns"
+            ],
+            "Add Hero patterns.": [
+                "Add Hero patterns."
+            ],
+            "banner": [
+                "banner"
+            ],
+            "image slider": [
+                "image slider"
+            ],
+            "homepage": [
+                "homepage"
+            ],
+            "Pricing Table Patterns": [
+                "Pricing Table Patterns"
+            ],
+            "Add Pricing Table patterns.": [
+                "Add Pricing Table patterns."
+            ],
+            "plans": [
+                "plans"
+            ],
+            "comparison": [
+                "comparison"
+            ],
+            "packages": [
+                "packages"
+            ],
+            "Menu Patterns": [
+                "Menu Patterns"
+            ],
+            "Add Menu patterns.": [
+                "Add Menu patterns."
+            ],
+            "restaurant": [
+                "restaurant"
+            ],
+            "cafe": [
+                "cafe"
+            ],
+            "coffee": [
+                "coffee"
+            ],
+            "catering": [
+                "catering"
+            ],
+            "food": [
+                "food"
+            ],
+            "recipe": [
+                "recipe"
+            ],
+            "Team Patterns": [
+                "Team Patterns"
+            ],
+            "Add Team patterns.": [
+                "Add Team patterns."
+            ],
+            "employees": [
+                "employees"
+            ],
+            "members": [
+                "members"
+            ],
+            "profiles": [
+                "profiles"
+            ],
+            "Testimonial Patterns": [
+                "Testimonial Patterns"
+            ],
+            "Add Testimonial patterns.": [
+                "Add Testimonial patterns."
+            ],
+            "reviews": [
+                "reviews"
+            ],
+            "feedback": [
+                "feedback"
+            ],
+            "ratings": [
+                "ratings"
+            ],
+            "Text Patterns": [
+                "Text Patterns"
+            ],
+            "Add Text patterns.": [
+                "Add Text patterns."
+            ],
+            "highlight": [
+                "highlight"
+            ],
+            "write": [
+                "write"
+            ],
+            "format": [
+                "format"
+            ],
+            "rating": [
+                "rating"
+            ],
+            "Header Patterns": [
+                "Header Patterns"
+            ],
+            "Add Header patterns.": [
+                "Add Header patterns."
+            ],
+            "navigation": [
+                "navigation"
+            ],
+            "Footer Patterns": [
+                "Footer Patterns"
+            ],
+            "Add Footer patterns.": [
+                "Add Footer patterns."
+            ],
+            "Product Patterns": [
+                "Product Patterns"
+            ],
+            "Add Product patterns.": [
+                "Add Product patterns."
+            ],
+            "woocommerce": [
+                "woocommerce"
+            ],
+            "My Favorite Patterns": [
+                "My Favorite Patterns"
+            ],
+            "A collection of patterns you've selected.": [
+                "A collection of patterns you've selected."
+            ],
+            "liked": [
+                "liked"
+            ],
+            "saved": [
+                "saved"
+            ],
+            "bookmarked": [
+                "bookmarked"
+            ],
+            "starred": [
+                "starred"
+            ]
+        }
+    }
+}

@@ -1,0 +1,264 @@
+{
+    "translation-revision-date": "2025-02-19 14:47",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "src\/blocks\/variations.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "fr_FR",
+                "plural-forms": "nplurals=2; plural=(n > 1);"
+            },
+            "Gallery Patterns": [
+                "Motifs de la galerie"
+            ],
+            "Add Gallery patterns.": [
+                "Ajouter des mod\u00e8les de galerie."
+            ],
+            "images": [
+                "images"
+            ],
+            "photos": [
+                "photos"
+            ],
+            "photography": [
+                "photographie"
+            ],
+            "Blog Patterns": [
+                "Mod\u00e8les de blog"
+            ],
+            "Add Blog patterns.": [
+                "Ajouter des mod\u00e8les de blog."
+            ],
+            "articles": [
+                "articles"
+            ],
+            "posts": [
+                "messages"
+            ],
+            "news": [
+                "Actualit\u00e9s"
+            ],
+            "Call to Action Patterns": [
+                "Mod\u00e8les d'appel \u00e0 l'action"
+            ],
+            "Add Call to Action patterns.": [
+                "Ajouter des mod\u00e8les d'appel \u00e0 l'action."
+            ],
+            "cta": [
+                "cta"
+            ],
+            "conversion": [
+                "conversion"
+            ],
+            "button": [
+                "bouton"
+            ],
+            "announcement": [
+                "annonce"
+            ],
+            "FAQ Patterns": [
+                "Mod\u00e8les de FAQ"
+            ],
+            "Add FAQ patterns.": [
+                "Ajouter des mod\u00e8les de FAQ."
+            ],
+            "frequently asked questions": [
+                "Foire aux questions"
+            ],
+            "Features Patterns": [
+                "Sch\u00e9mas des fonctionnalit\u00e9s"
+            ],
+            "Add Features patterns.": [
+                "Ajouter des mod\u00e8les de fonctionnalit\u00e9s."
+            ],
+            "columns": [
+                "colonnes"
+            ],
+            "about": [
+                "\u00e0 propos de"
+            ],
+            "Form Patterns": [
+                "Sch\u00e9mas de formulaire"
+            ],
+            "Add Form patterns.": [
+                "Ajouter des mod\u00e8les de formulaire."
+            ],
+            "form": [
+                "Formulaire"
+            ],
+            "email": [
+                "Email"
+            ],
+            "CRM": [
+                "CRM"
+            ],
+            "contact": [
+                "contact"
+            ],
+            "Heading Patterns": [
+                "Motifs d'en-t\u00eate"
+            ],
+            "Add Heading patterns.": [
+                "Ajouter des mod\u00e8les d'en-t\u00eate."
+            ],
+            "title": [
+                "Titre:"
+            ],
+            "headline": [
+                "titre"
+            ],
+            "tagline": [
+                "tagline"
+            ],
+            "text": [
+                "texte"
+            ],
+            "Hero Patterns": [
+                "Sch\u00e9mas de H\u00e9ros"
+            ],
+            "Add Hero patterns.": [
+                "Ajouter des sch\u00e9mas de H\u00e9ros."
+            ],
+            "banner": [
+                "banni\u00e8re"
+            ],
+            "image slider": [
+                "Curseur d'image"
+            ],
+            "homepage": [
+                "page d'accueil"
+            ],
+            "Pricing Table Patterns": [
+                "Mod\u00e8les de tables de tarification"
+            ],
+            "Add Pricing Table patterns.": [
+                "Ajouter des mod\u00e8les de tableau de tarification."
+            ],
+            "plans": [
+                "forfaits"
+            ],
+            "comparison": [
+                "Comparaison"
+            ],
+            "packages": [
+                "paquets"
+            ],
+            "Menu Patterns": [
+                "Motifs de menu"
+            ],
+            "Add Menu patterns.": [
+                "Ajouter des motifs de menu."
+            ],
+            "restaurant": [
+                "restaurant"
+            ],
+            "cafe": [
+                "caf\u00e9"
+            ],
+            "coffee": [
+                "caf\u00e9"
+            ],
+            "catering": [
+                "traiteur"
+            ],
+            "food": [
+                "nourriture"
+            ],
+            "recipe": [
+                "recette"
+            ],
+            "Team Patterns": [
+                "Mod\u00e8les d'\u00e9quipe"
+            ],
+            "Add Team patterns.": [
+                "Ajouter des patrons d'\u00e9quipe."
+            ],
+            "employees": [
+                "collaborateurs-trices"
+            ],
+            "members": [
+                "membres"
+            ],
+            "profiles": [
+                "profiles"
+            ],
+            "Testimonial Patterns": [
+                "Sch\u00e9mas de t\u00e9moignage"
+            ],
+            "Add Testimonial patterns.": [
+                "Ajouter des motifs de t\u00e9moignage."
+            ],
+            "reviews": [
+                "avis"
+            ],
+            "feedback": [
+                "retour d'exp\u00e9rience"
+            ],
+            "ratings": [
+                "\u00e9valuations"
+            ],
+            "Text Patterns": [
+                "Sch\u00e9mas de texte"
+            ],
+            "Add Text patterns.": [
+                "Ajouter des mod\u00e8les de texte."
+            ],
+            "highlight": [
+                "en surbrillance"
+            ],
+            "write": [
+                "\u00e9crire"
+            ],
+            "format": [
+                "format"
+            ],
+            "rating": [
+                "note"
+            ],
+            "Header Patterns": [
+                "Motifs d'en-t\u00eate"
+            ],
+            "Add Header patterns.": [
+                "Ajouter des mod\u00e8les d'en-t\u00eate."
+            ],
+            "navigation": [
+                "navigation"
+            ],
+            "Footer Patterns": [
+                "Motifs de pied de page"
+            ],
+            "Add Footer patterns.": [
+                "Ajouter des mod\u00e8les de pied de page."
+            ],
+            "Product Patterns": [
+                "Mod\u00e8les de produit"
+            ],
+            "Add Product patterns.": [
+                "Ajouter des mod\u00e8les de produit."
+            ],
+            "woocommerce": [
+                "woocommerce"
+            ],
+            "My Favorite Patterns": [
+                "Mes mod\u00e8les favoris"
+            ],
+            "A collection of patterns you've selected.": [
+                "Une collection de mod\u00e8les que vous avez s\u00e9lectionn\u00e9s."
+            ],
+            "liked": [
+                "Aim\u00e9"
+            ],
+            "saved": [
+                "sauvegard\u00e9"
+            ],
+            "bookmarked": [
+                "favori"
+            ],
+            "starred": [
+                "favoris"
+            ]
+        }
+    }
+}
