@@ -1,0 +1,264 @@
+{
+    "translation-revision-date": "2025-02-19 14:47",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "src\/blocks\/variations.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "de_DE",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Gallery Patterns": [
+                "Galeriemuster"
+            ],
+            "Add Gallery patterns.": [
+                "Galeriemuster hinzuf\u00fcgen."
+            ],
+            "images": [
+                "bilder"
+            ],
+            "photos": [
+                "fotos"
+            ],
+            "photography": [
+                "fotografie"
+            ],
+            "Blog Patterns": [
+                "Blog-Muster"
+            ],
+            "Add Blog patterns.": [
+                "Blog-Muster hinzuf\u00fcgen."
+            ],
+            "articles": [
+                "artikel"
+            ],
+            "posts": [
+                "posten"
+            ],
+            "news": [
+                "neuigkeiten"
+            ],
+            "Call to Action Patterns": [
+                "Aufruf zu Aktionsmustern"
+            ],
+            "Add Call to Action patterns.": [
+                "Aufruf zu Aktionsmustern hinzuf\u00fcgen."
+            ],
+            "cta": [
+                "cta"
+            ],
+            "conversion": [
+                "umwandeln"
+            ],
+            "button": [
+                "button"
+            ],
+            "announcement": [
+                "ank\u00fcndigung"
+            ],
+            "FAQ Patterns": [
+                "FAQ-Muster"
+            ],
+            "Add FAQ patterns.": [
+                "FAQ-Muster hinzuf\u00fcgen."
+            ],
+            "frequently asked questions": [
+                "H\u00e4ufig gestellte Fragen"
+            ],
+            "Features Patterns": [
+                "Merkmalsmuster"
+            ],
+            "Add Features patterns.": [
+                "Merkmalsmuster hinzuf\u00fcgen."
+            ],
+            "columns": [
+                "spalten"
+            ],
+            "about": [
+                "\u00fcber"
+            ],
+            "Form Patterns": [
+                "Formularmuster"
+            ],
+            "Add Form patterns.": [
+                "Formularmuster hinzuf\u00fcgen."
+            ],
+            "form": [
+                "form"
+            ],
+            "email": [
+                "email"
+            ],
+            "CRM": [
+                "CRM"
+            ],
+            "contact": [
+                "kontakt"
+            ],
+            "Heading Patterns": [
+                "Richtungsmuster"
+            ],
+            "Add Heading patterns.": [
+                "\u00dcberschriftenmuster hinzuf\u00fcgen."
+            ],
+            "title": [
+                "titel"
+            ],
+            "headline": [
+                "\u00fcberschrift"
+            ],
+            "tagline": [
+                "tagline"
+            ],
+            "text": [
+                "text"
+            ],
+            "Hero Patterns": [
+                "Heldenmuster"
+            ],
+            "Add Hero patterns.": [
+                "Heldenmuster hinzuf\u00fcgen."
+            ],
+            "banner": [
+                "banner"
+            ],
+            "image slider": [
+                "bild-Slider"
+            ],
+            "homepage": [
+                "webseite"
+            ],
+            "Pricing Table Patterns": [
+                "Preistabellen-Muster"
+            ],
+            "Add Pricing Table patterns.": [
+                "Preistabellen-Muster hinzuf\u00fcgen."
+            ],
+            "plans": [
+                "planes"
+            ],
+            "comparison": [
+                "vergleichen"
+            ],
+            "packages": [
+                "pakete"
+            ],
+            "Menu Patterns": [
+                "Men\u00fc-Muster"
+            ],
+            "Add Menu patterns.": [
+                "Men\u00fcmuster hinzuf\u00fcgen."
+            ],
+            "restaurant": [
+                "restaurant"
+            ],
+            "cafe": [
+                "caf\u00e9"
+            ],
+            "coffee": [
+                "kaffee"
+            ],
+            "catering": [
+                "verpflegung"
+            ],
+            "food": [
+                "essen"
+            ],
+            "recipe": [
+                "rezept"
+            ],
+            "Team Patterns": [
+                "Team-Muster"
+            ],
+            "Add Team patterns.": [
+                "Teammuster hinzuf\u00fcgen."
+            ],
+            "employees": [
+                "Mitarbeiter"
+            ],
+            "members": [
+                "Mitglieder"
+            ],
+            "profiles": [
+                "profiles"
+            ],
+            "Testimonial Patterns": [
+                "Referenzmuster"
+            ],
+            "Add Testimonial patterns.": [
+                "Testimoniale Muster hinzuf\u00fcgen."
+            ],
+            "reviews": [
+                "rezensionen"
+            ],
+            "feedback": [
+                "rezension"
+            ],
+            "ratings": [
+                "bewertungen"
+            ],
+            "Text Patterns": [
+                "Text-Muster"
+            ],
+            "Add Text patterns.": [
+                "Textmuster hinzuf\u00fcgen."
+            ],
+            "highlight": [
+                "hervorheben"
+            ],
+            "write": [
+                "schreiben"
+            ],
+            "format": [
+                "formatieren"
+            ],
+            "rating": [
+                "bewertung"
+            ],
+            "Header Patterns": [
+                "Header-Muster"
+            ],
+            "Add Header patterns.": [
+                "Header-Muster hinzuf\u00fcgen."
+            ],
+            "navigation": [
+                "navigation"
+            ],
+            "Footer Patterns": [
+                "Fu\u00dfzeilenmuster"
+            ],
+            "Add Footer patterns.": [
+                "F\u00fcge Fu\u00dfzeilenmuster hinzu."
+            ],
+            "Product Patterns": [
+                "Produktmuster"
+            ],
+            "Add Product patterns.": [
+                "Produktmuster hinzuf\u00fcgen."
+            ],
+            "woocommerce": [
+                "woocommerce"
+            ],
+            "My Favorite Patterns": [
+                "Meine Lieblingsmuster"
+            ],
+            "A collection of patterns you've selected.": [
+                "Eine Sammlung von Mustern, die Sie ausgew\u00e4hlt haben."
+            ],
+            "liked": [
+                "gef\u00e4llt"
+            ],
+            "saved": [
+                "gespeichert"
+            ],
+            "bookmarked": [
+                "markiert"
+            ],
+            "starred": [
+                "markiert"
+            ]
+        }
+    }
+}

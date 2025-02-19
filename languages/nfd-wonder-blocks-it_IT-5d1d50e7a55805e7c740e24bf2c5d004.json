@@ -1,0 +1,264 @@
+{
+    "translation-revision-date": "2025-02-19 14:47",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "src\/blocks\/variations.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "it_IT",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Gallery Patterns": [
+                "Modelli Galleria"
+            ],
+            "Add Gallery patterns.": [
+                "Aggiungi modelli di galleria."
+            ],
+            "images": [
+                "immagini"
+            ],
+            "photos": [
+                "foto"
+            ],
+            "photography": [
+                "fotografia"
+            ],
+            "Blog Patterns": [
+                "Modelli Blog"
+            ],
+            "Add Blog patterns.": [
+                "Aggiungi modelli Blog."
+            ],
+            "articles": [
+                "articoli"
+            ],
+            "posts": [
+                "post"
+            ],
+            "news": [
+                "news"
+            ],
+            "Call to Action Patterns": [
+                "Modelli di chiamata ad azione"
+            ],
+            "Add Call to Action patterns.": [
+                "Aggiungi modelli di chiamata all'azione."
+            ],
+            "cta": [
+                "cta"
+            ],
+            "conversion": [
+                "conversione"
+            ],
+            "button": [
+                "pulsante"
+            ],
+            "announcement": [
+                "annuncio"
+            ],
+            "FAQ Patterns": [
+                "Modelli FAQ"
+            ],
+            "Add FAQ patterns.": [
+                "Aggiungi modelli FAQ."
+            ],
+            "frequently asked questions": [
+                "domande frequenti"
+            ],
+            "Features Patterns": [
+                "Caratteristiche Modelli"
+            ],
+            "Add Features patterns.": [
+                "Aggiungi modelli di funzionalit\u00e0."
+            ],
+            "columns": [
+                "colonne"
+            ],
+            "about": [
+                "about"
+            ],
+            "Form Patterns": [
+                "Modelli Di Modulo"
+            ],
+            "Add Form patterns.": [
+                "Aggiungi modelli di modulo."
+            ],
+            "form": [
+                "modulo"
+            ],
+            "email": [
+                "email"
+            ],
+            "CRM": [
+                "CRM"
+            ],
+            "contact": [
+                "contatto"
+            ],
+            "Heading Patterns": [
+                "Motivi Di Intestazione"
+            ],
+            "Add Heading patterns.": [
+                "Aggiungi modelli di intestazione."
+            ],
+            "title": [
+                "titolo"
+            ],
+            "headline": [
+                "headline"
+            ],
+            "tagline": [
+                "tagline"
+            ],
+            "text": [
+                "testo"
+            ],
+            "Hero Patterns": [
+                "Modelli Eroe"
+            ],
+            "Add Hero patterns.": [
+                "Aggiungi modelli eroe."
+            ],
+            "banner": [
+                "banner"
+            ],
+            "image slider": [
+                "cursore immagine"
+            ],
+            "homepage": [
+                "homepage"
+            ],
+            "Pricing Table Patterns": [
+                "Modelli Tabella Prezzi"
+            ],
+            "Add Pricing Table patterns.": [
+                "Aggiungi modelli tabella prezzi."
+            ],
+            "plans": [
+                "piani"
+            ],
+            "comparison": [
+                "confronto"
+            ],
+            "packages": [
+                "pacchetti"
+            ],
+            "Menu Patterns": [
+                "Motivi Menu"
+            ],
+            "Add Menu patterns.": [
+                "Aggiungi modelli di menu."
+            ],
+            "restaurant": [
+                "ristorante"
+            ],
+            "cafe": [
+                "cafe"
+            ],
+            "coffee": [
+                "caff\u00e8"
+            ],
+            "catering": [
+                "catering"
+            ],
+            "food": [
+                "cibo"
+            ],
+            "recipe": [
+                "ricetta"
+            ],
+            "Team Patterns": [
+                "Modelli Squadra"
+            ],
+            "Add Team patterns.": [
+                "Aggiungi modelli di squadra."
+            ],
+            "employees": [
+                "dipendenti"
+            ],
+            "members": [
+                "membri"
+            ],
+            "profiles": [
+                "profiles"
+            ],
+            "Testimonial Patterns": [
+                "Modelli Testimonial"
+            ],
+            "Add Testimonial patterns.": [
+                "Aggiungi modelli di Testimonianza."
+            ],
+            "reviews": [
+                "recensioni"
+            ],
+            "feedback": [
+                "feedback"
+            ],
+            "ratings": [
+                "valutazioni"
+            ],
+            "Text Patterns": [
+                "Schemi Di Testo"
+            ],
+            "Add Text patterns.": [
+                "Aggiungi modelli di testo."
+            ],
+            "highlight": [
+                "evidenziazione"
+            ],
+            "write": [
+                "scrivi"
+            ],
+            "format": [
+                "formato"
+            ],
+            "rating": [
+                "valutazione"
+            ],
+            "Header Patterns": [
+                "Motivi Intestazione"
+            ],
+            "Add Header patterns.": [
+                "Aggiungi modelli di intestazione."
+            ],
+            "navigation": [
+                "navigation"
+            ],
+            "Footer Patterns": [
+                "Modelli A Pi\u00e8 Di Pagina"
+            ],
+            "Add Footer patterns.": [
+                "Aggiungi modelli a pi\u00e8 di pagina."
+            ],
+            "Product Patterns": [
+                "Modelli Di Prodotto"
+            ],
+            "Add Product patterns.": [
+                "Aggiungi modelli di prodotto."
+            ],
+            "woocommerce": [
+                "woocommerce"
+            ],
+            "My Favorite Patterns": [
+                "I Miei Modelli Preferiti"
+            ],
+            "A collection of patterns you've selected.": [
+                "Una raccolta di modelli che hai selezionato."
+            ],
+            "liked": [
+                "piaciuto"
+            ],
+            "saved": [
+                "salvato"
+            ],
+            "bookmarked": [
+                "segnalibro"
+            ],
+            "starred": [
+                "stellato"
+            ]
+        }
+    }
+}

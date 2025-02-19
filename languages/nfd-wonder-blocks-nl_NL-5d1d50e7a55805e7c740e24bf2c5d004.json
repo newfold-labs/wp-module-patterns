@@ -1,0 +1,264 @@
+{
+    "translation-revision-date": "2025-02-19 14:47",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "src\/blocks\/variations.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "nl_NL",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Gallery Patterns": [
+                "Galerij patronen"
+            ],
+            "Add Gallery patterns.": [
+                "Galerij patronen toevoegen."
+            ],
+            "images": [
+                "afbeeldingen"
+            ],
+            "photos": [
+                "Foto's"
+            ],
+            "photography": [
+                "fotografie"
+            ],
+            "Blog Patterns": [
+                "Blog patronen"
+            ],
+            "Add Blog patterns.": [
+                "Blogpatronen toevoegen."
+            ],
+            "articles": [
+                "artikelen"
+            ],
+            "posts": [
+                "berichten"
+            ],
+            "news": [
+                "nieuws"
+            ],
+            "Call to Action Patterns": [
+                "Oproep aan Action Patronen"
+            ],
+            "Add Call to Action patterns.": [
+                "Oproep toevoegen aan Actiepatronen."
+            ],
+            "cta": [
+                "cta"
+            ],
+            "conversion": [
+                "conversie"
+            ],
+            "button": [
+                "knop"
+            ],
+            "announcement": [
+                "aankondiging"
+            ],
+            "FAQ Patterns": [
+                "FAQ patronen"
+            ],
+            "Add FAQ patterns.": [
+                "Voeg FAQ patronen toe."
+            ],
+            "frequently asked questions": [
+                "Veel gestelde vragen"
+            ],
+            "Features Patterns": [
+                "Functies Patronen"
+            ],
+            "Add Features patterns.": [
+                "Functies patronen toevoegen."
+            ],
+            "columns": [
+                "kolommen"
+            ],
+            "about": [
+                "Over"
+            ],
+            "Form Patterns": [
+                "Formulier patronen"
+            ],
+            "Add Form patterns.": [
+                "Formulierpatronen toevoegen."
+            ],
+            "form": [
+                "formulier"
+            ],
+            "email": [
+                "E-mail"
+            ],
+            "CRM": [
+                "CRM"
+            ],
+            "contact": [
+                "Contactpersoon"
+            ],
+            "Heading Patterns": [
+                "Kop patronen"
+            ],
+            "Add Heading patterns.": [
+                "Koppatronen toevoegen."
+            ],
+            "title": [
+                "Titel"
+            ],
+            "headline": [
+                "kop"
+            ],
+            "tagline": [
+                "tagline"
+            ],
+            "text": [
+                "Tekst"
+            ],
+            "Hero Patterns": [
+                "Held Patronen"
+            ],
+            "Add Hero patterns.": [
+                "Held patronen toevoegen."
+            ],
+            "banner": [
+                "banner"
+            ],
+            "image slider": [
+                "afbeelding slider"
+            ],
+            "homepage": [
+                "Startpagina"
+            ],
+            "Pricing Table Patterns": [
+                "Prijzen Tafelpatronen"
+            ],
+            "Add Pricing Table patterns.": [
+                "Voeg prijspatronen toe."
+            ],
+            "plans": [
+                "plannen"
+            ],
+            "comparison": [
+                "vergelijking"
+            ],
+            "packages": [
+                "pakketten"
+            ],
+            "Menu Patterns": [
+                "Menu patronen"
+            ],
+            "Add Menu patterns.": [
+                "Menu patronen toevoegen."
+            ],
+            "restaurant": [
+                "restaurant"
+            ],
+            "cafe": [
+                "caf\u00e9"
+            ],
+            "coffee": [
+                "koffie"
+            ],
+            "catering": [
+                "horeca"
+            ],
+            "food": [
+                "voedsel"
+            ],
+            "recipe": [
+                "recept"
+            ],
+            "Team Patterns": [
+                "Team patronen"
+            ],
+            "Add Team patterns.": [
+                "Team patronen toevoegen."
+            ],
+            "employees": [
+                "werknemers"
+            ],
+            "members": [
+                "leden"
+            ],
+            "profiles": [
+                "profiles"
+            ],
+            "Testimonial Patterns": [
+                "Testimoniale patronen"
+            ],
+            "Add Testimonial patterns.": [
+                "Voeg beoordelingspatronen toe."
+            ],
+            "reviews": [
+                "beoordelingen"
+            ],
+            "feedback": [
+                "feedback"
+            ],
+            "ratings": [
+                "waarderingen"
+            ],
+            "Text Patterns": [
+                "Tekst patronen"
+            ],
+            "Add Text patterns.": [
+                "Tekstpatronen toevoegen."
+            ],
+            "highlight": [
+                "markeren"
+            ],
+            "write": [
+                "schrijven"
+            ],
+            "format": [
+                "formaat"
+            ],
+            "rating": [
+                "beoordeling"
+            ],
+            "Header Patterns": [
+                "Koptekst patronen"
+            ],
+            "Add Header patterns.": [
+                "Koppatronen toevoegen."
+            ],
+            "navigation": [
+                "navigation"
+            ],
+            "Footer Patterns": [
+                "Voettekst patronen"
+            ],
+            "Add Footer patterns.": [
+                "Voettekst patronen toevoegen."
+            ],
+            "Product Patterns": [
+                "Product patronen"
+            ],
+            "Add Product patterns.": [
+                "Product patronen toevoegen."
+            ],
+            "woocommerce": [
+                "woocommerce"
+            ],
+            "My Favorite Patterns": [
+                "Mijn favoriete patronen"
+            ],
+            "A collection of patterns you've selected.": [
+                "Een verzameling van patronen die je hebt geselecteerd."
+            ],
+            "liked": [
+                "leuk gevonden"
+            ],
+            "saved": [
+                "opgeslagen"
+            ],
+            "bookmarked": [
+                "bladwijzer"
+            ],
+            "starred": [
+                "ster"
+            ]
+        }
+    }
+}

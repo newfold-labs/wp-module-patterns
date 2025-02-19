@@ -1,0 +1,165 @@
+{
+    "translation-revision-date": "2025-02-19 14:47",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "src\/blocks\/inspector-control.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "fr_FR",
+                "plural-forms": "nplurals=2; plural=(n > 1);"
+            },
+            "White": [
+                "Blancs"
+            ],
+            "Light": [
+                "Lumi\u00e8re"
+            ],
+            "Dark": [
+                "Sombre"
+            ],
+            "Darker": [
+                "Plus sombre"
+            ],
+            "Primary": [
+                "Primaire"
+            ],
+            "Default": [
+                "Par d\u00e9faut"
+            ],
+            "Arrow": [
+                "Fl\u00e8che"
+            ],
+            "Ellipse": [
+                "Ellipse"
+            ],
+            "Rounded": [
+                "Arrondi"
+            ],
+            "Slant": [
+                "Slant"
+            ],
+            "Slant Invert": [
+                "Slant Invert"
+            ],
+            "Triangle": [
+                "Triangle"
+            ],
+            "Zigzag": [
+                "Zigzag"
+            ],
+            "None": [
+                "Aucun"
+            ],
+            "Fade In Bottom": [
+                "Fondu en bas"
+            ],
+            "Fade In Top Short": [
+                "Fondu en haut court"
+            ],
+            "Fade In Right Short": [
+                "Fondu court \u00e0 droite"
+            ],
+            "Fade In Bottom Short": [
+                "Fondu en bas"
+            ],
+            "Fade In Left Short": [
+                "Fondu \u00e0 gauche"
+            ],
+            "Twist In": [
+                "Tronquer"
+            ],
+            "Zoom In": [
+                "Zoom avant"
+            ],
+            "Zoom In Short": [
+                "Zoom en court"
+            ],
+            "Reveal Right": [
+                "R\u00e9v\u00e9ler \u00e0 droite"
+            ],
+            "50ms": [
+                "50ms"
+            ],
+            "150ms": [
+                "150 ms"
+            ],
+            "300ms": [
+                "300ms"
+            ],
+            "450ms": [
+                "450ms"
+            ],
+            "600ms": [
+                "600ms"
+            ],
+            "750ms": [
+                "750ms"
+            ],
+            "900ms": [
+                "900ms"
+            ],
+            "1050ms": [
+                "1050ms"
+            ],
+            "1200ms": [
+                "1200 ms"
+            ],
+            "1350ms": [
+                "1350ms"
+            ],
+            "1500ms": [
+                "1500ms"
+            ],
+            "Dots": [
+                "Points"
+            ],
+            "Grid": [
+                "Grille"
+            ],
+            "Grid 2": [
+                "Grille 2"
+            ],
+            "Grid 3": [
+                "Grille 3"
+            ],
+            "Grid Perspective": [
+                "Perspective de la grille"
+            ],
+            "Lines": [
+                "Lignes"
+            ],
+            "Lines 2": [
+                "Lignes 2"
+            ],
+            "Section Divider": [
+                "Diviseur de section"
+            ],
+            "Section Theme Color": [
+                "Couleur du th\u00e8me de section"
+            ],
+            "This feature is now located in the": [
+                "Cette fonctionnalit\u00e9 se trouve maintenant dans le"
+            ],
+            "Block Styles": [
+                "Styles de blocage"
+            ],
+            "section.": [
+                "section."
+            ],
+            "Section Background Effect": [
+                "Effet de fond de la section"
+            ],
+            "Entrance Animations": [
+                "Animations d'entr\u00e9e"
+            ],
+            "Animation": [
+                "Animation"
+            ],
+            "Delay": [
+                "D\u00e9lai"
+            ]
+        }
+    }
+}
