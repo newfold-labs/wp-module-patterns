@@ -921,7 +921,7 @@ msgstr "4 kolommen"
 #: build/2.8.1/wonder-blocks.js:4
 #: src/components/Modal/Content/Spinner.jsx:13
 msgid "Loading…"
-msgstr ""
+msgstr "Laden…"
 
 #: build/2.8.1/wonder-blocks.js:4
 #: src/components/Modal/Content/LoadingSpinner.jsx:22
