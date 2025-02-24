@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: newfold-labswp-module-staging\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: https://github.com/newfold-labs/wp-module-patterns/issues\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-13T10:50:00+00:00\n"
-"PO-Revision-Date: 2025-02-19 14:47\n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-02-24 17:32\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: nfd-wonder-blocks\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 764889\n"
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: nfd-wonder-blocks.pot\n"
-"X-Crowdin-File-ID: 28\n"
+"X-Crowdin-File-ID: 58\n"
 "Language: it_IT\n"
 
 #: includes/Admin/CTA.php:108
@@ -60,31 +60,26 @@ msgstr "Richiesta non valida"
 
 #: includes/BlockStyles.php:22
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:254
 msgid "White"
 msgstr "Bianco"
 
 #: includes/BlockStyles.php:26
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:258
 msgid "Light"
 msgstr "Chiaro"
 
 #: includes/BlockStyles.php:30
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:262
 msgid "Dark"
 msgstr "Scuro"
 
 #: includes/BlockStyles.php:34
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:266
 msgid "Darker"
 msgstr "Più Scuro"
 
 #: includes/BlockStyles.php:38
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:270
 msgid "Primary"
 msgstr "Principale"
 
@@ -99,7 +94,6 @@ msgstr "Struttura dell'evento/valore errato."
 
 #: includes/Library/UsageTags.php:20
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Sidebar/Categories.jsx:208
 msgid "Layout"
 msgstr "Layout"
 
@@ -109,7 +103,6 @@ msgstr "Contenuto"
 
 #: includes/Library/UsageTags.php:28
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Content/Header/Header.jsx:98
 msgid "Info"
 msgstr "Informazioni"
 
@@ -126,811 +119,644 @@ msgid "Interactive"
 msgstr "Interattivo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:35
 msgid "Gallery Patterns"
 msgstr "Modelli Galleria"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:36
 msgid "Add Gallery patterns."
 msgstr "Aggiungi modelli di galleria."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:38
 msgid "images"
 msgstr "immagini"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:39
 msgid "photos"
 msgstr "foto"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:40
 msgid "photography"
 msgstr "fotografia"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:56
 msgid "Blog Patterns"
 msgstr "Modelli Blog"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:57
 msgid "Add Blog patterns."
 msgstr "Aggiungi modelli Blog."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:59
 msgid "articles"
 msgstr "articoli"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:60
 msgid "posts"
 msgstr "post"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:61
 msgid "news"
 msgstr "news"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:77
 msgid "Call to Action Patterns"
 msgstr "Modelli di chiamata ad azione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:78
 msgid "Add Call to Action patterns."
 msgstr "Aggiungi modelli di chiamata all'azione."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:80
 msgid "cta"
 msgstr "cta"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:81
 msgid "conversion"
 msgstr "conversione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:82
 msgid "button"
 msgstr "pulsante"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:83
 msgid "announcement"
 msgstr "annuncio"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:99
 msgid "FAQ Patterns"
 msgstr "Modelli FAQ"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:100
 msgid "Add FAQ patterns."
 msgstr "Aggiungi modelli FAQ."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:101
 msgid "frequently asked questions"
 msgstr "domande frequenti"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:116
 msgid "Features Patterns"
 msgstr "Caratteristiche Modelli"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:117
 msgid "Add Features patterns."
 msgstr "Aggiungi modelli di funzionalità."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:118
 msgid "columns"
 msgstr "colonne"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:118
 msgid "about"
 msgstr "about"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:133
 msgid "Form Patterns"
 msgstr "Modelli Di Modulo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:134
 msgid "Add Form patterns."
 msgstr "Aggiungi modelli di modulo."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:136
 msgid "form"
 msgstr "modulo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:137
 msgid "email"
 msgstr "email"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:138
 msgid "CRM"
 msgstr "CRM"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:139
 msgid "contact"
 msgstr "contatto"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:155
 msgid "Heading Patterns"
 msgstr "Motivi Di Intestazione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:156
 msgid "Add Heading patterns."
 msgstr "Aggiungi modelli di intestazione."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:158
 msgid "title"
 msgstr "titolo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:159
 msgid "headline"
 msgstr "headline"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:160
 msgid "tagline"
 msgstr "tagline"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:161
 msgid "text"
 msgstr "testo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:177
 msgid "Hero Patterns"
 msgstr "Modelli Eroe"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:178
 msgid "Add Hero patterns."
 msgstr "Aggiungi modelli eroe."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:180
 msgid "banner"
 msgstr "banner"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:181
 msgid "image slider"
 msgstr "cursore immagine"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:182
 msgid "homepage"
 msgstr "homepage"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:198
 msgid "Pricing Table Patterns"
 msgstr "Modelli Tabella Prezzi"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:199
 msgid "Add Pricing Table patterns."
 msgstr "Aggiungi modelli tabella prezzi."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:201
 msgid "plans"
 msgstr "piani"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:202
 msgid "comparison"
 msgstr "confronto"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:203
 msgid "packages"
 msgstr "pacchetti"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:219
 msgid "Menu Patterns"
 msgstr "Motivi Menu"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:220
 msgid "Add Menu patterns."
 msgstr "Aggiungi modelli di menu."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:222
 msgid "restaurant"
 msgstr "ristorante"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:223
 msgid "cafe"
 msgstr "cafe"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:224
 msgid "coffee"
 msgstr "caffè"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:225
 msgid "catering"
 msgstr "catering"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:226
 msgid "food"
 msgstr "cibo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:227
-#: src/blocks/variations.js:291
 msgid "recipe"
 msgstr "ricetta"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:243
 msgid "Team Patterns"
 msgstr "Modelli Squadra"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:244
 msgid "Add Team patterns."
 msgstr "Aggiungi modelli di squadra."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:246
 msgid "employees"
 msgstr "dipendenti"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:247
 msgid "members"
 msgstr "membri"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:248
 msgid "profiles"
 msgstr "profiles"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:264
 msgid "Testimonial Patterns"
 msgstr "Modelli Testimonial"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:265
 msgid "Add Testimonial patterns."
 msgstr "Aggiungi modelli di Testimonianza."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:267
 msgid "reviews"
 msgstr "recensioni"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:268
 msgid "feedback"
 msgstr "feedback"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:269
 msgid "ratings"
 msgstr "valutazioni"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:285
 msgid "Text Patterns"
 msgstr "Schemi Di Testo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:286
 msgid "Add Text patterns."
 msgstr "Aggiungi modelli di testo."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:288
 msgid "highlight"
 msgstr "evidenziazione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:289
 msgid "write"
 msgstr "scrivi"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:290
 msgid "format"
 msgstr "formato"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:292
 msgid "rating"
 msgstr "valutazione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:308
 msgid "Header Patterns"
 msgstr "Motivi Intestazione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:309
 msgid "Add Header patterns."
 msgstr "Aggiungi modelli di intestazione."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:310
 msgid "navigation"
 msgstr "navigation"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:325
 msgid "Footer Patterns"
 msgstr "Modelli A Piè Di Pagina"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:326
 msgid "Add Footer patterns."
 msgstr "Aggiungi modelli a piè di pagina."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:341
 msgid "Product Patterns"
 msgstr "Modelli Di Prodotto"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:342
 msgid "Add Product patterns."
 msgstr "Aggiungi modelli di prodotto."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:343
 msgid "woocommerce"
 msgstr "woocommerce"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:358
 msgid "My Favorite Patterns"
 msgstr "I Miei Modelli Preferiti"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:359
 msgid "A collection of patterns you've selected."
 msgstr "Una raccolta di modelli che hai selezionato."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:361
 msgid "liked"
 msgstr "piaciuto"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:362
 msgid "saved"
 msgstr "salvato"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:363
 msgid "bookmarked"
 msgstr "segnalibro"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/variations.js:364
 msgid "starred"
 msgstr "stellato"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:110
-#: src/blocks/inspector-control.js:249
-#: src/blocks/inspector-control.js:329
-#: src/blocks/inspector-control.js:383
 msgid "Default"
 msgstr "Predefinito"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:115
 msgid "Arrow"
 msgstr "Freccia"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:119
 msgid "Ellipse"
 msgstr "Ellisse"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:123
 msgid "Rounded"
 msgstr "Arrotondato"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:127
 msgid "Slant"
 msgstr "Slant"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:131
 msgid "Slant Invert"
 msgstr "Slant Invert"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:135
 msgid "Triangle"
 msgstr "Triangolo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:139
 msgid "Zigzag"
 msgstr "Zigzag"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:149
-#: src/blocks/inspector-control.js:195
-#: src/blocks/inspector-control.js:280
 msgid "None"
 msgstr "Nessuno"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:153
 msgid "Fade In Bottom"
 msgstr "Dissolvenza In Basso"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:157
 msgid "Fade In Top Short"
 msgstr "Dissolvenza In Alto Breve"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:161
 msgid "Fade In Right Short"
 msgstr "Dissolvenza A Destra Breve"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:165
 msgid "Fade In Bottom Short"
 msgstr "Dissolvenza In Basso Breve"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:169
 msgid "Fade In Left Short"
 msgstr "Dissolvenza A Sinistra Breve"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:173
 msgid "Twist In"
 msgstr "Twist In"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:177
 msgid "Zoom In"
 msgstr "Zoom Avanti"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:181
 msgid "Zoom In Short"
 msgstr "Zoom Corto"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:185
 msgid "Reveal Right"
 msgstr "Rivela A Destra"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:199
 msgid "50ms"
 msgstr "50ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:203
 msgid "150ms"
 msgstr "150ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:207
 msgid "300ms"
 msgstr "300ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:211
 msgid "450ms"
 msgstr "450ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:215
 msgid "600ms"
 msgstr "600ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:219
 msgid "750ms"
 msgstr "750ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:223
 msgid "900ms"
 msgstr "900ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:227
 msgid "1050ms"
 msgstr "1050ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:231
 msgid "1200ms"
 msgstr "1200ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:235
 msgid "1350ms"
 msgstr "1350ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:239
 msgid "1500ms"
 msgstr "1500ms"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:285
 msgid "Dots"
 msgstr "Punti"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:289
 msgid "Grid"
 msgstr "Griglia"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:293
 msgid "Grid 2"
 msgstr "Griglia 2"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:297
 msgid "Grid 3"
 msgstr "Griglia 3"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:301
 msgid "Grid Perspective"
 msgstr "Prospettiva Griglia"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:305
 msgid "Lines"
 msgstr "Linee"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:309
 msgid "Lines 2"
 msgstr "Linee 2"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:321
 msgid "Section Divider"
 msgstr "Divisore Di Sezione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:365
 msgid "Section Theme Color"
 msgstr "Sezione Tema Colore"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:375
 msgid "This feature is now located in the"
 msgstr "Questa funzione si trova ora nel"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:377
 msgid "Block Styles"
 msgstr "Blocca Stili"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:379
 msgid "section."
 msgstr "sezione."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:418
 msgid "Section Background Effect"
 msgstr "Effetto Sfondo Sezione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:459
 msgid "Entrance Animations"
 msgstr "Animazioni Di Ingresso"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:463
 msgid "Animation"
 msgstr "Animazione"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/blocks/inspector-control.js:482
 msgid "Delay"
 msgstr "Ritardo"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/Views/About.jsx:69
 msgid "Back to Patterns"
 msgstr "Torna ai motivi"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/Views/About.jsx:103
 msgid "Syncing..."
 msgstr "Sincronizzazione..."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/Views/About.jsx:104
 msgid "Sync Now"
 msgstr "Sincronizza Ora"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/Views/About.jsx:109
 msgid "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
 msgstr "Libreria di modelli e modelli sincronizza automaticamente una volta al giorno. Se si desidera aggiornare manualmente la libreria, è possibile farlo premendo il pulsante per ottenere i disegni più recenti."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/InstallPluginsButton.jsx:50
 msgid "Failed to install & activate plugins. Please try again."
 msgstr "Impossibile installare e attivare i plugin. Per favore riprova."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/InstallPluginsButton.jsx:87
 msgid "Installing..."
 msgstr "Installazione..."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/InstallPluginsButton.jsx:85
 msgid "Install now"
 msgstr "Installa ora"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/RequiredPluginManager.jsx:68
 msgid "WordPress Plugins Required"
 msgstr "Richiesti Plugin WordPress"
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/RequiredPluginManager.jsx:44
 msgid "No plugins required."
 msgstr "Nessun plugin richiesto."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/RequiredPluginManager.jsx:46
 msgid "Requires %s."
 msgstr "Richiede %s."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/RequiredPluginManager.jsx:51
 msgid "Requires %s and %s."
 msgstr "Richiede %s e %s."
 
 #: build/2.8.1/wonder-blocks.js:1
-#: src/components/Modal/Content/DesignList/RequiredPluginManager.jsx:81
 msgid "Maybe later"
 msgstr "Forse più tardi"
 
 #. translators: %s is the pattern title
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/DesignItem.jsx:193
 msgid "Block pattern \"%s\" inserted."
 msgstr "Blocco modello \"%s\" inserito."
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/DesignItem.jsx:202
 msgid "Failed to insert block pattern. Please try again."
 msgstr "Impossibile inserire il modello di blocco. Riprova."
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/DesignItem.jsx:414
 msgid "Added to favorites"
 msgstr "Aggiunto ai preferiti"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/DesignItem.jsx:415
 msgid "Add to favorites"
 msgstr "Aggiungi ai preferiti"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/DesignItem.jsx:435
 msgid "Remove from Favorites"
 msgstr "Rimuovi dai Preferiti"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/DesignItem.jsx:444
 msgid "Add pattern to page"
 msgstr "Aggiungi sequenza alla pagina"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/Error.jsx:21
 msgid "support team"
 msgstr "team di supporto"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/NoResults.jsx:24
 msgid "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
 msgstr "Fai clic su %s sui tuoi modelli e modelli preferiti e usati di frequente per un rapido accesso."
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/DesignList/NoResults.jsx:36
 msgid "Sorry, we couldn't find any results for that. Please try a different search term."
 msgstr "Siamo spiacenti, non abbiamo trovato alcun risultato. Prova con un termine di ricerca diverso."
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:43
 msgid "Sort By: "
 msgstr "Ordina Per: "
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:51
 msgid "Sort By"
 msgstr "Ordina Per"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:57
 msgid "Newest"
 msgstr "Più Recenti"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:65
 msgid "Oldest"
 msgstr "Vecchio"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:77
-#: src/components/Modal/Content/FilterBar.jsx:82
 msgid "Grid View"
 msgstr "Vista Griglia"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:85
 msgid "2 columns"
 msgstr "2 colonne"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:91
 msgid "3 columns"
 msgstr "3 colonne"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/FilterBar.jsx:97
 msgid "4 columns"
 msgstr "4 colonne"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/Spinner.jsx:13
 msgid "Loading…"
 msgstr "Caricamento…"
 
 #: build/2.8.1/wonder-blocks.js:4
-#: src/components/Modal/Content/LoadingSpinner.jsx:22
 msgid "One moment while we load content tailored for your site."
 msgstr "Un momento mentre caricamo contenuti su misura per il tuo sito."
 
 #. translators: %s: brand name - 'WonderBlocks'.
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Content/UpdateNotice.jsx:36
 msgid "%s needs the latest version of WordPress, please <a>update your site</a>."
 msgstr "%s ha bisogno dell'ultima versione di WordPress, per favore <a>aggiorna il tuo sito</a>."
 
@@ -939,86 +765,66 @@ msgid "Search"
 msgstr "Cerca"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Content/Header/Header.jsx:83
-#: src/components/Modal/Sidebar/Categories.jsx:110
 msgid "Favorites"
 msgstr "Preferiti"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Content/Header/Header.jsx:95
 msgid "WonderBlocks Menu"
 msgstr "Menu WonderBlocks"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Content/Header/Header.jsx:103
 msgid "About"
 msgstr "Informazioni"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Content/Header/Header.jsx:118
 msgid "Close dialog"
 msgstr "Chiudi finestra"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Sidebar/ErrorLoading.jsx:9
 msgid "Failed to load data."
 msgstr "Impossibile caricare i dati."
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Sidebar/Categories.jsx:217
 msgid "Categories"
 msgstr "Categorie"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Sidebar/Categories.jsx:219
 msgid "Usage"
 msgstr "Utilizzo"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Sidebar/Categories.jsx:230
 msgid "Select a category"
 msgstr "Seleziona una categoria"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Sidebar/Sidebar.jsx:42
 msgid "Patterns"
 msgstr "Motivi"
 
 #: build/2.8.1/wonder-blocks.js:7
-#: src/components/Modal/Sidebar/Sidebar.jsx:46
 msgid "Templates"
 msgstr "Modelli"
 
-#: src/hooks/usePostTemplates.js:36
-msgid "Blank Template"
-msgstr "Modello Vuoto"
-
 #: build/2.8.1/blocks/block.json
-#: src/blocks/block.json
 msgctxt "block title"
 msgid "WonderBlocks"
 msgstr "WonderBlocks"
 
 #: build/2.8.1/blocks/block.json
-#: src/blocks/block.json
 msgctxt "block description"
 msgid "Add patterns and page templates tailored for your site."
 msgstr "Aggiungi modelli e modelli di pagina su misura per il tuo sito."
 
 #: build/2.8.1/blocks/block.json
-#: src/blocks/block.json
 msgctxt "block keyword"
 msgid "template"
 msgstr "modello"
 
 #: build/2.8.1/blocks/block.json
-#: src/blocks/block.json
 msgctxt "block keyword"
 msgid "patterns"
 msgstr "modelli"
 
 #: build/2.8.1/blocks/block.json
-#: src/blocks/block.json
 msgctxt "block keyword"
 msgid "blocks"
 msgstr "blocchi"
