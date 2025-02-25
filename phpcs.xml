@@ -3,7 +3,7 @@
 	<rule ref="Newfold"/>
     <config name="testVersion" value="7.3-"/>
     <config name="minimum_supported_wp_version" value="6.5"/>
-
+    <exclude-pattern>/build</exclude-pattern>
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array" value="nfd-wonder-blocks" />
