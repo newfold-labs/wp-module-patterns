@@ -102,7 +102,7 @@ final class Admin {
 		if ( 'nfd-wonder-blocks' === $handle ) {
 			$locale = determine_locale();
 			$key    = md5( 'build/' . NFD_WONDER_BLOCKS_VERSION . '/wonder-blocks.js' );
-			$file 	= NFD_WONDER_BLOCKS_DIR . "/languages/{$domain}-{$locale}-{$key}.json";
+			$file   = NFD_WONDER_BLOCKS_DIR . "/languages/{$domain}-{$locale}-{$key}.json";
 		}
 
 		return $file;
@@ -202,5 +202,4 @@ final class Admin {
 			NFD_WONDER_BLOCKS_DIR . '/languages'
 		);
 	}
-
 }
