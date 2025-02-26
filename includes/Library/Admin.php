@@ -25,6 +25,9 @@ final class Admin {
 		}
 
 		\add_action( 'init', array( PluginService::class, 'setup' ) );
+		\add_action( 'init', array( __CLASS__, 'load_text_domain' ), 100 );
+
+		\add_filter( 'load_script_translation_file', array( __CLASS__, 'load_script_translation_file' ), 10, 3 );
 	}
 
 	/**
@@ -75,9 +78,34 @@ final class Admin {
 				)
 			);
 
+			\wp_set_script_translations(
+				'nfd-wonder-blocks',
+				'nfd-wonder-blocks',
+				NFD_WONDER_BLOCKS_DIR . '/languages'
+			);
+
 			\wp_enqueue_script( 'nfd-wonder-blocks' );
 			\wp_enqueue_style( 'nfd-wonder-blocks' );
 		}
+	}
+
+	/**
+	 * Filter default WP script translations file to load the correct one
+	 *
+	 * @param string $file The translations file.
+	 * @param string $handle Script handle.
+	 * @param string $domain The strings textdomain.
+	 * @return string
+	 */
+	public static function load_script_translation_file( $file, $handle, $domain ) {
+
+		if ( 'nfd-wonder-blocks' === $handle ) {
+			$locale = determine_locale();
+			$key    = md5( 'build/' . NFD_WONDER_BLOCKS_VERSION . '/wonder-blocks.js' );
+			$file   = NFD_WONDER_BLOCKS_DIR . "/languages/{$domain}-{$locale}-{$key}.json";
+		}
+
+		return $file;
 	}
 
 	/**
@@ -153,5 +181,25 @@ final class Admin {
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Load text domain for Module
+	 *
+	 * @return void
+	 */
+	public static function load_text_domain() {
+
+		\load_plugin_textdomain(
+			'nfd-wonder-blocks',
+			false,
+			NFD_WONDER_BLOCKS_DIR . '/languages'
+		);
+
+		\load_script_textdomain(
+			'nfd-wonder-blocks',
+			'nfd-wonder-blocks',
+			NFD_WONDER_BLOCKS_DIR . '/languages'
+		);
 	}
 }

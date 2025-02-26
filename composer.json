@@ -24,7 +24,8 @@
 		"newfold-labs/wp-module-installer": "^1.1"
 	},
 	"require-dev": {
-		"newfold-labs/wp-php-standards": "^1.2.2"
+		"newfold-labs/wp-php-standards": "^1.2.2",
+		"wp-cli/i18n-command": "^2.6.3"
 	},
 	"autoload": {
 		"psr-4": {
@@ -36,15 +37,29 @@
 	},
 	"scripts": {
 		"lint": [
-			"vendor/bin/phpcs . --ignore=*/build/* --standard=Newfold -d error_reporting=\"E_ALL&~E_DEPRECATED\""
+			"vendor/bin/phpcs . --ignore=*/build/* --standard=phpcs.xml -d error_reporting=\"E_ALL&~E_DEPRECATED\""
 		],
 		"clean": [
-			"vendor/bin/phpcbf . --ignore=*/build/* --standard=Newfold -d error_reporting=\"E_ALL&~E_DEPRECATED\""
+			"vendor/bin/phpcbf . --ignore=*/build/* --standard=phpcs.xml -d error_reporting=\"E_ALL&~E_DEPRECATED\""
+		],
+		"i18n-pot": "vendor/bin/wp i18n make-pot . ./languages/nfd-wonder-blocks.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-patterns/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=node_modules,tests,src --domain=nfd-wonder-blocks",
+		"i18n-po": "vendor/bin/wp i18n update-po ./languages/nfd-wonder-blocks.pot ./languages",
+		"i18n-mo": "vendor/bin/wp i18n make-mo ./languages",
+		"i18n-php": "vendor/bin/wp i18n make-php ./languages",
+		"i18n-json": "find ./languages -name \"*.json\" -exec rm {} \\; && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print",
+		"i18n": [
+		  "@i18n-pot",
+		  "@i18n-po",
+		  "@i18n-php",
+		  "@i18n-json"
 		]
 	},
 	"config": {
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true
+		},
+		"platform": {
+			"php": "7.3.0"
 		}
 	}
 }
