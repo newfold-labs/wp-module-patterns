@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94542da3e90e35b31b7bfdfb404fff55",
+    "content-hash": "bd1d29b3f15f87bd88eaae042a2fd988",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -356,23 +356,23 @@
         },
         {
             "name": "newfold-labs/wp-module-installer",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-installer.git",
-                "reference": "e8dbc7a117c7f9ebeb2c9620ab6689c49ca1d3fe"
+                "reference": "ad0c43463c315e29a75e4702c47d8e630df3acb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-installer/zipball/e8dbc7a117c7f9ebeb2c9620ab6689c49ca1d3fe",
-                "reference": "e8dbc7a117c7f9ebeb2c9620ab6689c49ca1d3fe",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-installer/zipball/ad0c43463c315e29a75e4702c47d8e630df3acb7",
+                "reference": "ad0c43463c315e29a75e4702c47d8e630df3acb7",
                 "shasum": ""
             },
             "require": {
                 "newfold-labs/wp-module-pls": "^1.0.1"
             },
             "require-dev": {
-                "newfold-labs/wp-php-standards": "^1.2",
+                "newfold-labs/wp-php-standards": "^1.2.4",
                 "wp-cli/wp-cli": "^2.11"
             },
             "type": "library",
@@ -382,6 +382,36 @@
                 },
                 "files": [
                     "bootstrap.php"
+                ]
+            },
+            "scripts": {
+                "fix": [
+                    "vendor/bin/phpcbf --standard=phpcs.xml ."
+                ],
+                "i18n-pot": [
+                    "vendor/bin/wp i18n make-pot . ./languages/wp-module-installer.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-installer/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=node_modules,src"
+                ],
+                "i18n-po": [
+                    "vendor/bin/wp i18n update-po ./languages/wp-module-installer.pot ./languages"
+                ],
+                "i18n-mo": [
+                    "vendor/bin/wp i18n make-mo ./languages"
+                ],
+                "i18n-php": [
+                    "vendor/bin/wp i18n make-php ./languages"
+                ],
+                "i18n-json": [
+                    "rm -f languages/*.json && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print"
+                ],
+                "i18n": [
+                    "@i18n-pot",
+                    "@i18n-po",
+                    "@i18n-mo",
+                    "@i18n-php",
+                    "@i18n-json"
+                ],
+                "lint": [
+                    "vendor/bin/phpcs --standard=phpcs.xml -s ."
                 ]
             },
             "license": [
@@ -395,10 +425,10 @@
             ],
             "description": "An installer for WordPress plugins and themes.",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-module-installer/tree/1.3.0",
+                "source": "https://github.com/newfold-labs/wp-module-installer/tree/1.4.0",
                 "issues": "https://github.com/newfold-labs/wp-module-installer/issues"
             },
-            "time": "2025-01-16T16:51:53+00:00"
+            "time": "2025-02-26T19:08:38+00:00"
         },
         {
             "name": "newfold-labs/wp-module-loader",
@@ -2189,13 +2219,13 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "platform-overrides": {
         "php": "7.3.0"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
