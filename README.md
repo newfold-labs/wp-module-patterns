@@ -88,6 +88,10 @@ To ensure a smooth and error-free release, follow these detailed instructions cl
 
 3. Execute `composer install` to install PHP dependencies.
 
+### Build Script
+
+1. Run `npm run set-version-bump` to automatically bump the version (point version is default) and update build and language files all at once. If this script is used, skip the manual version update step and the build steps below.
+
 ### Version Updates
 
 It is essential to verify that the version has been appropriately incremented in both the PHP and JavaScript components. Specifically, ensure that:
@@ -106,13 +110,17 @@ define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.16' );
 
 ### Build
 
+Manually prepare the release:
+
 1. Run `npm run lint:js` to ensure JavaScript code quality.
 
-2. Execute `npm run build` to build the most recent set of build files.
+2. Delete the old build files from the `/build` directory.
 
-3. Run `composer clean` to ensure that PHP code standards are met.
+3. Execute `npm run build` to build the most recent set of build files.
 
-4. Delete the old build files from the `/build` directory.
+4. Run `composer run i18n` to update language files.
+
+5. Run `composer run clean` to ensure that PHP code standards are met.
 
 Ensure that these files are committed to the repository, as they are essential components to be incorporated into the upcoming release.
 
