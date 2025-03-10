@@ -187,69 +187,6 @@ class Items {
 		return $filtered;
 	}
 
-
-	/**
-	 * Get featured items.
-	 *
-	 * @param string $type Type of items to get.
-	 *
-	 * @return array
-	 */
-	private static function get_featured_slugs( $type = '' ) {
-
-		$featured = array(
-			'patterns'  => array(
-				'pricing-table-2',
-				'features-9',
-				'hero-4',
-				'cta-22',
-				'gallery-2',
-				'cta-7',
-				'faq-2',
-				'features-4',
-				'pricing-table-6',
-				'features-5',
-				'gallery-6',
-			),
-			'templates' => array(
-				'home-1',
-				'home-2',
-				'home-4',
-				'home-5',
-				'contact-1',
-				'contact-2',
-				'link-in-bio-1',
-				'link-in-bio-2',
-				'coming-soon-3',
-				'coming-soon-4',
-				'contact-3',
-				'contact-4',
-			),
-		);
-
-		$featured = apply_filters( 'wonder_blocks_featured_items', $featured );
-
-		if ( $type && isset( $featured[ $type ] ) ) {
-			return $featured[ $type ];
-		}
-
-		return $featured;
-	}
-
-	/**
-	 * Check if item is featured.
-	 *
-	 * @param string $slug Slug of item.
-	 * @param string $type Type of item.
-	 * @return boolean $is_featured True if item is featured.
-	 */
-	private static function is_featured( $slug, $type ) {
-
-		$featured = self::get_featured_slugs( $type );
-
-		return in_array( $slug, $featured, true );
-	}
-
 	/**
 	 * Add featured category to item if it belongs to a featured category.
 	 *
@@ -270,7 +207,7 @@ class Items {
 					$item['categories'] = array( $item['categories'] );
 				}
 
-				if ( self::is_featured( $item['slug'], $type ) ) {
+				if ( isset( $item['is_featured'] ) && $item['is_featured'] ) {
 					$item['categories'][] = 'featured';
 				}
 
