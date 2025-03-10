@@ -73,7 +73,7 @@ const usePatterns = ({ onlyFavorites = false, perPage = 4 } = {}) => {
 			url.searchParams.append("keywords", keywords);
 		} else if ("usage_tags" === sidebarDisplayMode) {
 			url.searchParams.append("keywords", activeCategory);
-			url.searchParams.append("matchType", "exact");
+			url.searchParams.append("match_type", "exact");
 		} else {
 			url.searchParams.append("category", activeCategory);
 		}
