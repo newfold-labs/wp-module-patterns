@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfb9f49c87ea91ae5b88272d56f6d62a",
+    "content-hash": "219e1e013899057d964521f4dd0dfaac",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -196,16 +196,16 @@
         },
         {
             "name": "newfold-labs/wp-module-data",
-            "version": "2.6.10",
+            "version": "2.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-data.git",
-                "reference": "ddafe7e2fe8f9e71ffdd898b00f5c3f6e5d92070"
+                "reference": "058a70c1c957cbe9739c9907f082087cd12a224a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-data/zipball/ddafe7e2fe8f9e71ffdd898b00f5c3f6e5d92070",
-                "reference": "ddafe7e2fe8f9e71ffdd898b00f5c3f6e5d92070",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-data/zipball/058a70c1c957cbe9739c9907f082087cd12a224a",
+                "reference": "058a70c1c957cbe9739c9907f082087cd12a224a",
                 "shasum": ""
             },
             "require": {
@@ -219,12 +219,12 @@
             },
             "require-dev": {
                 "10up/wp_mock": "^0.5.0|^1.0.0",
-                "bluehost/bluehost-wordpress-plugin": ">=3.1",
                 "brianhenryie/composer-phpstorm": ">=0.4",
                 "johnpbloch/wordpress": ">=6.5.3",
                 "kporras07/composer-symlinks": "^1.2",
                 "lucatume/wp-browser": "^3.5.8",
                 "newfold-labs/wp-php-standards": "^1.2.3",
+                "newfold-labs/wp-plugin-bluehost": "^4.0",
                 "phpunit/phpcov": "^8.2.1",
                 "wpackagist-plugin/jetpack": "^14.0",
                 "wpackagist-plugin/woocommerce": ">=9",
@@ -234,7 +234,7 @@
             "type": "library",
             "extra": {
                 "symlinks": {
-                    ".": "wp-content/plugins/bluehost-wordpress-plugin/vendor/newfold-labs/wp-module-data"
+                    ".": "wp-content/plugins/wp-plugin-bluehost/vendor/newfold-labs/wp-module-data"
                 }
             },
             "autoload": {
@@ -292,10 +292,10 @@
             ],
             "description": "Newfold Data Module",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-module-data/tree/2.6.10",
+                "source": "https://github.com/newfold-labs/wp-module-data/tree/2.6.11",
                 "issues": "https://github.com/newfold-labs/wp-module-data/issues"
             },
-            "time": "2025-02-06T18:33:49+00:00"
+            "time": "2025-03-10T22:27:07+00:00"
         },
         {
             "name": "newfold-labs/wp-module-features",
