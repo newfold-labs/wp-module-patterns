@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfb9f49c87ea91ae5b88272d56f6d62a",
+    "content-hash": "6fc3641f576e292021b754e0f10eddac",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1251,16 +1251,16 @@
         },
         {
             "name": "newfold-labs/wp-php-standards",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-php-standards.git",
-                "reference": "7ef8833b93f8bcdf52c6006f3adb53972d0799a6"
+                "reference": "f895273a11b3f53dc29719fb859629e13291bf37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-php-standards/zipball/7ef8833b93f8bcdf52c6006f3adb53972d0799a6",
-                "reference": "7ef8833b93f8bcdf52c6006f3adb53972d0799a6",
+                "url": "https://api.github.com/repos/newfold-labs/wp-php-standards/zipball/f895273a11b3f53dc29719fb859629e13291bf37",
+                "reference": "f895273a11b3f53dc29719fb859629e13291bf37",
                 "shasum": ""
             },
             "require": {
@@ -1270,6 +1270,11 @@
                 "wp-coding-standards/wpcs": "@stable"
             },
             "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "Newfold\\Sniffs\\": "Newfold/Sniffs/"
+                }
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -1281,10 +1286,10 @@
             ],
             "description": "PHP Code Sniffer Standards for Newfold WordPress projects.",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-php-standards/tree/1.2.4",
+                "source": "https://github.com/newfold-labs/wp-php-standards/tree/1.2.5",
                 "issues": "https://github.com/newfold-labs/wp-php-standards/issues"
             },
-            "time": "2024-07-22T23:16:21+00:00"
+            "time": "2025-03-19T23:24:54+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",
@@ -1658,16 +1663,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.11.3",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10"
+                "reference": "2d1b63db139c3c6ea0c927698e5160f8b3b8d630"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
-                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/2d1b63db139c3c6ea0c927698e5160f8b3b8d630",
+                "reference": "2d1b63db139c3c6ea0c927698e5160f8b3b8d630",
                 "shasum": ""
             },
             "require": {
@@ -1734,11 +1739,11 @@
                     "type": "open_collective"
                 },
                 {
-                    "url": "https://thanks.dev/phpcsstandards",
+                    "url": "https://thanks.dev/u/gh/phpcsstandards",
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-01-23T17:04:15+00:00"
+            "time": "2025-03-18T05:04:51+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
