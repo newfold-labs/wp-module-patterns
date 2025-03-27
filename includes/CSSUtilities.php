@@ -116,6 +116,16 @@ class CSSUtilities {
 		$theme = \wp_get_theme()->get_template();
 		$css   = '';
 
+		if ( 'bluehost-blueprint' === $theme ) {
+			$css = "body, .editor-styles-wrapper {
+				/* Colors */
+				--wndb--color--primary: var(--wp--preset--color--accent-2);
+				--wndb--color--secondary: var(--wp--preset--color--accent-4);
+				--wndb--color--body: var(--wp--preset--color--base);
+				--wndb--color--text: var(--wp-preset--color--contrast);
+			}";
+		}
+
 		if ( 'yith-wonder' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
                 /* Colors */
@@ -127,44 +137,8 @@ class CSSUtilities {
                 
                 --wndb--text--sm: var(--wp--preset--font-size--x-small);
 				--wndb--text--md: var(--wp--preset--font-size--normal);
-
-                
-				--nfd-cp-text-sm: var(--wp--preset--font-size--x-small, 0.875rem);
-                --nfd-cp-text-lg: var(--wp--preset--font-size--medium, 1.625rem);
-                --nfd-cp-text-huge: var(--wp--preset--font-size--huge, 2.25rem);
-                
-                --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
-                --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
-				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
-                --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
 			}";
 		}
-
-		if ( 'twentytwentytwo' === $theme ) {
-			$css = "body, .editor-styles-wrapper {
-				--nfd-cp-p-base: var(--wp--custom--spacing--outer, 0px);
-                --nfd-cp-bg-accent: var(--wp--preset--color--primary, #000);
-                --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
-				--nfd-cp-text-primary: var(--wp--preset--color--primary, #000);
-                --nfd-cp-text-secondary: var(--wp--preset--color--secondary, #000);
-			}";
-            
-            $css .= "body .is-layout-constrained:has(.wndb-container.is-layout-constrained) > .wndb-container.is-layout-constrained {
-                width: 100%;
-                max-width: unset;
-            }";
-		}
-        
-        if ( 'twentytwentythree' === $theme ) {
-            $css = "body, .editor-styles-wrapper {
-				--nfd-cp-p-base: var(--wp--style--root--padding-left);
-                --nfd-cp-bg-accent: var(--wp--preset--color--secondary, #000);
-                --nfd-cp-border-accent: var(--wp--preset--color--primary, #000);
-                --nfd-cp-text-primary: var(--wp--preset--color--secondary, #000);
-                --nfd-cp-text-secondary: var(--wp--preset--color--primary, #000);
-				
-            }";
-        }
 		
 		return $css;
 	}
