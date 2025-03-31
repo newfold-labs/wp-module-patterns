@@ -3,25 +3,26 @@
  */
 
 .block-editor-block-preview__content-iframe .is-root-container {
-	min-height: 8rem; /* 128px */
+    min-height: 8rem; /* 128px */
 }
 
 /* .block-editor-block-preview__content-iframe .is-root-container:has(div[class*="nfd-"]) {
-	padding: 0;
+    padding: 0;
 } */
 
-.block-editor-block-preview__content-iframe figure:has([style*="aspect-ratio: 16 / 9"]) {
-	width: 100%;
+.block-editor-block-preview__content-iframe
+    figure:has([style*="aspect-ratio: 16 / 9"]) {
+    width: 100%;
 }
 
 .block-editor-block-preview__content-iframe [style*="min-height: 100vh"],
 .block-editor-block-preview__content-iframe [style*="min-height:100vh"] {
-	min-height: 800px;
+    min-height: 800px;
 }
 
 .block-editor-block-preview__content-iframe [style*="min-height: 70vh"],
 .block-editor-block-preview__content-iframe [style*="min-height:70vh"] {
-	min-height: 560px;
+    min-height: 560px;
 }
 
 .block-editor-block-preview__content-iframe [style*="min-height: 60vh"],
@@ -31,7 +32,7 @@
 
 .block-editor-block-preview__content-iframe [style*="min-height: 50vh"],
 .block-editor-block-preview__content-iframe [style*="min-height:50vh"] {
-	min-height: 400px;
+    min-height: 400px;
 }
 
 .block-editor-block-preview__content-iframe [style*="min-height: 40vh"],
@@ -41,12 +42,12 @@
 
 .block-editor-block-preview__content-iframe [style*="min-height: 35vh"],
 .block-editor-block-preview__content-iframe [style*="min-height:35vh"] {
-	min-height: 280px;
+    min-height: 280px;
 }
 
 .block-editor-block-preview__content-iframe [style*="min-height: 30vh"],
 .block-editor-block-preview__content-iframe [style*="min-height:30vh"] {
-	min-height: 240px;
+    min-height: 240px;
 }
 
 .block-editor-block-preview__content-iframe [style*="min-height: 10vh"],
@@ -60,22 +61,29 @@
 }
 
 .nfd-wba-modal * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Disable animations in the BlockPreview component */
 .block-editor-block-preview__content-iframe .nfd-wb-animate {
-	transition: none;
-	transform: none;
-	opacity: 1;
+    transition: none;
+    transform: none;
+    opacity: 1;
 }
 
-.block-editor-block-preview__content-iframe .block-editor-warning {
-	/* display: none; */
+/* Hide "Attempt recovery" warning in the BlockPreview component */
+.block-editor-block-preview__content-iframe .block-editor-warning:not(.wp-block-missing .block-editor-warning) {
+    display: none;
 }
 
 .block-editor-block-preview__content-iframe
-	.is-root-container
-	> .nfd-container:not([class*="nfd-p-"]):not([class*="nfd-py-"]):not([class*="nfd-pt-"]):not([class*="nfd-pb-"]) {
-	padding-block: var(--wndb--p) !important;
+    .is-root-container
+    > .nfd-container:not([class*="nfd-p-"]):not([class*="nfd-py-"]):not(
+        [class*="nfd-pt-"]
+    ):not([class*="nfd-pb-"]) {
+    padding-block: var(--wndb--p) !important;
+}
+
+.block-editor-block-preview__content-iframe [class*="nfd-rounded"]:not([style*="-radius"]) > div > img {
+	border-radius: calc(var(--wndb--border--radius) * var(--wndb--rounded--scale-factor));
 }

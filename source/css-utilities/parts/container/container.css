@@ -27,7 +27,7 @@
 }
 
 /* ----------------------------- Container width ---------------------------- */
-body .is-layout-constrained:has(.nfd-container.is-layout-constrained) > .nfd-container.is-layout-constrained {
+body .is-layout-constrained:not(.has-global-padding):has(.nfd-container.is-layout-constrained) > .nfd-container.is-layout-constrained {
 	width: 100%;
 	max-width: unset;
 }
