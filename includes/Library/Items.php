@@ -47,8 +47,8 @@ class Items {
 		}
 
 		if ( isset( $args['keywords'] ) ) {
-			$matchType = isset( $args['matchType'] ) ? \sanitize_text_field( $args['matchType'] ) : 'contains';
-			$data      = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ), $matchType );
+			$match_type = isset( $args['match_type'] ) ? \sanitize_text_field( $args['match_type'] ) : 'contains';
+			$data       = self::filter( $data, 'keywords', \sanitize_text_field( $args['keywords'] ), $match_type );
 		}
 
 		if ( isset( $args['sort_by'] ) ) {
@@ -73,7 +73,7 @@ class Items {
 	 */
 	private static function sort( $data, $sort_by ) {
 
-		if ( $sort_by === 'newest' ) {
+		if ( 'newest' === $sort_by ) {
 			$data = array_reverse( $data );
 		}
 
@@ -83,13 +83,14 @@ class Items {
 	/**
 	 * Filter data by key and value.
 	 *
-	 * @param array  $data  Array of data.
-	 * @param string $key   Key to filter by.
-	 * @param string $value Value to filter by.
+	 * @param array  $data       Array of data.
+	 * @param string $key        Key to filter by.
+	 * @param string $value      Value to filter by.
+	 * @param string $match_type Type of matching: 'exact' or 'contains'.
 	 *
 	 * @return array $filtered
 	 */
-	private static function filter( $data, $key, $value, $matchType = 'contains' ) {
+	private static function filter( $data, $key, $value, $match_type = 'contains' ) {
 
 		if ( ! is_array( $data ) ) {
 			return array();
@@ -104,7 +105,7 @@ class Items {
 		}
 
 		if ( 'keywords' === $key ) {
-			return self::filter_by_keywords( $data, $value, $matchType );
+			return self::filter_by_keywords( $data, $value, $match_type );
 		}
 	}
 
@@ -140,28 +141,28 @@ class Items {
 	/**
 	 * Filter an array by keywords.
 	 *
-	 * @param array  $data      Array of data.
-	 * @param string $value     Value to filter by.
-	 * @param string $matchType Type of matching: 'exact' or 'contains'.
+	 * @param array  $data       Array of data.
+	 * @param string $value      Value to filter by.
+	 * @param string $match_type Type of matching: 'exact' or 'contains'.
 	 *
 	 * @return array $filtered
 	 */
-	private static function filter_by_keywords( $data, $value, $matchType = 'contains' ) {
+	private static function filter_by_keywords( $data, $value, $match_type = 'contains' ) {
 		$filtered = array();
 		$value    = strtolower( $value );
 
 		foreach ( $data as $item ) {
-			$title      = strtolower( $item['title'] );
-			$matchFound = false;
+			$title       = strtolower( $item['title'] );
+			$match_found = false;
 
 			// Check title based on match type.
-			if ( 'exact' === $matchType && $title === $value ) {
-				$matchFound = true;
-			} elseif ( 'contains' === $matchType && false !== strpos( $title, $value ) ) {
-				$matchFound = true;
+			if ( 'exact' === $match_type && $title === $value ) {
+				$match_found = true;
+			} elseif ( 'contains' === $match_type && false !== strpos( $title, $value ) ) {
+				$match_found = true;
 			}
 
-			if ( $matchFound ) {
+			if ( $match_found ) {
 				$filtered[] = $item;
 				continue;
 			}
@@ -173,10 +174,10 @@ class Items {
 				foreach ( $item['tags'] as $tag ) {
 					$tag = strtolower( $tag );
 
-					if ( 'exact' === $matchType && $tag === $value ) {
+					if ( 'exact' === $match_type && $tag === $value ) {
 						$filtered[] = $item;
 						break;
-					} elseif ( 'contains' === $matchType && false !== strpos( $tag, $value ) ) {
+					} elseif ( 'contains' === $match_type && false !== strpos( $tag, $value ) ) {
 						$filtered[] = $item;
 						break;
 					}
@@ -185,69 +186,6 @@ class Items {
 		}
 
 		return $filtered;
-	}
-
-
-	/**
-	 * Get featured items.
-	 *
-	 * @param string $type Type of items to get.
-	 *
-	 * @return array
-	 */
-	private static function get_featured_slugs( $type = '' ) {
-
-		$featured = array(
-			'patterns'  => array(
-				'pricing-table-2',
-				'features-9',
-				'hero-4',
-				'cta-22',
-				'gallery-2',
-				'cta-7',
-				'faq-2',
-				'features-4',
-				'pricing-table-6',
-				'features-5',
-				'gallery-6',
-			),
-			'templates' => array(
-				'home-1',
-				'home-2',
-				'home-4',
-				'home-5',
-				'contact-1',
-				'contact-2',
-				'link-in-bio-1',
-				'link-in-bio-2',
-				'coming-soon-3',
-				'coming-soon-4',
-				'contact-3',
-				'contact-4',
-			),
-		);
-
-		$featured = apply_filters( 'wonder_blocks_featured_items', $featured );
-
-		if ( $type && isset( $featured[ $type ] ) ) {
-			return $featured[ $type ];
-		}
-
-		return $featured;
-	}
-
-	/**
-	 * Check if item is featured.
-	 *
-	 * @param string $slug Slug of item.
-	 * @param string $type Type of item.
-	 * @return boolean $is_featured True if item is featured.
-	 */
-	private static function is_featured( $slug, $type ) {
-
-		$featured = self::get_featured_slugs( $type );
-
-		return in_array( $slug, $featured, true );
 	}
 
 	/**
@@ -270,7 +208,7 @@ class Items {
 					$item['categories'] = array( $item['categories'] );
 				}
 
-				if ( self::is_featured( $item['slug'], $type ) ) {
+				if ( isset( $item['is_featured'] ) && $item['is_featured'] ) {
 					$item['categories'][] = 'featured';
 				}
 
