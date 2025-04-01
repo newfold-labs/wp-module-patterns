@@ -75,3 +75,11 @@
 	margin-left: 2px;
 	border-right: 0;
 }
+
+/* Fix Group Block section gaps in generations */
+.entry-content > [class*='nfd-theme-'] + [class*='nfd-theme-']:not([style*="margin-top"]),
+.entry-content > [class*='nfd-theme-'] + .wp-block-group.has-background:not([style*="margin-top"]),
+.entry-content > .wp-block-group.has-background + .wp-block-group.has-background:not([style*="margin-top"]),
+.entry-content > .wp-block-group.has-background + [class*='nfd-theme-']:not([style*="margin-top"]) {
+    margin-block-start: 0;
+}

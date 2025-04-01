@@ -36,19 +36,18 @@ p[style*="text-decoration"] > a {
 }
 
 /* Absolute header */
-.nfd-absolute-header {
-	position: absolute;
-	left: 0;
-	right: 0;
-	z-index: 10;
-}
-
-.editor-styles-wrapper .nfd-absolute-header {
-	position: static;
+:not(.editor-styles-wrapper) header:has(.nfd-absolute-header) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .nfd-absolute-header:not([style*="margin"]) {
 	margin: 0 !important;
+}
+
+:not(.editor-styles-wrapper) .nfd-absolute-header:not([style*="padding"]):not([class*="nfd-px-"]) {
+	padding-inline: var(--wndb--p);
 }
 
 /* Fix admin bar offset */

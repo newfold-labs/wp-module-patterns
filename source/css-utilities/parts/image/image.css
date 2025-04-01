@@ -1,0 +1,13 @@
+.nfd-img-object-left img {
+    object-position: left;
+}
+
+.nfd-img-object-right img {
+    object-position: right;
+}
+
+.editor-styles-wrapper .wp-block-image.nfd-h-full > div {
+    height: 100%;
+    max-height: unset;
+    aspect-ratio: unset;
+}

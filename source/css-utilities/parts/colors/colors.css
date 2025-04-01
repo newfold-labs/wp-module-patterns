@@ -7,7 +7,7 @@
  * The default color theme is `light`.
  */
 
-:where(:root) {
+ :where(:root) {
 	/* ------------------------------ Color palette ----------------------------- */
 	--wndb-gray: #6c6c89;
 	--wndb-gray-50: #f7f7f8;
@@ -180,6 +180,7 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 [class*="is-style-nfd-theme"] .wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-2),
 .nfd-bg-surface .wp-block-separator:not(.has-background):not(.has-text-color):not(.nfd-border-2) {
 	border-bottom-width: 1px;
+	border-top-width: 1px;
 }
 
 /* Border background */
@@ -226,15 +227,15 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 	color: var(--wndb--color--secondary);
 }
 
-.nfd-theme-primary .nfd-text-primary:not(.has-text-color),
-.nfd-theme-primary .wp-block-button.wndb-text-primary > a:not(.has-text-color),
-.nfd-theme-primary .nfd-text-secondary:not(.has-text-color),
-.nfd-theme-secondary .wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
+[class*='nfd-theme-primary'] .nfd-text-primary:not(.has-text-color),
+[class*='nfd-theme-primary'] .wp-block-button.wndb-text-primary > a:not(.has-text-color),
+[class*='nfd-theme-primary'] .nfd-text-secondary:not(.has-text-color),
+[class*='nfd-theme-secondary'] .wp-block-button.wndb-text-secondary > a:not(.has-text-color) {
 	color: var(--wndb--color--contrast);
 }
 
-.nfd-theme-dark .nfd-text-primary:not(.has-text-color),
-.nfd-theme-darker .nfd-text-primary:not(.has-text-color) {
+[class*='nfd-theme-dark'] .nfd-text-primary:not(.has-text-color),
+[class*='nfd-theme-darker'] .nfd-text-primary:not(.has-text-color) {
 	color: var(--wndb--color--secondary);
 }
 
@@ -262,6 +263,10 @@ p.nfd-text-faded:not(.has-text-color):not(.has-link-color):not(.has-background),
 
 .nfd-container.is-position-sticky:not([class*="nfd-bg-surface"]):not([class*="is-style-nfd-"]):not(.has-background) {
 	background-color: var(--wndb--color--body);
+}
+
+.nfd-container .has-secondary-color {
+	color: var(--wndb--color--secondary);
 }
 
 /* ------------------------- Backward compatibility ------------------------- */
