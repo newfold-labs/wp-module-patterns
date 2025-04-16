@@ -26,6 +26,8 @@ import { replaceThemeClasses } from "../../../../helpers/utils";
 import { usePatterns, useReplacePlaceholders } from "../../../../hooks";
 import { store as nfdPatternsStore } from "../../../../store";
 import RequiredPluginManager from "./RequiredPluginManager";
+import RequiredPluginNotice from "./RequiredPluginNotice";
+import PremiumBadge from "../../../PremiumBadge";
 
 const DesignItem = ({ item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -302,6 +304,13 @@ const DesignItem = ({ item }) => {
 		};
 	}, [activeTab, activeTemplatesCategory, activePatternsCategory]);
 
+	const hasPremiumPlugin = useMemo(() => {
+		if (!item?.plugin_requirements) {
+			return false;
+		}
+		return item.plugin_requirements.some((plugin) => plugin.isPremium);
+	}, [item?.plugin_requirements]);
+
 	useEffect(() => {
 		let timerId;
 
@@ -368,38 +377,81 @@ const DesignItem = ({ item }) => {
 
 	return (
 		<div className="nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-border-grey-b nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-border-gray-300 nfd-wba-border nfd-wba-overflow-clip nfd-wba-rounded nfd-wba-border-solid">
-			{item?.plugin_requirements?.length > 0 && <RequiredPluginManager item={item} />}
+			<div className="nfd-wba-relative">
+				{/* <div className="nfd-wba-design-item--overlay">
+					{item?.plugin_requirements?.length > 0 && <RequiredPluginManager item={item} />}
+				</div> */}
 
-			<div
-				className={classNames(
-					"nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-bg-white nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand nfd-wba-rounded",
-					item?.type === "templates" && "nfd-wba-design-item--template",
-					insertingDesign && "nfd-wba-inserting-design"
-				)}
-				ref={blockRef}
-				role="button"
-				tabIndex="0"
-				onClick={() => insertDesignHandler()}
-				onKeyUp={(e) => {
-					if (e.key === "Enter") {
-						insertDesignHandler();
-					}
-				}}
-			>
-				{previewBlocks && <BlockPreview blocks={previewBlocks} viewportWidth={1200} />}
-			</div>
-
-			<div className="nfd-wba-flex nfd-wba-py-2 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
-				{/* <div>{item.title}</div> */}
-				<div></div>
-
-				<div className="nfd-wba-flex nfd-wba-gap-0.5 nfd-wba-shrink-0 nfd-wba-items-center">
-					{item?.isPremium && (
-						<span className="nfd-wba-rounded nfd-wba-bg-dark nfd-wba-px-[10px] nfd-wba-py-[5px] nfd-wba-text-white">
-							Premium
-						</span>
+				<div className="nfd-wba-design-item--overlay">
+					{hasPremiumPlugin && (
+						<div className="nfd-wba-absolute nfd-wba-top-2 nfd-wba-right-2 nfd-wba-z-20">
+							<PremiumBadge variant="logo" />
+						</div>
 					)}
 
+					<div className="nfd-wba-design-item--overlay__buttons">
+						<Button
+							isBusy={insertingDesign}
+							isPressed={insertingDesign}
+							label={__("Add pattern to page", "nfd-wonder-blocks")}
+							showTooltip={true}
+							onClick={() => insertDesignHandler()}
+							icon={<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />}
+						/>
+						<Button
+							className={classNames(
+								isFavorite
+									? "nfd-wba-cursor-default nfd-wba-bg-gray-100 !nfd-wba-text-red-600"
+									: "nfd-wba-cursor-not-pointer hover:nfd-wba-text-red-600"
+							)}
+							showTooltip={true}
+							label={
+								isFavorite
+									? __("Added to favorites", "nfd-wonder-blocks")
+									: __("Add to favorites", "nfd-wonder-blocks")
+							}
+							onClick={() => favoritesClickHandler(false)}
+							icon={
+								<HeartIcon
+									className={classNames(
+										" nfd-wba-shrink-0 nfd-wba-size-6",
+										!isFavorite && "!nfd-wba-fill-none"
+									)}
+								/>
+							}
+						/>
+					</div>
+				</div>
+
+				<div
+					className={classNames(
+						"nfd-wba-design-item nfd-wba-flex nfd-wba-min-h-[116px] nfd-wba-cursor-pointer nfd-wba-flex-col nfd-wba-justify-center nfd-wba-bg-white nfd-wba-transition-opacity focus-visible:nfd-wba-outline-2 focus-visible:nfd-wba-outline-brand nfd-wba-rounded",
+						item?.type === "templates" && "nfd-wba-design-item--template",
+						insertingDesign && "nfd-wba-inserting-design"
+					)}
+					ref={blockRef}
+					role="button"
+					tabIndex="0"
+					onClick={() => insertDesignHandler()}
+					onKeyUp={(e) => {
+						if (e.key === "Enter") {
+							insertDesignHandler();
+						}
+					}}
+				>
+					{previewBlocks && <BlockPreview blocks={previewBlocks} viewportWidth={1200} />}
+				</div>
+			</div>
+
+			<div className="nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
+				{/* <div>{item.title}</div> */}
+				<div>
+					{item?.plugin_requirements?.length > 0 && (
+						<RequiredPluginNotice plugin={item?.plugin_requirements[0]} />
+					)}
+				</div>
+
+				<div className="nfd-wba-flex nfd-wba-gap-0.5 nfd-wba-shrink-0 nfd-wba-items-center">
 					{!shouldShowTrash() && (
 						<Button
 							className={classNames(
@@ -437,6 +489,7 @@ const DesignItem = ({ item }) => {
 							icon={<HeartOffIcon className="nfd-wba-shrink-0 nfd-wba-size-5 !nfd-wba-fill-none" />}
 						/>
 					)}
+
 					<Button
 						className="nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75"
 						isBusy={insertingDesign}

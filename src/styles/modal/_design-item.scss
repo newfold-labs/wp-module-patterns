@@ -1,8 +1,15 @@
 /* -------------------------------------------------------------------------- */
-/*                             Design Item styles                             */
+/*                             Design Item Styles                             */
 /* -------------------------------------------------------------------------- */
 :root {
 	--nfd-wba-design-item--template-height: 30vw;
+	--nfd-wba-color-premium-text: #9a6819;
+	--nfd-wba-color-premium-bg: #f9f3db;
+	--nfd-wba-color-premium-icon: #ffb743;
+	--nfd-wba-badge-border-radius: 11px;
+	--nfd-wba-badge-font-size: 8px;
+	--nfd-wba-badge-padding: 2px 4px;
+	--nfd-wba-overlay-opacity: 0.72;
 }
 
 .nfd-wba-design-item {
@@ -31,10 +38,8 @@
 
 	iframe {
 		--offset: calc(var(--nfd-wba-design-item--template-height) / var(--nfd-wba-design-item--scale));
-
 		--transition-duration: calc(var(--nfd-wba-design-item--scroll-duration, 0s) / 2);
 		--nfd-wba-translate-offset: calc(-100% + var(--offset));
-
 		--hover-transition-duration: var(--nfd-wba-design-item--scroll-duration, 0s);
 
 		transition: transform var(--transition-duration, 0s) !important;
@@ -48,13 +53,48 @@
 	}
 }
 
+.nfd-wba-design-item--overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 20;
+	transition: background-color var(--nfd-wba-transition-duration) var(--nfd-wba-transition-timing);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__buttons {
+		display: flex;
+		gap: 10px;
+		opacity: 0;
+
+		& button {
+			width: 50px;
+			height: 50px;
+			transition: all var(--nfd-wba-transition-duration) var(--nfd-wba-transition-timing);
+			background-color: #fff;
+			border-radius: calc(infinity * 1px);
+			box-shadow: 0px 0px 5.7px 4px #106e4240;
+
+			&:hover svg {
+				stroke: currentColor;
+			}
+		}
+	}
+
+	&:hover {
+		background-color: rgb(
+			var(--nfd-wba-color-brand-darker-10-rgb) / var(--nfd-wba-overlay-opacity)
+		);
+
+		.nfd-wba-design-item--overlay__buttons {
+			opacity: 1;
+		}
+	}
+}
+
 .nfd-wba-plugins-required__overlay {
 	backdrop-filter: blur(1px);
-
-	button {
-		--wp-components-color-accent-darker-20: #d1d5db;
-		--wp-components-color-accent: #e5e7eb;
-	}
 }
 
 .nfd-wba-plugins-required__alert {
@@ -68,8 +108,7 @@
 	z-index: 20;
 	border: solid 1px rgba(0, 0, 0, 0.1);
 	border-left: solid 3px var(--nfd-wba-color-warning, #ffcc00);
-	padding-block: 12px;
-	padding-inline: 12px;
+	padding: 12px;
 	border-radius: 0 4px 4px 0;
 	background-color: #fff;
 	font-size: 12px;
@@ -78,4 +117,89 @@
 	p {
 		margin: 0;
 	}
+}
+
+.nfd-required-plugin-notice {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.5rem;
+	flex-wrap: wrap;
+}
+
+.nfd-required-plugin-notice__icon,
+.nfd-required-plugin-notice__content {
+	display: flex;
+	align-items: center;
+}
+
+.nfd-required-plugin-notice__icon {
+	gap: 8px;
+}
+
+.nfd-required-plugin-notice__content {
+	gap: 4px;
+}
+
+.nfd-required-plugin-notice__content > * {
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.nfd-required-plugin-notice a {
+	color: var(--nfd-wba-color-brand);
+	text-decoration: none;
+	transition: all var(--nfd-wba-transition-duration) var(--nfd-wba-transition-timing);
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:focus {
+		outline: 1px solid var(--nfd-wba-color-brand);
+		outline-offset: 1px;
+	}
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+}
+
+/* Premium Badge Styles */
+.nfd-premium-badge--tagline {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+	padding: var(--nfd-wba-badge-padding);
+	font-size: var(--nfd-wba-badge-font-size);
+	text-transform: uppercase;
+	letter-spacing: 0;
+	line-height: 0.75rem;
+	color: var(--nfd-wba-color-premium-text);
+	background-color: var(--nfd-wba-color-premium-bg);
+	border-radius: var(--nfd-wba-badge-border-radius);
+}
+
+.nfd-premium-badge--logo {
+	background-color: var(--nfd-wba-color-premium-bg);
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+[class*="nfd-premium-badge--"] svg {
+	stroke: var(--nfd-wba-color-premium-icon);
+	fill: var(--nfd-wba-color-premium-icon);
 }

@@ -9,6 +9,7 @@ final class PluginRequirements {
 				'slug' => 'jetpack',
 				'name' => 'Jetpack',
 				'path' => 'jetpack/jetpack.php',
+				'isPremium' => true,
 			),
 		),
 		'form-2'     => array(

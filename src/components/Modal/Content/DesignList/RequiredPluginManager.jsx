@@ -17,6 +17,7 @@ import { __, sprintf } from "@wordpress/i18n";
  */
 import InstallPluginsButton from "./InstallPluginsButton";
 import { store as nfdPatternsStore } from "../../../../store";
+import PremiumBadge from "../../../PremiumBadge";
 
 const RequiredPluginManager = ({ item }) => {
 	const [isPluginResolved, setIsPluginResolved] = useState(false);
@@ -55,34 +56,19 @@ const RequiredPluginManager = ({ item }) => {
 		}
 	};
 
+	const hasPremiumPlugin = requirements.some((plugin) => plugin.isPremium);
+
 	if (isPluginResolved) {
 		return null;
 	}
 
 	return (
-		<div className="nfd-wba-plugins-required__overlay nfd-wba-absolute nfd-wba-inset-0 nfd-wba-bg-gray-300/50 nfd-wba-z-20">
-			<div className="nfd-wba-plugins-required__alert">
-				<PlugIcon className="nfd-wba-mt-1" size={16} />
-
-				<div>
-					<strong>{__("WordPress Plugins Required", "nfd-wonder-blocks")}</strong>
-
-					<p className="nfd-wba-text-neutral-500">{generateRequiredPluginsMessage(requirements)}</p>
-
-					<div className="nfd-wba-flex nfd-wba-mt-2.5 nfd-wba-gap-3 nfd-wba-items-center">
-						<InstallPluginsButton plugins={requirements} isBusy={isBusy} disabled={isBusy} />
-
-						<Button
-							variant="link"
-							className="!nfd-wba-text-gray-600"
-							onClick={onContinueWithout}
-							disabled={isBusy}
-						>
-							{__("Maybe later", "nfd-wonder-blocks")}
-						</Button>
-					</div>
+		<div className="nfd-wba-plugins-required__overlay nfd-wba-absolute nfd-wba-inset-0 nfd-wba-z-20">
+			{hasPremiumPlugin && (
+				<div className="nfd-wba-absolute nfd-wba-top-2 nfd-wba-right-2 nfd-wba-z-20">
+					<PremiumBadge variant="logo" />
 				</div>
-			</div>
+			)}
 		</div>
 	);
 };
