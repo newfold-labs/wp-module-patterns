@@ -203,3 +203,24 @@
 	stroke: var(--nfd-wba-color-premium-icon);
 	fill: var(--nfd-wba-color-premium-icon);
 }
+
+.nfd-wba-block-wireframe {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 32px;
+}
+
+[class*="nfd-wb-forms"] .wp-block-missing .block-editor-warning {
+	display: none;
+}
+
+[class*="nfd-wb-forms"] .wp-block-missing:before {
+	content: "";
+	display: block;
+	margin: 12px auto;
+	background-image: url("../svg/wireframes/ContactForm.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
