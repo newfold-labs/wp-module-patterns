@@ -123,6 +123,8 @@ class CSSUtilities {
 				--wndb--color--secondary: var(--wp--preset--color--accent-5);
 				--wndb--color--body: var(--wp--preset--color--base);
 				--wndb--color--text: var(--wp-preset--color--contrast);
+				--wndb--color--text--contrast: var(--wp--preset--color--contrast);
+				--wndb--color--text--faded: color-mix(in srgb, var(--wp--preset--color--contrast), transparent 20%);
 			}";
 		}
 
