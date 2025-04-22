@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00eab50ef2257c3d16dec896b3c499c7",
+    "content-hash": "52d6ae295aadc9c9aa5739e99aa7f42f",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -379,23 +379,26 @@
         },
         {
             "name": "newfold-labs/wp-module-installer",
-            "version": "1.4.5",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-installer.git",
-                "reference": "d80c739337a58a40fd172eb44b6b4b27b85ee5ce"
+                "reference": "f028b7d083c7509ba8d220590328fe1af7ab18fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-installer/zipball/d80c739337a58a40fd172eb44b6b4b27b85ee5ce",
-                "reference": "d80c739337a58a40fd172eb44b6b4b27b85ee5ce",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-installer/zipball/f028b7d083c7509ba8d220590328fe1af7ab18fb",
+                "reference": "f028b7d083c7509ba8d220590328fe1af7ab18fb",
                 "shasum": ""
             },
             "require": {
-                "newfold-labs/wp-module-pls": "^1.0.1"
+                "newfold-labs/wp-module-pls": "^1.1.1"
             },
             "require-dev": {
+                "johnpbloch/wordpress": "6.8.0",
+                "lucatume/wp-browser": "*",
                 "newfold-labs/wp-php-standards": "^1.2.5",
+                "phpunit/phpcov": "*",
                 "wp-cli/wp-cli": "^2.11"
             },
             "type": "library",
@@ -411,11 +414,14 @@
                 "fix": [
                     "vendor/bin/phpcbf --standard=phpcs.xml ."
                 ],
-                "i18n-pot": [
-                    "vendor/bin/wp i18n make-pot . ./languages/wp-module-installer.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-installer/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=node_modules,src"
+                "i18n": [
+                    "@i18n-pot",
+                    "@i18n-po",
+                    "@i18n-php",
+                    "@i18n-json"
                 ],
-                "i18n-po": [
-                    "vendor/bin/wp i18n update-po ./languages/wp-module-installer.pot ./languages"
+                "i18n-json": [
+                    "rm -f languages/*.json && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print"
                 ],
                 "i18n-mo": [
                     "vendor/bin/wp i18n make-mo ./languages"
@@ -423,18 +429,22 @@
                 "i18n-php": [
                     "vendor/bin/wp i18n make-php ./languages"
                 ],
-                "i18n-json": [
-                    "rm -f languages/*.json && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print"
+                "i18n-po": [
+                    "vendor/bin/wp i18n update-po ./languages/wp-module-installer.pot ./languages"
                 ],
-                "i18n": [
-                    "@i18n-pot",
-                    "@i18n-po",
-                    "@i18n-mo",
-                    "@i18n-php",
-                    "@i18n-json"
+                "i18n-pot": [
+                    "vendor/bin/wp i18n make-pot . ./languages/wp-module-installer.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-installer/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=node_modules,src"
                 ],
                 "lint": [
                     "vendor/bin/phpcs --standard=phpcs.xml -s ."
+                ],
+                "test": [
+                    "codecept run wpunit"
+                ],
+                "test-coverage": [
+                    "codecept run wpunit --coverage wpunit.cov",
+                    "phpcov merge --php tests/_output/merged.cov --html tests/_output/html tests/_output;",
+                    "echo \"open tests/_output/html/index.html\" to view the report"
                 ]
             },
             "license": [
@@ -448,10 +458,10 @@
             ],
             "description": "An installer for WordPress plugins and themes.",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-module-installer/tree/1.4.5",
+                "source": "https://github.com/newfold-labs/wp-module-installer/tree/1.5.0",
                 "issues": "https://github.com/newfold-labs/wp-module-installer/issues"
             },
-            "time": "2025-04-14T18:08:46+00:00"
+            "time": "2025-04-21T18:24:48+00:00"
         },
         {
             "name": "newfold-labs/wp-module-loader",
