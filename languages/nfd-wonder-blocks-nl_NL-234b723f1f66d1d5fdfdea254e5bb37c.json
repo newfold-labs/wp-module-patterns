@@ -1,176 +1,176 @@
 {
     "translation-revision-date": "2025-02-24 17:32",
     "generator": "WP-CLI\/2.11.0",
-    "source": "build\/2.9.2\/wonder-blocks.js",
+    "source": "build\/2.9.3\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "fr_FR",
-                "plural-forms": "nplurals=2; plural=(n > 1);"
+                "lang": "nl_NL",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
-                "Blancs"
+                "wit"
             ],
             "Light": [
-                "Lumi\u00e8re"
+                "Licht"
             ],
             "Dark": [
-                "Sombre"
+                "Donker"
             ],
             "Darker": [
-                "Plus sombre"
+                "Donkerder"
             ],
             "Primary": [
-                "Primaire"
+                "Primair"
             ],
             "Layout": [
-                "Mise en page"
+                "Indeling"
             ],
             "Info": [
-                "Infos"
+                "Informatie"
             ],
             "Gallery Patterns": [
-                "Motifs de la galerie"
+                "Galerij patronen"
             ],
             "Add Gallery patterns.": [
-                "Ajouter des mod\u00e8les de galerie."
+                "Galerij patronen toevoegen."
             ],
             "images": [
-                "images"
+                "afbeeldingen"
             ],
             "photos": [
-                "photos"
+                "Foto's"
             ],
             "photography": [
-                "photographie"
+                "fotografie"
             ],
             "Blog Patterns": [
-                "Mod\u00e8les de blog"
+                "Blog patronen"
             ],
             "Add Blog patterns.": [
-                "Ajouter des mod\u00e8les de blog."
+                "Blogpatronen toevoegen."
             ],
             "articles": [
-                "articles"
+                "artikelen"
             ],
             "posts": [
-                "messages"
+                "berichten"
             ],
             "news": [
-                "Actualit\u00e9s"
+                "nieuws"
             ],
             "Call to Action Patterns": [
-                "Mod\u00e8les d'appel \u00e0 l'action"
+                "Oproep aan Action Patronen"
             ],
             "Add Call to Action patterns.": [
-                "Ajouter des mod\u00e8les d'appel \u00e0 l'action."
+                "Oproep toevoegen aan Actiepatronen."
             ],
             "cta": [
                 "cta"
             ],
             "conversion": [
-                "conversion"
+                "conversie"
             ],
             "button": [
-                "bouton"
+                "knop"
             ],
             "announcement": [
-                "annonce"
+                "aankondiging"
             ],
             "FAQ Patterns": [
-                "Mod\u00e8les de FAQ"
+                "FAQ patronen"
             ],
             "Add FAQ patterns.": [
-                "Ajouter des mod\u00e8les de FAQ."
+                "Voeg FAQ patronen toe."
             ],
             "frequently asked questions": [
-                "Foire aux questions"
+                "Veel gestelde vragen"
             ],
             "Features Patterns": [
-                "Sch\u00e9mas des fonctionnalit\u00e9s"
+                "Functies Patronen"
             ],
             "Add Features patterns.": [
-                "Ajouter des mod\u00e8les de fonctionnalit\u00e9s."
+                "Functies patronen toevoegen."
             ],
             "columns": [
-                "colonnes"
+                "kolommen"
             ],
             "about": [
-                "\u00e0 propos de"
+                "Over"
             ],
             "Form Patterns": [
-                "Sch\u00e9mas de formulaire"
+                "Formulier patronen"
             ],
             "Add Form patterns.": [
-                "Ajouter des mod\u00e8les de formulaire."
+                "Formulierpatronen toevoegen."
             ],
             "form": [
-                "Formulaire"
+                "formulier"
             ],
             "email": [
-                "Email"
+                "E-mail"
             ],
             "CRM": [
                 "CRM"
             ],
             "contact": [
-                "contact"
+                "Contactpersoon"
             ],
             "Heading Patterns": [
-                "Motifs d'en-t\u00eate"
+                "Kop patronen"
             ],
             "Add Heading patterns.": [
-                "Ajouter des mod\u00e8les d'en-t\u00eate."
+                "Koppatronen toevoegen."
             ],
             "title": [
-                "Titre:"
+                "Titel"
             ],
             "headline": [
-                "titre"
+                "kop"
             ],
             "tagline": [
                 "tagline"
             ],
             "text": [
-                "texte"
+                "Tekst"
             ],
             "Hero Patterns": [
-                "Sch\u00e9mas de H\u00e9ros"
+                "Held Patronen"
             ],
             "Add Hero patterns.": [
-                "Ajouter des sch\u00e9mas de H\u00e9ros."
+                "Held patronen toevoegen."
             ],
             "banner": [
-                "banni\u00e8re"
+                "banner"
             ],
             "image slider": [
-                "Curseur d'image"
+                "afbeelding slider"
             ],
             "homepage": [
-                "page d'accueil"
+                "Startpagina"
             ],
             "Pricing Table Patterns": [
-                "Mod\u00e8les de tables de tarification"
+                "Prijzen Tafelpatronen"
             ],
             "Add Pricing Table patterns.": [
-                "Ajouter des mod\u00e8les de tableau de tarification."
+                "Voeg prijspatronen toe."
             ],
             "plans": [
-                "forfaits"
+                "plannen"
             ],
             "comparison": [
-                "Comparaison"
+                "vergelijking"
             ],
             "packages": [
-                "paquets"
+                "pakketten"
             ],
             "Menu Patterns": [
-                "Motifs de menu"
+                "Menu patronen"
             ],
             "Add Menu patterns.": [
-                "Ajouter des motifs de menu."
+                "Menu patronen toevoegen."
             ],
             "restaurant": [
                 "restaurant"
@@ -179,118 +179,118 @@
                 "caf\u00e9"
             ],
             "coffee": [
-                "caf\u00e9"
+                "koffie"
             ],
             "catering": [
-                "traiteur"
+                "horeca"
             ],
             "food": [
-                "nourriture"
+                "voedsel"
             ],
             "recipe": [
-                "recette"
+                "recept"
             ],
             "Team Patterns": [
-                "Mod\u00e8les d'\u00e9quipe"
+                "Team patronen"
             ],
             "Add Team patterns.": [
-                "Ajouter des patrons d'\u00e9quipe."
+                "Team patronen toevoegen."
             ],
             "employees": [
-                "collaborateurs-trices"
+                "werknemers"
             ],
             "members": [
-                "membres"
+                "leden"
             ],
             "profiles": [
                 "profiles"
             ],
             "Testimonial Patterns": [
-                "Sch\u00e9mas de t\u00e9moignage"
+                "Testimoniale patronen"
             ],
             "Add Testimonial patterns.": [
-                "Ajouter des motifs de t\u00e9moignage."
+                "Voeg beoordelingspatronen toe."
             ],
             "reviews": [
-                "avis"
+                "beoordelingen"
             ],
             "feedback": [
-                "retour d'exp\u00e9rience"
+                "feedback"
             ],
             "ratings": [
-                "\u00e9valuations"
+                "waarderingen"
             ],
             "Text Patterns": [
-                "Sch\u00e9mas de texte"
+                "Tekst patronen"
             ],
             "Add Text patterns.": [
-                "Ajouter des mod\u00e8les de texte."
+                "Tekstpatronen toevoegen."
             ],
             "highlight": [
-                "en surbrillance"
+                "markeren"
             ],
             "write": [
-                "\u00e9crire"
+                "schrijven"
             ],
             "format": [
-                "format"
+                "formaat"
             ],
             "rating": [
-                "note"
+                "beoordeling"
             ],
             "Header Patterns": [
-                "Motifs d'en-t\u00eate"
+                "Koptekst patronen"
             ],
             "Add Header patterns.": [
-                "Ajouter des mod\u00e8les d'en-t\u00eate."
+                "Koppatronen toevoegen."
             ],
             "navigation": [
                 "navigation"
             ],
             "Footer Patterns": [
-                "Motifs de pied de page"
+                "Voettekst patronen"
             ],
             "Add Footer patterns.": [
-                "Ajouter des mod\u00e8les de pied de page."
+                "Voettekst patronen toevoegen."
             ],
             "Product Patterns": [
-                "Mod\u00e8les de produit"
+                "Product patronen"
             ],
             "Add Product patterns.": [
-                "Ajouter des mod\u00e8les de produit."
+                "Product patronen toevoegen."
             ],
             "woocommerce": [
                 "woocommerce"
             ],
             "My Favorite Patterns": [
-                "Mes mod\u00e8les favoris"
+                "Mijn favoriete patronen"
             ],
             "A collection of patterns you've selected.": [
-                "Une collection de mod\u00e8les que vous avez s\u00e9lectionn\u00e9s."
+                "Een verzameling van patronen die je hebt geselecteerd."
             ],
             "liked": [
-                "Aim\u00e9"
+                "leuk gevonden"
             ],
             "saved": [
-                "sauvegard\u00e9"
+                "opgeslagen"
             ],
             "bookmarked": [
-                "favori"
+                "bladwijzer"
             ],
             "starred": [
-                "favoris"
+                "ster"
             ],
             "Default": [
-                "Par d\u00e9faut"
+                "Standaard"
             ],
             "Arrow": [
-                "Fl\u00e8che"
+                "Pijl"
             ],
             "Ellipse": [
-                "Ellipse"
+                "Ellips"
             ],
             "Rounded": [
-                "Arrondi"
+                "Afgerond"
             ],
             "Slant": [
                 "Slant"
@@ -299,49 +299,49 @@
                 "Slant Invert"
             ],
             "Triangle": [
-                "Triangle"
+                "Driehoek"
             ],
             "Zigzag": [
                 "Zigzag"
             ],
             "None": [
-                "Aucun"
+                "geen"
             ],
             "Fade In Bottom": [
-                "Fondu en bas"
+                "Onder vervagen"
             ],
             "Fade In Top Short": [
-                "Fondu en haut court"
+                "Vervagen in korte bovenhoek"
             ],
             "Fade In Right Short": [
-                "Fondu court \u00e0 droite"
+                "Korte Rechts vervagen"
             ],
             "Fade In Bottom Short": [
-                "Fondu en bas"
+                "Onder kort vervagen"
             ],
             "Fade In Left Short": [
-                "Fondu \u00e0 gauche"
+                "Vervagen in kort links"
             ],
             "Twist In": [
-                "Tronquer"
+                "Draai over"
             ],
             "Zoom In": [
-                "Zoom avant"
+                "Zoom in"
             ],
             "Zoom In Short": [
-                "Zoom en court"
+                "Zoom in kort"
             ],
             "Reveal Right": [
-                "R\u00e9v\u00e9ler \u00e0 droite"
+                "Rechts onthullen"
             ],
             "50ms": [
                 "50ms"
             ],
             "150ms": [
-                "150 ms"
+                "150ms"
             ],
             "300ms": [
-                "300ms"
+                "300 ms"
             ],
             "450ms": [
                 "450ms"
@@ -353,13 +353,13 @@
                 "750ms"
             ],
             "900ms": [
-                "900ms"
+                "900 ms"
             ],
             "1050ms": [
                 "1050ms"
             ],
             "1200ms": [
-                "1200 ms"
+                "1200ms"
             ],
             "1350ms": [
                 "1350ms"
@@ -368,181 +368,181 @@
                 "1500ms"
             ],
             "Dots": [
-                "Points"
+                "Stippen"
             ],
             "Grid": [
-                "Grille"
+                "Rooster"
             ],
             "Grid 2": [
-                "Grille 2"
+                "Raster 2"
             ],
             "Grid 3": [
-                "Grille 3"
+                "Raster 3"
             ],
             "Grid Perspective": [
-                "Perspective de la grille"
+                "Grid Perspectief"
             ],
             "Lines": [
-                "Lignes"
+                "Regels"
             ],
             "Lines 2": [
-                "Lignes 2"
+                "Regels 2"
             ],
             "Section Divider": [
-                "Diviseur de section"
+                "Sectie verdeler"
             ],
             "Section Theme Color": [
-                "Couleur du th\u00e8me de section"
+                "Themakleur sectie"
             ],
             "This feature is now located in the": [
-                "Cette fonctionnalit\u00e9 se trouve maintenant dans le"
+                "Deze functie bevindt zich nu in de"
             ],
             "Block Styles": [
-                "Styles de blocage"
+                "Stijlen blokkeren"
             ],
             "section.": [
-                "section."
+                "sectie"
             ],
             "Section Background Effect": [
-                "Effet de fond de la section"
+                "Sectie Achtergrond Effect"
             ],
             "Entrance Animations": [
-                "Animations d'entr\u00e9e"
+                "Ingang Animaties"
             ],
             "Animation": [
-                "Animation"
+                "Animatie"
             ],
             "Delay": [
-                "D\u00e9lai"
+                "Vertraging"
             ],
             "Back to Patterns": [
-                "Retour aux patrons"
+                "Terug naar patronen"
             ],
             "Syncing...": [
-                "Synchronisation en cours..."
+                "Synchroniseren..."
             ],
             "Sync Now": [
-                "Synchroniser maintenant"
+                "Nu synchroniseren"
             ],
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
-                "La biblioth\u00e8que de mod\u00e8les et de mod\u00e8les se synchronise automatiquement une fois par jour. Si vous voulez actualiser manuellement la biblioth\u00e8que, vous pouvez le faire en appuyant sur le bouton pour obtenir les designs les plus r\u00e9cents."
+                "De sjabloonbibliotheek synchroniseert automatisch eenmaal per dag. Als je de bibliotheek handmatig wilt vernieuwen, kun je dat doen door op de knop te drukken om de meest recente ontwerpen te krijgen."
             ],
             "Failed to install & activate plugins. Please try again.": [
-                "\u00c9chec de l'installation et de l'activation des plugins. Veuillez r\u00e9essayer."
+                "Installeren en activeren van plugins mislukt. Probeer het opnieuw."
             ],
             "Installing...": [
-                "Installation en cours..."
+                "Installeren..."
             ],
             "Install now": [
-                "Installer maintenant"
+                "Installeer nu"
             ],
             "WordPress Plugins Required": [
-                "Plugins WordPress requis"
+                "WordPress Plugins Vereist"
             ],
             "No plugins required.": [
-                "Aucun plugin requis."
+                "Geen plug-ins vereist."
             ],
             "Requires %s.": [
-                "N\u00e9cessite %s."
+                "Vereist %s."
             ],
             "Requires %s and %s.": [
-                "N\u00e9cessite %s et %s."
+                "Vereist %s en %s."
             ],
             "Maybe later": [
-                "Peut-\u00eatre plus tard"
+                "Misschien later"
             ],
             "Block pattern \"%s\" inserted.": [
-                "Mod\u00e8le de bloc \u00ab%s\u00bb ins\u00e9r\u00e9."
+                "Blok patroon \"%s\" ingevoegd."
             ],
             "Failed to insert block pattern. Please try again.": [
-                "Impossible d'ins\u00e9rer le mod\u00e8le de bloc. Veuillez r\u00e9essayer."
+                "Het blokpatroon invoegen is mislukt. Probeer het opnieuw."
             ],
             "Added to favorites": [
-                "Ajout\u00e9 aux favoris"
+                "Toegevoegd aan favorieten"
             ],
             "Add to favorites": [
-                "Ajouter aux favoris"
+                "Toevoegen aan favorieten"
             ],
             "Remove from Favorites": [
-                "Retirer des favoris"
+                "Verwijderen uit favorieten"
             ],
             "Add pattern to page": [
-                "Ajouter un mod\u00e8le \u00e0 la page"
+                "Patroon aan pagina toevoegen"
             ],
             "support team": [
-                "\u00e9quipe de support"
+                "Support Team"
             ],
             "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
-                "Cliquez sur %s sur vos mod\u00e8les et mod\u00e8les favoris et fr\u00e9quemment utilis\u00e9s pour un acc\u00e8s rapide."
+                "Klik op de %s op uw favoriete en vaak gebruikte Patrons & Templates voor snelle toegang."
             ],
             "Sorry, we couldn't find any results for that. Please try a different search term.": [
-                "D\u00e9sol\u00e9, nous n'avons trouv\u00e9 aucun r\u00e9sultat pour cela. Veuillez essayer un autre terme de recherche."
+                "Sorry, we konden geen resultaten vinden. Probeer een andere zoekterm."
             ],
             "Sort By: ": [
-                "Trier par: "
+                "Sorteren op: "
             ],
             "Sort By": [
-                "Trier par"
+                "Sorteren op"
             ],
             "Newest": [
-                "Plus r\u00e9cent"
+                "Nieuwste"
             ],
             "Oldest": [
-                "Plus ancien"
+                "Oudste"
             ],
             "Grid View": [
-                "Vue Grille"
+                "Raster weergave"
             ],
             "2 columns": [
-                "2 colonnes"
+                "2 kolommen"
             ],
             "3 columns": [
-                "3 colonnes"
+                "3 kolommen"
             ],
             "4 columns": [
-                "4 colonnes"
+                "4 kolommen"
             ],
             "Loading\u2026": [
-                "Chargement de\u2026"
+                ""
             ],
             "One moment while we load content tailored for your site.": [
-                "Un moment pendant que nous chargeons du contenu adapt\u00e9 \u00e0 votre site."
+                "Een moment terwijl we de content op maat voor je site laden."
             ],
             "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
-                "%s a besoin de la derni\u00e8re version de WordPress, s'il vous pla\u00eet <a>mettre \u00e0 jour votre site<\/a>."
+                "%s heeft de laatste versie van WordPress, update alstublieft <a>uw site<\/a>."
             ],
             "Search": [
-                "Chercher"
+                "Zoeken"
             ],
             "Favorites": [
-                "Favoris"
+                "Favorieten"
             ],
             "WonderBlocks Menu": [
-                "Menu WonderBlocks"
+                "WonderBlocks Menu"
             ],
             "About": [
-                "\u00c0 propos de"
+                "Informatie"
             ],
             "Close dialog": [
-                "Fermer la bo\u00eete de dialogue"
+                "Dialoogvenster sluiten"
             ],
             "Failed to load data.": [
-                "Impossible de charger les donn\u00e9es."
+                "Laden van gegevens mislukt."
             ],
             "Categories": [
-                "Cat\u00e9gories"
+                "Categoriechar@@0n"
             ],
             "Usage": [
-                "Usage"
+                "Gebruik"
             ],
             "Select a category": [
-                "S\u00e9lectionnez une cat\u00e9gorie"
+                "Selecteer een categorie"
             ],
             "Patterns": [
-                "Motifs"
+                "Patronen"
             ],
             "Templates": [
-                "Mod\u00e8les"
+                "Sjablonen"
             ]
         }
     }
