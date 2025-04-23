@@ -6,7 +6,12 @@ import { ArrowRight } from "lucide-react";
 /**
  * WordPress dependencies
  */
+import { createInterpolateElement } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
+
+/**
+ * Internal dependencies
+ */
 import PluginLogo from "../../../PluginLogo";
 import PremiumBadge from "../../../PremiumBadge";
 
@@ -27,16 +32,26 @@ const RequiredPluginNotice = ({ plugin }) => {
 
 const generateRequiredPluginsMessage = (plugin) => {
 	const pluginName = plugin.name || plugin.slug;
-	return (
-		<>
-			{__("This pattern requires ", "nfd-wonder-blocks")}
-			<strong>{pluginName}</strong>
-			{__(" plugin.", "nfd-wonder-blocks")}
 
+	// Using createInterpolateElement for better translation support
+	const message = createInterpolateElement(
+		sprintf(
+			// translators: %s: plugin name.
+			__("This pattern requires <strong>%s</strong> plugin.", "nfd-wonder-blocks"),
+			pluginName
+		),
+		{
+			strong: <strong>{pluginName}</strong>,
+		}
+	);
+
+	return (
+		<p>
+			{message}{" "}
 			<a href="#" className="nfd-required-plugin-notice__learn-more">
 				{__("Learn more", "nfd-wonder-blocks")} <ArrowRight size={16} />
 			</a>
-		</>
+		</p>
 	);
 };
 

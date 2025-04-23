@@ -918,6 +918,41 @@ var SvgWooCommerceLogo = function SvgWooCommerceLogo(props) {
 
 /***/ }),
 
+/***/ "./src/svg/YithLogo.svg":
+/*!******************************!*\
+  !*** ./src/svg/YithLogo.svg ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgYithLogo),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path, _path2;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+
+var SvgYithLogo = function SvgYithLogo(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 127,
+    height: 71
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    fill: "#9ac21f",
+    d: "M59.107 12.36q3.69.001 6.378-2.59 2.394-2.292 2.492-4.785.1-1.694-1.295-3.34C65.287-.001 64.6 0 63.195 0q-3.59 0-6.53 2.393c-2.94 2.393-2.975 3.256-3.04 4.983q-.199 4.984 5.482 4.983z"
+  })), _path2 || (_path2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    fill: "#005b7c",
+    d: "m126.986 46.04-1.12-1.475c-.746.865-1.71 1.8-2.89 2.772q-2.123 1.77-2.95 1.77-1.122 0-1.416-.473c-.294-.473-.275-.885-.236-1.71q0-.47.738-3.628c.738-3.158.756-3.707.795-4.81q.06-2.419-.885-3.717-1.24-1.594-4.13-1.357-3.365.295-7.02 2.655a20.5 20.5 0 0 0-2.95 2.36q2.535-10.65 2.596-14.555.059-5.799-4.78-5.977-5.488-.177-8.023 6.194 1.06-.471 2.006-.472c.5 0 1.04.315 1.592.945q1.238 1.479 1.004 4.552c-.12 1.498-.473 4.7-1.063 9.636l-.375 3.414c-.233.164-.453.332-.695.493-3 1.994-5.715 3-8.173 3q-4.886 0-4.784-3.688.199-6.378 2.192-16.746h7.077q.796.002.797-.697l.896-4.286q.2-.997-.896-.997h-6.677l3.288-15.75q.2-.796-1.194-.797-2.595 0-6.78 2.192c-3 1.595-4.62 3.2-4.883 4.785l-1.596 9.568h-4.086q-.8 0-.898.698l-.896 4.286q-.2.997.896.996h4.088c-1.002 5.766-1.758 10.535-2.273 14.335a48 48 0 0 1-3.408 3.108c-2.393 1.994-4.055 3-4.983 3-2.127 0-3.156-1.428-3.1-4.286q1.497-9.368 2.79-15.45.398-3.59-1.146-5.83c-1.544-2.24-2.64-2.144-4.834-1.944q-2.094.202-6.38 3.987l-6.38 5.78 2.293 2.69c1.86-1.396 3-2.094 3.39-2.094q1.793 0 1.793 2.592c0 .334-.646 2.79-1.943 7.376a103 103 0 0 0-.867 3.259c-2.998 2.074-6.837 4.243-11.542 6.5q3.586-11.86 3.986-22.128.3-8.273-7.377-8.473c-6.18-.2-10.23 3.257-12.16 10.366a8.4 8.4 0 0 1 3.342-.697q1.416 0 2.326 1.146c.91 1.146.876 1.646.8 2.642q-.099 3.888-3.966 8.323c-3.867 4.435-4.873 4.436-6.88 4.436-1.406 0-2.076-1.196-2-3.588q.1-1.892 1.295-7.676 1.096-5.48 1.098-7.376 0-3.288-1.695-5.332c-1.695-2.044-2.758-1.944-4.883-1.745q-2.195.202-6.48 3.987L0 27.91l2.293 2.69c1.86-1.396 3-2.094 3.39-2.094q1.893 0 1.795 2.592 0 .202-1.793 6.28c-1.793 6.078-1.826 7.076-1.895 9.07q-.201 4.088 1.5 6.28 2.099 2.693 7.006 2.293 5.804-.4 11.61-4.285a34 34 0 0 0 4.604-3.69q-.799 3.99-1.895 6.78-10.764 4.881-15.55 8.373-6.78 4.88-7.275 10.465-.9 9.668 9.768 9.668 7.175 0 13.855-8.77c3.786-4.982 7.075-11.63 9.866-19.934 4.83-2.398 8.912-4.746 12.255-7.044-.11.772-.176 1.463-.193 2.06q-.098 3.19 1.545 5.185c1.643 1.995 2.674 1.992 4.734 1.992q6.677 0 13.356-5.78a37 37 0 0 0 3.555-3.577 27 27 0 0 0-.066 2.182q.096 7.178 8.373 7.177 6.778 0 14.553-5.78a54 54 0 0 0 1.982-1.553l-.004.082q-.12 2.839 1.3 4.492 1.768 2.01 5.782 1.893-.531-1.239-.414-4.604.12-3.834 2.676-7.257 2.316-3.126 4.28-3.127 1.305.001 1.188 2.184-.061 1.415-.678 4.1c-.617 2.685-.64 3.334-.68 4.632q-.06 1.89.916 3.068c.976 1.178 1.582 1.18 2.803 1.18q3.951 0 7.904-3.422 2.892-2.536 4.543-5.665zM16.248 68.48q-1.596-.001-1.496-1.396.2-2.593 8.97-6.877-4.587 8.271-7.475 8.273z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjcgNzEiIHdpZHRoPSIxMjciIGhlaWdodD0iNzEiPgogIDxwYXRoIGZpbGw9IiM5YWMyMWYiIGQ9Ik01OS4xMDcgMTIuMzZjMi40NiAwIDQuNTg2LS44NjIgNi4zNzgtMi41OSAxLjU5Ni0xLjUyOCAyLjQyNi0zLjEyMyAyLjQ5Mi00Ljc4NS4wNjYtMS4xMy0uMzY1LTIuMjQyLTEuMjk1LTMuMzRTNjQuNiAwIDYzLjE5NSAwYy0yLjM5MyAwLTQuNTcuNzk4LTYuNTMgMi4zOTNzLTIuOTc1IDMuMjU2LTMuMDQgNC45ODNjLS4xMzMgMy4zMjMgMS42OTUgNC45ODMgNS40ODIgNC45ODN6Ii8+CiAgPHBhdGggZmlsbD0iIzAwNWI3YyIgZD0iTTEyNi45ODYgNDYuMDRsLTEuMTItMS40NzVjLS43NDYuODY1LTEuNzEgMS44LTIuODkgMi43NzItMS40MTYgMS4xOC0yLjM5OCAxLjc3LTIuOTUgMS43Ny0uNzQ4IDAtMS4yMi0uMTU3LTEuNDE2LS40NzNzLS4yNzUtLjg4NS0uMjM2LTEuNzFjMC0uMzE0LjI0Ni0xLjUyMy43MzgtMy42MjhzLjc1Ni0zLjcwNy43OTUtNC44MWMuMDQtMS42MTItLjI1Ni0yLjg1Mi0uODg1LTMuNzE3LS44MjYtMS4wNjMtMi4yMDMtMS41MTQtNC4xMy0xLjM1Ny0yLjI0Mi4xOTctNC41ODQgMS4wODItNy4wMiAyLjY1NS0xLjAyMy42Ny0yLjAwNiAxLjQ1NS0yLjk1IDIuMzYgMS42OS03LjEgMi41NTUtMTEuOTUyIDIuNTk2LTE0LjU1NS4wNC0zLjg2Ni0xLjU1NS01Ljg1OC00Ljc4LTUuOTc3LTMuNjU4LS4xMTgtNi4zMzQgMS45NDYtOC4wMjMgNi4xOTQuNzA3LS4zMTQgMS4zNzUtLjQ3MiAyLjAwNi0uNDcyLjUgMCAxLjA0LjMxNSAxLjU5Mi45NDUuODI2Ljk4NiAxLjE2IDIuNTAzIDEuMDA0IDQuNTUyLS4xMiAxLjQ5OC0uNDczIDQuNy0xLjA2MyA5LjYzNmwtLjM3NSAzLjQxNGMtLjIzMy4xNjQtLjQ1My4zMzItLjY5NS40OTMtMyAxLjk5NC01LjcxNSAzLTguMTczIDMtMy4yNTcgMC00Ljg1My0xLjIzLTQuNzg0LTMuNjg4LjEzMy00LjI1Mi44NjMtOS44MzQgMi4xOTItMTYuNzQ2aDcuMDc3Yy41MyAwIC43OTctLjIzLjc5Ny0uNjk3bC44OTYtNC4yODZjLjEzMy0uNjY0LS4xNjYtLjk5Ny0uODk2LS45OTdoLTYuNjc3bDMuMjg4LTE1Ljc1Yy4xMzMtLjUzLS4yNjUtLjc5Ny0xLjE5NC0uNzk3LTEuNzMgMC0zLjk5LjczLTYuNzggMi4xOTItMyAxLjU5NS00LjYyIDMuMi00Ljg4MyA0Ljc4NWwtMS41OTYgOS41NjhoLTQuMDg2Yy0uNTMzIDAtLjgzMi4yMzMtLjg5OC42OThsLS44OTYgNC4yODZjLS4xMzMuNjY1LjE2Ni45OTYuODk2Ljk5Nmg0LjA4OGMtMS4wMDIgNS43NjYtMS43NTggMTAuNTM1LTIuMjczIDE0LjMzNWE0Ny45OCA0Ny45OCAwIDAgMS0zLjQwOCAzLjEwOGMtMi4zOTMgMS45OTQtNC4wNTUgMy00Ljk4MyAzLTIuMTI3IDAtMy4xNTYtMS40MjgtMy4xLTQuMjg2Ljk5OC02LjI0NSAxLjkyOC0xMS4zOTYgMi43OS0xNS40NS4yNjYtMi4zOTMtLjExNy00LjMzNi0xLjE0Ni01Ljgzcy0yLjY0LTIuMTQ0LTQuODM0LTEuOTQ0Yy0xLjM5NS4xMzUtMy41MjMgMS40NjMtNi4zOCAzLjk4N2wtNi4zOCA1Ljc4IDIuMjkzIDIuNjljMS44Ni0xLjM5NiAzLTIuMDk0IDMuMzktMi4wOTQgMS4xOTUgMCAxLjc5My44NjUgMS43OTMgMi41OTIgMCAuMzM0LS42NDYgMi43OS0xLjk0MyA3LjM3NmExMDMuMDEgMTAzLjAxIDAgMCAwLS44NjcgMy4yNTljLTIuOTk4IDIuMDc0LTYuODM3IDQuMjQzLTExLjU0MiA2LjUgMi4zOS03LjkwNyAzLjcyLTE1LjI4MyAzLjk4Ni0yMi4xMjguMi01LjUxNS0yLjI2LTguMzQtNy4zNzctOC40NzMtNi4xOC0uMi0xMC4yMyAzLjI1Ny0xMi4xNiAxMC4zNjYgMS4wOC0uNDY0IDIuMTkzLS42OTcgMy4zNDItLjY5Ny45NDMgMCAxLjcyLjM4MyAyLjMyNiAxLjE0NnMuODc2IDEuNjQ2LjggMi42NDJjLS4wNjYgMi41OTItMS4zODggNS4zNjctMy45NjYgOC4zMjNzLTQuODczIDQuNDM2LTYuODggNC40MzZjLTEuNDA2IDAtMi4wNzYtMS4xOTYtMi0zLjU4OC4wNjYtMS4yNjIuNDk4LTMuODIgMS4yOTUtNy42NzYuNzMtMy42NTMgMS4wOTgtNi4xMTIgMS4wOTgtNy4zNzYgMC0yLjE5Mi0uNTY2LTMuOTctMS42OTUtNS4zMzJzLTIuNzU4LTEuOTQ0LTQuODgzLTEuNzQ1Yy0xLjQ2My4xMzUtMy42MjMgMS40NjMtNi40OCAzLjk4N0wwIDI3LjkxbDIuMjkzIDIuNjljMS44Ni0xLjM5NiAzLTIuMDk0IDMuMzktMi4wOTQgMS4yNjIgMCAxLjg2Ljg2NSAxLjc5NSAyLjU5MiAwIC4xMzQtLjU5OCAyLjIyOC0xLjc5MyA2LjI4cy0xLjgyNiA3LjA3Ni0xLjg5NSA5LjA3Yy0uMTM1IDIuNzI2LjM2NyA0LjgxOCAxLjUgNi4yOCAxLjQgMS43OTUgMy43MzQgMi41NiA3LjAwNiAyLjI5MyAzLjg3LS4yNjYgNy43MzgtMS42OTUgMTEuNjEtNC4yODUgMS42MDItMS4wNjMgMy4xMzUtMi4yOTQgNC42MDQtMy42OS0uNTMzIDIuNjYtMS4xNjQgNC45Mi0xLjg5NSA2Ljc4LTcuMTc2IDMuMjU0LTEyLjM2IDYuMDQ1LTE1LjU1IDguMzczLTQuNTIgMy4yNTQtNi45NDUgNi43NDItNy4yNzUgMTAuNDY1LS42IDYuNDQ1IDIuNjU2IDkuNjY4IDkuNzY4IDkuNjY4IDQuNzgzIDAgOS40MDItMi45MjQgMTMuODU1LTguNzcgMy43ODYtNC45ODIgNy4wNzUtMTEuNjMgOS44NjYtMTkuOTM0IDQuODMtMi4zOTggOC45MTItNC43NDYgMTIuMjU1LTcuMDQ0LS4xMS43NzItLjE3NiAxLjQ2My0uMTkzIDIuMDYtLjA2NiAyLjEyOC40NSAzLjg1NCAxLjU0NSA1LjE4NXMyLjY3NCAxLjk5MiA0LjczNCAxLjk5MmM0LjQ1IDAgOC45MDQtMS45MjYgMTMuMzU2LTUuNzhhMzYuNjYgMzYuNjYgMCAwIDAgMy41NTUtMy41NzdjLS4wNTUuODU4LS4wNzggMS41OS0uMDY2IDIuMTgyLjA2NCA0Ljc4NiAyLjg1NSA3LjE3NyA4LjM3MyA3LjE3NyA0LjUxOCAwIDkuMzctMS45MjYgMTQuNTUzLTUuNzhhNTMuNjIgNTMuNjIgMCAwIDAgMS45ODItMS41NTNsLS4wMDQuMDgyYy0uMDggMS44OTIuMzU0IDMuMzkgMS4zIDQuNDkyIDEuMTggMS4zNCAzLjEwNSAxLjk3IDUuNzgyIDEuODkzLS4zNTQtLjgyNi0uNDkyLTIuMzYtLjQxNC00LjYwNC4wOC0yLjU1Ni45NzMtNC45NzUgMi42NzYtNy4yNTcgMS41NDUtMi4wODQgMi45Ny0zLjEyNyA0LjI4LTMuMTI3Ljg3IDAgMS4yNjYuNzMgMS4xODggMi4xODQtLjA0Ljk0My0uMjY4IDIuMzEtLjY3OCA0LjFzLS42NCAzLjMzNC0uNjggNC42MzJjLS4wNCAxLjI2LjI2NiAyLjI4My45MTYgMy4wNjhzMS41ODIgMS4xOCAyLjgwMyAxLjE4YzIuNjMzIDAgNS4yNy0xLjE0IDcuOTA0LTMuNDIyIDEuOTI4LTEuNjkgMy40NDItMy41OCA0LjU0My01LjY2NXpNMTYuMjQ4IDY4LjQ4Yy0xLjA2NCAwLTEuNTYzLS40NjctMS40OTYtMS4zOTYuMTMzLTEuNzMgMy4xMjMtNC4wMiA4Ljk3LTYuODc3LTMuMDU3IDUuNTEzLTUuNTUgOC4yNzMtNy40NzUgOC4yNzN6Ii8+Cjwvc3ZnPg==");
+
+/***/ }),
+
 /***/ "./node_modules/@wordpress/icons/build-module/icon/index.js":
 /*!******************************************************************!*\
   !*** ./node_modules/@wordpress/icons/build-module/icon/index.js ***!
@@ -2439,8 +2474,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/plus.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/plus.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
@@ -2448,8 +2483,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _PremiumBadge__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../PremiumBadge */ "./src/components/PremiumBadge.jsx");
-/* harmony import */ var _hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../hooks/usePluginRequirementsHandler */ "./src/hooks/usePluginRequirementsHandler.js");
-/* harmony import */ var _components_PluginProgressBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../components/PluginProgressBar */ "./src/components/PluginProgressBar.jsx");
 
 /**
  * External dependencies
@@ -2468,8 +2501,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
-
 /**
  * Design Controls Component
  *
@@ -2479,47 +2510,26 @@ __webpack_require__.r(__webpack_exports__);
 const DesignItemControls = ({
   item,
   isFavorite,
-  insertingDesign,
   hasPremiumPlugin,
   insertDesignHandler,
-  favoritesClickHandler
+  favoritesClickHandler,
+  isBusyState
 }) => {
-  // Get plugin requirements from the item
-  const pluginRequirements = item?.plugin_requirements || [];
-
-  // Setup plugin requirements handler
-  const {
-    handlePluginRequirements,
-    currentStep,
-    operationDetails,
-    isBusyState: requirementsBusyState,
-    showProgressBar
-  } = (0,_hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__.usePluginRequirementsHandler)({
-    onRequirementsMet: insertDesignHandler,
-    pluginRequirements
-  });
-
-  // Determine if button should show busy state
-  const isBusyState = insertingDesign || requirementsBusyState;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-design-item--overlay"
   }, hasPremiumPlugin && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-absolute nfd-wba-top-2 nfd-wba-right-2 nfd-wba-z-20"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PremiumBadge__WEBPACK_IMPORTED_MODULE_4__["default"], {
     variant: "logo"
-  })), showProgressBar ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_PluginProgressBar__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    currentStep: currentStep,
-    operationDetails: operationDetails,
-    visible: showProgressBar
-  }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-design-item--overlay__buttons"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     isBusy: isBusyState,
     isPressed: isBusyState,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Add pattern to page", "nfd-wonder-blocks"),
     showTooltip: true,
-    onClick: handlePluginRequirements,
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    onClick: insertDesignHandler,
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6"
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
@@ -2527,7 +2537,7 @@ const DesignItemControls = ({
     showTooltip: true,
     label: isFavorite ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Added to favorites", "nfd-wonder-blocks") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Add to favorites", "nfd-wonder-blocks"),
     onClick: () => favoritesClickHandler(false),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
       className: classnames__WEBPACK_IMPORTED_MODULE_3___default()(" nfd-wba-shrink-0 nfd-wba-size-6", !isFavorite && "!nfd-wba-fill-none")
     })
   })));
@@ -2585,7 +2595,7 @@ const DesignItemFooter = ({
   isBusyState
 }) => {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t"
+    className: "nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-1 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, item?.plugin_requirements?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_RequiredPluginNotice__WEBPACK_IMPORTED_MODULE_4__["default"], {
     plugin: item?.plugin_requirements[0]
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -2751,15 +2761,15 @@ const DesignItemView = ({
   const isBusyState = insertingDesign || requirementsBusyState;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-border-grey-b nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-border-gray-300 nfd-wba-border nfd-wba-overflow-clip nfd-wba-rounded nfd-wba-border-solid"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-relative"
   }, showProgressBar && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-absolute nfd-wba-inset-0 nfd-wba-z-30 nfd-wba-bg-white/90 nfd-wba-flex nfd-wba-items-center nfd-wba-justify-center"
+    className: "nfd-wba-min-h-[370px] nfd-wba-z-30 nfd-wba-bg-white/95 nfd-wba-flex nfd-wba-items-center nfd-wba-justify-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_PluginProgressBar__WEBPACK_IMPORTED_MODULE_6__["default"], {
     currentStep: currentStep,
     operationDetails: operationDetails,
     visible: showProgressBar
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemControls__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  })), !showProgressBar && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-relative"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemControls__WEBPACK_IMPORTED_MODULE_2__["default"], {
     item: item,
     isFavorite: isFavorite,
     insertingDesign: insertingDesign,
@@ -2780,7 +2790,7 @@ const DesignItemView = ({
     insertDesignHandler: handlePluginRequirements,
     favoritesClickHandler: favoritesClickHandler,
     isBusyState: isBusyState
-  }));
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DesignItemView);
 
@@ -3011,11 +3021,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-right.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _PluginLogo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../PluginLogo */ "./src/components/PluginLogo.jsx");
-/* harmony import */ var _PremiumBadge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../PremiumBadge */ "./src/components/PremiumBadge.jsx");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-right.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _PluginLogo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../PluginLogo */ "./src/components/PluginLogo.jsx");
+/* harmony import */ var _PremiumBadge__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../PremiumBadge */ "./src/components/PremiumBadge.jsx");
 
 /**
  * External dependencies
@@ -3028,6 +3040,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+ * Internal dependencies
+ */
+
+
 const RequiredPluginNotice = ({
   plugin
 }) => {
@@ -3035,10 +3052,10 @@ const RequiredPluginNotice = ({
     className: "nfd-required-plugin-notice"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-required-plugin-notice__icon"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PluginLogo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PluginLogo__WEBPACK_IMPORTED_MODULE_3__["default"], {
     plugin: plugin.slug,
     height: "20"
-  }), plugin.isPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PremiumBadge__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), plugin.isPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PremiumBadge__WEBPACK_IMPORTED_MODULE_4__["default"], {
     variant: "tagline"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-required-plugin-notice__content"
@@ -3046,10 +3063,17 @@ const RequiredPluginNotice = ({
 };
 const generateRequiredPluginsMessage = plugin => {
   const pluginName = plugin.name || plugin.slug;
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("This pattern requires ", "nfd-wonder-blocks"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, pluginName), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(" plugin.", "nfd-wonder-blocks"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+
+  // Using createInterpolateElement for better translation support
+  const message = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createInterpolateElement)(sprintf(
+  // translators: %s: plugin name.
+  (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("This pattern requires <strong>%s</strong> plugin.", "nfd-wonder-blocks"), pluginName), {
+    strong: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, pluginName)
+  });
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, message, " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: "#",
     className: "nfd-required-plugin-notice__learn-more"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Learn more", "nfd-wonder-blocks"), " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Learn more", "nfd-wonder-blocks"), " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
     size: 16
   })));
 };
@@ -4737,6 +4761,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _svg_JetpackLogo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../svg/JetpackLogo.svg */ "./src/svg/JetpackLogo.svg");
 /* harmony import */ var _svg_WooCommerceLogo_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../svg/WooCommerceLogo.svg */ "./src/svg/WooCommerceLogo.svg");
+/* harmony import */ var _svg_YithLogo_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../svg/YithLogo.svg */ "./src/svg/YithLogo.svg");
 
 /**
  * WordPress dependencies
@@ -4746,6 +4771,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
+
 
 
 
@@ -4766,7 +4792,8 @@ const PluginLogo = ({
 }) => {
   const logos = {
     jetpack: _svg_JetpackLogo_svg__WEBPACK_IMPORTED_MODULE_2__.ReactComponent,
-    woocommerce: _svg_WooCommerceLogo_svg__WEBPACK_IMPORTED_MODULE_3__.ReactComponent
+    woocommerce: _svg_WooCommerceLogo_svg__WEBPACK_IMPORTED_MODULE_3__.ReactComponent,
+    nfd_slug_yith_woocommerce_customize_myaccount_page: _svg_YithLogo_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
   };
   const Logo = logos[plugin] || null;
   if (!Logo) {
@@ -4799,11 +4826,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/usePluginManager */ "./src/hooks/usePluginManager.js");
+/* harmony import */ var _PluginLogo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PluginLogo */ "./src/components/PluginLogo.jsx");
 
 /**
  * WordPress dependencies
@@ -4816,69 +4844,139 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
 /**
- * Plugin Progress Bar Component
- *
- * Displays installation progress with step labels and percentage
+ * Circular progress indicator component
+ */
+const CircularProgress = ({
+  percentage = 0,
+  size = 112,
+  strokeWidth = 6
+}) => {
+  // Calculate circle properties
+  const radius = (size - strokeWidth) / 2;
+  const circumference = radius * 2 * Math.PI;
+  const dash = percentage * circumference / 100;
+  const strokeDashoffset = circumference - dash;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-justify-center nfd-wba-items-center nfd-wba-relative",
+    style: {
+      width: size,
+      height: size
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    className: "nfd-wba-absolute nfd-wba-inset-0",
+    width: size,
+    height: size,
+    viewBox: `0 0 ${size} ${size}`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: size / 2,
+    cy: size / 2,
+    r: radius,
+    fill: "none",
+    stroke: "#D9D9D9",
+    strokeWidth: strokeWidth
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: size / 2,
+    cy: size / 2,
+    r: radius,
+    fill: "none",
+    stroke: "#178113",
+    strokeWidth: strokeWidth,
+    strokeLinecap: "round",
+    strokeDasharray: circumference,
+    strokeDashoffset: strokeDashoffset,
+    transform: `rotate(90, ${size / 2}, ${size / 2})`
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-text-3xl nfd-wba-font-medium nfd-wba-text-brand"
+  }, percentage, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "nfd-wba-text-xl"
+  }, "%")));
+};
+
+/**
+ * Enhanced Plugin Progress Bar Component
  */
 const PluginProgressBar = ({
   currentStep,
-  progress = 0
+  progress = 0,
+  plugin
 }) => {
   // Convert progress to percentage
   const percentage = Math.min(Math.round(progress * 100), 100);
 
-  // Get step label based on current step
-  const getStepLabel = () => {
+  // Estimated time remaining
+  const [timeRemaining, setTimeRemaining] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(30);
+
+  // Update time remaining based on progress
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (percentage > 0 && percentage < 100) {
+      const remaining = Math.round(30 * (100 - percentage) / 100);
+      setTimeRemaining(remaining < 1 ? 1 : remaining);
+    }
+  }, [percentage]);
+
+  // Get step action verb
+  const getStepAction = () => {
     switch (currentStep) {
       case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.CHECKING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Checking plugin...", "nfd-wonder-blocks");
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Checking", "nfd-wonder-blocks");
       case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.INSTALLING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Installing...", "nfd-wonder-blocks");
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Installing", "nfd-wonder-blocks");
       case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.ACTIVATING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Activating...", "nfd-wonder-blocks");
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Activating", "nfd-wonder-blocks");
       case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.SETTING_UP:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Setting up...", "nfd-wonder-blocks");
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Setting up", "nfd-wonder-blocks");
       case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.COMPLETE:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Complete!", "nfd-wonder-blocks");
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Installed", "nfd-wonder-blocks");
       case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.ERROR:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Error", "nfd-wonder-blocks");
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Error installing", "nfd-wonder-blocks");
       default:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Processing...", "nfd-wonder-blocks");
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Processing", "nfd-wonder-blocks");
     }
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-2 nfd-wba-w-full"
+    className: "nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-6 nfd-wba-text-center nfd-wba-max-w-md nfd-wba-mx-auto nfd-wba-p-6"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(CircularProgress, {
+    percentage: percentage
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-4 nfd-wba-text-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-flex nfd-wba-justify-between nfd-wba-items-center nfd-wba-text-sm nfd-wba-text-gray-600 nfd-wba-px-1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, getStepLabel()), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, percentage, "%")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-bg-gray-200 nfd-wba-rounded-full nfd-wba-h-2 nfd-wba-w-full nfd-wba-overflow-hidden"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("nfd-wba-h-full nfd-wba-rounded-full nfd-wba-transition-all nfd-wba-duration-300", currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.ERROR ? "nfd-wba-bg-red-500" : "nfd-wba-bg-blue-500"),
-    style: {
-      width: `${percentage}%`
-    }
-  })));
+    className: "nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-center"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "nfd-wba-text-[14px] nfd-wba-font-medium nfd-wba-m-0 nfd-wba-text-gray-900"
+  }, getStepAction(), " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Dependent Feature:", "nfd-wonder-blocks"), " ", plugin?.name), percentage < 100 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "nfd-wba-text-xs nfd-wba-m-0 nfd-wba-text-gray-500"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("About", "nfd-wonder-blocks"), " ", timeRemaining, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("seconds remaining", "nfd-wonder-blocks"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "nfd-wba-text-[14px]nfd-wba-m-0 nfd-wba-text-gray-600 nfd-wba-mt-2"
+  }, plugin?.description)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PluginLogo__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    plugin: plugin?.slug,
+    height: "20"
+  }));
 };
 
 /**
  * Plugin Progress Overlay
- *
- * Container component that displays the progress bar in an overlay
  */
 const PluginProgressOverlay = ({
   currentStep,
   operationDetails,
-  visible
+  visible,
+  pluginInfo = {}
 }) => {
   if (!visible) {
     return null;
   }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-p-4 nfd-wba-w-full nfd-wba-max-w-xs"
+    className: "nfd-wba-p-4 nfd-wba-w-full nfd-wba-max-w-lg nfd-wba-mx-auto"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(PluginProgressBar, {
     currentStep: currentStep,
-    progress: operationDetails?.progress || 0
+    progress: operationDetails?.progress || 0,
+    plugin: {
+      name: operationDetails?.plugin?.name || pluginInfo?.name,
+      description: operationDetails?.plugin?.description || pluginInfo?.description,
+      slug: operationDetails?.plugin?.slug || pluginInfo?.slug
+    }
   }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PluginProgressOverlay);

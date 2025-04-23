@@ -378,15 +378,11 @@
 
 .nfd-required-plugin-notice__icon {
   gap: 8px;
+  margin-top: 2px;
 }
 
 .nfd-required-plugin-notice__content {
   gap: 4px;
-}
-
-.nfd-required-plugin-notice__content > * {
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 
 .nfd-required-plugin-notice a {
@@ -682,6 +678,10 @@
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.nfd-wba-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .nfd-wba-my-0 {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -803,6 +803,9 @@
 .nfd-wba-min-h-\[116px\] {
   min-height: 116px;
 }
+.nfd-wba-min-h-\[370px\] {
+  min-height: 370px;
+}
 .nfd-wba-min-h-\[43px\] {
   min-height: 43px;
 }
@@ -850,6 +853,12 @@
 }
 .nfd-wba-max-w-\[640px\] {
   max-width: 640px;
+}
+.nfd-wba-max-w-lg {
+  max-width: 32rem;
+}
+.nfd-wba-max-w-md {
+  max-width: 28rem;
 }
 .nfd-wba-max-w-prose {
   max-width: 65ch;
@@ -1086,6 +1095,9 @@
 .nfd-wba-bg-white\/90 {
   background-color: rgb(255 255 255 / 0.9);
 }
+.nfd-wba-bg-white\/95 {
+  background-color: rgb(255 255 255 / 0.95);
+}
 .\!nfd-wba-fill-none {
   fill: none !important;
 }
@@ -1274,6 +1286,10 @@
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.nfd-wba-text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .nfd-wba-font-light {
   font-weight: 300;
 }
@@ -1332,17 +1348,21 @@
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
+.nfd-wba-text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}
 .nfd-wba-text-neutral-500 {
   --tw-text-opacity: 1;
   color: rgb(115 115 115 / var(--tw-text-opacity));
 }
-.nfd-wba-text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
 .nfd-wba-text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+.nfd-wba-text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .nfd-wba-shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -1423,6 +1443,10 @@
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
+.hover\:nfd-wba-text-red-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
 .hover\:nfd-wba-text-red-600:hover {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
@@ -1430,10 +1454,6 @@
 .hover\:nfd-wba-text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.hover\:nfd-wba-text-red-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .hover\:nfd-wba-underline:hover {
   text-decoration-line: underline;

@@ -13,38 +13,42 @@ final class PluginRequirements {
 			// ),
 			array(
 				'slug' => 'nfd_slug_yith_woocommerce_customize_myaccount_page',
-				'name' => 'nfd_slug_yith_woocommerce_customize_myaccount_page',
-				'path' => 'yith_woocommerce_customize_myaccount_page/yith_woocommerce_customize_myaccount_page.php',
+				'name' => 'YITH WooCommerce Customize My Account Page Extended',
+				'path' => 'yith-woocommerce-customize-myaccount-page-extended/init.php',
 				'isPremium' => true,
 			),
 		),
 		'form-2'     => array(
 			array(
-				'slug' => 'jetpack',
-				'name' => 'Jetpack',
-				'path' => 'jetpack/jetpack.php',
-				'isPremium' => true,
+				'slug'        => 'jetpack',
+				'name'        => 'Jetpack',
+				'path'        => 'jetpack/jetpack.php',
+				'description' => 'This plugin is essential for adding the contact form to this block and enhancing its functionality!',
+				'isPremium'   => true,
 			),
 		),
 		'form-3'     => array(
 			array(
-				'slug' => 'jetpack',
-				'name' => 'Jetpack',
-				'path' => 'jetpack/jetpack.php',
+				'slug'        => 'jetpack',
+				'name'        => 'Jetpack',
+				'path'        => 'jetpack/jetpack.php',
+				'description' => 'This plugin is essential for adding the contact form to this block and enhancing its functionality!',
 			),
 		),
 		'form-4'     => array(
 			array(
-				'slug' => 'jetpack',
-				'name' => 'Jetpack',
-				'path' => 'jetpack/jetpack.php',
+				'slug'        => 'jetpack',
+				'name'        => 'Jetpack',
+				'path'        => 'jetpack/jetpack.php',
+				'description' => 'This plugin is essential for adding the contact form to this block and enhancing its functionality!',
 			),
 		),
 		'form-5'     => array(
 			array(
-				'slug' => 'jetpack',
-				'name' => 'Jetpack',
-				'path' => 'jetpack/jetpack.php',
+				'slug'        => 'jetpack',
+				'name'        => 'Jetpack',
+				'path'        => 'jetpack/jetpack.php',
+				'description' => 'This plugin is essential for adding the contact form to this block and enhancing its functionality!',
 			),
 		),
 		'products-1' => array(
