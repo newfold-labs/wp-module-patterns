@@ -5,10 +5,16 @@ final class PluginRequirements {
 
 	protected static $patterns = array(
 		'form-1'     => array(
+			// array(
+			// 	'slug' => 'jetpack',
+			// 	'name' => 'Jetpack',
+			// 	'path' => 'jetpack/jetpack.php',
+			// 	'isPremium' => true,
+			// ),
 			array(
-				'slug' => 'jetpack',
-				'name' => 'Jetpack',
-				'path' => 'jetpack/jetpack.php',
+				'slug' => 'nfd_slug_yith_woocommerce_customize_myaccount_page',
+				'name' => 'nfd_slug_yith_woocommerce_customize_myaccount_page',
+				'path' => 'yith_woocommerce_customize_myaccount_page/yith_woocommerce_customize_myaccount_page.php',
 				'isPremium' => true,
 			),
 		),

@@ -7,74 +7,165 @@ use NewfoldLabs\WP\Module\Installer\Tasks\PluginInstallTask;
 
 class PluginService {
 
-	/**
-	 * Activate or install the specified plugins.
-	 *
-	 * @param array $plugins Array of plugins to be activated or installed.
-	 *
-	 * @return void
-	 */
-	public static function activate( $plugins ) {
+    /**
+     * Check if a single plugin is installed.
+     *
+     * @param string|array $plugin Plugin slug or plugin array with 'slug' key.
+     * @return boolean True if installed, false otherwise.
+     */
+    public static function is_installed($plugin) {
+        $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
+        $plugin_type = PluginInstaller::get_plugin_type($slug);
+        $plugin_path = PluginInstaller::get_plugin_path($slug, $plugin_type);
 
-		if ( ! \is_array( $plugins ) || empty( $plugins ) ) {
-			return;
-		}
+        if (!$plugin_path) {
+            return false;
+        }
 
-		foreach ( $plugins as $plugin ) {
+        return PluginInstaller::is_plugin_installed($plugin_path);
+    }
 
-			$plugin_type = PluginInstaller::get_plugin_type( $plugin['slug'] );
-			$plugin_path = PluginInstaller::get_plugin_path( $plugin['slug'], $plugin_type );
+    /**
+     * Check if a single plugin is active.
+     *
+     * @param string|array $plugin Plugin slug or plugin array with 'slug' key.
+     * @return boolean True if active, false otherwise.
+     */
+    public static function is_active($plugin) {
+        $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
+        $plugin_type = PluginInstaller::get_plugin_type($slug);
+        $plugin_path = PluginInstaller::get_plugin_path($slug, $plugin_type);
 
-			if ( ! $plugin_path ) {
-				continue;
-			}
+        if (!$plugin_path) {
+            return false;
+        }
 
-			if ( PluginInstaller::is_plugin_installed( $plugin_path ) ) {
-				$plugin_activation_task = new PluginActivationTask(
-					$plugin['slug']
-				);
-				$plugin_activation_task->execute();
+        if (!PluginInstaller::is_plugin_installed($plugin_path)) {
+            return false;
+        }
 
-				continue;
-			}
+        return is_plugin_active($plugin_path);
+    }
 
-			$plugin_installation_task = new PluginInstallTask(
-				$plugin['slug'],
-				true,
-				isset( $plugin['priority'] ) ? $plugin['priority'] : 0
-			);
-			$plugin_installation_task->execute();
-		}
-	}
+    /**
+     * Install a single plugin.
+     *
+     * @param string|array $plugin Plugin slug or plugin array with 'slug' key.
+     * @param boolean $activate Whether to activate the plugin after installation.
+     * @return boolean True on success, false on failure.
+     */
+    public static function install($plugin, $activate = true) {
+        if (is_string($plugin)) {
+            $plugin = ['slug' => $plugin];
+        }
 
-	/**
-	 * Setup the integration for specific plugins.
-	 *
-	 * This method loops through the provided list of plugins and enables
-	 * specific functionality or modules based on the plugin slug.
-	 *
-	 * @param array $plugins Array of plugins to be integrated. Each element is expected to have a 'slug' key.
-	 *
-	 * @return void
-	 */
-	public static function setup( $plugins ) {
-		if ( ! is_array( $plugins ) || empty( $plugins ) ) {
-			return;
-		}
+        if (empty($plugin['slug'])) {
+            return false;
+        }
 
-		foreach ( $plugins as $plugin ) {
-			if ( isset( $plugin['slug'] ) && 'jetpack' === $plugin['slug'] ) {
-				self::enable_jetpack_forms_module();
-			}
-		}
-	}
+        $plugin_installation_task = new PluginInstallTask(
+            $plugin['slug'],
+            $activate,
+            isset($plugin['priority']) ? $plugin['priority'] : 0
+        );
+        return $plugin_installation_task->execute();
+    }
 
-	/**
-	 * Enable the Jetpack Forms module.
-	 */
-	public static function enable_jetpack_forms_module() {
-		if ( class_exists( 'Jetpack' ) && ! \Jetpack::is_module_active( 'contact-form' ) ) {
-			\Jetpack::activate_module( 'contact-form', false, false );
-		}
-	}
+    /**
+     * Activate a single plugin.
+     *
+     * @param string|array $plugin Plugin slug or plugin array with 'slug' key.
+     * @return boolean True on success, false on failure.
+     */
+    public static function activate_plugin($plugin) {
+        $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
+
+        if (!self::is_installed($slug)) {
+            return false;
+        }
+
+        $plugin_activation_task = new PluginActivationTask($slug);
+        return $plugin_activation_task->execute();
+    }
+
+    /**
+     * Setup a single plugin integration.
+     *
+     * @param string|array $plugin Plugin slug or plugin array with 'slug' key.
+     * @return boolean True if setup was performed, false otherwise.
+     */
+    public static function setup_plugin($plugin) {
+        $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
+
+        // Currently we only have special setup for Jetpack
+        if ('jetpack' === $slug) {
+            self::enable_jetpack_forms_module();
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Activate or install the specified plugins.
+     *
+     * @param array $plugins Array of plugins to be activated or installed.
+     * @return array Results with status for each plugin operation
+     */
+    public static function activate($plugins) {
+        $results = [];
+
+        if (!is_array($plugins) || empty($plugins)) {
+            return $results;
+        }
+
+        foreach ($plugins as $plugin) {
+            if (self::is_installed($plugin)) {
+                $results[$plugin['slug']] = self::activate_plugin($plugin);
+            } else {
+                $results[$plugin['slug']] = self::install($plugin, true);
+            }
+        }
+
+        return $results;
+    }
+
+    /**
+     * Setup the integration for specific plugins.
+     *
+     * This method loops through the provided list of plugins and enables
+     * specific functionality or modules based on the plugin slug.
+     *
+     * @param array $plugins Array of plugins to be integrated. Each element is expected to have a 'slug' key.
+     * @return array Results of setup operations
+     */
+    public static function setup($plugins) {
+        $results = [];
+
+        if (!is_array($plugins) || empty($plugins)) {
+            return $results;
+        }
+
+        foreach ($plugins as $plugin) {
+            if (isset($plugin['slug'])) {
+                $results[$plugin['slug']] = self::setup_plugin($plugin);
+            }
+        }
+
+        return $results;
+    }
+
+    /**
+     * Enable the Jetpack Forms module.
+     * 
+     * @return boolean True if module was activated or was already active
+     */
+    public static function enable_jetpack_forms_module() {
+        if (class_exists('Jetpack') && !\Jetpack::is_module_active('contact-form')) {
+            return \Jetpack::activate_module('contact-form', false, false);
+        }
+        
+        // Return true if module is already active
+        return class_exists('Jetpack') && \Jetpack::is_module_active('contact-form');
+    }
 }

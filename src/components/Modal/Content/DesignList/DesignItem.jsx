@@ -65,37 +65,6 @@ const DesignItem = ({ item }) => {
 	const previewBlocks = useMemo(() => {
 		const optimizedContent = optimizePreview(rawContent);
 		const blocks = rawHandler({ HTML: replaceThemeClasses(optimizedContent) });
-
-		// Recursive function to process blocks and their innerBlocks
-		const processBlocksRecursively = (blockList) => {
-			return blockList.map((block) => {
-				// Create a processed version of the current block
-				let processedBlock = { ...block };
-
-				// Check if this block is missing
-				if (block.name === "core/missing" || block.isMissing) {
-					processedBlock = {
-						...processedBlock,
-						name: "core/missing",
-						attributes: {
-							...processedBlock.attributes,
-							isWireframe: true,
-							originalName: block.attributes?.originalName || block.name,
-						},
-					};
-				}
-
-				// Process innerBlocks recursively if they exist
-				if (processedBlock.innerBlocks && processedBlock.innerBlocks.length > 0) {
-					processedBlock.innerBlocks = processBlocksRecursively(processedBlock.innerBlocks);
-				}
-
-				return processedBlock;
-			});
-		};
-
-		// Start the recursive processing
-		return processBlocksRecursively(blocks);
 	}, [rawContent, replaceThemeClasses]);
 
 	const { createErrorNotice, createSuccessNotice } = useDispatch(noticesStore);
