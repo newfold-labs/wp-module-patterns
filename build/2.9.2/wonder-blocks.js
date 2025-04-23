@@ -2448,8 +2448,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _PremiumBadge__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../PremiumBadge */ "./src/components/PremiumBadge.jsx");
-/* harmony import */ var _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../hooks/usePluginManager */ "./src/hooks/usePluginManager.js");
-/* harmony import */ var _hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../hooks/usePluginRequirementsHandler */ "./src/hooks/usePluginRequirementsHandler.js");
+/* harmony import */ var _hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../hooks/usePluginRequirementsHandler */ "./src/hooks/usePluginRequirementsHandler.js");
+/* harmony import */ var _components_PluginProgressBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../components/PluginProgressBar */ "./src/components/PluginProgressBar.jsx");
 
 /**
  * External dependencies
@@ -2469,49 +2469,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-/**
- * Progress Bar Component
- */
-const PluginProgressBar = ({
-  currentStep,
-  progress = 0
-}) => {
-  // Convert progress to percentage
-  const percentage = Math.min(Math.round(progress * 100), 100);
-
-  // Get step label based on current step
-  const getStepLabel = () => {
-    switch (currentStep) {
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__.PLUGIN_STEPS.CHECKING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Checking plugin...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__.PLUGIN_STEPS.INSTALLING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Installing...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__.PLUGIN_STEPS.ACTIVATING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Activating...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__.PLUGIN_STEPS.SETTING_UP:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Setting up...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__.PLUGIN_STEPS.COMPLETE:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Complete!", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__.PLUGIN_STEPS.ERROR:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Error", "nfd-wonder-blocks");
-      default:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Processing...", "nfd-wonder-blocks");
-    }
-  };
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-2 nfd-wba-w-full"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-flex nfd-wba-justify-between nfd-wba-items-center nfd-wba-text-sm nfd-wba-text-gray-600 nfd-wba-px-1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, getStepLabel()), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, percentage, "%")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-bg-gray-200 nfd-wba-rounded-full nfd-wba-h-2 nfd-wba-w-full nfd-wba-overflow-hidden"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("nfd-wba-h-full nfd-wba-rounded-full nfd-wba-transition-all nfd-wba-duration-300", currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_5__.PLUGIN_STEPS.ERROR ? "nfd-wba-bg-red-500" : "nfd-wba-bg-blue-500"),
-    style: {
-      width: `${percentage}%`
-    }
-  })));
-};
 
 /**
  * Design Controls Component
@@ -2537,7 +2494,7 @@ const DesignItemControls = ({
     operationDetails,
     isBusyState: requirementsBusyState,
     showProgressBar
-  } = (0,_hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_6__.usePluginRequirementsHandler)({
+  } = (0,_hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__.usePluginRequirementsHandler)({
     onRequirementsMet: insertDesignHandler,
     pluginRequirements
   });
@@ -2550,12 +2507,11 @@ const DesignItemControls = ({
     className: "nfd-wba-absolute nfd-wba-top-2 nfd-wba-right-2 nfd-wba-z-20"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PremiumBadge__WEBPACK_IMPORTED_MODULE_4__["default"], {
     variant: "logo"
-  })), showProgressBar ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-p-4 nfd-wba-w-full nfd-wba-max-w-xs"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(PluginProgressBar, {
+  })), showProgressBar ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_PluginProgressBar__WEBPACK_IMPORTED_MODULE_6__["default"], {
     currentStep: currentStep,
-    progress: operationDetails?.progress || 0
-  })) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    operationDetails: operationDetails,
+    visible: showProgressBar
+  }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-design-item--overlay__buttons"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     isBusy: isBusyState,
@@ -2595,15 +2551,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart-off.js");
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/heart-off.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/plus.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/plus.js");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _RequiredPluginNotice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../RequiredPluginNotice */ "./src/components/Modal/Content/DesignList/RequiredPluginNotice.jsx");
-/* harmony import */ var _hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../hooks/usePluginRequirementsHandler */ "./src/hooks/usePluginRequirementsHandler.js");
 
 /**
  * External dependencies
@@ -2621,53 +2576,44 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
-
 const DesignItemFooter = ({
   item,
   isFavorite,
-  insertingDesign,
   shouldShowTrash,
   insertDesignHandler,
-  favoritesClickHandler
+  favoritesClickHandler,
+  isBusyState
 }) => {
-  const {
-    handlePluginRequirements,
-    isBusyState: requirementsBusyState
-  } = (0,_hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__.usePluginRequirementsHandler)({
-    onRequirementsMet: insertDesignHandler,
-    pluginRequirements: item?.plugin_requirements || []
-  });
-  const isBusyState = insertingDesign || requirementsBusyState;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, item?.plugin_requirements?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_RequiredPluginNotice__WEBPACK_IMPORTED_MODULE_4__["default"], {
     plugin: item?.plugin_requirements[0]
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-flex nfd-wba-gap-0.5 nfd-wba-shrink-0 nfd-wba-items-center"
-  }, !shouldShowTrash() && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75", isFavorite ? "nfd-wba-cursor-default nfd-wba-bg-gray-100 !nfd-wba-text-red-600" : "nfd-wba-cursor-not-pointer hover:nfd-wba-text-red-600"),
+  }, shouldShowTrash && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    className: "nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Remove from favorites", "nfd-wonder-blocks"),
     showTooltip: true,
-    label: isFavorite ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Added to favorites", "nfd-wonder-blocks") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Add to favorites", "nfd-wonder-blocks"),
-    onClick: () => favoritesClickHandler(),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(" nfd-wba-shrink-0 nfd-wba-size-5", !isFavorite && "!nfd-wba-fill-none")
+    onClick: () => favoritesClickHandler(true),
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      className: "nfd-wba-size-5 !nfd-wba-fill-none"
     })
-  }), shouldShowTrash() && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-text-red-600"),
+  }), !shouldShowTrash && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("nfd-wba-size-9 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75", isFavorite ? "nfd-wba-text-red-500 hover:nfd-wba-text-red-600 hover:nfd-wba-bg-red-50" : "nfd-wba-text-gray-500 hover:nfd-wba-text-red-500 hover:nfd-wba-bg-gray-100"),
+    label: isFavorite ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Added to favorites", "nfd-wonder-blocks") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Add to favorites", "nfd-wonder-blocks"),
     showTooltip: true,
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Remove from Favorites", "nfd-wonder-blocks"),
-    onClick: () => favoritesClickHandler(),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      className: "nfd-wba-shrink-0 nfd-wba-size-5 !nfd-wba-fill-none"
+    onClick: () => favoritesClickHandler(false),
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("nfd-wba-size-5", !isFavorite && "!nfd-wba-fill-none")
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
     className: "nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75",
     isBusy: isBusyState,
-    isPressed: insertingDesign,
+    isPressed: isBusyState,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Add pattern to page", "nfd-wonder-blocks"),
     showTooltip: true,
-    onClick: () => handlePluginRequirements(),
-    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onClick: insertDesignHandler,
+    icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
       className: "nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5"
     })
   })));
@@ -2749,9 +2695,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _DesignItemControls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DesignItemControls */ "./src/components/Modal/Content/DesignList/DesignItem/DesignItemControls.jsx");
-/* harmony import */ var _DesignItemFooter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DesignItemFooter */ "./src/components/Modal/Content/DesignList/DesignItem/DesignItemFooter.jsx");
-/* harmony import */ var _DesignItemPreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesignItemPreview */ "./src/components/Modal/Content/DesignList/DesignItem/DesignItemPreview.jsx");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _DesignItemControls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DesignItemControls */ "./src/components/Modal/Content/DesignList/DesignItem/DesignItemControls.jsx");
+/* harmony import */ var _DesignItemFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesignItemFooter */ "./src/components/Modal/Content/DesignList/DesignItem/DesignItemFooter.jsx");
+/* harmony import */ var _DesignItemPreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DesignItemPreview */ "./src/components/Modal/Content/DesignList/DesignItem/DesignItemPreview.jsx");
+/* harmony import */ var _hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../hooks/usePluginRequirementsHandler */ "./src/hooks/usePluginRequirementsHandler.js");
+/* harmony import */ var _components_PluginProgressBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../components/PluginProgressBar */ "./src/components/PluginProgressBar.jsx");
 
 /**
  * Design Item View component
@@ -2760,8 +2710,15 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 /**
+ * WordPress dependencies
+ */
+
+
+/**
  * Internal dependencies
  */
+
+
 
 
 
@@ -2775,29 +2732,54 @@ const DesignItemView = ({
   previewBlocks,
   hasPremiumPlugin
 }) => {
+  // Get plugin requirements from the item
+  const pluginRequirements = item?.plugin_requirements || [];
+
+  // Use a shared requirements handler for both buttons
+  const {
+    handlePluginRequirements,
+    currentStep,
+    operationDetails,
+    isBusyState: requirementsBusyState,
+    showProgressBar
+  } = (0,_hooks_usePluginRequirementsHandler__WEBPACK_IMPORTED_MODULE_5__.usePluginRequirementsHandler)({
+    onRequirementsMet: insertDesignHandler,
+    pluginRequirements
+  });
+
+  // Combined busy state to pass to children
+  const isBusyState = insertingDesign || requirementsBusyState;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-border-grey-b nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-border-gray-300 nfd-wba-border nfd-wba-overflow-clip nfd-wba-rounded nfd-wba-border-solid"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemControls__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, showProgressBar && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-absolute nfd-wba-inset-0 nfd-wba-z-30 nfd-wba-bg-white/90 nfd-wba-flex nfd-wba-items-center nfd-wba-justify-center"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_PluginProgressBar__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    currentStep: currentStep,
+    operationDetails: operationDetails,
+    visible: showProgressBar
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemControls__WEBPACK_IMPORTED_MODULE_2__["default"], {
     item: item,
     isFavorite: isFavorite,
     insertingDesign: insertingDesign,
     hasPremiumPlugin: hasPremiumPlugin,
-    insertDesignHandler: insertDesignHandler,
-    favoritesClickHandler: favoritesClickHandler
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemPreview__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    insertDesignHandler: handlePluginRequirements,
+    favoritesClickHandler: favoritesClickHandler,
+    isBusyState: isBusyState
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemPreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
     previewBlocks: previewBlocks,
     insertingDesign: insertingDesign,
     itemType: item?.type,
-    insertDesignHandler: insertDesignHandler
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemFooter__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    insertDesignHandler: handlePluginRequirements
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DesignItemFooter__WEBPACK_IMPORTED_MODULE_3__["default"], {
     item: item,
     isFavorite: isFavorite,
     insertingDesign: insertingDesign,
     shouldShowTrash: shouldShowTrash,
-    insertDesignHandler: insertDesignHandler,
-    favoritesClickHandler: favoritesClickHandler
+    insertDesignHandler: handlePluginRequirements,
+    favoritesClickHandler: favoritesClickHandler,
+    isBusyState: isBusyState
   }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DesignItemView);
@@ -4803,6 +4785,106 @@ const PluginLogo = ({
 
 /***/ }),
 
+/***/ "./src/components/PluginProgressBar.jsx":
+/*!**********************************************!*\
+  !*** ./src/components/PluginProgressBar.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   PluginProgressBar: () => (/* binding */ PluginProgressBar),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/usePluginManager */ "./src/hooks/usePluginManager.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+/**
+ * Plugin Progress Bar Component
+ *
+ * Displays installation progress with step labels and percentage
+ */
+const PluginProgressBar = ({
+  currentStep,
+  progress = 0
+}) => {
+  // Convert progress to percentage
+  const percentage = Math.min(Math.round(progress * 100), 100);
+
+  // Get step label based on current step
+  const getStepLabel = () => {
+    switch (currentStep) {
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.CHECKING:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Checking plugin...", "nfd-wonder-blocks");
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.INSTALLING:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Installing...", "nfd-wonder-blocks");
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.ACTIVATING:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Activating...", "nfd-wonder-blocks");
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.SETTING_UP:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Setting up...", "nfd-wonder-blocks");
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.COMPLETE:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Complete!", "nfd-wonder-blocks");
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.ERROR:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Error", "nfd-wonder-blocks");
+      default:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Processing...", "nfd-wonder-blocks");
+    }
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-flex-col nfd-wba-gap-2 nfd-wba-w-full"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-justify-between nfd-wba-items-center nfd-wba-text-sm nfd-wba-text-gray-600 nfd-wba-px-1"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, getStepLabel()), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, percentage, "%")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-bg-gray-200 nfd-wba-rounded-full nfd-wba-h-2 nfd-wba-w-full nfd-wba-overflow-hidden"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("nfd-wba-h-full nfd-wba-rounded-full nfd-wba-transition-all nfd-wba-duration-300", currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_3__.PLUGIN_STEPS.ERROR ? "nfd-wba-bg-red-500" : "nfd-wba-bg-blue-500"),
+    style: {
+      width: `${percentage}%`
+    }
+  })));
+};
+
+/**
+ * Plugin Progress Overlay
+ *
+ * Container component that displays the progress bar in an overlay
+ */
+const PluginProgressOverlay = ({
+  currentStep,
+  operationDetails,
+  visible
+}) => {
+  if (!visible) {
+    return null;
+  }
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-p-4 nfd-wba-w-full nfd-wba-max-w-xs"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(PluginProgressBar, {
+    currentStep: currentStep,
+    progress: operationDetails?.progress || 0
+  }));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PluginProgressOverlay);
+
+/***/ }),
+
 /***/ "./src/components/PremiumBadge.jsx":
 /*!*****************************************!*\
   !*** ./src/components/PremiumBadge.jsx ***!
@@ -6799,7 +6881,7 @@ const usePluginRequirementsHandler = ({
     reloadAfterInstall: false,
     showNotices: true,
     onSuccess: () => {
-      onRequirementsMet();
+      // onRequirementsMet();
       setIsProcessingRequirements(false);
     },
     onError: () => {
@@ -6819,7 +6901,29 @@ const usePluginRequirementsHandler = ({
         return;
       }
 
-      // Process all required plugins
+      // Check if all plugins are already active
+      let allActive = true;
+      for (const plugin of pluginRequirements) {
+        try {
+          if (plugin?.status !== "active") {
+            allActive = false;
+            break; // No need to check further
+          }
+        } catch (error) {
+          allActive = false;
+          break;
+        }
+      }
+
+      // If all plugins are already active, skip processPlugins
+      if (allActive) {
+        // All plugins are already active, directly proceed to insertion
+        onRequirementsMet();
+        setIsProcessingRequirements(false);
+        return;
+      }
+
+      // Process all required plugins that need installation/activation
       const results = await processPlugins(pluginRequirements);
 
       // Check if all plugins were successfully processed

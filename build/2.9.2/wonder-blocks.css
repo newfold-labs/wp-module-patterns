@@ -447,20 +447,6 @@
   padding: 32px;
 }
 
-[class*=nfd-wb-forms] .wp-block-missing .block-editor-warning {
-  display: none;
-}
-
-[class*=nfd-wb-forms] .wp-block-missing:before {
-  content: "";
-  display: block;
-  margin: 12px auto;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzcwIiBoZWlnaHQ9IjI3OCIgdmlld0JveD0iMCAwIDM3MCAyNzgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIG9wYWNpdHk9IjAuNCI+CjxyZWN0IHdpZHRoPSIzMy43MTcxIiBoZWlnaHQ9IjQuNzA0NzEiIGZpbGw9IiNCNUI1QjUiLz4KPHJlY3QgeD0iMC41IiB5PSIwLjUiIHdpZHRoPSIzMi43MTcxIiBoZWlnaHQ9IjMuNzA0NzEiIHN0cm9rZT0iI0E4QThBOCIgc3Ryb2tlLW9wYWNpdHk9IjAuNyIvPgo8cmVjdCB5PSIxNS42ODI0IiB3aWR0aD0iMzY5LjMyIiBoZWlnaHQ9IjI3LjQ0NDIiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHg9IjAuNSIgeT0iMTYuMTgyNCIgd2lkdGg9IjM2OC4zMiIgaGVpZ2h0PSIyNi40NDQyIiBzdHJva2U9IiNBOEE4QTgiIHN0cm9rZS1vcGFjaXR5PSIwLjciLz4KPHJlY3QgeT0iNTIuNTM2IiB3aWR0aD0iMzMuNzE3MSIgaGVpZ2h0PSI0LjcwNDcxIiBmaWxsPSIjQjVCNUI1Ii8+CjxyZWN0IHg9IjAuNSIgeT0iNTMuMDM2IiB3aWR0aD0iMzIuNzE3MSIgaGVpZ2h0PSIzLjcwNDcxIiBzdHJva2U9IiNBOEE4QTgiIHN0cm9rZS1vcGFjaXR5PSIwLjciLz4KPHJlY3QgeT0iNjguMjE4NCIgd2lkdGg9IjM2OS4zMiIgaGVpZ2h0PSIyNy40NDQyIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIwLjUiIHk9IjY4LjcxODQiIHdpZHRoPSIzNjguMzIiIGhlaWdodD0iMjYuNDQ0MiIgc3Ryb2tlPSIjQThBOEE4IiBzdHJva2Utb3BhY2l0eT0iMC43Ii8+CjxyZWN0IHk9IjEwNS4wNzIiIHdpZHRoPSI4My4xMTY2IiBoZWlnaHQ9IjQuNzA0NzEiIGZpbGw9IiNCNUI1QjUiLz4KPHJlY3QgeD0iMC41IiB5PSIxMDUuNTcyIiB3aWR0aD0iODIuMTE2NiIgaGVpZ2h0PSIzLjcwNDcxIiBzdHJva2U9IiNBOEE4QTgiIHN0cm9rZS1vcGFjaXR5PSIwLjciLz4KPHJlY3QgeT0iMTIwLjc1NCIgd2lkdGg9IjM2OS4zMiIgaGVpZ2h0PSIxMDUuODU2IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIwLjUiIHk9IjEyMS4yNTQiIHdpZHRoPSIzNjguMzIiIGhlaWdodD0iMTA0Ljg1NiIgc3Ryb2tlPSIjQThBOEE4IiBzdHJva2Utb3BhY2l0eT0iMC43Ii8+CjxyZWN0IHg9IjI5Ny45NjUiIHk9IjI0My44NjEiIHdpZHRoPSI3MS4zNTQ4IiBoZWlnaHQ9IjMzLjcxNzEiIGZpbGw9IiNDQkNCQ0IiLz4KPHJlY3QgeD0iMjk4LjQ2NSIgeT0iMjQ0LjM2MSIgd2lkdGg9IjcwLjM1NDgiIGhlaWdodD0iMzIuNzE3MSIgc3Ryb2tlPSIjQThBOEE4IiBzdHJva2Utb3BhY2l0eT0iMC43Ii8+CjwvZz4KPC9zdmc+Cg==);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .nfd-wba-modal {
   --wp-admin-theme-color: var(--nfd-wba-color-brand);
 }
@@ -683,11 +669,11 @@
 .nfd-wba-z-20 {
   z-index: 20;
 }
-.nfd-wba-z-\[2\] {
-  z-index: 2;
-}
 .nfd-wba-z-30 {
   z-index: 30;
+}
+.nfd-wba-z-\[2\] {
+  z-index: 2;
 }
 .nfd-wba-m-0 {
   margin: 0px;
@@ -790,6 +776,9 @@
 .nfd-wba-h-12 {
   height: 3rem;
 }
+.nfd-wba-h-2 {
+  height: 0.5rem;
+}
 .nfd-wba-h-4 {
   height: 1rem;
 }
@@ -804,9 +793,6 @@
 }
 .nfd-wba-h-full {
   height: 100%;
-}
-.nfd-wba-h-2 {
-  height: 0.5rem;
 }
 .nfd-wba-max-h-40 {
   max-height: 10rem;
@@ -1060,6 +1046,10 @@
   --tw-bg-opacity: 1 !important;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity)) !important;
 }
+.nfd-wba-bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
 .nfd-wba-bg-brand {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--nfd-wba-color-brand-rgb) / var(--tw-bg-opacity));
@@ -1067,6 +1057,10 @@
 .nfd-wba-bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.nfd-wba-bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .nfd-wba-bg-gray-300\/50 {
   background-color: rgb(209 213 219 / 0.5);
@@ -1078,24 +1072,16 @@
 .nfd-wba-bg-grey-darker\/20 {
   background-color: rgb(var(--nfd-wba-color-grey-darker-rgb) / 0.2);
 }
+.nfd-wba-bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
 .nfd-wba-bg-transparent {
   background-color: transparent;
 }
 .nfd-wba-bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.nfd-wba-bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-.nfd-wba-bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-.nfd-wba-bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 .nfd-wba-bg-white\/90 {
   background-color: rgb(255 255 255 / 0.9);
@@ -1130,11 +1116,11 @@
 .nfd-wba-p-2 {
   padding: 0.5rem;
 }
-.nfd-wba-p-6 {
-  padding: 1.5rem;
-}
 .nfd-wba-p-4 {
   padding: 1rem;
+}
+.nfd-wba-p-6 {
+  padding: 1.5rem;
 }
 .\!nfd-wba-px-3 {
   padding-left: 0.75rem !important;
@@ -1151,6 +1137,10 @@
 .nfd-wba-px-0 {
   padding-left: 0px;
   padding-right: 0px;
+}
+.nfd-wba-px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .nfd-wba-px-2 {
   padding-left: 0.5rem;
@@ -1195,10 +1185,6 @@
 .nfd-wba-py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-.nfd-wba-px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 .nfd-wba-pb-\[10\%\] {
   padding-bottom: 10%;
@@ -1342,6 +1328,10 @@
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
+.nfd-wba-text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
 .nfd-wba-text-neutral-500 {
   --tw-text-opacity: 1;
   color: rgb(115 115 115 / var(--tw-text-opacity));
@@ -1350,9 +1340,9 @@
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.nfd-wba-text-gray-600 {
+.nfd-wba-text-red-500 {
   --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .nfd-wba-shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -1374,11 +1364,11 @@
   transition-timing-function: var(--nfd-wba-transition-timing);
   transition-duration: var(--nfd-wba-transition-duration);
 }
-.nfd-wba-duration-75 {
-  transition-duration: 75ms;
-}
 .nfd-wba-duration-300 {
   transition-duration: 300ms;
+}
+.nfd-wba-duration-75 {
+  transition-duration: 75ms;
 }
 .nfd-wb--hide-theme-patterns [aria-label^="Wonder - "]:not([aria-label="Wonder - Pages"]) {
   display: none;
@@ -1413,6 +1403,10 @@
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.hover\:nfd-wba-bg-red-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
 .hover\:\!nfd-wba-text-white:hover {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
@@ -1436,6 +1430,10 @@
 .hover\:nfd-wba-text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.hover\:nfd-wba-text-red-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .hover\:nfd-wba-underline:hover {
   text-decoration-line: underline;

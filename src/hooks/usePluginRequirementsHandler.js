@@ -24,7 +24,7 @@ export const usePluginRequirementsHandler = ({ onRequirementsMet, pluginRequirem
 		reloadAfterInstall: false,
 		showNotices: true,
 		onSuccess: () => {
-			onRequirementsMet();
+			// onRequirementsMet();
 			setIsProcessingRequirements(false);
 		},
 		onError: () => {
@@ -45,7 +45,30 @@ export const usePluginRequirementsHandler = ({ onRequirementsMet, pluginRequirem
 				return;
 			}
 
-			// Process all required plugins
+			// Check if all plugins are already active
+			let allActive = true;
+
+			for (const plugin of pluginRequirements) {
+				try {
+					if (plugin?.status !== "active") {
+						allActive = false;
+						break; // No need to check further
+					}
+				} catch (error) {
+					allActive = false;
+					break;
+				}
+			}
+
+			// If all plugins are already active, skip processPlugins
+			if (allActive) {
+				// All plugins are already active, directly proceed to insertion
+				onRequirementsMet();
+				setIsProcessingRequirements(false);
+				return;
+			}
+
+			// Process all required plugins that need installation/activation
 			const results = await processPlugins(pluginRequirements);
 
 			// Check if all plugins were successfully processed
