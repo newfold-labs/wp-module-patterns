@@ -246,7 +246,7 @@ class Items {
 
 				// Check the status of the required plugins and add it to the item
 				foreach ( $requirements as &$requirement ) {
-					$requirement['status'] = PluginStatus::check( $requirement['path'] );
+					$requirement['status'] = PluginStatus::check( $requirement['basename'] );
 				}
 
 				$item['plugin_requirements'] = $requirements;

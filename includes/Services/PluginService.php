@@ -16,13 +16,13 @@ class PluginService {
     public static function is_installed($plugin) {
         $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
         $plugin_type = PluginInstaller::get_plugin_type($slug);
-        $plugin_path = PluginInstaller::get_plugin_path($slug, $plugin_type);
+        $plugin_basename = PluginInstaller::get_plugin_basename($slug, $plugin_type);
 
-        if (!$plugin_path) {
+        if (!$plugin_basename) {
             return false;
         }
 
-        return PluginInstaller::is_plugin_installed($plugin_path);
+        return PluginInstaller::is_plugin_installed($plugin_basename);
     }
 
     /**
@@ -34,17 +34,17 @@ class PluginService {
     public static function is_active($plugin) {
         $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
         $plugin_type = PluginInstaller::get_plugin_type($slug);
-        $plugin_path = PluginInstaller::get_plugin_path($slug, $plugin_type);
+        $plugin_basename = PluginInstaller::get_plugin_basename($slug, $plugin_type);
 
-        if (!$plugin_path) {
+        if (!$plugin_basename) {
             return false;
         }
 
-        if (!PluginInstaller::is_plugin_installed($plugin_path)) {
+        if (!PluginInstaller::is_plugin_installed($plugin_basename)) {
             return false;
         }
 
-        return is_plugin_active($plugin_path);
+        return is_plugin_active($plugin_basename);
     }
 
     /**
