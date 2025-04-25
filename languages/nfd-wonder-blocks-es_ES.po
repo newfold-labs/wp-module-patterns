@@ -8,11 +8,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-24 17:32\n"
+"PO-Revision-Date: 2025-04-25 16:34+0100\n"
 "Language: es_ES\n"
-"X-Generator: WP-CLI 2.11.0\n"
-"X-Domain: nfd-wonder-blocks\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+"X-Domain: nfd-wonder-blocks\n"
 "X-Crowdin-Project: newfold-labswp-module-staging\n"
 "X-Crowdin-Project-ID: 764889\n"
 "X-Crowdin-Language: es-ES\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: includes/Admin/CTA.php:108
 msgid "WonderBlocks"
-msgstr "Bloques de Maravillas"
+msgstr "WonderBlocks"
 
 #: includes/Admin/CTA.php:111
 msgid "Show WonderBlocks Button"
@@ -612,7 +612,7 @@ msgstr "Estilos del bloque"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "section."
-msgstr "."
+msgstr "sección."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Section Background Effect"
@@ -807,7 +807,7 @@ msgstr "Plantillas"
 #: build/2.9.3/blocks/block.json
 msgctxt "block title"
 msgid "WonderBlocks"
-msgstr "Bloques de Maravillas"
+msgstr "WonderBlocks"
 
 #: build/2.9.3/blocks/block.json
 msgctxt "block description"

@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2025-02-24 17:32",
+    "translation-revision-date": "2025-04-25 16:34+0100",
     "generator": "WP-CLI\/2.11.0",
     "source": "build\/2.9.3\/wonder-blocks.js",
     "domain": "messages",
@@ -401,7 +401,7 @@
                 "Estilos del bloque"
             ],
             "section.": [
-                "."
+                "secci\u00f3n."
             ],
             "Section Background Effect": [
                 "Efecto de fondo de secci\u00f3n"
