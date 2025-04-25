@@ -45,10 +45,13 @@ const generateRequiredPluginsMessage = (plugin) => {
 		}
 	);
 
+	// Determine if we need to add data-ctb-id attribute
+	const linkProps = plugin.isPremium && plugin.ctbId ? { "data-ctb-id": plugin.ctbId } : {};
+
 	return (
 		<p>
 			{message}{" "}
-			<a href="#" className="nfd-required-plugin-notice__learn-more">
+			<a href={plugin.url ?? "#"} className="nfd-required-plugin-notice__learn-more" {...linkProps}>
 				{__("Learn more", "nfd-wonder-blocks")} <ArrowRight size={16} />
 			</a>
 		</p>
