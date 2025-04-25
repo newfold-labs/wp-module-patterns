@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import apiFetch from "@wordpress/api-fetch";
-import { useState, useCallback, useEffect } from "@wordpress/element";
+import { useState, useCallback, useEffect, useMemo } from "@wordpress/element";
 import { useSelect } from "@wordpress/data";
 import { __ } from "@wordpress/i18n";
 
@@ -45,7 +45,7 @@ export const useFavoritesManager = (item) => {
 	 *
 	 * @return {boolean}
 	 */
-	const shouldShowTrash = useCallback(() => {
+	const shouldShowTrash = useMemo(() => {
 		return (
 			(activeTab === "patterns" &&
 				activePatternsCategory === "favorites" &&
