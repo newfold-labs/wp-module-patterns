@@ -24,7 +24,7 @@ const DesignItem = ({ item }) => {
 	const { insertDesignHandler, insertingDesign } = useDesignInsertion(blocks, item);
 
 	// Check for premium plugin requirements
-	const { hasInactivePlugins, hasPremiumPlugin } = usePluginRequirements(item);
+	const { hasInactivePlugins, hasPremiumPlugins } = usePluginRequirements(item);
 
 	return (
 		<DesignItemView
@@ -32,7 +32,7 @@ const DesignItem = ({ item }) => {
 			previewBlocks={previewBlocks}
 			isFavorite={isFavorite}
 			insertingDesign={insertingDesign}
-			hasPremiumPlugin={hasPremiumPlugin}
+			hasPremiumPlugins={hasPremiumPlugins}
 			shouldShowTrash={shouldShowTrash}
 			insertDesignHandler={insertDesignHandler}
 			favoritesClickHandler={favoritesClickHandler}

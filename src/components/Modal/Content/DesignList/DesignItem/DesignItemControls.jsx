@@ -24,15 +24,16 @@ import PremiumBadge from "../../../../PremiumBadge";
 const DesignItemControls = ({
 	item,
 	isFavorite,
-	hasPremiumPlugin,
+	hasPremiumPlugins,
 	insertDesignHandler,
 	favoritesClickHandler,
 	isBusyState,
 	hasInactivePlugins,
 }) => {
+	console.log({ hasPremiumPlugins });
 	return (
 		<div className="nfd-wba-design-item--overlay">
-			{hasPremiumPlugin && (
+			{hasPremiumPlugins && (
 				<div className="nfd-wba-absolute nfd-wba-top-2 nfd-wba-right-2 nfd-wba-z-20">
 					<PremiumBadge variant="logo" />
 				</div>

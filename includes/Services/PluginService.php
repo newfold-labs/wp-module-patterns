@@ -71,8 +71,8 @@ class PluginService {
             return false;
         }
 
-        if ( true === $plugin['isPremium'] ) {
-			return PluginInstaller::install_premium_plugin( $plugin, $plugin['provider'], $activate );
+        if ( isset( $plugin['isPremium'] ) && $plugin['isPremium'] ) {
+			return PluginInstaller::install_premium_plugin( $plugin, $plugin['plsProviderName'], $activate );
 		}
 
         $plugin_installation_task = new PluginInstallTask(

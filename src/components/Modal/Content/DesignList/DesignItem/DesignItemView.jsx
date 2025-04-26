@@ -21,7 +21,7 @@ const DesignItemView = ({
 	insertDesignHandler,
 	favoritesClickHandler,
 	previewBlocks,
-	hasPremiumPlugin,
+	hasPremiumPlugins,
 	hasInactivePlugins,
 }) => {
 	// Get plugin requirements from the item
@@ -61,7 +61,7 @@ const DesignItemView = ({
 							item={item}
 							isFavorite={isFavorite}
 							insertingDesign={insertingDesign}
-							hasPremiumPlugin={hasPremiumPlugin}
+							hasPremiumPlugins={hasPremiumPlugins}
 							insertDesignHandler={handlePluginRequirements}
 							favoritesClickHandler={favoritesClickHandler}
 							isBusyState={isBusyState}
