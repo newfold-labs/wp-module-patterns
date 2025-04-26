@@ -30,7 +30,6 @@ const DesignItemControls = ({
 	isBusyState,
 	hasInactivePlugins,
 }) => {
-	console.log({ hasPremiumPlugins });
 	return (
 		<div className="nfd-wba-design-item--overlay">
 			{hasPremiumPlugins && (

@@ -19,7 +19,7 @@ const RequiredPluginNotice = ({ plugin }) => {
 	return (
 		<div className="nfd-required-plugin-notice">
 			<div className="nfd-required-plugin-notice__icon">
-				<PluginLogo plugin={plugin.slug} height="20" />
+				<PluginLogo plugin={plugin.plsProviderName || plugin.slug} height="20" />
 
 				{plugin.isPremium && <PremiumBadge variant="tagline" />}
 			</div>

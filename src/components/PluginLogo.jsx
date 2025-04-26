@@ -24,7 +24,7 @@ const PluginLogo = ({ plugin, width, height }) => {
 	const logos = {
 		jetpack: JetpackSVG,
 		woocommerce: WooCommerceSVG,
-		yith_woocommerce_wishlist: YithSVG,
+		yith: YithSVG,
 	};
 
 	const Logo = logos[plugin] || null;

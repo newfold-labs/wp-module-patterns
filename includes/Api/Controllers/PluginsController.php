@@ -66,10 +66,14 @@ class PluginsController {
         }
 
         $activate = $request->get_param( 'activate' ) !== false;
-        $success = PluginService::install( $plugin, $activate );
+        $result = PluginService::install( $plugin, $activate );
 
+        if ( is_wp_error( $result ) ) {
+            return $result;
+        }
+        
         return new WP_REST_Response( array(
-            'success' => $success,
+            'success' => $result,
             'slug' => is_array( $plugin ) ? $plugin['slug'] : $plugin,
             'activated' => $activate && $success
         ) );

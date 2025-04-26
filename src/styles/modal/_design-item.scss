@@ -201,9 +201,21 @@
 	fill: var(--nfd-wba-color-premium-icon);
 }
 
-.nfd-wba-block-wireframe {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 32px;
+.block-editor-block-preview__content-iframe [class*="nfd-wb-forms"] .wp-block-missing {
+	position: relative;
+	min-height: 400px;
+
+	.block-editor-warning {
+		display: none;
+	}
+
+	&:before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url("../svg/wireframes/ContactForm.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
 }
