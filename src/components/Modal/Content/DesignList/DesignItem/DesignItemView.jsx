@@ -5,18 +5,13 @@
  */
 
 /**
- * WordPress dependencies
- */
-import { useState, useCallback } from "@wordpress/element";
-
-/**
  * Internal dependencies
  */
+import PluginProgressOverlay from "../../../../../components/PluginProgressBar";
+import { usePluginRequirementsHandler } from "../../../../../hooks/usePluginRequirementsHandler";
 import DesignItemControls from "./DesignItemControls";
 import DesignItemFooter from "./DesignItemFooter";
 import DesignItemPreview from "./DesignItemPreview";
-import { usePluginRequirementsHandler } from "../../../../../hooks/usePluginRequirementsHandler";
-import PluginProgressOverlay from "../../../../../components/PluginProgressBar";
 
 const DesignItemView = ({
 	item,
