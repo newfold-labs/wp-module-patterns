@@ -5,17 +5,13 @@
  */
 
 /**
- * WordPress dependencies
- */
-import { memo } from "@wordpress/element";
-
-/**
  * Internal dependencies
  */
-import DesignItemView from "./DesignItemView";
 import { useBlockProcessor } from "../../../../../hooks/useBlockProcessor";
-import { useFavoritesManager } from "../../../../../hooks/useFavoritesManager";
 import { useDesignInsertion } from "../../../../../hooks/useDesignInsertion";
+import { useFavoritesManager } from "../../../../../hooks/useFavoritesManager";
+import { usePluginRequirements } from "../../../../../hooks/usePluginRequirements";
+import DesignItemView from "./DesignItemView";
 
 const DesignItem = ({ item }) => {
 	// Process blocks for preview
@@ -28,7 +24,7 @@ const DesignItem = ({ item }) => {
 	const { insertDesignHandler, insertingDesign } = useDesignInsertion(blocks, item);
 
 	// Check for premium plugin requirements
-	const hasPremiumPlugin = item?.plugin_requirements?.some((plugin) => plugin.isPremium);
+	const { hasInactivePlugins, hasPremiumPlugin } = usePluginRequirements(item);
 
 	return (
 		<DesignItemView
@@ -40,6 +36,7 @@ const DesignItem = ({ item }) => {
 			shouldShowTrash={shouldShowTrash}
 			insertDesignHandler={insertDesignHandler}
 			favoritesClickHandler={favoritesClickHandler}
+			hasInactivePlugins={hasInactivePlugins}
 		/>
 	);
 };

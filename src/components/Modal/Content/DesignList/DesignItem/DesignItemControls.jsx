@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { HeartIcon, PlusIcon } from "lucide-react";
+import { DownloadIcon, HeartIcon, PlusIcon } from "lucide-react";
 
 /**
  * WordPress dependencies
@@ -28,6 +28,7 @@ const DesignItemControls = ({
 	insertDesignHandler,
 	favoritesClickHandler,
 	isBusyState,
+	hasInactivePlugins,
 }) => {
 	return (
 		<div className="nfd-wba-design-item--overlay">
@@ -41,10 +42,20 @@ const DesignItemControls = ({
 				<Button
 					isBusy={isBusyState}
 					isPressed={isBusyState}
-					label={__("Add pattern to page", "nfd-wonder-blocks")}
+					label={
+						hasInactivePlugins
+							? __("Install Required Plugins", "nfd-wonder-blocks")
+							: __("Add pattern to page", "nfd-wonder-blocks")
+					}
 					showTooltip={true}
 					onClick={insertDesignHandler}
-					icon={<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />}
+					icon={
+						hasInactivePlugins ? (
+							<DownloadIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />
+						) : (
+							<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />
+						)
+					}
 				/>
 				<Button
 					className={classNames(

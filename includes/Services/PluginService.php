@@ -16,13 +16,17 @@ class PluginService {
     public static function is_installed($plugin) {
         $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
         $plugin_type = PluginInstaller::get_plugin_type($slug);
-        $plugin_basename = PluginInstaller::get_plugin_basename($slug, $plugin_type);
+        $plugin_path = isset($plugin['path']) ? $plugin['path'] : '';
 
-        if (!$plugin_basename) {
-            return false;
+        if (!$plugin_path) {
+            if ( isset($plugin['basename']) ) {
+                $plugin_path = $plugin['basename'];
+            } else {
+                return false;
+            }
         }
 
-        return PluginInstaller::is_plugin_installed($plugin_basename);
+        return PluginInstaller::is_plugin_installed($plugin_path);
     }
 
     /**
@@ -34,17 +38,21 @@ class PluginService {
     public static function is_active($plugin) {
         $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
         $plugin_type = PluginInstaller::get_plugin_type($slug);
-        $plugin_basename = PluginInstaller::get_plugin_basename($slug, $plugin_type);
+        $plugin_path = isset($plugin['path']) ? $plugin['path'] : '';
 
-        if (!$plugin_basename) {
+        if (!$plugin_path) {
+            if ( isset($plugin['basename']) ) {
+                $plugin_path = $plugin['basename'];
+            } else {
+                return false;
+            }
+        }
+
+        if (!PluginInstaller::is_plugin_installed($plugin_path)) {
             return false;
         }
 
-        if (!PluginInstaller::is_plugin_installed($plugin_basename)) {
-            return false;
-        }
-
-        return is_plugin_active($plugin_basename);
+        return is_plugin_active($plugin_path);
     }
 
     /**
@@ -62,6 +70,10 @@ class PluginService {
         if (empty($plugin['slug'])) {
             return false;
         }
+
+        if ( true === $plugin['isPremium'] ) {
+			return PluginInstaller::install_premium_plugin( $plugin, $plugin['provider'], $activate );
+		}
 
         $plugin_installation_task = new PluginInstallTask(
             $plugin['slug'],

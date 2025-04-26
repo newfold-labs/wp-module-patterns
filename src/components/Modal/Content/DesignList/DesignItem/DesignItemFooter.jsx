@@ -2,7 +2,7 @@
  * External dependencies
  */
 import classNames from "classnames";
-import { HeartIcon, HeartOffIcon, PlusIcon } from "lucide-react";
+import { DownloadIcon, HeartIcon, HeartOffIcon, PlusIcon } from "lucide-react";
 
 /**
  * WordPress dependencies
@@ -22,6 +22,7 @@ const DesignItemFooter = ({
 	insertDesignHandler,
 	favoritesClickHandler,
 	isBusyState,
+	hasInactivePlugins,
 }) => {
 	return (
 		<div className="nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-1 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
@@ -41,7 +42,6 @@ const DesignItemFooter = ({
 						icon={<HeartOffIcon className="nfd-wba-size-5 !nfd-wba-fill-none" />}
 					/>
 				)}
-
 				{!shouldShowTrash && (
 					<Button
 						className={classNames(
@@ -64,15 +64,24 @@ const DesignItemFooter = ({
 						}
 					/>
 				)}
-
 				<Button
 					className="nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75"
 					isBusy={isBusyState}
 					isPressed={isBusyState}
-					label={__("Add pattern to page", "nfd-wonder-blocks")}
+					label={
+						hasInactivePlugins
+							? __("Install Required Plugins", "nfd-wonder-blocks")
+							: __("Add pattern to page", "nfd-wonder-blocks")
+					}
 					showTooltip={true}
 					onClick={insertDesignHandler}
-					icon={<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5" />}
+					icon={
+						hasInactivePlugins ? (
+							<DownloadIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5" />
+						) : (
+							<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5" />
+						)
+					}
 				/>
 			</div>
 		</div>
