@@ -37,6 +37,7 @@ const DesignItemView = ({
 	} = usePluginRequirementsHandler({
 		onRequirementsMet: insertDesignHandler,
 		pluginRequirements,
+		reloadAfterInstall: true,
 	});
 
 	// Combined busy state to pass to children
@@ -50,6 +51,7 @@ const DesignItemView = ({
 						currentStep={currentStep}
 						operationDetails={operationDetails}
 						visible={showProgressBar}
+						onRetry={handlePluginRequirements}
 					/>
 				</div>
 			)}

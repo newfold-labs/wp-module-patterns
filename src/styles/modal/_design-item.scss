@@ -122,7 +122,7 @@
 .nfd-required-plugin-notice {
 	display: flex;
 	align-items: center;
-	gap: 4px;
+	gap: 8px;
 	margin: 0;
 	padding: 0;
 	color: #333;
@@ -145,6 +145,10 @@
 
 .nfd-required-plugin-notice__content {
 	gap: 4px;
+
+	p {
+		margin: 0;
+	}
 }
 
 .nfd-required-plugin-notice a {

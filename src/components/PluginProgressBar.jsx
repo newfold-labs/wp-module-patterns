@@ -3,6 +3,7 @@
  */
 import { useEffect, useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
+import { XIcon, RefreshCcwIcon } from "lucide-react";
 
 /**
  * Internal dependencies
@@ -11,14 +12,55 @@ import { PLUGIN_STEPS } from "../hooks/usePluginManager";
 import PluginLogo from "./PluginLogo";
 
 /**
- * Circular progress indicator component
+ * Circular progress indicator component with animation
  */
-const CircularProgress = ({ percentage = 0, size = 112, strokeWidth = 6 }) => {
+const CircularProgress = ({ percentage = 0, size = 112, strokeWidth = 6, isError = false }) => {
+	// Track the displayed percentage for animation
+	const [displayedPercentage, setDisplayedPercentage] = useState(0);
+
 	// Calculate circle properties
 	const radius = (size - strokeWidth) / 2;
 	const circumference = radius * 2 * Math.PI;
-	const dash = (percentage * circumference) / 100;
+	const dash = (displayedPercentage * circumference) / 100;
 	const strokeDashoffset = circumference - dash;
+
+	// Animate the percentage change
+	useEffect(() => {
+		// Skip animation on first render or for error state
+		if (isError) {
+			setDisplayedPercentage(percentage);
+			return;
+		}
+
+		// Animate to target percentage
+		let start = displayedPercentage;
+		const end = percentage;
+		const duration = 800; // Animation duration in ms
+		const startTime = performance.now();
+
+		// Don't animate if it's a decrease (typically on retry)
+		if (start > end) {
+			setDisplayedPercentage(end);
+			return;
+		}
+
+		// Animation frame function
+		const animateProgress = (timestamp) => {
+			const elapsed = timestamp - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			// Easing function for smoother animation
+			const easedProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease-out
+			const currentValue = start + (end - start) * easedProgress;
+
+			setDisplayedPercentage(Math.round(currentValue));
+
+			if (progress < 1) {
+				requestAnimationFrame(animateProgress);
+			}
+		};
+
+		requestAnimationFrame(animateProgress);
+	}, [percentage, isError]);
 
 	return (
 		<div
@@ -47,7 +89,7 @@ const CircularProgress = ({ percentage = 0, size = 112, strokeWidth = 6 }) => {
 					cy={size / 2}
 					r={radius}
 					fill="none"
-					stroke="#178113"
+					stroke={isError ? "#DC2626" : "#178113"}
 					strokeWidth={strokeWidth}
 					strokeLinecap="round"
 					strokeDasharray={circumference}
@@ -57,9 +99,17 @@ const CircularProgress = ({ percentage = 0, size = 112, strokeWidth = 6 }) => {
 			</svg>
 
 			{/* Percentage display */}
-			<div className="nfd-wba-text-3xl nfd-wba-font-medium nfd-wba-text-brand">
-				{percentage}
-				<span className="nfd-wba-text-xl">%</span>
+			<div
+				className={`nfd-wba-text-3xl nfd-wba-font-medium ${isError ? "nfd-wba-text-red-600" : "nfd-wba-text-brand"}`}
+			>
+				{isError ? (
+					<XIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />
+				) : (
+					<>
+						{displayedPercentage}
+						<span className="nfd-wba-text-xl">%</span>
+					</>
+				)}
 			</div>
 		</div>
 	);
@@ -68,20 +118,21 @@ const CircularProgress = ({ percentage = 0, size = 112, strokeWidth = 6 }) => {
 /**
  * Enhanced Plugin Progress Bar Component
  */
-export const PluginProgressBar = ({ currentStep, progress = 0, plugin }) => {
+export const PluginProgressBar = ({ currentStep, progress = 0, plugin, errorMessage, onRetry }) => {
 	// Convert progress to percentage
 	const percentage = Math.min(Math.round(progress * 100), 100);
+	const isError = currentStep === PLUGIN_STEPS.ERROR;
 
 	// Estimated time remaining
 	const [timeRemaining, setTimeRemaining] = useState(30);
 
 	// Update time remaining based on progress
 	useEffect(() => {
-		if (percentage > 0 && percentage < 100) {
+		if (percentage > 0 && percentage < 100 && !isError) {
 			const remaining = Math.round((30 * (100 - percentage)) / 100);
 			setTimeRemaining(remaining < 1 ? 1 : remaining);
 		}
-	}, [percentage]);
+	}, [percentage, isError]);
 
 	// Get step action verb
 	const getStepAction = () => {
@@ -97,7 +148,7 @@ export const PluginProgressBar = ({ currentStep, progress = 0, plugin }) => {
 			case PLUGIN_STEPS.COMPLETE:
 				return __("Installed", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.ERROR:
-				return __("Error installing", "nfd-wonder-blocks");
+				return __("Error Installing", "nfd-wonder-blocks");
 			default:
 				return __("Processing", "nfd-wonder-blocks");
 		}
@@ -105,30 +156,45 @@ export const PluginProgressBar = ({ currentStep, progress = 0, plugin }) => {
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-6 nfd-wba-text-center nfd-wba-max-w-md nfd-wba-mx-auto nfd-wba-p-6">
-			<CircularProgress percentage={percentage} />
+			{!isError && <CircularProgress percentage={percentage} isError={isError} />}
 
 			<div className="nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-4 nfd-wba-text-center">
 				<div className="nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-2 nfd-wba-text-center">
-					<h2 className="nfd-wba-text-[14px] nfd-wba-font-medium nfd-wba-m-0 nfd-wba-text-gray-900">
+					<h2
+						className={`nfd-wba-text-[14px] nfd-wba-font-medium nfd-wba-m-0 ${isError ? "nfd-wba-text-red-600" : "nfd-wba-text-gray-900"}`}
+					>
 						{getStepAction()} {__("Dependent Feature:", "nfd-wonder-blocks")} {plugin?.name}
 					</h2>
 
-					{/* Time remaining */}
-					{percentage < 100 && (
-						<p className="nfd-wba-text-xs nfd-wba-m-0 nfd-wba-text-gray-500">
-							{__("About", "nfd-wonder-blocks")} {timeRemaining}{" "}
-							{__("seconds remaining", "nfd-wonder-blocks")}
-						</p>
+					{isError ? (
+						<div className="nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-2">
+							<button
+								className="nfd-wba-bg-red-50 nfd-wba-text-red-600 nfd-wba-border nfd-wba-border-red-300 nfd-wba-px-3 nfd-wba-py-1 nfd-wba-rounded-md nfd-wba-text-xs nfd-wba-font-medium nfd-wba-flex nfd-wba-items-center nfd-wba-gap-1 nfd-wba-hover:bg-red-100 nfd-wba-transition-colors"
+								onClick={onRetry}
+							>
+								<RefreshCcwIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-4" />
+								{__("Retry", "nfd-wonder-blocks")}
+							</button>
+						</div>
+					) : (
+						percentage < 100 && (
+							<p className="nfd-wba-text-xs nfd-wba-m-0 nfd-wba-text-gray-500">
+								{__("About", "nfd-wonder-blocks")} {timeRemaining}{" "}
+								{__("seconds remaining", "nfd-wonder-blocks")}
+							</p>
+						)
 					)}
 				</div>
 
 				{/* Plugin description */}
-				<p className="nfd-wba-text-[14px]nfd-wba-m-0 nfd-wba-text-gray-600 nfd-wba-mt-2">
-					{plugin?.description}
-				</p>
+				{!isError && (
+					<p className="nfd-wba-text-[14px] nfd-wba-m-0 nfd-wba-text-gray-600 nfd-wba-mt-2">
+						{plugin?.description}
+					</p>
+				)}
 			</div>
 
-			<PluginLogo plugin={plugin?.slug} height="20" />
+			{!isError && <PluginLogo plugin={plugin?.plsProviderName || plugin?.slug} height="20" />}
 		</div>
 	);
 };
@@ -136,7 +202,13 @@ export const PluginProgressBar = ({ currentStep, progress = 0, plugin }) => {
 /**
  * Plugin Progress Overlay
  */
-const PluginProgressOverlay = ({ currentStep, operationDetails, visible, pluginInfo = {} }) => {
+const PluginProgressOverlay = ({
+	currentStep,
+	operationDetails,
+	visible,
+	pluginInfo = {},
+	onRetry,
+}) => {
 	if (!visible) {
 		return null;
 	}
@@ -146,6 +218,8 @@ const PluginProgressOverlay = ({ currentStep, operationDetails, visible, pluginI
 			<PluginProgressBar
 				currentStep={currentStep}
 				progress={operationDetails?.progress || 0}
+				errorMessage={operationDetails?.error?.message}
+				onRetry={onRetry}
 				plugin={{
 					name: operationDetails?.plugin?.name || pluginInfo?.name,
 					description: operationDetails?.plugin?.description || pluginInfo?.description,

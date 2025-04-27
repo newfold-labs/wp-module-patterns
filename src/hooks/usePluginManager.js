@@ -382,7 +382,7 @@ export const usePluginManager = ({
 					result.currentStep = "installing";
 					updateStep(PLUGIN_STEPS.INSTALLING, { plugin, progress: 0.5 });
 
-					const installData = await installPlugin(plugin, true);
+					const installData = await installPlugin(plugin, false);
 					result.steps.install = installData.success;
 					result.stepsCompleted++;
 

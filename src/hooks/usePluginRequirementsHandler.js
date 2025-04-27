@@ -16,15 +16,20 @@ import { usePluginManager, PLUGIN_STEPS } from "./usePluginManager";
  * @param {Array} options.pluginRequirements Array of required plugins
  * @returns {Object} Plugin requirement utilities
  */
-export const usePluginRequirementsHandler = ({ onRequirementsMet, pluginRequirements = [] }) => {
+export const usePluginRequirementsHandler = ({
+	onRequirementsMet,
+	pluginRequirements = [],
+	reloadAfterInstall = true,
+	redirectParams = {},
+}) => {
 	const [isProcessingRequirements, setIsProcessingRequirements] = useState(false);
 
 	// Setup plugin manager
 	const { currentStep, operationDetails, processPlugins, isBusy, isIdle } = usePluginManager({
-		reloadAfterInstall: false,
+		reloadAfterInstall: reloadAfterInstall,
+		redirectParams: redirectParams,
 		showNotices: true,
 		onSuccess: () => {
-			// onRequirementsMet();
 			setIsProcessingRequirements(false);
 		},
 		onError: () => {
@@ -85,7 +90,9 @@ export const usePluginRequirementsHandler = ({ onRequirementsMet, pluginRequirem
 
 	// Derive UI states
 	const isBusyState = isBusy || isProcessingRequirements;
-	const showProgressBar = isBusyState && !isIdle && currentStep !== PLUGIN_STEPS.IDLE;
+	const showProgressBar =
+		(isBusyState && !isIdle && currentStep !== PLUGIN_STEPS.IDLE) ||
+		currentStep === PLUGIN_STEPS.ERROR;
 
 	return {
 		handlePluginRequirements,
