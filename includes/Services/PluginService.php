@@ -90,14 +90,14 @@ class PluginService {
      * @return boolean True on success, false on failure.
      */
     public static function activate_plugin($plugin) {
-        $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
-
-        if (!self::is_installed($slug)) {
+        if (!self::is_installed($plugin)) {
             return false;
         }
-
+        
+        $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
         $plugin_activation_task = new PluginActivationTask($slug);
-        return $plugin_activation_task->execute();
+        $result = $plugin_activation_task->execute();
+        return $result;
     }
 
     /**
