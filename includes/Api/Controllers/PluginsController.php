@@ -75,7 +75,7 @@ class PluginsController {
         return new WP_REST_Response( array(
             'success' => $result,
             'slug' => is_array( $plugin ) ? $plugin['slug'] : $plugin,
-            'activated' => $activate && $success
+            'activated' => $activate && $result
         ) );
     }
 
