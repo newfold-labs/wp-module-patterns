@@ -33,8 +33,59 @@ export const usePluginRequirements = (item) => {
 		return item.plugin_requirements.some((plugin) => plugin && plugin.isPremium);
 	};
 
+	// Check if user is entitled to premium plugins
+	const isEntitledToPlugins =
+		item?.plugin_requirements?.some((plugin) => plugin.isEntitled) || false;
+
+	/**
+	 * Get premium plugin information for CTB integration
+	 */
+	const getPremiumPluginInfo = () => {
+		if (!item?.plugin_requirements?.length) {
+			return { ctbId: "", url: "" };
+		}
+
+		const premiumPlugin = item.plugin_requirements.find(
+			(plugin) => !plugin.isEntitled && plugin.isPremium && plugin.ctbId
+		);
+
+		return {
+			ctbId: premiumPlugin?.ctbId || "",
+			url: premiumPlugin?.url || "",
+		};
+	};
+
+	// Get CTB ID and URL
+	const { ctbId, url } = getPremiumPluginInfo();
+
+	// Create premium button properties
+	const premiumButtonProps = {};
+
+	const hasInactivePluginsValue = hasInactivePlugins();
+
+	// Only add CTB properties when we have an inactive premium plugin that needs CTB
+	if (hasInactivePluginsValue && !isEntitledToPlugins) {
+		if (ctbId) {
+			premiumButtonProps["data-ctb-id"] = ctbId;
+		}
+
+		if (url) {
+			premiumButtonProps.href = url;
+			premiumButtonProps.target = "_blank";
+			premiumButtonProps.rel = "noopener noreferrer";
+		}
+	}
+
+	// Helper for conditional onClick
+	const shouldUseOnClick = !(hasInactivePluginsValue && !isEntitledToPlugins && ctbId);
+
 	return {
-		hasInactivePlugins: hasInactivePlugins(),
+		hasInactivePlugins: hasInactivePluginsValue,
 		hasPremiumPlugins: hasPremiumPlugins(),
+		isEntitledToPlugins,
+		ctbId,
+		url,
+		premiumButtonProps,
+		shouldUseOnClick,
 	};
 };

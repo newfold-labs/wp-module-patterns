@@ -13,8 +13,8 @@ import classNames from "classnames";
 /**
  * Internal dependencies
  */
+import { usePluginRequirements } from "../../../../../hooks/usePluginRequirements";
 import PremiumBadge from "../../../../PremiumBadge";
-import { getPremiumPluginAttributes } from "../../../../../helpers/premiumPluginUtils";
 
 /**
  * Design Controls Component
@@ -22,17 +22,13 @@ import { getPremiumPluginAttributes } from "../../../../../helpers/premiumPlugin
 const DesignItemControls = ({
 	item,
 	isFavorite,
-	hasPremiumPlugins,
 	insertDesignHandler,
 	favoritesClickHandler,
 	isBusyState,
 	hasInactivePlugins,
+	hasPremiumPlugins,
 }) => {
-	// Use the shared utility function
-	const { premiumButtonProps, shouldUseOnClick } = getPremiumPluginAttributes(
-		item,
-		hasInactivePlugins
-	);
+	const { premiumButtonProps, shouldUseOnClick } = usePluginRequirements(item);
 
 	return (
 		<div className="nfd-wba-design-item--overlay">

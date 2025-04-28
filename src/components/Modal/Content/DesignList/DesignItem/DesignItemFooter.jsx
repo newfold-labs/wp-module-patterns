@@ -7,14 +7,14 @@ import { DownloadIcon, HeartIcon, HeartOffIcon, PlusIcon } from "lucide-react";
 /**
  * WordPress dependencies
  */
-import { __ } from "@wordpress/i18n";
 import { Button } from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
+import { usePluginRequirements } from "../../../../../hooks/usePluginRequirements";
 import RequiredPluginNotice from "../RequiredPluginNotice";
-import { getPremiumPluginAttributes } from "../../../../../helpers/premiumPluginUtils";
 
 const DesignItemFooter = ({
 	item,
@@ -25,10 +25,7 @@ const DesignItemFooter = ({
 	isBusyState,
 	hasInactivePlugins,
 }) => {
-	const { premiumButtonProps, shouldUseOnClick } = getPremiumPluginAttributes(
-		item,
-		hasInactivePlugins
-	);
+	const { premiumButtonProps, shouldUseOnClick } = usePluginRequirements(item);
 
 	return (
 		<div className="nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-1 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
