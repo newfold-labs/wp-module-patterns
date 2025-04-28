@@ -24,6 +24,7 @@ export const PLUGIN_STEPS = {
 	SETTING_UP: "setting_up",
 	COMPLETE: "complete",
 	ERROR: "error",
+	RELOADING: "reloading",
 };
 
 /**
@@ -562,6 +563,11 @@ export const usePluginManager = ({
 	 * Helper function to handle page reload with parameters
 	 */
 	const handleReload = useCallback(() => {
+		updateStep(PLUGIN_STEPS.RELOADING, {
+			progress: 1,
+			message: __("Page is reloading to apply changes...", "nfd-wonder-blocks"),
+		});
+
 		// Get the current URL search parameters
 		const searchParams = new URLSearchParams(window.location.search);
 

@@ -92,7 +92,8 @@ export const usePluginRequirementsHandler = ({
 	const isBusyState = isBusy || isProcessingRequirements;
 	const showProgressBar =
 		(isBusyState && !isIdle && currentStep !== PLUGIN_STEPS.IDLE) ||
-		currentStep === PLUGIN_STEPS.ERROR;
+		currentStep === PLUGIN_STEPS.ERROR ||
+		currentStep === PLUGIN_STEPS.RELOADING;
 
 	return {
 		handlePluginRequirements,

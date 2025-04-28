@@ -147,6 +147,8 @@ export const PluginProgressBar = ({ currentStep, progress = 0, plugin, errorMess
 				return __("Setting up", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.COMPLETE:
 				return __("Installed", "nfd-wonder-blocks");
+			case PLUGIN_STEPS.RELOADING:
+				return __("Reloading Page", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.ERROR:
 				return __("Error Installing", "nfd-wonder-blocks");
 			default:
@@ -176,6 +178,11 @@ export const PluginProgressBar = ({ currentStep, progress = 0, plugin, errorMess
 								{__("Retry", "nfd-wonder-blocks")}
 							</button>
 						</div>
+					) : currentStep === PLUGIN_STEPS.RELOADING ? (
+						<p className="nfd-wba-text-xs nfd-wba-m-0 nfd-wba-text-gray-500">
+							{operationDetails?.message ||
+								__("Page is reloading to apply changes...", "nfd-wonder-blocks")}
+						</p>
 					) : (
 						percentage < 100 && (
 							<p className="nfd-wba-text-xs nfd-wba-m-0 nfd-wba-text-gray-500">
