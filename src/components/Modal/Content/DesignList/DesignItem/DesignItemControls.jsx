@@ -14,12 +14,10 @@ import classNames from "classnames";
  * Internal dependencies
  */
 import PremiumBadge from "../../../../PremiumBadge";
+import { getPremiumPluginAttributes } from "../../../../../helpers/premiumPluginUtils";
 
 /**
  * Design Controls Component
- *
- * Renders the overlay with control buttons for inserting design and
- * adding to favorites
  */
 const DesignItemControls = ({
 	item,
@@ -30,6 +28,12 @@ const DesignItemControls = ({
 	isBusyState,
 	hasInactivePlugins,
 }) => {
+	// Use the shared utility function
+	const { premiumButtonProps, shouldUseOnClick } = getPremiumPluginAttributes(
+		item,
+		hasInactivePlugins
+	);
+
 	return (
 		<div className="nfd-wba-design-item--overlay">
 			{hasPremiumPlugins && (
@@ -48,7 +52,7 @@ const DesignItemControls = ({
 							: __("Add pattern to page", "nfd-wonder-blocks")
 					}
 					showTooltip={true}
-					onClick={insertDesignHandler}
+					{...(shouldUseOnClick ? { onClick: insertDesignHandler } : {})}
 					icon={
 						hasInactivePlugins ? (
 							<DownloadIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />
@@ -56,6 +60,7 @@ const DesignItemControls = ({
 							<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />
 						)
 					}
+					{...premiumButtonProps}
 				/>
 				<Button
 					className={classNames(

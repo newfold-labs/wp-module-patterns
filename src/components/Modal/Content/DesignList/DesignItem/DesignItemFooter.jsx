@@ -14,6 +14,7 @@ import { Button } from "@wordpress/components";
  * Internal dependencies
  */
 import RequiredPluginNotice from "../RequiredPluginNotice";
+import { getPremiumPluginAttributes } from "../../../../../helpers/premiumPluginUtils";
 
 const DesignItemFooter = ({
 	item,
@@ -24,6 +25,11 @@ const DesignItemFooter = ({
 	isBusyState,
 	hasInactivePlugins,
 }) => {
+	const { premiumButtonProps, shouldUseOnClick } = getPremiumPluginAttributes(
+		item,
+		hasInactivePlugins
+	);
+
 	return (
 		<div className="nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-1 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
 			<div>
@@ -64,6 +70,7 @@ const DesignItemFooter = ({
 						}
 					/>
 				)}
+
 				<Button
 					className="nfd-wba-size-9 nfd-wba-text-gray-500 hover:nfd-wba-text-gray-900 hover:nfd-wba-bg-gray-100 !nfd-wba-min-w-0 nfd-wba-rounded-full nfd-wba-bg-white nfd-wba-transition-all nfd-wba-duration-75"
 					isBusy={isBusyState}
@@ -74,7 +81,7 @@ const DesignItemFooter = ({
 							: __("Add pattern to page", "nfd-wonder-blocks")
 					}
 					showTooltip={true}
-					onClick={insertDesignHandler}
+					{...(shouldUseOnClick ? { onClick: insertDesignHandler } : {})}
 					icon={
 						hasInactivePlugins ? (
 							<DownloadIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5" />
@@ -82,6 +89,7 @@ const DesignItemFooter = ({
 							<PlusIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-5" />
 						)
 					}
+					{...premiumButtonProps}
 				/>
 			</div>
 		</div>
