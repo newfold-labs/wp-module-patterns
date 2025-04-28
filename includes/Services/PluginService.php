@@ -174,6 +174,10 @@ class PluginService {
      */
     public static function enable_jetpack_forms_module() {
         if (class_exists('Jetpack') && !\Jetpack::is_module_active('contact-form')) {
+            if ( ! \Jetpack::is_module_active('blocks') ) {
+                \Jetpack::activate_module('blocks', false, false);
+            }
+
             return \Jetpack::activate_module('contact-form', false, false);
         }
         
