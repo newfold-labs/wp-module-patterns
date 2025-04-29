@@ -33,7 +33,6 @@ const RequiredPluginNotice = ({ plugin }) => {
 const generateRequiredPluginsMessage = (plugin) => {
 	const pluginName = plugin.name || plugin.slug;
 
-	// Using createInterpolateElement for better translation support
 	const message = createInterpolateElement(
 		sprintf(
 			// translators: %s: plugin name.
@@ -45,15 +44,21 @@ const generateRequiredPluginsMessage = (plugin) => {
 		}
 	);
 
-	// Determine if we need to add data-ctb-id attribute
-	const linkProps = plugin.isPremium && plugin.ctbId ? { "data-ctb-id": plugin.ctbId } : {};
-
 	return (
 		<p>
-			{message}{" "}
-			<a href={plugin.url ?? "#"} className="nfd-required-plugin-notice__learn-more" {...linkProps}>
-				{__("Learn more", "nfd-wonder-blocks")} <ArrowRight size={16} />
-			</a>
+			{message}
+			{plugin.isPremium && plugin.ctbId && (
+				<>
+					{" "}
+					<a
+						href={plugin.url ?? "#"}
+						className="nfd-required-plugin-notice__learn-more"
+						data-ctb-id={plugin.ctbId}
+					>
+						{__("Learn more", "nfd-wonder-blocks")} <ArrowRight size={16} />
+					</a>
+				</>
+			)}
 		</p>
 	);
 };
