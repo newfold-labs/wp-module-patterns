@@ -30,7 +30,7 @@ const DesignItemFooter = ({
 	return (
 		<div className="nfd-wba-flex nfd-wba-py-3 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-1 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
 			<div>
-				{item?.plugin_requirements?.length > 0 && (
+				{item?.plugin_requirements?.length > 0 && hasInactivePlugins && (
 					<RequiredPluginNotice plugin={item?.plugin_requirements[0]} />
 				)}
 			</div>
