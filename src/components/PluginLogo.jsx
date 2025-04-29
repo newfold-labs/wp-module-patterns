@@ -9,6 +9,7 @@ import { SVG } from "@wordpress/components";
 import { ReactComponent as JetpackSVG } from "./../svg/JetpackLogo.svg";
 import { ReactComponent as WooCommerceSVG } from "./../svg/WooCommerceLogo.svg";
 import { ReactComponent as YithSVG } from "./../svg/YithLogo.svg";
+import { ReactComponent as YoastSVG } from "./../svg/YoastLogo.svg";
 
 /**
  * PluginLogo Component
@@ -25,6 +26,7 @@ const PluginLogo = ({ plugin, width, height }) => {
 		jetpack: JetpackSVG,
 		woocommerce: WooCommerceSVG,
 		yith: YithSVG,
+		yoast: YoastSVG,
 	};
 
 	const Logo = logos[plugin] || null;
