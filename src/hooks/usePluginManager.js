@@ -45,7 +45,7 @@ export const usePluginManager = ({
 	onStepChange,
 	reloadAfterInstall = true,
 	redirectParams = {},
-	showNotices = true,
+	showNotices = false,
 } = {}) => {
 	// Track the current operation step
 	const [currentStep, setCurrentStep] = useState(PLUGIN_STEPS.IDLE);

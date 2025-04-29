@@ -118,7 +118,14 @@ const CircularProgress = ({ percentage = 0, size = 112, strokeWidth = 6, isError
 /**
  * Enhanced Plugin Progress Bar Component
  */
-export const PluginProgressBar = ({ currentStep, progress = 0, plugin, errorMessage, onRetry }) => {
+export const PluginProgressBar = ({
+	currentStep,
+	progress = 0,
+	plugin,
+	errorMessage,
+	onRetry,
+	message,
+}) => {
 	// Convert progress to percentage
 	const percentage = Math.min(Math.round(progress * 100), 100);
 	const isError = currentStep === PLUGIN_STEPS.ERROR;
@@ -165,7 +172,13 @@ export const PluginProgressBar = ({ currentStep, progress = 0, plugin, errorMess
 					<h2
 						className={`nfd-wba-text-[14px] nfd-wba-font-medium nfd-wba-m-0 ${isError ? "nfd-wba-text-red-600" : "nfd-wba-text-gray-900"}`}
 					>
-						{getStepAction()} {__("Dependent Feature:", "nfd-wonder-blocks")} {plugin?.name}
+						{currentStep === PLUGIN_STEPS.RELOADING ? (
+							<>{__("Reloading Page", "nfd-wonder-blocks")}</>
+						) : (
+							<>
+								{getStepAction()} {__("Dependent Feature:", "nfd-wonder-blocks")} {plugin?.name}
+							</>
+						)}
 					</h2>
 
 					{isError ? (
@@ -180,8 +193,7 @@ export const PluginProgressBar = ({ currentStep, progress = 0, plugin, errorMess
 						</div>
 					) : currentStep === PLUGIN_STEPS.RELOADING ? (
 						<p className="nfd-wba-text-xs nfd-wba-m-0 nfd-wba-text-gray-500">
-							{operationDetails?.message ||
-								__("Page is reloading to apply changes...", "nfd-wonder-blocks")}
+							{message || __("Page is reloading to apply changes...", "nfd-wonder-blocks")}
 						</p>
 					) : (
 						percentage < 100 && (
@@ -226,6 +238,7 @@ const PluginProgressOverlay = ({
 				currentStep={currentStep}
 				progress={operationDetails?.progress || 0}
 				errorMessage={operationDetails?.error?.message}
+				message={operationDetails?.message}
 				onRetry={onRetry}
 				plugin={{
 					name: operationDetails?.plugin?.name || pluginInfo?.name,
