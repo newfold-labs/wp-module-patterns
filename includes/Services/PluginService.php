@@ -72,7 +72,7 @@ class PluginService {
         }
 
         if ( isset( $plugin['isPremium'] ) && $plugin['isPremium'] ) {
-			return PluginInstaller::install_premium_plugin( $plugin, $plugin['plsProviderName'], $activate );
+			return PluginInstaller::install_premium_plugin( $plugin['plsSlug'], $plugin['plsProviderName'], $activate );
 		}
 
         $plugin_installation_task = new PluginInstallTask(
@@ -90,9 +90,14 @@ class PluginService {
      * @return boolean True on success, false on failure.
      */
     public static function activate_plugin($plugin) {
+
         if (!self::is_installed($plugin)) {
             return false;
         }
+
+        if ( isset( $plugin['isPremium'] ) && $plugin['isPremium'] ) {
+			return PluginInstaller::install_premium_plugin( $plugin['plsSlug'], $plugin['plsProviderName'], true );
+		}
         
         $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
         $plugin_activation_task = new PluginActivationTask($slug);
