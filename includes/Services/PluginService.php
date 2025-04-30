@@ -102,7 +102,12 @@ class PluginService {
         $slug = is_array($plugin) ? $plugin['slug'] : $plugin;
         $plugin_activation_task = new PluginActivationTask($slug);
         $result = $plugin_activation_task->execute();
-        return $result;
+
+        if ( is_wp_error( $result )) {
+            return false;
+        }
+        
+        return true;
     }
 
     /**
