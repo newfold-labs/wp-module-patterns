@@ -100,7 +100,7 @@ const CircularProgress = ({ percentage = 0, size = 112, strokeWidth = 6, isError
 
 			{/* Percentage display */}
 			<div
-				className={`nfd-wba-text-3xl nfd-wba-font-medium ${isError ? "nfd-wba-text-red-600" : "nfd-wba-text-brand"}`}
+				className={`nfd-wba-text-3xl nfd-wba-font-medium nfd-wba-tabular-nums ${isError ? "nfd-wba-text-red-600" : "nfd-wba-text-brand"}`}
 			>
 				{isError ? (
 					<XIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />
