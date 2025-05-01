@@ -23,6 +23,7 @@ const RequiredPluginNotice = ({ plugin }) => {
 
 				{plugin.isPremium && <PremiumBadge variant="tagline" />}
 			</div>
+
 			<div className="nfd-required-plugin-notice__content">
 				{generateRequiredPluginsMessage(plugin)}
 			</div>
@@ -33,21 +34,24 @@ const RequiredPluginNotice = ({ plugin }) => {
 const generateRequiredPluginsMessage = (plugin) => {
 	const pluginName = plugin.name || plugin.slug;
 
+	const messageTemplate =
+		plugin.status === "active"
+			? __("This pattern is powered by <strong>%s</strong> plugin.", "nfd-wonder-blocks")
+			: __("This pattern requires <strong>%s</strong> plugin.", "nfd-wonder-blocks");
+
 	const message = createInterpolateElement(
 		sprintf(
 			// translators: %s: plugin name.
-			__("This pattern requires <strong>%s</strong> plugin.", "nfd-wonder-blocks"),
+			messageTemplate,
 			pluginName
 		),
-		{
-			strong: <strong>{pluginName}</strong>,
-		}
+		{ strong: <strong>{pluginName}</strong> }
 	);
 
 	return (
 		<p>
 			{message}
-			{plugin.isPremium && plugin.ctbId && (
+			{"active" !== plugin.status && plugin.isPremium && plugin.ctbId && (
 				<>
 					{" "}
 					<a
