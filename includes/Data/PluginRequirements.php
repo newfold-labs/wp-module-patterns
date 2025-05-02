@@ -201,6 +201,7 @@ final class PluginRequirements {
 						    [
 						        'isPremium' => $requirement['isPremium'] ?? false,
 								'isEntitled' => true,
+								'ctbId' => '',
 						    ]
 						);
 					}

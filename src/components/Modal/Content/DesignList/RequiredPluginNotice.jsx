@@ -48,16 +48,19 @@ const generateRequiredPluginsMessage = (plugin) => {
 		{ strong: <strong>{pluginName}</strong> }
 	);
 
+	const linkProps = plugin.ctbId ? { "data-ctb-id": plugin.ctbId } : {};
+
 	return (
 		<p>
 			{message}
-			{"active" !== plugin.status && plugin.url && plugin.isPremium && plugin.ctbId && (
+			{plugin.url && plugin.isPremium && (
 				<>
 					{" "}
 					<a
 						href={plugin.url ?? "#"}
 						className="nfd-required-plugin-notice__learn-more"
-						data-ctb-id={plugin.ctbId}
+						target="_blank"
+						{...linkProps}
 					>
 						{__("Learn more", "nfd-wonder-blocks")} <ArrowRight size={16} />
 					</a>
