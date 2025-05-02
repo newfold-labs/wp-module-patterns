@@ -213,7 +213,7 @@ export const PluginProgressBar = ({
 				)}
 			</div>
 
-			{!isError && <PluginLogo plugin={plugin?.plsProviderName || plugin?.slug} height="20" />}
+			{!isError && plugin?.logo && <PluginLogo plugin={plugin?.logo} height="20" />}
 		</div>
 	);
 };

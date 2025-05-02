@@ -106,12 +106,58 @@ final class PluginRequirements {
 		$patterns = array_map(
 			function( $pattern ) {
 				$pattern = self::enhance_requirements( $pattern );
+				$pattern = self::add_logo( $pattern );
 				return $pattern;
 			},
 			$patterns
 		);
 
 		return $patterns;
+	}
+
+	/**
+	 * Adds a logo to the plugin requirements.
+	 *
+	 * @param array $requirements The plugin requirements.
+	 *
+	 * @return array The plugin requirements with the logo added.
+	 */
+	private static function add_logo($pattern) {
+	    foreach ($pattern as $key => $requirement) {
+	        $slug = isset($requirement['slug']) ? $requirement['slug'] : '';
+	        $pls_slug = isset($requirement['plsSlug']) ? $requirement['plsSlug'] : '';
+	        
+	        $pattern[$key]['logo'] = self::get_logo_for_plugin($slug, $pls_slug);
+	    }
+	    
+	    return $pattern;
+	}
+
+	/**
+	 * Get the logo identifier for a plugin based on its slug.
+	 *
+	 * @param string $slug    The plugin slug.
+	 * @param string $pls_slug Optional PLS slug.
+	 * 
+	 * @return string The logo identifier or empty string if no match.
+	 */
+	private static function get_logo_for_plugin($slug, $pls_slug = '') {
+	    $known_logos = [
+	        'yoast' => ['yoast'],
+	        'yith' => ['yith'],
+	        'jetpack' => ['jetpack'],
+	        'woocommerce' => ['woocommerce', 'wc-']
+	    ];
+	    
+	    foreach ($known_logos as $logo => $patterns) {
+	        foreach ($patterns as $pattern) {
+	            if (strpos($slug, $pattern) !== false || ($pls_slug && strpos($pls_slug, $pattern) !== false)) {
+	                return $logo;
+	            }
+	        }
+	    }
+	    
+	    return '';
 	}
 
 	/**
