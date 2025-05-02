@@ -51,7 +51,7 @@ const generateRequiredPluginsMessage = (plugin) => {
 	return (
 		<p>
 			{message}
-			{"active" !== plugin.status && plugin.isPremium && plugin.ctbId && (
+			{"active" !== plugin.status && plugin.url && plugin.isPremium && plugin.ctbId && (
 				<>
 					{" "}
 					<a
