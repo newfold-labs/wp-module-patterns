@@ -28,7 +28,6 @@ export const usePluginRequirementsHandler = ({
 	const { currentStep, operationDetails, processPlugins, isBusy, isIdle } = usePluginManager({
 		reloadAfterInstall: reloadAfterInstall,
 		redirectParams: redirectParams,
-		showNotices: true,
 		onSuccess: () => {
 			setIsProcessingRequirements(false);
 		},
