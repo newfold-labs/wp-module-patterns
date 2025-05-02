@@ -88,7 +88,7 @@ final class PluginRequirements {
 	public static function get( $type = 'patterns' ) {
 
 		if ( 'patterns' === $type ) {
-			self::get_patterns_requirements();
+			return self::get_patterns_requirements();
 		}
 
 		return array();
