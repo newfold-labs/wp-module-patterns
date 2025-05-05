@@ -104,7 +104,7 @@ final class PluginRequirements {
 		$patterns = apply_filters( 'nfd_wb_patterns_plugin_requirements', self::$patterns );
 
 		$patterns = array_map(
-			function( $pattern ) {
+			function ( $pattern ) {
 				$pattern = self::enhance_requirements( $pattern );
 				$pattern = self::add_logo( $pattern );
 				return $pattern;
@@ -122,15 +122,15 @@ final class PluginRequirements {
 	 *
 	 * @return array The plugin requirements with the logo added.
 	 */
-	private static function add_logo($pattern) {
-	    foreach ($pattern as $key => $requirement) {
-	        $slug = isset($requirement['slug']) ? $requirement['slug'] : '';
-	        $pls_slug = isset($requirement['plsSlug']) ? $requirement['plsSlug'] : '';
-	        
-	        $pattern[$key]['logo'] = self::get_logo_for_plugin($slug, $pls_slug);
-	    }
-	    
-	    return $pattern;
+	private static function add_logo( $pattern ) {
+		foreach ( $pattern as $key => $requirement ) {
+			$slug     = isset( $requirement['slug'] ) ? $requirement['slug'] : '';
+			$pls_slug = isset( $requirement['plsSlug'] ) ? $requirement['plsSlug'] : '';
+
+			$pattern[ $key ]['logo'] = self::get_logo_for_plugin( $slug, $pls_slug );
+		}
+
+		return $pattern;
 	}
 
 	/**
@@ -138,26 +138,26 @@ final class PluginRequirements {
 	 *
 	 * @param string $slug    The plugin slug.
 	 * @param string $pls_slug Optional PLS slug.
-	 * 
+	 *
 	 * @return string The logo identifier or empty string if no match.
 	 */
-	private static function get_logo_for_plugin($slug, $pls_slug = '') {
-	    $known_logos = [
-	        'yoast' => ['yoast'],
-	        'yith' => ['yith'],
-	        'jetpack' => ['jetpack'],
-	        'woocommerce' => ['woocommerce', 'wc-']
-	    ];
-	    
-	    foreach ($known_logos as $logo => $patterns) {
-	        foreach ($patterns as $pattern) {
-	            if (strpos($slug, $pattern) !== false || ($pls_slug && strpos($pls_slug, $pattern) !== false)) {
-	                return $logo;
-	            }
-	        }
-	    }
-	    
-	    return '';
+	private static function get_logo_for_plugin( $slug, $pls_slug = '' ) {
+		$known_logos = array(
+			'yoast'       => array( 'yoast' ),
+			'yith'        => array( 'yith' ),
+			'jetpack'     => array( 'jetpack' ),
+			'woocommerce' => array( 'woocommerce', 'wc-' ),
+		);
+
+		foreach ( $known_logos as $logo => $patterns ) {
+			foreach ( $patterns as $pattern ) {
+				if ( strpos( $slug, $pattern ) !== false || ( $pls_slug && strpos( $pls_slug, $pattern ) !== false ) ) {
+					return $logo;
+				}
+			}
+		}
+
+		return '';
 	}
 
 	/**
@@ -185,24 +185,24 @@ final class PluginRequirements {
 				continue;
 			}
 
-			if ( !isset( $requirement['isPremium'] ) || isset( $requirement['isPremium'] ) && ! $requirement['isPremium'] ) {
+			if ( ! isset( $requirement['isPremium'] ) || isset( $requirement['isPremium'] ) && ! $requirement['isPremium'] ) {
 				continue;
 			}
 
 			if ( ! empty( $entitlements ) ) {
 				foreach ( $entitlements as $entitlement ) {
-					$entitlement_slug = isset( $entitlement['slug'] ) ? $entitlement['slug'] : '';
+					$entitlement_slug     = isset( $entitlement['slug'] ) ? $entitlement['slug'] : '';
 					$entitlement_pls_slug = isset( $entitlement['plsSlug'] ) ? $entitlement['plsSlug'] : '';
 
 					if ( $slug === $entitlement_slug || $slug === $entitlement_pls_slug ) {
-						$requirements[$key] = array_merge(
-						    $requirement,
-						    $entitlement,
-						    [
-						        'isPremium' => $requirement['isPremium'] ?? false,
+						$requirements[ $key ] = array_merge(
+							$requirement,
+							$entitlement,
+							array(
+								'isPremium'  => $requirement['isPremium'] ?? false,
 								'isEntitled' => true,
-								'ctbId' => '',
-						    ]
+								'ctbId'      => '',
+							)
 						);
 					}
 				}

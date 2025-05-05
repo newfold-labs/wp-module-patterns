@@ -47,9 +47,9 @@ final class RestApi {
 
 		RestApiController::post( '/plugins/activate', array( PluginsController::class, 'activate' ) );
 		RestApiController::post( '/plugin/status', array( PluginsController::class, 'check_plugin_status' ) );
-        RestApiController::post( '/plugin/install', array( PluginsController::class, 'install_plugin' ) );
-        RestApiController::post( '/plugin/activate', array( PluginsController::class, 'activate_plugin' ) );
-        RestApiController::post( '/plugin/setup', array( PluginsController::class, 'setup_plugin' ) );
-        RestApiController::post( '/plugin/process', array( PluginsController::class, 'process_plugin' ) );
+		RestApiController::post( '/plugin/install', array( PluginsController::class, 'install_plugin' ) );
+		RestApiController::post( '/plugin/activate', array( PluginsController::class, 'activate_plugin' ) );
+		RestApiController::post( '/plugin/setup', array( PluginsController::class, 'setup_plugin' ) );
+		RestApiController::post( '/plugin/process', array( PluginsController::class, 'process_plugin' ) );
 	}
 }
