@@ -74,7 +74,7 @@ final class Admin {
 					'assets'       => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
 					'wpVer'        => \esc_html( get_bloginfo( 'version' ) ),
 					'nfdWBVersion' => \esc_html( NFD_WONDER_BLOCKS_VERSION ),
-					'brand'        => Brands::getCurrentBrand(),
+					'brand'        => Brands::get_current_brand(),
 				)
 			);
 

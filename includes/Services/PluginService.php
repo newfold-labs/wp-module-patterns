@@ -5,6 +5,14 @@ use NewfoldLabs\WP\Module\Installer\Services\PluginInstaller;
 use NewfoldLabs\WP\Module\Installer\Tasks\PluginActivationTask;
 use NewfoldLabs\WP\Module\Installer\Tasks\PluginInstallTask;
 
+/**
+ * Class PluginService
+ *
+ * Provides utility methods for managing WordPress plugins within the Patterns module.
+ * This service handles plugin installation, activation, and integration setup for
+ * plugins required by various patterns. It offers both individual and bulk operations
+ * for plugin management with special handling for premium plugins.
+ */
 class PluginService {
 
 	/**

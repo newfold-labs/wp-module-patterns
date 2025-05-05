@@ -1,8 +1,21 @@
 <?php
 namespace NewfoldLabs\WP\Module\Patterns\Data;
 
+/**
+ * Class PluginRequirements
+ *
+ * Manages plugin dependencies in the Patterns module.
+ * This class provides functionality to retrieve, enhance, and process plugin
+ * requirements for different pattern types, adding additional information
+ * such as logos and premium status.
+ */
 final class PluginRequirements {
 
+	/**
+	 * An array of pattern-specific plugin requirements.
+	 *
+	 * @var array
+	 */
 	protected static $patterns = array(
 		'form-1'     => array(
 			array(
@@ -116,11 +129,12 @@ final class PluginRequirements {
 	}
 
 	/**
-	 * Adds a logo to the plugin requirements.
+	 * Adds a logo identifier to each plugin requirement in a pattern.
 	 *
-	 * @param array $requirements The plugin requirements.
+	 * @param array $pattern An array of plugin requirements for a specific pattern.
+	 *               Each requirement is an associative array containing plugin details.
 	 *
-	 * @return array The plugin requirements with the logo added.
+	 * @return array The pattern with logo identifiers added to each plugin requirement.
 	 */
 	private static function add_logo( $pattern ) {
 		foreach ( $pattern as $key => $requirement ) {
@@ -185,7 +199,7 @@ final class PluginRequirements {
 				continue;
 			}
 
-			if ( ! isset( $requirement['isPremium'] ) || isset( $requirement['isPremium'] ) && ! $requirement['isPremium'] ) {
+			if ( ! isset( $requirement['isPremium'] ) || ( isset( $requirement['isPremium'] ) && ! $requirement['isPremium'] ) ) {
 				continue;
 			}
 
