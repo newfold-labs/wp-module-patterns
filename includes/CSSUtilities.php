@@ -118,25 +118,22 @@ class CSSUtilities {
 
 		if ( 'bluehost-blueprint' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
-				/* Colors */
 				--wndb--color--primary: var(--wp--preset--color--accent-2);
 				--wndb--color--secondary: var(--wp--preset--color--accent-5);
 				--wndb--color--body: var(--wp--preset--color--base);
 				--wndb--color--text: var(--wp-preset--color--contrast);
 				--wndb--color--text--contrast: var(--wp--preset--color--contrast);
 				--wndb--color--text--faded: color-mix(in srgb, var(--wp--preset--color--contrast), transparent 20%);
+				--wndb--max-w--prose: 650px;
 			}";
 		}
 
 		if ( 'yith-wonder' === $theme ) {
 			$css = "body, .editor-styles-wrapper {
-                /* Colors */
                 --wndb--color--primary: var(--wp--preset--color--primary);
                 --wndb--color--secondary: var(--wp--preset--color--secondary);
 				--wndb--color--body: var(--wp--preset--color--base);
-                
 				--wndb--p: var(--wp--preset--spacing--40);
-                
                 --wndb--text--sm: var(--wp--preset--font-size--x-small);
 				--wndb--text--md: var(--wp--preset--font-size--normal);
 			}";
