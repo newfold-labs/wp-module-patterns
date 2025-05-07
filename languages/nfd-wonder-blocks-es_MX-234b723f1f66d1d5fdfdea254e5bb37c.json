@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2025-04-25 16:34+0100",
+    "translation-revision-date": "2025-05-07 15:46+0100",
     "generator": "WP-CLI\/2.11.0",
     "source": "build\/2.9.3\/wonder-blocks.js",
     "domain": "messages",
@@ -7,7 +7,7 @@
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "es_ES",
+                "lang": "es_MX",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
