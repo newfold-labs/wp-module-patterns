@@ -25,7 +25,7 @@
 	},
 	"require-dev": {
 		"newfold-labs/wp-php-standards": "^1.2.5",
-		"wp-cli/i18n-command": "^2.6.3"
+		"wp-cli/i18n-command": "^2.6.5"
 	},
 	"autoload": {
 		"psr-4": {
