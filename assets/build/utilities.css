@@ -2064,6 +2064,15 @@ p[style*="text-decoration"] > a {
     max-height: unset !important;
     aspect-ratio: unset !important;
 }
+/**
+ * Yoast styles.
+ */
+.nfd-yoast-toc ul li {
+	list-style-type: disc !important;
+}
+.nfd-yoast-toc {
+	line-height: 1.5 !important;
+}
 @media (max-width: 782px) {
 	.md\:nfd-order-2 {
 		order: 2 !important;

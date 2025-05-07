@@ -206,7 +206,7 @@
 	fill: var(--nfd-wba-color-premium-icon);
 }
 
-.block-editor-block-preview__content-iframe [class*="nfd-wb-forms"] .wp-block-missing {
+%wp-block-missing-preview {
 	position: relative;
 	min-height: 400px;
 
@@ -214,13 +214,37 @@
 		display: none;
 	}
 
+	&::after {
+		background-color: transparent;
+	}
+
 	&:before {
 		content: "";
 		position: absolute;
 		inset: 0;
-		background-image: url("../svg/wireframes/ContactForm.svg");
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
+	}
+}
+
+.block-editor-block-preview__content-iframe {
+	[class*="nfd-wb-forms"] .wp-block-missing {
+		@extend %wp-block-missing-preview;
+
+		&:before {
+			background-image: url("../svg/wireframes/ContactForm.svg");
+		}
+	}
+
+	[class*="nfd-wb-text__table-of-contents"] .wp-block-missing,
+	.nfd-yoast-toc {
+		@extend %wp-block-missing-preview;
+
+		&:before {
+			background-image: url("../svg/wireframes/ToC.svg");
+			background-position: left;
+			margin: 64px 0 16px 16px;
+		}
 	}
 }

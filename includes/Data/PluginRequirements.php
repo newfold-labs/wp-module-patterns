@@ -89,6 +89,39 @@ final class PluginRequirements {
 				'description' => 'This plugin is essential for adding the product grid to this pattern!',
 			),
 		),
+		'table-of-contents-1' => array(
+			array(
+				'slug'        => 'yoast-seo-wordpress-premium',
+				'name'        => 'Yoast SEO',
+				'path'        => 'wordpress-seo-premium/wp-seo-premium.php',
+				'url'         => 'https://yoast.com',
+				'description' => 'SEO made easy! Improve your ranking in search engines, boost performance and visibility, and get 24/7 premium support.',
+				'isPremium'   => true,
+				'ctbId'       => 'bb65fce0-24b6-4714-8d5d-3a693f428df4',
+			),
+		),
+		'table-of-contents-2' => array(
+			array(
+				'slug'        => 'yoast-seo-wordpress-premium',
+				'name'        => 'Yoast SEO',
+				'path'        => 'wordpress-seo-premium/wp-seo-premium.php',
+				'url'         => 'https://yoast.com',
+				'description' => 'SEO made easy! Improve your ranking in search engines, boost performance and visibility, and get 24/7 premium support.',
+				'isPremium'   => true,
+				'ctbId'       => 'bb65fce0-24b6-4714-8d5d-3a693f428df4',
+			),
+		),
+		'table-of-contents-3' => array(
+			array(
+				'slug'        => 'yoast-seo-wordpress-premium',
+				'name'        => 'Yoast SEO',
+				'path'        => 'wordpress-seo-premium/wp-seo-premium.php',
+				'url'         => 'https://yoast.com',
+				'description' => 'SEO made easy! Improve your ranking in search engines, boost performance and visibility, and get 24/7 premium support.',
+				'isPremium'   => true,
+				'ctbId'       => 'bb65fce0-24b6-4714-8d5d-3a693f428df4',
+			),
+		),
 	);
 
 	/**
