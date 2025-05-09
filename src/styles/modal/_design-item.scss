@@ -237,6 +237,28 @@
 		}
 	}
 
+	.nfd-wb-products__products-1 .wp-block-missing {
+		@extend %wp-block-missing-preview;
+
+		min-height: 850px;
+
+		&:before {
+			background-image: url("../svg/wireframes/Products.svg");
+		}
+	}
+
+	.nfd-wb-products__products-2 .wp-block-missing {
+		@extend %wp-block-missing-preview;
+
+		min-height: 240px;
+		display: flex;
+		flex-grow: 1;
+
+		&:before {
+			background-image: url("../svg/wireframes/ProductsSimple.svg");
+		}
+	}
+
 	[class*="nfd-wb-text__table-of-contents"] .wp-block-missing,
 	.nfd-yoast-toc {
 		@extend %wp-block-missing-preview;
