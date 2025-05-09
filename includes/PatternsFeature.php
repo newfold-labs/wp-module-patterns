@@ -47,6 +47,8 @@ class PatternsFeature extends \NewfoldLabs\WP\Module\Features\Feature {
 
 	/**
 	 * Define constnats that require container values
+	 *
+	 * @param Container $container The module container instance.
 	 */
 	public function defineConstants( Container $container ) {
 		if ( ! defined( 'NFD_WONDER_BLOCKS_BUILD_URL' ) && defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {

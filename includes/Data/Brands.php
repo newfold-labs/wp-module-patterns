@@ -43,10 +43,10 @@ final class Brands {
 	 *
 	 * @return array
 	 */
-	public static function getCurrentBrand() {
-		$brandID         = container()->plugin()->brand;
+	public static function get_current_brand() {
+		$brand_id        = container()->plugin()->brand;
 		$brands          = self::get_brands();
-		$brand           = isset( $brands[ $brandID ] ) ? $brands[ $brandID ] : $brands['wordpress'];
+		$brand           = isset( $brands[ $brand_id ] ) ? $brands[ $brand_id ] : $brands['wordpress'];
 		$brand['plugin'] = container()->plugin()->name;
 		return $brand;
 	}

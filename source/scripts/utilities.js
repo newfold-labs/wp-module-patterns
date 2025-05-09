@@ -30,9 +30,9 @@ window.onload = function () {
  */
 function viewportAnimation(clientId = null) {
 	const isGutenberg =
-		document.body.classList.contains("block-editor-page") ||
+		document.body?.classList.contains("block-editor-page") ||
 		Boolean(clientId) ||
-		document.body.classList.contains("block-editor-iframe__body");
+		document.body?.classList.contains("block-editor-iframe__body");
 
 	const rootElement = isGutenberg
 		? document.querySelector(".interface-interface-skeleton__content") // Gutenberg scroll container

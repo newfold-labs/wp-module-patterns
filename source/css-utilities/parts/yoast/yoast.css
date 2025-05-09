@@ -1,0 +1,11 @@
+/**
+ * Yoast styles.
+ */
+
+.nfd-yoast-toc ul li {
+	list-style-type: disc;
+}
+
+.nfd-yoast-toc {
+	line-height: 1.5;
+}

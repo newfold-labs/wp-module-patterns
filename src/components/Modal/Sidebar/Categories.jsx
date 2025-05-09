@@ -7,7 +7,7 @@ import {
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 } from "@wordpress/components";
 import { useDispatch, useSelect } from "@wordpress/data";
-import { memo, useCallback, useEffect, useMemo, useState } from "@wordpress/element";
+import { memo, useCallback, useEffect, useMemo } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { Icon } from "@wordpress/icons";
 
@@ -23,7 +23,6 @@ import useSetCurrentView from "../../../hooks/useSetCurrentView";
 import ErrorLoading from "./ErrorLoading";
 import ListElement from "./ListElement";
 import Skeleton from "./Skeleton";
-import { setKeywordsFilter } from "../../../store/actions";
 
 const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 	// Store actions and states.
