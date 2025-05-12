@@ -80,7 +80,9 @@ npm run start
 
 To ensure a smooth and error-free release, follow these detailed instructions closely.
 
-### Initial Setup
+Run the `Newfold Prep Release` github action to automatically bump the version (either patch, minor or major version), and update build and language files all at once. It will create a PR with changed files for manual review. Using this workflow, we can skip all the manual steps below.
+
+### Manual Initial Setup
 
 1. Checkout a new branch for the release using the format `release/<new_version>`.
 
@@ -88,11 +90,7 @@ To ensure a smooth and error-free release, follow these detailed instructions cl
 
 3. Execute `composer install` to install PHP dependencies.
 
-### Build Script
-
-1. Run `npm run set-version-bump` to automatically bump the version (point version is default) and update build and language files all at once. If this script is used, skip the manual version update step and the build steps below.
-
-### Version Updates
+### Manual Version Updates
 
 It is essential to verify that the version has been appropriately incremented in both the PHP and JavaScript components. Specifically, ensure that:
 
@@ -108,7 +106,7 @@ define( 'NFD_WONDER_BLOCKS_VERSION', '0.1.16' );
 "version": "0.1.16",
 ```
 
-### Build
+### Manual Build
 
 Manually prepare the release:
 
@@ -124,7 +122,7 @@ Manually prepare the release:
 
 Ensure that these files are committed to the repository, as they are essential components to be incorporated into the upcoming release.
 
-### Final Steps
+### Final Manual Steps
 
 1. Commit all changes and push them to the repository.
 
