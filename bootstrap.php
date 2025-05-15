@@ -4,7 +4,7 @@ namespace NewfoldLabs\WP\Module\Patterns;
 
 // Set Global Constants
 if ( ! defined( 'NFD_WONDER_BLOCKS_VERSION' ) ) {
-	define( 'NFD_WONDER_BLOCKS_VERSION', '2.9.3' );
+	define( 'NFD_WONDER_BLOCKS_VERSION', '2.9.4' );
 }
 if ( ! defined( 'NFD_WONDER_BLOCKS_DIR' ) ) {
 	define( 'NFD_WONDER_BLOCKS_DIR', __DIR__ );
