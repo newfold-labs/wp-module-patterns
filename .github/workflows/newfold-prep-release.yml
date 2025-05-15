@@ -30,7 +30,7 @@ jobs:
   prep-release:
     name: Prepare Release
     needs: setup
-    uses: newfold-labs/workflows/.github/workflows/reusable-module-prep-release.yml@main
+    uses: newfold-labs/workflows/.github/workflows/reusable-module-prep-release.yml@fix/npm-version-command-in-module-prep-release
     with:
       module-repo: ${{ github.repository }}
       module-branch: ${{ needs.setup.outputs.branch }}
