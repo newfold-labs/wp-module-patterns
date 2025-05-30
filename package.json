@@ -30,7 +30,7 @@
 		"cssnano": "^7.0.6",
 		"esbuild": "^0.25.2",
 		"eslint": "^9.24.0",
-		"eslint-plugin-prettier": "^5.2.6",
+		"eslint-plugin-prettier": "^5.4.1",
 		"node-fetch": "^3.3.2",
 		"postcss": "^8.5.3",
 		"postcss-cli": "^11.0.1",
