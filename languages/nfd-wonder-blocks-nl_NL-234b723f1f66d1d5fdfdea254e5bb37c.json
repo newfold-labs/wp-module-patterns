@@ -1,7 +1,7 @@
 {
     "translation-revision-date": "2025-02-24 17:32",
     "generator": "WP-CLI\/2.11.0",
-    "source": "build\/2.9.2\/wonder-blocks.js",
+    "source": "build\/2.9.3\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {

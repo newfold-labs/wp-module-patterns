@@ -1,23 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: newfold-labswp-module-staging\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/newfold-labs/wp-module-patterns/issues\n"
-"Last-Translator: \n"
-"Language-Team: Italian\n"
+"Last-Translator: Carlos Rodriguez <carlos.rodriguez@newfold.com>\n"
+"Language-Team: Spanish <es@tp.org.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-24 17:32\n"
-"Language: it_IT\n"
+"PO-Revision-Date: 2025-05-07 15:46+0100\n"
+"Language: es_MX\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: nfd-wonder-blocks\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Crowdin-Project: newfold-labswp-module-staging\n"
-"X-Crowdin-Project-ID: 764889\n"
-"X-Crowdin-Language: it\n"
-"X-Crowdin-File: nfd-wonder-blocks.pot\n"
-"X-Crowdin-File-ID: 58\n"
 
 #: includes/Admin/CTA.php:108
 msgid "WonderBlocks"
@@ -25,146 +20,146 @@ msgstr "WonderBlocks"
 
 #: includes/Admin/CTA.php:111
 msgid "Show WonderBlocks Button"
-msgstr "Mostra Pulsante WonderBlocks"
+msgstr "Mostrar botón WonderBlocks"
 
 #. translators: %1$s: opening anchor tag, %2$s: closing anchor tag
 #: includes/Admin/CTA.php:206
 msgctxt "Button label"
 msgid "%1$sAdd With WonderBlocks%2$s"
-msgstr "%1$sAggiungi Con WonderBlocks%2$s"
+msgstr "%1$sAñadir con WonderBlocks%2$s"
 
 #: includes/Api/Controllers/EventsController.php:42
 msgid "Request does not contain an array of events."
-msgstr "La richiesta non contiene un array di eventi."
+msgstr "La solicitud no contiene una matriz de eventos."
 
 #: includes/Api/Controllers/EventsController.php:65
 msgid "Some events failed."
-msgstr "Alcuni eventi sono falliti."
+msgstr "Algunos eventos fallaron."
 
 #: includes/Api/Controllers/EventsController.php:89
 msgid "Event action"
-msgstr "Azione evento"
+msgstr "Acción del evento"
 
 #: includes/Api/Controllers/EventsController.php:96
 msgid "Event category"
-msgstr "Categoria evento"
+msgstr "Categoría del evento"
 
 #: includes/Api/Controllers/EventsController.php:102
 msgid "Event data"
-msgstr "Dati evento"
+msgstr "Datos del evento"
 
 #: includes/Api/Controllers/FavoritesController.php:38
 #: includes/Api/Controllers/FavoritesController.php:64
 msgid "Invalid request"
-msgstr "Richiesta non valida"
+msgstr "Solicitud no válida"
 
 #: includes/BlockStyles.php:22
 #: build/2.9.3/wonder-blocks.js:1
 msgid "White"
-msgstr "Bianco"
+msgstr "Blanco"
 
 #: includes/BlockStyles.php:26
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Light"
-msgstr "Chiaro"
+msgstr "Claro"
 
 #: includes/BlockStyles.php:30
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Dark"
-msgstr "Scuro"
+msgstr "Oscuro"
 
 #: includes/BlockStyles.php:34
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Darker"
-msgstr "Più Scuro"
+msgstr "Oscuro"
 
 #: includes/BlockStyles.php:38
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Primary"
-msgstr "Principale"
+msgstr "Principal"
 
 #: includes/Library/Categories.php:42
 #: includes/Library/Items.php:38
 msgid "Error fetching data from the platform."
-msgstr "Errore nel recupero dei dati dalla piattaforma."
+msgstr "Error obteniendo datos de la plataforma."
 
 #: includes/Library/Events.php:61
 msgid "Bad event structure/value."
-msgstr "Struttura dell'evento/valore errato."
+msgstr "Estructura o valor de evento incorrectos."
 
 #: includes/Library/UsageTags.php:20
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Layout"
-msgstr "Layout"
+msgstr "Diseño"
 
 #: includes/Library/UsageTags.php:24
 msgid "Content"
-msgstr "Contenuto"
+msgstr "Contenido"
 
 #: includes/Library/UsageTags.php:28
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Info"
-msgstr "Informazioni"
+msgstr "Info"
 
 #: includes/Library/UsageTags.php:32
 msgid "Commerce"
-msgstr "Commercio"
+msgstr "Comercio"
 
 #: includes/Library/UsageTags.php:36
 msgid "Marketing"
-msgstr "Marketing"
+msgstr "Mercadeo"
 
 #: includes/Library/UsageTags.php:40
 msgid "Interactive"
-msgstr "Interattivo"
+msgstr "Interactivo"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Gallery Patterns"
-msgstr "Modelli Galleria"
+msgstr "Patrones de Galería"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Gallery patterns."
-msgstr "Aggiungi modelli di galleria."
+msgstr "Añadir patrones de galería."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "images"
-msgstr "immagini"
+msgstr "imágenes"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "photos"
-msgstr "foto"
+msgstr "fotos"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "photography"
-msgstr "fotografia"
+msgstr "fotografía"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Blog Patterns"
-msgstr "Modelli Blog"
+msgstr "Patrones del Blog"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Blog patterns."
-msgstr "Aggiungi modelli Blog."
+msgstr "Añadir patrones de blog."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "articles"
-msgstr "articoli"
+msgstr "artículos"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "posts"
-msgstr "post"
+msgstr "mensajes"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "news"
-msgstr "news"
+msgstr "noticias"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Call to Action Patterns"
-msgstr "Modelli di chiamata ad azione"
+msgstr "Llamar a patrones de acción"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Call to Action patterns."
-msgstr "Aggiungi modelli di chiamata all'azione."
+msgstr "Añadir patrones de Llamada a Acción."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "cta"
@@ -172,55 +167,55 @@ msgstr "cta"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "conversion"
-msgstr "conversione"
+msgstr "conversión"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "button"
-msgstr "pulsante"
+msgstr "botón"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "announcement"
-msgstr "annuncio"
+msgstr "anuncio"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "FAQ Patterns"
-msgstr "Modelli FAQ"
+msgstr "Patrones FAQ"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add FAQ patterns."
-msgstr "Aggiungi modelli FAQ."
+msgstr "Añadir patrones FAQ."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "frequently asked questions"
-msgstr "domande frequenti"
+msgstr "preguntas frecuentes"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Features Patterns"
-msgstr "Caratteristiche Modelli"
+msgstr "Patrones de características"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Features patterns."
-msgstr "Aggiungi modelli di funzionalità."
+msgstr "Añadir patrones de características."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "columns"
-msgstr "colonne"
+msgstr "columnas"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "about"
-msgstr "about"
+msgstr "sobre"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Form Patterns"
-msgstr "Modelli Di Modulo"
+msgstr "Patrones de Forma"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Form patterns."
-msgstr "Aggiungi modelli di modulo."
+msgstr "Añadir patrones."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "form"
-msgstr "modulo"
+msgstr "forma"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "email"
@@ -232,23 +227,23 @@ msgstr "CRM"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "contact"
-msgstr "contatto"
+msgstr "contacto"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Heading Patterns"
-msgstr "Motivi Di Intestazione"
+msgstr "Patrones de rumbo"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Heading patterns."
-msgstr "Aggiungi modelli di intestazione."
+msgstr "Añadir patrones de encabezado."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "title"
-msgstr "titolo"
+msgstr "título"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "headline"
-msgstr "headline"
+msgstr "encabezado"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "tagline"
@@ -256,15 +251,15 @@ msgstr "tagline"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "text"
-msgstr "testo"
+msgstr "texto"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Hero Patterns"
-msgstr "Modelli Eroe"
+msgstr "Patrones del héroe"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Hero patterns."
-msgstr "Aggiungi modelli eroe."
+msgstr "Añadir patrones de héroe."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "banner"
@@ -272,79 +267,79 @@ msgstr "banner"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "image slider"
-msgstr "cursore immagine"
+msgstr "deslizador de imagen"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "homepage"
-msgstr "homepage"
+msgstr "página de inicio"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Pricing Table Patterns"
-msgstr "Modelli Tabella Prezzi"
+msgstr "Tablas de precios"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Pricing Table patterns."
-msgstr "Aggiungi modelli tabella prezzi."
+msgstr "Añadir patrones de Tabla de Precios."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "plans"
-msgstr "piani"
+msgstr "planes"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "comparison"
-msgstr "confronto"
+msgstr "comparación"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "packages"
-msgstr "pacchetti"
+msgstr "paquetes"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Menu Patterns"
-msgstr "Motivi Menu"
+msgstr "Patrones de menú"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Menu patterns."
-msgstr "Aggiungi modelli di menu."
+msgstr "Añadir patrones de menú."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "restaurant"
-msgstr "ristorante"
+msgstr "restaurante"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "cafe"
-msgstr "cafe"
+msgstr "café"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "coffee"
-msgstr "caffè"
+msgstr "café"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "catering"
-msgstr "catering"
+msgstr "comida"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "food"
-msgstr "cibo"
+msgstr "comida"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "recipe"
-msgstr "ricetta"
+msgstr "receta"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Team Patterns"
-msgstr "Modelli Squadra"
+msgstr "Patrones de Equipo"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Team patterns."
-msgstr "Aggiungi modelli di squadra."
+msgstr "Añadir patrones de equipo."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "employees"
-msgstr "dipendenti"
+msgstr "empleados"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "members"
-msgstr "membri"
+msgstr "miembros"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "profiles"
@@ -352,39 +347,39 @@ msgstr "profiles"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Testimonial Patterns"
-msgstr "Modelli Testimonial"
+msgstr "Patrones de testimonio"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Testimonial patterns."
-msgstr "Aggiungi modelli di Testimonianza."
+msgstr "Añadir patrones de testimonio."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "reviews"
-msgstr "recensioni"
+msgstr "comentarios"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "feedback"
-msgstr "feedback"
+msgstr "comentarios"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "ratings"
-msgstr "valutazioni"
+msgstr "calificaciones"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Text Patterns"
-msgstr "Schemi Di Testo"
+msgstr "Patrones de texto"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Text patterns."
-msgstr "Aggiungi modelli di testo."
+msgstr "Añadir patrones de texto."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "highlight"
-msgstr "evidenziazione"
+msgstr "destacar"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "write"
-msgstr "scrivi"
+msgstr "escribir"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "format"
@@ -392,15 +387,15 @@ msgstr "formato"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "rating"
-msgstr "valutazione"
+msgstr "puntuación"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Header Patterns"
-msgstr "Motivi Intestazione"
+msgstr "Patrones de cabecera"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Header patterns."
-msgstr "Aggiungi modelli di intestazione."
+msgstr "Añadir patrones de cabecera."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "navigation"
@@ -408,19 +403,19 @@ msgstr "navigation"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Footer Patterns"
-msgstr "Modelli A Piè Di Pagina"
+msgstr "Patrones de pie de página"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Footer patterns."
-msgstr "Aggiungi modelli a piè di pagina."
+msgstr "Añadir patrones de pie de página."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Product Patterns"
-msgstr "Modelli Di Prodotto"
+msgstr "Patrones de producto"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Add Product patterns."
-msgstr "Aggiungi modelli di prodotto."
+msgstr "Añadir patrones de producto."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "woocommerce"
@@ -428,43 +423,43 @@ msgstr "woocommerce"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "My Favorite Patterns"
-msgstr "I Miei Modelli Preferiti"
+msgstr "Mis patrones favoritos"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "A collection of patterns you've selected."
-msgstr "Una raccolta di modelli che hai selezionato."
+msgstr "Una colección de patrones que has seleccionado."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "liked"
-msgstr "piaciuto"
+msgstr "le gustó"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "saved"
-msgstr "salvato"
+msgstr "guardado"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "bookmarked"
-msgstr "segnalibro"
+msgstr "marcados"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "starred"
-msgstr "stellato"
+msgstr "protagonizado"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Default"
-msgstr "Predefinito"
+msgstr "Por defecto"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Arrow"
-msgstr "Freccia"
+msgstr "Flecha"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Ellipse"
-msgstr "Ellisse"
+msgstr "Ellipse"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Rounded"
-msgstr "Arrotondato"
+msgstr "Redondeado"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Slant"
@@ -476,7 +471,7 @@ msgstr "Slant Invert"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Triangle"
-msgstr "Triangolo"
+msgstr "Triángulo"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Zigzag"
@@ -484,51 +479,51 @@ msgstr "Zigzag"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "None"
-msgstr "Nessuno"
+msgstr "Ninguna"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Fade In Bottom"
-msgstr "Dissolvenza In Basso"
+msgstr "Desvanecer al principio"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Fade In Top Short"
-msgstr "Dissolvenza In Alto Breve"
+msgstr "Desvanecer en la parte superior"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Fade In Right Short"
-msgstr "Dissolvenza A Destra Breve"
+msgstr "Fundir en el corto derecho"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Fade In Bottom Short"
-msgstr "Dissolvenza In Basso Breve"
+msgstr "Desvanecer en la parte inferior"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Fade In Left Short"
-msgstr "Dissolvenza A Sinistra Breve"
+msgstr "Desvanecer en la izquierda"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Twist In"
-msgstr "Twist In"
+msgstr "Retorno en"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Zoom In"
-msgstr "Zoom Avanti"
+msgstr "Acercar en"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Zoom In Short"
-msgstr "Zoom Corto"
+msgstr "Acercar en corto"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Reveal Right"
-msgstr "Rivela A Destra"
+msgstr "Revelar Derecho"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "50ms"
-msgstr "50ms"
+msgstr "50 m"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "150ms"
-msgstr "150ms"
+msgstr "150 ms"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "300ms"
@@ -536,7 +531,7 @@ msgstr "300ms"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "450ms"
-msgstr "450ms"
+msgstr "450 ms"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "600ms"
@@ -556,7 +551,7 @@ msgstr "1050ms"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "1200ms"
-msgstr "1200ms"
+msgstr "1200 ms"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "1350ms"
@@ -568,241 +563,241 @@ msgstr "1500ms"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Dots"
-msgstr "Punti"
+msgstr "Puntos"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Grid"
-msgstr "Griglia"
+msgstr "Rejilla"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Grid 2"
-msgstr "Griglia 2"
+msgstr "Rejilla 2"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Grid 3"
-msgstr "Griglia 3"
+msgstr "Rejilla 3"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Grid Perspective"
-msgstr "Prospettiva Griglia"
+msgstr "Rejilla Perspectiva"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Lines"
-msgstr "Linee"
+msgstr "Líneas"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Lines 2"
-msgstr "Linee 2"
+msgstr "Líneas 2"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Section Divider"
-msgstr "Divisore Di Sezione"
+msgstr "Sección Divider"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Section Theme Color"
-msgstr "Sezione Tema Colore"
+msgstr "Color del tema"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "This feature is now located in the"
-msgstr "Questa funzione si trova ora nel"
+msgstr "Esta característica se encuentra ahora en el"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Block Styles"
-msgstr "Blocca Stili"
+msgstr "Estilos del bloque"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "section."
-msgstr "sezione."
+msgstr "sección."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Section Background Effect"
-msgstr "Effetto Sfondo Sezione"
+msgstr "Efecto de fondo de sección"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Entrance Animations"
-msgstr "Animazioni Di Ingresso"
+msgstr "Animaciones de entrada"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Animation"
-msgstr "Animazione"
+msgstr "Animación"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Delay"
-msgstr "Ritardo"
+msgstr "Retraso"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Back to Patterns"
-msgstr "Torna ai motivi"
+msgstr "Volver a Patrones"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Syncing..."
-msgstr "Sincronizzazione..."
+msgstr "Sincronizando..."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Sync Now"
-msgstr "Sincronizza Ora"
+msgstr "Sincronizar ahora"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
-msgstr "Libreria di modelli e modelli sincronizza automaticamente una volta al giorno. Se si desidera aggiornare manualmente la libreria, è possibile farlo premendo il pulsante per ottenere i disegni più recenti."
+msgstr "La biblioteca de patrones y plantillas se sincroniza automáticamente una vez al día. Si desea actualizar manualmente la biblioteca, puede hacerlo pulsando el botón para obtener los diseños más recientes."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Failed to install & activate plugins. Please try again."
-msgstr "Impossibile installare e attivare i plugin. Per favore riprova."
+msgstr "Error al instalar y activar los plugins. Por favor, inténtalo de nuevo."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Installing..."
-msgstr "Installazione..."
+msgstr "Instalando..."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Install now"
-msgstr "Installa ora"
+msgstr "Instalar ahora"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "WordPress Plugins Required"
-msgstr "Richiesti Plugin WordPress"
+msgstr "Plugins WordPress requeridos"
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "No plugins required."
-msgstr "Nessun plugin richiesto."
+msgstr "No se requieren plugins."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Requires %s."
-msgstr "Richiede %s."
+msgstr "Requiere %s."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Requires %s and %s."
-msgstr "Richiede %s e %s."
+msgstr "Requiere %s y %s."
 
 #: build/2.9.3/wonder-blocks.js:1
 msgid "Maybe later"
-msgstr "Forse più tardi"
+msgstr "Tal vez más tarde"
 
 #. translators: %s is the pattern title
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Block pattern \"%s\" inserted."
-msgstr "Blocco modello \"%s\" inserito."
+msgstr "Se ha insertado el patrón \"%s\"."
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Failed to insert block pattern. Please try again."
-msgstr "Impossibile inserire il modello di blocco. Riprova."
+msgstr "Error al insertar el patrón de bloque. Por favor, inténtalo de nuevo."
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Added to favorites"
-msgstr "Aggiunto ai preferiti"
+msgstr "Añadido a favoritos"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Add to favorites"
-msgstr "Aggiungi ai preferiti"
+msgstr "Añadir a favoritos"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Remove from Favorites"
-msgstr "Rimuovi dai Preferiti"
+msgstr "Eliminar de Favoritos"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Add pattern to page"
-msgstr "Aggiungi sequenza alla pagina"
+msgstr "Añadir patrón a la página"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "support team"
-msgstr "team di supporto"
+msgstr "equipo de soporte"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
-msgstr "Fai clic su %s sui tuoi modelli e modelli preferiti e usati di frequente per un rapido accesso."
+msgstr "Haz clic en %s en tus patrones y plantillas favoritos y utilizados con frecuencia para un acceso rápido."
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Sorry, we couldn't find any results for that. Please try a different search term."
-msgstr "Siamo spiacenti, non abbiamo trovato alcun risultato. Prova con un termine di ricerca diverso."
+msgstr "Lo sentimos, no hemos podido encontrar ningún resultado para eso. Por favor, prueba con un término de búsqueda diferente."
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Sort By: "
-msgstr "Ordina Per: "
+msgstr "Ordenar por: "
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Sort By"
-msgstr "Ordina Per"
+msgstr "Ordenar por"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Newest"
-msgstr "Più Recenti"
+msgstr "Más reciente"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Oldest"
-msgstr "Vecchio"
+msgstr "Menos"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Grid View"
-msgstr "Vista Griglia"
+msgstr "Vista de cuadrícula"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "2 columns"
-msgstr "2 colonne"
+msgstr "2 columnas"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "3 columns"
-msgstr "3 colonne"
+msgstr "3 columnas"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "4 columns"
-msgstr "4 colonne"
+msgstr "4 columnas"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "Loading…"
-msgstr "Caricamento…"
+msgstr "Cargando…"
 
 #: build/2.9.3/wonder-blocks.js:4
 msgid "One moment while we load content tailored for your site."
-msgstr "Un momento mentre caricamo contenuti su misura per il tuo sito."
+msgstr "Un momento mientras cargamos contenido adaptado a su sitio."
 
 #. translators: %s: brand name - 'WonderBlocks'.
 #: build/2.9.3/wonder-blocks.js:7
 msgid "%s needs the latest version of WordPress, please <a>update your site</a>."
-msgstr "%s ha bisogno dell'ultima versione di WordPress, per favore <a>aggiorna il tuo sito</a>."
+msgstr "%s necesita la última versión de WordPress, por favor <a>actualice su sitio</a>."
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Search"
-msgstr "Cerca"
+msgstr "Buscar"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Favorites"
-msgstr "Preferiti"
+msgstr "Favoritos"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "WonderBlocks Menu"
-msgstr "Menu WonderBlocks"
+msgstr "Menú WonderBlocks"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "About"
-msgstr "Informazioni"
+msgstr "Acerca de"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Close dialog"
-msgstr "Chiudi finestra"
+msgstr "Cerrar diálogo"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Failed to load data."
-msgstr "Impossibile caricare i dati."
+msgstr "Error al cargar los datos."
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Categories"
-msgstr "Categorie"
+msgstr "Categorías"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Usage"
-msgstr "Utilizzo"
+msgstr "Uso"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Select a category"
-msgstr "Seleziona una categoria"
+msgstr "Seleccione una categoría"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Patterns"
-msgstr "Motivi"
+msgstr "Patrones"
 
 #: build/2.9.3/wonder-blocks.js:7
 msgid "Templates"
-msgstr "Modelli"
+msgstr "Plantillas"
 
 #: build/2.9.3/blocks/block.json
 msgctxt "block title"
@@ -812,19 +807,19 @@ msgstr "WonderBlocks"
 #: build/2.9.3/blocks/block.json
 msgctxt "block description"
 msgid "Add patterns and page templates tailored for your site."
-msgstr "Aggiungi modelli e modelli di pagina su misura per il tuo sito."
+msgstr "Añade patrones y plantillas de página adaptadas a tu sitio."
 
 #: build/2.9.3/blocks/block.json
 msgctxt "block keyword"
 msgid "template"
-msgstr "modello"
+msgstr "plantilla"
 
 #: build/2.9.3/blocks/block.json
 msgctxt "block keyword"
 msgid "patterns"
-msgstr "modelli"
+msgstr "patrones"
 
 #: build/2.9.3/blocks/block.json
 msgctxt "block keyword"
 msgid "blocks"
-msgstr "blocchi"
+msgstr "bloques"

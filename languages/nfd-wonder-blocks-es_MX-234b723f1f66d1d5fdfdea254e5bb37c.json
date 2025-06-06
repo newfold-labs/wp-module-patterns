@@ -1,13 +1,13 @@
 {
-    "translation-revision-date": "2025-02-24 17:32",
+    "translation-revision-date": "2025-05-07 15:46+0100",
     "generator": "WP-CLI\/2.11.0",
-    "source": "build\/2.9.2\/wonder-blocks.js",
+    "source": "build\/2.9.3\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "es_ES",
+                "lang": "es_MX",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
@@ -401,7 +401,7 @@
                 "Estilos del bloque"
             ],
             "section.": [
-                "."
+                "secci\u00f3n."
             ],
             "Section Background Effect": [
                 "Efecto de fondo de secci\u00f3n"

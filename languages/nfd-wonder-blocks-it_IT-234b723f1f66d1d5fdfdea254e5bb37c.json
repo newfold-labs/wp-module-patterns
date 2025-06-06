@@ -1,0 +1,549 @@
+{
+    "translation-revision-date": "2025-02-24 17:32",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "build\/2.9.3\/wonder-blocks.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "it_IT",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "White": [
+                "Bianco"
+            ],
+            "Light": [
+                "Chiaro"
+            ],
+            "Dark": [
+                "Scuro"
+            ],
+            "Darker": [
+                "Pi\u00f9 Scuro"
+            ],
+            "Primary": [
+                "Principale"
+            ],
+            "Layout": [
+                "Layout"
+            ],
+            "Info": [
+                "Informazioni"
+            ],
+            "Gallery Patterns": [
+                "Modelli Galleria"
+            ],
+            "Add Gallery patterns.": [
+                "Aggiungi modelli di galleria."
+            ],
+            "images": [
+                "immagini"
+            ],
+            "photos": [
+                "foto"
+            ],
+            "photography": [
+                "fotografia"
+            ],
+            "Blog Patterns": [
+                "Modelli Blog"
+            ],
+            "Add Blog patterns.": [
+                "Aggiungi modelli Blog."
+            ],
+            "articles": [
+                "articoli"
+            ],
+            "posts": [
+                "post"
+            ],
+            "news": [
+                "news"
+            ],
+            "Call to Action Patterns": [
+                "Modelli di chiamata ad azione"
+            ],
+            "Add Call to Action patterns.": [
+                "Aggiungi modelli di chiamata all'azione."
+            ],
+            "cta": [
+                "cta"
+            ],
+            "conversion": [
+                "conversione"
+            ],
+            "button": [
+                "pulsante"
+            ],
+            "announcement": [
+                "annuncio"
+            ],
+            "FAQ Patterns": [
+                "Modelli FAQ"
+            ],
+            "Add FAQ patterns.": [
+                "Aggiungi modelli FAQ."
+            ],
+            "frequently asked questions": [
+                "domande frequenti"
+            ],
+            "Features Patterns": [
+                "Caratteristiche Modelli"
+            ],
+            "Add Features patterns.": [
+                "Aggiungi modelli di funzionalit\u00e0."
+            ],
+            "columns": [
+                "colonne"
+            ],
+            "about": [
+                "about"
+            ],
+            "Form Patterns": [
+                "Modelli Di Modulo"
+            ],
+            "Add Form patterns.": [
+                "Aggiungi modelli di modulo."
+            ],
+            "form": [
+                "modulo"
+            ],
+            "email": [
+                "email"
+            ],
+            "CRM": [
+                "CRM"
+            ],
+            "contact": [
+                "contatto"
+            ],
+            "Heading Patterns": [
+                "Motivi Di Intestazione"
+            ],
+            "Add Heading patterns.": [
+                "Aggiungi modelli di intestazione."
+            ],
+            "title": [
+                "titolo"
+            ],
+            "headline": [
+                "headline"
+            ],
+            "tagline": [
+                "tagline"
+            ],
+            "text": [
+                "testo"
+            ],
+            "Hero Patterns": [
+                "Modelli Eroe"
+            ],
+            "Add Hero patterns.": [
+                "Aggiungi modelli eroe."
+            ],
+            "banner": [
+                "banner"
+            ],
+            "image slider": [
+                "cursore immagine"
+            ],
+            "homepage": [
+                "homepage"
+            ],
+            "Pricing Table Patterns": [
+                "Modelli Tabella Prezzi"
+            ],
+            "Add Pricing Table patterns.": [
+                "Aggiungi modelli tabella prezzi."
+            ],
+            "plans": [
+                "piani"
+            ],
+            "comparison": [
+                "confronto"
+            ],
+            "packages": [
+                "pacchetti"
+            ],
+            "Menu Patterns": [
+                "Motivi Menu"
+            ],
+            "Add Menu patterns.": [
+                "Aggiungi modelli di menu."
+            ],
+            "restaurant": [
+                "ristorante"
+            ],
+            "cafe": [
+                "cafe"
+            ],
+            "coffee": [
+                "caff\u00e8"
+            ],
+            "catering": [
+                "catering"
+            ],
+            "food": [
+                "cibo"
+            ],
+            "recipe": [
+                "ricetta"
+            ],
+            "Team Patterns": [
+                "Modelli Squadra"
+            ],
+            "Add Team patterns.": [
+                "Aggiungi modelli di squadra."
+            ],
+            "employees": [
+                "dipendenti"
+            ],
+            "members": [
+                "membri"
+            ],
+            "profiles": [
+                "profiles"
+            ],
+            "Testimonial Patterns": [
+                "Modelli Testimonial"
+            ],
+            "Add Testimonial patterns.": [
+                "Aggiungi modelli di Testimonianza."
+            ],
+            "reviews": [
+                "recensioni"
+            ],
+            "feedback": [
+                "feedback"
+            ],
+            "ratings": [
+                "valutazioni"
+            ],
+            "Text Patterns": [
+                "Schemi Di Testo"
+            ],
+            "Add Text patterns.": [
+                "Aggiungi modelli di testo."
+            ],
+            "highlight": [
+                "evidenziazione"
+            ],
+            "write": [
+                "scrivi"
+            ],
+            "format": [
+                "formato"
+            ],
+            "rating": [
+                "valutazione"
+            ],
+            "Header Patterns": [
+                "Motivi Intestazione"
+            ],
+            "Add Header patterns.": [
+                "Aggiungi modelli di intestazione."
+            ],
+            "navigation": [
+                "navigation"
+            ],
+            "Footer Patterns": [
+                "Modelli A Pi\u00e8 Di Pagina"
+            ],
+            "Add Footer patterns.": [
+                "Aggiungi modelli a pi\u00e8 di pagina."
+            ],
+            "Product Patterns": [
+                "Modelli Di Prodotto"
+            ],
+            "Add Product patterns.": [
+                "Aggiungi modelli di prodotto."
+            ],
+            "woocommerce": [
+                "woocommerce"
+            ],
+            "My Favorite Patterns": [
+                "I Miei Modelli Preferiti"
+            ],
+            "A collection of patterns you've selected.": [
+                "Una raccolta di modelli che hai selezionato."
+            ],
+            "liked": [
+                "piaciuto"
+            ],
+            "saved": [
+                "salvato"
+            ],
+            "bookmarked": [
+                "segnalibro"
+            ],
+            "starred": [
+                "stellato"
+            ],
+            "Default": [
+                "Predefinito"
+            ],
+            "Arrow": [
+                "Freccia"
+            ],
+            "Ellipse": [
+                "Ellisse"
+            ],
+            "Rounded": [
+                "Arrotondato"
+            ],
+            "Slant": [
+                "Slant"
+            ],
+            "Slant Invert": [
+                "Slant Invert"
+            ],
+            "Triangle": [
+                "Triangolo"
+            ],
+            "Zigzag": [
+                "Zigzag"
+            ],
+            "None": [
+                "Nessuno"
+            ],
+            "Fade In Bottom": [
+                "Dissolvenza In Basso"
+            ],
+            "Fade In Top Short": [
+                "Dissolvenza In Alto Breve"
+            ],
+            "Fade In Right Short": [
+                "Dissolvenza A Destra Breve"
+            ],
+            "Fade In Bottom Short": [
+                "Dissolvenza In Basso Breve"
+            ],
+            "Fade In Left Short": [
+                "Dissolvenza A Sinistra Breve"
+            ],
+            "Twist In": [
+                "Twist In"
+            ],
+            "Zoom In": [
+                "Zoom Avanti"
+            ],
+            "Zoom In Short": [
+                "Zoom Corto"
+            ],
+            "Reveal Right": [
+                "Rivela A Destra"
+            ],
+            "50ms": [
+                "50ms"
+            ],
+            "150ms": [
+                "150ms"
+            ],
+            "300ms": [
+                "300ms"
+            ],
+            "450ms": [
+                "450ms"
+            ],
+            "600ms": [
+                "600ms"
+            ],
+            "750ms": [
+                "750ms"
+            ],
+            "900ms": [
+                "900ms"
+            ],
+            "1050ms": [
+                "1050ms"
+            ],
+            "1200ms": [
+                "1200ms"
+            ],
+            "1350ms": [
+                "1350ms"
+            ],
+            "1500ms": [
+                "1500ms"
+            ],
+            "Dots": [
+                "Punti"
+            ],
+            "Grid": [
+                "Griglia"
+            ],
+            "Grid 2": [
+                "Griglia 2"
+            ],
+            "Grid 3": [
+                "Griglia 3"
+            ],
+            "Grid Perspective": [
+                "Prospettiva Griglia"
+            ],
+            "Lines": [
+                "Linee"
+            ],
+            "Lines 2": [
+                "Linee 2"
+            ],
+            "Section Divider": [
+                "Divisore Di Sezione"
+            ],
+            "Section Theme Color": [
+                "Sezione Tema Colore"
+            ],
+            "This feature is now located in the": [
+                "Questa funzione si trova ora nel"
+            ],
+            "Block Styles": [
+                "Blocca Stili"
+            ],
+            "section.": [
+                "sezione."
+            ],
+            "Section Background Effect": [
+                "Effetto Sfondo Sezione"
+            ],
+            "Entrance Animations": [
+                "Animazioni Di Ingresso"
+            ],
+            "Animation": [
+                "Animazione"
+            ],
+            "Delay": [
+                "Ritardo"
+            ],
+            "Back to Patterns": [
+                "Torna ai motivi"
+            ],
+            "Syncing...": [
+                "Sincronizzazione..."
+            ],
+            "Sync Now": [
+                "Sincronizza Ora"
+            ],
+            "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
+                "Libreria di modelli e modelli sincronizza automaticamente una volta al giorno. Se si desidera aggiornare manualmente la libreria, \u00e8 possibile farlo premendo il pulsante per ottenere i disegni pi\u00f9 recenti."
+            ],
+            "Failed to install & activate plugins. Please try again.": [
+                "Impossibile installare e attivare i plugin. Per favore riprova."
+            ],
+            "Installing...": [
+                "Installazione..."
+            ],
+            "Install now": [
+                "Installa ora"
+            ],
+            "WordPress Plugins Required": [
+                "Richiesti Plugin WordPress"
+            ],
+            "No plugins required.": [
+                "Nessun plugin richiesto."
+            ],
+            "Requires %s.": [
+                "Richiede %s."
+            ],
+            "Requires %s and %s.": [
+                "Richiede %s e %s."
+            ],
+            "Maybe later": [
+                "Forse pi\u00f9 tardi"
+            ],
+            "Block pattern \"%s\" inserted.": [
+                "Blocco modello \"%s\" inserito."
+            ],
+            "Failed to insert block pattern. Please try again.": [
+                "Impossibile inserire il modello di blocco. Riprova."
+            ],
+            "Added to favorites": [
+                "Aggiunto ai preferiti"
+            ],
+            "Add to favorites": [
+                "Aggiungi ai preferiti"
+            ],
+            "Remove from Favorites": [
+                "Rimuovi dai Preferiti"
+            ],
+            "Add pattern to page": [
+                "Aggiungi sequenza alla pagina"
+            ],
+            "support team": [
+                "team di supporto"
+            ],
+            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
+                "Fai clic su %s sui tuoi modelli e modelli preferiti e usati di frequente per un rapido accesso."
+            ],
+            "Sorry, we couldn't find any results for that. Please try a different search term.": [
+                "Siamo spiacenti, non abbiamo trovato alcun risultato. Prova con un termine di ricerca diverso."
+            ],
+            "Sort By: ": [
+                "Ordina Per: "
+            ],
+            "Sort By": [
+                "Ordina Per"
+            ],
+            "Newest": [
+                "Pi\u00f9 Recenti"
+            ],
+            "Oldest": [
+                "Vecchio"
+            ],
+            "Grid View": [
+                "Vista Griglia"
+            ],
+            "2 columns": [
+                "2 colonne"
+            ],
+            "3 columns": [
+                "3 colonne"
+            ],
+            "4 columns": [
+                "4 colonne"
+            ],
+            "Loading\u2026": [
+                "Caricamento\u2026"
+            ],
+            "One moment while we load content tailored for your site.": [
+                "Un momento mentre caricamo contenuti su misura per il tuo sito."
+            ],
+            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
+                "%s ha bisogno dell'ultima versione di WordPress, per favore <a>aggiorna il tuo sito<\/a>."
+            ],
+            "Search": [
+                "Cerca"
+            ],
+            "Favorites": [
+                "Preferiti"
+            ],
+            "WonderBlocks Menu": [
+                "Menu WonderBlocks"
+            ],
+            "About": [
+                "Informazioni"
+            ],
+            "Close dialog": [
+                "Chiudi finestra"
+            ],
+            "Failed to load data.": [
+                "Impossibile caricare i dati."
+            ],
+            "Categories": [
+                "Categorie"
+            ],
+            "Usage": [
+                "Utilizzo"
+            ],
+            "Select a category": [
+                "Seleziona una categoria"
+            ],
+            "Patterns": [
+                "Motivi"
+            ],
+            "Templates": [
+                "Modelli"
+            ]
+        }
+    }
+}

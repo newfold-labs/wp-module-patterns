@@ -1,113 +1,113 @@
 {
-    "translation-revision-date": "2025-02-24 17:32",
+    "translation-revision-date": "2025-04-25 16:34+0100",
     "generator": "WP-CLI\/2.11.0",
-    "source": "build\/2.9.2\/wonder-blocks.js",
+    "source": "build\/2.9.3\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "de_DE",
+                "lang": "es_ES",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
-                "Wei\u00df"
+                "Blanco"
             ],
             "Light": [
-                "Hell"
+                "Claro"
             ],
             "Dark": [
-                "Dunkel"
+                "Oscuro"
             ],
             "Darker": [
-                "Dunkler"
+                "Oscuro"
             ],
             "Primary": [
-                "Prim\u00e4r"
+                "Principal"
             ],
             "Layout": [
-                "Layout"
+                "Dise\u00f1o"
             ],
             "Info": [
                 "Info"
             ],
             "Gallery Patterns": [
-                "Galeriemuster"
+                "Patrones de Galer\u00eda"
             ],
             "Add Gallery patterns.": [
-                "Galeriemuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de galer\u00eda."
             ],
             "images": [
-                "bilder"
+                "im\u00e1genes"
             ],
             "photos": [
                 "fotos"
             ],
             "photography": [
-                "fotografie"
+                "fotograf\u00eda"
             ],
             "Blog Patterns": [
-                "Blog-Muster"
+                "Patrones del Blog"
             ],
             "Add Blog patterns.": [
-                "Blog-Muster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de blog."
             ],
             "articles": [
-                "artikel"
+                "art\u00edculos"
             ],
             "posts": [
-                "posten"
+                "mensajes"
             ],
             "news": [
-                "neuigkeiten"
+                "noticias"
             ],
             "Call to Action Patterns": [
-                "Aufruf zu Aktionsmustern"
+                "Llamar a patrones de acci\u00f3n"
             ],
             "Add Call to Action patterns.": [
-                "Aufruf zu Aktionsmustern hinzuf\u00fcgen."
+                "A\u00f1adir patrones de Llamada a Acci\u00f3n."
             ],
             "cta": [
                 "cta"
             ],
             "conversion": [
-                "umwandeln"
+                "conversi\u00f3n"
             ],
             "button": [
-                "button"
+                "bot\u00f3n"
             ],
             "announcement": [
-                "ank\u00fcndigung"
+                "anuncio"
             ],
             "FAQ Patterns": [
-                "FAQ-Muster"
+                "Patrones FAQ"
             ],
             "Add FAQ patterns.": [
-                "FAQ-Muster hinzuf\u00fcgen."
+                "A\u00f1adir patrones FAQ."
             ],
             "frequently asked questions": [
-                "H\u00e4ufig gestellte Fragen"
+                "preguntas frecuentes"
             ],
             "Features Patterns": [
-                "Merkmalsmuster"
+                "Patrones de caracter\u00edsticas"
             ],
             "Add Features patterns.": [
-                "Merkmalsmuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de caracter\u00edsticas."
             ],
             "columns": [
-                "spalten"
+                "columnas"
             ],
             "about": [
-                "\u00fcber"
+                "sobre"
             ],
             "Form Patterns": [
-                "Formularmuster"
+                "Patrones de Forma"
             ],
             "Add Form patterns.": [
-                "Formularmuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones."
             ],
             "form": [
-                "form"
+                "forma"
             ],
             "email": [
                 "email"
@@ -116,181 +116,181 @@
                 "CRM"
             ],
             "contact": [
-                "kontakt"
+                "contacto"
             ],
             "Heading Patterns": [
-                "Richtungsmuster"
+                "Patrones de rumbo"
             ],
             "Add Heading patterns.": [
-                "\u00dcberschriftenmuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de encabezado."
             ],
             "title": [
-                "titel"
+                "t\u00edtulo"
             ],
             "headline": [
-                "\u00fcberschrift"
+                "encabezado"
             ],
             "tagline": [
                 "tagline"
             ],
             "text": [
-                "text"
+                "texto"
             ],
             "Hero Patterns": [
-                "Heldenmuster"
+                "Patrones del h\u00e9roe"
             ],
             "Add Hero patterns.": [
-                "Heldenmuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de h\u00e9roe."
             ],
             "banner": [
                 "banner"
             ],
             "image slider": [
-                "bild-Slider"
+                "deslizador de imagen"
             ],
             "homepage": [
-                "webseite"
+                "p\u00e1gina de inicio"
             ],
             "Pricing Table Patterns": [
-                "Preistabellen-Muster"
+                "Tablas de precios"
             ],
             "Add Pricing Table patterns.": [
-                "Preistabellen-Muster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de Tabla de Precios."
             ],
             "plans": [
                 "planes"
             ],
             "comparison": [
-                "vergleichen"
+                "comparaci\u00f3n"
             ],
             "packages": [
-                "pakete"
+                "paquetes"
             ],
             "Menu Patterns": [
-                "Men\u00fc-Muster"
+                "Patrones de men\u00fa"
             ],
             "Add Menu patterns.": [
-                "Men\u00fcmuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de men\u00fa."
             ],
             "restaurant": [
-                "restaurant"
+                "restaurante"
             ],
             "cafe": [
                 "caf\u00e9"
             ],
             "coffee": [
-                "kaffee"
+                "caf\u00e9"
             ],
             "catering": [
-                "verpflegung"
+                "comida"
             ],
             "food": [
-                "essen"
+                "comida"
             ],
             "recipe": [
-                "rezept"
+                "receta"
             ],
             "Team Patterns": [
-                "Team-Muster"
+                "Patrones de Equipo"
             ],
             "Add Team patterns.": [
-                "Teammuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de equipo."
             ],
             "employees": [
-                "Mitarbeiter"
+                "empleados"
             ],
             "members": [
-                "Mitglieder"
+                "miembros"
             ],
             "profiles": [
                 "profiles"
             ],
             "Testimonial Patterns": [
-                "Referenzmuster"
+                "Patrones de testimonio"
             ],
             "Add Testimonial patterns.": [
-                "Testimoniale Muster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de testimonio."
             ],
             "reviews": [
-                "rezensionen"
+                "comentarios"
             ],
             "feedback": [
-                "rezension"
+                "comentarios"
             ],
             "ratings": [
-                "bewertungen"
+                "calificaciones"
             ],
             "Text Patterns": [
-                "Text-Muster"
+                "Patrones de texto"
             ],
             "Add Text patterns.": [
-                "Textmuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de texto."
             ],
             "highlight": [
-                "hervorheben"
+                "destacar"
             ],
             "write": [
-                "schreiben"
+                "escribir"
             ],
             "format": [
-                "formatieren"
+                "formato"
             ],
             "rating": [
-                "bewertung"
+                "puntuaci\u00f3n"
             ],
             "Header Patterns": [
-                "Header-Muster"
+                "Patrones de cabecera"
             ],
             "Add Header patterns.": [
-                "Header-Muster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de cabecera."
             ],
             "navigation": [
                 "navigation"
             ],
             "Footer Patterns": [
-                "Fu\u00dfzeilenmuster"
+                "Patrones de pie de p\u00e1gina"
             ],
             "Add Footer patterns.": [
-                "F\u00fcge Fu\u00dfzeilenmuster hinzu."
+                "A\u00f1adir patrones de pie de p\u00e1gina."
             ],
             "Product Patterns": [
-                "Produktmuster"
+                "Patrones de producto"
             ],
             "Add Product patterns.": [
-                "Produktmuster hinzuf\u00fcgen."
+                "A\u00f1adir patrones de producto."
             ],
             "woocommerce": [
                 "woocommerce"
             ],
             "My Favorite Patterns": [
-                "Meine Lieblingsmuster"
+                "Mis patrones favoritos"
             ],
             "A collection of patterns you've selected.": [
-                "Eine Sammlung von Mustern, die Sie ausgew\u00e4hlt haben."
+                "Una colecci\u00f3n de patrones que has seleccionado."
             ],
             "liked": [
-                "gef\u00e4llt"
+                "le gust\u00f3"
             ],
             "saved": [
-                "gespeichert"
+                "guardado"
             ],
             "bookmarked": [
-                "markiert"
+                "marcados"
             ],
             "starred": [
-                "markiert"
+                "protagonizado"
             ],
             "Default": [
-                "Standard"
+                "Por defecto"
             ],
             "Arrow": [
-                "Pfeil"
+                "Flecha"
             ],
             "Ellipse": [
                 "Ellipse"
             ],
             "Rounded": [
-                "Abgerundet"
+                "Redondeado"
             ],
             "Slant": [
                 "Slant"
@@ -299,250 +299,250 @@
                 "Slant Invert"
             ],
             "Triangle": [
-                "Dreieck"
+                "Tri\u00e1ngulo"
             ],
             "Zigzag": [
                 "Zigzag"
             ],
             "None": [
-                "Keine"
+                "Ninguna"
             ],
             "Fade In Bottom": [
-                "Unten einblenden"
+                "Desvanecer al principio"
             ],
             "Fade In Top Short": [
-                "Oben kurz einblenden"
+                "Desvanecer en la parte superior"
             ],
             "Fade In Right Short": [
-                "Rechts kurz einblenden"
+                "Fundir en el corto derecho"
             ],
             "Fade In Bottom Short": [
-                "Unten kurz einblenden"
+                "Desvanecer en la parte inferior"
             ],
             "Fade In Left Short": [
-                "Linke Kurze Einblenden"
+                "Desvanecer en la izquierda"
             ],
             "Twist In": [
-                "Twist in"
+                "Retorno en"
             ],
             "Zoom In": [
-                "Vergr\u00f6\u00dfern"
+                "Acercar en"
             ],
             "Zoom In Short": [
-                "Kurze Zoomen"
+                "Acercar en corto"
             ],
             "Reveal Right": [
-                "Rechts offenbaren"
+                "Revelar Derecho"
             ],
             "50ms": [
-                "50 ms"
+                "50 m"
             ],
             "150ms": [
                 "150 ms"
             ],
             "300ms": [
-                "300 ms"
+                "300ms"
             ],
             "450ms": [
-                "450ms"
+                "450 ms"
             ],
             "600ms": [
-                "600 ms"
+                "600ms"
             ],
             "750ms": [
-                "750 ms"
+                "750ms"
             ],
             "900ms": [
                 "900ms"
             ],
             "1050ms": [
-                "1050 ms"
+                "1050ms"
             ],
             "1200ms": [
                 "1200 ms"
             ],
             "1350ms": [
-                "1350 ms"
+                "1350ms"
             ],
             "1500ms": [
                 "1500ms"
             ],
             "Dots": [
-                "Punkte"
+                "Puntos"
             ],
             "Grid": [
-                "Raster"
+                "Rejilla"
             ],
             "Grid 2": [
-                "Raster 2"
+                "Rejilla 2"
             ],
             "Grid 3": [
-                "Raster 3"
+                "Rejilla 3"
             ],
             "Grid Perspective": [
-                "Gitterperspektive"
+                "Rejilla Perspectiva"
             ],
             "Lines": [
-                "Linien"
+                "L\u00edneas"
             ],
             "Lines 2": [
-                "Zeilen 2"
+                "L\u00edneas 2"
             ],
             "Section Divider": [
-                "Abschnittstrennung"
+                "Secci\u00f3n Divider"
             ],
             "Section Theme Color": [
-                "Sektion Theme-Farbe"
+                "Color del tema"
             ],
             "This feature is now located in the": [
-                "Diese Funktion befindet sich jetzt in der"
+                "Esta caracter\u00edstica se encuentra ahora en el"
             ],
             "Block Styles": [
-                "Blockstile"
+                "Estilos del bloque"
             ],
             "section.": [
-                "abschnitt."
+                "secci\u00f3n."
             ],
             "Section Background Effect": [
-                "Sektionshintergrund-Effekt"
+                "Efecto de fondo de secci\u00f3n"
             ],
             "Entrance Animations": [
-                "Eintrittsanimationen"
+                "Animaciones de entrada"
             ],
             "Animation": [
-                "Animation"
+                "Animaci\u00f3n"
             ],
             "Delay": [
-                "Verz\u00f6gerung"
+                "Retraso"
             ],
             "Back to Patterns": [
-                "Zur\u00fcck zu den Mustern"
+                "Volver a Patrones"
             ],
             "Syncing...": [
-                "Synchronisieren..."
+                "Sincronizando..."
             ],
             "Sync Now": [
-                "Jetzt synchronisieren"
+                "Sincronizar ahora"
             ],
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
-                "Muster- & Vorlagenbibliothek synchronisiert automatisch einmal pro Tag. Wenn Sie die Bibliothek manuell aktualisieren m\u00f6chten, k\u00f6nnen Sie dies durch Dr\u00fccken der Schaltfl\u00e4che tun, um die neuesten Designs zu erhalten."
+                "La biblioteca de patrones y plantillas se sincroniza autom\u00e1ticamente una vez al d\u00eda. Si desea actualizar manualmente la biblioteca, puede hacerlo pulsando el bot\u00f3n para obtener los dise\u00f1os m\u00e1s recientes."
             ],
             "Failed to install & activate plugins. Please try again.": [
-                "Fehler beim Installieren und Aktivieren von Plugins. Bitte versuchen Sie es erneut."
+                "Error al instalar y activar los plugins. Por favor, int\u00e9ntalo de nuevo."
             ],
             "Installing...": [
-                "Installieren..."
+                "Instalando..."
             ],
             "Install now": [
-                "Jetzt installieren"
+                "Instalar ahora"
             ],
             "WordPress Plugins Required": [
-                "WordPress-Plugins erforderlich"
+                "Plugins WordPress requeridos"
             ],
             "No plugins required.": [
-                "Keine Plugins erforderlich."
+                "No se requieren plugins."
             ],
             "Requires %s.": [
-                "Erfordert %s."
+                "Requiere %s."
             ],
             "Requires %s and %s.": [
-                "Erfordert %s und %s."
+                "Requiere %s y %s."
             ],
             "Maybe later": [
-                "Vielleicht sp\u00e4ter"
+                "Tal vez m\u00e1s tarde"
             ],
             "Block pattern \"%s\" inserted.": [
-                "Blockmuster \"%s\" eingef\u00fcgt."
+                "Se ha insertado el patr\u00f3n \"%s\"."
             ],
             "Failed to insert block pattern. Please try again.": [
-                "Fehler beim Einf\u00fcgen des Blockmusters. Bitte versuchen Sie es erneut."
+                "Error al insertar el patr\u00f3n de bloque. Por favor, int\u00e9ntalo de nuevo."
             ],
             "Added to favorites": [
-                "Zu Favoriten hinzugef\u00fcgt"
+                "A\u00f1adido a favoritos"
             ],
             "Add to favorites": [
-                "Zu Favoriten hinzuf\u00fcgen"
+                "A\u00f1adir a favoritos"
             ],
             "Remove from Favorites": [
-                "Aus Favoriten entfernen"
+                "Eliminar de Favoritos"
             ],
             "Add pattern to page": [
-                "Muster zur Seite hinzuf\u00fcgen"
+                "A\u00f1adir patr\u00f3n a la p\u00e1gina"
             ],
             "support team": [
-                "unterst\u00fctzungsteam"
+                "equipo de soporte"
             ],
             "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
-                "Klicken Sie auf %s auf Ihre bevorzugten und h\u00e4ufig verwendeten Muster & Vorlagen f\u00fcr einen schnellen Zugriff."
+                "Haz clic en %s en tus patrones y plantillas favoritos y utilizados con frecuencia para un acceso r\u00e1pido."
             ],
             "Sorry, we couldn't find any results for that. Please try a different search term.": [
-                "Leider konnten keine Ergebnisse gefunden werden. Bitte versuchen Sie einen anderen Suchbegriff."
+                "Lo sentimos, no hemos podido encontrar ning\u00fan resultado para eso. Por favor, prueba con un t\u00e9rmino de b\u00fasqueda diferente."
             ],
             "Sort By: ": [
-                "Sortieren nach: "
+                "Ordenar por: "
             ],
             "Sort By": [
-                "Sortieren nach"
+                "Ordenar por"
             ],
             "Newest": [
-                "Neueste"
+                "M\u00e1s reciente"
             ],
             "Oldest": [
-                "\u00c4lteste"
+                "Menos"
             ],
             "Grid View": [
-                "Rasteransicht"
+                "Vista de cuadr\u00edcula"
             ],
             "2 columns": [
-                "2 Spalten"
+                "2 columnas"
             ],
             "3 columns": [
-                "3 Spalten"
+                "3 columnas"
             ],
             "4 columns": [
-                "4 Spalten"
+                "4 columnas"
             ],
             "Loading\u2026": [
-                "Lade\u2026"
+                "Cargando\u2026"
             ],
             "One moment while we load content tailored for your site.": [
-                "Ein Moment, w\u00e4hrend wir Inhalte laden, die auf Ihre Website zugeschnitten sind."
+                "Un momento mientras cargamos contenido adaptado a su sitio."
             ],
             "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
-                "%s ben\u00f6tigt die neueste Version von WordPress, bitte <a>aktualisieren Sie Ihre Website<\/a>."
+                "%s necesita la \u00faltima versi\u00f3n de WordPress, por favor <a>actualice su sitio<\/a>."
             ],
             "Search": [
-                "Suchen"
+                "Buscar"
             ],
             "Favorites": [
-                "Favoriten"
+                "Favoritos"
             ],
             "WonderBlocks Menu": [
-                "WonderBlocks Men\u00fc"
+                "Men\u00fa WonderBlocks"
             ],
             "About": [
-                "\u00dcber"
+                "Acerca de"
             ],
             "Close dialog": [
-                "Schlie\u00dfen-Dialog"
+                "Cerrar di\u00e1logo"
             ],
             "Failed to load data.": [
-                "Fehler beim Laden der Daten."
+                "Error al cargar los datos."
             ],
             "Categories": [
-                "Kategorien"
+                "Categor\u00edas"
             ],
             "Usage": [
-                "Auslastung"
+                "Uso"
             ],
             "Select a category": [
-                "Kategorie ausw\u00e4hlen"
+                "Seleccione una categor\u00eda"
             ],
             "Patterns": [
-                "Muster"
+                "Patrones"
             ],
             "Templates": [
-                "Vorlagen"
+                "Plantillas"
             ]
         }
     }
