@@ -1,41 +1,48 @@
 {
 	"name": "newfold-labs/wp-module-patterns",
-	"description": "WordPress Cloud Patterns",
-	"type": "library",
-	"license": "GPL-2.0-or-later",
-	"authors": [
-		{
-			"name": "Hristina Conjic",
-			"email": "hristina.conjic@newfold.com"
-		}
-	],
-	"repositories": [
-		{
-			"type": "composer",
-			"url": "https://newfold-labs.github.io/satis/",
-			"only": [
-				"newfold-labs/*"
-			]
-		}
-	],
+    "description": "WordPress Cloud Patterns",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Hristina Conjic",
+            "email": "hristina.conjic@newfold.com"
+        }
+    ],
+    "repositories": {
+        "outlandishideas/wpackagist": {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        "0": {
+            "type": "composer",
+            "url": "https://newfold-labs.github.io/satis/",
+            "only": [
+                "newfold-labs/*"
+            ]
+        }
+    },
 	"require": {
 		"newfold-labs/wp-module-data": "^2.6.13",
 		"newfold-labs/wp-module-features": "^1.5",
 		"newfold-labs/wp-module-installer": "^1.6"
 	},
-	"require-dev": {
-		"newfold-labs/wp-php-standards": "^1.2.5",
-		"wp-cli/i18n-command": "^2.6.3"
-	},
-	"autoload": {
-		"psr-4": {
-			"NewfoldLabs\\WP\\Module\\Patterns\\": "includes"
-		},
-		"files": [
-			"bootstrap.php"
-		]
-	},
-	"scripts": {
+    "require-dev": {
+        "newfold-labs/wp-php-standards": "^1.2.5",
+        "wp-cli/i18n-command": "^2.6.3",
+        "johnpbloch/wordpress": "@stable",
+        "lucatume/wp-browser": "*",
+        "phpunit/phpcov": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NewfoldLabs\\WP\\Module\\Patterns\\": "includes"
+        },
+        "files": [
+            "bootstrap.php"
+        ]
+    },
+    "scripts": {
 		"lint": [
 			"vendor/bin/phpcs . --ignore=*/build/* --standard=phpcs.xml -d error_reporting=\"E_ALL&~E_DEPRECATED\""
 		],
@@ -48,18 +55,32 @@
 		"i18n-php": "vendor/bin/wp i18n make-php ./languages",
 		"i18n-json": "find ./languages -name \"*.json\" -exec rm {} \\; && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print",
 		"i18n": [
-		  "@i18n-pot",
-		  "@i18n-po",
-		  "@i18n-php",
-		  "@i18n-json"
-		]
-	},
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
-		},
-		"platform": {
-			"php": "7.3.0"
-		}
-	}
+			"@i18n-pot",
+			"@i18n-po",
+			"@i18n-php",
+			"@i18n-json"
+		],
+        "test": [
+            "codecept run wpunit"
+        ],
+        "test-coverage": [
+            "codecept run wpunit --coverage wpunit.cov",
+            "phpcov merge --php tests/_output/merged.cov --html tests/_output/html tests/_output;",
+            "echo \"open tests/_output/html/index.html\" to view the report"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true,
+            "johnpbloch/wordpress-core-installer": true
+        },
+        "platform": {
+            "php": "7.3.0"
+        }
+    },
+    "scripts-descriptions": {
+        "test": "Run tests.",
+        "test-coverage": "Run tests with coverage, merge coverage and create HTML report."
+    }
 }

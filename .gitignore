@@ -1,7 +1,12 @@
+.DS_Store
+.npmrc
+.vscode
+/node_modules
+/tests/_output
+/tests/_support/_generated
+/wordpress
+/wp-content
+TODO.md
+TODO.txt
 node_modules
 vendor
-.DS_Store
-.vscode
-.npmrc
-TODO.txt
-TODO.md
