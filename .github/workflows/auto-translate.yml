@@ -1,0 +1,28 @@
+name: Auto Translate
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+# Cancels all previous workflow runs for the branch that have not completed.
+concurrency:
+  # The concurrency group contains the workflow name and the branch name.
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  translate:
+    name: 'Trigger Auto-Translate Workflow'
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: newfold-labs/workflows/.github/workflows/auto-translate.yml@main
+    with:
+      text_domain: 'nfd-wonder-blocks'
+    secrets:
+      TRANSLATOR_API_KEY: ${{ secrets.TRANSLATOR_API_KEY }}
+      NEWFOLD_ACCESS_TOKEN: ${{ secrets.NEWFOLD_ACCESS_TOKEN }}
