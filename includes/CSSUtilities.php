@@ -57,9 +57,8 @@ class CSSUtilities {
 	 * @return void
 	 */
 	public function enqueue() {
-
 		// Skip if the current page is the onboarding page to prevent conflicts with the onboarding styling.
-		if ( isset( $_GET['page'] ) && 'nfd-onboarding' === \sanitize_text_field( $_GET['page'] ) ) {
+		if ( isset( $_GET['page'] ) && stripos( \sanitize_text_field( $_GET['page'] ), 'nfd-onboarding' ) === 0 ) {
 			return;
 		}
 

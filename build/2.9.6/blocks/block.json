@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wonder-blocks/library",
+  "title": "WonderBlocks",
+  "description": "Add patterns and page templates tailored for your site.",
+  "keywords": [
+    "template",
+    "patterns",
+    "blocks"
+  ],
+  "textdomain": "nfd-wonder-blocks",
+  "attributes": {
+    "preview": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    }
+  }
+}
