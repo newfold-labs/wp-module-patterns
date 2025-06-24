@@ -57,6 +57,10 @@ class CSSUtilities {
 	 * @return void
 	 */
 	public function enqueue() {
+		// Skip if the current page is the onboarding page to prevent conflicts with the onboarding styling.
+		if ( isset( $_GET['page'] ) && stripos( \sanitize_text_field( $_GET['page'] ), 'nfd-onboarding' ) === 0 ) {
+			return;
+		}
 
 		// Refresh assets if 24 hours have passed since the last refresh.
 		$this->conditional_refresh_assets();
