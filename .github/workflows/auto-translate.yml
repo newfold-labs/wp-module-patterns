@@ -20,9 +20,8 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: newfold-labs/workflows/.github/workflows/reusable-azure-ai-translate.yml@main
+    uses: newfold-labs/workflows/.github/workflows/reusable-translations.yml@main
     with:
       text_domain: 'nfd-wonder-blocks'
     secrets:
       TRANSLATOR_API_KEY: ${{ secrets.TRANSLATOR_API_KEY }}
-      NEWFOLD_ACCESS_TOKEN: ${{ secrets.NEWFOLD_ACCESS_TOKEN }}
