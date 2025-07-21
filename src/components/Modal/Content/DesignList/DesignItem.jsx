@@ -390,7 +390,7 @@ const DesignItem = ({ item }) => {
 			</div>
 
 			<div className="nfd-wba-flex nfd-wba-py-2 nfd-wba-px-5 nfd-wba-items-center nfd-wba-justify-between nfd-wba-gap-3 nfd-wba-border-0 nfd-wba-border-grey-b nfd-wba-border-solid nfd-wba-border-t">
-				{/* <div>{item.title}</div> */}
+				<div>{item.title}</div>
 				<div></div>
 
 				<div className="nfd-wba-flex nfd-wba-gap-0.5 nfd-wba-shrink-0 nfd-wba-items-center">

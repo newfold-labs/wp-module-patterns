@@ -2654,6 +2654,9 @@ const DesignItem = ({
       window.removeEventListener("resize", onResize); // Remove resize listener
     };
   }, [item?.type, loading]);
+  console.log({
+    item
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "nfd-wba-relative nfd-wba-mb-[var(--nfd-wba-masonry-gap)] nfd-wba-flex nfd-wba-flex-col nfd-wba-border-grey-b nfd-wba-transition-all nfd-wba-duration-75 hover:nfd-wba-border-gray-300 nfd-wba-border nfd-wba-overflow-clip nfd-wba-rounded nfd-wba-border-solid"
   }, item?.plugin_requirements?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_RequiredPluginManager__WEBPACK_IMPORTED_MODULE_16__["default"], {
