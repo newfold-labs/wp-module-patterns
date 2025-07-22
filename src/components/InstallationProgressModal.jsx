@@ -52,7 +52,6 @@ const InstallationProgressModal = ({ pluginData, onClose }) => {
 			console.error(`Plugin ${plugin.plugin || plugin} ${step} failed:`, error);
 			// Keep modal open to show error state
 		},
-		showNotices: true,
 	});
 
 	// Start installation when component mounts
