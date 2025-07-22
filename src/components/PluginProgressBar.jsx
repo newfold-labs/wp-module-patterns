@@ -250,4 +250,5 @@ const PluginProgressOverlay = ({
 	);
 };
 
+export { CircularProgress };
 export default PluginProgressOverlay;

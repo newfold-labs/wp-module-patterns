@@ -44,7 +44,6 @@ const InstallationProgressModal = ({ pluginData, onClose }) => {
 		reloadAfterInstall: true,
 		redirectParams,
 		onSuccess: (plugin, step) => {
-			console.log(`Plugin ${plugin.plugin || plugin} ${step} completed successfully`);
 			if (step === PLUGIN_STEPS.COMPLETE) {
 				// Installation completed, modal will close when page reloads
 			}
@@ -59,7 +58,6 @@ const InstallationProgressModal = ({ pluginData, onClose }) => {
 	// Start installation when component mounts
 	useEffect(() => {
 		if (pluginData?.plugin) {
-			console.log("Starting plugin installation for:", pluginData);
 			processPlugin(pluginData);
 		}
 	}, [pluginData?.plugin]);
@@ -67,15 +65,12 @@ const InstallationProgressModal = ({ pluginData, onClose }) => {
 	// Handle unsaved changes before reload and close modal
 	useEffect(() => {
 		const handleReload = async () => {
-			console.log({ currentStep });
 			if (currentStep !== PLUGIN_STEPS.COMPLETE) return;
 
 			try {
 				// Save post if there are unsaved changes before reloading
 				if (hasUnsavedChanges) {
-					console.log("Saving unsaved changes before page reload...");
 					await dispatchSavePost();
-					console.log("Post saved successfully before reload");
 				}
 			} catch (error) {
 				console.warn("Error saving before reload:", error);

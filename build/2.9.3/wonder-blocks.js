@@ -2471,7 +2471,6 @@ const InstallationProgressModal = ({
     reloadAfterInstall: true,
     redirectParams,
     onSuccess: (plugin, step) => {
-      console.log(`Plugin ${plugin.plugin || plugin} ${step} completed successfully`);
       if (step === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.COMPLETE) {
         // Installation completed, modal will close when page reloads
       }
@@ -2486,7 +2485,6 @@ const InstallationProgressModal = ({
   // Start installation when component mounts
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     if (pluginData?.plugin) {
-      console.log("Starting plugin installation for:", pluginData);
       processPlugin(pluginData);
     }
   }, [pluginData?.plugin]);
@@ -2494,16 +2492,11 @@ const InstallationProgressModal = ({
   // Handle unsaved changes before reload and close modal
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     const handleReload = async () => {
-      console.log({
-        currentStep
-      });
       if (currentStep !== _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.COMPLETE) return;
       try {
         // Save post if there are unsaved changes before reloading
         if (hasUnsavedChanges) {
-          console.log("Saving unsaved changes before page reload...");
           await dispatchSavePost();
-          console.log("Post saved successfully before reload");
         }
       } catch (error) {
         console.warn("Error saving before reload:", error);
@@ -5189,6 +5182,7 @@ const PluginLogo = ({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CircularProgress: () => (/* binding */ CircularProgress),
 /* harmony export */   PluginProgressBar: () => (/* binding */ PluginProgressBar),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -5411,6 +5405,7 @@ const PluginProgressOverlay = ({
     }
   }));
 };
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PluginProgressOverlay);
 
 /***/ }),
@@ -7128,15 +7123,12 @@ const usePluginManager = ({
     try {
       // Save post if there are unsaved changes before reloading
       if (hasUnsavedChanges) {
-        console.log("Saving unsaved changes before page reload...");
         await dispatchSavePost();
-        console.log("Post saved successfully before reload");
       }
     } catch (error) {
       console.warn("Error saving before reload:", error);
       // Continue with reload even if save fails
     }
-    console.log("handleReload", activePatternsCategory, redirectParams);
 
     // Get the current URL search parameters
     const searchParams = new URLSearchParams(window.location.search);

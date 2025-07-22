@@ -355,16 +355,12 @@ export const usePluginManager = ({
 		try {
 			// Save post if there are unsaved changes before reloading
 			if (hasUnsavedChanges) {
-				console.log("Saving unsaved changes before page reload...");
 				await dispatchSavePost();
-				console.log("Post saved successfully before reload");
 			}
 		} catch (error) {
 			console.warn("Error saving before reload:", error);
 			// Continue with reload even if save fails
 		}
-
-		console.log("handleReload", activePatternsCategory, redirectParams);
 
 		// Get the current URL search parameters
 		const searchParams = new URLSearchParams(window.location.search);
