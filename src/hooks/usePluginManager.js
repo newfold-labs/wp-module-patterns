@@ -344,6 +344,53 @@ export const usePluginManager = ({
 	);
 
 	/**
+	 * Helper function to handle page reload with parameters
+	 */
+	const handleReload = useCallback(async () => {
+		updateStep(PLUGIN_STEPS.RELOADING, {
+			progress: 1,
+			message: __("Page is reloading to apply changes...", "nfd-wonder-blocks"),
+		});
+
+		try {
+			// Save post if there are unsaved changes before reloading
+			if (hasUnsavedChanges) {
+				console.log("Saving unsaved changes before page reload...");
+				await dispatchSavePost();
+				console.log("Post saved successfully before reload");
+			}
+		} catch (error) {
+			console.warn("Error saving before reload:", error);
+			// Continue with reload even if save fails
+		}
+
+		console.log("handleReload", activePatternsCategory, redirectParams);
+
+		// Get the current URL search parameters
+		const searchParams = new URLSearchParams(window.location.search);
+
+		// Append category parameter
+		if (activePatternsCategory) {
+			searchParams.set("wb-category", activePatternsCategory);
+		}
+
+		// Append custom redirect parameters
+		if (redirectParams) {
+			Object.entries(redirectParams).forEach(([key, value]) => {
+				if (value !== undefined && value !== null) {
+					searchParams.set(key, value);
+				}
+			});
+		}
+
+		// Clear library filter if needed
+		searchParams.set("wb-library", "");
+
+		// Reload the page with the updated parameters
+		window.location.href = `${window.location.pathname}?${searchParams.toString()}`;
+	}, [activePatternsCategory, redirectParams, hasUnsavedChanges, dispatchSavePost]);
+
+	/**
 	 * Complete plugin processing in one call with step-by-step progress tracking
 	 *
 	 * @param {Object|string} plugin - Plugin to process
@@ -449,7 +496,7 @@ export const usePluginManager = ({
 
 				// Handle reload if requested
 				if (reloadAfterInstall) {
-					handleReload();
+					await handleReload();
 				}
 
 				return result;
@@ -493,6 +540,7 @@ export const usePluginManager = ({
 			onError,
 			showNotices,
 			reloadAfterInstall,
+			handleReload,
 		]
 	);
 
@@ -509,11 +557,6 @@ export const usePluginManager = ({
 			const results = {};
 
 			try {
-				// Save post if there are unsaved changes
-				if (hasUnsavedChanges) {
-					await dispatchSavePost();
-				}
-
 				// Process each plugin in sequence
 				for (const plugin of plugins) {
 					const slug = typeof plugin === "string" ? plugin : plugin.slug;
@@ -526,7 +569,7 @@ export const usePluginManager = ({
 				return results;
 			}
 		},
-		[processPlugin, hasUnsavedChanges, dispatchSavePost]
+		[processPlugin]
 	);
 
 	/**
@@ -551,46 +594,13 @@ export const usePluginManager = ({
 
 			// Handle reload if requested and successful
 			if (success && reloadAfterInstall) {
-				handleReload();
+				await handleReload();
 			}
 
 			return success;
 		},
-		[processPlugin, processPlugins, reloadAfterInstall]
+		[processPlugin, processPlugins, reloadAfterInstall, handleReload]
 	);
-
-	/**
-	 * Helper function to handle page reload with parameters
-	 */
-	const handleReload = useCallback(() => {
-		updateStep(PLUGIN_STEPS.RELOADING, {
-			progress: 1,
-			message: __("Page is reloading to apply changes...", "nfd-wonder-blocks"),
-		});
-
-		// Get the current URL search parameters
-		const searchParams = new URLSearchParams(window.location.search);
-
-		// Append category parameter
-		if (activePatternsCategory) {
-			searchParams.set("wb-category", activePatternsCategory);
-		}
-
-		// Append custom redirect parameters
-		if (redirectParams) {
-			Object.entries(redirectParams).forEach(([key, value]) => {
-				if (value !== undefined && value !== null) {
-					searchParams.set(key, value);
-				}
-			});
-		}
-
-		// Clear library filter if needed
-		searchParams.set("wb-library", "");
-
-		// Reload the page with the updated parameters
-		window.location.href = `${window.location.pathname}?${searchParams.toString()}`;
-	}, [activePatternsCategory, redirectParams]);
 
 	return {
 		currentStep,
