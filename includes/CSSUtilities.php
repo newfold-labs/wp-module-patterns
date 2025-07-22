@@ -62,11 +62,6 @@ class CSSUtilities {
 			return;
 		}
 
-		// Skip if the current page is the onboarding page to prevent conflicts with the onboarding styling.
-		if ( isset( $_GET['page'] ) && 'nfd-onboarding' === \sanitize_text_field( $_GET['page'] ) ) {
-			return;
-		   }
-
 		// Refresh assets if 24 hours have passed since the last refresh.
 		$this->conditional_refresh_assets();
 		
