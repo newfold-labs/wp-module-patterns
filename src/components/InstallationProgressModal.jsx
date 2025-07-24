@@ -90,21 +90,21 @@ const InstallationProgressModal = ({ pluginData, onClose }) => {
 	const getModalTitle = () => {
 		switch (currentStep) {
 			case PLUGIN_STEPS.CHECKING:
-				return __("Checking Plugin Status...", "nfd-wonder-blocks");
+				return __("Checking Plugin Status", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.INSTALLING:
-				return __("Installing Plugin...", "nfd-wonder-blocks");
+				return __("Installing Plugin", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.ACTIVATING:
-				return __("Activating Plugin...", "nfd-wonder-blocks");
+				return __("Activating Plugin", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.SETTING_UP:
-				return __("Setting Up Plugin...", "nfd-wonder-blocks");
+				return __("Setting Up Plugin", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.COMPLETE:
 				return __("Installation Complete!", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.RELOADING:
-				return __("Reloading Page...", "nfd-wonder-blocks");
+				return __("Reloading Page", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.ERROR:
-				return __("Installation Error", "nfd-wonder-blocks");
+				return __("Installation Failed", "nfd-wonder-blocks");
 			default:
-				return __("Installing Plugin...", "nfd-wonder-blocks");
+				return __("Installing Plugin", "nfd-wonder-blocks");
 		}
 	};
 
@@ -114,77 +114,141 @@ const InstallationProgressModal = ({ pluginData, onClose }) => {
 
 		switch (currentStep) {
 			case PLUGIN_STEPS.CHECKING:
-				return sprintf(
-					__("Checking if %s is already installed...", "nfd-wonder-blocks"),
-					pluginName
-				);
+				return sprintf(__("Verifying %s installation status...", "nfd-wonder-blocks"), pluginName);
 			case PLUGIN_STEPS.INSTALLING:
-				return sprintf(__("Installing %s...", "nfd-wonder-blocks"), pluginName);
+				return sprintf(__("Downloading and installing %s...", "nfd-wonder-blocks"), pluginName);
 			case PLUGIN_STEPS.ACTIVATING:
 				return sprintf(__("Activating %s...", "nfd-wonder-blocks"), pluginName);
 			case PLUGIN_STEPS.SETTING_UP:
-				return sprintf(__("Setting up %s...", "nfd-wonder-blocks"), pluginName);
+				return sprintf(__("Configuring %s settings...", "nfd-wonder-blocks"), pluginName);
 			case PLUGIN_STEPS.COMPLETE:
-				return sprintf(__("%s has been installed successfully!", "nfd-wonder-blocks"), pluginName);
+				return sprintf(
+					__("%s has been successfully installed and activated!", "nfd-wonder-blocks"),
+					pluginName
+				);
 			case PLUGIN_STEPS.RELOADING:
-				return __("Reloading the page to apply changes...", "nfd-wonder-blocks");
+				return __("Refreshing the page to apply all changes...", "nfd-wonder-blocks");
 			case PLUGIN_STEPS.ERROR:
 				return sprintf(
-					__("Failed to install %s. Please try again.", "nfd-wonder-blocks"),
+					__(
+						"We encountered an issue installing %s. Please try again or contact support if the problem persists.",
+						"nfd-wonder-blocks"
+					),
 					pluginName
 				);
 			default:
-				return sprintf(__("Installing %s...", "nfd-wonder-blocks"), pluginName);
+				return sprintf(__("Setting up %s...", "nfd-wonder-blocks"), pluginName);
+		}
+	};
+
+	const getStepDescription = () => {
+		switch (currentStep) {
+			case PLUGIN_STEPS.CHECKING:
+				return __("This may take a few seconds...", "nfd-wonder-blocks");
+			case PLUGIN_STEPS.INSTALLING:
+				return __("Please wait while we download the plugin files", "nfd-wonder-blocks");
+			case PLUGIN_STEPS.ACTIVATING:
+				return __("Enabling plugin functionality", "nfd-wonder-blocks");
+			case PLUGIN_STEPS.SETTING_UP:
+				return __("Applying default configuration", "nfd-wonder-blocks");
+			case PLUGIN_STEPS.COMPLETE:
+				return __("Ready to use!", "nfd-wonder-blocks");
+			case PLUGIN_STEPS.RELOADING:
+				return __("This will only take a moment", "nfd-wonder-blocks");
+			case PLUGIN_STEPS.ERROR:
+				return __("Check your internet connection and try again", "nfd-wonder-blocks");
+			default:
+				return "";
 		}
 	};
 
 	const canClose = currentStep === PLUGIN_STEPS.ERROR || currentStep === PLUGIN_STEPS.IDLE;
+	const isError = currentStep === PLUGIN_STEPS.ERROR;
+	const isComplete = currentStep === PLUGIN_STEPS.COMPLETE;
 
 	return (
 		<WPModal
 			className="nfd-wba-installation-modal"
-			title={getModalTitle()}
+			title=""
 			onRequestClose={canClose ? onClose : undefined}
 			isDismissible={canClose}
 			shouldCloseOnClickOutside={false}
 			shouldCloseOnEsc={canClose}
+			__experimentalHideHeader={true}
 		>
-			<div className="nfd-wba-installation-modal-content">
-				<p className="nfd-wba-mb-4">{getModalMessage()}</p>
+			<div className="nfd-wba-installation-modal-content nfd-wba-p-8 nfd-wba-text-center nfd-wba-max-w-md nfd-wba-mx-auto">
+				{/* Header Section */}
+				<div className="nfd-wba-mb-8">
+					<h2
+						className={`nfd-wba-text-2xl nfd-wba-font-semibold nfd-wba-mb-3 nfd-wba-leading-tight ${
+							isError
+								? "nfd-wba-text-red-700"
+								: isComplete
+									? "nfd-wba-text-green-700"
+									: "nfd-wba-text-gray-900"
+						}`}
+					>
+						{getModalTitle()}
+					</h2>
+					<p
+						className={`nfd-wba-text-base nfd-wba-leading-relaxed nfd-wba-mb-0 ${
+							isError ? "nfd-wba-text-red-600" : "nfd-wba-text-gray-700"
+						}`}
+					>
+						{getModalMessage()}
+					</p>
+				</div>
 
-				<div className="nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-4">
-					<CircularProgress
-						percentage={Math.round((operationDetails?.progress || 0) * 100)}
-						isError={currentStep === PLUGIN_STEPS.ERROR}
-						size={80}
-						strokeWidth={4}
-					/>
+				{/* Progress Section */}
+				<div className="nfd-wba-mb-8">
+					<div className="nfd-wba-flex nfd-wba-justify-center nfd-wba-mb-6">
+						<CircularProgress
+							percentage={Math.round((operationDetails?.progress || 0) * 100)}
+							isError={isError}
+							size={100}
+							strokeWidth={6}
+						/>
+					</div>
 
-					{currentStep !== PLUGIN_STEPS.ERROR && (
-						<div className="nfd-wba-text-center">
-							<p className="nfd-wba-text-sm nfd-wba-text-gray-600 nfd-wba-m-0">
-								{currentStep === PLUGIN_STEPS.CHECKING &&
-									__("Checking plugin status...", "nfd-wonder-blocks")}
-								{currentStep === PLUGIN_STEPS.INSTALLING &&
-									__("Downloading and installing...", "nfd-wonder-blocks")}
-								{currentStep === PLUGIN_STEPS.ACTIVATING &&
-									__("Activating plugin...", "nfd-wonder-blocks")}
-								{currentStep === PLUGIN_STEPS.SETTING_UP &&
-									__("Configuring plugin...", "nfd-wonder-blocks")}
-								{currentStep === PLUGIN_STEPS.COMPLETE &&
-									__("Installation complete!", "nfd-wonder-blocks")}
-								{currentStep === PLUGIN_STEPS.RELOADING &&
-									__("Reloading page...", "nfd-wonder-blocks")}
+					{!isError && (
+						<div className="nfd-wba-space-y-2">
+							<p
+								className={`nfd-wba-text-sm nfd-wba-font-medium nfd-wba-mb-1 ${
+									isComplete ? "nfd-wba-text-green-600" : "nfd-wba-text-gray-900"
+								}`}
+							>
+								{getStepDescription()}
 							</p>
 						</div>
 					)}
 				</div>
 
-				{currentStep === PLUGIN_STEPS.ERROR && (
-					<div className="nfd-wba-mt-4 nfd-wba-text-center">
-						<button className="nfd-wba-button nfd-wba-button-primary" onClick={onClose}>
+				{/* Action Section */}
+				{isError && (
+					<div className="nfd-wba-pt-4 nfd-wba-border-t nfd-wba-border-gray-200">
+						<button
+							className="nfd-wba-inline-flex nfd-wba-items-center nfd-wba-justify-center nfd-wba-px-6 nfd-wba-py-3 nfd-wba-bg-blue-600 nfd-wba-text-white nfd-wba-text-sm nfd-wba-font-medium nfd-wba-rounded-lg nfd-wba-border-0 nfd-wba-cursor-pointer nfd-wba-transition-colors nfd-wba-duration-200 hover:nfd-wba-bg-blue-700 focus:nfd-wba-outline-none focus:nfd-wba-ring-2 focus:nfd-wba-ring-blue-500 focus:nfd-wba-ring-offset-2"
+							onClick={onClose}
+						>
 							{__("Close", "nfd-wonder-blocks")}
 						</button>
+					</div>
+				)}
+
+				{isComplete && (
+					<div className="nfd-wba-pt-4 nfd-wba-border-t nfd-wba-border-gray-200">
+						<div className="nfd-wba-flex nfd-wba-items-center nfd-wba-justify-center nfd-wba-gap-2 nfd-wba-text-green-600">
+							<svg className="nfd-wba-w-5 nfd-wba-h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path
+									fillRule="evenodd"
+									d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+									clipRule="evenodd"
+								/>
+							</svg>
+							<span className="nfd-wba-text-sm nfd-wba-font-medium">
+								{__("Page will reload automatically", "nfd-wonder-blocks")}
+							</span>
+						</div>
 					</div>
 				)}
 			</div>

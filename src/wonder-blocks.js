@@ -57,9 +57,7 @@ const renderModal = (elementId = NFD_WONDER_BLOCKS_MODAL_ID) => {
 
 	document.body.append(wonderBlocksModal);
 
-	setTimeout(() => {
-		createRoot(wonderBlocksModal).render(<Modal />);
-	}, 0);
+	createRoot(wonderBlocksModal).render(<Modal />);
 };
 
 const addWonderBlocksButton = () => {
@@ -89,10 +87,8 @@ const addWonderBlocksButton = () => {
 
 		toolbar?.append(wonderBlocksButton);
 
-		setTimeout(() => {
-			createRoot(wonderBlocksButton).render(<ToolbarButton />);
-			document.dispatchEvent(new Event("wonder-blocks/toolbar-button-added"));
-		}, 0);
+		createRoot(wonderBlocksButton).render(<ToolbarButton />);
+		document.dispatchEvent(new Event("wonder-blocks/toolbar-button-added"));
 	};
 
 	const debouncedAddToToolbar = debounce(addButtonToToolbar, 300);

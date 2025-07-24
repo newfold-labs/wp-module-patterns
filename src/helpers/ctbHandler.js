@@ -2,30 +2,61 @@
  * WordPress dependencies
  */
 import { createRoot } from "@wordpress/element";
+import { useSelect } from "@wordpress/data";
 
 /**
  * Internal dependencies
  */
 import InstallationProgressModal from "../components/InstallationProgressModal";
+import { store as nfdPatternsStore } from "../store";
 
 // Global state for installation progress modal
 let installationModalRoot = null;
+let messageEventListener = null;
 
 /**
  * Set up the postMessage listener for CTB success events
+ * Only listens when the Wonder Blocks modal is open
  */
 export const setupCTBPostMessageListener = () => {
-	window.addEventListener("message", (event) => {
-		// Basic security checks
-		if (!event.data || typeof event.data !== "object") {
-			return;
-		}
+	// Check modal state and add/remove listener accordingly
+	const checkModalState = () => {
+		// Get the current modal state from the store
+		const isModalOpen = window.wp?.data?.select(nfdPatternsStore)?.isModalOpen();
 
-		// Listen for ctbSuccess message
-		if (event.data.type === "ctbSuccess") {
-			handleCTBSuccess(event.data);
+		if (isModalOpen && !messageEventListener) {
+			// Add listener when modal opens
+			messageEventListener = (event) => {
+				// Basic security checks
+				if (!event.data || typeof event.data !== "object") {
+					return;
+				}
+
+				// Listen for ctbSuccess message
+				if (event.data.type === "ctbSuccess") {
+					handleCTBSuccess(event.data);
+				}
+			};
+
+			window.addEventListener("message", messageEventListener);
+			console.log("CTB postMessage listener added");
+		} else if (!isModalOpen && messageEventListener) {
+			// Remove listener when modal closes
+			window.removeEventListener("message", messageEventListener);
+			messageEventListener = null;
+			console.log("CTB postMessage listener removed");
 		}
-	});
+	};
+
+	// Check immediately
+	checkModalState();
+
+	// Set up observer to watch for modal state changes
+	if (window.wp?.data?.subscribe) {
+		window.wp.data.subscribe(() => {
+			checkModalState();
+		});
+	}
 };
 
 /**
@@ -76,14 +107,12 @@ const showInstallationProgressModal = (pluginData) => {
 		installationModalRoot = createRoot(modalContainer);
 	}
 
-	setTimeout(() => {
-		installationModalRoot.render(
-			<InstallationProgressModal
-				pluginData={pluginData}
-				onClose={() => hideInstallationProgressModal()}
-			/>
-		);
-	}, 0);
+	installationModalRoot.render(
+		<InstallationProgressModal
+			pluginData={pluginData}
+			onClose={() => hideInstallationProgressModal()}
+		/>
+	);
 };
 
 /**
