@@ -1,7 +1,7 @@
 {
     "translation-revision-date": "2025-05-07 15:46+0100",
-    "generator": "WP-CLI\/2.11.0",
-    "source": "build\/2.9.3\/wonder-blocks.js",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/2.9.6\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
@@ -424,30 +424,6 @@
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
                 "A biblioteca de Padr\u00f5es & Templates sincroniza automaticamente uma vez por dia. Se voc\u00ea deseja atualizar a biblioteca manualmente, pode faz\u00ea-lo pressionando o bot\u00e3o para obter os designs mais recentes."
             ],
-            "Failed to install & activate plugins. Please try again.": [
-                "Falha ao instalar e ativar os plugins. Por favor, tente novamente."
-            ],
-            "Installing...": [
-                "Instalando..."
-            ],
-            "Install now": [
-                "Instalar agora"
-            ],
-            "WordPress Plugins Required": [
-                "Plugins WordPress Necess\u00e1rios"
-            ],
-            "No plugins required.": [
-                "Nenhum plugin necess\u00e1rio."
-            ],
-            "Requires %s.": [
-                "Requer %s."
-            ],
-            "Requires %s and %s.": [
-                "Requer %s e %s."
-            ],
-            "Maybe later": [
-                "Talvez mais tarde"
-            ],
             "Block pattern \"%s\" inserted.": [
                 "Padr\u00e3o de bloco \"%s\" inserido."
             ],
@@ -459,9 +435,6 @@
             ],
             "Add to favorites": [
                 "Adicionar aos favoritos"
-            ],
-            "Remove from Favorites": [
-                "Remover dos Favoritos"
             ],
             "Add pattern to page": [
                 "Adicionar padr\u00e3o \u00e0 p\u00e1gina"
@@ -542,6 +515,123 @@
                 "Templates"
             ],
             "section.": [
+                ""
+            ],
+            "Plugin installed successfully.": [
+                ""
+            ],
+            "Failed to install plugin. Please try again.": [
+                ""
+            ],
+            "Plugin activated successfully.": [
+                ""
+            ],
+            "Failed to activate plugin. Please try again.": [
+                ""
+            ],
+            "Page is reloading to apply changes...": [
+                ""
+            ],
+            "Plugin processed successfully.": [
+                ""
+            ],
+            "Failed to process plugin. Please try again.": [
+                ""
+            ],
+            "Reloading Page": [
+                ""
+            ],
+            "Checking": [
+                ""
+            ],
+            "Installing": [
+                ""
+            ],
+            "Activating": [
+                ""
+            ],
+            "Setting up": [
+                ""
+            ],
+            "Installed": [
+                ""
+            ],
+            "Error Installing": [
+                ""
+            ],
+            "Processing": [
+                ""
+            ],
+            "Dependent Feature:": [
+                ""
+            ],
+            "Retry": [
+                ""
+            ],
+            "seconds remaining": [
+                ""
+            ],
+            "Premium": [
+                ""
+            ],
+            "Install Required Plugins": [
+                ""
+            ],
+            "This pattern is powered by <strong>%s<\/strong> plugin.": [
+                ""
+            ],
+            "This pattern requires <strong>%s<\/strong> plugin.": [
+                ""
+            ],
+            "Learn more": [
+                ""
+            ],
+            "Remove from favorites": [
+                ""
+            ],
+            "Error": [
+                ""
+            ],
+            "Success": [
+                ""
+            ],
+            "the plugin": [
+                ""
+            ],
+            "All done!": [
+                ""
+            ],
+            "Installation failed": [
+                ""
+            ],
+            "Installing %s": [
+                ""
+            ],
+            "Verifying %s installation status...": [
+                ""
+            ],
+            "Downloading and installing %s...": [
+                ""
+            ],
+            "Activating %s...": [
+                ""
+            ],
+            "Configuring %s settings...": [
+                ""
+            ],
+            "%s has been successfully installed and activated!": [
+                ""
+            ],
+            "Reloading the page to apply the changes...": [
+                ""
+            ],
+            "We encountered an issue installing %s. Please try again or contact support if the problem persists.": [
+                ""
+            ],
+            "Setting up %s...": [
+                ""
+            ],
+            "Close": [
                 ""
             ]
         }
