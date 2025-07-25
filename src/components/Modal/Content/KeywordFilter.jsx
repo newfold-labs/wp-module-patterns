@@ -131,7 +131,7 @@ const KeywordFilter = () => {
 						}, 50);
 					}}
 				>
-					<Icon icon={search} iconSize={24} />
+					<Icon icon={search} iconsize={24} />
 				</Button>
 			)}
 

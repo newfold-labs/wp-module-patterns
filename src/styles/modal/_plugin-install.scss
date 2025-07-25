@@ -1,0 +1,22 @@
+.nfd-wba-installation-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nfd-wba-installation-modal-content {
+	background: #ffffff;
+	position: relative;
+	padding: 40px 30px;
+	text-align: center;
+	border-radius: 6px;
+	max-width: 560px;
+	width: 100%;
+	min-height: 320px;
+	max-height: 80vh;
+	overflow: auto;
+}

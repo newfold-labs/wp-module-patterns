@@ -7,6 +7,7 @@
 @use "tabs";
 @use "skeleton";
 @use "design-item";
+@use "plugin-install";
 
 .nfd-wba-modal {
 	--wp-admin-theme-color: var(--nfd-wba-color-brand);

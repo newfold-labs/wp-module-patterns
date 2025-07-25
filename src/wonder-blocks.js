@@ -11,12 +11,12 @@ import { HiiveAnalytics } from "@newfold/js-utility-ui-analytics";
 /**
  * WordPress dependencies
  */
+import { default as wpApiFetch } from "@wordpress/api-fetch";
+import { debounce } from "@wordpress/compose";
+import { default as wpData } from "@wordpress/data";
 import domReady from "@wordpress/dom-ready";
 import { createRoot } from "@wordpress/element";
 import { registerPlugin } from "@wordpress/plugins";
-import { debounce } from "@wordpress/compose";
-import { default as wpData } from "@wordpress/data";
-import { default as wpApiFetch } from "@wordpress/api-fetch";
 
 /**
  * Internal dependencies
@@ -33,10 +33,12 @@ import "./blocks/inspector-control";
 import "./blocks/register-category";
 import Modal from "./components/Modal/Modal";
 import ToolbarButton from "./components/ToolbarButton";
+import { setupCTBPostMessageListener } from "./helpers/ctbHandler";
 
 domReady(() => {
 	initializeHiiveAnalytics();
 	renderModal();
+	setupCTBPostMessageListener();
 });
 
 /**
@@ -54,6 +56,7 @@ const renderModal = (elementId = NFD_WONDER_BLOCKS_MODAL_ID) => {
 	});
 
 	document.body.append(wonderBlocksModal);
+
 	createRoot(wonderBlocksModal).render(<Modal />);
 };
 
@@ -83,6 +86,7 @@ const addWonderBlocksButton = () => {
 		});
 
 		toolbar?.append(wonderBlocksButton);
+
 		createRoot(wonderBlocksButton).render(<ToolbarButton />);
 		document.dispatchEvent(new Event("wonder-blocks/toolbar-button-added"));
 	};

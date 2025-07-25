@@ -114,7 +114,7 @@ const Header = () => {
 						setIsModalOpen(false);
 					}}
 					icon={close}
-					iconSize={24}
+					iconsize={24}
 					label={__("Close dialog", "nfd-wonder-blocks")}
 				/>
 			</div>

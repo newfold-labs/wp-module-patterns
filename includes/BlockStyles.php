@@ -3,9 +3,10 @@
 namespace NewfoldLabs\WP\Module\Patterns;
 
 /**
- * Block Styles class.
+ * Class BlockStyles
  *
- * @package NewfoldLabs\WP\Module\Patterns
+ * Registers custom block styles for the WordPress block editor.
+ * Provides additional styling options for core blocks.
  */
 class BlockStyles {
 

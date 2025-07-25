@@ -10,3 +10,21 @@
 .nfd-wb--hide-theme-patterns [aria-label^="Wonder - "]:not([aria-label="Wonder - Pages"]) {
 	display: none;
 }
+
+.nfd-wba-animate-pop {
+	animation-name: nfd-wba-animate-pop;
+	animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+	animation-duration: 0.25s;
+}
+
+@keyframes nfd-wba-animate-pop {
+	0% {
+		opacity: 0;
+		transform: scale3d(0.65, 0.65, 1);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale3d(1, 1, 1);
+	}
+}
