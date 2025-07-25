@@ -138,6 +138,7 @@ export const usePluginManager = ({
 
 			updateStep(PLUGIN_STEPS.CHECKING, { plugins });
 			const results = {};
+			let hasError = false;
 
 			try {
 				// Process each plugin individually for better tracking
@@ -145,9 +146,17 @@ export const usePluginManager = ({
 					const slug = typeof plugin === "string" ? plugin : plugin.slug;
 					const result = await checkPlugin(plugin);
 					results[slug] = result.status;
+
+					// Check if this plugin had an error
+					if (result.error) {
+						hasError = true;
+					}
 				}
 
-				updateStep(PLUGIN_STEPS.IDLE, { results });
+				// Only update to IDLE if no errors occurred
+				if (!hasError) {
+					updateStep(PLUGIN_STEPS.IDLE, { results });
+				}
 				return results;
 			} catch (error) {
 				updateStep(PLUGIN_STEPS.ERROR, { error });
@@ -211,7 +220,7 @@ export const usePluginManager = ({
 
 				return response;
 			} catch (error) {
-				updateStep(PLUGIN_STEPS.ERROR, { error });
+				updateStep(PLUGIN_STEPS.ERROR, { error: error.message ?? "Unknown error" });
 				console.warn("Plugin installation error:", error);
 
 				if (showNotices) {
@@ -607,6 +616,7 @@ export const usePluginManager = ({
 		isInstalling: currentStep === PLUGIN_STEPS.INSTALLING,
 		isActivating: currentStep === PLUGIN_STEPS.ACTIVATING,
 		isSettingUp: currentStep === PLUGIN_STEPS.SETTING_UP,
+		isReloading: currentStep === PLUGIN_STEPS.RELOADING,
 		isComplete: currentStep === PLUGIN_STEPS.COMPLETE,
 		hasError: currentStep === PLUGIN_STEPS.ERROR,
 		isBusy:

@@ -2,12 +2,12 @@
  * WordPress dependencies
  */
 import { createRoot } from "@wordpress/element";
-import { useSelect } from "@wordpress/data";
 
 /**
  * Internal dependencies
  */
-import InstallationProgressModal from "../components/InstallationProgressModal";
+import PluginInstallationProgress from "../components/Modal/Content/PluginInstallationProgress";
+import { NFD_WONDER_BLOCKS_MODAL_ID } from "../constants";
 import { store as nfdPatternsStore } from "../store";
 
 // Global state for installation progress modal
@@ -39,12 +39,10 @@ export const setupCTBPostMessageListener = () => {
 			};
 
 			window.addEventListener("message", messageEventListener);
-			console.log("CTB postMessage listener added");
 		} else if (!isModalOpen && messageEventListener) {
 			// Remove listener when modal closes
 			window.removeEventListener("message", messageEventListener);
 			messageEventListener = null;
-			console.log("CTB postMessage listener removed");
 		}
 	};
 
@@ -90,25 +88,33 @@ const handleCTBSuccess = async (messageData) => {
  * Show the installation progress modal
  */
 const showInstallationProgressModal = (pluginData) => {
-	// Create modal container if it doesn't exist
-	const modalId = "nfd-wba-installation-modal";
-	let modalContainer = document.getElementById(modalId);
+	// Find the existing Wonder Blocks modal container
+	const wonderBlocksModal = document.getElementById(NFD_WONDER_BLOCKS_MODAL_ID);
 
-	if (!modalContainer) {
-		modalContainer = Object.assign(document.createElement("div"), {
+	if (!wonderBlocksModal) {
+		console.warn("Could not find Wonder Blocks modal container");
+		return;
+	}
+
+	// Create overlay container inside the Wonder Blocks modal
+	const modalId = "nfd-wba-installation-overlay";
+	let overlayContainer = document.getElementById(modalId);
+
+	if (!overlayContainer) {
+		overlayContainer = Object.assign(document.createElement("div"), {
 			id: modalId,
-			className: "nfd-wba-installation-modal",
+			className: "nfd-wba-installation-overlay",
 		});
-		document.body.append(modalContainer);
+		wonderBlocksModal.appendChild(overlayContainer);
 	}
 
 	// Create or update the React root
 	if (!installationModalRoot) {
-		installationModalRoot = createRoot(modalContainer);
+		installationModalRoot = createRoot(overlayContainer);
 	}
 
 	installationModalRoot.render(
-		<InstallationProgressModal
+		<PluginInstallationProgress
 			pluginData={pluginData}
 			onClose={() => hideInstallationProgressModal()}
 		/>
@@ -124,8 +130,8 @@ const hideInstallationProgressModal = () => {
 		installationModalRoot = null;
 	}
 
-	const modalContainer = document.getElementById("nfd-wba-installation-modal");
-	if (modalContainer) {
-		modalContainer.remove();
+	const overlayContainer = document.getElementById("nfd-wba-installation-overlay");
+	if (overlayContainer) {
+		overlayContainer.remove();
 	}
 };

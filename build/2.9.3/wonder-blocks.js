@@ -2388,204 +2388,6 @@ const trash = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_pr
 
 /***/ }),
 
-/***/ "./src/components/InstallationProgressModal.jsx":
-/*!******************************************************!*\
-  !*** ./src/components/InstallationProgressModal.jsx ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
-/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../hooks/usePluginManager */ "./src/hooks/usePluginManager.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store */ "./src/store/index.js");
-/* harmony import */ var _PluginProgressBar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./PluginProgressBar */ "./src/components/PluginProgressBar.jsx");
-
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-/**
- * Internal dependencies
- */
-
-
-
-const InstallationProgressModal = ({
-  pluginData,
-  onClose
-}) => {
-  const [isVisible, setIsVisible] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(true);
-
-  // Get modal state, active category, and editor state from store
-  const {
-    isModalOpen,
-    activePatternsCategory,
-    hasUnsavedChanges
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => ({
-    isModalOpen: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).isModalOpen(),
-    activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_7__.store).getActivePatternsCategory(),
-    hasUnsavedChanges: select(_wordpress_editor__WEBPACK_IMPORTED_MODULE_4__.store).hasChangedContent()
-  }));
-
-  // Editor actions
-  const {
-    savePost: dispatchSavePost
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_4__.store);
-
-  // Use store category or fallback to URL parameter or default
-  const searchParams = new URLSearchParams(window?.location?.search);
-  const currentCategory = activePatternsCategory || searchParams.get("wb-category") || "general";
-
-  // Setup plugin manager with proper callbacks
-  // Only add redirect parameters if the Wonder Blocks modal is open
-  const redirectParams = isModalOpen ? {
-    "wb-library": "patterns",
-    "wb-category": currentCategory
-  } : {};
-  const {
-    currentStep,
-    operationDetails,
-    processPlugin,
-    isBusy
-  } = (0,_hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.usePluginManager)({
-    reloadAfterInstall: true,
-    redirectParams,
-    onSuccess: (plugin, step) => {
-      if (step === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.COMPLETE) {
-        // Installation completed, modal will close when page reloads
-      }
-    },
-    onError: (error, plugin, step) => {
-      console.error(`Plugin ${plugin.plugin || plugin} ${step} failed:`, error);
-      // Keep modal open to show error state
-    },
-    showNotices: true
-  });
-
-  // Start installation when component mounts
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
-    if (pluginData?.plugin) {
-      processPlugin(pluginData);
-    }
-  }, [pluginData?.plugin]);
-
-  // Handle unsaved changes before reload and close modal
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
-    const handleReload = async () => {
-      if (currentStep !== _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.COMPLETE) return;
-      try {
-        // Save post if there are unsaved changes before reloading
-        if (hasUnsavedChanges) {
-          await dispatchSavePost();
-        }
-      } catch (error) {
-        console.warn("Error saving before reload:", error);
-        // Continue with reload even if save fails
-      }
-
-      // Close modal (page will reload anyway)
-      setIsVisible(false);
-    };
-    handleReload();
-  }, [currentStep, hasUnsavedChanges, dispatchSavePost]);
-  if (!isVisible) {
-    return null;
-  }
-  const getModalTitle = () => {
-    switch (currentStep) {
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.CHECKING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Checking Plugin Status...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.INSTALLING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installing Plugin...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ACTIVATING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Activating Plugin...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.SETTING_UP:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Setting Up Plugin...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.COMPLETE:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installation Complete!", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.RELOADING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Reloading Page...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ERROR:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installation Error", "nfd-wonder-blocks");
-      default:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installing Plugin...", "nfd-wonder-blocks");
-    }
-  };
-  const getModalMessage = () => {
-    const pluginName = pluginData?.pluginName || pluginData?.plugin || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("the plugin", "nfd-wonder-blocks");
-    switch (currentStep) {
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.CHECKING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Checking if %s is already installed...", "nfd-wonder-blocks"), pluginName);
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.INSTALLING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installing %s...", "nfd-wonder-blocks"), pluginName);
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ACTIVATING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Activating %s...", "nfd-wonder-blocks"), pluginName);
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.SETTING_UP:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Setting up %s...", "nfd-wonder-blocks"), pluginName);
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.COMPLETE:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("%s has been installed successfully!", "nfd-wonder-blocks"), pluginName);
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.RELOADING:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Reloading the page to apply changes...", "nfd-wonder-blocks");
-      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ERROR:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Failed to install %s. Please try again.", "nfd-wonder-blocks"), pluginName);
-      default:
-        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installing %s...", "nfd-wonder-blocks"), pluginName);
-    }
-  };
-  const canClose = currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ERROR || currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.IDLE;
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Modal, {
-    className: "nfd-wba-installation-modal",
-    title: getModalTitle(),
-    onRequestClose: canClose ? onClose : undefined,
-    isDismissible: canClose,
-    shouldCloseOnClickOutside: false,
-    shouldCloseOnEsc: canClose
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-installation-modal-content"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "nfd-wba-mb-4"
-  }, getModalMessage()), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-flex nfd-wba-flex-col nfd-wba-items-center nfd-wba-gap-4"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PluginProgressBar__WEBPACK_IMPORTED_MODULE_8__.CircularProgress, {
-    percentage: Math.round((operationDetails?.progress || 0) * 100),
-    isError: currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ERROR,
-    size: 80,
-    strokeWidth: 4
-  }), currentStep !== _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ERROR && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-text-center"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "nfd-wba-text-sm nfd-wba-text-gray-600 nfd-wba-m-0"
-  }, currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.CHECKING && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Checking plugin status...", "nfd-wonder-blocks"), currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.INSTALLING && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Downloading and installing...", "nfd-wonder-blocks"), currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ACTIVATING && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Activating plugin...", "nfd-wonder-blocks"), currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.SETTING_UP && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Configuring plugin...", "nfd-wonder-blocks"), currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.COMPLETE && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installation complete!", "nfd-wonder-blocks"), currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.RELOADING && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Reloading page...", "nfd-wonder-blocks")))), currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_6__.PLUGIN_STEPS.ERROR && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-mt-4 nfd-wba-text-center"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "nfd-wba-button nfd-wba-button-primary",
-    onClick: onClose
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Close", "nfd-wonder-blocks")))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InstallationProgressModal);
-
-/***/ }),
-
 /***/ "./src/components/Logo.jsx":
 /*!*********************************!*\
   !*** ./src/components/Logo.jsx ***!
@@ -3710,7 +3512,7 @@ const Header = () => {
       setIsModalOpen(false);
     },
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_14__["default"],
-    iconSize: 24,
+    iconsize: 24,
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Close dialog", "nfd-wonder-blocks")
   })));
 };
@@ -3895,7 +3697,7 @@ const KeywordFilter = () => {
     }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"], {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__["default"],
-    iconSize: 24
+    iconsize: 24
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SearchControl, {
     id: "nfd-wba-filter-patterns",
     ref: searchRef,
@@ -4000,6 +3802,175 @@ function LoadingSpinner({
 
 /***/ }),
 
+/***/ "./src/components/Modal/Content/PluginInstallationProgress.jsx":
+/*!*********************************************************************!*\
+  !*** ./src/components/Modal/Content/PluginInstallationProgress.jsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../constants */ "./src/constants.js");
+/* harmony import */ var _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks/usePluginManager */ "./src/hooks/usePluginManager.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../store */ "./src/store/index.js");
+/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Spinner */ "./src/components/Modal/Content/Spinner.jsx");
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+const PluginInstallationProgress = ({
+  pluginData,
+  onClose
+}) => {
+  const [isVisible, setIsVisible] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(true);
+
+  // Get modal state, active category, and editor state from store
+  const {
+    isModalOpen,
+    activePatternsCategory,
+    hasUnsavedChanges
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => ({
+    isModalOpen: select(_store__WEBPACK_IMPORTED_MODULE_8__.store).isModalOpen(),
+    activePatternsCategory: select(_store__WEBPACK_IMPORTED_MODULE_8__.store).getActivePatternsCategory(),
+    hasUnsavedChanges: select(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__.store).hasChangedContent()
+  }));
+
+  // Editor actions
+  const {
+    savePost: dispatchSavePost
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__.store);
+
+  // Use store category or fallback to URL parameter or default
+  const searchParams = new URLSearchParams(window?.location?.search);
+  const currentCategory = activePatternsCategory || searchParams.get("wb-category") || _constants__WEBPACK_IMPORTED_MODULE_6__.DEFAULT_PATTERNS_CATEGORY;
+
+  // Setup plugin manager with proper callbacks
+  // Only add redirect parameters if the Wonder Blocks modal is open
+  const redirectParams = isModalOpen ? {
+    "wb-library": "patterns",
+    "wb-category": currentCategory
+  } : {};
+  const {
+    currentStep,
+    hasError,
+    isReloading,
+    processPlugin
+  } = (0,_hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.usePluginManager)({
+    reloadAfterInstall: true,
+    redirectParams
+  });
+
+  // Start installation when component mounts
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+    if (pluginData?.plugin) {
+      processPlugin(pluginData);
+    }
+  }, [pluginData?.plugin]);
+
+  // Handle unsaved changes before reload and close modal
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+    const handleReload = async () => {
+      if (currentStep !== _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.COMPLETE) return;
+      try {
+        // Save post if there are unsaved changes before reloading
+        if (hasUnsavedChanges) {
+          await dispatchSavePost();
+        }
+      } catch (error) {
+        console.warn("Error saving before reload:", error);
+        // Continue with reload even if save fails
+      }
+
+      // Close modal (page will reload anyway)
+      setIsVisible(false);
+    };
+    handleReload();
+  }, [currentStep, hasUnsavedChanges, dispatchSavePost]);
+  if (!isVisible) {
+    return null;
+  }
+  const getModalTitle = () => {
+    const pluginName = pluginData?.pluginName || pluginData?.plugin || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("the plugin", "nfd-wonder-blocks");
+    if (currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.COMPLETE) {
+      return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("All done!", "nfd-wonder-blocks"), pluginName);
+    }
+    if (currentStep === _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.ERROR) {
+      return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installation failed", "nfd-wonder-blocks");
+    }
+
+    // All other states (loading)
+    return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Installing %s", "nfd-wonder-blocks"), pluginName);
+  };
+  const getModalMessage = () => {
+    const pluginName = pluginData?.pluginName || pluginData?.plugin || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("the plugin", "nfd-wonder-blocks");
+    switch (currentStep) {
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.CHECKING:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Verifying %s installation status...", "nfd-wonder-blocks"), pluginName);
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.INSTALLING:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Downloading and installing %s...", "nfd-wonder-blocks"), pluginName);
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.ACTIVATING:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Activating %s...", "nfd-wonder-blocks"), pluginName);
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.SETTING_UP:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Configuring %s settings...", "nfd-wonder-blocks"), pluginName);
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.COMPLETE:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("%s has been successfully installed and activated!", "nfd-wonder-blocks"), pluginName);
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.RELOADING:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Reloading the page to apply the changes...", "nfd-wonder-blocks");
+      case _hooks_usePluginManager__WEBPACK_IMPORTED_MODULE_7__.PLUGIN_STEPS.ERROR:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("We encountered an issue installing %s. Please try again or contact support if the problem persists.", "nfd-wonder-blocks"), pluginName);
+      default:
+        return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Setting up %s...", "nfd-wonder-blocks"), pluginName);
+    }
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-installation-modal-content nfd-wba-flex nfd-wba-flex-col nfd-wba-justify-center nfd-wba-items-center"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-items-center nfd-wba-flex-col"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Spinner__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    size: 56,
+    state: hasError ? "error" : isReloading ? "success" : "loading"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
+    className: "nfd-wba-text-2xl nfd-wba-text-balance nfd-wba-font-medium nfd-wba-leading-tight nfd-wba-mt-8 nfd-wba-text-gray-900"
+  }, getModalTitle()), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "nfd-wba-text-base nfd-wba-text-balance nfd-wba-leading-relaxed nfd-wba-text-gray-700 nfd-wba-m-0"
+  }, getModalMessage()), hasError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    variant: "primary",
+    className: "nfd-wba-justify-center nfd-wba-w-3/4 nfd-wba-mt-6",
+    onClick: onClose
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Close", "nfd-wonder-blocks"))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PluginInstallationProgress);
+
+/***/ }),
+
 /***/ "./src/components/Modal/Content/Skeleton.jsx":
 /*!***************************************************!*\
   !*** ./src/components/Modal/Content/Skeleton.jsx ***!
@@ -4092,26 +4063,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/x.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/check.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+
+/**
+ * External dependencies
+ */
+
+
 
 /**
  * WordPress dependencies
  */
 
+
 const Spinner = ({
-  size = 60
+  size = 60,
+  className = "",
+  state = "loading"
 }) => {
+  const isLoading = state === "loading";
+  const isError = state === "error";
+  const isSuccess = state === "success";
+  const prevStateRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(state);
+  const [shouldAnimate, setShouldAnimate] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    // Check if state has changed
+    if (prevStateRef.current !== state) {
+      setShouldAnimate(true);
+      prevStateRef.current = state;
+
+      // Remove animation class after animation completes
+      const timer = setTimeout(() => {
+        setShouldAnimate(false);
+      }, 300); // Match the animation duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [state]);
+  const getScreenReaderText = () => {
+    if (isError) return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Error", "nfd-wonder-blocks");
+    if (isSuccess) return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Success", "nfd-wonder-blocks");
+    return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Loading…", "nfd-wonder-blocks");
+  };
+  const iconSize = 24;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "nfd-wba-flex nfd-wba-shrink-0 nfd-wba-grow-0 nfd-wba-animate-spin nfd-wba-rounded-full nfd-wba-border-2 nfd-wba-border-solid nfd-wba-border-brand nfd-wba-border-r-brand/10 nfd-wba-align-[-0.125em]",
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])("nfd-wba-flex nfd-wba-shrink-0 nfd-wba-grow-0 nfd-wba-rounded-full nfd-wba-border-2 nfd-wba-border-solid nfd-wba-align-[-0.125em] nfd-wba-items-center nfd-wba-justify-center nfd-wba-transition-all nfd-wba-duration-300", {
+      "nfd-wba-animate-spin nfd-wba-border-brand nfd-wba-border-r-brand/10": isLoading,
+      "nfd-wba-border-red-500": isError,
+      "nfd-wba-border-brand": isSuccess,
+      "nfd-wba-animate-pop": shouldAnimate
+    }, className),
     style: {
       width: `${size}px`,
       height: `${size}px`
     },
     role: "status"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "nfd-wba-flex nfd-wba-items-center nfd-wba-justify-center"
+  }, isError && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    size: iconSize,
+    className: "nfd-wba-text-red-600"
+  }), isSuccess && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(lucide_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    size: iconSize,
+    className: "nfd-wba-text-brand"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "nfd-wba-sr-only"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Loading…", "nfd-wonder-blocks")));
+  }, getScreenReaderText())));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Spinner);
 
@@ -5717,6 +5740,157 @@ const blockInserter = blocks => {
 
 /***/ }),
 
+/***/ "./src/helpers/ctbHandler.js":
+/*!***********************************!*\
+  !*** ./src/helpers/ctbHandler.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setupCTBPostMessageListener: () => (/* binding */ setupCTBPostMessageListener)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Modal_Content_PluginInstallationProgress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Modal/Content/PluginInstallationProgress */ "./src/components/Modal/Content/PluginInstallationProgress.jsx");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants */ "./src/constants.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store */ "./src/store/index.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+// Global state for installation progress modal
+let installationModalRoot = null;
+let messageEventListener = null;
+
+/**
+ * Set up the postMessage listener for CTB success events
+ * Only listens when the Wonder Blocks modal is open
+ */
+const setupCTBPostMessageListener = () => {
+  // Check modal state and add/remove listener accordingly
+  const checkModalState = () => {
+    // Get the current modal state from the store
+    const isModalOpen = window.wp?.data?.select(_store__WEBPACK_IMPORTED_MODULE_4__.store)?.isModalOpen();
+    if (isModalOpen && !messageEventListener) {
+      // Add listener when modal opens
+      messageEventListener = event => {
+        // Basic security checks
+        if (!event.data || typeof event.data !== "object") {
+          return;
+        }
+
+        // Listen for ctbSuccess message
+        if (event.data.type === "ctbSuccess") {
+          handleCTBSuccess(event.data);
+        }
+      };
+      window.addEventListener("message", messageEventListener);
+    } else if (!isModalOpen && messageEventListener) {
+      // Remove listener when modal closes
+      window.removeEventListener("message", messageEventListener);
+      messageEventListener = null;
+    }
+  };
+
+  // Check immediately
+  checkModalState();
+
+  // Set up observer to watch for modal state changes
+  if (window.wp?.data?.subscribe) {
+    window.wp.data.subscribe(() => {
+      checkModalState();
+    });
+  }
+};
+
+/**
+ * Handle CTB success message and trigger plugin installation
+ */
+const handleCTBSuccess = async messageData => {
+  console.log("CTB Success received:", messageData);
+
+  // Extract plugin data from the message
+  const pluginData = {
+    slug: messageData.slug || "",
+    plugin: messageData.plugin || "",
+    basename: messageData.basename || "",
+    pluginName: messageData.pluginName || "",
+    activate: messageData.activate !== false,
+    // Default to true
+    queue: messageData.queue || false,
+    priority: messageData.priority || 0,
+    isPremium: messageData.premium || false
+  };
+  if (pluginData.isPremium) {
+    pluginData.plsSlug = messageData.plsSlug || messageData.plugin || "";
+    pluginData.plsProviderName = messageData.plsProviderName || messageData.provider || "";
+  }
+
+  // Show installation progress modal
+  showInstallationProgressModal(pluginData);
+};
+
+/**
+ * Show the installation progress modal
+ */
+const showInstallationProgressModal = pluginData => {
+  // Find the existing Wonder Blocks modal container
+  const wonderBlocksModal = document.getElementById(_constants__WEBPACK_IMPORTED_MODULE_3__.NFD_WONDER_BLOCKS_MODAL_ID);
+  if (!wonderBlocksModal) {
+    console.warn("Could not find Wonder Blocks modal container");
+    return;
+  }
+
+  // Create overlay container inside the Wonder Blocks modal
+  const modalId = "nfd-wba-installation-overlay";
+  let overlayContainer = document.getElementById(modalId);
+  if (!overlayContainer) {
+    overlayContainer = Object.assign(document.createElement("div"), {
+      id: modalId,
+      className: "nfd-wba-installation-overlay"
+    });
+    wonderBlocksModal.appendChild(overlayContainer);
+  }
+
+  // Create or update the React root
+  if (!installationModalRoot) {
+    installationModalRoot = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createRoot)(overlayContainer);
+  }
+  installationModalRoot.render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Modal_Content_PluginInstallationProgress__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    pluginData: pluginData,
+    onClose: () => hideInstallationProgressModal()
+  }));
+};
+
+/**
+ * Hide the installation progress modal
+ */
+const hideInstallationProgressModal = () => {
+  if (installationModalRoot) {
+    installationModalRoot.unmount();
+    installationModalRoot = null;
+  }
+  const overlayContainer = document.getElementById("nfd-wba-installation-overlay");
+  if (overlayContainer) {
+    overlayContainer.remove();
+  }
+};
+
+/***/ }),
+
 /***/ "./src/helpers/fetcher.js":
 /*!********************************!*\
   !*** ./src/helpers/fetcher.js ***!
@@ -6919,16 +7093,26 @@ const usePluginManager = ({
       plugins
     });
     const results = {};
+    let hasError = false;
     try {
       // Process each plugin individually for better tracking
       for (const plugin of plugins) {
         const slug = typeof plugin === "string" ? plugin : plugin.slug;
         const result = await checkPlugin(plugin);
         results[slug] = result.status;
+
+        // Check if this plugin had an error
+        if (result.error) {
+          hasError = true;
+        }
       }
-      updateStep(PLUGIN_STEPS.IDLE, {
-        results
-      });
+
+      // Only update to IDLE if no errors occurred
+      if (!hasError) {
+        updateStep(PLUGIN_STEPS.IDLE, {
+          results
+        });
+      }
       return results;
     } catch (error) {
       updateStep(PLUGIN_STEPS.ERROR, {
@@ -6988,8 +7172,9 @@ const usePluginManager = ({
       }
       return response;
     } catch (error) {
+      var _error$message;
       updateStep(PLUGIN_STEPS.ERROR, {
-        error
+        error: (_error$message = error.message) !== null && _error$message !== void 0 ? _error$message : "Unknown error"
       });
       console.warn("Plugin installation error:", error);
       if (showNotices) {
@@ -7346,6 +7531,7 @@ const usePluginManager = ({
     isInstalling: currentStep === PLUGIN_STEPS.INSTALLING,
     isActivating: currentStep === PLUGIN_STEPS.ACTIVATING,
     isSettingUp: currentStep === PLUGIN_STEPS.SETTING_UP,
+    isReloading: currentStep === PLUGIN_STEPS.RELOADING,
     isComplete: currentStep === PLUGIN_STEPS.COMPLETE,
     hasError: currentStep === PLUGIN_STEPS.ERROR,
     isBusy: currentStep !== PLUGIN_STEPS.IDLE && currentStep !== PLUGIN_STEPS.COMPLETE && currentStep !== PLUGIN_STEPS.ERROR,
@@ -9706,6 +9892,37 @@ const CalendarArrowUp = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["de
 
 
 //# sourceMappingURL=calendar-arrow-up.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/check.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/check.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconNode: () => (/* binding */ __iconNode),
+/* harmony export */   "default": () => (/* binding */ Check)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.js */ "./node_modules/lucide-react/dist/esm/createLucideIcon.js");
+/**
+ * @license lucide-react v0.488.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconNode = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = (0,_createLucideIcon_js__WEBPACK_IMPORTED_MODULE_0__["default"])("check", __iconNode);
+
+
+//# sourceMappingURL=check.js.map
 
 
 /***/ }),
@@ -13163,6 +13380,22 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
+/***/ "./node_modules/clsx/dist/clsx.mjs":
+/*!*****************************************!*\
+  !*** ./node_modules/clsx/dist/clsx.mjs ***!
+  \*****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   clsx: () => (/* binding */ clsx),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clsx);
+
+/***/ }),
+
 /***/ "./node_modules/dequal/lite/index.mjs":
 /*!********************************************!*\
   !*** ./node_modules/dequal/lite/index.mjs ***!
@@ -15494,9 +15727,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_block__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/block */ "./src/blocks/block.js");
 /* harmony import */ var _blocks_inspector_control__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/inspector-control */ "./src/blocks/inspector-control.js");
 /* harmony import */ var _blocks_register_category__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/register-category */ "./src/blocks/register-category.js");
-/* harmony import */ var _components_InstallationProgressModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/InstallationProgressModal */ "./src/components/InstallationProgressModal.jsx");
-/* harmony import */ var _components_Modal_Modal__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/Modal/Modal */ "./src/components/Modal/Modal.jsx");
-/* harmony import */ var _components_ToolbarButton__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/ToolbarButton */ "./src/components/ToolbarButton.jsx");
+/* harmony import */ var _components_Modal_Modal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Modal/Modal */ "./src/components/Modal/Modal.jsx");
+/* harmony import */ var _components_ToolbarButton__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/ToolbarButton */ "./src/components/ToolbarButton.jsx");
+/* harmony import */ var _helpers_ctbHandler__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./helpers/ctbHandler */ "./src/helpers/ctbHandler.js");
 
 /**
  * Styles.
@@ -15528,13 +15761,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-// Global state for installation progress modal
-let installationModalRoot = null;
 _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_6___default()(() => {
   initializeHiiveAnalytics();
   renderModal();
-  setupCTBPostMessageListener();
+  (0,_helpers_ctbHandler__WEBPACK_IMPORTED_MODULE_15__.setupCTBPostMessageListener)();
 });
 
 /**
@@ -15550,7 +15780,7 @@ const renderModal = (elementId = _constants__WEBPACK_IMPORTED_MODULE_9__.NFD_WON
     className: "nfd-wba-modal"
   });
   document.body.append(wonderBlocksModal);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_7__.createRoot)(wonderBlocksModal).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Modal_Modal__WEBPACK_IMPORTED_MODULE_14__["default"], null));
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_7__.createRoot)(wonderBlocksModal).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Modal_Modal__WEBPACK_IMPORTED_MODULE_13__["default"], null));
 };
 const addWonderBlocksButton = () => {
   const observer = new window.MutationObserver(mutationsList => {
@@ -15571,7 +15801,7 @@ const addWonderBlocksButton = () => {
       className: "nfd-wba-shrink-0"
     });
     toolbar?.append(wonderBlocksButton);
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_7__.createRoot)(wonderBlocksButton).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_ToolbarButton__WEBPACK_IMPORTED_MODULE_15__["default"], null));
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_7__.createRoot)(wonderBlocksButton).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_ToolbarButton__WEBPACK_IMPORTED_MODULE_14__["default"], null));
     document.dispatchEvent(new Event("wonder-blocks/toolbar-button-added"));
   };
   const debouncedAddToToolbar = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.debounce)(addButtonToToolbar, 300);
@@ -15616,87 +15846,6 @@ const initializeHiiveAnalytics = () => {
 (0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_8__.registerPlugin)("wonder-blocks", {
   render: addWonderBlocksButton
 });
-
-/**
- * Set up the postMessage listener for CTB success events
- */
-const setupCTBPostMessageListener = () => {
-  window.addEventListener("message", event => {
-    // Basic security checks
-    if (!event.data || typeof event.data !== "object") {
-      return;
-    }
-
-    // Listen for ctbSuccess message
-    if (event.data.type === "ctbSuccess") {
-      handleCTBSuccess(event.data);
-    }
-  });
-};
-
-/**
- * Handle CTB success message and trigger plugin installation
- */
-const handleCTBSuccess = async messageData => {
-  console.log("CTB Success received:", messageData);
-
-  // Extract plugin data from the message
-  const pluginData = {
-    slug: messageData.slug || "",
-    plugin: messageData.plugin || "",
-    basename: messageData.basename || "",
-    pluginName: messageData.pluginName || "",
-    activate: messageData.activate !== false,
-    // Default to true
-    queue: messageData.queue || false,
-    priority: messageData.priority || 0,
-    premium: messageData.premium || false
-  };
-
-  // Show installation progress modal
-  showInstallationProgressModal(pluginData);
-};
-
-/**
- * Show the installation progress modal
- */
-const showInstallationProgressModal = pluginData => {
-  // Create modal container if it doesn't exist
-  const modalId = "nfd-wba-installation-modal";
-  let modalContainer = document.getElementById(modalId);
-  if (!modalContainer) {
-    modalContainer = Object.assign(document.createElement("div"), {
-      id: modalId,
-      className: "nfd-wba-installation-modal"
-    });
-    document.body.append(modalContainer);
-  }
-
-  // Create or update the React root
-  if (!installationModalRoot) {
-    installationModalRoot = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_7__.createRoot)(modalContainer);
-  }
-
-  // Render the installation progress modal
-  installationModalRoot.render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_InstallationProgressModal__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    pluginData: pluginData,
-    onClose: () => hideInstallationProgressModal()
-  }));
-};
-
-/**
- * Hide the installation progress modal
- */
-const hideInstallationProgressModal = () => {
-  if (installationModalRoot) {
-    installationModalRoot.unmount();
-    installationModalRoot = null;
-  }
-  const modalContainer = document.getElementById("nfd-wba-installation-modal");
-  if (modalContainer) {
-    modalContainer.remove();
-  }
-};
 })();
 
 ((window.newfold = window.newfold || {}).WonderBlocks = window.newfold.WonderBlocks || {})["wonder-blocks"] = __webpack_exports__;
