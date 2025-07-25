@@ -125,10 +125,20 @@ class CSSUtilities {
 			$css = "body, .editor-styles-wrapper {
 				--wndb--color--primary: var(--wp--preset--color--accent-2);
 				--wndb--color--secondary: var(--wp--preset--color--accent-5);
+				--wndb--color--tertiary: var(--wp--preset--color--accent-3);
 				--wndb--color--body: var(--wp--preset--color--base);
 				--wndb--color--text: var(--wp-preset--color--contrast);
 				--wndb--color--text--contrast: var(--wp--preset--color--contrast);
 				--wndb--color--text--faded: color-mix(in srgb, var(--wp--preset--color--contrast), transparent 20%);
+				--wndb--color--surface: var(--wp--preset--color--base-midtone);
+
+				--wndb--text--sm: var(--wp--preset--font-size--small);
+
+				--wndb--p--xs: var(--wp--preset--spacing--20);
+				--wndb--p--sm: var(--wp--preset--spacing--40);
+				--wndb--p--md: var(--wp--preset--spacing--60);
+				--wndb--p--lg: var(--wp--preset--spacing--80);
+
 				--wndb--max-w--prose: 650px;
 			}";
 		}
