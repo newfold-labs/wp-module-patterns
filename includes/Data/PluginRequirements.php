@@ -1,8 +1,18 @@
 <?php
 namespace NewfoldLabs\WP\Module\Patterns\Data;
 
+/**
+ * Plugin Requirements class.
+ *
+ * @package NewfoldLabs\WP\Module\Patterns\Data
+ */
 final class PluginRequirements {
 
+	/**
+	 * Plugin requirements for patterns.
+	 *
+	 * @var array
+	 */
 	protected static $patterns = array(
 		'form-1'     => array(
 			array(
@@ -58,6 +68,33 @@ final class PluginRequirements {
 				'slug' => 'woocommerce',
 				'name' => 'WooCommerce',
 				'path' => 'woocommerce/woocommerce.php',
+			),
+		),
+		'header-20'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'header-21'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'header-22'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
 			),
 		),
 	);
