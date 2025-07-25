@@ -2,6 +2,11 @@
 
 namespace NewfoldLabs\WP\Module\Patterns;
 
+/**
+ * Block Styles class.
+ *
+ * @package NewfoldLabs\WP\Module\Patterns
+ */
 class BlockStyles {
 
 	/**
@@ -80,7 +85,7 @@ class BlockStyles {
 
 		foreach ( $image_styles as $image_style ) {
 			register_block_style(
-				[ 'core/group', 'core/image' ],
+				array( 'core/group', 'core/image' ),
 				$image_style
 			);
 		}
