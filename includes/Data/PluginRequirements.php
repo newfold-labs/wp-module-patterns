@@ -122,6 +122,33 @@ final class PluginRequirements {
 				'ctbId'       => 'bb65fce0-24b6-4714-8d5d-3a693f428df4',
 			),
 		),
+		'header-20'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'header-21'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'header-22'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
 	);
 
 	/**
