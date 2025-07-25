@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1753469041">
-  <project timestamp="1753469041">
+<coverage generated="1753469139">
+  <project timestamp="1753469139">
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Admin/CTA.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Admin\CTA" namespace="global">
         <metrics complexity="26" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="131" coveredstatements="0" elements="140" coveredelements="0"/>
@@ -610,30 +610,30 @@
       <line num="133" type="stmt" count="0"/>
       <line num="136" type="stmt" count="0"/>
       <line num="137" type="stmt" count="0"/>
+      <line num="144" type="stmt" count="0"/>
       <line num="147" type="stmt" count="0"/>
-      <line num="150" type="stmt" count="0"/>
-      <line num="158" type="method" name="get_base_url" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="159" type="stmt" count="0"/>
+      <line num="155" type="method" name="get_base_url" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="156" type="stmt" count="0"/>
+      <line num="157" type="stmt" count="0"/>
       <line num="160" type="stmt" count="0"/>
-      <line num="163" type="stmt" count="0"/>
-      <line num="171" type="method" name="conditional_refresh_assets" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="168" type="method" name="conditional_refresh_assets" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="169" type="stmt" count="0"/>
+      <line num="170" type="stmt" count="0"/>
       <line num="172" type="stmt" count="0"/>
       <line num="173" type="stmt" count="0"/>
-      <line num="175" type="stmt" count="0"/>
-      <line num="176" type="stmt" count="0"/>
-      <line num="177" type="stmt" count="0"/>
-      <line num="187" type="method" name="refresh_assets" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="188" type="stmt" count="0"/>
-      <line num="189" type="stmt" count="0"/>
-      <line num="200" type="method" name="fetch_and_store_asset" visibility="private" complexity="3" crap="12" count="0"/>
+      <line num="174" type="stmt" count="0"/>
+      <line num="184" type="method" name="refresh_assets" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="185" type="stmt" count="0"/>
+      <line num="186" type="stmt" count="0"/>
+      <line num="197" type="method" name="fetch_and_store_asset" visibility="private" complexity="3" crap="12" count="0"/>
+      <line num="198" type="stmt" count="0"/>
+      <line num="199" type="stmt" count="0"/>
       <line num="201" type="stmt" count="0"/>
-      <line num="202" type="stmt" count="0"/>
+      <line num="203" type="stmt" count="0"/>
       <line num="204" type="stmt" count="0"/>
+      <line num="205" type="stmt" count="0"/>
       <line num="206" type="stmt" count="0"/>
-      <line num="207" type="stmt" count="0"/>
-      <line num="208" type="stmt" count="0"/>
-      <line num="209" type="stmt" count="0"/>
-      <metrics loc="213" ncloc="144" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="0" elements="70" coveredelements="0"/>
+      <metrics loc="210" ncloc="141" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="0" elements="70" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Data/Brands.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Data\Brands" namespace="global">
@@ -1200,6 +1200,6 @@
       <line num="54" type="stmt" count="0"/>
       <metrics loc="57" ncloc="44" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
-    <metrics files="29" loc="2724" ncloc="2023" classes="29" methods="90" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="942" coveredstatements="0" elements="1032" coveredelements="0"/>
+    <metrics files="29" loc="2721" ncloc="2020" classes="29" methods="90" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="942" coveredstatements="0" elements="1032" coveredelements="0"/>
   </project>
 </coverage>
