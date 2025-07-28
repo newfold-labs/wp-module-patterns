@@ -26,7 +26,7 @@ jobs:
 
       # User PHP 7.4 here for compatibility with the WordPress codesniffer rules.
       - name: Setup PHP
-        uses: shivammathur/setup-php@cf4cade2721270509d5b1c766ab3549210a39a2a # v2.33.0
+        uses: shivammathur/setup-php@34a5396826718e0013f08e3e639d1c315d5f6b23 # v2.35.0
         with:
           php-version: '7.3'
           coverage: none
