@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff2ea438cbb6fd2ef7cfa3b4a4f8541d",
+    "content-hash": "cbd69f3451bfd1167ad3cef5fe863c4f",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -104,16 +104,16 @@
         },
         {
             "name": "newfold-labs/container",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/container.git",
-                "reference": "19bb75bb4a64a282f7d142fff9f3418177022851"
+                "reference": "0c16f8a70523159c1f3842a242e9c3b20f5729a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/container/zipball/19bb75bb4a64a282f7d142fff9f3418177022851",
-                "reference": "19bb75bb4a64a282f7d142fff9f3418177022851",
+                "url": "https://api.github.com/repos/newfold-labs/container/zipball/0c16f8a70523159c1f3842a242e9c3b20f5729a6",
+                "reference": "0c16f8a70523159c1f3842a242e9c3b20f5729a6",
                 "shasum": ""
             },
             "require": {
@@ -136,29 +136,32 @@
             ],
             "description": "A lightweight, PHP 7.0+ compatible, PSR-11 dependency injection container.",
             "support": {
-                "source": "https://github.com/newfold-labs/container/tree/1.2.2"
+                "source": "https://github.com/newfold-labs/container/tree/1.2.3"
             },
-            "time": "2022-08-26T17:23:54+00:00"
+            "time": "2025-05-06T18:14:40+00:00"
         },
         {
             "name": "newfold-labs/wp-module-context",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-context.git",
-                "reference": "fb57e927df45ef33573fe7f429ef1e088b0a6df0"
+                "reference": "46c3fb5f0df3eb1e016b04310a1edb274e00fde9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-context/zipball/fb57e927df45ef33573fe7f429ef1e088b0a6df0",
-                "reference": "fb57e927df45ef33573fe7f429ef1e088b0a6df0",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-context/zipball/46c3fb5f0df3eb1e016b04310a1edb274e00fde9",
+                "reference": "46c3fb5f0df3eb1e016b04310a1edb274e00fde9",
                 "shasum": ""
             },
             "require": {
                 "wp-forge/helpers": "^2.0"
             },
             "require-dev": {
-                "newfold-labs/wp-php-standards": "^1.2"
+                "johnpbloch/wordpress": "@stable",
+                "lucatume/wp-browser": "*",
+                "newfold-labs/wp-php-standards": "^1.2",
+                "phpunit/phpcov": "*"
             },
             "type": "library",
             "autoload": {
@@ -176,6 +179,14 @@
                 ],
                 "lint": [
                     "vendor/bin/phpcs . --standard=phpcs.xml -s"
+                ],
+                "test": [
+                    "codecept run wpunit"
+                ],
+                "test-coverage": [
+                    "codecept run wpunit --coverage wpunit.cov",
+                    "phpcov merge --php tests/_output/merged.cov --html tests/_output/html tests/_output;",
+                    "echo \"open tests/_output/html/index.html\" to view the report"
                 ]
             },
             "license": [
@@ -189,23 +200,23 @@
             ],
             "description": "Newfold module to determine context for various brands and platforms.",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-module-context/tree/1.0.1",
+                "source": "https://github.com/newfold-labs/wp-module-context/tree/1.0.2",
                 "issues": "https://github.com/newfold-labs/wp-module-context/issues"
             },
-            "time": "2024-05-23T20:34:28+00:00"
+            "time": "2025-06-06T22:13:44+00:00"
         },
         {
             "name": "newfold-labs/wp-module-data",
-            "version": "2.8.4",
+            "version": "2.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-data.git",
-                "reference": "17d485a474d4162dcebda7010e1675f87579bac8"
+                "reference": "e256489dfe1fa4c5c11793c769772ff98247961e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-data/zipball/17d485a474d4162dcebda7010e1675f87579bac8",
-                "reference": "17d485a474d4162dcebda7010e1675f87579bac8",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-data/zipball/e256489dfe1fa4c5c11793c769772ff98247961e",
+                "reference": "e256489dfe1fa4c5c11793c769772ff98247961e",
                 "shasum": ""
             },
             "require": {
@@ -295,10 +306,10 @@
             ],
             "description": "Newfold Data Module",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-module-data/tree/2.8.4",
+                "source": "https://github.com/newfold-labs/wp-module-data/tree/2.8.6",
                 "issues": "https://github.com/newfold-labs/wp-module-data/issues"
             },
-            "time": "2025-05-20T17:54:39+00:00"
+            "time": "2025-07-16T20:29:28+00:00"
         },
         {
             "name": "newfold-labs/wp-module-features",
@@ -7194,8 +7205,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "platform-overrides": {
         "php": "7.3.0"
     },
