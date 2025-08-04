@@ -133,6 +133,10 @@ class PluginService {
 			return true;
 		}
 
+		if ( 'wordpress-seo-premium' === $slug ) {
+			return self::enable_yoast_seo_premium();
+		}
+
 		return false;
 	}
 
@@ -200,6 +204,20 @@ class PluginService {
 		}
 
 		// Return true if module is already active
-		return class_exists( 'Jetpack' ) && \Jetpack::is_module_active( 'contact-form' );
+		return class_exists( 'Jetpack' ) && \Jetpack::is_module_active( 'contact-form' ) && \Jetpack::is_module_active( 'blocks' );
+	}
+
+	/**
+	 * Enable the Yoast SEO Premium module.
+	 *
+	 * @return boolean True if module was activated or was already active
+	 */
+	public static function enable_yoast_seo_premium() {
+		if ( class_exists( 'WPSEO_Options' ) ) {
+			// Disable redirect to Yoast onboarding.
+			\WPSEO_Options::set( 'should_redirect_after_install', false );
+		}
+
+		return true;
 	}
 }
