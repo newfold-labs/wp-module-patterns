@@ -1,16 +1,15 @@
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: newfold-labswp-module-staging\n"
 "Report-Msgid-Bugs-To: https://github.com/newfold-labs/wp-module-patterns/issues\n"
-"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-24 17:32\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
-"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-02-24 17:32\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-File: nfd-wonder-blocks.pot\n"
 "X-Crowdin-File-ID: 58\n"
@@ -60,27 +59,33 @@ msgstr "Ereignisdaten"
 msgid "Invalid request"
 msgstr "Ungültige Anfrage"
 
-#: includes/BlockStyles.php:63 build/2.9.6/wonder-blocks.js:1
+#: includes/BlockStyles.php:63
+#: build/2.9.6/wonder-blocks.js:1
 msgid "White"
 msgstr "Weiß"
 
-#: includes/BlockStyles.php:67 build/2.9.6/wonder-blocks.js:1
+#: includes/BlockStyles.php:67
+#: build/2.9.6/wonder-blocks.js:1
 msgid "Light"
 msgstr "Hell"
 
-#: includes/BlockStyles.php:71 build/2.9.6/wonder-blocks.js:1
+#: includes/BlockStyles.php:71
+#: build/2.9.6/wonder-blocks.js:1
 msgid "Dark"
 msgstr "Dunkel"
 
-#: includes/BlockStyles.php:75 build/2.9.6/wonder-blocks.js:1
+#: includes/BlockStyles.php:75
+#: build/2.9.6/wonder-blocks.js:1
 msgid "Darker"
 msgstr "Dunkler"
 
-#: includes/BlockStyles.php:79 build/2.9.6/wonder-blocks.js:1
+#: includes/BlockStyles.php:79
+#: build/2.9.6/wonder-blocks.js:1
 msgid "Primary"
 msgstr "Primär"
 
-#: includes/Library/Categories.php:42 includes/Library/Items.php:38
+#: includes/Library/Categories.php:42
+#: includes/Library/Items.php:38
 msgid "Error fetching data from the platform."
 msgstr "Fehler beim Abrufen der Daten von der Plattform."
 
@@ -88,7 +93,8 @@ msgstr "Fehler beim Abrufen der Daten von der Plattform."
 msgid "Bad event structure/value."
 msgstr "Fehlerhafte Ereignisstruktur/-wert."
 
-#: includes/Library/UsageTags.php:20 build/2.9.6/wonder-blocks.js:9
+#: includes/Library/UsageTags.php:20
+#: build/2.9.6/wonder-blocks.js:9
 msgid "Layout"
 msgstr "Layout"
 
@@ -96,7 +102,8 @@ msgstr "Layout"
 msgid "Content"
 msgstr "Inhalt"
 
-#: includes/Library/UsageTags.php:28 build/2.9.6/wonder-blocks.js:9
+#: includes/Library/UsageTags.php:28
+#: build/2.9.6/wonder-blocks.js:9
 msgid "Info"
 msgstr "Info"
 
@@ -637,14 +644,8 @@ msgid "Sync Now"
 msgstr "Jetzt synchronisieren"
 
 #: build/2.9.6/wonder-blocks.js:1
-msgid ""
-"Pattern & Template library automatically syncs once a day. If you want to "
-"manually refresh the library, you can do so by pressing the button to get "
-"the most recent designs."
-msgstr ""
-"Muster- & Vorlagenbibliothek synchronisiert automatisch einmal pro Tag. Wenn"
-" Sie die Bibliothek manuell aktualisieren möchten, können Sie dies durch "
-"Drücken der Schaltfläche tun, um die neuesten Designs zu erhalten."
+msgid "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
+msgstr "Muster- & Vorlagenbibliothek synchronisiert automatisch einmal pro Tag. Wenn Sie die Bibliothek manuell aktualisieren möchten, können Sie dies durch Drücken der Schaltfläche tun, um die neuesten Designs zu erhalten."
 
 #. translators: %s is the pattern title
 #: build/2.9.6/wonder-blocks.js:6
@@ -656,15 +657,18 @@ msgstr "Blockmuster \"%s\" eingefügt."
 msgid "Failed to insert block pattern. Please try again."
 msgstr "Fehler beim Einfügen des Blockmusters. Bitte versuchen Sie es erneut."
 
-#: build/2.9.6/wonder-blocks.js:1 build/2.9.6/wonder-blocks.js:3
+#: build/2.9.6/wonder-blocks.js:1
+#: build/2.9.6/wonder-blocks.js:3
 msgid "Added to favorites"
 msgstr "Zu Favoriten hinzugefügt"
 
-#: build/2.9.6/wonder-blocks.js:1 build/2.9.6/wonder-blocks.js:3
+#: build/2.9.6/wonder-blocks.js:1
+#: build/2.9.6/wonder-blocks.js:3
 msgid "Add to favorites"
 msgstr "Zu Favoriten hinzufügen"
 
-#: build/2.9.6/wonder-blocks.js:1 build/2.9.6/wonder-blocks.js:3
+#: build/2.9.6/wonder-blocks.js:1
+#: build/2.9.6/wonder-blocks.js:3
 msgid "Add pattern to page"
 msgstr "Muster zur Seite hinzufügen"
 
@@ -674,20 +678,12 @@ msgstr "unterstützungsteam"
 
 #: build/2.9.6/wonder-blocks.js:6
 #, js-format
-msgid ""
-"Click the %s on your favorite and frequently-used Patterns & Templates for "
-"quick access."
-msgstr ""
-"Klicken Sie auf %s auf Ihre bevorzugten und häufig verwendeten Muster & "
-"Vorlagen für einen schnellen Zugriff."
+msgid "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
+msgstr "Klicken Sie auf %s auf Ihre bevorzugten und häufig verwendeten Muster & Vorlagen für einen schnellen Zugriff."
 
 #: build/2.9.6/wonder-blocks.js:6
-msgid ""
-"Sorry, we couldn't find any results for that. Please try a different search "
-"term."
-msgstr ""
-"Leider konnten keine Ergebnisse gefunden werden. Bitte versuchen Sie einen "
-"anderen Suchbegriff."
+msgid "Sorry, we couldn't find any results for that. Please try a different search term."
+msgstr "Leider konnten keine Ergebnisse gefunden werden. Bitte versuchen Sie einen anderen Suchbegriff."
 
 #: build/2.9.6/wonder-blocks.js:6
 msgid "Sort By: "
@@ -727,18 +723,13 @@ msgstr "Lade…"
 
 #: build/2.9.6/wonder-blocks.js:6
 msgid "One moment while we load content tailored for your site."
-msgstr ""
-"Ein Moment, während wir Inhalte laden, die auf Ihre Website zugeschnitten "
-"sind."
+msgstr "Ein Moment, während wir Inhalte laden, die auf Ihre Website zugeschnitten sind."
 
 #. translators: %s: brand name - 'WonderBlocks'.
 #: build/2.9.6/wonder-blocks.js:9
 #, js-format
-msgid ""
-"%s needs the latest version of WordPress, please <a>update your site</a>."
-msgstr ""
-"%s benötigt die neueste Version von WordPress, bitte <a>aktualisieren Sie "
-"Ihre Website</a>."
+msgid "%s needs the latest version of WordPress, please <a>update your site</a>."
+msgstr "%s benötigt die neueste Version von WordPress, bitte <a>aktualisieren Sie Ihre Website</a>."
 
 #: build/2.9.6/wonder-blocks.js:9
 msgid "Search"
@@ -752,7 +743,8 @@ msgstr "Favoriten"
 msgid "WonderBlocks Menu"
 msgstr "WonderBlocks Menü"
 
-#: build/2.9.6/wonder-blocks.js:1 build/2.9.6/wonder-blocks.js:9
+#: build/2.9.6/wonder-blocks.js:1
+#: build/2.9.6/wonder-blocks.js:9
 msgid "About"
 msgstr "Über"
 
@@ -792,9 +784,7 @@ msgstr "Wunderblöcke"
 #: build/2.9.6/blocks/block.json
 msgctxt "block description"
 msgid "Add patterns and page templates tailored for your site."
-msgstr ""
-"Fügen Sie Muster und Seitenvorlagen hinzu, die auf Ihre Website "
-"zugeschnitten sind."
+msgstr "Fügen Sie Muster und Seitenvorlagen hinzu, die auf Ihre Website zugeschnitten sind."
 
 #: build/2.9.6/blocks/block.json
 msgctxt "block keyword"
@@ -861,8 +851,7 @@ msgstr "Plugin erfolgreich installiert."
 
 #: build/2.9.6/wonder-blocks.js:1
 msgid "Failed to install plugin. Please try again."
-msgstr ""
-"Das Plugin konnte nicht installiert werden. Bitte versuchen Sie es erneut."
+msgstr "Das Plugin konnte nicht installiert werden. Bitte versuchen Sie es erneut."
 
 #: build/2.9.6/wonder-blocks.js:1
 msgid "Plugin activated successfully."
@@ -870,8 +859,7 @@ msgstr "Plugin erfolgreich aktiviert."
 
 #: build/2.9.6/wonder-blocks.js:1
 msgid "Failed to activate plugin. Please try again."
-msgstr ""
-"Das Plugin konnte nicht aktiviert werden. Bitte versuchen Sie es erneut."
+msgstr "Das Plugin konnte nicht aktiviert werden. Bitte versuchen Sie es erneut."
 
 #: build/2.9.6/wonder-blocks.js:1
 msgid "Page is reloading to apply changes..."
@@ -883,8 +871,7 @@ msgstr "Plugin erfolgreich verarbeitet."
 
 #: build/2.9.6/wonder-blocks.js:1
 msgid "Failed to process plugin. Please try again."
-msgstr ""
-"Das Plugin konnte nicht verarbeitet werden. Bitte versuchen Sie es erneut."
+msgstr "Das Plugin konnte nicht verarbeitet werden. Bitte versuchen Sie es erneut."
 
 #: build/2.9.6/wonder-blocks.js:1
 msgid "Reloading Page"
@@ -934,7 +921,8 @@ msgstr "verbleibende Sekunden"
 msgid "Premium"
 msgstr "Prämie"
 
-#: build/2.9.6/wonder-blocks.js:1 build/2.9.6/wonder-blocks.js:3
+#: build/2.9.6/wonder-blocks.js:1
+#: build/2.9.6/wonder-blocks.js:3
 msgid "Install Required Plugins"
 msgstr "Installieren Sie die erforderlichen Plugins"
 
@@ -1013,13 +1001,8 @@ msgstr "Neuladen der Seite, um die Änderungen zu übernehmen..."
 
 #: build/2.9.6/wonder-blocks.js:9
 #, js-format
-msgid ""
-"We encountered an issue installing %s. Please try again or contact support "
-"if the problem persists."
-msgstr ""
-"Bei der Installation von %s ist ein Problem aufgetreten. Bitte versuchen Sie"
-" es erneut oder wenden Sie sich an den Support, wenn das Problem weiterhin "
-"besteht."
+msgid "We encountered an issue installing %s. Please try again or contact support if the problem persists."
+msgstr "Bei der Installation von %s ist ein Problem aufgetreten. Bitte versuchen Sie es erneut oder wenden Sie sich an den Support, wenn das Problem weiterhin besteht."
 
 #: build/2.9.6/wonder-blocks.js:9
 #, js-format
