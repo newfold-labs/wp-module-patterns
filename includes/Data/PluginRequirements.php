@@ -89,6 +89,33 @@ final class PluginRequirements {
 				'description' => 'This plugin is essential for adding the product grid to this pattern!',
 			),
 		),
+		'products-4' => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'products-5' => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'products-6' => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
 		'table-of-contents-1' => array(
 			array(
 				'slug'        => 'yoast-seo-wordpress-premium',
@@ -97,7 +124,7 @@ final class PluginRequirements {
 				'url'         => 'https://yoast.com',
 				'description' => 'SEO made easy! Improve your ranking in search engines, boost performance and visibility, and get 24/7 premium support.',
 				'isPremium'   => true,
-				'ctbId'       => 'bb65fce0-24b6-4714-8d5d-3a693f428df4',
+				'ctbId'       => '57d6a568-783c-45e2-a388-847cff155897',
 			),
 		),
 		'table-of-contents-2' => array(
@@ -108,7 +135,7 @@ final class PluginRequirements {
 				'url'         => 'https://yoast.com',
 				'description' => 'SEO made easy! Improve your ranking in search engines, boost performance and visibility, and get 24/7 premium support.',
 				'isPremium'   => true,
-				'ctbId'       => 'bb65fce0-24b6-4714-8d5d-3a693f428df4',
+				'ctbId'       => '57d6a568-783c-45e2-a388-847cff155897',
 			),
 		),
 		'table-of-contents-3' => array(
@@ -119,7 +146,7 @@ final class PluginRequirements {
 				'url'         => 'https://yoast.com',
 				'description' => 'SEO made easy! Improve your ranking in search engines, boost performance and visibility, and get 24/7 premium support.',
 				'isPremium'   => true,
-				'ctbId'       => 'bb65fce0-24b6-4714-8d5d-3a693f428df4',
+				'ctbId'       => '57d6a568-783c-45e2-a388-847cff155897',
 			),
 		),
 		'header-20'  => array(
