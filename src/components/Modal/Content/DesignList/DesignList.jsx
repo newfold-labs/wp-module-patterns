@@ -13,7 +13,7 @@ import { memo } from "@wordpress/element";
  * Internal dependencies
  */
 import { store as nfdPatternsStore } from "../../../../store";
-import DesignItem from "./DesignItem";
+import DesignItem from "./DesignItem/DesignItem";
 
 const DesignList = ({ data }) => {
 	const { gridColumns, sortOrder } = useSelect((select) => ({

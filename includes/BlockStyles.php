@@ -2,6 +2,12 @@
 
 namespace NewfoldLabs\WP\Module\Patterns;
 
+/**
+ * Class BlockStyles
+ *
+ * Registers custom block styles for the WordPress block editor.
+ * Provides additional styling options for core blocks.
+ */
 class BlockStyles {
 
 	/**
@@ -16,7 +22,42 @@ class BlockStyles {
 	 */
 	public function register_block_styles() {
 
-		$styles = array(
+		$image_styles = array(
+			array(
+				'name'  => 'nfd-dots-bottom-left',
+				'label' => __( 'Dots BL', 'nfd-wonder-blocks' ),
+			),
+			array(
+				'name'  => 'nfd-waves-bottom-left',
+				'label' => __( 'Waves BL', 'nfd-wonder-blocks' ),
+			),
+			array(
+				'name'  => 'nfd-dots-bottom-right',
+				'label' => __( 'Dots BR', 'nfd-wonder-blocks' ),
+			),
+			array(
+				'name'  => 'nfd-waves-bottom-right',
+				'label' => __( 'Waves BR', 'nfd-wonder-blocks' ),
+			),
+			array(
+				'name'  => 'nfd-dots-top-left',
+				'label' => __( 'Dots TL', 'nfd-wonder-blocks' ),
+			),
+			array(
+				'name'  => 'nfd-waves-top-left',
+				'label' => __( 'Waves TL', 'nfd-wonder-blocks' ),
+			),
+			array(
+				'name'  => 'nfd-dots-top-right',
+				'label' => __( 'Dots TR', 'nfd-wonder-blocks' ),
+			),
+			array(
+				'name'  => 'nfd-waves-top-right',
+				'label' => __( 'Waves TR', 'nfd-wonder-blocks' ),
+			),
+		);
+
+		$theme_styles = array(
 			array(
 				'name'  => 'nfd-theme-white',
 				'label' => __( 'White', 'nfd-wonder-blocks' ),
@@ -37,12 +78,23 @@ class BlockStyles {
 				'name'  => 'nfd-theme-primary',
 				'label' => __( 'Primary', 'nfd-wonder-blocks' ),
 			),
+			array(
+				'name'  => 'nfd-theme-primary-15',
+				'label' => __( 'Primary Light', 'nfd-wonder-blocks' ),
+			),
 		);
 
-		foreach ( $styles as $style ) {
+		foreach ( $image_styles as $image_style ) {
+			register_block_style(
+				array( 'core/group', 'core/image' ),
+				$image_style
+			);
+		}
+
+		foreach ( $theme_styles as $theme_style ) {
 			register_block_style(
 				'core/group',
-				$style
+				$theme_style
 			);
 		}
 	}

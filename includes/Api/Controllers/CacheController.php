@@ -11,6 +11,16 @@ use NewfoldLabs\WP\Module\Patterns\CSSUtilities;
  */
 class CacheController {
 
+	/**
+	 * Clears the cached data based on the specified type.
+	 *
+	 * This endpoint handler clears cached data for patterns, templates, and/or categories
+	 * depending on the type parameter. If no type is specified, all caches will be cleared.
+	 * Additionally, refreshes CSS utility assets after clearing the cache.
+	 *
+	 * @param \WP_REST_Request $request The REST API request.
+	 * @return \WP_REST_Response Response with status of cache clearing operations.
+	 */
 	public static function clear_cache( \WP_REST_Request $request ) {
 
 		$type = $request->get_param( 'type' );

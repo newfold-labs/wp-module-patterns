@@ -1,6 +1,13 @@
 <?php
 namespace NewfoldLabs\WP\Module\Patterns\Data;
 
+/**
+ * Class PluginStatus
+ *
+ * Provides utility methods to check the installation and activation status of WordPress plugins.
+ *
+ * @package NewfoldLabs\WP\Module\Patterns\Data
+ */
 class PluginStatus {
 
 	/**
