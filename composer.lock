@@ -313,23 +313,26 @@
         },
         {
             "name": "newfold-labs/wp-module-features",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-features.git",
-                "reference": "b46fa1abb1ccc1a1e699c6511afd1a74c197ac25"
+                "reference": "c88f1aec2b87996186a0a8e70fd6100b966079d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-features/zipball/b46fa1abb1ccc1a1e699c6511afd1a74c197ac25",
-                "reference": "b46fa1abb1ccc1a1e699c6511afd1a74c197ac25",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-features/zipball/c88f1aec2b87996186a0a8e70fd6100b966079d8",
+                "reference": "c88f1aec2b87996186a0a8e70fd6100b966079d8",
                 "shasum": ""
             },
             "require": {
                 "wp-forge/wp-options": "^1.1.1"
             },
             "require-dev": {
+                "johnpbloch/wordpress": "@stable",
+                "lucatume/wp-browser": "*",
                 "newfold-labs/wp-php-standards": "^1.2.3",
+                "phpunit/phpcov": "*",
                 "wp-cli/i18n-command": "^2.6.3"
             },
             "type": "library",
@@ -345,14 +348,23 @@
                 "fix": [
                     "vendor/bin/phpcbf . --standard=phpcs.xml"
                 ],
-                "lint": [
-                    "vendor/bin/phpcs . --standard=phpcs.xml -s"
+                "i18n": [
+                    "@i18n-pot",
+                    "@i18n-po",
+                    "@i18n-mo",
+                    "@i18n-php",
+                    "@i18n-json"
                 ],
-                "i18n-pot": [
-                    "vendor/bin/wp i18n make-pot . ./languages/wp-module-features.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-features/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}'"
+                "i18n-ci-pre": [
+                    "@i18n-pot",
+                    "@i18n-po"
                 ],
-                "i18n-po": [
-                    "vendor/bin/wp i18n update-po ./languages/wp-module-features.pot ./languages"
+                "i18n-ci-post": [
+                    "@i18n-json",
+                    "@i18n-php"
+                ],
+                "i18n-json": [
+                    "rm -f languages/*.json && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print"
                 ],
                 "i18n-mo": [
                     "vendor/bin/wp i18n make-mo ./languages"
@@ -360,15 +372,22 @@
                 "i18n-php": [
                     "vendor/bin/wp i18n make-php ./languages"
                 ],
-                "i18n-json": [
-                    "rm -f languages/*.json && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print"
+                "i18n-po": [
+                    "vendor/bin/wp i18n update-po ./languages/wp-module-features.pot ./languages"
                 ],
-                "i18n": [
-                    "@i18n-pot",
-                    "@i18n-po",
-                    "@i18n-mo",
-                    "@i18n-php",
-                    "@i18n-json"
+                "i18n-pot": [
+                    "vendor/bin/wp i18n make-pot . ./languages/wp-module-features.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-features/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=wordpress,assets,tests,src"
+                ],
+                "lint": [
+                    "vendor/bin/phpcs . --standard=phpcs.xml -s"
+                ],
+                "test": [
+                    "codecept run wpunit"
+                ],
+                "test-coverage": [
+                    "codecept run wpunit --coverage wpunit.cov",
+                    "phpcov merge --php tests/_output/merged.cov --html tests/_output/html tests/_output;",
+                    "echo \"open tests/_output/html/index.html\" to view the report"
                 ]
             },
             "license": [
@@ -386,10 +405,10 @@
             ],
             "description": "A module for providing an interface for features.",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-module-features/tree/1.5.0",
+                "source": "https://github.com/newfold-labs/wp-module-features/tree/1.5.1",
                 "issues": "https://github.com/newfold-labs/wp-module-features/issues"
             },
-            "time": "2025-02-25T22:55:26+00:00"
+            "time": "2025-07-18T17:05:47+00:00"
         },
         {
             "name": "newfold-labs/wp-module-installer",
