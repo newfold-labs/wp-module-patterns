@@ -104,7 +104,21 @@ class PluginService {
 		}
 
 		if ( isset( $plugin['isPremium'] ) && $plugin['isPremium'] ) {
-			return PluginInstaller::install_premium_plugin( $plugin['plsSlug'], $plugin['plsProviderName'], true );
+			$basename = $plugin['basename'] ?? $plugin['path'] ?? '';;
+			$activate_plugin_response = activate_plugin( $basename );
+			if ( is_wp_error( $activate_plugin_response ) ) {
+				$activate_plugin_response->add(
+					'nfd_installer_error',
+					__( 'Failed to activate the plugin: ', 'wp-module-installer' ) . $plugin,
+					array(
+						'plugin'   => $plugin['slug'],
+						'provider' => $plugin['provider'],
+						'basename' => $basename,
+					)
+				);
+				return $activate_plugin_response;
+			}
+			return true;
 		}
 
 		$slug                   = is_array( $plugin ) ? $plugin['slug'] : $plugin;
@@ -195,12 +209,14 @@ class PluginService {
 	 * @return boolean True if module was activated or was already active
 	 */
 	public static function enable_jetpack_forms_module() {
-		if ( class_exists( 'Jetpack' ) && ! \Jetpack::is_module_active( 'contact-form' ) ) {
+		if ( class_exists( 'Jetpack' ) ) {
+			if ( ! \Jetpack::is_module_active( 'contact-form' ) ) {
+				\Jetpack::activate_module( 'contact-form', false, false );
+			}
+
 			if ( ! \Jetpack::is_module_active( 'blocks' ) ) {
 				\Jetpack::activate_module( 'blocks', false, false );
 			}
-
-			return \Jetpack::activate_module( 'contact-form', false, false );
 		}
 
 		// Return true if module is already active
