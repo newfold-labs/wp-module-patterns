@@ -217,6 +217,8 @@ class PluginService {
 			if ( ! \Jetpack::is_module_active( 'blocks' ) ) {
 				\Jetpack::activate_module( 'blocks', false, false );
 			}
+
+			return \Jetpack::is_module_active( 'contact-form' ) && \Jetpack::is_module_active( 'blocks' );
 		}
 
 		// Return true if module is already active
