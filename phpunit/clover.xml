@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1754344490">
-  <project timestamp="1754344490">
+<coverage generated="1754496168">
+  <project timestamp="1754496168">
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Admin/CTA.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Admin\CTA" namespace="global">
         <metrics complexity="26" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="131" coveredstatements="0" elements="140" coveredelements="0"/>
@@ -886,15 +886,25 @@
     </file>
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Data/PluginStatus.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Data\PluginStatus" namespace="global">
-        <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+        <metrics complexity="9" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
       </class>
-      <line num="19" type="method" name="check" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="19" type="method" name="check" visibility="public" complexity="5" crap="30" count="0"/>
       <line num="22" type="stmt" count="0"/>
       <line num="23" type="stmt" count="0"/>
       <line num="27" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <metrics loc="35" ncloc="19" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="45" type="method" name="check_jetpack_modules" visibility="private" complexity="4" crap="20" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <metrics loc="63" ncloc="39" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Library/Admin.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Library\Admin" namespace="global">
@@ -1350,7 +1360,7 @@
     </file>
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Services/PluginService.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Services\PluginService" namespace="global">
-        <metrics complexity="45" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="70" coveredstatements="0" elements="79" coveredelements="0"/>
+        <metrics complexity="47" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="0" elements="94" coveredelements="0"/>
       </class>
       <line num="24" type="method" name="is_installed" visibility="public" complexity="5" crap="30" count="0"/>
       <line num="25" type="stmt" count="0"/>
@@ -1385,53 +1395,68 @@
       <line num="89" type="stmt" count="0"/>
       <line num="90" type="stmt" count="0"/>
       <line num="91" type="stmt" count="0"/>
-      <line num="100" type="method" name="activate_plugin" visibility="public" complexity="6" crap="42" count="0"/>
+      <line num="100" type="method" name="activate_plugin" visibility="public" complexity="7" crap="56" count="0"/>
       <line num="102" type="stmt" count="0"/>
       <line num="103" type="stmt" count="0"/>
       <line num="106" type="stmt" count="0"/>
       <line num="107" type="stmt" count="0"/>
+      <line num="108" type="stmt" count="0"/>
+      <line num="109" type="stmt" count="0"/>
       <line num="110" type="stmt" count="0"/>
       <line num="111" type="stmt" count="0"/>
       <line num="112" type="stmt" count="0"/>
+      <line num="113" type="stmt" count="0"/>
       <line num="114" type="stmt" count="0"/>
       <line num="115" type="stmt" count="0"/>
+      <line num="116" type="stmt" count="0"/>
+      <line num="117" type="stmt" count="0"/>
       <line num="118" type="stmt" count="0"/>
-      <line num="127" type="method" name="setup_plugin" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="119" type="stmt" count="0"/>
+      <line num="121" type="stmt" count="0"/>
+      <line num="124" type="stmt" count="0"/>
+      <line num="125" type="stmt" count="0"/>
+      <line num="126" type="stmt" count="0"/>
       <line num="128" type="stmt" count="0"/>
-      <line num="131" type="stmt" count="0"/>
+      <line num="129" type="stmt" count="0"/>
       <line num="132" type="stmt" count="0"/>
-      <line num="133" type="stmt" count="0"/>
-      <line num="136" type="stmt" count="0"/>
-      <line num="137" type="stmt" count="0"/>
-      <line num="140" type="stmt" count="0"/>
-      <line num="149" type="method" name="activate" visibility="public" complexity="5" crap="30" count="0"/>
+      <line num="141" type="method" name="setup_plugin" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="142" type="stmt" count="0"/>
+      <line num="145" type="stmt" count="0"/>
+      <line num="146" type="stmt" count="0"/>
+      <line num="147" type="stmt" count="0"/>
       <line num="150" type="stmt" count="0"/>
-      <line num="152" type="stmt" count="0"/>
-      <line num="153" type="stmt" count="0"/>
-      <line num="156" type="stmt" count="0"/>
-      <line num="157" type="stmt" count="0"/>
-      <line num="158" type="stmt" count="0"/>
-      <line num="160" type="stmt" count="0"/>
+      <line num="151" type="stmt" count="0"/>
+      <line num="154" type="stmt" count="0"/>
+      <line num="163" type="method" name="activate" visibility="public" complexity="5" crap="30" count="0"/>
       <line num="164" type="stmt" count="0"/>
-      <line num="176" type="method" name="setup" visibility="public" complexity="5" crap="30" count="0"/>
-      <line num="177" type="stmt" count="0"/>
-      <line num="179" type="stmt" count="0"/>
-      <line num="180" type="stmt" count="0"/>
-      <line num="183" type="stmt" count="0"/>
-      <line num="184" type="stmt" count="0"/>
-      <line num="185" type="stmt" count="0"/>
-      <line num="189" type="stmt" count="0"/>
-      <line num="197" type="method" name="enable_jetpack_forms_module" visibility="public" complexity="6" crap="42" count="0"/>
+      <line num="166" type="stmt" count="0"/>
+      <line num="167" type="stmt" count="0"/>
+      <line num="170" type="stmt" count="0"/>
+      <line num="171" type="stmt" count="0"/>
+      <line num="172" type="stmt" count="0"/>
+      <line num="174" type="stmt" count="0"/>
+      <line num="178" type="stmt" count="0"/>
+      <line num="190" type="method" name="setup" visibility="public" complexity="5" crap="30" count="0"/>
+      <line num="191" type="stmt" count="0"/>
+      <line num="193" type="stmt" count="0"/>
+      <line num="194" type="stmt" count="0"/>
+      <line num="197" type="stmt" count="0"/>
       <line num="198" type="stmt" count="0"/>
       <line num="199" type="stmt" count="0"/>
-      <line num="200" type="stmt" count="0"/>
       <line num="203" type="stmt" count="0"/>
-      <line num="207" type="stmt" count="0"/>
-      <line num="215" type="method" name="enable_yoast_seo_premium" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="216" type="stmt" count="0"/>
+      <line num="211" type="method" name="enable_jetpack_forms_module" visibility="public" complexity="7" crap="56" count="0"/>
+      <line num="212" type="stmt" count="0"/>
+      <line num="213" type="stmt" count="0"/>
+      <line num="214" type="stmt" count="0"/>
+      <line num="217" type="stmt" count="0"/>
       <line num="218" type="stmt" count="0"/>
       <line num="221" type="stmt" count="0"/>
-      <metrics loc="224" ncloc="157" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="70" coveredstatements="0" elements="79" coveredelements="0"/>
+      <line num="225" type="stmt" count="0"/>
+      <line num="233" type="method" name="enable_yoast_seo_premium" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="234" type="stmt" count="0"/>
+      <line num="236" type="stmt" count="0"/>
+      <line num="239" type="stmt" count="0"/>
+      <metrics loc="242" ncloc="175" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="0" elements="94" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/SiteClassification.php">
       <class name="NewfoldLabs\WP\Module\Patterns\SiteClassification" namespace="global">
@@ -1455,6 +1480,6 @@
       <line num="54" type="stmt" count="0"/>
       <metrics loc="57" ncloc="44" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
-    <metrics files="29" loc="3337" ncloc="2491" classes="29" methods="105" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1182" coveredstatements="0" elements="1287" coveredelements="0"/>
+    <metrics files="29" loc="3383" ncloc="2529" classes="29" methods="106" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1206" coveredstatements="0" elements="1312" coveredelements="0"/>
   </project>
 </coverage>
