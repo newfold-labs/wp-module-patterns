@@ -109,7 +109,7 @@ class PluginService {
 			if ( is_wp_error( $activate_plugin_response ) ) {
 				$activate_plugin_response->add(
 					'nfd_installer_error',
-					__( 'Failed to activate the plugin: ', 'nfd-wonder-blocks' ) . $plugin,
+					__( 'Failed to activate the plugin: ', 'nfd-wonder-blocks' ) . $plugin['slug'],
 					array(
 						'plugin'   => $plugin['slug'],
 						'provider' => $plugin['provider'],
