@@ -394,7 +394,7 @@ export const usePluginManager = ({
 
 		const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
 
-		window.location.replace(newUrl);
+		window.location.href = newUrl;
 	}, [activePatternsCategory, redirectParams, hasUnsavedChanges, dispatchSavePost]);
 
 	/**
