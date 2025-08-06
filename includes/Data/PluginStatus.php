@@ -26,10 +26,10 @@ class PluginStatus {
 		// Check if the plugin is active
 		if ( is_plugin_active( $slug ) ) {
 			// Special handling for Jetpack - check required modules
-			if ( $slug === 'jetpack/jetpack.php' ) {
+			if ( 'jetpack/jetpack.php' === $slug ) {
 				return self::check_jetpack_modules() ? 'active' : 'inactive';
 			}
-			
+
 			return 'active';
 		}
 
@@ -50,7 +50,7 @@ class PluginStatus {
 
 		// Check if both required modules are active
 		$required_modules = array( 'blocks', 'contact-form' );
-		
+
 		foreach ( $required_modules as $module ) {
 			if ( ! \Jetpack::is_module_active( $module ) ) {
 				return false;

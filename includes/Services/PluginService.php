@@ -104,12 +104,12 @@ class PluginService {
 		}
 
 		if ( isset( $plugin['isPremium'] ) && $plugin['isPremium'] ) {
-			$basename = $plugin['basename'] ?? $plugin['path'] ?? '';;
+			$basename = $plugin['basename'] ?? $plugin['path'] ?? '';
 			$activate_plugin_response = activate_plugin( $basename );
 			if ( is_wp_error( $activate_plugin_response ) ) {
 				$activate_plugin_response->add(
 					'nfd_installer_error',
-					__( 'Failed to activate the plugin: ', 'wp-module-installer' ) . $plugin,
+					__( 'Failed to activate the plugin: ', 'nfd-wonder-blocks' ) . $plugin,
 					array(
 						'plugin'   => $plugin['slug'],
 						'provider' => $plugin['provider'],
