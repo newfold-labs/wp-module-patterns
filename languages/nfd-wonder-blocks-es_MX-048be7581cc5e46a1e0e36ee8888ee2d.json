@@ -1,13 +1,13 @@
 {
-    "translation-revision-date": "2025-04-25 16:34+0100",
-    "generator": "WP-CLI\/2.11.0",
-    "source": "build\/2.9.3\/wonder-blocks.js",
+    "translation-revision-date": "2025-05-07 15:46+0100",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/2.10.2\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "es_ES",
+                "lang": "es_MX",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
@@ -427,30 +427,6 @@
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
                 "La biblioteca de patrones y plantillas se sincroniza autom\u00e1ticamente una vez al d\u00eda. Si desea actualizar manualmente la biblioteca, puede hacerlo pulsando el bot\u00f3n para obtener los dise\u00f1os m\u00e1s recientes."
             ],
-            "Failed to install & activate plugins. Please try again.": [
-                "Error al instalar y activar los plugins. Por favor, int\u00e9ntalo de nuevo."
-            ],
-            "Installing...": [
-                "Instalando..."
-            ],
-            "Install now": [
-                "Instalar ahora"
-            ],
-            "WordPress Plugins Required": [
-                "Plugins WordPress requeridos"
-            ],
-            "No plugins required.": [
-                "No se requieren plugins."
-            ],
-            "Requires %s.": [
-                "Requiere %s."
-            ],
-            "Requires %s and %s.": [
-                "Requiere %s y %s."
-            ],
-            "Maybe later": [
-                "Tal vez m\u00e1s tarde"
-            ],
             "Block pattern \"%s\" inserted.": [
                 "Se ha insertado el patr\u00f3n \"%s\"."
             ],
@@ -462,9 +438,6 @@
             ],
             "Add to favorites": [
                 "A\u00f1adir a favoritos"
-            ],
-            "Remove from Favorites": [
-                "Eliminar de Favoritos"
             ],
             "Add pattern to page": [
                 "A\u00f1adir patr\u00f3n a la p\u00e1gina"
@@ -543,6 +516,126 @@
             ],
             "Templates": [
                 "Plantillas"
+            ],
+            "Plugin installed successfully.": [
+                "Plugin instalado correctamente."
+            ],
+            "Failed to install plugin. Please try again.": [
+                "No se pudo instalar el complemento. Por favor, int\u00e9ntalo de nuevo."
+            ],
+            "Plugin activated successfully.": [
+                "Plugin activado con \u00e9xito."
+            ],
+            "Failed to activate plugin. Please try again.": [
+                "No se pudo activar el complemento. Por favor, int\u00e9ntalo de nuevo."
+            ],
+            "Page is reloading to apply changes...": [
+                "La p\u00e1gina se est\u00e1 recargando para aplicar cambios..."
+            ],
+            "Plugin processed successfully.": [
+                "Plugin procesado con \u00e9xito."
+            ],
+            "Failed to process plugin. Please try again.": [
+                "No se pudo procesar el complemento. Por favor, int\u00e9ntalo de nuevo."
+            ],
+            "Reloading Page": [
+                "Recargando p\u00e1gina"
+            ],
+            "Checking": [
+                "Comprobaci\u00f3n"
+            ],
+            "Installing": [
+                "Instalar"
+            ],
+            "Activating": [
+                "Activador"
+            ],
+            "Setting up": [
+                "Configuraci\u00f3n"
+            ],
+            "Installed": [
+                "Instalado"
+            ],
+            "Error Installing": [
+                "Error al instalar"
+            ],
+            "Processing": [
+                "Tratamiento"
+            ],
+            "Dependent Feature:": [
+                "Caracter\u00edstica dependiente:"
+            ],
+            "Retry": [
+                "Reintentar"
+            ],
+            "seconds remaining": [
+                "segundos restantes"
+            ],
+            "Premium": [
+                "Prima"
+            ],
+            "Install Required Plugins": [
+                "Instalar los complementos necesarios"
+            ],
+            "This pattern is powered by <strong>%s<\/strong> plugin.": [
+                "Este patr\u00f3n funciona con <strong>el complemento %s<\/strong>."
+            ],
+            "This pattern requires <strong>%s<\/strong> plugin.": [
+                "Este patr\u00f3n requiere <strong>el complemento %s<\/strong>."
+            ],
+            "Learn more": [
+                "Aprende m\u00e1s"
+            ],
+            "Remove from favorites": [
+                "Eliminar de favoritos"
+            ],
+            "Error": [
+                "Error"
+            ],
+            "Success": [
+                "\u00c9xito"
+            ],
+            "the plugin": [
+                "El complemento"
+            ],
+            "All done!": [
+                "\u00a1Todo listo!"
+            ],
+            "Installation failed": [
+                "Error de instalaci\u00f3n"
+            ],
+            "Installing %s": [
+                "Instalaci\u00f3n de %s"
+            ],
+            "Verifying %s installation status...": [
+                "Verificaci\u00f3n del estado de instalaci\u00f3n de %s..."
+            ],
+            "Downloading and installing %s...": [
+                "Descargando e instalando %s..."
+            ],
+            "Activating %s...": [
+                "Activando %s..."
+            ],
+            "Configuring %s settings...": [
+                "Configuraci\u00f3n de %s settings..."
+            ],
+            "%s has been successfully installed and activated!": [
+                "%s se ha instalado y activado correctamente."
+            ],
+            "Reloading the page to apply the changes...": [
+                "Recargando la p\u00e1gina para aplicar los cambios..."
+            ],
+            "We encountered an issue installing %s. Please try again or contact support if the problem persists.": [
+                "Encontramos un problema al instalar %s. Int\u00e9ntalo de nuevo o ponte en contacto con el servicio de asistencia si el problema persiste."
+            ],
+            "Setting up %s...": [
+                "Configurando %s..."
+            ],
+            "Close": [
+                "Cerrar"
+            ],
+            "Waiting for plugin to initialize before reload...": [
+                ""
             ]
         }
     }

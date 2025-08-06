@@ -93,27 +93,27 @@ msgid "Waves TR"
 msgstr ""
 
 #: includes/BlockStyles.php:63
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "White"
 msgstr ""
 
 #: includes/BlockStyles.php:67
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Light"
 msgstr ""
 
 #: includes/BlockStyles.php:71
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Dark"
 msgstr ""
 
 #: includes/BlockStyles.php:75
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Darker"
 msgstr ""
 
 #: includes/BlockStyles.php:79
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Primary"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgid "Bad event structure/value."
 msgstr ""
 
 #: includes/Library/UsageTags.php:20
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Layout"
 msgstr ""
 
@@ -140,7 +140,7 @@ msgid "Content"
 msgstr ""
 
 #: includes/Library/UsageTags.php:28
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Info"
 msgstr ""
 
@@ -156,852 +156,860 @@ msgstr ""
 msgid "Interactive"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: includes/Services/PluginService.php:112
+msgid "Failed to activate the plugin: "
+msgstr ""
+
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Gallery Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Gallery patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "images"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "photos"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "photography"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Blog Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Blog patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "articles"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "posts"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "news"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Call to Action Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Call to Action patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "cta"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "conversion"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "button"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "announcement"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "FAQ Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add FAQ patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "frequently asked questions"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Features Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Features patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "columns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "about"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Form Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Form patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "form"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "email"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "CRM"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "contact"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Heading Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Heading patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "title"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "headline"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "tagline"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "text"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Hero Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Hero patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "banner"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "image slider"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "homepage"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Pricing Table Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Pricing Table patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "plans"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "comparison"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "packages"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Menu Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Menu patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "restaurant"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "cafe"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "coffee"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "catering"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "food"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "recipe"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Team Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Team patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "employees"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "members"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "profiles"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Testimonial Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Testimonial patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "reviews"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "feedback"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "ratings"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Text Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Text patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "highlight"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "write"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "format"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "rating"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Header Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Header patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "navigation"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Footer Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Footer patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Product Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Add Product patterns."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "woocommerce"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "My Favorite Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "A collection of patterns you've selected."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "liked"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "saved"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "bookmarked"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "starred"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Default"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Arrow"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Ellipse"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Rounded"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Slant"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Slant Invert"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Triangle"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Zigzag"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "None"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Fade In Bottom"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Fade In Top Short"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Fade In Right Short"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Fade In Bottom Short"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Fade In Left Short"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Twist In"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Zoom In"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Zoom In Short"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Reveal Right"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "50ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "150ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "300ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "450ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "600ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "750ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "900ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "1050ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "1200ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "1350ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "1500ms"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Dots"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Grid"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Grid 2"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Grid 3"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Grid Perspective"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Lines"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Lines 2"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Section Divider"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Section Theme Color"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "This feature is now located in the"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Block Styles"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "section."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Section Background Effect"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Entrance Animations"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Animation"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Delay"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Back to Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Syncing..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Sync Now"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Plugin installed successfully."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Failed to install plugin. Please try again."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Failed to activate plugin. Please try again."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Page is reloading to apply changes..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Plugin processed successfully."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
+msgid "Waiting for plugin to initialize before reload..."
+msgstr ""
+
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Failed to process plugin. Please try again."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Reloading Page"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Checking"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Installing"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Activating"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Setting up"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Installed"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Error Installing"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Processing"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Dependent Feature:"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Retry"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:9
 msgid "About"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "seconds remaining"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 msgid "Premium"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
-#: build/2.9.6/wonder-blocks.js:3
+#: build/2.10.2/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:3
 msgid "Install Required Plugins"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
-#: build/2.9.6/wonder-blocks.js:3
+#: build/2.10.2/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:3
 msgid "Add pattern to page"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
-#: build/2.9.6/wonder-blocks.js:3
+#: build/2.10.2/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:3
 msgid "Added to favorites"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
-#: build/2.9.6/wonder-blocks.js:3
+#: build/2.10.2/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:3
 msgid "Add to favorites"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 #, js-format
 msgid "This pattern is powered by <strong>%s</strong> plugin."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:1
+#: build/2.10.2/wonder-blocks.js:1
 #, js-format
 msgid "This pattern requires <strong>%s</strong> plugin."
 msgstr ""
 
 #. translators: %s: plugin name.
-#: build/2.9.6/wonder-blocks.js:3
+#: build/2.10.2/wonder-blocks.js:3
 msgid "Learn more"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:3
+#: build/2.10.2/wonder-blocks.js:3
 msgid "Remove from favorites"
 msgstr ""
 
 #. translators: %s is the pattern title
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 #, js-format
 msgid "Block pattern \"%s\" inserted."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Failed to insert block pattern. Please try again."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "support team"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 #, js-format
 msgid "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Sorry, we couldn't find any results for that. Please try a different search term."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Sort By: "
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Sort By"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Newest"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Oldest"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Grid View"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "2 columns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "3 columns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "4 columns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Error"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Success"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "Loading…"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:6
+#: build/2.10.2/wonder-blocks.js:6
 msgid "One moment while we load content tailored for your site."
 msgstr ""
 
 #. translators: %s: brand name - 'WonderBlocks'.
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "%s needs the latest version of WordPress, please <a>update your site</a>."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Search"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Favorites"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "WonderBlocks Menu"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Close dialog"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Failed to load data."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Categories"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Usage"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Select a category"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Patterns"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Templates"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "the plugin"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "All done!"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Installation failed"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "Installing %s"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "Verifying %s installation status..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "Downloading and installing %s..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "Activating %s..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "Configuring %s settings..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "%s has been successfully installed and activated!"
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Reloading the page to apply the changes..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "We encountered an issue installing %s. Please try again or contact support if the problem persists."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 #, js-format
 msgid "Setting up %s..."
 msgstr ""
 
-#: build/2.9.6/wonder-blocks.js:9
+#: build/2.10.2/wonder-blocks.js:9
 msgid "Close"
 msgstr ""
 
-#: build/2.9.6/blocks/block.json
+#: build/2.10.2/blocks/block.json
 msgctxt "block title"
 msgid "WonderBlocks"
 msgstr ""
 
-#: build/2.9.6/blocks/block.json
+#: build/2.10.2/blocks/block.json
 msgctxt "block description"
 msgid "Add patterns and page templates tailored for your site."
 msgstr ""
 
-#: build/2.9.6/blocks/block.json
+#: build/2.10.2/blocks/block.json
 msgctxt "block keyword"
 msgid "template"
 msgstr ""
 
-#: build/2.9.6/blocks/block.json
+#: build/2.10.2/blocks/block.json
 msgctxt "block keyword"
 msgid "patterns"
 msgstr ""
 
-#: build/2.9.6/blocks/block.json
+#: build/2.10.2/blocks/block.json
 msgctxt "block keyword"
 msgid "blocks"
 msgstr ""
