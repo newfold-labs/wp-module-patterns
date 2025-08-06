@@ -390,9 +390,11 @@ export const usePluginManager = ({
 
 		// Clear library filter if needed
 		searchParams.set("wb-library", "");
+		searchParams.set("_t", Date.now());
 
-		// Reload the page with the updated parameters
-		window.location.href = `${window.location.pathname}?${searchParams.toString()}`;
+		const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+
+		window.location.href = newUrl;
 	}, [activePatternsCategory, redirectParams, hasUnsavedChanges, dispatchSavePost]);
 
 	/**
@@ -499,8 +501,27 @@ export const usePluginManager = ({
 					onSuccess(plugin, PLUGIN_STEPS.COMPLETE, result);
 				}
 
-				// Handle reload if requested
+				// Handle reload if requested - add delay for plugin processing
 				if (reloadAfterInstall) {
+					// Determine delay based on plugin type
+					const pluginSlug = typeof plugin === "string" ? plugin : plugin.slug;
+					const delayMap = {
+						"wordpress-seo-premium": 3000, // Yoast Premium needs more time for block registration
+						jetpack: 2500, // Jetpack needs time for modules
+						woocommerce: 2000, // WooCommerce has many blocks
+						default: 1500, // Default delay for other plugins
+					};
+
+					const delay = delayMap[pluginSlug] || delayMap.default;
+
+					updateStep(PLUGIN_STEPS.RELOADING, {
+						plugin,
+						progress: 0.95,
+						message: __("Waiting for plugin to initialize before reload...", "nfd-wonder-blocks"),
+					});
+
+					// Add delay to allow WordPress to fully process plugin activation
+					await new Promise((resolve) => setTimeout(resolve, delay));
 					await handleReload();
 				}
 

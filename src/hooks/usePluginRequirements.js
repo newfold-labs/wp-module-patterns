@@ -20,6 +20,20 @@ export const usePluginRequirements = (item) => {
 	};
 
 	/**
+	 * Check if pattern requires plugins that are not installed (vs just inactive)
+	 *
+	 * @return {boolean} True if any required plugin is not installed
+	 */
+	const hasNotInstalledPlugins = () => {
+		if (!item?.plugin_requirements?.length) {
+			return false;
+		}
+
+		// Check if any required plugin is not installed
+		return item.plugin_requirements.some((plugin) => plugin && "not_installed" === plugin.status);
+	};
+
+	/**
 	 * Check if pattern requires premium plugins
 	 *
 	 * @return {boolean} True if any required plugin is premium
@@ -62,9 +76,11 @@ export const usePluginRequirements = (item) => {
 	const premiumButtonProps = {};
 
 	const hasInactivePluginsValue = hasInactivePlugins();
+	const hasNotInstalledPluginsValue = hasNotInstalledPlugins();
 
-	// Only add CTB properties when we have an inactive premium plugin that needs CTB
-	if (hasInactivePluginsValue && !isEntitledToPlugins) {
+	// Only add CTB properties when we have plugins that are NOT INSTALLED and premium and need CTB
+	// If plugins are just inactive, we can activate them without needing CTB
+	if (hasNotInstalledPluginsValue && !isEntitledToPlugins) {
 		if (ctbId) {
 			premiumButtonProps["data-ctb-id"] = ctbId;
 		}
@@ -76,11 +92,13 @@ export const usePluginRequirements = (item) => {
 		}
 	}
 
-	// Helper for conditional onClick
-	const shouldUseOnClick = !(hasInactivePluginsValue && !isEntitledToPlugins && ctbId);
+	// Helper for conditional onClick - should use onClick for inactive plugins (can activate)
+	// but not for not-installed premium plugins that need CTB
+	const shouldUseOnClick = !(hasNotInstalledPluginsValue && !isEntitledToPlugins && ctbId);
 
 	return {
 		hasInactivePlugins: hasInactivePluginsValue,
+		hasNotInstalledPlugins: hasNotInstalledPluginsValue,
 		hasPremiumPlugins: hasPremiumPlugins(),
 		isEntitledToPlugins,
 		ctbId,
