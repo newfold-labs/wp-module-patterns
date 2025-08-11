@@ -1,0 +1,642 @@
+{
+    "translation-revision-date": "2025-02-24 17:32",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/2.10.2\/wonder-blocks.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "nl_NL",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "White": [
+                "wit"
+            ],
+            "Light": [
+                "Licht"
+            ],
+            "Dark": [
+                "Donker"
+            ],
+            "Darker": [
+                "Donkerder"
+            ],
+            "Primary": [
+                "Primair"
+            ],
+            "Layout": [
+                "Indeling"
+            ],
+            "Info": [
+                "Informatie"
+            ],
+            "Gallery Patterns": [
+                "Galerij patronen"
+            ],
+            "Add Gallery patterns.": [
+                "Galerij patronen toevoegen."
+            ],
+            "images": [
+                "afbeeldingen"
+            ],
+            "photos": [
+                "Foto's"
+            ],
+            "photography": [
+                "fotografie"
+            ],
+            "Blog Patterns": [
+                "Blog patronen"
+            ],
+            "Add Blog patterns.": [
+                "Blogpatronen toevoegen."
+            ],
+            "articles": [
+                "artikelen"
+            ],
+            "posts": [
+                "berichten"
+            ],
+            "news": [
+                "nieuws"
+            ],
+            "Call to Action Patterns": [
+                "Oproep aan Action Patronen"
+            ],
+            "Add Call to Action patterns.": [
+                "Oproep toevoegen aan Actiepatronen."
+            ],
+            "cta": [
+                "cta"
+            ],
+            "conversion": [
+                "conversie"
+            ],
+            "button": [
+                "knop"
+            ],
+            "announcement": [
+                "aankondiging"
+            ],
+            "FAQ Patterns": [
+                "FAQ patronen"
+            ],
+            "Add FAQ patterns.": [
+                "Voeg FAQ patronen toe."
+            ],
+            "frequently asked questions": [
+                "Veel gestelde vragen"
+            ],
+            "Features Patterns": [
+                "Functies Patronen"
+            ],
+            "Add Features patterns.": [
+                "Functies patronen toevoegen."
+            ],
+            "columns": [
+                "kolommen"
+            ],
+            "about": [
+                "Over"
+            ],
+            "Form Patterns": [
+                "Formulier patronen"
+            ],
+            "Add Form patterns.": [
+                "Formulierpatronen toevoegen."
+            ],
+            "form": [
+                "formulier"
+            ],
+            "email": [
+                "E-mail"
+            ],
+            "CRM": [
+                "CRM"
+            ],
+            "contact": [
+                "Contactpersoon"
+            ],
+            "Heading Patterns": [
+                "Kop patronen"
+            ],
+            "Add Heading patterns.": [
+                "Koppatronen toevoegen."
+            ],
+            "title": [
+                "Titel"
+            ],
+            "headline": [
+                "kop"
+            ],
+            "tagline": [
+                "tagline"
+            ],
+            "text": [
+                "Tekst"
+            ],
+            "Hero Patterns": [
+                "Held Patronen"
+            ],
+            "Add Hero patterns.": [
+                "Held patronen toevoegen."
+            ],
+            "banner": [
+                "banner"
+            ],
+            "image slider": [
+                "afbeelding slider"
+            ],
+            "homepage": [
+                "Startpagina"
+            ],
+            "Pricing Table Patterns": [
+                "Prijzen Tafelpatronen"
+            ],
+            "Add Pricing Table patterns.": [
+                "Voeg prijspatronen toe."
+            ],
+            "plans": [
+                "plannen"
+            ],
+            "comparison": [
+                "vergelijking"
+            ],
+            "packages": [
+                "pakketten"
+            ],
+            "Menu Patterns": [
+                "Menu patronen"
+            ],
+            "Add Menu patterns.": [
+                "Menu patronen toevoegen."
+            ],
+            "restaurant": [
+                "restaurant"
+            ],
+            "cafe": [
+                "caf\u00e9"
+            ],
+            "coffee": [
+                "koffie"
+            ],
+            "catering": [
+                "horeca"
+            ],
+            "food": [
+                "voedsel"
+            ],
+            "recipe": [
+                "recept"
+            ],
+            "Team Patterns": [
+                "Team patronen"
+            ],
+            "Add Team patterns.": [
+                "Team patronen toevoegen."
+            ],
+            "employees": [
+                "werknemers"
+            ],
+            "members": [
+                "leden"
+            ],
+            "profiles": [
+                "profiles"
+            ],
+            "Testimonial Patterns": [
+                "Testimoniale patronen"
+            ],
+            "Add Testimonial patterns.": [
+                "Voeg beoordelingspatronen toe."
+            ],
+            "reviews": [
+                "beoordelingen"
+            ],
+            "feedback": [
+                "feedback"
+            ],
+            "ratings": [
+                "waarderingen"
+            ],
+            "Text Patterns": [
+                "Tekst patronen"
+            ],
+            "Add Text patterns.": [
+                "Tekstpatronen toevoegen."
+            ],
+            "highlight": [
+                "markeren"
+            ],
+            "write": [
+                "schrijven"
+            ],
+            "format": [
+                "formaat"
+            ],
+            "rating": [
+                "beoordeling"
+            ],
+            "Header Patterns": [
+                "Koptekst patronen"
+            ],
+            "Add Header patterns.": [
+                "Koppatronen toevoegen."
+            ],
+            "navigation": [
+                "navigation"
+            ],
+            "Footer Patterns": [
+                "Voettekst patronen"
+            ],
+            "Add Footer patterns.": [
+                "Voettekst patronen toevoegen."
+            ],
+            "Product Patterns": [
+                "Product patronen"
+            ],
+            "Add Product patterns.": [
+                "Product patronen toevoegen."
+            ],
+            "woocommerce": [
+                "woocommerce"
+            ],
+            "My Favorite Patterns": [
+                "Mijn favoriete patronen"
+            ],
+            "A collection of patterns you've selected.": [
+                "Een verzameling van patronen die je hebt geselecteerd."
+            ],
+            "liked": [
+                "leuk gevonden"
+            ],
+            "saved": [
+                "opgeslagen"
+            ],
+            "bookmarked": [
+                "bladwijzer"
+            ],
+            "starred": [
+                "ster"
+            ],
+            "Default": [
+                "Standaard"
+            ],
+            "Arrow": [
+                "Pijl"
+            ],
+            "Ellipse": [
+                "Ellips"
+            ],
+            "Rounded": [
+                "Afgerond"
+            ],
+            "Slant": [
+                "Slant"
+            ],
+            "Slant Invert": [
+                "Slant Invert"
+            ],
+            "Triangle": [
+                "Driehoek"
+            ],
+            "Zigzag": [
+                "Zigzag"
+            ],
+            "None": [
+                "geen"
+            ],
+            "Fade In Bottom": [
+                "Onder vervagen"
+            ],
+            "Fade In Top Short": [
+                "Vervagen in korte bovenhoek"
+            ],
+            "Fade In Right Short": [
+                "Korte Rechts vervagen"
+            ],
+            "Fade In Bottom Short": [
+                "Onder kort vervagen"
+            ],
+            "Fade In Left Short": [
+                "Vervagen in kort links"
+            ],
+            "Twist In": [
+                "Draai over"
+            ],
+            "Zoom In": [
+                "Zoom in"
+            ],
+            "Zoom In Short": [
+                "Zoom in kort"
+            ],
+            "Reveal Right": [
+                "Rechts onthullen"
+            ],
+            "50ms": [
+                "50ms"
+            ],
+            "150ms": [
+                "150ms"
+            ],
+            "300ms": [
+                "300 ms"
+            ],
+            "450ms": [
+                "450ms"
+            ],
+            "600ms": [
+                "600ms"
+            ],
+            "750ms": [
+                "750ms"
+            ],
+            "900ms": [
+                "900 ms"
+            ],
+            "1050ms": [
+                "1050ms"
+            ],
+            "1200ms": [
+                "1200ms"
+            ],
+            "1350ms": [
+                "1350ms"
+            ],
+            "1500ms": [
+                "1500ms"
+            ],
+            "Dots": [
+                "Stippen"
+            ],
+            "Grid": [
+                "Rooster"
+            ],
+            "Grid 2": [
+                "Raster 2"
+            ],
+            "Grid 3": [
+                "Raster 3"
+            ],
+            "Grid Perspective": [
+                "Grid Perspectief"
+            ],
+            "Lines": [
+                "Regels"
+            ],
+            "Lines 2": [
+                "Regels 2"
+            ],
+            "Section Divider": [
+                "Sectie verdeler"
+            ],
+            "Section Theme Color": [
+                "Themakleur sectie"
+            ],
+            "This feature is now located in the": [
+                "Deze functie bevindt zich nu in de"
+            ],
+            "Block Styles": [
+                "Stijlen blokkeren"
+            ],
+            "section.": [
+                "sectie"
+            ],
+            "Section Background Effect": [
+                "Sectie Achtergrond Effect"
+            ],
+            "Entrance Animations": [
+                "Ingang Animaties"
+            ],
+            "Animation": [
+                "Animatie"
+            ],
+            "Delay": [
+                "Vertraging"
+            ],
+            "Back to Patterns": [
+                "Terug naar patronen"
+            ],
+            "Syncing...": [
+                "Synchroniseren..."
+            ],
+            "Sync Now": [
+                "Nu synchroniseren"
+            ],
+            "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
+                "De sjabloonbibliotheek synchroniseert automatisch eenmaal per dag. Als je de bibliotheek handmatig wilt vernieuwen, kun je dat doen door op de knop te drukken om de meest recente ontwerpen te krijgen."
+            ],
+            "Block pattern \"%s\" inserted.": [
+                "Blok patroon \"%s\" ingevoegd."
+            ],
+            "Failed to insert block pattern. Please try again.": [
+                "Het blokpatroon invoegen is mislukt. Probeer het opnieuw."
+            ],
+            "Added to favorites": [
+                "Toegevoegd aan favorieten"
+            ],
+            "Add to favorites": [
+                "Toevoegen aan favorieten"
+            ],
+            "Add pattern to page": [
+                "Patroon aan pagina toevoegen"
+            ],
+            "support team": [
+                "Support Team"
+            ],
+            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
+                "Klik op de %s op uw favoriete en vaak gebruikte Patrons & Templates voor snelle toegang."
+            ],
+            "Sorry, we couldn't find any results for that. Please try a different search term.": [
+                "Sorry, we konden geen resultaten vinden. Probeer een andere zoekterm."
+            ],
+            "Sort By: ": [
+                "Sorteren op: "
+            ],
+            "Sort By": [
+                "Sorteren op"
+            ],
+            "Newest": [
+                "Nieuwste"
+            ],
+            "Oldest": [
+                "Oudste"
+            ],
+            "Grid View": [
+                "Raster weergave"
+            ],
+            "2 columns": [
+                "2 kolommen"
+            ],
+            "3 columns": [
+                "3 kolommen"
+            ],
+            "4 columns": [
+                "4 kolommen"
+            ],
+            "Loading\u2026": [
+                "Laden..."
+            ],
+            "One moment while we load content tailored for your site.": [
+                "Een moment terwijl we de content op maat voor je site laden."
+            ],
+            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
+                "%s heeft de laatste versie van WordPress, update alstublieft <a>uw site<\/a>."
+            ],
+            "Search": [
+                "Zoeken"
+            ],
+            "Favorites": [
+                "Favorieten"
+            ],
+            "WonderBlocks Menu": [
+                "WonderBlocks Menu"
+            ],
+            "About": [
+                "Informatie"
+            ],
+            "Close dialog": [
+                "Dialoogvenster sluiten"
+            ],
+            "Failed to load data.": [
+                "Laden van gegevens mislukt."
+            ],
+            "Categories": [
+                "Categoriechar@@0n"
+            ],
+            "Usage": [
+                "Gebruik"
+            ],
+            "Select a category": [
+                "Selecteer een categorie"
+            ],
+            "Patterns": [
+                "Patronen"
+            ],
+            "Templates": [
+                "Sjablonen"
+            ],
+            "Plugin installed successfully.": [
+                "Plugin succesvol ge\u00efnstalleerd."
+            ],
+            "Failed to install plugin. Please try again.": [
+                "Kan de plugin niet installeren. Probeer het opnieuw."
+            ],
+            "Plugin activated successfully.": [
+                "Plugin succesvol geactiveerd."
+            ],
+            "Failed to activate plugin. Please try again.": [
+                "Kan de plugin niet activeren. Probeer het opnieuw."
+            ],
+            "Page is reloading to apply changes...": [
+                "Pagina wordt opnieuw geladen om wijzigingen toe te passen..."
+            ],
+            "Plugin processed successfully.": [
+                "Plugin succesvol verwerkt."
+            ],
+            "Failed to process plugin. Please try again.": [
+                "Kan de plugin niet verwerken. Probeer het opnieuw."
+            ],
+            "Reloading Page": [
+                "Pagina opnieuw laden"
+            ],
+            "Checking": [
+                "Controleren"
+            ],
+            "Installing": [
+                "Installeren"
+            ],
+            "Activating": [
+                "Activeren"
+            ],
+            "Setting up": [
+                "Instellen"
+            ],
+            "Installed": [
+                "Ge\u00efnstalleerd"
+            ],
+            "Error Installing": [
+                "Fout bij het installeren"
+            ],
+            "Processing": [
+                "Verwerking"
+            ],
+            "Dependent Feature:": [
+                "Afhankelijke functie:"
+            ],
+            "Retry": [
+                "Opnieuw"
+            ],
+            "seconds remaining": [
+                "resterende seconden"
+            ],
+            "Premium": [
+                "Premie"
+            ],
+            "Install Required Plugins": [
+                "Installeer de vereiste plug-ins"
+            ],
+            "This pattern is powered by <strong>%s<\/strong> plugin.": [
+                "Dit patroon wordt mogelijk gemaakt door <strong>de %<\/strong>s-plug-in."
+            ],
+            "This pattern requires <strong>%s<\/strong> plugin.": [
+                "Voor dit patroon is <strong>de %s-plugin<\/strong> vereist."
+            ],
+            "Learn more": [
+                "Meer informatie"
+            ],
+            "Remove from favorites": [
+                "Verwijderen uit favorieten"
+            ],
+            "Error": [
+                "Fout"
+            ],
+            "Success": [
+                "Succes"
+            ],
+            "the plugin": [
+                "De plugin"
+            ],
+            "All done!": [
+                "Helemaal klaar!"
+            ],
+            "Installation failed": [
+                "Installatie mislukt"
+            ],
+            "Installing %s": [
+                "%s installeren"
+            ],
+            "Verifying %s installation status...": [
+                "Controleren van de installatiestatus van %s..."
+            ],
+            "Downloading and installing %s...": [
+                "Het downloaden en installeren van %s..."
+            ],
+            "Activating %s...": [
+                "%s... activeren"
+            ],
+            "Configuring %s settings...": [
+                "%s-instellingen configureren..."
+            ],
+            "%s has been successfully installed and activated!": [
+                "%s is succesvol ge\u00efnstalleerd en geactiveerd!"
+            ],
+            "Reloading the page to apply the changes...": [
+                "De pagina opnieuw laden om de wijzigingen toe te passen..."
+            ],
+            "We encountered an issue installing %s. Please try again or contact support if the problem persists.": [
+                "Er is een probleem opgetreden bij het installeren van %s. Probeer het opnieuw of neem contact op met de ondersteuning als het probleem zich blijft voordoen."
+            ],
+            "Setting up %s...": [
+                "%s... instellen"
+            ],
+            "Close": [
+                "Sluiten"
+            ],
+            "Waiting for plugin to initialize before reload...": [
+                ""
+            ]
+        }
+    }
+}

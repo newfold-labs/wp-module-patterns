@@ -1,7 +1,7 @@
 {
     "translation-revision-date": "2025-02-24 23:03+0530",
-    "generator": "WP-CLI\/2.11.0",
-    "source": "build\/2.9.3\/wonder-blocks.js",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/2.10.2\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
@@ -427,30 +427,6 @@
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
                 "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
             ],
-            "Failed to install & activate plugins. Please try again.": [
-                "Failed to install & activate plugins. Please try again."
-            ],
-            "Installing...": [
-                "Installing..."
-            ],
-            "Install now": [
-                "Install now"
-            ],
-            "WordPress Plugins Required": [
-                "WordPress Plugins Required"
-            ],
-            "No plugins required.": [
-                "No plugins required."
-            ],
-            "Requires %s.": [
-                "Requires %s."
-            ],
-            "Requires %s and %s.": [
-                "Requires %s and %s."
-            ],
-            "Maybe later": [
-                "Maybe later"
-            ],
             "Block pattern \"%s\" inserted.": [
                 "Block pattern \"%s\" inserted."
             ],
@@ -462,9 +438,6 @@
             ],
             "Add to favorites": [
                 "Add to favorites"
-            ],
-            "Remove from Favorites": [
-                "Remove from Favorites"
             ],
             "Add pattern to page": [
                 "Add pattern to page"
@@ -543,6 +516,126 @@
             ],
             "Templates": [
                 "Templates"
+            ],
+            "Plugin installed successfully.": [
+                "Plugin installed successfully."
+            ],
+            "Failed to install plugin. Please try again.": [
+                "Failed to install plugin. Please try again."
+            ],
+            "Plugin activated successfully.": [
+                "Plugin activated successfully."
+            ],
+            "Failed to activate plugin. Please try again.": [
+                "Failed to activate plugin. Please try again."
+            ],
+            "Page is reloading to apply changes...": [
+                "Page is reloading to apply changes..."
+            ],
+            "Plugin processed successfully.": [
+                "Plugin processed successfully."
+            ],
+            "Failed to process plugin. Please try again.": [
+                "Failed to process plugin. Please try again."
+            ],
+            "Reloading Page": [
+                "Reloading Page"
+            ],
+            "Checking": [
+                "Checking"
+            ],
+            "Installing": [
+                "Installing"
+            ],
+            "Activating": [
+                "Activating"
+            ],
+            "Setting up": [
+                "Setting up"
+            ],
+            "Installed": [
+                "Installed"
+            ],
+            "Error Installing": [
+                "Error Installing"
+            ],
+            "Processing": [
+                "Processing"
+            ],
+            "Dependent Feature:": [
+                "Dependent Feature:"
+            ],
+            "Retry": [
+                "Retry"
+            ],
+            "seconds remaining": [
+                "seconds remaining"
+            ],
+            "Premium": [
+                "Premium"
+            ],
+            "Install Required Plugins": [
+                "Install Required Plugins"
+            ],
+            "This pattern is powered by <strong>%s<\/strong> plugin.": [
+                "This pattern is powered by <strong>%s<\/strong> plugin."
+            ],
+            "This pattern requires <strong>%s<\/strong> plugin.": [
+                "This pattern requires <strong>%s<\/strong> plugin."
+            ],
+            "Learn more": [
+                "Learn more"
+            ],
+            "Remove from favorites": [
+                "Remove from favorites"
+            ],
+            "Error": [
+                "Error"
+            ],
+            "Success": [
+                "Success"
+            ],
+            "the plugin": [
+                "the plugin"
+            ],
+            "All done!": [
+                "All done!"
+            ],
+            "Installation failed": [
+                "Installation failed"
+            ],
+            "Installing %s": [
+                "Installing %s"
+            ],
+            "Verifying %s installation status...": [
+                "Verifying %s installation status..."
+            ],
+            "Downloading and installing %s...": [
+                "Downloading and installing %s..."
+            ],
+            "Activating %s...": [
+                "Activating %s..."
+            ],
+            "Configuring %s settings...": [
+                "Configuring %s settings..."
+            ],
+            "%s has been successfully installed and activated!": [
+                "%s has been successfully installed and activated!"
+            ],
+            "Reloading the page to apply the changes...": [
+                "Reloading the page to apply the changes..."
+            ],
+            "We encountered an issue installing %s. Please try again or contact support if the problem persists.": [
+                "We encountered an issue installing %s. Please try again or contact support if the problem persists."
+            ],
+            "Setting up %s...": [
+                "Setting up %s..."
+            ],
+            "Close": [
+                "Close"
+            ],
+            "Waiting for plugin to initialize before reload...": [
+                ""
             ]
         }
     }
