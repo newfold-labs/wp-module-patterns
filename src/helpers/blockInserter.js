@@ -49,6 +49,7 @@ export const blockInserter = (blocks) => {
 	if (hasTemplatePart) {
 		const postContentId = findPostContentClientId(allBlocks);
 		if (postContentId) {
+			const insertionIndex = getBlockIndex(clientId) + 1;
 			return insertBlocks(blocks, insertionIndex, postContentId);
 		}
 	}
