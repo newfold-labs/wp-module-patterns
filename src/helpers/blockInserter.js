@@ -55,8 +55,8 @@ export const blockInserter = (blocks) => {
 	if (hasTemplatePart) {
 		const postContentId = findPostContentClientId(allBlocks);
 		if (postContentId) {
-			// Always insert at index 0 when hasTemplatePart is true
-			return insertBlocks(blocks, 0, postContentId);
+			const insertionIndex = getBlockIndex(clientId) + 1;
+			return insertBlocks(blocks, insertionIndex, postContentId);
 		}
 	}
 	// Insert blocks below currently selected block.
