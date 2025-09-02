@@ -1,113 +1,113 @@
 {
-    "translation-revision-date": "2025-02-24 23:03+0530",
+    "translation-revision-date": "2025-05-07 15:46+0100",
     "generator": "WP-CLI\/2.12.0",
-    "source": "build\/2.10.2\/wonder-blocks.js",
+    "source": "build\/2.10.3\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "en_AU",
+                "lang": "es_MX",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
-                "White"
+                "Blanco"
             ],
             "Light": [
-                "Light"
+                "Claro"
             ],
             "Dark": [
-                "Dark"
+                "Oscuro"
             ],
             "Darker": [
-                "Darker"
+                "Oscuro"
             ],
             "Primary": [
-                "Primary"
+                "Principal"
             ],
             "Layout": [
-                "Layout"
+                "Dise\u00f1o"
             ],
             "Info": [
                 "Info"
             ],
             "Gallery Patterns": [
-                "Gallery Patterns"
+                "Patrones de Galer\u00eda"
             ],
             "Add Gallery patterns.": [
-                "Add Gallery patterns."
+                "A\u00f1adir patrones de galer\u00eda."
             ],
             "images": [
-                "images"
+                "im\u00e1genes"
             ],
             "photos": [
-                "photos"
+                "fotos"
             ],
             "photography": [
-                "photography"
+                "fotograf\u00eda"
             ],
             "Blog Patterns": [
-                "Blog Patterns"
+                "Patrones del Blog"
             ],
             "Add Blog patterns.": [
-                "Add Blog patterns."
+                "A\u00f1adir patrones de blog."
             ],
             "articles": [
-                "articles"
+                "art\u00edculos"
             ],
             "posts": [
-                "posts"
+                "mensajes"
             ],
             "news": [
-                "news"
+                "noticias"
             ],
             "Call to Action Patterns": [
-                "Call to Action Patterns"
+                "Llamar a patrones de acci\u00f3n"
             ],
             "Add Call to Action patterns.": [
-                "Add Call to Action patterns."
+                "A\u00f1adir patrones de Llamada a Acci\u00f3n."
             ],
             "cta": [
                 "cta"
             ],
             "conversion": [
-                "conversion"
+                "conversi\u00f3n"
             ],
             "button": [
-                "button"
+                "bot\u00f3n"
             ],
             "announcement": [
-                "announcement"
+                "anuncio"
             ],
             "FAQ Patterns": [
-                "FAQ Patterns"
+                "Patrones FAQ"
             ],
             "Add FAQ patterns.": [
-                "Add FAQ patterns."
+                "A\u00f1adir patrones FAQ."
             ],
             "frequently asked questions": [
-                "frequently asked questions"
+                "preguntas frecuentes"
             ],
             "Features Patterns": [
-                "Features Patterns"
+                "Patrones de caracter\u00edsticas"
             ],
             "Add Features patterns.": [
-                "Add Features patterns."
+                "A\u00f1adir patrones de caracter\u00edsticas."
             ],
             "columns": [
-                "columns"
+                "columnas"
             ],
             "about": [
-                "about"
+                "sobre"
             ],
             "Form Patterns": [
-                "Form Patterns"
+                "Patrones de Forma"
             ],
             "Add Form patterns.": [
-                "Add Form patterns."
+                "A\u00f1adir patrones."
             ],
             "form": [
-                "form"
+                "forma"
             ],
             "email": [
                 "email"
@@ -116,181 +116,181 @@
                 "CRM"
             ],
             "contact": [
-                "contact"
+                "contacto"
             ],
             "Heading Patterns": [
-                "Heading Patterns"
+                "Patrones de rumbo"
             ],
             "Add Heading patterns.": [
-                "Add Heading patterns."
+                "A\u00f1adir patrones de encabezado."
             ],
             "title": [
-                "title"
+                "t\u00edtulo"
             ],
             "headline": [
-                "headline"
+                "encabezado"
             ],
             "tagline": [
                 "tagline"
             ],
             "text": [
-                "text"
+                "texto"
             ],
             "Hero Patterns": [
-                "Hero Patterns"
+                "Patrones del h\u00e9roe"
             ],
             "Add Hero patterns.": [
-                "Add Hero patterns."
+                "A\u00f1adir patrones de h\u00e9roe."
             ],
             "banner": [
                 "banner"
             ],
             "image slider": [
-                "image slider"
+                "deslizador de imagen"
             ],
             "homepage": [
-                "homepage"
+                "p\u00e1gina de inicio"
             ],
             "Pricing Table Patterns": [
-                "Pricing Table Patterns"
+                "Tablas de precios"
             ],
             "Add Pricing Table patterns.": [
-                "Add Pricing Table patterns."
+                "A\u00f1adir patrones de Tabla de Precios."
             ],
             "plans": [
-                "plans"
+                "planes"
             ],
             "comparison": [
-                "comparison"
+                "comparaci\u00f3n"
             ],
             "packages": [
-                "packages"
+                "paquetes"
             ],
             "Menu Patterns": [
-                "Menu Patterns"
+                "Patrones de men\u00fa"
             ],
             "Add Menu patterns.": [
-                "Add Menu patterns."
+                "A\u00f1adir patrones de men\u00fa."
             ],
             "restaurant": [
-                "restaurant"
+                "restaurante"
             ],
             "cafe": [
-                "cafe"
+                "caf\u00e9"
             ],
             "coffee": [
-                "coffee"
+                "caf\u00e9"
             ],
             "catering": [
-                "catering"
+                "comida"
             ],
             "food": [
-                "food"
+                "comida"
             ],
             "recipe": [
-                "recipe"
+                "receta"
             ],
             "Team Patterns": [
-                "Team Patterns"
+                "Patrones de Equipo"
             ],
             "Add Team patterns.": [
-                "Add Team patterns."
+                "A\u00f1adir patrones de equipo."
             ],
             "employees": [
-                "employees"
+                "empleados"
             ],
             "members": [
-                "members"
+                "miembros"
             ],
             "profiles": [
                 "profiles"
             ],
             "Testimonial Patterns": [
-                "Testimonial Patterns"
+                "Patrones de testimonio"
             ],
             "Add Testimonial patterns.": [
-                "Add Testimonial patterns."
+                "A\u00f1adir patrones de testimonio."
             ],
             "reviews": [
-                "reviews"
+                "comentarios"
             ],
             "feedback": [
-                "feedback"
+                "comentarios"
             ],
             "ratings": [
-                "ratings"
+                "calificaciones"
             ],
             "Text Patterns": [
-                "Text Patterns"
+                "Patrones de texto"
             ],
             "Add Text patterns.": [
-                "Add Text patterns."
+                "A\u00f1adir patrones de texto."
             ],
             "highlight": [
-                "highlight"
+                "destacar"
             ],
             "write": [
-                "write"
+                "escribir"
             ],
             "format": [
-                "format"
+                "formato"
             ],
             "rating": [
-                "rating"
+                "puntuaci\u00f3n"
             ],
             "Header Patterns": [
-                "Header Patterns"
+                "Patrones de cabecera"
             ],
             "Add Header patterns.": [
-                "Add Header patterns."
+                "A\u00f1adir patrones de cabecera."
             ],
             "navigation": [
                 "navigation"
             ],
             "Footer Patterns": [
-                "Footer Patterns"
+                "Patrones de pie de p\u00e1gina"
             ],
             "Add Footer patterns.": [
-                "Add Footer patterns."
+                "A\u00f1adir patrones de pie de p\u00e1gina."
             ],
             "Product Patterns": [
-                "Product Patterns"
+                "Patrones de producto"
             ],
             "Add Product patterns.": [
-                "Add Product patterns."
+                "A\u00f1adir patrones de producto."
             ],
             "woocommerce": [
                 "woocommerce"
             ],
             "My Favorite Patterns": [
-                "My Favorite Patterns"
+                "Mis patrones favoritos"
             ],
             "A collection of patterns you've selected.": [
-                "A collection of patterns you've selected."
+                "Una colecci\u00f3n de patrones que has seleccionado."
             ],
             "liked": [
-                "liked"
+                "le gust\u00f3"
             ],
             "saved": [
-                "saved"
+                "guardado"
             ],
             "bookmarked": [
-                "bookmarked"
+                "marcados"
             ],
             "starred": [
-                "starred"
+                "protagonizado"
             ],
             "Default": [
-                "Default"
+                "Por defecto"
             ],
             "Arrow": [
-                "Arrow"
+                "Flecha"
             ],
             "Ellipse": [
                 "Ellipse"
             ],
             "Rounded": [
-                "Rounded"
+                "Redondeado"
             ],
             "Slant": [
                 "Slant"
@@ -299,52 +299,52 @@
                 "Slant Invert"
             ],
             "Triangle": [
-                "Triangle"
+                "Tri\u00e1ngulo"
             ],
             "Zigzag": [
                 "Zigzag"
             ],
             "None": [
-                "None"
+                "Ninguna"
             ],
             "Fade In Bottom": [
-                "Fade In Bottom"
+                "Desvanecer al principio"
             ],
             "Fade In Top Short": [
-                "Fade In Top Short"
+                "Desvanecer en la parte superior"
             ],
             "Fade In Right Short": [
-                "Fade In Right Short"
+                "Fundir en el corto derecho"
             ],
             "Fade In Bottom Short": [
-                "Fade In Bottom Short"
+                "Desvanecer en la parte inferior"
             ],
             "Fade In Left Short": [
-                "Fade In Left Short"
+                "Desvanecer en la izquierda"
             ],
             "Twist In": [
-                "Twist In"
+                "Retorno en"
             ],
             "Zoom In": [
-                "Zoom In"
+                "Acercar en"
             ],
             "Zoom In Short": [
-                "Zoom In Short"
+                "Acercar en corto"
             ],
             "Reveal Right": [
-                "Reveal Right"
+                "Revelar Derecho"
             ],
             "50ms": [
-                "50ms"
+                "50 m"
             ],
             "150ms": [
-                "150ms"
+                "150 ms"
             ],
             "300ms": [
                 "300ms"
             ],
             "450ms": [
-                "450ms"
+                "450 ms"
             ],
             "600ms": [
                 "600ms"
@@ -359,7 +359,7 @@
                 "1050ms"
             ],
             "1200ms": [
-                "1200ms"
+                "1200 ms"
             ],
             "1350ms": [
                 "1350ms"
@@ -368,271 +368,271 @@
                 "1500ms"
             ],
             "Dots": [
-                "Dots"
+                "Puntos"
             ],
             "Grid": [
-                "Grid"
+                "Rejilla"
             ],
             "Grid 2": [
-                "Grid 2"
+                "Rejilla 2"
             ],
             "Grid 3": [
-                "Grid 3"
+                "Rejilla 3"
             ],
             "Grid Perspective": [
-                "Grid Perspective"
+                "Rejilla Perspectiva"
             ],
             "Lines": [
-                "Lines"
+                "L\u00edneas"
             ],
             "Lines 2": [
-                "Lines 2"
+                "L\u00edneas 2"
             ],
             "Section Divider": [
-                "Section Divider"
+                "Secci\u00f3n Divider"
             ],
             "Section Theme Color": [
-                "Section Theme Color"
+                "Color del tema"
             ],
             "This feature is now located in the": [
-                "This feature is now located in the"
+                "Esta caracter\u00edstica se encuentra ahora en el"
             ],
             "Block Styles": [
-                "Block Styles"
+                "Estilos del bloque"
             ],
             "section.": [
-                "section."
+                "secci\u00f3n."
             ],
             "Section Background Effect": [
-                "Section Background Effect"
+                "Efecto de fondo de secci\u00f3n"
             ],
             "Entrance Animations": [
-                "Entrance Animations"
+                "Animaciones de entrada"
             ],
             "Animation": [
-                "Animation"
+                "Animaci\u00f3n"
             ],
             "Delay": [
-                "Delay"
+                "Retraso"
             ],
             "Back to Patterns": [
-                "Back to Patterns"
+                "Volver a Patrones"
             ],
             "Syncing...": [
-                "Syncing..."
+                "Sincronizando..."
             ],
             "Sync Now": [
-                "Sync Now"
+                "Sincronizar ahora"
             ],
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
-                "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
+                "La biblioteca de patrones y plantillas se sincroniza autom\u00e1ticamente una vez al d\u00eda. Si desea actualizar manualmente la biblioteca, puede hacerlo pulsando el bot\u00f3n para obtener los dise\u00f1os m\u00e1s recientes."
             ],
             "Block pattern \"%s\" inserted.": [
-                "Block pattern \"%s\" inserted."
+                "Se ha insertado el patr\u00f3n \"%s\"."
             ],
             "Failed to insert block pattern. Please try again.": [
-                "Failed to insert block pattern. Please try again."
+                "Error al insertar el patr\u00f3n de bloque. Por favor, int\u00e9ntalo de nuevo."
             ],
             "Added to favorites": [
-                "Added to favorites"
+                "A\u00f1adido a favoritos"
             ],
             "Add to favorites": [
-                "Add to favorites"
+                "A\u00f1adir a favoritos"
             ],
             "Add pattern to page": [
-                "Add pattern to page"
+                "A\u00f1adir patr\u00f3n a la p\u00e1gina"
             ],
             "support team": [
-                "support team"
+                "equipo de soporte"
             ],
             "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
-                "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
+                "Haz clic en %s en tus patrones y plantillas favoritos y utilizados con frecuencia para un acceso r\u00e1pido."
             ],
             "Sorry, we couldn't find any results for that. Please try a different search term.": [
-                "Sorry, we couldn't find any results for that. Please try a different search term."
+                "Lo sentimos, no hemos podido encontrar ning\u00fan resultado para eso. Por favor, prueba con un t\u00e9rmino de b\u00fasqueda diferente."
             ],
             "Sort By: ": [
-                "Sort By: "
+                "Ordenar por: "
             ],
             "Sort By": [
-                "Sort By"
+                "Ordenar por"
             ],
             "Newest": [
-                "Newest"
+                "M\u00e1s reciente"
             ],
             "Oldest": [
-                "Oldest"
+                "Menos"
             ],
             "Grid View": [
-                "Grid View"
+                "Vista de cuadr\u00edcula"
             ],
             "2 columns": [
-                "2 columns"
+                "2 columnas"
             ],
             "3 columns": [
-                "3 columns"
+                "3 columnas"
             ],
             "4 columns": [
-                "4 columns"
+                "4 columnas"
             ],
             "Loading\u2026": [
-                "Loading\u2026"
+                "Cargando\u2026"
             ],
             "One moment while we load content tailored for your site.": [
-                "One moment while we load content tailored for your site."
+                "Un momento mientras cargamos contenido adaptado a su sitio."
             ],
             "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
-                "%s needs the latest version of WordPress, please <a>update your site<\/a>."
+                "%s necesita la \u00faltima versi\u00f3n de WordPress, por favor <a>actualice su sitio<\/a>."
             ],
             "Search": [
-                "Search"
+                "Buscar"
             ],
             "Favorites": [
-                "Favorites"
+                "Favoritos"
             ],
             "WonderBlocks Menu": [
-                "WonderBlocks Menu"
+                "Men\u00fa WonderBlocks"
             ],
             "About": [
-                "About"
+                "Acerca de"
             ],
             "Close dialog": [
-                "Close dialog"
+                "Cerrar di\u00e1logo"
             ],
             "Failed to load data.": [
-                "Failed to load data."
+                "Error al cargar los datos."
             ],
             "Categories": [
-                "Categories"
+                "Categor\u00edas"
             ],
             "Usage": [
-                "Usage"
+                "Uso"
             ],
             "Select a category": [
-                "Select a category"
+                "Seleccione una categor\u00eda"
             ],
             "Patterns": [
-                "Patterns"
+                "Patrones"
             ],
             "Templates": [
-                "Templates"
+                "Plantillas"
             ],
             "Plugin installed successfully.": [
-                "Plugin installed successfully."
+                "Plugin instalado correctamente."
             ],
             "Failed to install plugin. Please try again.": [
-                "Failed to install plugin. Please try again."
+                "No se pudo instalar el complemento. Por favor, int\u00e9ntalo de nuevo."
             ],
             "Plugin activated successfully.": [
-                "Plugin activated successfully."
+                "Plugin activado con \u00e9xito."
             ],
             "Failed to activate plugin. Please try again.": [
-                "Failed to activate plugin. Please try again."
+                "No se pudo activar el complemento. Por favor, int\u00e9ntalo de nuevo."
             ],
             "Page is reloading to apply changes...": [
-                "Page is reloading to apply changes..."
+                "La p\u00e1gina se est\u00e1 recargando para aplicar cambios..."
             ],
             "Plugin processed successfully.": [
-                "Plugin processed successfully."
+                "Plugin procesado con \u00e9xito."
             ],
             "Failed to process plugin. Please try again.": [
-                "Failed to process plugin. Please try again."
+                "No se pudo procesar el complemento. Por favor, int\u00e9ntalo de nuevo."
             ],
             "Reloading Page": [
-                "Reloading Page"
+                "Recargando p\u00e1gina"
             ],
             "Checking": [
-                "Checking"
+                "Comprobaci\u00f3n"
             ],
             "Installing": [
-                "Installing"
+                "Instalar"
             ],
             "Activating": [
-                "Activating"
+                "Activador"
             ],
             "Setting up": [
-                "Setting up"
+                "Configuraci\u00f3n"
             ],
             "Installed": [
-                "Installed"
+                "Instalado"
             ],
             "Error Installing": [
-                "Error Installing"
+                "Error al instalar"
             ],
             "Processing": [
-                "Processing"
+                "Tratamiento"
             ],
             "Dependent Feature:": [
-                "Dependent Feature:"
+                "Caracter\u00edstica dependiente:"
             ],
             "Retry": [
-                "Retry"
+                "Reintentar"
             ],
             "seconds remaining": [
-                "seconds remaining"
+                "segundos restantes"
             ],
             "Premium": [
-                "Premium"
+                "Prima"
             ],
             "Install Required Plugins": [
-                "Install Required Plugins"
+                "Instalar los complementos necesarios"
             ],
             "This pattern is powered by <strong>%s<\/strong> plugin.": [
-                "This pattern is powered by <strong>%s<\/strong> plugin."
+                "Este patr\u00f3n funciona con <strong>el complemento %s<\/strong>."
             ],
             "This pattern requires <strong>%s<\/strong> plugin.": [
-                "This pattern requires <strong>%s<\/strong> plugin."
+                "Este patr\u00f3n requiere <strong>el complemento %s<\/strong>."
             ],
             "Learn more": [
-                "Learn more"
+                "Aprende m\u00e1s"
             ],
             "Remove from favorites": [
-                "Remove from favorites"
+                "Eliminar de favoritos"
             ],
             "Error": [
                 "Error"
             ],
             "Success": [
-                "Success"
+                "\u00c9xito"
             ],
             "the plugin": [
-                "the plugin"
+                "El complemento"
             ],
             "All done!": [
-                "All done!"
+                "\u00a1Todo listo!"
             ],
             "Installation failed": [
-                "Installation failed"
+                "Error de instalaci\u00f3n"
             ],
             "Installing %s": [
-                "Installing %s"
+                "Instalaci\u00f3n de %s"
             ],
             "Verifying %s installation status...": [
-                "Verifying %s installation status..."
+                "Verificaci\u00f3n del estado de instalaci\u00f3n de %s..."
             ],
             "Downloading and installing %s...": [
-                "Downloading and installing %s..."
+                "Descargando e instalando %s..."
             ],
             "Activating %s...": [
-                "Activating %s..."
+                "Activando %s..."
             ],
             "Configuring %s settings...": [
-                "Configuring %s settings..."
+                "Configuraci\u00f3n de %s settings..."
             ],
             "%s has been successfully installed and activated!": [
-                "%s has been successfully installed and activated!"
+                "%s se ha instalado y activado correctamente."
             ],
             "Reloading the page to apply the changes...": [
-                "Reloading the page to apply the changes..."
+                "Recargando la p\u00e1gina para aplicar los cambios..."
             ],
             "We encountered an issue installing %s. Please try again or contact support if the problem persists.": [
-                "We encountered an issue installing %s. Please try again or contact support if the problem persists."
+                "Encontramos un problema al instalar %s. Int\u00e9ntalo de nuevo o ponte en contacto con el servicio de asistencia si el problema persiste."
             ],
             "Setting up %s...": [
-                "Setting up %s..."
+                "Configurando %s..."
             ],
             "Close": [
-                "Close"
+                "Cerrar"
             ],
             "Waiting for plugin to initialize before reload...": [
                 ""
