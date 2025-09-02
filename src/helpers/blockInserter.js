@@ -31,14 +31,8 @@ const findPostContentClientId = (blocks) => {
  */
 export const blockInserter = (blocks) => {
 	const { insertBlocks, replaceBlock } = dispatch("core/block-editor");
-	const {
-		getSelectedBlock,
-		getBlockHierarchyRootClientId,
-		getBlockIndex,
-		getGlobalBlockCount,
-		getBlockParents,
-		getBlock,
-	} = select("core/block-editor");
+	const { getSelectedBlock, getBlockHierarchyRootClientId, getBlockIndex, getGlobalBlockCount } =
+		select("core/block-editor");
 	const { getBlocks } = select("core/block-editor");
 	const allBlocks = getBlocks();
 	const hasTemplatePart = allBlocks.some((block) => block.name === "core/template-part");
