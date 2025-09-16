@@ -31,7 +31,10 @@ const DesignItemControls = ({
 	const { premiumButtonProps, shouldUseOnClick } = usePluginRequirements(item);
 
 	return (
-		<div className="nfd-wba-design-item--overlay">
+		<div
+			className="nfd-wba-design-item--overlay"
+			{...(shouldUseOnClick ? { onClick: insertDesignHandler } : {})}
+		>
 			{hasPremiumPlugins && (
 				<div className="nfd-wba-absolute nfd-wba-top-2 nfd-wba-right-2 nfd-wba-z-20">
 					<PremiumBadge variant="logo" />
@@ -57,28 +60,6 @@ const DesignItemControls = ({
 						)
 					}
 					{...premiumButtonProps}
-				/>
-				<Button
-					className={classNames(
-						isFavorite
-							? "nfd-wba-cursor-default nfd-wba-bg-gray-100 !nfd-wba-text-red-600"
-							: "nfd-wba-cursor-not-pointer hover:nfd-wba-text-red-600"
-					)}
-					showTooltip={true}
-					label={
-						isFavorite
-							? __("Added to favorites", "nfd-wonder-blocks")
-							: __("Add to favorites", "nfd-wonder-blocks")
-					}
-					onClick={() => favoritesClickHandler(false)}
-					icon={
-						<HeartIcon
-							className={classNames(
-								" nfd-wba-shrink-0 nfd-wba-size-6",
-								!isFavorite && "!nfd-wba-fill-none"
-							)}
-						/>
-					}
 				/>
 			</div>
 		</div>
