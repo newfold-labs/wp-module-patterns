@@ -1,0 +1,32 @@
+<svg width="700" height="268" viewBox="0 0 700 268" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_products_4col)">
+<!-- First product -->
+<path opacity=".5" d="M154 0H6C2.68629 0 0 2.68629 0 6V154C0 157.314 2.68629 160 6 160H154C157.314 160 160 157.314 160 154V6C160 2.68629 157.314 0 154 0Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M130 180H0V196H130V180Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M90 202H0V212H90V202Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M70 222H0V232H70V222Z" fill="#E1E1E1"/>
+
+<!-- Second product -->
+<path opacity=".5" d="M334 0H186C182.686 0 180 2.68629 180 6V154C180 157.314 182.686 160 186 160H334C337.314 160 340 157.314 340 154V6C340 2.68629 337.314 0 334 0Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M310 180H180V196H310V180Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M270 202H180V212H270V202Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M250 222H180V232H250V222Z" fill="#E1E1E1"/>
+
+<!-- Third product -->
+<path opacity=".5" d="M514 0H366C362.686 0 360 2.68629 360 6V154C360 157.314 362.686 160 366 160H514C517.314 160 520 157.314 520 154V6C520 2.68629 517.314 0 514 0Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M490 180H360V196H490V180Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M450 202H360V212H450V202Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M430 222H360V232H430V222Z" fill="#E1E1E1"/>
+
+<!-- Fourth product -->
+<path opacity=".5" d="M694 0H546C542.686 0 540 2.68629 540 6V154C540 157.314 542.686 160 546 160H694C697.314 160 700 157.314 700 154V6C700 2.68629 697.314 0 694 0Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M670 180H540V196H670V180Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M630 202H540V212H630V202Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M610 222H540V232H610V222Z" fill="#E1E1E1"/>
+</g>
+<defs>
+<clipPath id="clip0_products_4col">
+<rect width="700" height="268" fill="white"/>
+</clipPath>
+</defs>
+</svg>

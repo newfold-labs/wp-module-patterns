@@ -1,0 +1,46 @@
+<svg width="520" height="536" viewBox="0 0 520 536" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_products_grid)">
+<!-- First row -->
+<!-- First product (top-left) -->
+<path opacity=".5" d="M154 0H6C2.68629 0 0 2.68629 0 6V154C0 157.314 2.68629 160 6 160H154C157.314 160 160 157.314 160 154V6C160 2.68629 157.314 0 154 0Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M130 180H0V196H130V180Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M90 202H0V212H90V202Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M70 222H0V232H70V222Z" fill="#E1E1E1"/>
+
+<!-- Second product (top-center) -->
+<path opacity=".5" d="M334 0H186C182.686 0 180 2.68629 180 6V154C180 157.314 182.686 160 186 160H334C337.314 160 340 157.314 340 154V6C340 2.68629 337.314 0 334 0Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M310 180H180V196H310V180Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M270 202H180V212H270V202Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M250 222H180V232H250V222Z" fill="#E1E1E1"/>
+
+<!-- Third product (top-right) -->
+<path opacity=".5" d="M514 0H366C362.686 0 360 2.68629 360 6V154C360 157.314 362.686 160 366 160H514C517.314 160 520 157.314 520 154V6C520 2.68629 517.314 0 514 0Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M490 180H360V196H490V180Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M450 202H360V212H450V202Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M430 222H360V232H430V222Z" fill="#E1E1E1"/>
+
+<!-- Second row -->
+<!-- Fourth product (bottom-left) -->
+<path opacity=".5" d="M154 304H6C2.68629 304 0 306.686 0 310V458C0 461.314 2.68629 464 6 464H154C157.314 464 160 461.314 160 458V310C160 306.686 157.314 304 154 304Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M130 484H0V500H130V484Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M90 506H0V516H90V506Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M70 526H0V536H70V526Z" fill="#E1E1E1"/>
+
+<!-- Fifth product (bottom-center) -->
+<path opacity=".5" d="M334 304H186C182.686 304 180 306.686 180 310V458C180 461.314 182.686 464 186 464H334C337.314 464 340 461.314 340 458V310C340 306.686 337.314 304 334 304Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M310 484H180V500H310V484Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M270 506H180V516H270V506Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M250 526H180V536H250V526Z" fill="#E1E1E1"/>
+
+<!-- Sixth product (bottom-right) -->
+<path opacity=".5" d="M514 304H366C362.686 304 360 306.686 360 310V458C360 461.314 362.686 464 366 464H514C517.314 464 520 461.314 520 458V310C520 306.686 517.314 304 514 304Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M490 484H360V500H490V484Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M450 506H360V516H450V506Z" fill="#E1E1E1"/>
+<path opacity=".5" d="M430 526H360V536H430V526Z" fill="#E1E1E1"/>
+</g>
+<defs>
+<clipPath id="clip0_products_grid">
+<rect width="520" height="536" fill="white"/>
+</clipPath>
+</defs>
+</svg>
