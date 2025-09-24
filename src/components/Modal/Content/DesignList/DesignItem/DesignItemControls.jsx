@@ -51,7 +51,6 @@ const DesignItemControls = ({
 							: __("Add pattern to page", "nfd-wonder-blocks")
 					}
 					showTooltip={true}
-					{...(shouldUseOnClick ? { onClick: insertDesignHandler } : {})}
 					icon={
 						hasInactivePlugins ? (
 							<DownloadIcon className="nfd-wba-shrink-0 !nfd-wba-fill-none nfd-wba-size-6" />
