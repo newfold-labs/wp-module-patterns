@@ -239,9 +239,14 @@
 		}
 	}
 
-	.nfd-wb-products__products-1 .wp-block-missing {
-		@extend %wp-block-missing-preview;
+	[class*="nfd-wb-products__products"],
+	[class*="nfd-wb-header__header"] {
+		.wp-block-missing {
+			@extend %wp-block-missing-preview;
+		}
+	}
 
+	.nfd-wb-products__products-1 .wp-block-missing {
 		min-height: 850px;
 
 		&:before {
@@ -250,14 +255,37 @@
 	}
 
 	.nfd-wb-products__products-2 .wp-block-missing {
-		@extend %wp-block-missing-preview;
-
 		min-height: 240px;
 		display: flex;
 		flex-grow: 1;
 
 		&:before {
 			background-image: url("../svg/wireframes/ProductsSimple.svg");
+		}
+	}
+
+	.nfd-wb-products__products-4 .wp-block-missing,
+	.nfd-wb-products__products-7 .wp-block-missing {
+		min-height: 570px;
+
+		&:before {
+			background-image: url("../svg/wireframes/ProductsRow.svg");
+		}
+	}
+
+	.nfd-wb-products__products-5 .wp-block-missing {
+		min-height: 1200px;
+
+		&:before {
+			background-image: url("../svg/wireframes/ProductsGrid.svg");
+		}
+	}
+
+	.nfd-wb-products__products-6 .wp-block-missing {
+		min-height: 450px;
+
+		&:before {
+			background-image: url("../svg/wireframes/Products4Col.svg");
 		}
 	}
 

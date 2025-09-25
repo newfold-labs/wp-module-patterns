@@ -62,6 +62,24 @@ final class PluginRequirements {
 				'description' => 'This plugin is essential for adding the contact form to this pattern!',
 			),
 		),
+		'form-6'     => array(
+			array(
+				'slug'        => 'jetpack',
+				'name'        => 'Jetpack',
+				'path'        => 'jetpack/jetpack.php',
+				'url'         => 'https://wordpress.org/plugins/jetpack/',
+				'description' => 'This plugin is essential for adding the contact form to this pattern!',
+			),
+		),
+		'form-7'     => array(
+			array(
+				'slug'        => 'jetpack',
+				'name'        => 'Jetpack',
+				'path'        => 'jetpack/jetpack.php',
+				'url'         => 'https://wordpress.org/plugins/jetpack/',
+				'description' => 'This plugin is essential for adding the contact form to this pattern!',
+			),
+		),
 		'products-1' => array(
 			array(
 				'slug'        => 'woocommerce',
@@ -108,6 +126,15 @@ final class PluginRequirements {
 			),
 		),
 		'products-6' => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'products-7' => array(
 			array(
 				'slug'        => 'woocommerce',
 				'name'        => 'WooCommerce',
@@ -168,6 +195,33 @@ final class PluginRequirements {
 			),
 		),
 		'header-22'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'header-26'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'header-28'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
+		'header-31'  => array(
 			array(
 				'slug'        => 'woocommerce',
 				'name'        => 'WooCommerce',
