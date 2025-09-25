@@ -221,6 +221,15 @@ final class PluginRequirements {
 				'description' => 'This plugin is essential for adding the product grid to this pattern!',
 			),
 		),
+		'header-31'  => array(
+			array(
+				'slug'        => 'woocommerce',
+				'name'        => 'WooCommerce',
+				'path'        => 'woocommerce/woocommerce.php',
+				'url'         => 'https://wordpress.org/plugins/woocommerce/',
+				'description' => 'This plugin is essential for adding the product grid to this pattern!',
+			),
+		),
 	);
 
 	/**
