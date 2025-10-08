@@ -60,27 +60,27 @@ msgid "Invalid request"
 msgstr "Ongeldige aanvraag"
 
 #: includes/BlockStyles.php:63
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "White"
 msgstr "wit"
 
 #: includes/BlockStyles.php:67
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Light"
 msgstr "Licht"
 
 #: includes/BlockStyles.php:71
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Dark"
 msgstr "Donker"
 
 #: includes/BlockStyles.php:75
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Darker"
 msgstr "Donkerder"
 
 #: includes/BlockStyles.php:79
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Primary"
 msgstr "Primair"
 
@@ -94,7 +94,7 @@ msgid "Bad event structure/value."
 msgstr "Slechte event structuur/waarde."
 
 #: includes/Library/UsageTags.php:20
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Layout"
 msgstr "Indeling"
 
@@ -103,7 +103,7 @@ msgid "Content"
 msgstr "Inhoud"
 
 #: includes/Library/UsageTags.php:28
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Info"
 msgstr "Informatie"
 
@@ -119,682 +119,682 @@ msgstr "Marketing"
 msgid "Interactive"
 msgstr "Interactief"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Gallery Patterns"
 msgstr "Galerij patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Gallery patterns."
 msgstr "Galerij patronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "images"
 msgstr "afbeeldingen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "photos"
 msgstr "Foto's"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "photography"
 msgstr "fotografie"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Blog Patterns"
 msgstr "Blog patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Blog patterns."
 msgstr "Blogpatronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "articles"
 msgstr "artikelen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "posts"
 msgstr "berichten"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "news"
 msgstr "nieuws"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Call to Action Patterns"
 msgstr "Oproep aan Action Patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Call to Action patterns."
 msgstr "Oproep toevoegen aan Actiepatronen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "cta"
 msgstr "cta"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "conversion"
 msgstr "conversie"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "button"
 msgstr "knop"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "announcement"
 msgstr "aankondiging"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "FAQ Patterns"
 msgstr "FAQ patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add FAQ patterns."
 msgstr "Voeg FAQ patronen toe."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "frequently asked questions"
 msgstr "Veel gestelde vragen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Features Patterns"
 msgstr "Functies Patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Features patterns."
 msgstr "Functies patronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "columns"
 msgstr "kolommen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "about"
 msgstr "Over"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Form Patterns"
 msgstr "Formulier patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Form patterns."
 msgstr "Formulierpatronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "form"
 msgstr "formulier"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "email"
 msgstr "E-mail"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "CRM"
 msgstr "CRM"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "contact"
 msgstr "Contactpersoon"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Heading Patterns"
 msgstr "Kop patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Heading patterns."
 msgstr "Koppatronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "title"
 msgstr "Titel"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "headline"
 msgstr "kop"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "tagline"
 msgstr "tagline"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "text"
 msgstr "Tekst"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Hero Patterns"
 msgstr "Held Patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Hero patterns."
 msgstr "Held patronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "banner"
 msgstr "banner"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "image slider"
 msgstr "afbeelding slider"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "homepage"
 msgstr "Startpagina"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Pricing Table Patterns"
 msgstr "Prijzen Tafelpatronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Pricing Table patterns."
 msgstr "Voeg prijspatronen toe."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "plans"
 msgstr "plannen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "comparison"
 msgstr "vergelijking"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "packages"
 msgstr "pakketten"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Menu Patterns"
 msgstr "Menu patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Menu patterns."
 msgstr "Menu patronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "restaurant"
 msgstr "restaurant"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "cafe"
 msgstr "café"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "coffee"
 msgstr "koffie"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "catering"
 msgstr "horeca"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "food"
 msgstr "voedsel"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "recipe"
 msgstr "recept"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Team Patterns"
 msgstr "Team patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Team patterns."
 msgstr "Team patronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "employees"
 msgstr "werknemers"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "members"
 msgstr "leden"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "profiles"
 msgstr "profiles"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Testimonial Patterns"
 msgstr "Testimoniale patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Testimonial patterns."
 msgstr "Voeg beoordelingspatronen toe."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "reviews"
 msgstr "beoordelingen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "feedback"
 msgstr "feedback"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "ratings"
 msgstr "waarderingen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Text Patterns"
 msgstr "Tekst patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Text patterns."
 msgstr "Tekstpatronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "highlight"
 msgstr "markeren"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "write"
 msgstr "schrijven"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "format"
 msgstr "formaat"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "rating"
 msgstr "beoordeling"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Header Patterns"
 msgstr "Koptekst patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Header patterns."
 msgstr "Koppatronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "navigation"
 msgstr "navigation"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Footer Patterns"
 msgstr "Voettekst patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Footer patterns."
 msgstr "Voettekst patronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Product Patterns"
 msgstr "Product patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Add Product patterns."
 msgstr "Product patronen toevoegen."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "woocommerce"
 msgstr "woocommerce"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "My Favorite Patterns"
 msgstr "Mijn favoriete patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "A collection of patterns you've selected."
 msgstr "Een verzameling van patronen die je hebt geselecteerd."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "liked"
 msgstr "leuk gevonden"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "saved"
 msgstr "opgeslagen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "bookmarked"
 msgstr "bladwijzer"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "starred"
 msgstr "ster"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Default"
 msgstr "Standaard"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Arrow"
 msgstr "Pijl"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Ellipse"
 msgstr "Ellips"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Rounded"
 msgstr "Afgerond"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Slant"
 msgstr "Slant"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Slant Invert"
 msgstr "Slant Invert"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Triangle"
 msgstr "Driehoek"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Zigzag"
 msgstr "Zigzag"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "None"
 msgstr "geen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Fade In Bottom"
 msgstr "Onder vervagen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Fade In Top Short"
 msgstr "Vervagen in korte bovenhoek"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Fade In Right Short"
 msgstr "Korte Rechts vervagen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Fade In Bottom Short"
 msgstr "Onder kort vervagen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Fade In Left Short"
 msgstr "Vervagen in kort links"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Twist In"
 msgstr "Draai over"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Zoom In"
 msgstr "Zoom in"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Zoom In Short"
 msgstr "Zoom in kort"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Reveal Right"
 msgstr "Rechts onthullen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "50ms"
 msgstr "50ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "150ms"
 msgstr "150ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "300ms"
 msgstr "300 ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "450ms"
 msgstr "450ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "600ms"
 msgstr "600ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "750ms"
 msgstr "750ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "900ms"
 msgstr "900 ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "1050ms"
 msgstr "1050ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "1200ms"
 msgstr "1200ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "1350ms"
 msgstr "1350ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "1500ms"
 msgstr "1500ms"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Dots"
 msgstr "Stippen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Grid"
 msgstr "Rooster"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Grid 2"
 msgstr "Raster 2"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Grid 3"
 msgstr "Raster 3"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Grid Perspective"
 msgstr "Grid Perspectief"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Lines"
 msgstr "Regels"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Lines 2"
 msgstr "Regels 2"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Section Divider"
 msgstr "Sectie verdeler"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Section Theme Color"
 msgstr "Themakleur sectie"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "This feature is now located in the"
 msgstr "Deze functie bevindt zich nu in de"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Block Styles"
 msgstr "Stijlen blokkeren"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "section."
 msgstr "sectie"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Section Background Effect"
 msgstr "Sectie Achtergrond Effect"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Entrance Animations"
 msgstr "Ingang Animaties"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Animation"
 msgstr "Animatie"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Delay"
 msgstr "Vertraging"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Back to Patterns"
 msgstr "Terug naar patronen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Syncing..."
 msgstr "Synchroniseren..."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Sync Now"
 msgstr "Nu synchroniseren"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
 msgstr "De sjabloonbibliotheek synchroniseert automatisch eenmaal per dag. Als je de bibliotheek handmatig wilt vernieuwen, kun je dat doen door op de knop te drukken om de meest recente ontwerpen te krijgen."
 
 #. translators: %s is the pattern title
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 #, js-format
 msgid "Block pattern \"%s\" inserted."
 msgstr "Blok patroon \"%s\" ingevoegd."
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Failed to insert block pattern. Please try again."
 msgstr "Het blokpatroon invoegen is mislukt. Probeer het opnieuw."
 
-#: build/2.10.5/wonder-blocks.js:3
+#: build/2.11.0/wonder-blocks.js:3
 msgid "Added to favorites"
 msgstr "Toegevoegd aan favorieten"
 
-#: build/2.10.5/wonder-blocks.js:3
+#: build/2.11.0/wonder-blocks.js:3
 msgid "Add to favorites"
 msgstr "Toevoegen aan favorieten"
 
-#: build/2.10.5/wonder-blocks.js:1
-#: build/2.10.5/wonder-blocks.js:3
+#: build/2.11.0/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:3
 msgid "Add pattern to page"
 msgstr "Patroon aan pagina toevoegen"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "support team"
 msgstr "Support Team"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 #, js-format
 msgid "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
 msgstr "Klik op de %s op uw favoriete en vaak gebruikte Patrons & Templates voor snelle toegang."
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Sorry, we couldn't find any results for that. Please try a different search term."
 msgstr "Sorry, we konden geen resultaten vinden. Probeer een andere zoekterm."
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Sort By: "
 msgstr "Sorteren op: "
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Sort By"
 msgstr "Sorteren op"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Newest"
 msgstr "Nieuwste"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Oldest"
 msgstr "Oudste"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Grid View"
 msgstr "Raster weergave"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "2 columns"
 msgstr "2 kolommen"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "3 columns"
 msgstr "3 kolommen"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "4 columns"
 msgstr "4 kolommen"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Loading…"
 msgstr "Laden..."
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "One moment while we load content tailored for your site."
 msgstr "Een moment terwijl we de content op maat voor je site laden."
 
 #. translators: %s: brand name - 'WonderBlocks'.
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "%s needs the latest version of WordPress, please <a>update your site</a>."
 msgstr "%s heeft de laatste versie van WordPress, update alstublieft <a>uw site</a>."
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Search"
 msgstr "Zoeken"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Favorites"
 msgstr "Favorieten"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "WonderBlocks Menu"
 msgstr "WonderBlocks Menu"
 
-#: build/2.10.5/wonder-blocks.js:1
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:9
 msgid "About"
 msgstr "Informatie"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Close dialog"
 msgstr "Dialoogvenster sluiten"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Failed to load data."
 msgstr "Laden van gegevens mislukt."
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Categories"
 msgstr "Categoriechar@@0n"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Usage"
 msgstr "Gebruik"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Select a category"
 msgstr "Selecteer een categorie"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Patterns"
 msgstr "Patronen"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Templates"
 msgstr "Sjablonen"
 
-#: build/2.10.5/blocks/block.json
+#: build/2.11.0/blocks/block.json
 msgctxt "block title"
 msgid "WonderBlocks"
 msgstr "WonderBlokken"
 
-#: build/2.10.5/blocks/block.json
+#: build/2.11.0/blocks/block.json
 msgctxt "block description"
 msgid "Add patterns and page templates tailored for your site."
 msgstr "Voeg patronen en paginasjablonen toe die zijn aangepast aan uw site."
 
-#: build/2.10.5/blocks/block.json
+#: build/2.11.0/blocks/block.json
 msgctxt "block keyword"
 msgid "template"
 msgstr "Sjabloon"
 
-#: build/2.10.5/blocks/block.json
+#: build/2.11.0/blocks/block.json
 msgctxt "block keyword"
 msgid "patterns"
 msgstr "patronen"
 
-#: build/2.10.5/blocks/block.json
+#: build/2.11.0/blocks/block.json
 msgctxt "block keyword"
 msgid "blocks"
 msgstr "blokkeert"
@@ -843,171 +843,171 @@ msgstr "Golven TR"
 msgid "Primary Light"
 msgstr "Primair licht"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Plugin installed successfully."
 msgstr "Plugin succesvol geïnstalleerd."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Failed to install plugin. Please try again."
 msgstr "Kan de plugin niet installeren. Probeer het opnieuw."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Plugin activated successfully."
 msgstr "Plugin succesvol geactiveerd."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Failed to activate plugin. Please try again."
 msgstr "Kan de plugin niet activeren. Probeer het opnieuw."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Page is reloading to apply changes..."
 msgstr "Pagina wordt opnieuw geladen om wijzigingen toe te passen..."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Plugin processed successfully."
 msgstr "Plugin succesvol verwerkt."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Failed to process plugin. Please try again."
 msgstr "Kan de plugin niet verwerken. Probeer het opnieuw."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Reloading Page"
 msgstr "Pagina opnieuw laden"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Checking"
 msgstr "Controleren"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Installing"
 msgstr "Installeren"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Activating"
 msgstr "Activeren"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Setting up"
 msgstr "Instellen"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Installed"
 msgstr "Geïnstalleerd"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Error Installing"
 msgstr "Fout bij het installeren"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Processing"
 msgstr "Verwerking"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Dependent Feature:"
 msgstr "Afhankelijke functie:"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Retry"
 msgstr "Opnieuw"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "seconds remaining"
 msgstr "resterende seconden"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Premium"
 msgstr "Premie"
 
-#: build/2.10.5/wonder-blocks.js:1
-#: build/2.10.5/wonder-blocks.js:3
+#: build/2.11.0/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:3
 msgid "Install Required Plugins"
 msgstr "Installeer de vereiste plug-ins"
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 #, js-format
 msgid "This pattern is powered by <strong>%s</strong> plugin."
 msgstr "Dit patroon wordt mogelijk gemaakt door <strong>de %</strong>s-plug-in."
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 #, js-format
 msgid "This pattern requires <strong>%s</strong> plugin."
 msgstr "Voor dit patroon is <strong>de %s-plugin</strong> vereist."
 
 #. translators: %s: plugin name.
-#: build/2.10.5/wonder-blocks.js:3
+#: build/2.11.0/wonder-blocks.js:3
 msgid "Learn more"
 msgstr "Meer informatie"
 
-#: build/2.10.5/wonder-blocks.js:3
+#: build/2.11.0/wonder-blocks.js:3
 msgid "Remove from favorites"
 msgstr "Verwijderen uit favorieten"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Error"
 msgstr "Fout"
 
-#: build/2.10.5/wonder-blocks.js:6
+#: build/2.11.0/wonder-blocks.js:6
 msgid "Success"
 msgstr "Succes"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "the plugin"
 msgstr "De plugin"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "All done!"
 msgstr "Helemaal klaar!"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Installation failed"
 msgstr "Installatie mislukt"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "Installing %s"
 msgstr "%s installeren"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "Verifying %s installation status..."
 msgstr "Controleren van de installatiestatus van %s..."
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "Downloading and installing %s..."
 msgstr "Het downloaden en installeren van %s..."
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "Activating %s..."
 msgstr "%s... activeren"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "Configuring %s settings..."
 msgstr "%s-instellingen configureren..."
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "%s has been successfully installed and activated!"
 msgstr "%s is succesvol geïnstalleerd en geactiveerd!"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Reloading the page to apply the changes..."
 msgstr "De pagina opnieuw laden om de wijzigingen toe te passen..."
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "We encountered an issue installing %s. Please try again or contact support if the problem persists."
 msgstr "Er is een probleem opgetreden bij het installeren van %s. Probeer het opnieuw of neem contact op met de ondersteuning als het probleem zich blijft voordoen."
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 #, js-format
 msgid "Setting up %s..."
 msgstr "%s... instellen"
 
-#: build/2.10.5/wonder-blocks.js:9
+#: build/2.11.0/wonder-blocks.js:9
 msgid "Close"
 msgstr "Sluiten"
 
@@ -1015,6 +1015,6 @@ msgstr "Sluiten"
 msgid "Failed to activate the plugin: "
 msgstr ""
 
-#: build/2.10.5/wonder-blocks.js:1
+#: build/2.11.0/wonder-blocks.js:1
 msgid "Waiting for plugin to initialize before reload..."
 msgstr ""
