@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1758838245">
-  <project timestamp="1758838245">
+<coverage generated="1759949403">
+  <project timestamp="1759949403">
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Admin/CTA.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Admin\CTA" namespace="global">
         <metrics complexity="26" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="131" coveredstatements="0" elements="140" coveredelements="0"/>
@@ -710,79 +710,83 @@
     </file>
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/CSSUtilities.php">
       <class name="NewfoldLabs\WP\Module\Patterns\CSSUtilities" namespace="global">
-        <metrics complexity="24" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="0" elements="70" coveredelements="0"/>
+        <metrics complexity="28" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="63" coveredstatements="0" elements="74" coveredelements="0"/>
       </class>
-      <line num="33" type="method" name="get_instance" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="33" type="method" name="get_local_base_url" visibility="protected" complexity="2" crap="6" count="0"/>
       <line num="34" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="43" type="method" name="__construct" visibility="private" complexity="2" crap="6" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="0"/>
-      <line num="59" type="method" name="enqueue" visibility="public" complexity="5" crap="30" count="0"/>
-      <line num="61" type="stmt" count="0"/>
-      <line num="62" type="stmt" count="0"/>
+      <line num="42" type="method" name="get_production_base_url" visibility="protected" complexity="2" crap="6" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="51" type="method" name="get_instance" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="61" type="method" name="__construct" visibility="private" complexity="2" crap="6" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
       <line num="66" type="stmt" count="0"/>
-      <line num="68" type="stmt" count="0"/>
       <line num="69" type="stmt" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <line num="72" type="stmt" count="0"/>
-      <line num="73" type="stmt" count="0"/>
-      <line num="74" type="stmt" count="0"/>
-      <line num="76" type="stmt" count="0"/>
-      <line num="77" type="stmt" count="0"/>
-      <line num="78" type="stmt" count="0"/>
+      <line num="77" type="method" name="enqueue" visibility="public" complexity="5" crap="30" count="0"/>
       <line num="79" type="stmt" count="0"/>
       <line num="80" type="stmt" count="0"/>
-      <line num="81" type="stmt" count="0"/>
       <line num="84" type="stmt" count="0"/>
-      <line num="85" type="stmt" count="0"/>
       <line num="86" type="stmt" count="0"/>
       <line num="87" type="stmt" count="0"/>
       <line num="89" type="stmt" count="0"/>
       <line num="90" type="stmt" count="0"/>
       <line num="91" type="stmt" count="0"/>
       <line num="92" type="stmt" count="0"/>
-      <line num="93" type="stmt" count="0"/>
       <line num="94" type="stmt" count="0"/>
+      <line num="95" type="stmt" count="0"/>
+      <line num="96" type="stmt" count="0"/>
       <line num="97" type="stmt" count="0"/>
-      <line num="106" type="method" name="get_asset_content" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="98" type="stmt" count="0"/>
+      <line num="99" type="stmt" count="0"/>
+      <line num="102" type="stmt" count="0"/>
+      <line num="103" type="stmt" count="0"/>
+      <line num="104" type="stmt" count="0"/>
+      <line num="105" type="stmt" count="0"/>
       <line num="107" type="stmt" count="0"/>
       <line num="108" type="stmt" count="0"/>
-      <line num="120" type="method" name="get_inline_css" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="121" type="stmt" count="0"/>
-      <line num="122" type="stmt" count="0"/>
-      <line num="124" type="stmt" count="0"/>
+      <line num="109" type="stmt" count="0"/>
+      <line num="110" type="stmt" count="0"/>
+      <line num="111" type="stmt" count="0"/>
+      <line num="112" type="stmt" count="0"/>
+      <line num="115" type="stmt" count="0"/>
+      <line num="124" type="method" name="get_asset_content" visibility="private" complexity="1" crap="2" count="0"/>
       <line num="125" type="stmt" count="0"/>
+      <line num="126" type="stmt" count="0"/>
+      <line num="138" type="method" name="get_inline_css" visibility="private" complexity="3" crap="12" count="0"/>
+      <line num="139" type="stmt" count="0"/>
+      <line num="140" type="stmt" count="0"/>
+      <line num="142" type="stmt" count="0"/>
       <line num="143" type="stmt" count="0"/>
-      <line num="146" type="stmt" count="0"/>
-      <line num="147" type="stmt" count="0"/>
-      <line num="154" type="stmt" count="0"/>
-      <line num="157" type="stmt" count="0"/>
-      <line num="165" type="method" name="get_base_url" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="166" type="stmt" count="0"/>
-      <line num="167" type="stmt" count="0"/>
-      <line num="170" type="stmt" count="0"/>
-      <line num="178" type="method" name="conditional_refresh_assets" visibility="public" complexity="4" crap="20" count="0"/>
-      <line num="179" type="stmt" count="0"/>
-      <line num="180" type="stmt" count="0"/>
-      <line num="182" type="stmt" count="0"/>
-      <line num="183" type="stmt" count="0"/>
+      <line num="161" type="stmt" count="0"/>
+      <line num="164" type="stmt" count="0"/>
+      <line num="165" type="stmt" count="0"/>
+      <line num="172" type="stmt" count="0"/>
+      <line num="175" type="stmt" count="0"/>
+      <line num="183" type="method" name="get_base_url" visibility="public" complexity="3" crap="12" count="0"/>
       <line num="184" type="stmt" count="0"/>
-      <line num="194" type="method" name="refresh_assets" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="195" type="stmt" count="0"/>
-      <line num="196" type="stmt" count="0"/>
-      <line num="207" type="method" name="fetch_and_store_asset" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="208" type="stmt" count="0"/>
-      <line num="209" type="stmt" count="0"/>
-      <line num="211" type="stmt" count="0"/>
+      <line num="185" type="stmt" count="0"/>
+      <line num="188" type="stmt" count="0"/>
+      <line num="196" type="method" name="conditional_refresh_assets" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="197" type="stmt" count="0"/>
+      <line num="198" type="stmt" count="0"/>
+      <line num="200" type="stmt" count="0"/>
+      <line num="201" type="stmt" count="0"/>
+      <line num="202" type="stmt" count="0"/>
+      <line num="212" type="method" name="refresh_assets" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="213" type="stmt" count="0"/>
       <line num="214" type="stmt" count="0"/>
-      <line num="215" type="stmt" count="0"/>
-      <line num="216" type="stmt" count="0"/>
-      <metrics loc="220" ncloc="151" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="0" elements="70" coveredelements="0"/>
+      <line num="225" type="method" name="fetch_and_store_asset" visibility="private" complexity="3" crap="12" count="0"/>
+      <line num="226" type="stmt" count="0"/>
+      <line num="227" type="stmt" count="0"/>
+      <line num="229" type="stmt" count="0"/>
+      <line num="231" type="stmt" count="0"/>
+      <line num="232" type="stmt" count="0"/>
+      <line num="233" type="stmt" count="0"/>
+      <line num="234" type="stmt" count="0"/>
+      <metrics loc="238" ncloc="159" classes="1" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="63" coveredstatements="0" elements="74" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Data/Brands.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Data\Brands" namespace="global">
@@ -1480,6 +1484,6 @@
       <line num="54" type="stmt" count="0"/>
       <metrics loc="57" ncloc="44" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
-    <metrics files="29" loc="3437" ncloc="2583" classes="29" methods="106" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1206" coveredstatements="0" elements="1312" coveredelements="0"/>
+    <metrics files="29" loc="3455" ncloc="2591" classes="29" methods="108" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1208" coveredstatements="0" elements="1316" coveredelements="0"/>
   </project>
 </coverage>
