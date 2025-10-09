@@ -4,6 +4,7 @@ import {
 	Notice,
 	PanelBody,
 	SelectControl,
+	ToggleControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
 } from "@wordpress/components";
@@ -42,6 +43,15 @@ function addAttributes(settings, name) {
 			},
 			nfdGroupEffect: {
 				type: "string",
+			},
+			nfdGroupHideDesktop: {
+				type: "boolean",
+			},
+			nfdGroupHideTablet: {
+				type: "boolean",
+			},
+			nfdGroupHideMobile: {
+				type: "boolean",
 			},
 		};
 	}
@@ -94,6 +104,9 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
 		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
+		const selectedHideDesktop = props?.attributes?.nfdGroupHideDesktop ?? "";
+		const selectedHideTablet = props?.attributes?.nfdGroupHideTablet ?? "";
+		const selectedHideMobile = props?.attributes?.nfdGroupHideMobile ?? "";
 
 		const isTopLevel = useSelect(
 			(select) => {
@@ -491,6 +504,78 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 						</PanelBody>
 					</InspectorControls>
 				)}
+
+				{name === "core/group" && (
+					<InspectorControls>
+						<PanelBody
+							title={<TitleWithLogo title={__("Section Background Effect", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
+							<div className="block-editor-block-styles">
+								<div className="block-editor-block-styles__variants">
+									{groupEffectStyles.map((style) => {
+										const buttonText = style.label || style.name;
+
+										return (
+											<Button
+												className={classnames("block-editor-block-styles__item", {
+													"is-active": selectedGroupEffect === style.name,
+												})}
+												key={style.name}
+												variant="secondary"
+												label={buttonText}
+												onClick={() => {
+													props.setAttributes({
+														nfdGroupEffect: style.name,
+													});
+												}}
+												aria-current={selectedGroupEffect === style.name}
+											>
+												<Truncate
+													numberOfLines={1}
+													className="block-editor-block-styles__item-text"
+												>
+													{buttonText}
+												</Truncate>
+											</Button>
+										);
+									})}
+								</div>
+							</div>
+						</PanelBody>
+					</InspectorControls>
+				)}
+
+				{name === "core/group" && (
+					<InspectorControls>
+						<PanelBody
+							title={<TitleWithLogo title={__("Responsive", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
+							<p>{
+								__("Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the live page, and not while you're editing in Gutenberg.", "nfd-wonder-blocks")
+							}</p>
+							<h4>{__('RESPONSIVE VISIBILITY', 'nfd-wonder-blocks')}</h4>
+							<ToggleControl
+								label={__('Hide on Desktop', 'text-domain')}
+								checked={selectedHideDesktop}
+								onChange={(value) => props.setAttributes({ nfdGroupHideDesktop: value })}
+							/>
+							<ToggleControl
+								label={__('Hide on Tablet', 'text-domain')}
+								checked={selectedHideTablet}
+								onChange={(value) => props.setAttributes({ nfdGroupHideTablet: value })}
+							/>
+							<ToggleControl
+								label={__('Hide on Mobile', 'text-domain')}
+								checked={selectedHideMobile}
+								onChange={(value) => props.setAttributes({ nfdGroupHideMobile: value })}
+							/>
+
+						</PanelBody>
+					</InspectorControls>
+				)}
+
 			</>
 		);
 	};
@@ -505,6 +590,9 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 			? [attributes.nfdAnimationDelay]
 			: []),
 		...(attributes?.nfdGroupEffect ? [`nfd-bg-effect-${attributes.nfdGroupEffect}`] : []),
+		...(attributes?.nfdGroupHideDesktop ? ["nfd-hide-desktop"] : []),
+		...(attributes?.nfdGroupHideTablet ? ["nfd-hide-tablet"] : []),
+		...(attributes?.nfdGroupHideMobile ? ["nfd-hide-mobile"] : []),
 	];
 
 	const additionalClasses = attributes?.className ?? [];
