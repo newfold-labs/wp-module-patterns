@@ -7,10 +7,13 @@ import {
 	ToggleControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
 } from "@wordpress/components";
+import { alignLeft, alignRight, alignCenter, alignJustify } from '@wordpress/icons';
 import { createHigherOrderComponent } from "@wordpress/compose";
 import { useSelect } from "@wordpress/data";
-import { useMemo } from "@wordpress/element";
+import { useMemo, useState } from "@wordpress/element";
 import { addFilter } from "@wordpress/hooks";
 import { __ } from "@wordpress/i18n";
 
@@ -52,6 +55,12 @@ function addAttributes(settings, name) {
 			},
 			nfdGroupHideMobile: {
 				type: "boolean",
+			},
+			nfdTextAlignMobile: {
+				type: "string",
+			},
+			nfdTextAlignTablet: {
+				type: "string",
 			},
 		};
 	}
@@ -99,6 +108,14 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			}
 		};
 
+		const handleAlignmentChange = (device, value) => {
+			if (device === 'mobile') {
+				props.setAttributes({ nfdTextAlignMobile: value });
+			} else if (device === 'tablet') {
+				props.setAttributes({ nfdTextAlignTablet: value });
+			}
+		};
+
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
 		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
@@ -107,6 +124,8 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const selectedHideDesktop = props?.attributes?.nfdGroupHideDesktop ?? "";
 		const selectedHideTablet = props?.attributes?.nfdGroupHideTablet ?? "";
 		const selectedHideMobile = props?.attributes?.nfdGroupHideMobile ?? "";
+		const selectedAlignMobile = props?.attributes?.nfdTextAlignMobile ?? "";
+		const selectedAlignTablet = props?.attributes?.nfdTextAlignTablet ?? "";
 
 		const isTopLevel = useSelect(
 			(select) => {
@@ -324,6 +343,20 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			],
 			[]
 		);
+
+		const devices = useMemo(() => ([
+			{
+				name: 'mobile',
+				label: __('Mobile','nfd-wonder-blocks')
+			},
+			{
+				name: 'tablet',
+				label: __('Tablet','nfd-wonder-blocks')
+			},
+		]), []);
+
+		const [selectedDevice, setSelectedDevice] = useState('mobile');
+
 
 		return (
 			<>
@@ -546,7 +579,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					</InspectorControls>
 				)}
 
-				{name === "core/group" && (
+				{!skipBlockTypes.includes(name) && (
 					<InspectorControls>
 						<PanelBody
 							title={<TitleWithLogo title={__("Responsive", "nfd-wonder-blocks")} />}
@@ -555,23 +588,72 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 							<p>{
 								__("Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the live page, and not while you're editing in Gutenberg.", "nfd-wonder-blocks")
 							}</p>
+
 							<h4>{__('RESPONSIVE VISIBILITY', 'nfd-wonder-blocks')}</h4>
+
 							<ToggleControl
-								label={__('Hide on Desktop', 'text-domain')}
+								label={__('Hide on Desktop', 'nfd-wonder-blocks')}
 								checked={selectedHideDesktop}
 								onChange={(value) => props.setAttributes({ nfdGroupHideDesktop: value })}
 							/>
 							<ToggleControl
-								label={__('Hide on Tablet', 'text-domain')}
+								label={__('Hide on Tablet', 'nfd-wonder-blocks')}
 								checked={selectedHideTablet}
 								onChange={(value) => props.setAttributes({ nfdGroupHideTablet: value })}
 							/>
 							<ToggleControl
-								label={__('Hide on Mobile', 'text-domain')}
+								label={__('Hide on Mobile', 'nfd-wonder-blocks')}
 								checked={selectedHideMobile}
 								onChange={(value) => props.setAttributes({ nfdGroupHideMobile: value })}
 							/>
 
+							<h4>{__('RESPONSIVE TEXT ALIGNMENT', 'nfd-wonder-blocks')}</h4>
+							<p>{
+								__("Assign different alignment for tablet and mobile devices aside from the option you already have for desktop of the block toolbar.", "nfd-wonder-blocks")
+							}</p>
+							<div className={"block-editor-block-styles__variants"} style={{ marginBottom: '15px', justifyContent: 'normal' }}>
+								{devices.map((device) =>{
+									const buttonText = device.label || device.name;
+
+									return (
+										<Button
+											className={classnames("block-editor-block-styles__item", {
+												"is-active": selectedDevice === device.name,
+											})}
+											style={{ maxWidth: '65px', maxHeight: 'fit-content' }}
+											key={device.name}
+											variant="secondary"
+											label={buttonText}
+											onClick={() => {
+												setSelectedDevice(device.name);
+											}}
+											aria-current={selectedDevice === device.name}
+										>
+											<Truncate
+												numberOfLines={1}
+												className="block-editor-block-styles__item-text"
+											>
+												{buttonText}
+											</Truncate>
+										</Button>
+									)
+
+								} )}
+							</div>
+
+							<ToggleGroupControl
+								label={ sprintf( __('Alignment for %s devices', 'nfd-wonder-blocks'), selectedDevice === 'mobile' ? __('Mobile', 'nfd-wonder-blocks') : __('Tablet', 'nfd-wonder-blocks') ) }
+								value={selectedDevice === 'mobile' ? selectedAlignMobile : selectedAlignTablet}
+								onChange={(value) => handleAlignmentChange(selectedDevice, value)}
+								__nextHasNoMarginBottom
+								__next40pxDefaultSize
+								hideLabelFromVision
+							>
+								<ToggleGroupControlOptionIcon value="left"   label={ __('Left','nfd-wonder-blocks') }   icon={ alignLeft } />
+								<ToggleGroupControlOptionIcon value="center" label={ __('Center','nfd-wonder-blocks') } icon={ alignCenter } />
+								<ToggleGroupControlOptionIcon value="right"  label={ __('Right','nfd-wonder-blocks') }  icon={ alignRight } />
+								<ToggleGroupControlOptionIcon value="justify" label={ __('Justify','nfd-wonder-blocks') } icon={ alignJustify } />
+							</ToggleGroupControl>
 						</PanelBody>
 					</InspectorControls>
 				)}
@@ -593,6 +675,8 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 		...(attributes?.nfdGroupHideDesktop ? ["nfd-hide-desktop"] : []),
 		...(attributes?.nfdGroupHideTablet ? ["nfd-hide-tablet"] : []),
 		...(attributes?.nfdGroupHideMobile ? ["nfd-hide-mobile"] : []),
+		...(attributes?.nfdTextAlignMobile ? [`nfd-align-mobile-${attributes.nfdTextAlignMobile}`] : []),
+		...(attributes?.nfdTextAlignTablet ? [`nfd-align-tablet-${attributes.nfdTextAlignTablet}`] : []),
 	];
 
 	const additionalClasses = attributes?.className ?? [];
