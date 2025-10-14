@@ -30,6 +30,45 @@ const skipBlockTypes = [
 	"core/tag-cloud",
 ];
 
+const blockTypesWithText = [
+	"core/paragraph",
+	"core/heading",
+	"core/list",
+	"core/list-item",
+	"core/quote",
+	"core/pullquote",
+	"core/preformatted",
+	"core/code",
+	"core/details",
+	"core/verse",
+	"core/table",
+	"core/classic",
+	"core/html",
+	"core/post-title",
+	"core/post-excerpt",
+	"core/post-content",
+	"core/post-author-name",
+	"core/post-author-biography",
+	"core/post-date",
+	"core/post-terms",
+	"core/read-more",
+	"core/site-title",
+	"core/site-tagline",
+	"core/archives",
+	"core/latest-posts",
+	"core/latest-comments",
+	"core/categories",
+	"core/search",
+	"core/shortcode",
+	"core/comment-content",
+	"core/comments-title",
+	"core/comment-author-name",
+	"core/comment-date",
+	"core/comment-reply-link",
+	"core/comments",
+	"core/comments-pagination",
+]
+
 function addAttributes(settings, name) {
 	if (skipBlockTypes.includes(name)) {
 		return settings;
@@ -55,7 +94,11 @@ function addAttributes(settings, name) {
 			},
 			nfdGroupHideMobile: {
 				type: "boolean",
-			},
+			}
+		};
+	} else if (blockTypesWithText.includes(name)) {
+		settings.attributes = {
+			...settings.attributes,
 			nfdTextAlignMobile: {
 				type: "string",
 			},
@@ -585,12 +628,17 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 							title={<TitleWithLogo title={__("Responsive", "nfd-wonder-blocks")} />}
 							initialOpen={false}
 						>
-							<p>{
-								__("Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the live page, and not while you're editing in Gutenberg.", "nfd-wonder-blocks")
-							}</p>
+							<p>
+								{
+									__("Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the live page, and not while you're editing in Gutenberg.", "nfd-wonder-blocks")
+								}
+							</p>
 
-							<h4>{__('RESPONSIVE VISIBILITY', 'nfd-wonder-blocks')}</h4>
-
+							<h4>
+								{
+									__('Responsive visibility', 'nfd-wonder-blocks').toUpperCase()
+								}
+							</h4>
 							<ToggleControl
 								label={__('Hide on Desktop', 'nfd-wonder-blocks')}
 								checked={selectedHideDesktop}
@@ -606,54 +654,81 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 								checked={selectedHideMobile}
 								onChange={(value) => props.setAttributes({ nfdGroupHideMobile: value })}
 							/>
+							{blockTypesWithText.includes(name) && (
+								<>
+									<h4>
+										{
+											__('Responsive text alignment', 'nfd-wonder-blocks').toUpperCase()
+										}
+									</h4>
+									<p>
+										{
+											__("Assign different alignment for tablet and mobile devices aside from the option you already have for desktop of the block toolbar.", "nfd-wonder-blocks")
+										}
+									</p>
+									<div className={"block-editor-block-styles__variants"} style={{
+										marginBottom: '15px',
+										justifyContent: 'normal'
+									}}>
+										{devices.map((device) => {
+											const buttonText = device.label || device.name;
 
-							<h4>{__('RESPONSIVE TEXT ALIGNMENT', 'nfd-wonder-blocks')}</h4>
-							<p>{
-								__("Assign different alignment for tablet and mobile devices aside from the option you already have for desktop of the block toolbar.", "nfd-wonder-blocks")
-							}</p>
-							<div className={"block-editor-block-styles__variants"} style={{ marginBottom: '15px', justifyContent: 'normal' }}>
-								{devices.map((device) =>{
-									const buttonText = device.label || device.name;
+											return (
+												<Button
+													className={classnames("block-editor-block-styles__item", {
+														"is-active": selectedDevice === device.name,
+													})}
+													style={{
+														maxWidth: '65px',
+														maxHeight: 'fit-content'
+													}}
+													key={device.name}
+													variant="secondary"
+													label={buttonText}
+													onClick={() => {
+														setSelectedDevice(device.name);
+													}}
+													aria-current={selectedDevice === device.name}
+												>
+													<Truncate
+														numberOfLines={1}
+														className="block-editor-block-styles__item-text"
+													>
+														{buttonText}
+													</Truncate>
+												</Button>
+											)
 
-									return (
-										<Button
-											className={classnames("block-editor-block-styles__item", {
-												"is-active": selectedDevice === device.name,
-											})}
-											style={{ maxWidth: '65px', maxHeight: 'fit-content' }}
-											key={device.name}
-											variant="secondary"
-											label={buttonText}
-											onClick={() => {
-												setSelectedDevice(device.name);
-											}}
-											aria-current={selectedDevice === device.name}
-										>
-											<Truncate
-												numberOfLines={1}
-												className="block-editor-block-styles__item-text"
-											>
-												{buttonText}
-											</Truncate>
-										</Button>
-									)
+										})}
+									</div>
 
-								} )}
-							</div>
-
-							<ToggleGroupControl
-								label={ sprintf( __('Alignment for %s devices', 'nfd-wonder-blocks'), selectedDevice === 'mobile' ? __('Mobile', 'nfd-wonder-blocks') : __('Tablet', 'nfd-wonder-blocks') ) }
-								value={selectedDevice === 'mobile' ? selectedAlignMobile : selectedAlignTablet}
-								onChange={(value) => handleAlignmentChange(selectedDevice, value)}
-								__nextHasNoMarginBottom
-								__next40pxDefaultSize
-								hideLabelFromVision
-							>
-								<ToggleGroupControlOptionIcon value="left"   label={ __('Left','nfd-wonder-blocks') }   icon={ alignLeft } />
-								<ToggleGroupControlOptionIcon value="center" label={ __('Center','nfd-wonder-blocks') } icon={ alignCenter } />
-								<ToggleGroupControlOptionIcon value="right"  label={ __('Right','nfd-wonder-blocks') }  icon={ alignRight } />
-								<ToggleGroupControlOptionIcon value="justify" label={ __('Justify','nfd-wonder-blocks') } icon={ alignJustify } />
-							</ToggleGroupControl>
+									<ToggleGroupControl
+										label={sprintf(__('Alignment for %s devices', 'nfd-wonder-blocks'), selectedDevice === 'mobile' ? __('Mobile', 'nfd-wonder-blocks') : __('Tablet', 'nfd-wonder-blocks'))}
+										value={selectedDevice === 'mobile' ? selectedAlignMobile : selectedAlignTablet}
+										onChange={(value) => handleAlignmentChange(selectedDevice, value)}
+										__nextHasNoMarginBottom
+										__next40pxDefaultSize
+										hideLabelFromVision
+									>
+										<ToggleGroupControlOptionIcon
+											value="left"
+											label={__('Left', 'nfd-wonder-blocks')}
+											icon={alignLeft}/>
+										<ToggleGroupControlOptionIcon
+											value="center"
+											label={__('Center', 'nfd-wonder-blocks')}
+											icon={alignCenter}/>
+										<ToggleGroupControlOptionIcon
+											value="right"
+											label={__('Right', 'nfd-wonder-blocks')}
+											icon={alignRight}/>
+										<ToggleGroupControlOptionIcon
+											value="justify"
+											label={__('Justify', 'nfd-wonder-blocks')}
+											icon={alignJustify}/>
+									</ToggleGroupControl>
+								</>
+						)}
 						</PanelBody>
 					</InspectorControls>
 				)}
