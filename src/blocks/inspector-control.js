@@ -94,6 +94,9 @@ function addAttributes(settings, name) {
 			},
 			nfdGroupHideMobile: {
 				type: "boolean",
+			},
+			nfdSwipeContent: {
+				type: "boolean",
 			}
 		};
 	} else if (blockTypesWithText.includes(name)) {
@@ -169,6 +172,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const selectedHideMobile = props?.attributes?.nfdGroupHideMobile ?? "";
 		const selectedAlignMobile = props?.attributes?.nfdTextAlignMobile ?? "";
 		const selectedAlignTablet = props?.attributes?.nfdTextAlignTablet ?? "";
+		const enabledSwipeContent = props?.attributes?.nfdSwipeContent ?? "";
 
 		const isTopLevel = useSelect(
 			(select) => {
@@ -729,6 +733,32 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 									</ToggleGroupControl>
 								</>
 						)}
+
+							{name === "core/columns" && (
+								<>
+									<h4>
+										{
+											__('Swipe content', 'nfd-wonder-blocks').toUpperCase()
+										}
+									</h4>
+									<p>
+										{
+											__("Allows horizontal scrolling of the content on mobile devices, enabling users to swipe between sections.", "nfd-wonder-blocks")
+										}
+									</p>
+									<div className={"block-editor-block-styles__variants"} style={{
+										marginBottom: '15px',
+										justifyContent: 'normal'
+									}}>
+
+									<ToggleControl
+										label={__('Enable Swipe content', 'nfd-wonder-blocks')}
+										checked={enabledSwipeContent}
+										onChange={(value) => props.setAttributes({ nfdSwipeContent: value })}
+									/>
+									</div>
+								</>
+							)}
 						</PanelBody>
 					</InspectorControls>
 				)}
@@ -752,6 +782,7 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 		...(attributes?.nfdGroupHideMobile ? ["nfd-hide-mobile"] : []),
 		...(attributes?.nfdTextAlignMobile ? [`nfd-align-mobile-${attributes.nfdTextAlignMobile}`] : []),
 		...(attributes?.nfdTextAlignTablet ? [`nfd-align-tablet-${attributes.nfdTextAlignTablet}`] : []),
+		...(attributes?.nfdSwipeContent ? ['nfd-swiper-enabled'] : []),
 	];
 
 	const additionalClasses = attributes?.className ?? [];
