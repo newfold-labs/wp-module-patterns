@@ -84,6 +84,21 @@ class BlockStyles {
 			),
 		);
 
+		$heading_styles = array(
+			array(
+				'name'  => 'nfd-heading-boxed',
+				'label' => __('Boxed', 'nfd-wonder-blocks'),
+			),
+			array(
+				'name'  => 'nfd-heading-highlight',
+				'label' => __('Highlight', 'nfd-wonder-blocks'),
+			),
+			array(
+				'name'  => 'nfd-heading-underline',
+				'label' => __('Underline', 'nfd-wonder-blocks'),
+			)
+		);
+
 		foreach ( $image_styles as $image_style ) {
 			register_block_style(
 				array( 'core/group', 'core/image' ),
@@ -95,6 +110,13 @@ class BlockStyles {
 			register_block_style(
 				'core/group',
 				$theme_style
+			);
+		}
+
+		foreach ( $heading_styles as $heading_style ) {
+			register_block_style(
+				'core/heading',
+				$heading_style
 			);
 		}
 	}
