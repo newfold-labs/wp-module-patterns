@@ -7,6 +7,7 @@ import {
 	Notice,
 	PanelBody,
 	SelectControl,
+	BorderControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
 } from "@wordpress/components";
@@ -19,6 +20,7 @@ import { __ } from "@wordpress/i18n";
 import classnames from "classnames";
 
 import TitleWithLogo from "../components/TitleWithLogo";
+import HeadingExtras from "./heading";
 
 // These block types do not support custom attributes.
 const skipBlockTypes = [
@@ -55,9 +57,12 @@ function addAttributes(settings, name) {
 			nfdHeadingBorderColor: {
 				type: 'string'
 			},
-			nfdHeadingBorderCustom: {
+			nfdHeadingBorderWidth: {
 				type: 'string'
 			},
+			nfdHeadingBorderStyle: {
+				type: 'string'
+			}
 		};
 	}
 
@@ -103,6 +108,8 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 				stylesTabButton.click();
 			}
 		};
+
+		const allClassNames = props?.attributes?.className || "";
 
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
 		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
@@ -327,14 +334,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[]
 		);
 
-		const onBorderChange = (value, meta = {}) => {
-			const { slug } = meta || {};
-			if (slug) {
-				props.setAttributes({ nfdHeadingBorderColor: slug, nfdHeadingBorderCustom: undefined });
-			} else {
-				props.setAttributes({ nfdHeadingBorderCustom: value, nfdHeadingBorderColor: undefined });
-			}
-		};
+		const isNfdHeadingStyle =
+			allClassNames.includes('is-style-nfd-heading-boxed') ||
+			allClassNames.includes('is-style-nfd-heading-highlight') ||
+			allClassNames.includes('is-style-nfd-heading-underline');
 
 		return (
 			<>
@@ -516,50 +519,67 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 					</InspectorControls>
 				)}
 
-				{name === "core/heading" && (
-					<InspectorControls group="styles">
-						<PanelColorSettings
-							title={<TitleWithLogo title={__("Heading styles", "nfd-wonder-blocks")} />}
-							colorSettings={[
-								{
-									label: __("Border Color", "nfd-wonder-blocks"),
-									value: props.attributes.nfdHeadingBorderCustom,
-									onChange: onBorderChange,
-								},
-							]}
-						/>
-					</InspectorControls>
+				{name === "core/heading" && isNfdHeadingStyle && (
+					<HeadingExtras {...props} />
 				)}
 			</>
 		);
 	};
 }, "withInspectorControl");
 
+function applyHeadingStylesInPlace( props, blockType, atts ) {
+	if ( !blockType || blockType.name !== 'core/heading' ) return; // [web:106]
 
-const resolveHeadingColor = (slug, custom) =>
-	slug ? `var(--wp--preset--color--${slug})` : (custom || undefined);
+	const color = atts?.nfdHeadingBorderColor || '';
+	const width = atts?.nfdHeadingBorderWidth || '';
+	const style = atts?.nfdHeadingBorderStyle || '';
 
-function applyHeadingStylesInPlace(props, blockType, atts) {
-	if (!blockType || blockType.name !== 'core/heading') return;
-
-	const usedPanel =
-		!!atts?.nfdHeadingBorderColor ||
-		!!atts?.nfdHeadingBorderCustom;
-
-	if (!usedPanel) return;
-
-	const resolve = (slug, custom) =>
-		slug ? `var(--wp--preset--color--${slug})` : (custom || undefined);
-
-	const border = resolve(atts?.nfdHeadingBorderColor, atts?.nfdHeadingBorderCustom);
-
-	if (!border) return;
-
-	props.style = {
-		...(props.style || {}),
-		...(border ? { '--nfd-heading-border': border } : {}),
+	const resolveColor = ( value ) => {
+		if ( typeof value !== 'string' || !value ) return undefined;
+		const isLiteral =
+			value.startsWith('#') || value.startsWith('rgb') || value.startsWith('hsl');
+		return isLiteral ? value : `var(--wp--preset--color--${ value })`;
 	};
+
+	const resolveWidth = ( value ) => {
+		if ( typeof value !== 'string' || !value ) return undefined;
+		if ( /(px|em|rem|vh|vw|%)$/i.test(value.trim()) ) return value.trim();
+		if ( /^-?\d+(\.\d+)?$/.test(value.trim()) ) return `${value.trim()}px`;
+		return undefined;
+	};
+
+	const resolveStyle = ( value ) => {
+		const allowed = new Set([ 'solid', 'dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset', 'none', 'hidden' ]);
+		if ( typeof value !== 'string' || !value ) return undefined;
+		const v = value.trim().toLowerCase();
+		return allowed.has(v) ? v : undefined;
+	};
+
+	const borderColor = resolveColor(color);
+	const borderWidth = resolveWidth(width);
+	const borderStyle = resolveStyle(style) || 'solid';
+
+	const nextStyle = { ...(props.style || {}) };
+
+	if ( borderColor ) {
+		nextStyle['--nfd-heading-border'] = borderColor;
+	}
+	if ( borderWidth ) {
+		nextStyle['--nfd-heading-border-size'] = borderWidth;
+	}
+	if ( borderStyle ) {
+		nextStyle['--nfd-heading-border-style'] = borderStyle;
+	}
+
+	if (
+		!nextStyle['--nfd-heading-border'] &&
+		!nextStyle['--nfd-heading-border-size'] &&
+		!nextStyle['--nfd-heading-border-style']
+	) return;
+
+	props.style = nextStyle;
 }
+
 
 function addSaveProps(saveElementProps, blockType, attributes) {
 	const generatedClasses = saveElementProps?.className ?? [];
@@ -619,23 +639,3 @@ addFilter(
 	"nfd-wonder-blocks/utilities/extraProps",
 	addSaveProps
 );
-
-const listHeadingBlock = createHigherOrderComponent((BlockListBlock) => {
-	return (props) => {
-		if (props.name !== 'core/heading') return <BlockListBlock {...props} />;
-		const attr = props.attributes;
-		const styleVars = {
-			...(props.wrapperProps?.style || {}),
-			'--nfd-heading-border': resolveHeadingColor(attr.nfdHeadingBorderColor, attr.nfdHeadingBorderCustom),
-		};
-
-		return (
-			<BlockListBlock
-				{...props}
-				wrapperProps={{...(props.wrapperProps || {}), style: styleVars}}
-			/>
-		);
-	};
-}, 'nfd-list-block');
-
-addFilter('editor.BlockListBlock', 'nfd-wonder-blocks/utilities/listBlock', listHeadingBlock);
