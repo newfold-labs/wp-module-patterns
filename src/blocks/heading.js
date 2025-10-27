@@ -97,6 +97,61 @@ const listHeadingBlock = createHigherOrderComponent((BlockListBlock) => {
 
 addFilter('editor.BlockListBlock', 'nfd-wonder-blocks/utilities/listBlock', listHeadingBlock);
 
+
+export const applyHeadingStylesInPlace = (props, blockType, atts) => {
+	if ( !blockType || blockType.name !== 'core/heading' ) return;
+
+	const color = atts?.nfdHeadingBorderColor || '';
+	const width = atts?.nfdHeadingBorderWidth || '';
+	const style = atts?.nfdHeadingBorderStyle || '';
+
+	const resolveColor = ( value ) => {
+		if ( typeof value !== 'string' || !value ) return undefined;
+		const isLiteral =
+			value.startsWith('#') || value.startsWith('rgb') || value.startsWith('hsl');
+		return isLiteral ? value : `var(--wp--preset--color--${ value })`;
+	};
+
+	const resolveWidth = ( value ) => {
+		if ( typeof value !== 'string' || !value ) return undefined;
+		if ( /(px|em|rem|vh|vw|%)$/i.test(value.trim()) ) return value.trim();
+		if ( /^-?\d+(\.\d+)?$/.test(value.trim()) ) return `${value.trim()}px`;
+		return undefined;
+	};
+
+	const resolveStyle = ( value ) => {
+		const allowed = new Set([ 'solid', 'dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset', 'none', 'hidden' ]);
+		if ( typeof value !== 'string' || !value ) return undefined;
+		const v = value.trim().toLowerCase();
+		return allowed.has(v) ? v : undefined;
+	};
+
+	const borderColor = resolveColor(color);
+	const borderWidth = resolveWidth(width);
+	const borderStyle = resolveStyle(style) || 'solid';
+
+	const nextStyle = { ...(props.style || {}) };
+
+	if ( borderColor ) {
+		nextStyle['--nfd-heading-border'] = borderColor;
+	}
+	if ( borderWidth ) {
+		nextStyle['--nfd-heading-border-size'] = borderWidth;
+	}
+	if ( borderStyle ) {
+		nextStyle['--nfd-heading-border-style'] = borderStyle;
+	}
+
+	if (
+		!nextStyle['--nfd-heading-border'] &&
+		!nextStyle['--nfd-heading-border-size'] &&
+		!nextStyle['--nfd-heading-border-style']
+	) return;
+
+	props.style = nextStyle;
+}
+
+
 const HeadingExtras = ( props ) => {
 	const { attributes, setAttributes } = props;
 	return (
@@ -106,6 +161,7 @@ const HeadingExtras = ( props ) => {
 				initialOpen={ true }
 			>
 				<BorderControl
+					label={ __( 'Border', 'nfd-wonder-blocks' ) }
 					value={{
 						width: attributes.nfdHeadingBorderWidth || '1px',
 						color: attributes.nfdHeadingBorderColor || undefined,

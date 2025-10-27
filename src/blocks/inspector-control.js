@@ -1,13 +1,11 @@
 import {
-	InspectorControls,
-	PanelColorSettings,
+	InspectorControls
 } from "@wordpress/block-editor";
 import {
 	Button,
 	Notice,
 	PanelBody,
 	SelectControl,
-	BorderControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
 } from "@wordpress/components";
@@ -20,7 +18,7 @@ import { __ } from "@wordpress/i18n";
 import classnames from "classnames";
 
 import TitleWithLogo from "../components/TitleWithLogo";
-import HeadingExtras from "./heading";
+import HeadingExtras, {applyHeadingStylesInPlace} from "./heading";
 
 // These block types do not support custom attributes.
 const skipBlockTypes = [
@@ -526,60 +524,6 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		);
 	};
 }, "withInspectorControl");
-
-function applyHeadingStylesInPlace( props, blockType, atts ) {
-	if ( !blockType || blockType.name !== 'core/heading' ) return; // [web:106]
-
-	const color = atts?.nfdHeadingBorderColor || '';
-	const width = atts?.nfdHeadingBorderWidth || '';
-	const style = atts?.nfdHeadingBorderStyle || '';
-
-	const resolveColor = ( value ) => {
-		if ( typeof value !== 'string' || !value ) return undefined;
-		const isLiteral =
-			value.startsWith('#') || value.startsWith('rgb') || value.startsWith('hsl');
-		return isLiteral ? value : `var(--wp--preset--color--${ value })`;
-	};
-
-	const resolveWidth = ( value ) => {
-		if ( typeof value !== 'string' || !value ) return undefined;
-		if ( /(px|em|rem|vh|vw|%)$/i.test(value.trim()) ) return value.trim();
-		if ( /^-?\d+(\.\d+)?$/.test(value.trim()) ) return `${value.trim()}px`;
-		return undefined;
-	};
-
-	const resolveStyle = ( value ) => {
-		const allowed = new Set([ 'solid', 'dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset', 'none', 'hidden' ]);
-		if ( typeof value !== 'string' || !value ) return undefined;
-		const v = value.trim().toLowerCase();
-		return allowed.has(v) ? v : undefined;
-	};
-
-	const borderColor = resolveColor(color);
-	const borderWidth = resolveWidth(width);
-	const borderStyle = resolveStyle(style) || 'solid';
-
-	const nextStyle = { ...(props.style || {}) };
-
-	if ( borderColor ) {
-		nextStyle['--nfd-heading-border'] = borderColor;
-	}
-	if ( borderWidth ) {
-		nextStyle['--nfd-heading-border-size'] = borderWidth;
-	}
-	if ( borderStyle ) {
-		nextStyle['--nfd-heading-border-style'] = borderStyle;
-	}
-
-	if (
-		!nextStyle['--nfd-heading-border'] &&
-		!nextStyle['--nfd-heading-border-size'] &&
-		!nextStyle['--nfd-heading-border-style']
-	) return;
-
-	props.style = nextStyle;
-}
-
 
 function addSaveProps(saveElementProps, blockType, attributes) {
 	const generatedClasses = saveElementProps?.className ?? [];
