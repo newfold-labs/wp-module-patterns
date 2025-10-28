@@ -9,8 +9,12 @@ import {
 } from '@wordpress/rich-text';
 import {createHigherOrderComponent} from "@wordpress/compose";
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody } from '@wordpress/components';
-import { BorderControl } from '@wordpress/components';
+import {
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+	BorderControl,
+	PanelBody
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 const STYLE_CLASS = 'is-style-nfd-heading-highlight';
@@ -153,34 +157,72 @@ export const applyHeadingStylesInPlace = (props, blockType, atts) => {
 
 
 const HeadingExtras = ( props ) => {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, clientId } = props;
+	const { nfdHeadingBorderWidth, nfdHeadingBorderColor, nfdHeadingBorderStyle } = attributes;
+
+	const borderValue = {
+		width: nfdHeadingBorderWidth || '1px',
+		color: nfdHeadingBorderColor || undefined,
+		style: nfdHeadingBorderStyle || 'solid',
+	};
+
+	const hasBorderValue = Boolean(
+		nfdHeadingBorderWidth || nfdHeadingBorderColor || nfdHeadingBorderStyle
+	);
+
+	const onBorderChange = ( border ) => {
+		setAttributes({
+			nfdHeadingBorderWidth: border?.width || '1px',
+			nfdHeadingBorderColor: border?.color || '',
+			nfdHeadingBorderStyle: border?.style || 'solid',
+		});
+	};
+
+	const resetBorder = () => {
+		setAttributes({
+			nfdHeadingBorderWidth: undefined,
+			nfdHeadingBorderColor: undefined,
+			nfdHeadingBorderStyle: undefined,
+		});
+	};
+
 	return (
 		<InspectorControls group="styles">
 			<PanelBody
-				title={<TitleWithLogo title={ __("Heading styles", "nfd-wonder-blocks") } />}
+				title={ <TitleWithLogo title={ __( 'Heading styles', 'nfd-wonder-blocks' ) } /> }
 				initialOpen={ true }
 			>
-				<BorderControl
-					label={ __( 'Border', 'nfd-wonder-blocks' ) }
-					value={{
-						width: attributes.nfdHeadingBorderWidth || '1px',
-						color: attributes.nfdHeadingBorderColor || undefined,
-						style: attributes.nfdHeadingBorderStyle || 'solid',
-					}}
-					onChange={ (border) => {
-						setAttributes({
-							nfdHeadingBorderWidth: border?.width || '1px',
-							nfdHeadingBorderColor: border?.color || '',
-							nfdHeadingBorderStyle: border?.style || 'solid',
-						});
-					} }
-					enableStyle={ true }
-					enableAlpha={ true }
-					withSlider={ true }
-					isCompact={ true }
-				/>
+				<ToolsPanel
+					label={ __( '', 'nfd-wonder-blocks' ) }
+					panelId={ String(clientId) }
+					className="nfd-heading-styles-panel"
+				>
+					<ToolsPanelItem
+						label={ __( 'Border', 'nfd-wonder-blocks' ) }
+						hasValue={ () => hasBorderValue }
+						onDeselect={ resetBorder }
+						resetAllFilter={ () => ({
+							nfdHeadingBorderWidth: undefined,
+							nfdHeadingBorderColor: undefined,
+							nfdHeadingBorderStyle: undefined,
+						}) }
+						isShownByDefault
+					>
+						<BorderControl
+							label={ __( 'Border', 'nfd-wonder-blocks' ) }
+							className="nfd-heading-styles-control"
+							value={ borderValue }
+							onChange={ onBorderChange }
+							enableStyle
+							enableAlpha
+							withSlider
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</PanelBody>
 		</InspectorControls>
+
 	);
 };
 
