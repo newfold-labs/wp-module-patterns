@@ -31,6 +31,7 @@ import {
 import "./blocks/block";
 import "./blocks/inspector-control";
 import "./blocks/register-category";
+import "./blocks/hover-states";
 import Modal from "./components/Modal/Modal";
 import ToolbarButton from "./components/ToolbarButton";
 import { setupCTBPostMessageListener } from "./helpers/ctbHandler";
