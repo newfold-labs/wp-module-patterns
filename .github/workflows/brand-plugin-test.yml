@@ -22,16 +22,6 @@ jobs:
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch
 
-  bluehost:
-    name: Bluehost Build and Test
-    needs: setup
-    uses: newfold-labs/workflows/.github/workflows/module-plugin-test.yml@main
-    with:
-      module-repo: ${{ github.repository }}
-      module-branch: ${{ needs.setup.outputs.branch }}
-      plugin-repo: "newfold-labs/wp-plugin-bluehost"
-    secrets: inherit
-
   hostgator:
     name: HostGator Build and Test
     needs: setup
