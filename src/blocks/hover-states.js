@@ -31,7 +31,9 @@ addFilter('blocks.registerBlockType','nfd-wonder-blocks/utilities/attributes',(s
 
 const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
-		if (!SUPPORTED.has(props.name)) return <BlockEdit {...props} />;
+		if (!SUPPORTED.has(props.name)){
+			return <BlockEdit {...props} />;
+		}
 
 		const { attributes, setAttributes, isSelected } = props;
 		const { nfdHoverColor, nfdBackgroundHover } = attributes;
@@ -58,14 +60,14 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 							heading={__('Hover color', 'nfd-wonder-blocks')}
 							settings={[
 								{
-									label: __('Text (hover)', 'nfd-wonder-blocks'),
+									label: __('Hover text', 'nfd-wonder-blocks'),
 									colorValue: nfdHoverColor || undefined,
 									onColorChange: onHoverTextChange,
 									gradientValue: undefined,
 									onGradientChange: undefined,
 								},
 								{
-									label: __('Background (hover)', 'nfd-wonder-blocks'),
+									label: __('Hover background', 'nfd-wonder-blocks'),
 									colorValue: nfdBackgroundHover || undefined,
 									onColorChange: onHoverBgChange,
 									gradientValue: undefined,
@@ -80,8 +82,6 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		);
 	};
 }, 'withInspectorControls');
-
-export default withInspectorControls;
 
 function addSaveProps( props, blockType, attributes ) {
 	if ( !SUPPORTED.has(blockType.name) ) {
