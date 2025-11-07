@@ -40,7 +40,7 @@ const withToolbar = ( BlockEdit ) => ( props ) => {
 	const { linkUrl, linkOpensInNewTab } = attributes;
 
 	const [ open, setOpen ] = useState( false );
-	const buttonRef = useRef( null );
+	const anchorRef = useRef( null );
 	const linkWrapRef = useRef( null );
 
 	const value = { url: linkUrl || '', opensInNewTab: !!linkOpensInNewTab };
@@ -64,23 +64,25 @@ const withToolbar = ( BlockEdit ) => ( props ) => {
 			{ isSelected && (
 				<BlockControls>
 					<ToolbarGroup>
-						<ToolbarButton
-							ref={ buttonRef }
-							icon={ link }
-							label={ __( 'Link', 'nfd-wonder-blocks' ) }
-							onClick={ () => setOpen( ( isOpen ) => ! isOpen ) }
-							isPressed={ open }
-						/>
+						<div ref={ anchorRef }>
+							<ToolbarButton
+								icon={ link }
+								label={ __( 'Link', 'nfd-wonder-blocks' ) }
+								onClick={ () => setOpen( ( isOpen ) => ! isOpen ) }
+								isPressed={ open }
+							/>
+						</div>
 					</ToolbarGroup>
 				</BlockControls>
 			) }
 
-			{ open && (
+			{ open && isSelected && (
 				<Popover
-					anchor={ buttonRef.current }
+					anchor={ anchorRef.current }
 					placement="bottom-start"
 					onClose={ () => setOpen( false ) }
 					focusOnMount={ false }
+					offset={ 8 }
 				>
 					<div ref={ linkWrapRef } style={ { width: 360 } }>
 						<LinkControl
