@@ -30,6 +30,7 @@ import {
 
 import "./blocks/block";
 import "./blocks/inspector-control";
+import "./blocks/heading";
 import "./blocks/register-category";
 import Modal from "./components/Modal/Modal";
 import ToolbarButton from "./components/ToolbarButton";
