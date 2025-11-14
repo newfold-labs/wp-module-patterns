@@ -4,12 +4,16 @@ import {
 	Notice,
 	PanelBody,
 	SelectControl,
+	ToggleControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
 } from "@wordpress/components";
+import { alignLeft, alignRight, alignCenter, alignJustify } from '@wordpress/icons';
 import { createHigherOrderComponent } from "@wordpress/compose";
 import { useSelect } from "@wordpress/data";
-import { useMemo } from "@wordpress/element";
+import { useMemo, useState } from "@wordpress/element";
 import { addFilter } from "@wordpress/hooks";
 import { __ } from "@wordpress/i18n";
 
@@ -26,6 +30,45 @@ const skipBlockTypes = [
 	"core/tag-cloud",
 ];
 
+const blockTypesWithText = [
+	"core/paragraph",
+	"core/heading",
+	"core/list",
+	"core/list-item",
+	"core/quote",
+	"core/pullquote",
+	"core/preformatted",
+	"core/code",
+	"core/details",
+	"core/verse",
+	"core/table",
+	"core/classic",
+	"core/html",
+	"core/post-title",
+	"core/post-excerpt",
+	"core/post-content",
+	"core/post-author-name",
+	"core/post-author-biography",
+	"core/post-date",
+	"core/post-terms",
+	"core/read-more",
+	"core/site-title",
+	"core/site-tagline",
+	"core/archives",
+	"core/latest-posts",
+	"core/latest-comments",
+	"core/categories",
+	"core/search",
+	"core/shortcode",
+	"core/comment-content",
+	"core/comments-title",
+	"core/comment-author-name",
+	"core/comment-date",
+	"core/comment-reply-link",
+	"core/comments",
+	"core/comments-pagination",
+]
+
 function addAttributes(settings, name) {
 	if (skipBlockTypes.includes(name)) {
 		return settings;
@@ -41,6 +84,25 @@ function addAttributes(settings, name) {
 				type: "string",
 			},
 			nfdGroupEffect: {
+				type: "string",
+			},
+			nfdGroupHideDesktop: {
+				type: "boolean",
+			},
+			nfdGroupHideTablet: {
+				type: "boolean",
+			},
+			nfdGroupHideMobile: {
+				type: "boolean",
+			}
+		};
+	} else if (blockTypesWithText.includes(name)) {
+		settings.attributes = {
+			...settings.attributes,
+			nfdTextAlignMobile: {
+				type: "string",
+			},
+			nfdTextAlignTablet: {
 				type: "string",
 			},
 		};
@@ -89,11 +151,24 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			}
 		};
 
+		const handleAlignmentChange = (device, value) => {
+			if (device === 'mobile') {
+				props.setAttributes({ nfdTextAlignMobile: value });
+			} else if (device === 'tablet') {
+				props.setAttributes({ nfdTextAlignTablet: value });
+			}
+		};
+
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
 		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
 		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
+		const selectedHideDesktop = props?.attributes?.nfdGroupHideDesktop ?? "";
+		const selectedHideTablet = props?.attributes?.nfdGroupHideTablet ?? "";
+		const selectedHideMobile = props?.attributes?.nfdGroupHideMobile ?? "";
+		const selectedAlignMobile = props?.attributes?.nfdTextAlignMobile ?? "";
+		const selectedAlignTablet = props?.attributes?.nfdTextAlignTablet ?? "";
 
 		const isTopLevel = useSelect(
 			(select) => {
@@ -312,6 +387,20 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[]
 		);
 
+		const devices = useMemo(() => ([
+			{
+				name: 'mobile',
+				label: __('Mobile','nfd-wonder-blocks')
+			},
+			{
+				name: 'tablet',
+				label: __('Tablet','nfd-wonder-blocks')
+			},
+		]), []);
+
+		const [selectedDevice, setSelectedDevice] = useState('mobile');
+
+
 		return (
 			<>
 				<BlockEdit {...props} />
@@ -491,6 +580,159 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 						</PanelBody>
 					</InspectorControls>
 				)}
+
+				{name === "core/group" && (
+					<InspectorControls>
+						<PanelBody
+							title={<TitleWithLogo title={__("Section Background Effect", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
+							<div className="block-editor-block-styles">
+								<div className="block-editor-block-styles__variants">
+									{groupEffectStyles.map((style) => {
+										const buttonText = style.label || style.name;
+
+										return (
+											<Button
+												className={classnames("block-editor-block-styles__item", {
+													"is-active": selectedGroupEffect === style.name,
+												})}
+												key={style.name}
+												variant="secondary"
+												label={buttonText}
+												onClick={() => {
+													props.setAttributes({
+														nfdGroupEffect: style.name,
+													});
+												}}
+												aria-current={selectedGroupEffect === style.name}
+											>
+												<Truncate
+													numberOfLines={1}
+													className="block-editor-block-styles__item-text"
+												>
+													{buttonText}
+												</Truncate>
+											</Button>
+										);
+									})}
+								</div>
+							</div>
+						</PanelBody>
+					</InspectorControls>
+				)}
+
+				{!skipBlockTypes.includes(name) && (
+					<InspectorControls>
+						<PanelBody
+							title={<TitleWithLogo title={__("Responsive", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
+							<p>
+								{
+									__("Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the live page, and not while you're editing in Gutenberg.", "nfd-wonder-blocks")
+								}
+							</p>
+
+							<h4>
+								{
+									__('Responsive visibility', 'nfd-wonder-blocks').toUpperCase()
+								}
+							</h4>
+							<ToggleControl
+								label={__('Hide on Desktop', 'nfd-wonder-blocks')}
+								checked={selectedHideDesktop}
+								onChange={(value) => props.setAttributes({ nfdGroupHideDesktop: value })}
+							/>
+							<ToggleControl
+								label={__('Hide on Tablet', 'nfd-wonder-blocks')}
+								checked={selectedHideTablet}
+								onChange={(value) => props.setAttributes({ nfdGroupHideTablet: value })}
+							/>
+							<ToggleControl
+								label={__('Hide on Mobile', 'nfd-wonder-blocks')}
+								checked={selectedHideMobile}
+								onChange={(value) => props.setAttributes({ nfdGroupHideMobile: value })}
+							/>
+							{blockTypesWithText.includes(name) && (
+								<>
+									<h4>
+										{
+											__('Responsive text alignment', 'nfd-wonder-blocks').toUpperCase()
+										}
+									</h4>
+									<p>
+										{
+											__("Assign different alignment for tablet and mobile devices aside from the option you already have for desktop of the block toolbar.", "nfd-wonder-blocks")
+										}
+									</p>
+									<div className={"block-editor-block-styles__variants"} style={{
+										marginBottom: '15px',
+										justifyContent: 'normal'
+									}}>
+										{devices.map((device) => {
+											const buttonText = device.label || device.name;
+
+											return (
+												<Button
+													className={classnames("block-editor-block-styles__item", {
+														"is-active": selectedDevice === device.name,
+													})}
+													style={{
+														maxWidth: '65px',
+														maxHeight: 'fit-content'
+													}}
+													key={device.name}
+													variant="secondary"
+													label={buttonText}
+													onClick={() => {
+														setSelectedDevice(device.name);
+													}}
+													aria-current={selectedDevice === device.name}
+												>
+													<Truncate
+														numberOfLines={1}
+														className="block-editor-block-styles__item-text"
+													>
+														{buttonText}
+													</Truncate>
+												</Button>
+											)
+
+										})}
+									</div>
+
+									<ToggleGroupControl
+										label={sprintf(__('Alignment for %s devices', 'nfd-wonder-blocks'), selectedDevice === 'mobile' ? __('Mobile', 'nfd-wonder-blocks') : __('Tablet', 'nfd-wonder-blocks'))}
+										value={selectedDevice === 'mobile' ? selectedAlignMobile : selectedAlignTablet}
+										onChange={(value) => handleAlignmentChange(selectedDevice, value)}
+										__nextHasNoMarginBottom
+										__next40pxDefaultSize
+										hideLabelFromVision
+									>
+										<ToggleGroupControlOptionIcon
+											value="left"
+											label={__('Left', 'nfd-wonder-blocks')}
+											icon={alignLeft}/>
+										<ToggleGroupControlOptionIcon
+											value="center"
+											label={__('Center', 'nfd-wonder-blocks')}
+											icon={alignCenter}/>
+										<ToggleGroupControlOptionIcon
+											value="right"
+											label={__('Right', 'nfd-wonder-blocks')}
+											icon={alignRight}/>
+										<ToggleGroupControlOptionIcon
+											value="justify"
+											label={__('Justify', 'nfd-wonder-blocks')}
+											icon={alignJustify}/>
+									</ToggleGroupControl>
+								</>
+						)}
+						</PanelBody>
+					</InspectorControls>
+				)}
+
 			</>
 		);
 	};
@@ -505,6 +747,11 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 			? [attributes.nfdAnimationDelay]
 			: []),
 		...(attributes?.nfdGroupEffect ? [`nfd-bg-effect-${attributes.nfdGroupEffect}`] : []),
+		...(attributes?.nfdGroupHideDesktop ? ["nfd-hide-desktop"] : []),
+		...(attributes?.nfdGroupHideTablet ? ["nfd-hide-tablet"] : []),
+		...(attributes?.nfdGroupHideMobile ? ["nfd-hide-mobile"] : []),
+		...(attributes?.nfdTextAlignMobile ? [`nfd-align-mobile-${attributes.nfdTextAlignMobile}`] : []),
+		...(attributes?.nfdTextAlignTablet ? [`nfd-align-tablet-${attributes.nfdTextAlignTablet}`] : []),
 	];
 
 	const additionalClasses = attributes?.className ?? [];
