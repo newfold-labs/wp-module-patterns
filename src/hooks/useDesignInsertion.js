@@ -4,14 +4,13 @@
 import { useDispatch, useSelect } from "@wordpress/data";
 import { store as editorStore } from "@wordpress/editor";
 import { useCallback, useState } from "@wordpress/element";
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
 import { store as nfdPatternsStore } from "../store";
 import { blockInserter, trackHiiveEvent } from "../helpers";
-
 /**
  * Custom hook to handle design insertion functionality
  *
