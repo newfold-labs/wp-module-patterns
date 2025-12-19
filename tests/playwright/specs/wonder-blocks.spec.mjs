@@ -1,9 +1,8 @@
-const { test, expect } = require('@playwright/test');
-const path = require('path');
+import { test, expect } from '@playwright/test';
+import { auth } from '../helpers/index.mjs';
 
-// Use environment variable to resolve plugin helpers
-const pluginDir = process.env.PLUGIN_DIR || path.resolve(__dirname, '../../../../../../');
-const { auth } = require(path.join(pluginDir, 'tests/playwright/helpers'));
+// Brand plugin id
+const pluginId = process.env.PLUGIN_ID || 'bluehost';
 
 test.describe('WonderBlocks', () => {
   test.beforeEach(async ({ page }) => {

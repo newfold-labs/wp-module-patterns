@@ -26,7 +26,7 @@ jobs:
   bluehost:
     name: Bluehost Build and Test Playwright
     needs: setup
-    uses: newfold-labs/workflows/.github/workflows/module-plugin-test-playwright.yml@add/playwright-module-test
+    uses: newfold-labs/workflows/.github/workflows/module-plugin-test-playwright.yml@main
     with:
       module-repo: ${{ github.repository }}
       module-branch: ${{ needs.setup.outputs.branch }}
