@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
  * WordPress dependencies
  */
 import { createInterpolateElement } from "@wordpress/element";
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
