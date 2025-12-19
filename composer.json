@@ -25,7 +25,7 @@
 	"require": {
 		"newfold-labs/wp-module-data": "^2.9.0",
 		"newfold-labs/wp-module-features": "^1.5",
-		"newfold-labs/wp-module-installer": "^1.6"
+		"newfold-labs/wp-module-installer": "^1.7"
 	},
     "require-dev": {
         "newfold-labs/wp-php-standards": "^1.2.5",
