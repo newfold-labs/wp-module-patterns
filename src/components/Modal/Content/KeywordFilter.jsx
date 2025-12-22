@@ -162,6 +162,7 @@ const KeywordFilter = () => {
 				onChange={(value) => {
 					setSearchValue(value);
 				}}
+				__nextHasNoMarginBottom
 			/>
 			{showSuggestions && (
 				<ul

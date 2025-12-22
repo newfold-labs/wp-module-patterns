@@ -476,6 +476,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 										})
 									);
 								}}
+								__next40pxDefaultSize
 							/>
 
 							<SelectControl
@@ -487,6 +488,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 										nfdAnimationDelay: selectedItem,
 									});
 								}}
+								__next40pxDefaultSize
 							/>
 						</PanelBody>
 					</InspectorControls>

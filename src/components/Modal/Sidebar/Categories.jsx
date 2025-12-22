@@ -230,6 +230,7 @@ const Categories = ({ type = "patterns", isSiteEditor = false }) => {
 						value={getActiveCategory()}
 						options={formattedCategoriesForMobile}
 						onChange={(categoryTitle) => handleCategoryChange(categoryTitle)}
+						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 					/>
 
