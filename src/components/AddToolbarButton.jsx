@@ -53,7 +53,7 @@ const AddToolbarButton = () => {
 				className: "nfd-wba-shrink-0",
 			});
 
-			toolbar?.append(wonderBlocksButton);
+			toolbar.append(wonderBlocksButton);
 
 			rootRef.current = createRoot(wonderBlocksButton);
 			rootRef.current.render(<ToolbarButton />);
