@@ -38,7 +38,18 @@ const AddToolbarButton = () => {
 
 		const addButtonToToolbar = () => {
 			const doc = getDocument();
+			// If button already exists, don't create another one
 			if (doc.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) return;
+
+			// If a root already exists, unmount it first to prevent memory leak
+			if (rootRef.current) {
+				try {
+					rootRef.current.unmount();
+				} catch (e) {
+					// Ignore errors if already unmounted
+				}
+				rootRef.current = null;
+			}
 
 			const toolbar =
 				doc.querySelector(".edit-post-header-toolbar") ||
@@ -119,4 +130,3 @@ const AddToolbarButton = () => {
 };
 
 export default AddToolbarButton;
-
