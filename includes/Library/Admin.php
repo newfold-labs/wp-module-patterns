@@ -36,53 +36,73 @@ final class Admin {
 	 * @return void
 	 */
 	public static function load_wonder_blocks() {
-		\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
+		\add_action( 'enqueue_block_assets', array( __CLASS__, 'enqueue_block_assets' ) );
 		self::register_block_patterns();
 		\add_filter( 'admin_body_class', array( __CLASS__, 'add_admin_body_class' ) );
 	}
 
 	/**
-	 * Register assets.
+	 * Enqueue block assets for iframe editor compatibility.
+	 * This ensures scripts and styles are loaded in both parent window and iframe.
+	 *
+	 * @return void
 	 */
-	public static function register_assets() {
+	public static function enqueue_block_assets() {
+		// Only enqueue in block editor context
+		$current_screen = \get_current_screen();
+		if ( ! $current_screen || ! method_exists( $current_screen, 'is_block_editor' ) || ! $current_screen->is_block_editor() ) {
+			return;
+		}
+
 		$asset_file = NFD_WONDER_BLOCKS_BUILD_DIR . '/wonder-blocks.asset.php';
 
 		if ( is_readable( $asset_file ) ) {
-			$asset = include_once $asset_file;
+			$asset = include $asset_file;
 
-			\wp_register_script(
-				'nfd-wonder-blocks',
-				NFD_WONDER_BLOCKS_BUILD_URL . '/wonder-blocks.js',
-				array_merge( $asset['dependencies'], array() ),
-				$asset['version'],
-				true
-			);
+			// Validate asset file structure
+			if ( ! is_array( $asset ) || ! isset( $asset['dependencies'] ) || ! isset( $asset['version'] ) ) {
+				return;
+			}
 
-			\wp_register_style(
-				'nfd-wonder-blocks',
-				NFD_WONDER_BLOCKS_BUILD_URL . '/wonder-blocks.css',
-				array(),
-				$asset['version']
-			);
+			// Register script if not already registered
+			if ( ! \wp_script_is( 'nfd-wonder-blocks', 'registered' ) ) {
+				\wp_register_script(
+					'nfd-wonder-blocks',
+					NFD_WONDER_BLOCKS_BUILD_URL . '/wonder-blocks.js',
+					array_merge( $asset['dependencies'], array() ),
+					$asset['version'],
+					true
+				);
 
-			\wp_localize_script(
-				'nfd-wonder-blocks',
-				'nfdWonderBlocks',
-				array(
-					'nonce'        => \wp_create_nonce( 'wp_rest' ),
-					'nfdRestURL'   => \get_home_url() . '/index.php?rest_route=/nfd-wonder-blocks/v1',
-					'assets'       => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
-					'wpVer'        => \esc_html( get_bloginfo( 'version' ) ),
-					'nfdWBVersion' => \esc_html( NFD_WONDER_BLOCKS_VERSION ),
-					'brand'        => Brands::get_current_brand(),
-				)
-			);
+				\wp_localize_script(
+					'nfd-wonder-blocks',
+					'nfdWonderBlocks',
+					array(
+						'nonce'        => \wp_create_nonce( 'wp_rest' ),
+						'nfdRestURL'   => \get_home_url() . '/index.php?rest_route=/nfd-wonder-blocks/v1',
+						'assets'       => \esc_url( NFD_WONDER_BLOCKS_URL . '/assets' ),
+						'wpVer'        => \esc_html( get_bloginfo( 'version' ) ),
+						'nfdWBVersion' => \esc_html( NFD_WONDER_BLOCKS_VERSION ),
+						'brand'        => Brands::get_current_brand(),
+					)
+				);
 
-			\wp_set_script_translations(
-				'nfd-wonder-blocks',
-				'nfd-wonder-blocks',
-				NFD_WONDER_BLOCKS_DIR . '/languages'
-			);
+				\wp_set_script_translations(
+					'nfd-wonder-blocks',
+					'nfd-wonder-blocks',
+					NFD_WONDER_BLOCKS_DIR . '/languages'
+				);
+			}
+
+			// Register style if not already registered
+			if ( ! \wp_style_is( 'nfd-wonder-blocks', 'registered' ) ) {
+				\wp_register_style(
+					'nfd-wonder-blocks',
+					NFD_WONDER_BLOCKS_BUILD_URL . '/wonder-blocks.css',
+					array(),
+					$asset['version']
+				);
+			}
 
 			\wp_enqueue_script( 'nfd-wonder-blocks' );
 			\wp_enqueue_style( 'nfd-wonder-blocks' );
