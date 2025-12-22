@@ -12,7 +12,6 @@ import { HiiveAnalytics } from "@newfold/js-utility-ui-analytics";
  * WordPress dependencies
  */
 import { default as wpApiFetch } from "@wordpress/api-fetch";
-import { debounce } from "@wordpress/compose";
 import { default as wpData } from "@wordpress/data";
 import domReady from "@wordpress/dom-ready";
 import { createRoot } from "@wordpress/element";
@@ -21,18 +20,13 @@ import { registerPlugin } from "@wordpress/plugins";
 /**
  * Internal dependencies
  */
-import {
-	HIIVE_ANALYTICS_CATEGORY,
-	NFD_REST_URL,
-	NFD_WONDER_BLOCKS_MODAL_ID,
-	NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID,
-} from "./constants";
+import { HIIVE_ANALYTICS_CATEGORY, NFD_REST_URL, NFD_WONDER_BLOCKS_MODAL_ID } from "./constants";
 
 import "./blocks/register-category";
 import "./blocks/block";
 import "./blocks/inspector-control";
 import Modal from "./components/Modal/Modal";
-import ToolbarButton from "./components/ToolbarButton";
+import AddToolbarButton from "./components/AddToolbarButton";
 import { setupCTBPostMessageListener } from "./helpers/ctbHandler";
 
 domReady(() => {
@@ -58,53 +52,6 @@ const renderModal = (elementId = NFD_WONDER_BLOCKS_MODAL_ID) => {
 	document.body.append(wonderBlocksModal);
 
 	createRoot(wonderBlocksModal).render(<Modal />);
-};
-
-const addWonderBlocksButton = () => {
-	const observer = new window.MutationObserver((mutationsList) => {
-		for (const mutation of mutationsList) {
-			if (mutation.type === "childList") {
-				debouncedAddToToolbar();
-			}
-		}
-	});
-
-	const addButtonToToolbar = () => {
-		if (document.getElementById(NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID)) return;
-
-		const toolbar =
-			document.querySelector(".edit-post-header-toolbar") ||
-			document.querySelector(".edit-site-header-edit-mode__start");
-
-		if (!toolbar) {
-			return;
-		}
-
-		const wonderBlocksButton = Object.assign(document.createElement("div"), {
-			id: NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID,
-			className: "nfd-wba-shrink-0",
-		});
-
-		toolbar?.append(wonderBlocksButton);
-
-		createRoot(wonderBlocksButton).render(<ToolbarButton />);
-		document.dispatchEvent(new Event("wonder-blocks/toolbar-button-added"));
-	};
-
-	const debouncedAddToToolbar = debounce(addButtonToToolbar, 300);
-
-	if (
-		!document.querySelector(".edit-post-header-toolbar") &&
-		!document.querySelector(".edit-site-header-edit-mode__start")
-	) {
-		const siteEditor = document.body;
-
-		if (siteEditor) {
-			observer.observe(siteEditor, { childList: true, subtree: true });
-		}
-	} else {
-		addButtonToToolbar();
-	}
 };
 
 /**
@@ -133,5 +80,5 @@ const initializeHiiveAnalytics = () => {
  * Register the WonderBlocks plugin.
  */
 registerPlugin("wonder-blocks", {
-	render: addWonderBlocksButton,
+	render: AddToolbarButton,
 });
