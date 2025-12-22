@@ -79,18 +79,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
 		const { name, clientId } = props;
 
-		const openStylesTab = () => {
-			const stylesTabButton = document.querySelector(
-				".block-editor-block-inspector__tab-item[aria-label='Styles']"
-			);
-
-			if (stylesTabButton) {
-				stylesTabButton.click();
-			}
-		};
-
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
-		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
 		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
