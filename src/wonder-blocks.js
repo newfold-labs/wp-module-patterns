@@ -28,9 +28,9 @@ import {
 	NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID,
 } from "./constants";
 
+import "./blocks/register-category";
 import "./blocks/block";
 import "./blocks/inspector-control";
-import "./blocks/register-category";
 import Modal from "./components/Modal/Modal";
 import ToolbarButton from "./components/ToolbarButton";
 import { setupCTBPostMessageListener } from "./helpers/ctbHandler";
