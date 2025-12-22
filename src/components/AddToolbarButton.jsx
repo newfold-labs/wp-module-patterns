@@ -2,10 +2,10 @@
  * WordPress dependencies
  */
 import { debounce } from "@wordpress/compose";
-import { createRoot } from "@wordpress/element";
-import { useEffect, useRef } from "@wordpress/element";
+import { createRoot, useEffect, useRef } from "@wordpress/element";
 
 /**
+ * Internal dependencies
  * Internal dependencies
  */
 import { NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID } from "../constants";
