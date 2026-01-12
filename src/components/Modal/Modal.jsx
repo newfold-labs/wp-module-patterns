@@ -28,7 +28,7 @@ const Modal = () => {
 	const { isModalOpen, isEditingTemplate, editedPostType, currentView, renderingMode } = useSelect(
 		(select) => ({
 			currentView: select(nfdPatternsStore).getCurrentView(),
-			editedPostType: select("core/edit-site")?.getEditedPostType(),
+			editedPostType: select("core/editor")?.getCurrentPostType(),
 			isEditingTemplate: select("core/editor")?.getCurrentPostType() === "wp_template",
 			isModalOpen: select(nfdPatternsStore).isModalOpen(),
 		})
