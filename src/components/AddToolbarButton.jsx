@@ -2,10 +2,10 @@
  * WordPress dependencies
  */
 import { debounce } from "@wordpress/compose";
-import { createRoot } from "@wordpress/element";
-import { useEffect, useRef } from "@wordpress/element";
+import { createRoot, useEffect, useRef } from "@wordpress/element";
 
 /**
+ * Internal dependencies
  * Internal dependencies
  */
 import { NFD_WONDER_BLOCKS_TOOLBAR_BUTTON_ID } from "../constants";
@@ -23,15 +23,18 @@ const AddToolbarButton = () => {
 	const debouncedAddToToolbarRef = useRef(null);
 
 	useEffect(() => {
-		// Get the correct document (check if we're in iframe, use parent if so)
+		// Resolve the document that contains the editor toolbar.
+		// In some setups, the editor UI is rendered inside an iframe while plugin
+		// code executes in the parent window; in others, everything lives in the
+		// same window. Prefer the parent document when it is different and
+		// accessible, otherwise fall back to the current document.
 		const getDocument = () => {
-			// WordPress plugins run in parent window, but check both to be safe
 			try {
 				if (window.parent !== window && window.parent.document) {
 					return window.parent.document;
 				}
 			} catch (e) {
-				// Cross-origin or other error, use current document
+				// Cross-origin or other error, use current document instead.
 			}
 			return document;
 		};
@@ -64,7 +67,7 @@ const AddToolbarButton = () => {
 				className: "nfd-wba-shrink-0",
 			});
 
-			toolbar?.append(wonderBlocksButton);
+			toolbar.append(wonderBlocksButton);
 
 			rootRef.current = createRoot(wonderBlocksButton);
 			rootRef.current.render(<ToolbarButton />);
