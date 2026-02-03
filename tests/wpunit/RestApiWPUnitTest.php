@@ -12,7 +12,7 @@ use NewfoldLabs\WP\Module\Patterns\Api\RestApi;
 class RestApiWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 
 	/**
-	 * rest_api_init registers nfd-wonder-blocks REST routes.
+	 * Rest_api_init registers nfd-wonder-blocks REST routes.
 	 *
 	 * @return void
 	 */

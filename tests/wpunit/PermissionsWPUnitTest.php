@@ -22,7 +22,7 @@ class PermissionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
-	 * is_admin returns false when not logged in.
+	 * Is_admin returns false when not logged in.
 	 *
 	 * @return void
 	 */
@@ -32,7 +32,7 @@ class PermissionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
-	 * is_admin returns true for administrator.
+	 * Is_admin returns true for administrator.
 	 *
 	 * @return void
 	 */
@@ -43,7 +43,7 @@ class PermissionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
-	 * is_authorized_admin returns true for administrator.
+	 * Is_authorized_admin returns true for administrator.
 	 *
 	 * @return void
 	 */

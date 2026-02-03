@@ -12,7 +12,7 @@ use NewfoldLabs\WP\Module\Patterns\Data\PluginStatus;
 class PluginStatusWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 
 	/**
-	 * check returns not_installed for non-existent plugin slug.
+	 * Check returns not_installed for non-existent plugin slug.
 	 *
 	 * @return void
 	 */
@@ -22,7 +22,7 @@ class PluginStatusWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
-	 * check returns active or inactive for an installed plugin.
+	 * Check returns active or inactive for an installed plugin.
 	 *
 	 * @return void
 	 */
