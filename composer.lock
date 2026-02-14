@@ -313,16 +313,16 @@
         },
         {
             "name": "newfold-labs/wp-module-features",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-features.git",
-                "reference": "c88f1aec2b87996186a0a8e70fd6100b966079d8"
+                "reference": "76e9be13a47c9efb7e3c06072eba38ff31cfdac2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-features/zipball/c88f1aec2b87996186a0a8e70fd6100b966079d8",
-                "reference": "c88f1aec2b87996186a0a8e70fd6100b966079d8",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-features/zipball/76e9be13a47c9efb7e3c06072eba38ff31cfdac2",
+                "reference": "76e9be13a47c9efb7e3c06072eba38ff31cfdac2",
                 "shasum": ""
             },
             "require": {
@@ -376,7 +376,7 @@
                     "vendor/bin/wp i18n update-po ./languages/wp-module-features.pot ./languages"
                 ],
                 "i18n-pot": [
-                    "vendor/bin/wp i18n make-pot . ./languages/wp-module-features.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-features/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=wordpress,assets,tests,src"
+                    "vendor/bin/wp i18n make-pot . ./languages/wp-module-features.pot --domain=wp-module-features --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-features/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=wordpress,assets,tests,src"
                 ],
                 "lint": [
                     "vendor/bin/phpcs . --standard=phpcs.xml -s"
@@ -405,10 +405,10 @@
             ],
             "description": "A module for providing an interface for features.",
             "support": {
-                "source": "https://github.com/newfold-labs/wp-module-features/tree/1.5.1",
+                "source": "https://github.com/newfold-labs/wp-module-features/tree/1.5.2",
                 "issues": "https://github.com/newfold-labs/wp-module-features/issues"
             },
-            "time": "2025-07-18T17:05:47+00:00"
+            "time": "2026-02-04T16:38:05+00:00"
         },
         {
             "name": "newfold-labs/wp-module-installer",
