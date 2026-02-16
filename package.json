@@ -28,7 +28,7 @@
 		"@newfold/js-utility-ui-analytics": "1.4.0",
 		"@wordpress/api-fetch": "7.39.0",
 		"@wordpress/data": "^10.36.0",
-		"@wordpress/icons": "^10.22.0",
+		"@wordpress/icons": "^11.6.0",
 		"classnames": "^2.5.1",
 		"compare-versions": "^6.1.1",
 		"lodash": "^4.17.23",
