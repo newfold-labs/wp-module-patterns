@@ -26,7 +26,7 @@
 	},
 	"dependencies": {
 		"@newfold/js-utility-ui-analytics": "1.4.0",
-		"@wordpress/api-fetch": "7.39.0",
+		"@wordpress/api-fetch": "7.40.0",
 		"@wordpress/data": "^10.40.0",
 		"@wordpress/icons": "^11.6.0",
 		"classnames": "^2.5.1",
