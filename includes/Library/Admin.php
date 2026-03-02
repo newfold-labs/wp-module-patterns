@@ -155,11 +155,11 @@ final class Admin {
 				}
 
 				\register_block_pattern(
-					'wonder-blocks/' . $pattern['title'],
+					'wonder-blocks/' . $pattern['slug'],
 					array(
 						'title'       => $pattern['title'],
 						'content'     => $pattern['content'],
-						'description' => $pattern['title'],
+						'description' => $pattern['description'] ?? $pattern['title'],
 						'categories'  => $categories,
 					)
 				);
