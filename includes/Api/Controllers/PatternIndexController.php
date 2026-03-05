@@ -39,7 +39,12 @@ class PatternIndexController {
 			$data
 		);
 
-		return new \WP_REST_Response( array_values( $index ) );
+		$index = array_values( $index );
+
+		// Persist for MCP ability fallback when the external API is unreachable.
+		update_option( 'blu_pattern_index', $index, false );
+
+		return new \WP_REST_Response( $index );
 	}
 
 	/**
