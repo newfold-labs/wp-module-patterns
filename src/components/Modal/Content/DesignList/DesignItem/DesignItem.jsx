@@ -13,30 +13,30 @@ import { useFavoritesManager } from "../../../../../hooks/useFavoritesManager";
 import { usePluginRequirements } from "../../../../../hooks/usePluginRequirements";
 import DesignItemView from "./DesignItemView";
 
-const DesignItem = ({ item }) => {
+const DesignItem = ( { item } ) => {
 	// Process blocks for preview
-	const { previewBlocks, blocks } = useBlockProcessor(item);
+	const { previewBlocks, blocks } = useBlockProcessor( item );
 
 	// Favorites functionality
-	const { isFavorite, favoritesClickHandler, shouldShowTrash } = useFavoritesManager(item);
+	const { isFavorite, favoritesClickHandler, shouldShowTrash } = useFavoritesManager( item );
 
 	// Design insertion logic
-	const { insertDesignHandler, insertingDesign } = useDesignInsertion(blocks, item);
+	const { insertDesignHandler, insertingDesign } = useDesignInsertion( blocks, item );
 
 	// Check for premium plugin requirements
-	const { hasInactivePlugins, hasPremiumPlugins } = usePluginRequirements(item);
+	const { hasInactivePlugins, hasPremiumPlugins } = usePluginRequirements( item );
 
 	return (
 		<DesignItemView
-			item={item}
-			previewBlocks={previewBlocks}
-			isFavorite={isFavorite}
-			insertingDesign={insertingDesign}
-			hasPremiumPlugins={hasPremiumPlugins}
-			shouldShowTrash={shouldShowTrash}
-			insertDesignHandler={insertDesignHandler}
-			favoritesClickHandler={favoritesClickHandler}
-			hasInactivePlugins={hasInactivePlugins}
+			item={ item }
+			previewBlocks={ previewBlocks }
+			isFavorite={ isFavorite }
+			insertingDesign={ insertingDesign }
+			hasPremiumPlugins={ hasPremiumPlugins }
+			shouldShowTrash={ shouldShowTrash }
+			insertDesignHandler={ insertDesignHandler }
+			favoritesClickHandler={ favoritesClickHandler }
+			hasInactivePlugins={ hasInactivePlugins }
 		/>
 	);
 };
