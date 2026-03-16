@@ -7,5 +7,6 @@
 | [integration.md](integration.md) | How the module registers and how hosts use it. |
 | [development.md](development.md) | Lint, test, and workflow. |
 | [dependencies.md](dependencies.md) | Composer dependencies. |
+| [release.md](release.md) | Release process: use the Newfold Prepare Release workflow. |
 
 Root **AGENTS.md** gives a short agent summary and points here.
