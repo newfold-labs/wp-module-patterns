@@ -1,3 +1,10 @@
+---
+name: wp-module-patterns
+title: Documentation index
+description: Table of contents and quick links.
+updated: 2025-03-18
+---
+
 # wp-module-patterns – Documentation index
 
 | Document | Description |
