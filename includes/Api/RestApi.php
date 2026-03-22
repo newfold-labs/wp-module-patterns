@@ -12,6 +12,7 @@ use NewfoldLabs\WP\Module\Patterns\Api\Controllers\EventsController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\CacheController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PatternUsageTagsController;
 use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PluginsController;
+use NewfoldLabs\WP\Module\Patterns\Api\Controllers\PatternIndexController;
 
 /**
  * Instantiate controllers and register routes.
@@ -51,5 +52,8 @@ final class RestApi {
 		RestApiController::post( '/plugin/activate', array( PluginsController::class, 'activate_plugin' ) );
 		RestApiController::post( '/plugin/setup', array( PluginsController::class, 'setup_plugin' ) );
 		RestApiController::post( '/plugin/process', array( PluginsController::class, 'process_plugin' ) );
+
+		RestApiController::get( '/pattern-index', array( PatternIndexController::class, 'index' ) );
+		RestApiController::get( '/pattern-by-slug', array( PatternIndexController::class, 'getBySlug' ) );
 	}
 }

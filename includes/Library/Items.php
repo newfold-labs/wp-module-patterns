@@ -153,12 +153,13 @@ class Items {
 
 		foreach ( $data as $item ) {
 			$title       = strtolower( $item['title'] );
+			$slug        = strtolower( $item['slug'] );
 			$match_found = false;
 
 			// Check title based on match type.
-			if ( 'exact' === $match_type && $title === $value ) {
+			if ( 'exact' === $match_type && ( $title === $value || $slug === $value ) ) {
 				$match_found = true;
-			} elseif ( 'contains' === $match_type && false !== strpos( $title, $value ) ) {
+			} elseif ( 'contains' === $match_type && ( false !== strpos( $title, $value ) || false !== strpos( $slug, $value ) ) ) {
 				$match_found = true;
 			}
 
