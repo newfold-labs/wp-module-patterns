@@ -45,21 +45,13 @@
 	transition: none;
 }
 
-/* Don't show animations in the preview editor */
-.block-editor-block-preview__content-iframe [class*="nfd-wb-"] {
-	opacity: 1;
-	transform: none;
-	clip-path: none;
-}
-
-/* In the editor, keep animated blocks visible by default.
-   block-editor-block-list__block is only present in the editor, never on the frontend.
-   The :not([data-replay-animation]) carve-out lets the JS replay
-   mechanism still preview the animation when it is changed. */
-.block-editor-block-list__block.nfd-wb-animate:not([data-replay-animation])[class*="nfd-wb-"] {
-	opacity: 1;
-	transform: none;
-	clip-path: none;
+/* Disable animations in all editor contexts (post editor, site editor, and block previews).
+   .editor-styles-wrapper is on the iframe body in both editors but never on the frontend. */
+.editor-styles-wrapper [class*="nfd-wb-"] {
+	opacity: 1 !important;
+	transform: none !important;
+	clip-path: none !important;
+	transition: none !important;
 }
 
 /* --------------------------------- Fade In -------------------------------- */
