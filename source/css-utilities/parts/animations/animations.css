@@ -25,15 +25,15 @@
 	}
 }
 
-/* No animations on mobile devices */
+/* No animations on mobile devices (skip in editor so animation previews work) */
 @media (max-width: 782px) {
-	.nfd-wb-animate {
+	body:not(.nfd-wb-editor-animations) .nfd-wb-animate {
 		transition: none;
 	}
 
 	/* Reset animations */
-	[class*="nfd-wb-"],
-	.nfd-wb-twist-in {
+	body:not(.nfd-wb-editor-animations) [class*="nfd-wb-"],
+	body:not(.nfd-wb-editor-animations) .nfd-wb-twist-in {
 		opacity: 1;
 		transform: none;
 		clip-path: none;
@@ -43,15 +43,6 @@
 /* Allow animations to be replayed. This attribute is removed from element with JS, causing the animation to be replayed */
 .nfd-wb-animate[data-replay-animation] {
 	transition: none;
-}
-
-/* Disable animations in all editor contexts (post editor, site editor, and block previews).
-   .editor-styles-wrapper is on the iframe body in both editors but never on the frontend. */
-.editor-styles-wrapper [class*="nfd-wb-"] {
-	opacity: 1 !important;
-	transform: none !important;
-	clip-path: none !important;
-	transition: none !important;
 }
 
 /* --------------------------------- Fade In -------------------------------- */
@@ -78,8 +69,7 @@
 	--nfd-wb-anim-transition-duration: 600ms;
 
 	opacity: 0;
-	transform-origin: center bottom;
-	transform: translate3d(0, 32px, 0) scale3d(0.96, 0.96, 0.96);
+	transform: translate3d(0, 32px, 0);
 	transition: var(--nfd-wb-anim-transition);
 }
 
@@ -89,8 +79,7 @@
 	--nfd-wb-anim-transition-duration: 600ms;
 
 	opacity: 0;
-	transform-origin: center top;
-	transform: translate3d(0, -32px, 0) scale3d(0.96, 0.96, 0.96);
+	transform: translate3d(0, -32px, 0);
 	transition: var(--nfd-wb-anim-transition);
 }
 
@@ -100,8 +89,7 @@
 	--nfd-wb-anim-transition-duration: 600ms;
 
 	opacity: 0;
-	transform-origin: center left;
-	transform: translate3d(-32px, 0, 0) scale3d(0.96, 0.96, 0.96);
+	transform: translate3d(-32px, 0, 0);
 	transition: var(--nfd-wb-anim-transition);
 }
 
@@ -111,15 +99,14 @@
 	--nfd-wb-anim-transition-duration: 600ms;
 
 	opacity: 0;
-	transform-origin: right center;
-	transform: translate3d(32px, 0, 0) scale3d(0.96, 0.96, 0.96);
+	transform: translate3d(32px, 0, 0);
 	transition: var(--nfd-wb-anim-transition);
 }
 
 .nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-fade-in"] {
 	/* no important */
 	opacity: 1;
-	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+	transform: translate3d(0, 0, 0);
 }
 
 /* --------------------------------- Zoom In -------------------------------- */
@@ -148,6 +135,7 @@
 }
 
 .nfd-wb-animated-in:not([data-replay-animation])[class*="nfd-wb-zoom-"] {
+	/* no important */
 	opacity: 1;
 	transform: scale3d(1, 1, 1);
 }
@@ -170,6 +158,7 @@ div:has(> .nfd-wb-twist-in) {
 }
 
 .nfd-wb-animated-in:not([data-replay-animation]).nfd-wb-twist-in {
+	/* no important */
 	opacity: 1;
 	transform: translateY(0px) scale(1) rotateY(0deg) rotateZ(0deg) translateZ(0);
 }
