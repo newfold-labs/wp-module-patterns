@@ -40,7 +40,7 @@
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^24.1.0",
 		"@wordpress/prettier-config": "^4.42.0",
-		"@wordpress/scripts": "^31.7.0",
+		"@wordpress/scripts": "^31.8.0",
 		"ajv": "^8.18.0",
 		"autoprefixer": "^10.4.27",
 		"concurrently": "^9.2.1",
