@@ -1,13 +1,13 @@
 {
-    "translation-revision-date": "2025-05-07 15:46+0100",
+    "translation-revision-date": "2026-04-03T17:13:26+00:00",
     "generator": "WP-CLI\/2.12.0",
-    "source": "build\/2.12.1\/wonder-blocks.js",
+    "source": "build\/2.12.2\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "es_MX",
+                "lang": "es_ES",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
@@ -415,96 +415,6 @@
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
                 "La biblioteca de patrones y plantillas se sincroniza autom\u00e1ticamente una vez al d\u00eda. Si desea actualizar manualmente la biblioteca, puede hacerlo pulsando el bot\u00f3n para obtener los dise\u00f1os m\u00e1s recientes."
             ],
-            "Block pattern \"%s\" inserted.": [
-                "Se ha insertado el patr\u00f3n \"%s\"."
-            ],
-            "Failed to insert block pattern. Please try again.": [
-                "Error al insertar el patr\u00f3n de bloque. Por favor, int\u00e9ntalo de nuevo."
-            ],
-            "Added to favorites": [
-                "A\u00f1adido a favoritos"
-            ],
-            "Add to favorites": [
-                "A\u00f1adir a favoritos"
-            ],
-            "Add pattern to page": [
-                "A\u00f1adir patr\u00f3n a la p\u00e1gina"
-            ],
-            "support team": [
-                "equipo de soporte"
-            ],
-            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
-                "Haz clic en %s en tus patrones y plantillas favoritos y utilizados con frecuencia para un acceso r\u00e1pido."
-            ],
-            "Sorry, we couldn't find any results for that. Please try a different search term.": [
-                "Lo sentimos, no hemos podido encontrar ning\u00fan resultado para eso. Por favor, prueba con un t\u00e9rmino de b\u00fasqueda diferente."
-            ],
-            "Sort By: ": [
-                "Ordenar por: "
-            ],
-            "Sort By": [
-                "Ordenar por"
-            ],
-            "Newest": [
-                "M\u00e1s reciente"
-            ],
-            "Oldest": [
-                "Menos"
-            ],
-            "Grid View": [
-                "Vista de cuadr\u00edcula"
-            ],
-            "2 columns": [
-                "2 columnas"
-            ],
-            "3 columns": [
-                "3 columnas"
-            ],
-            "4 columns": [
-                "4 columnas"
-            ],
-            "Loading\u2026": [
-                "Cargando\u2026"
-            ],
-            "One moment while we load content tailored for your site.": [
-                "Un momento mientras cargamos contenido adaptado a su sitio."
-            ],
-            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
-                "%s necesita la \u00faltima versi\u00f3n de WordPress, por favor <a>actualice su sitio<\/a>."
-            ],
-            "Search": [
-                "Buscar"
-            ],
-            "Favorites": [
-                "Favoritos"
-            ],
-            "WonderBlocks Menu": [
-                "Men\u00fa WonderBlocks"
-            ],
-            "About": [
-                "Acerca de"
-            ],
-            "Close dialog": [
-                "Cerrar di\u00e1logo"
-            ],
-            "Failed to load data.": [
-                "Error al cargar los datos."
-            ],
-            "Categories": [
-                "Categor\u00edas"
-            ],
-            "Usage": [
-                "Uso"
-            ],
-            "Select a category": [
-                "Seleccione una categor\u00eda"
-            ],
-            "Patterns": [
-                "Patrones"
-            ],
-            "Templates": [
-                "Plantillas"
-            ],
             "Plugin installed successfully.": [
                 "Plugin instalado correctamente."
             ],
@@ -522,6 +432,9 @@
             ],
             "Plugin processed successfully.": [
                 "Plugin procesado con \u00e9xito."
+            ],
+            "Waiting for plugin to initialize before reload...": [
+                "Esperando a que el plugin se inicialice antes de recargar..."
             ],
             "Failed to process plugin. Please try again.": [
                 "No se pudo procesar el complemento. Por favor, int\u00e9ntalo de nuevo."
@@ -556,6 +469,9 @@
             "Retry": [
                 "Reintentar"
             ],
+            "About": [
+                "Acerca de"
+            ],
             "seconds remaining": [
                 "segundos restantes"
             ],
@@ -564,6 +480,9 @@
             ],
             "Install Required Plugins": [
                 "Instalar los complementos necesarios"
+            ],
+            "Add pattern to page": [
+                "A\u00f1adir patr\u00f3n a la p\u00e1gina"
             ],
             "This pattern is powered by <strong>%s<\/strong> plugin.": [
                 "Este patr\u00f3n funciona con <strong>el complemento %s<\/strong>."
@@ -577,11 +496,95 @@
             "Remove from favorites": [
                 "Eliminar de favoritos"
             ],
+            "Added to favorites": [
+                "A\u00f1adido a favoritos"
+            ],
+            "Add to favorites": [
+                "A\u00f1adir a favoritos"
+            ],
+            "Block pattern \"%s\" inserted.": [
+                "Se ha insertado el patr\u00f3n \"%s\"."
+            ],
+            "Failed to insert block pattern. Please try again.": [
+                "Error al insertar el patr\u00f3n de bloque. Por favor, int\u00e9ntalo de nuevo."
+            ],
+            "support team": [
+                "equipo de soporte"
+            ],
+            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
+                "Haz clic en %s en tus patrones y plantillas favoritos y utilizados con frecuencia para un acceso r\u00e1pido."
+            ],
+            "Sorry, we couldn't find any results for that. Please try a different search term.": [
+                "Lo sentimos, no hemos podido encontrar ning\u00fan resultado para eso. Por favor, prueba con un t\u00e9rmino de b\u00fasqueda diferente."
+            ],
+            "Sort By: ": [
+                "Ordenar por: "
+            ],
+            "Sort By": [
+                "Ordenar por"
+            ],
+            "Newest": [
+                "M\u00e1s reciente"
+            ],
+            "Oldest": [
+                "Menos"
+            ],
+            "Grid View": [
+                "Vista de cuadr\u00edcula"
+            ],
+            "2 columns": [
+                "2 columnas"
+            ],
+            "3 columns": [
+                "3 columnas"
+            ],
+            "4 columns": [
+                "4 columnas"
+            ],
             "Error": [
                 "Error"
             ],
             "Success": [
                 "\u00c9xito"
+            ],
+            "Loading\u2026": [
+                "Cargando\u2026"
+            ],
+            "One moment while we load content tailored for your site.": [
+                "Un momento mientras cargamos contenido adaptado a su sitio."
+            ],
+            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
+                "%s necesita la \u00faltima versi\u00f3n de WordPress, por favor <a>actualice su sitio<\/a>."
+            ],
+            "Search": [
+                "Buscar"
+            ],
+            "Favorites": [
+                "Favoritos"
+            ],
+            "WonderBlocks Menu": [
+                "Men\u00fa WonderBlocks"
+            ],
+            "Close dialog": [
+                "Cerrar di\u00e1logo"
+            ],
+            "Failed to load data.": [
+                "Error al cargar los datos."
+            ],
+            "Categories": [
+                "Categor\u00edas"
+            ],
+            "Usage": [
+                "Uso"
+            ],
+            "Select a category": [
+                "Seleccione una categor\u00eda"
+            ],
+            "Patterns": [
+                "Patrones"
+            ],
+            "Templates": [
+                "Plantillas"
             ],
             "the plugin": [
                 "El complemento"
@@ -621,9 +624,6 @@
             ],
             "Close": [
                 "Cerrar"
-            ],
-            "Waiting for plugin to initialize before reload...": [
-                "Esperando a que el plugin se inicialice antes de recargar..."
             ]
         }
     }
