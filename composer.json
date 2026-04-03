@@ -1,5 +1,5 @@
 {
-	"name": "newfold-labs/wp-module-patterns",
+    "name": "newfold-labs/wp-module-patterns",
     "description": "WordPress Cloud Patterns",
     "type": "library",
     "license": "GPL-2.0-or-later",
@@ -22,11 +22,11 @@
             ]
         }
     },
-	"require": {
-		"newfold-labs/wp-module-data": "^2.9.3",
-		"newfold-labs/wp-module-features": "^1.5",
-		"newfold-labs/wp-module-installer": "^1.7"
-	},
+    "require": {
+        "newfold-labs/wp-module-data": "^2.9.3",
+        "newfold-labs/wp-module-features": "^1.5",
+        "newfold-labs/wp-module-installer": "^1.7"
+    },
     "require-dev": {
         "newfold-labs/wp-php-standards": "^1.2.5",
         "wp-cli/i18n-command": "^2.7.0",
@@ -43,22 +43,22 @@
         ]
     },
     "scripts": {
-		"lint": [
-			"vendor/bin/phpcs . --ignore=*/build/* --standard=phpcs.xml -d error_reporting=\"E_ALL&~E_DEPRECATED\""
-		],
-		"clean": [
-			"vendor/bin/phpcbf . --ignore=*/build/* --standard=phpcs.xml -d error_reporting=\"E_ALL&~E_DEPRECATED\""
-		],
-		"i18n-pot": "vendor/bin/wp i18n make-pot . ./languages/nfd-wonder-blocks.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-patterns/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=tests,src,wordpress --domain=nfd-wonder-blocks",
-		"i18n-po": "vendor/bin/wp i18n update-po ./languages/nfd-wonder-blocks.pot ./languages",
-		"i18n-php": "vendor/bin/wp i18n make-php ./languages  --pretty-print",
-		"i18n-json": "find ./languages -name \"*.json\" -exec rm {} \\; && vendor/bin/wp i18n make-json ./languages --pretty-print",
-		"i18n": [
-			"@i18n-pot",
-			"@i18n-po",
-			"@i18n-php",
-			"@i18n-json"
-		],
+        "lint": [
+            "vendor/bin/phpcs . --ignore=*/build/* --standard=phpcs.xml -d error_reporting=\"E_ALL&~E_DEPRECATED\""
+        ],
+        "clean": [
+            "vendor/bin/phpcbf . --ignore=*/build/* --standard=phpcs.xml -d error_reporting=\"E_ALL&~E_DEPRECATED\""
+        ],
+        "i18n-pot": "vendor/bin/wp i18n make-pot . ./languages/nfd-wonder-blocks.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/newfold-labs/wp-module-patterns/issues\",\"POT-Creation-Date\":\"2025-02-13T09:55:55+00:00\"}' --exclude=tests,src,wordpress --domain=nfd-wonder-blocks",
+        "i18n-po": "vendor/bin/wp i18n update-po ./languages/nfd-wonder-blocks.pot ./languages",
+        "i18n-php": "vendor/bin/wp i18n make-php ./languages  --pretty-print",
+        "i18n-json": "rm -f languages/*.json && vendor/bin/wp i18n make-json ./languages --pretty-print",
+        "i18n": [
+            "@i18n-pot",
+            "@i18n-po",
+            "@i18n-php",
+            "@i18n-json"
+        ],
         "i18n-ci-pre": [
             "@i18n-pot",
             "@i18n-po"
@@ -87,6 +87,15 @@
         }
     },
     "scripts-descriptions": {
+        "lint": "Check files against coding standards.",
+        "clean": "Automatically fix coding standards issues where possible.",
+        "i18n-pot": "Scan source and generate the POT translation template using wp i18n make-pot.",
+        "i18n-po": "Update PO files from the POT file using wp i18n update-po.",
+        "i18n-php": "Generate PHP translation files from PO files using wp i18n make-php.",
+        "i18n-json": "Remove stale JSON catalogs, then generate JED JSON from PO files using wp i18n make-json.",
+        "i18n": "Run the full local i18n pipeline (POT, PO, PHP, JSON).",
+        "i18n-ci-pre": "CI: regenerate the POT file and sync PO catalogs from it.",
+        "i18n-ci-post": "CI: regenerate JED JSON and PHP translation files from PO catalogs.",
         "test": "Run tests.",
         "test-coverage": "Run tests with coverage, merge coverage and create HTML report."
     }
