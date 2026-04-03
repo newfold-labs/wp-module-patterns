@@ -1,7 +1,7 @@
 {
-    "translation-revision-date": "2025-02-24 17:32",
+    "translation-revision-date": "2026-04-03T17:13:26+00:00",
     "generator": "WP-CLI\/2.12.0",
-    "source": "build\/2.12.1\/wonder-blocks.js",
+    "source": "build\/2.12.2\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
@@ -415,96 +415,6 @@
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
                 "Libreria di modelli e modelli sincronizza automaticamente una volta al giorno. Se si desidera aggiornare manualmente la libreria, \u00e8 possibile farlo premendo il pulsante per ottenere i disegni pi\u00f9 recenti."
             ],
-            "Block pattern \"%s\" inserted.": [
-                "Blocco modello \"%s\" inserito."
-            ],
-            "Failed to insert block pattern. Please try again.": [
-                "Impossibile inserire il modello di blocco. Riprova."
-            ],
-            "Added to favorites": [
-                "Aggiunto ai preferiti"
-            ],
-            "Add to favorites": [
-                "Aggiungi ai preferiti"
-            ],
-            "Add pattern to page": [
-                "Aggiungi sequenza alla pagina"
-            ],
-            "support team": [
-                "team di supporto"
-            ],
-            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
-                "Fai clic su %s sui tuoi modelli e modelli preferiti e usati di frequente per un rapido accesso."
-            ],
-            "Sorry, we couldn't find any results for that. Please try a different search term.": [
-                "Siamo spiacenti, non abbiamo trovato alcun risultato. Prova con un termine di ricerca diverso."
-            ],
-            "Sort By: ": [
-                "Ordina Per: "
-            ],
-            "Sort By": [
-                "Ordina Per"
-            ],
-            "Newest": [
-                "Pi\u00f9 Recenti"
-            ],
-            "Oldest": [
-                "Vecchio"
-            ],
-            "Grid View": [
-                "Vista Griglia"
-            ],
-            "2 columns": [
-                "2 colonne"
-            ],
-            "3 columns": [
-                "3 colonne"
-            ],
-            "4 columns": [
-                "4 colonne"
-            ],
-            "Loading\u2026": [
-                "Caricamento\u2026"
-            ],
-            "One moment while we load content tailored for your site.": [
-                "Un momento mentre caricamo contenuti su misura per il tuo sito."
-            ],
-            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
-                "%s ha bisogno dell'ultima versione di WordPress, per favore <a>aggiorna il tuo sito<\/a>."
-            ],
-            "Search": [
-                "Cerca"
-            ],
-            "Favorites": [
-                "Preferiti"
-            ],
-            "WonderBlocks Menu": [
-                "Menu WonderBlocks"
-            ],
-            "About": [
-                "Informazioni"
-            ],
-            "Close dialog": [
-                "Chiudi finestra"
-            ],
-            "Failed to load data.": [
-                "Impossibile caricare i dati."
-            ],
-            "Categories": [
-                "Categorie"
-            ],
-            "Usage": [
-                "Utilizzo"
-            ],
-            "Select a category": [
-                "Seleziona una categoria"
-            ],
-            "Patterns": [
-                "Motivi"
-            ],
-            "Templates": [
-                "Modelli"
-            ],
             "Plugin installed successfully.": [
                 "Plugin installato correttamente."
             ],
@@ -522,6 +432,9 @@
             ],
             "Plugin processed successfully.": [
                 "Plugin elaborato con successo."
+            ],
+            "Waiting for plugin to initialize before reload...": [
+                "Aspettare che il plugin si inizializzi prima del ricaricamento..."
             ],
             "Failed to process plugin. Please try again.": [
                 "Impossibile elaborare il plug-in. Riprova."
@@ -556,6 +469,9 @@
             "Retry": [
                 "Ripetere"
             ],
+            "About": [
+                "Informazioni"
+            ],
             "seconds remaining": [
                 "secondi rimanenti"
             ],
@@ -564,6 +480,9 @@
             ],
             "Install Required Plugins": [
                 "Installa i plugin richiesti"
+            ],
+            "Add pattern to page": [
+                "Aggiungi sequenza alla pagina"
             ],
             "This pattern is powered by <strong>%s<\/strong> plugin.": [
                 "Questo modello \u00e8 alimentato dal plug-in <strong>%s<\/strong>."
@@ -577,11 +496,95 @@
             "Remove from favorites": [
                 "Rimuovi dai preferiti"
             ],
+            "Added to favorites": [
+                "Aggiunto ai preferiti"
+            ],
+            "Add to favorites": [
+                "Aggiungi ai preferiti"
+            ],
+            "Block pattern \"%s\" inserted.": [
+                "Blocco modello \"%s\" inserito."
+            ],
+            "Failed to insert block pattern. Please try again.": [
+                "Impossibile inserire il modello di blocco. Riprova."
+            ],
+            "support team": [
+                "team di supporto"
+            ],
+            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
+                "Fai clic su %s sui tuoi modelli e modelli preferiti e usati di frequente per un rapido accesso."
+            ],
+            "Sorry, we couldn't find any results for that. Please try a different search term.": [
+                "Siamo spiacenti, non abbiamo trovato alcun risultato. Prova con un termine di ricerca diverso."
+            ],
+            "Sort By: ": [
+                "Ordina Per: "
+            ],
+            "Sort By": [
+                "Ordina Per"
+            ],
+            "Newest": [
+                "Pi\u00f9 Recenti"
+            ],
+            "Oldest": [
+                "Vecchio"
+            ],
+            "Grid View": [
+                "Vista Griglia"
+            ],
+            "2 columns": [
+                "2 colonne"
+            ],
+            "3 columns": [
+                "3 colonne"
+            ],
+            "4 columns": [
+                "4 colonne"
+            ],
             "Error": [
                 "Errore"
             ],
             "Success": [
                 "Successo"
+            ],
+            "Loading\u2026": [
+                "Caricamento\u2026"
+            ],
+            "One moment while we load content tailored for your site.": [
+                "Un momento mentre caricamo contenuti su misura per il tuo sito."
+            ],
+            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
+                "%s ha bisogno dell'ultima versione di WordPress, per favore <a>aggiorna il tuo sito<\/a>."
+            ],
+            "Search": [
+                "Cerca"
+            ],
+            "Favorites": [
+                "Preferiti"
+            ],
+            "WonderBlocks Menu": [
+                "Menu WonderBlocks"
+            ],
+            "Close dialog": [
+                "Chiudi finestra"
+            ],
+            "Failed to load data.": [
+                "Impossibile caricare i dati."
+            ],
+            "Categories": [
+                "Categorie"
+            ],
+            "Usage": [
+                "Utilizzo"
+            ],
+            "Select a category": [
+                "Seleziona una categoria"
+            ],
+            "Patterns": [
+                "Motivi"
+            ],
+            "Templates": [
+                "Modelli"
             ],
             "the plugin": [
                 "Il plugin"
@@ -621,9 +624,6 @@
             ],
             "Close": [
                 "Chiudere"
-            ],
-            "Waiting for plugin to initialize before reload...": [
-                "Aspettare che il plugin si inizializzi prima del ricaricamento..."
             ]
         }
     }
