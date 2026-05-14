@@ -23,6 +23,7 @@ jobs:
     permissions:
       contents: write      # Required for reusable translation jobs that push branches and commits via GITHUB_TOKEN.
       pull-requests: write # Required for reusable translation jobs that create or update pull requests with `gh`.
+    timeout-minutes: 120
     with:
       text_domain: 'nfd-wonder-blocks'
     secrets:
