@@ -21,6 +21,7 @@ jobs:
   get-repo-name:
     runs-on: ubuntu-latest
     permissions: {} # No checkout or GitHub API calls; only derives outputs from built-in github context.
+    timeout-minutes: 5
     outputs:
       repository-name: ${{ steps.repo-name.outputs.name }}
     steps:
@@ -34,6 +35,7 @@ jobs:
     permissions:
       contents: write      # Required for the reusable workflow to clone the private repo and push coverage HTML to gh-pages.
       pull-requests: write # Required for the reusable workflow to post or update the coverage comment on pull requests.
+    timeout-minutes: 60
     with:
       php-versions: '["7.4", "8.0", "8.1", "8.2", "8.3", "8.4"]'
       coverage-php-version: '7.4'

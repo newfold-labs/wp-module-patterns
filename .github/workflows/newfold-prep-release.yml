@@ -24,6 +24,7 @@ jobs:
     permissions:
       contents: write      # Required for the reusable workflow to push the release branch and version bumps.
       pull-requests: write # Required for the reusable workflow to open the release pull request.
+    timeout-minutes: 45
     with:
       module-repo: ${{ github.repository }}
       module-branch: 'main'
