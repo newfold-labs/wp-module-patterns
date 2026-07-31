@@ -44,7 +44,7 @@
 		"ajv": "^8.20.0",
 		"autoprefixer": "^10.5.3",
 		"concurrently": "^10.0.3",
-		"cssnano": "^8.0.1",
+		"cssnano": "^8.0.2",
 		"esbuild": "^0.28.0",
 		"eslint": "^10.7.0",
 		"eslint-plugin-prettier": "^5.5.6",
