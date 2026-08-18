@@ -43,7 +43,7 @@
 		"@wordpress/scripts": "^34.1.0",
 		"ajv": "^8.20.0",
 		"autoprefixer": "^10.5.4",
-		"concurrently": "^10.0.4",
+		"concurrently": "^10.0.5",
 		"cssnano": "^8.0.5",
 		"esbuild": "^0.28.2",
 		"eslint": "^10.8.1",
