@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a4ae73173edda1a285d2064ca2d74cd",
+    "content-hash": "7426465fac4d648385030eda0900cbef",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -200,16 +200,16 @@
         },
         {
             "name": "newfold-labs/wp-module-data",
-            "version": "2.9.7",
+            "version": "2.9.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newfold-labs/wp-module-data.git",
-                "reference": "9abdcb0e9153a6e231c3ff299d9f21a784e0f86c"
+                "reference": "2d4cd04b56171aee6f9f3104730814c8379bf7e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newfold-labs/wp-module-data/zipball/9abdcb0e9153a6e231c3ff299d9f21a784e0f86c",
-                "reference": "9abdcb0e9153a6e231c3ff299d9f21a784e0f86c",
+                "url": "https://api.github.com/repos/newfold-labs/wp-module-data/zipball/2d4cd04b56171aee6f9f3104730814c8379bf7e9",
+                "reference": "2d4cd04b56171aee6f9f3104730814c8379bf7e9",
                 "shasum": ""
             },
             "require": {
@@ -224,16 +224,16 @@
             "require-dev": {
                 "10up/wp_mock": "^1.1.1",
                 "brianhenryie/composer-phpstorm": ">=0.4",
-                "johnpbloch/wordpress": ">=7.0.3",
+                "johnpbloch/wordpress": ">=7.1.0",
                 "kporras07/composer-symlinks": "^1.3",
                 "lucatume/wp-browser": "^3.7.8",
-                "newfold-labs/wp-php-standards": "^1.2.6",
+                "newfold-labs/wp-php-standards": "^2.0.0",
                 "newfold-labs/wp-plugin-bluehost": "dev-latest-zip",
                 "phpunit/phpcov": "^8.2.1",
                 "wp-cli/i18n-command": "^2.7.3",
                 "wp-plugin/jetpack": "^16.1",
                 "wp-plugin/woocommerce": ">=11.0.1",
-                "wp-plugin/woocommerce-payments": "^11.0.0",
+                "wp-plugin/woocommerce-payments": "^11.0.1",
                 "wp-theme/twentytwentyfive": ">=1.5"
             },
             "type": "library",
@@ -325,7 +325,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Newfold Data Module",
-            "time": "2026-08-13T17:37:59+00:00"
+            "time": "2026-08-27T16:22:49+00:00"
         },
         {
             "name": "newfold-labs/wp-module-features",
