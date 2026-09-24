@@ -4,22 +4,12 @@
  * Utilities for testing the Deactivation module functionality.
  * Includes plugin activation/deactivation helpers and survey interactions.
  */
-import { join, dirname } from 'path';
-import { fileURLToPath, pathToFileURL } from 'url';
-
-// ES module equivalent of __dirname
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
+import { createRequire } from 'module';
+import { join } from 'path';
 // Resolve plugin directory from PLUGIN_DIR env var (set by playwright.config.mjs) or process.cwd()
 const pluginDir = process.env.PLUGIN_DIR || process.cwd();
-
-// Build path to plugin helpers (.mjs extension for ES module compatibility)
-const finalHelpersPath = join(pluginDir, 'tests/playwright/helpers/index.mjs');
-
-// Import plugin helpers using file:// URL
-const helpersUrl = pathToFileURL(finalHelpersPath).href;
-const pluginHelpers = await import(helpersUrl);
+const requireFromPlugin = createRequire(join(pluginDir, 'package.json'));
+const pluginHelpers = requireFromPlugin('./tests/playwright/helpers/index.js');
 // destructure pluginHelpers
 let { auth, wordpress, newfold, a11y, utils } = pluginHelpers;
 

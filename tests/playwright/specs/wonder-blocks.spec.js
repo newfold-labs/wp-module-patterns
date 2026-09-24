@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { auth } from '../helpers/index.mjs';
+import { auth } from '../helpers/index.js';
 
 // Brand plugin id
 const pluginId = process.env.PLUGIN_ID || 'bluehost';
