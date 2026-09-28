@@ -65,6 +65,10 @@ class CTA {
 	 * Handle the AJAX toggle
 	 */
 	public function handle_ajax_toggle() {
+		if ( ! \is_user_logged_in() ) {
+			\wp_die( '', '', 403 );
+		}
+
 		\check_ajax_referer( self::NONCE_ACTION, 'nonce' );
 
 		if ( ! \current_user_can( 'manage_options' ) ) {
