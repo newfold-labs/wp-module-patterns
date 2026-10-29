@@ -24,6 +24,7 @@ jobs:
     name: Run PHP Code Sniffer
     runs-on: ubuntu-latest
     permissions:
+      actions: write       # Required for actions/cache to access the GitHub Actions cache API.
       contents: read       # Required for actions/checkout to clone the private repository.
       pull-requests: read  # Required for technote-space/get-diff-action to resolve the pull request diff on pull_request events.
     timeout-minutes: 30
