@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1793040097">
-  <project timestamp="1793040097">
+<coverage generated="1793373420">
+  <project timestamp="1793373420">
     <file name="/home/runner/work/wp-module-patterns/wp-module-patterns/includes/Admin/CTA.php">
       <class name="NewfoldLabs\WP\Module\Patterns\Admin\CTA" namespace="global">
         <metrics complexity="27" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="133" coveredstatements="0" elements="142" coveredelements="0"/>
