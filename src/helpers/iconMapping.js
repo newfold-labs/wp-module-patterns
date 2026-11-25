@@ -48,6 +48,7 @@ const iconMapping = {
 	"patterns-categories-forms": <MailsIcon size={20} />,
 	"patterns-categories-headings": <BookTypeIcon size={20} />,
 	"patterns-categories-hero": <BookImageIcon size={20} />,
+	"patterns-categories-link-in-bio": <WarehouseIcon size={20} />,
 	"patterns-categories-pricing-table": <ReceiptIcon size={20} />,
 	"patterns-categories-menu": <BookOpenTextIcon size={20} />,
 	"patterns-categories-team": <UsersIcon size={20} />,
