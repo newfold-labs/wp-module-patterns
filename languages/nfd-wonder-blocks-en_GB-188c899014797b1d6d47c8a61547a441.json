@@ -1,13 +1,13 @@
 {
-    "translation-revision-date": "2025-02-24 23:03+0530",
+    "translation-revision-date": "2026-10-14T20:35:19+00:00",
     "generator": "WP-CLI\/2.12.0",
-    "source": "build\/2.11.0\/wonder-blocks.js",
+    "source": "build\/2.14.1\/wonder-blocks.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "en_AU",
+                "lang": "en_GB",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "White": [
@@ -391,18 +391,6 @@
             "Section Divider": [
                 "Section Divider"
             ],
-            "Section Theme Color": [
-                "Section Theme Color"
-            ],
-            "This feature is now located in the": [
-                "This feature is now located in the"
-            ],
-            "Block Styles": [
-                "Block Styles"
-            ],
-            "section.": [
-                "section."
-            ],
             "Section Background Effect": [
                 "Section Background Effect"
             ],
@@ -427,96 +415,6 @@
             "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs.": [
                 "Pattern & Template library automatically syncs once a day. If you want to manually refresh the library, you can do so by pressing the button to get the most recent designs."
             ],
-            "Block pattern \"%s\" inserted.": [
-                "Block pattern \"%s\" inserted."
-            ],
-            "Failed to insert block pattern. Please try again.": [
-                "Failed to insert block pattern. Please try again."
-            ],
-            "Added to favorites": [
-                "Added to favorites"
-            ],
-            "Add to favorites": [
-                "Add to favorites"
-            ],
-            "Add pattern to page": [
-                "Add pattern to page"
-            ],
-            "support team": [
-                "support team"
-            ],
-            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
-                "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
-            ],
-            "Sorry, we couldn't find any results for that. Please try a different search term.": [
-                "Sorry, we couldn't find any results for that. Please try a different search term."
-            ],
-            "Sort By: ": [
-                "Sort By: "
-            ],
-            "Sort By": [
-                "Sort By"
-            ],
-            "Newest": [
-                "Newest"
-            ],
-            "Oldest": [
-                "Oldest"
-            ],
-            "Grid View": [
-                "Grid View"
-            ],
-            "2 columns": [
-                "2 columns"
-            ],
-            "3 columns": [
-                "3 columns"
-            ],
-            "4 columns": [
-                "4 columns"
-            ],
-            "Loading\u2026": [
-                "Loading\u2026"
-            ],
-            "One moment while we load content tailored for your site.": [
-                "One moment while we load content tailored for your site."
-            ],
-            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
-                "%s needs the latest version of WordPress, please <a>update your site<\/a>."
-            ],
-            "Search": [
-                "Search"
-            ],
-            "Favorites": [
-                "Favorites"
-            ],
-            "WonderBlocks Menu": [
-                "WonderBlocks Menu"
-            ],
-            "About": [
-                "About"
-            ],
-            "Close dialog": [
-                "Close dialog"
-            ],
-            "Failed to load data.": [
-                "Failed to load data."
-            ],
-            "Categories": [
-                "Categories"
-            ],
-            "Usage": [
-                "Usage"
-            ],
-            "Select a category": [
-                "Select a category"
-            ],
-            "Patterns": [
-                "Patterns"
-            ],
-            "Templates": [
-                "Templates"
-            ],
             "Plugin installed successfully.": [
                 "Plugin installed successfully."
             ],
@@ -534,6 +432,9 @@
             ],
             "Plugin processed successfully.": [
                 "Plugin processed successfully."
+            ],
+            "Waiting for plugin to initialize before reload...": [
+                "Waiting for plugin to initialise before reload..."
             ],
             "Failed to process plugin. Please try again.": [
                 "Failed to process plugin. Please try again."
@@ -568,6 +469,9 @@
             "Retry": [
                 "Retry"
             ],
+            "About": [
+                "About"
+            ],
             "seconds remaining": [
                 "seconds remaining"
             ],
@@ -576,6 +480,9 @@
             ],
             "Install Required Plugins": [
                 "Install Required Plugins"
+            ],
+            "Add pattern to page": [
+                "Add pattern to page"
             ],
             "This pattern is powered by <strong>%s<\/strong> plugin.": [
                 "This pattern is powered by <strong>%s<\/strong> plugin."
@@ -587,13 +494,97 @@
                 "Learn more"
             ],
             "Remove from favorites": [
-                "Remove from favorites"
+                "Remove from favourites"
+            ],
+            "Added to favorites": [
+                "Added to favorites"
+            ],
+            "Add to favorites": [
+                "Add to favorites"
+            ],
+            "Block pattern \"%s\" inserted.": [
+                "Block pattern \"%s\" inserted."
+            ],
+            "Failed to insert block pattern. Please try again.": [
+                "Failed to insert block pattern. Please try again."
+            ],
+            "support team": [
+                "support team"
+            ],
+            "Click the %s on your favorite and frequently-used Patterns & Templates for quick access.": [
+                "Click the %s on your favorite and frequently-used Patterns & Templates for quick access."
+            ],
+            "Sorry, we couldn't find any results for that. Please try a different search term.": [
+                "Sorry, we couldn't find any results for that. Please try a different search term."
+            ],
+            "Sort By: ": [
+                "Sort By: "
+            ],
+            "Sort By": [
+                "Sort By"
+            ],
+            "Newest": [
+                "Newest"
+            ],
+            "Oldest": [
+                "Oldest"
+            ],
+            "Grid View": [
+                "Grid View"
+            ],
+            "2 columns": [
+                "2 columns"
+            ],
+            "3 columns": [
+                "3 columns"
+            ],
+            "4 columns": [
+                "4 columns"
             ],
             "Error": [
                 "Error"
             ],
             "Success": [
                 "Success"
+            ],
+            "Loading\u2026": [
+                "Loading\u2026"
+            ],
+            "One moment while we load content tailored for your site.": [
+                "One moment while we load content tailored for your site."
+            ],
+            "%s needs the latest version of WordPress, please <a>update your site<\/a>.": [
+                "%s needs the latest version of WordPress, please <a>update your site<\/a>."
+            ],
+            "Search": [
+                "Search"
+            ],
+            "Favorites": [
+                "Favorites"
+            ],
+            "WonderBlocks Menu": [
+                "WonderBlocks Menu"
+            ],
+            "Close dialog": [
+                "Close dialog"
+            ],
+            "Failed to load data.": [
+                "Failed to load data."
+            ],
+            "Categories": [
+                "Categories"
+            ],
+            "Usage": [
+                "Usage"
+            ],
+            "Select a category": [
+                "Select a category"
+            ],
+            "Patterns": [
+                "Patterns"
+            ],
+            "Templates": [
+                "Templates"
             ],
             "the plugin": [
                 "the plugin"
@@ -633,9 +624,6 @@
             ],
             "Close": [
                 "Close"
-            ],
-            "Waiting for plugin to initialize before reload...": [
-                ""
             ]
         }
     }

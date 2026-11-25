@@ -5,10 +5,16 @@ on:
     types:
       - created
 
+# Disable permissions for all available scopes by default.
+# Any needed permissions should be configured at the job level.
+permissions: {}
+
 jobs:
   webhook:
     name: Send Webhook
     runs-on: ubuntu-latest
+    permissions: {} # Repository dispatch uses secrets.WEBHOOK_TOKEN only; GITHUB_TOKEN is not used against the GitHub API.
+    timeout-minutes: 30
     steps:
 
       - name: Set Package
@@ -22,7 +28,7 @@ jobs:
         run: echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
 
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3.0.0
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4.0.1
         with:
           token: ${{ secrets.WEBHOOK_TOKEN }}
           repository: newfold-labs/satis
