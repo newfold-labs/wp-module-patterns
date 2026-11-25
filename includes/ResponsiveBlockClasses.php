@@ -3,8 +3,9 @@
 namespace NewfoldLabs\WP\Module\Patterns;
 
 /**
- * Injects Wonder Blocks responsive / animation utility classes on the frontend
- * from block JSON attributes (mirrors inspector-control.js addSaveProps).
+ * Injects Wonder Blocks utility classes on the frontend from block JSON attributes.
+ *
+ * Mirrors inspector-control.js addSaveProps (animations, group effects, columns swipe).
  */
 class ResponsiveBlockClasses {
 
