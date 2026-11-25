@@ -24,6 +24,53 @@ const findPostContentClientId = (blocks) => {
 };
 
 /**
+ * Whether the block lives inside the post-content block (including post-content itself).
+ *
+ * @param {string|null} blockClientId Block client ID.
+ * @param {string}      postContentId Post content block client ID.
+ * @return {boolean}
+ */
+const isInsidePostContent = (blockClientId, postContentId) => {
+	if (!blockClientId || !postContentId) {
+		return false;
+	}
+
+	if (blockClientId === postContentId) {
+		return true;
+	}
+
+	const { getBlockParents } = select("core/block-editor");
+	const parents = getBlockParents(blockClientId, true);
+	return parents.includes(postContentId);
+};
+
+/**
+ * Direct child of post-content that contains the given block (or is that block).
+ *
+ * @param {string|null} blockClientId Block client ID.
+ * @param {string}      postContentId Post content block client ID.
+ * @return {string|null}
+ */
+const getDirectPostContentChildId = (blockClientId, postContentId) => {
+	if (!blockClientId || !postContentId || blockClientId === postContentId) {
+		return null;
+	}
+
+	const { getBlockParent } = select("core/block-editor");
+	let current = blockClientId;
+
+	while (current) {
+		const parent = getBlockParent(current);
+		if (parent === postContentId) {
+			return current;
+		}
+		current = parent;
+	}
+
+	return null;
+};
+
+/**
  * Insert blocks into the editor.
  *
  * @param {string} blocks Blocks to insert.
@@ -35,7 +82,7 @@ export const blockInserter = (blocks) => {
 		select("core/block-editor");
 	const { getBlocks } = select("core/block-editor");
 	const allBlocks = getBlocks();
-	const hasTemplatePart = allBlocks.some((block) => block.name === "core/template-part");
+	const postContentId = findPostContentClientId(allBlocks);
 
 	const { clientId, name, attributes } = getSelectedBlock() || {};
 	const rootClientId = clientId ? getBlockHierarchyRootClientId(clientId) : "";
@@ -46,12 +93,19 @@ export const blockInserter = (blocks) => {
 		return replaceBlock(clientId, blocks);
 	}
 
-	if (hasTemplatePart) {
-		const postContentId = findPostContentClientId(allBlocks);
-		if (postContentId) {
-			const insertionIndex = getBlockIndex(clientId) + 1;
-			return insertBlocks(blocks, insertionIndex, postContentId);
+	// Page templates may inline the header (no core/template-part) but still use post-content.
+	if (postContentId) {
+		const postContentBlocks = getBlocks(postContentId);
+		let index = postContentBlocks.length;
+
+		if (clientId && isInsidePostContent(clientId, postContentId)) {
+			const directChildId = getDirectPostContentChildId(clientId, postContentId);
+			if (directChildId) {
+				index = getBlockIndex(directChildId) + 1;
+			}
 		}
+
+		return insertBlocks(blocks, index, postContentId);
 	}
 	// Insert blocks below currently selected block.
 	return insertBlocks(blocks, insertionIndex);

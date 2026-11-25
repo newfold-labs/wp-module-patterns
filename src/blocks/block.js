@@ -31,10 +31,7 @@ registerBlockType(metadata, {
 			useDispatch(nfdPatternsStore);
 
 		useEffect(() => {
-			if (attributes.preview) {
-				return;
-			}
-
+			// `preview` is only for the block inserter; it must not persist on the canvas.
 			removeBlock(clientId);
 
 			setActiveTab("patterns");
@@ -51,20 +48,14 @@ registerBlockType(metadata, {
 			setIsModalOpen(true);
 		}, [
 			attributes.category,
-			attributes.preview,
 			clientId,
 			removeBlock,
 			setActivePatternsCategory,
 			setActiveTab,
 			setIsModalOpen,
+			setSidebarDisplayMode,
 		]);
 
-		return (
-			<img
-				style={{ display: "block", maxWidth: "100%" }}
-				src={attributes.preview}
-				alt="WonderBlocks"
-			/>
-		);
+		return null;
 	},
 });
