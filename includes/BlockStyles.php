@@ -87,16 +87,16 @@ class BlockStyles {
 		$heading_styles = array(
 			array(
 				'name'  => 'nfd-heading-boxed',
-				'label' => __('Boxed', 'nfd-wonder-blocks'),
+				'label' => __( 'Boxed', 'nfd-wonder-blocks' ),
 			),
 			array(
 				'name'  => 'nfd-heading-highlight',
-				'label' => __('Highlight', 'nfd-wonder-blocks'),
+				'label' => __( 'Highlight', 'nfd-wonder-blocks' ),
 			),
 			array(
 				'name'  => 'nfd-heading-underline',
-				'label' => __('Underline', 'nfd-wonder-blocks'),
-			)
+				'label' => __( 'Underline', 'nfd-wonder-blocks' ),
+			),
 		);
 
 		foreach ( $image_styles as $image_style ) {

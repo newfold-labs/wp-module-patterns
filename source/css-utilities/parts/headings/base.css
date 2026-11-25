@@ -1,0 +1,36 @@
+/*
+ * Wonder Blocks heading block styles (boxed, highlight, underline).
+ */
+:where(:root) {
+	--nfd-heading-border: currentColor;
+	--nfd-heading-border-size: 2px;
+	--nfd-heading-border-style: solid;
+}
+
+.is-style-nfd-heading-boxed {
+	border-color: var(--nfd-heading-border);
+	border-style: var(--nfd-heading-border-style);
+	border-width: var(--nfd-heading-border-size);
+	box-decoration-break: clone;
+	display: inline;
+	line-height: 1.35;
+	padding: 0.2em 0.45em;
+}
+
+.is-style-nfd-heading-highlight .nfd-heading-highlight__text {
+	background-color: color-mix(
+		in srgb,
+		var(--nfd-heading-border) 22%,
+		transparent
+	);
+	border-radius: 0.12em;
+	box-decoration-break: clone;
+	padding: 0 0.12em;
+}
+
+.is-style-nfd-heading-underline {
+	border-bottom: var(--nfd-heading-border-size) var(--nfd-heading-border-style)
+		var(--nfd-heading-border);
+	display: inline-block;
+	padding-bottom: 0.12em;
+}
