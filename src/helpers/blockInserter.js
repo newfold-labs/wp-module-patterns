@@ -45,6 +45,32 @@ const isInsidePostContent = (blockClientId, postContentId) => {
 };
 
 /**
+ * Direct child of post-content that contains the given block (or is that block).
+ *
+ * @param {string|null} blockClientId Block client ID.
+ * @param {string}      postContentId Post content block client ID.
+ * @return {string|null}
+ */
+const getDirectPostContentChildId = (blockClientId, postContentId) => {
+	if (!blockClientId || !postContentId || blockClientId === postContentId) {
+		return null;
+	}
+
+	const { getBlockParent } = select("core/block-editor");
+	let current = blockClientId;
+
+	while (current) {
+		const parent = getBlockParent(current);
+		if (parent === postContentId) {
+			return current;
+		}
+		current = parent;
+	}
+
+	return null;
+};
+
+/**
  * Insert blocks into the editor.
  *
  * @param {string} blocks Blocks to insert.
@@ -73,7 +99,10 @@ export const blockInserter = (blocks) => {
 		let index = postContentBlocks.length;
 
 		if (clientId && isInsidePostContent(clientId, postContentId)) {
-			index = getBlockIndex(clientId) + 1;
+			const directChildId = getDirectPostContentChildId(clientId, postContentId);
+			if (directChildId) {
+				index = getBlockIndex(directChildId) + 1;
+			}
 		}
 
 		return insertBlocks(blocks, index, postContentId);
