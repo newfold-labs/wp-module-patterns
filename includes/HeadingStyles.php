@@ -34,10 +34,10 @@ class HeadingStyles {
 		$args['attributes']['nfdHeadingBorderColor'] = array(
 			'type' => 'string',
 		);
-		$args['attributes']['nfdHeadingBorderWidth']  = array(
+		$args['attributes']['nfdHeadingBorderWidth'] = array(
 			'type' => 'string',
 		);
-		$args['attributes']['nfdHeadingBorderStyle']  = array(
+		$args['attributes']['nfdHeadingBorderStyle'] = array(
 			'type' => 'string',
 		);
 

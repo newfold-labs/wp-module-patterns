@@ -27,7 +27,7 @@ class HeadingStylesWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
-	 * render_block filter adds CSS variables to the heading element.
+	 * The render_block filter adds CSS variables to the heading element.
 	 *
 	 * @return void
 	 */
