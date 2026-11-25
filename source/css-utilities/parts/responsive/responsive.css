@@ -5,6 +5,7 @@
 	.wp-block-columns.nfd-swiper-enabled {
 		flex-wrap: nowrap !important;
 		overflow-x: auto;
+		overscroll-behavior-x: contain;
 		scroll-snap-type: x mandatory;
 		-webkit-overflow-scrolling: touch;
 		-ms-overflow-style: none;
