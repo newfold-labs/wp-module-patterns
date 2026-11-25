@@ -60,8 +60,8 @@ class ResponsiveBlockClasses {
 			return $block_content;
 		}
 
-		$attrs   = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
-		$to_add  = $this->get_classes_from_attributes( $attrs );
+		$attrs  = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
+		$to_add = $this->get_classes_from_attributes( $attrs );
 
 		if ( empty( $to_add ) ) {
 			return $block_content;

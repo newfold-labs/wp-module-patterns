@@ -1,36 +1,31 @@
 <?php
 
-namespace NewfoldLabs\WP\Module\Patterns\Tests\Wpunit;
+namespace NewfoldLabs\WP\Module\Patterns;
 
-use NewfoldLabs\WP\Module\Patterns\ResponsiveBlockClasses;
-
-class ResponsiveBlockClassesWPUnitTest extends \Codeception\Test\Unit {
-
-	/**
-	 * @var ResponsiveBlockClasses
-	 */
-	private $handler;
+/**
+ * Responsive block classes wpunit tests.
+ *
+ * @coversDefaultClass \NewfoldLabs\WP\Module\Patterns\ResponsiveBlockClasses
+ */
+class ResponsiveBlockClassesWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 
 	/**
-	 * Set up test case.
+	 * Swipe attribute adds nfd-swiper-enabled on columns markup.
+	 *
+	 * @return void
 	 */
-	protected function _before() {
-		parent::_before();
-		$this->handler = new ResponsiveBlockClasses();
-	}
-
 	public function test_adds_swiper_class_from_columns_attributes() {
-		$html  = '<div class="wp-block-columns is-layout-flex"></div>';
-		$block = array(
+		$handler = new ResponsiveBlockClasses();
+		$html    = '<div class="wp-block-columns is-layout-flex"></div>';
+		$block   = array(
 			'blockName' => 'core/columns',
 			'attrs'     => array(
 				'nfdSwipeContent' => true,
 			),
 		);
 
-		$filtered = apply_filters( 'render_block', $html, $block );
+		$filtered = $handler->add_utility_classes( $html, $block );
 
 		$this->assertStringContainsString( 'nfd-swiper-enabled', $filtered );
 	}
-
 }
