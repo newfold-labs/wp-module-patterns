@@ -35,6 +35,10 @@
 	/* --nfd-wba-color-borders: rgba(0, 0, 0, 0.1); */
 	--nfd-wba-color-borders: #e5e7eb;
 
+	/* ------------------------------- Transition ------------------------------- */
+	--nfd-wba-transition-duration: 100ms;
+	--nfd-wba-transition-timing: linear;
+
 	/* ---------------------------------- Sizes --------------------------------- */
 	--nfd-wba-sidebar-width: 310px;
 	--nfd-wba-header-height: 70px;
@@ -44,8 +48,4 @@
 	@include m.responsive(small) {
 		--nfd-wba-masonry-gap: 32px;
 	}
-
-	/* ------------------------------- Transition ------------------------------- */
-	--nfd-wba-transition-duration: 100ms;
-	--nfd-wba-transition-timing: linear;
 }

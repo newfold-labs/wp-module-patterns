@@ -15,6 +15,12 @@ params:
 coverage:
   enabled: true
   include:
-    - /includes/*
-#    - /upgrades/*
-bootstrap: bootstrap.php
+    - includes/*
+  exclude:
+    - tests/*
+    - vendor/*
+    - build/*
+    - source/*
+    - src/*
+    - assets/*
+    - languages/*

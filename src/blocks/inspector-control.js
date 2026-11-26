@@ -79,18 +79,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
 		const { name, clientId } = props;
 
-		const openStylesTab = () => {
-			const stylesTabButton = document.querySelector(
-				".block-editor-block-inspector__tab-item[aria-label='Styles']"
-			);
-
-			if (stylesTabButton) {
-				stylesTabButton.click();
-			}
-		};
-
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
-		const selectedGroupTheme = props?.attributes?.nfdGroupTheme ?? "";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
 		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
@@ -362,59 +351,6 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 				{name === "core/group" && (
 					<InspectorControls>
 						<PanelBody
-							title={<TitleWithLogo title={__("Section Theme Color", "nfd-wonder-blocks")} />}
-							initialOpen={false}
-						>
-							<div className="block-editor-block-styles">
-								<div className="block-editor-block-styles__variants">
-									<Notice
-										className="nfd-wba-mt-2 nfd-wba-mb-1"
-										status="warning"
-										isDismissible={false}
-									>
-										{__("This feature is now located in the", "nfd-wonder-blocks")}{" "}
-										<Button onClick={openStylesTab} variant="link">
-											{__("Block Styles", "nfd-wonder-blocks")}
-										</Button>
-										{" " + __("section.", "nfd-wonder-blocks")}
-									</Notice>
-									{customThemeStyles.map((style) => {
-										const buttonText = style.isDefault
-											? __("Default", "nfd-wonder-blocks")
-											: style.label || style.name;
-
-										return (
-											<Button
-												className={classnames("nfd-wba-w-[calc(50%-4px)] nfd-wba-inline-block")}
-												key={style.name}
-												variant="secondary"
-												label={buttonText}
-												onClick={() => {
-													props.setAttributes({
-														nfdGroupTheme: style.name,
-													});
-												}}
-												disabled
-												aria-current={selectedGroupTheme === style.name}
-											>
-												<Truncate
-													numberOfLines={1}
-													className="block-editor-block-styles__item-text"
-												>
-													{buttonText}
-												</Truncate>
-											</Button>
-										);
-									})}
-								</div>
-							</div>
-						</PanelBody>
-					</InspectorControls>
-				)}
-
-				{name === "core/group" && (
-					<InspectorControls>
-						<PanelBody
 							title={<TitleWithLogo title={__("Section Background Effect", "nfd-wonder-blocks")} />}
 							initialOpen={false}
 						>
@@ -476,6 +412,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 										})
 									);
 								}}
+								__next40pxDefaultSize
 							/>
 
 							<SelectControl
@@ -487,6 +424,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 										nfdAnimationDelay: selectedItem,
 									});
 								}}
+								__next40pxDefaultSize
 							/>
 						</PanelBody>
 					</InspectorControls>

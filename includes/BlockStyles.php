@@ -15,8 +15,8 @@ class BlockStyles {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_block_styles' ) );
-
-		add_filter( 'render_block_core/cover', array( $this, 'render_cover_block' ), 10, 3 );
+		add_filter( 'render_block_core/cover', array( $this, 'render_linked_cover_block' ), 10, 2 );
+		add_filter( 'render_block_core/group', array( $this, 'render_linked_group_block' ), 10, 2 );
 	}
 
 	/**
@@ -102,71 +102,77 @@ class BlockStyles {
 	}
 
 	/**
-	 * Modifies the HTML output of the Cover block by adding link-related attributes and elements.
+	 * Injects overlay link markup into Cover block output.
 	 *
-	 * @param string $html       The original HTML content of the Cover block.
-	 * @param array  $block      The parsed block data, including its attributes.
-	 * @param array  $attributes The block attributes passed to the Cover block.
-	 * @return string The modified HTML content of the Cover block.
+	 * @param string $html  Block HTML.
+	 * @param array  $block Parsed block.
+	 * @return string
 	 */
-	public function render_cover_block( $html, $block, $attributes ) {
-		if( empty( $block['attrs'] ) ) {
+	public function render_linked_cover_block( $html, $block ) {
+		return $this->inject_overlay_link( $html, $block, 'wp-block-cover__link' );
+	}
+
+	/**
+	 * Injects overlay link markup into Group block output.
+	 *
+	 * @param string $html  Block HTML.
+	 * @param array  $block Parsed block.
+	 * @return string
+	 */
+	public function render_linked_group_block( $html, $block ) {
+		return $this->inject_overlay_link( $html, $block, 'wp-block-group__link' );
+	}
+
+	/**
+	 * Add linked-group class and invisible overlay anchor when linkUrl is set.
+	 *
+	 * @param string $html       Block HTML.
+	 * @param array  $block      Parsed block.
+	 * @param string $link_class Anchor class name.
+	 * @return string
+	 */
+	private function inject_overlay_link( $html, $block, $link_class ) {
+		if ( '' === $html || empty( $block['attrs'] ) || ! is_array( $block['attrs'] ) ) {
 			return $html;
 		}
 
-		$attrs = $block['attrs'];
-		$url = isset( $attrs['linkUrl'] ) ? trim( $attrs['linkUrl'] ) : '';
-		if( $url === '' ){
+		$url = isset( $block['attrs']['linkUrl'] ) ? trim( (string) $block['attrs']['linkUrl'] ) : '';
+		if ( '' === $url ) {
 			return $html;
 		}
 
-		$blank  = ! empty( $attrs['linkOpensInNewTab'] );
-		$target = $blank ? '_blank' : '_self';
-		$relBits = [];
-		if( $blank ) {
-			$relBits[] = 'noopener';
+		$opens_in_new_tab = ! empty( $block['attrs']['linkOpensInNewTab'] );
+		$target           = $opens_in_new_tab ? '_blank' : '_self';
+		$rel              = $opens_in_new_tab ? 'noopener noreferrer' : '';
+
+		$processor = new \WP_HTML_Tag_Processor( $html );
+		if ( ! $processor->next_tag() ) {
+			return $html;
 		}
-		if( !empty( $attrs['linkRel'] ) ) {
-			$relBits[] = $attrs['linkRel'];
+
+		$class_attr = $processor->get_attribute( 'class' );
+		$classes    = is_string( $class_attr ) ? trim( $class_attr ) : '';
+
+		if ( strpos( $classes, 'nfd-is-linked-group' ) === false ) {
+			$classes = trim( $classes . ' nfd-is-linked-group' );
+			$processor->set_attribute( 'class', $classes );
 		}
 
-		$rel = implode( ' ', array_unique( array_filter( $relBits ) ) );
+		$html = $processor->get_updated_html();
 
-		$html = preg_replace_callback(
-			'/^(\s*<div\b[^>]*class="([^"]*)"(.*?)>)/i',
-			function ( $m ) use ( $url, $blank ) {
-				$openTag = $m[1];
-				$classes = $m[2];
-				$rest    = $m[3];
-
-				if( strpos( $classes, 'nfd-is-linked-group' ) === false ) {
-					$classes .= ' nfd-is-linked-group';
-				}
-
-				$openTag = preg_replace( '/\sdata-link-url="[^"]*"/i', '', $openTag );
-				$openTag = preg_replace( '/\sdata-link-blank="[^"]*"/i', '', $openTag );
-				$openTag = preg_replace( '/class="[^"]*"/i', 'class="' . esc_attr( trim( $classes ) ) . '"', $openTag );
-				$openTag = rtrim( $openTag, '>' ) . ' data-link-url="' . esc_attr( $url ) . '" data-link-blank="' . ( $blank ? '1' : '' ) . '">';
-
-				return $openTag;
-			},
-			$html,
-			1
-		);
-
-		$linkTag = sprintf(
-			'<a class="wp-block-cover__link" href="%s"%s%s aria-hidden="true" tabindex="-1"></a>',
+		$link_tag = sprintf(
+			'<a class="%s" href="%s"%s%s aria-hidden="true" tabindex="-1"></a>',
+			esc_attr( $link_class ),
 			esc_url( $url ),
-			$target ? ' target="' . esc_attr( $target ) . '"' : '',
-			$rel ? ' rel="' . esc_attr( $rel ) . '"' : ''
+			'_blank' === $target ? ' target="_blank"' : '',
+			'' !== $rel ? ' rel="' . esc_attr( $rel ) . '"' : ''
 		);
 
 		$pos = strpos( $html, '>' );
-		if( $pos !== false ) {
-			$html = substr_replace( $html, '>' . $linkTag, $pos, 1 );
+		if ( false === $pos ) {
+			return $html;
 		}
 
-		return $html;
+		return substr_replace( $html, '>' . $link_tag, $pos, 1 );
 	}
-
 }

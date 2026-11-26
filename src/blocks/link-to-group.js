@@ -1,194 +1,162 @@
-import { addFilter } from '@wordpress/hooks';
-import { __ } from '@wordpress/i18n';
-import { Fragment, useRef, useState, useEffect } from '@wordpress/element';
 import {
 	BlockControls,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalLinkControl as LinkControl,
-} from '@wordpress/block-editor';
-import {
-	ToolbarGroup,
-	ToolbarButton,
-	Popover,
-} from '@wordpress/components';
-import { link } from '@wordpress/icons';
-import classnames from 'classnames';
+} from "@wordpress/block-editor";
+import { ToolbarButton, ToolbarGroup, Popover } from "@wordpress/components";
+import classnames from "classnames";
+import { Fragment, useEffect, useRef, useState } from "@wordpress/element";
+import { addFilter } from "@wordpress/hooks";
+import { __ } from "@wordpress/i18n";
+import { link as linkIcon } from "@wordpress/icons";
 
-const TARGET = [ 'core/group', 'core/cover' ];
+const TARGET_BLOCKS = ["core/group", "core/cover"];
 
-const withAttrs = ( settings, name ) => {
-	if ( ! TARGET.includes( name ) ) return settings;
+function addLinkAttributes(settings, name) {
+	if (!TARGET_BLOCKS.includes(name)) {
+		return settings;
+	}
+
 	return {
 		...settings,
 		attributes: {
 			...settings.attributes,
 			linkUrl: {
-				type: 'string',
-				default: '',
+				type: "string",
+				default: "",
 			},
 			linkOpensInNewTab: {
-				type: 'boolean',
+				type: "boolean",
 				default: false,
 			},
 		},
 	};
-};
+}
 
-const withToolbar = ( BlockEdit ) => ( props ) => {
-	if ( ! TARGET.includes( props.name ) ) return <BlockEdit { ...props } />;
+const withLinkToolbar = (BlockEdit) => (props) => {
+	if (!TARGET_BLOCKS.includes(props.name)) {
+		return <BlockEdit {...props} />;
+	}
 
 	const { attributes, setAttributes, isSelected } = props;
 	const { linkUrl, linkOpensInNewTab } = attributes;
 
-	const [ open, setOpen ] = useState( false );
-	const anchorRef = useRef( null );
-	const linkWrapRef = useRef( null );
+	const [open, setOpen] = useState(false);
+	const anchorRef = useRef(null);
+	const linkWrapRef = useRef(null);
 
-	const value = { url: linkUrl || '', opensInNewTab: !!linkOpensInNewTab };
+	const value = { url: linkUrl || "", opensInNewTab: !!linkOpensInNewTab };
 
-	useEffect( () => {
-		if ( open && linkWrapRef.current ) {
-			const id = setTimeout( () => {
-				const input =
-					linkWrapRef.current.querySelector(
-						'input[type="text"], input[type="search"]'
-					);
-				input?.focus();
-			}, 0 );
-			return () => clearTimeout( id );
+	useEffect(() => {
+		if (!open || !linkWrapRef.current) {
+			return undefined;
 		}
-	}, [ open ] );
+
+		const id = window.setTimeout(() => {
+			const input = linkWrapRef.current.querySelector('input[type="text"], input[type="search"]');
+			input?.focus();
+		}, 0);
+
+		return () => window.clearTimeout(id);
+	}, [open]);
 
 	return (
 		<Fragment>
-			<BlockEdit { ...props } />
-			{ isSelected && (
+			<BlockEdit {...props} />
+			{isSelected && (
 				<BlockControls>
 					<ToolbarGroup>
-						<div ref={ anchorRef }>
+						<div ref={anchorRef}>
 							<ToolbarButton
-								icon={ link }
-								label={ __( 'Link', 'nfd-wonder-blocks' ) }
-								onClick={ () => setOpen( ( isOpen ) => ! isOpen ) }
-								isPressed={ open }
+								icon={linkIcon}
+								label={__("Link", "nfd-wonder-blocks")}
+								onClick={() => setOpen((isOpen) => !isOpen)}
+								isPressed={open}
 							/>
 						</div>
 					</ToolbarGroup>
 				</BlockControls>
-			) }
+			)}
 
-			{ open && isSelected && (
+			{open && isSelected && (
 				<Popover
-					anchor={ anchorRef.current }
+					anchor={anchorRef.current}
 					placement="bottom-start"
-					onClose={ () => setOpen( false ) }
-					focusOnMount={ false }
-					offset={ 8 }
+					onClose={() => setOpen(false)}
+					focusOnMount={false}
+					offset={8}
 				>
-					<div ref={ linkWrapRef } style={ { width: 360 } }>
+					<div ref={linkWrapRef} style={{ width: 360 }}>
 						<LinkControl
-							key={ open ? 'lc-open' : 'lc-closed' }
-							value={ value }
-							onChange={ ( next ) =>
-								setAttributes( {
-									linkUrl: next?.url || '',
+							key={open ? "lc-open" : "lc-closed"}
+							value={value}
+							onChange={(next) =>
+								setAttributes({
+									linkUrl: next?.url || "",
 									linkOpensInNewTab: !!next?.opensInNewTab,
-								} )
+								})
 							}
-							settings={ [
+							settings={[
 								{
-									id: 'opensInNewTab',
-									title: __( 'Open in new tab', 'nfd-wonder-blocks' ),
+									id: "opensInNewTab",
+									title: __("Open in new tab", "nfd-wonder-blocks"),
 								},
-							] }
-							onRemove={ () => {
-								setAttributes( {
-									linkUrl: '',
+							]}
+							onRemove={() => {
+								setAttributes({
+									linkUrl: "",
 									linkOpensInNewTab: false,
-								} );
-								setOpen( false );
-							} }
-							suggestionsQuery={ {
-								type: 'post',
-								subtype: 'page',
+								});
+								setOpen(false);
+							}}
+							suggestionsQuery={{
+								type: "post",
+								subtype: "page",
 								perPage: 20,
-							} }
-							initialSuggestionsSearchOptions={ {
-								type: 'post',
-								subtype: 'page',
+							}}
+							initialSuggestionsSearchOptions={{
+								type: "post",
+								subtype: "page",
 								perPage: 20,
-							} }
+							}}
 						/>
 					</div>
 				</Popover>
-			) }
+			)}
 		</Fragment>
 	);
 };
 
-const addSaveProps = ( extraProps, blockType, attributes ) => {
-
-	if ( ! TARGET.includes( blockType.name ) ) {
-		return extraProps;
-	}
-
-	const { linkUrl, linkOpensInNewTab } = attributes || {};
-	if ( ! linkUrl ) {
+function addLinkSaveProps(extraProps, blockType, attributes) {
+	if (!TARGET_BLOCKS.includes(blockType.name) || !attributes?.linkUrl) {
 		return extraProps;
 	}
 
 	return {
 		...extraProps,
-		className: classnames( extraProps.className, 'nfd-is-linked-group' ),
-		'data-link-url': linkUrl,
-		'data-link-blank': linkOpensInNewTab ? '1' : '',
+		className: classnames(extraProps.className, "nfd-is-linked-group"),
 	};
-};
+}
 
-const addEditorClass = ( BlockListBlock ) => ( props ) => {
-	if ( ! TARGET.includes( props.name ) ) return <BlockListBlock { ...props } />;
-
-	const { linkUrl, linkOpensInNewTab } = props.attributes || {};
-	const hasLink = !!linkUrl;
-
-	const className = classnames(
-		props.className,
-		hasLink && 'nfd-is-linked-group'
-	);
-
-	const wrapperProps = {
-		...props.wrapperProps,
-		...( hasLink && {
-			'data-link-url': linkUrl,
-			'data-link-blank': linkOpensInNewTab ? '1' : '',
-		} ),
-	};
+const withLinkEditorClass = (BlockListBlock) => (props) => {
+	if (!TARGET_BLOCKS.includes(props.name) || !props.attributes?.linkUrl) {
+		return <BlockListBlock {...props} />;
+	}
 
 	return (
-		<BlockListBlock
-			{ ...props }
-			className={ className }
-			wrapperProps={ wrapperProps }
-		/>
+		<BlockListBlock {...props} className={classnames(props.className, "nfd-is-linked-group")} />
 	);
 };
 
+addFilter("blocks.registerBlockType", "nfd-wonder-blocks/group-link/attributes", addLinkAttributes);
+addFilter("editor.BlockEdit", "nfd-wonder-blocks/group-link/toolbar", withLinkToolbar);
 addFilter(
-	'blocks.registerBlockType',
-	'nfd-wonder-blocks/utilities/group-link/attrs',
-	withAttrs
+	"editor.BlockListBlock",
+	"nfd-wonder-blocks/group-link/editor-class",
+	withLinkEditorClass
 );
 addFilter(
-	'editor.BlockEdit',
-	'nfd-wonder-blocks/utilities/group-link/toolbar',
-	withToolbar
-);
-addFilter(
-	'editor.BlockListBlock',
-	'nfd-wonder-blocks/utilities/group-link/editor-class',
-	addEditorClass
-);
-addFilter(
-	'blocks.getSaveContent.extraProps',
-	'nfd-wonder-blocks/utilities/group-link/save-props',
-	addSaveProps
+	"blocks.getSaveContent.extraProps",
+	"nfd-wonder-blocks/group-link/save-props",
+	addLinkSaveProps
 );

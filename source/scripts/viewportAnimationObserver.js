@@ -100,7 +100,13 @@ export class ViewportAnimationObserver {
 			if (entry?.type === "attributes") {
 				const target = entry.target;
 
-				if (!target.classList.contains("nfd-wb-animated-in")) {
+				// Only re-add animated-in if the element still has an animation
+				// class and is not in the middle of a replay.
+				if (
+					target.classList.contains("nfd-wb-animate") &&
+					!target.classList.contains("nfd-wb-animated-in") &&
+					!target.hasAttribute("data-replay-animation")
+				) {
 					target.classList.add("nfd-wb-animated-in");
 				}
 			}

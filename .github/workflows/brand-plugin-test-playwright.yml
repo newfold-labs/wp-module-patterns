@@ -1,0 +1,54 @@
+name: Build and Test Module Updates in Brand Plugins (Playwright tests)
+on:
+  pull_request:
+    types: [ opened, reopened, ready_for_review, synchronize ]
+    branches:
+      - main
+  workflow_dispatch:
+
+# Disable permissions for all available scopes by default.
+# Any needed permissions should be configured at the job level.
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+    permissions: {} # Uses only git ref env vars; no checkout or GitHub API usage.
+    timeout-minutes: 10
+    outputs:
+      branch: ${{ steps.extract_branch.outputs.branch }}
+    steps:
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+  bluehost:
+    name: Bluehost Build and Test Playwright
+    needs: setup
+    uses: newfold-labs/workflows/.github/workflows/module-plugin-test-playwright.yml@main
+    permissions:
+      contents: read # Required for the reusable workflow to clone private plugin and module repositories.
+    with:
+      module-repo: ${{ github.repository }}
+      module-branch: ${{ needs.setup.outputs.branch }}
+      plugin-repo: 'newfold-labs/wp-plugin-bluehost'
+    secrets: inherit
+
+  bluehost-dev:
+    name: Bluehost Dev Build and Test Playwright
+    needs: setup
+    uses: newfold-labs/workflows/.github/workflows/module-plugin-test-playwright.yml@main
+    with:
+      module-repo: ${{ github.repository }}
+      module-branch: ${{ needs.setup.outputs.branch }}
+      plugin-repo: 'newfold-labs/wp-plugin-bluehost'
+      plugin-branch: 'develop'
+      artifact-name: 'wp-plugin-bluehost-develop'
+    secrets: inherit
