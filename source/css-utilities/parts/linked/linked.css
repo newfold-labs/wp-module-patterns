@@ -17,3 +17,9 @@
 	position: relative;
 	z-index: 2;
 }
+
+/* Overlay is not keyboard-focusable (tabindex="-1", aria-hidden); keep editor canvas selectable. */
+.editor-styles-wrapper .wp-block-group.nfd-is-linked-group > .wp-block-group__link,
+.editor-styles-wrapper .wp-block-cover.nfd-is-linked-group > .wp-block-cover__link {
+	pointer-events: none;
+}

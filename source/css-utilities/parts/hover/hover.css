@@ -1,11 +1,11 @@
 /* Hover text/background colors set via --nfd-hover-* on block wrappers (editor + frontend). */
 
 .nfd-hoverable.nfd-hover-text:hover {
-	color: var(--nfd-hover-text) !important;
+	color: var(--nfd-hover-text, currentColor) !important;
 }
 
 .nfd-hoverable.nfd-hover-bg:hover {
-	background-color: var(--nfd-hover-bg) !important;
+	background-color: var(--nfd-hover-bg, transparent) !important;
 }
 
 .editor-styles-wrapper .nfd-hoverable.nfd-hover-text:hover,
