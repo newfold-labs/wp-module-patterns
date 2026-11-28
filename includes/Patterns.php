@@ -39,5 +39,6 @@ class Patterns {
 
 		new RestApi();
 		new BlockStyles();
+		new ResponsiveBlockClasses();
 	}
 }

@@ -1,0 +1,26 @@
+/**
+ * Columns horizontal swipe / scroll on small viewports (Wonder Blocks).
+ */
+@media (max-width: 782px) {
+	.wp-block-columns.nfd-swiper-enabled {
+		flex-wrap: nowrap !important;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		gap: var(--wp--style--block-gap, 2em);
+	}
+
+	.wp-block-columns.nfd-swiper-enabled::-webkit-scrollbar {
+		display: none;
+	}
+
+	.wp-block-columns.nfd-swiper-enabled > .wp-block-column {
+		flex-basis: min(85%, 20rem) !important;
+		flex-grow: 0 !important;
+		flex-shrink: 0;
+		scroll-snap-align: start;
+	}
+}

@@ -4,6 +4,7 @@ import {
 	Notice,
 	PanelBody,
 	SelectControl,
+	ToggleControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalTruncate as Truncate,
 } from "@wordpress/components";
@@ -31,32 +32,29 @@ function addAttributes(settings, name) {
 		return settings;
 	}
 
+	const attributes = {
+		...settings.attributes,
+		nfdAnimation: {
+			type: "string",
+		},
+		nfdAnimationDelay: {
+			type: "string",
+		},
+	};
+
 	if (name === "core/group") {
-		settings.attributes = {
-			...settings.attributes,
-			nfdGroupDivider: {
-				type: "string",
-			},
-			nfdGroupTheme: {
-				type: "string",
-			},
-			nfdGroupEffect: {
-				type: "string",
-			},
-		};
+		attributes.nfdGroupDivider = { type: "string" };
+		attributes.nfdGroupTheme = { type: "string" };
+		attributes.nfdGroupEffect = { type: "string" };
+	}
+
+	if (name === "core/columns") {
+		attributes.nfdSwipeContent = { type: "boolean" };
 	}
 
 	return {
 		...settings,
-		attributes: {
-			...settings.attributes,
-			nfdAnimation: {
-				type: "string",
-			},
-			nfdAnimationDelay: {
-				type: "string",
-			},
-		},
+		attributes,
 	};
 }
 
@@ -83,6 +81,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
 		const selectedAnimation = props?.attributes?.nfdAnimation ?? "";
 		const selectedAnimationDelay = props?.attributes?.nfdAnimationDelay ?? "";
+		const enabledSwipeContent = !!props?.attributes?.nfdSwipeContent;
 
 		const isTopLevel = useSelect(
 			(select) => {
@@ -429,6 +428,28 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 						</PanelBody>
 					</InspectorControls>
 				)}
+
+				{name === "core/columns" && (
+					<InspectorControls>
+						<PanelBody
+							title={<TitleWithLogo title={__("Swipe content", "nfd-wonder-blocks")} />}
+							initialOpen={false}
+						>
+							<p>
+								{__(
+									"Allows horizontal scrolling of the content on mobile devices, enabling users to swipe between sections.",
+									"nfd-wonder-blocks"
+								)}
+							</p>
+							<ToggleControl
+								label={__("Enable Swipe content", "nfd-wonder-blocks")}
+								checked={enabledSwipeContent}
+								onChange={(value) => props.setAttributes({ nfdSwipeContent: value })}
+							/>
+						</PanelBody>
+					</InspectorControls>
+				)}
+
 			</>
 		);
 	};
@@ -443,6 +464,7 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 			? [attributes.nfdAnimationDelay]
 			: []),
 		...(attributes?.nfdGroupEffect ? [`nfd-bg-effect-${attributes.nfdGroupEffect}`] : []),
+		...(attributes?.nfdSwipeContent ? ['nfd-swiper-enabled'] : []),
 	];
 
 	const additionalClasses = attributes?.className ?? [];
