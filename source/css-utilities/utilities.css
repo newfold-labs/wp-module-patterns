@@ -23,3 +23,5 @@
 @import "parts/misc";
 @import "parts/image/image";
 @import "parts/yoast/yoast";
+@import "parts/hover/hover";
+@import "parts/linked/linked";

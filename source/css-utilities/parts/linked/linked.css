@@ -1,0 +1,25 @@
+/* Linked Group / Cover: overlay link with nested links/buttons still clickable above overlay. */
+
+.nfd-is-linked-group {
+	position: relative !important;
+}
+
+.wp-block-group.nfd-is-linked-group > .wp-block-group__link,
+.wp-block-cover.nfd-is-linked-group > .wp-block-cover__link {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	display: block;
+	text-decoration: none;
+}
+
+.nfd-is-linked-group :where(a, button):not(.wp-block-group__link):not(.wp-block-cover__link) {
+	position: relative;
+	z-index: 2;
+}
+
+/* Overlay is not keyboard-focusable (tabindex="-1", aria-hidden); keep editor canvas selectable. */
+.editor-styles-wrapper .wp-block-group.nfd-is-linked-group > .wp-block-group__link,
+.editor-styles-wrapper .wp-block-cover.nfd-is-linked-group > .wp-block-cover__link {
+	pointer-events: none;
+}

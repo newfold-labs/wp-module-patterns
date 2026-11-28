@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2026-10-14T20:35:19+00:00\n"
+"PO-Revision-Date: 2026-11-26T07:05:08+00:00\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Crowdin-File: nfd-wonder-blocks.pot\n"
@@ -67,64 +67,64 @@ msgstr "Requête invalide"
 msgid "The plugin parameter is required."
 msgstr "Le paramètre plugin est obligatoire."
 
-#: includes/BlockStyles.php:28
+#: includes/BlockStyles.php:30
 msgid "Dots BL"
 msgstr "Points BL"
 
-#: includes/BlockStyles.php:32
+#: includes/BlockStyles.php:34
 msgid "Waves BL"
 msgstr "Vagues BL"
 
-#: includes/BlockStyles.php:36
+#: includes/BlockStyles.php:38
 msgid "Dots BR"
 msgstr "Points BR"
 
-#: includes/BlockStyles.php:40
+#: includes/BlockStyles.php:42
 msgid "Waves BR"
 msgstr "Vagues BR"
 
-#: includes/BlockStyles.php:44
+#: includes/BlockStyles.php:46
 msgid "Dots TL"
 msgstr "Points TL"
 
-#: includes/BlockStyles.php:48
+#: includes/BlockStyles.php:50
 msgid "Waves TL"
 msgstr "Vagues TL"
 
-#: includes/BlockStyles.php:52
+#: includes/BlockStyles.php:54
 msgid "Dots TR"
 msgstr "Points TR"
 
-#: includes/BlockStyles.php:56
+#: includes/BlockStyles.php:58
 msgid "Waves TR"
 msgstr "Vagues TR"
 
-#: includes/BlockStyles.php:63
+#: includes/BlockStyles.php:65
 #: build/2.14.1/wonder-blocks.js:1
 msgid "White"
 msgstr "Blancs"
 
-#: includes/BlockStyles.php:67
+#: includes/BlockStyles.php:69
 #: build/2.14.1/wonder-blocks.js:1
 msgid "Light"
 msgstr "Lumière"
 
-#: includes/BlockStyles.php:71
+#: includes/BlockStyles.php:73
 #: build/2.14.1/wonder-blocks.js:1
 msgid "Dark"
 msgstr "Sombre"
 
-#: includes/BlockStyles.php:75
+#: includes/BlockStyles.php:77
 #: build/2.14.1/wonder-blocks.js:1
 msgid "Darker"
 msgstr "Plus sombre"
 
-#: includes/BlockStyles.php:79
+#: includes/BlockStyles.php:81
 #: build/2.14.1/wonder-blocks.js:1
 msgid "Primary"
 msgstr "Primaire"
 
-#: includes/BlockStyles.php:83
+#: includes/BlockStyles.php:85
 msgid "Primary Light"
 msgstr "Lumière primaire"
 
@@ -662,6 +662,26 @@ msgstr "Animation"
 #: build/2.14.1/wonder-blocks.js:1
 msgid "Delay"
 msgstr "Délai"
+
+#: build/2.14.1/wonder-blocks.js:1
+msgid "Hover color"
+msgstr ""
+
+#: build/2.14.1/wonder-blocks.js:1
+msgid "Hover text"
+msgstr ""
+
+#: build/2.14.1/wonder-blocks.js:1
+msgid "Hover background"
+msgstr ""
+
+#: build/2.14.1/wonder-blocks.js:1
+msgid "Link"
+msgstr ""
+
+#: build/2.14.1/wonder-blocks.js:1
+msgid "Open in new tab"
+msgstr ""
 
 #: build/2.14.1/wonder-blocks.js:1
 msgid "Back to Patterns"
