@@ -25,6 +25,7 @@ import { HIIVE_ANALYTICS_CATEGORY, NFD_REST_URL, NFD_WONDER_BLOCKS_MODAL_ID } fr
 import "./blocks/register-category";
 import "./blocks/block";
 import "./blocks/inspector-control";
+import "./blocks/heading";
 import Modal from "./components/Modal/Modal";
 import AddToolbarButton from "./components/AddToolbarButton";
 import { setupCTBPostMessageListener } from "./helpers/ctbHandler";

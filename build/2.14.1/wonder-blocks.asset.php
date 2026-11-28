@@ -16,7 +16,8 @@
 		'wp-notices',
 		'wp-plugins',
 		'wp-primitives',
+		'wp-rich-text',
 		'wp-url'
 	),
-	'version' => '1e03e5ee40258e2c5e52'
+	'version' => 'e5485861f310630cad48'
 );

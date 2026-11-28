@@ -23,6 +23,7 @@ class ModuleLoadingWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 		$this->assertTrue( class_exists( Permissions::class ) );
 		$this->assertTrue( class_exists( PluginStatus::class ) );
 		$this->assertTrue( class_exists( RestApi::class ) );
+		$this->assertTrue( class_exists( HeadingStyles::class ) );
 		$this->assertTrue( class_exists( Data\Brands::class ) );
 		$this->assertTrue( class_exists( Api\Controllers\RestApiController::class ) );
 	}

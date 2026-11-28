@@ -8,6 +8,7 @@ use NewfoldLabs\WP\Module\Patterns\Library\Admin as PatternsLibrary;
 use NewfoldLabs\WP\Module\Patterns\Api\RestApi;
 use NewfoldLabs\WP\Module\Patterns\Admin\CTA;
 use NewfoldLabs\WP\Module\Patterns\BlockStyles;
+use NewfoldLabs\WP\Module\Patterns\HeadingStyles;
 
 /**
  * Patterns module.
@@ -39,5 +40,6 @@ class Patterns {
 
 		new RestApi();
 		new BlockStyles();
+		new HeadingStyles();
 	}
 }

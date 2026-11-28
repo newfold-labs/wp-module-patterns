@@ -1,4 +1,6 @@
-import { InspectorControls } from "@wordpress/block-editor";
+import {
+	InspectorControls
+} from "@wordpress/block-editor";
 import {
 	Button,
 	Notice,
@@ -16,6 +18,7 @@ import { __ } from "@wordpress/i18n";
 import classnames from "classnames";
 
 import TitleWithLogo from "../components/TitleWithLogo";
+import HeadingExtras, {applyHeadingStylesInPlace} from "./heading";
 
 // These block types do not support custom attributes.
 const skipBlockTypes = [
@@ -43,6 +46,21 @@ function addAttributes(settings, name) {
 			nfdGroupEffect: {
 				type: "string",
 			},
+		};
+	}
+
+	if (name === "core/heading") {
+		settings.attributes = {
+			...settings.attributes,
+			nfdHeadingBorderColor: {
+				type: 'string'
+			},
+			nfdHeadingBorderWidth: {
+				type: 'string'
+			},
+			nfdHeadingBorderStyle: {
+				type: 'string'
+			}
 		};
 	}
 
@@ -78,6 +96,8 @@ function addEditProps(settings) {
 const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
 		const { name, clientId } = props;
+
+		const allClassNames = props?.attributes?.className || "";
 
 		const selectedGroupDivider = props?.attributes?.nfdGroupDivider ?? "default";
 		const selectedGroupEffect = props?.attributes?.nfdGroupEffect ?? "";
@@ -301,6 +321,11 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 			[]
 		);
 
+		const isNfdHeadingStyle =
+			allClassNames.includes('is-style-nfd-heading-boxed') ||
+			allClassNames.includes('is-style-nfd-heading-highlight') ||
+			allClassNames.includes('is-style-nfd-heading-underline');
+
 		return (
 			<>
 				<BlockEdit {...props} />
@@ -429,6 +454,10 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
 						</PanelBody>
 					</InspectorControls>
 				)}
+
+				{name === "core/heading" && isNfdHeadingStyle && (
+					<HeadingExtras {...props} />
+				)}
 			</>
 		);
 	};
@@ -468,9 +497,13 @@ function addSaveProps(saveElementProps, blockType, attributes) {
 		...normalizeAsArray(classes),
 	]);
 
-	return Object.assign({}, saveElementProps, {
-		className: [...classesCombined].join(" "),
+	const nextProps = Object.assign({}, saveElementProps, {
+		className: [...classesCombined].join(' ').trim(),
 	});
+
+	applyHeadingStylesInPlace(nextProps, blockType, attributes);
+
+	return nextProps;
 }
 
 addFilter("blocks.registerBlockType", "nfd-wonder-blocks/utilities/attributes", addAttributes);
